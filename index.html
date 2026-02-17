@@ -20,7 +20,7 @@
 
 <div id="radiusDistance" style="margin-bottom:20px;display:none"><label>📍 Radius</label><select id="radiusMiles"><option value="1">1 mile</option><option value="2">2 miles</option><option value="3" selected>3 miles</option><option value="5">5 miles</option></select></div>
 
-<div style="margin-bottom:20px"><label>⭐ Quality</label><select id="quality"><option value="any" selected>Any Quality</option><option value="five_star">5-Star (4.6+)</option><option value="top_rated_and_above">Top Rated & Above (4.4+)</option><option value="top_rated">Top Rated (4.4-4.59)</option></select></div>
+<div style="margin-bottom:20px"><label>⭐ Quality</label><select id="quality"><option value="any" selected>Any Quality</option><option value="michelin_star">Michelin Star</option><option value="bib">Bib Gourmand</option><option value="michelin_recommended">Michelin Recommended</option><option value="five_star">5-Star (4.6+)</option><option value="top_rated_and_above">Top Rated & Above (4.4+)</option><option value="top_rated">Top Rated (4.4-4.59)</option></select></div>
 
 <div style="margin-bottom:20px"><label>🍕 Cuisine</label><select id="cuisine"><option value="any">Any</option><option value="italian">Italian</option><option value="japanese">Japanese</option><option value="korean">Korean</option><option value="french">French</option><option value="american">American</option></select></div>
 
@@ -63,6 +63,9 @@ function filterByQuality(restaurants){
 const q=state.qualityFilter;
 if(q==='any')return restaurants;
 return restaurants.filter(r=>{
+if(q==='michelin_star')return false;
+if(q==='bib')return false;
+if(q==='michelin_recommended')return false;
 if(q==='five_star')return r.googleRating>=4.6;
 if(q==='top_rated_and_above')return r.googleRating>=4.4;
 if(q==='top_rated')return r.googleRating>=4.4&&r.googleRating<4.6;
