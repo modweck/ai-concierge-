@@ -1,4 +1,4 @@
-// Netlify Function: Search Restaurants (Debug Version)
+// Netlify Function: Search Restaurants with Real Distance Matrix
 // Path: /netlify/functions/search-restaurants.js
 
 exports.handler = async (event, context) => {
@@ -12,102 +12,41 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    // Parse request body
-    let body;
-    try {
-      body = JSON.parse(event.body);
-    } catch (e) {
-      return {
-        statusCode: 400,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ error: 'Invalid JSON in request body' })
-      };
-    }
-
+    const body = JSON.parse(event.body);
     const { location, radius, cuisine, priceLevel, openNow } = body;
 
     // Check API keys
     const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
     const YELP_API_KEY = process.env.YELP_API_KEY;
 
-    if (!GOOGLE_API_KEY) {
+    if (!GOOGLE_API_KEY || !YELP_API_KEY) {
       return {
         statusCode: 500,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          error: 'GOOGLE_PLACES_API_KEY not configured',
-          debug: 'Environment variable is missing'
-        })
-      };
-    }
-
-    if (!YELP_API_KEY) {
-      return {
-        statusCode: 500,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          error: 'YELP_API_KEY not configured',
-          debug: 'Environment variable is missing'
-        })
+        body: JSON.stringify({ error: 'API keys not configured' })
       };
     }
 
     // Step 1: Geocode the location
     const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${GOOGLE_API_KEY}`;
-    
-    let geocodeResponse;
-    try {
-      geocodeResponse = await fetch(geocodeUrl);
-    } catch (e) {
-      return {
-        statusCode: 500,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          error: 'Failed to call Geocoding API',
-          debug: e.message
-        })
-      };
-    }
+    const geocodeResponse = await fetch(geocodeUrl);
+    const geocodeData = await geocodeResponse.json();
 
-    let geocodeData;
-    try {
-      geocodeData = await geocodeResponse.json();
-    } catch (e) {
-      return {
-        statusCode: 500,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          error: 'Failed to parse Geocoding API response',
-          debug: e.message
-        })
-      };
-    }
-
-    if (geocodeData.status !== 'OK') {
-      return {
-        statusCode: 500,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          error: 'Geocoding failed',
-          debug: {
-            status: geocodeData.status,
-            error_message: geocodeData.error_message
-          }
-        })
-      };
-    }
-
-    if (!geocodeData.results || geocodeData.results.length === 0) {
+    if (geocodeData.status !== 'OK' || !geocodeData.results || geocodeData.results.length === 0) {
       return {
         statusCode: 200,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ restaurants: [] })
+        body: JSON.stringify({ 
+          restaurants: [],
+          confirmedAddress: null
+        })
       };
     }
 
     const { lat, lng } = geocodeData.results[0].geometry.location;
+    const confirmedAddress = geocodeData.results[0].formatted_address;
 
-    // Step 2: Search for restaurants using Google Places
+    // Step 2: Search for restaurants
     let placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius || 1600}&type=restaurant&key=${GOOGLE_API_KEY}`;
     
     if (cuisine) {
@@ -117,44 +56,16 @@ exports.handler = async (event, context) => {
       placesUrl += `&opennow=true`;
     }
 
-    let placesResponse;
-    try {
-      placesResponse = await fetch(placesUrl);
-    } catch (e) {
-      return {
-        statusCode: 500,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          error: 'Failed to call Places API',
-          debug: e.message
-        })
-      };
-    }
-
-    let placesData;
-    try {
-      placesData = await placesResponse.json();
-    } catch (e) {
-      return {
-        statusCode: 500,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          error: 'Failed to parse Places API response',
-          debug: e.message
-        })
-      };
-    }
+    const placesResponse = await fetch(placesUrl);
+    const placesData = await placesResponse.json();
 
     if (placesData.status !== 'OK' && placesData.status !== 'ZERO_RESULTS') {
       return {
-        statusCode: 500,
+        statusCode: 200,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          error: 'Places API error',
-          debug: {
-            status: placesData.status,
-            error_message: placesData.error_message
-          }
+          restaurants: [],
+          confirmedAddress
         })
       };
     }
@@ -163,45 +74,87 @@ exports.handler = async (event, context) => {
       return {
         statusCode: 200,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ restaurants: [] })
+        body: JSON.stringify({ 
+          restaurants: [],
+          confirmedAddress
+        })
       };
     }
 
-    // Step 3: Return the restaurants
-    const restaurants = placesData.results.map(place => ({
-      name: place.name,
-      vicinity: place.vicinity,
-      formatted_address: place.formatted_address,
-      rating: place.rating,
-      price_level: place.price_level,
-      opening_hours: place.opening_hours,
-      geometry: place.geometry,
-      place_id: place.place_id
-    }));
+    // Step 3: Get real travel times using Distance Matrix API
+    // Limit to first 10 restaurants to avoid API quota issues
+    const restaurants = placesData.results.slice(0, 10);
+    
+    // Build destination string for Distance Matrix
+    const destinations = restaurants.map(place => 
+      `${place.geometry.location.lat},${place.geometry.location.lng}`
+    ).join('|');
+
+    const origin = `${lat},${lng}`;
+
+    // Get walking times
+    const walkUrl = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=walking&key=${GOOGLE_API_KEY}`;
+    const walkResponse = await fetch(walkUrl);
+    const walkData = await walkResponse.json();
+
+    // Get driving times
+    const driveUrl = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=driving&departure_time=now&key=${GOOGLE_API_KEY}`;
+    const driveResponse = await fetch(driveUrl);
+    const driveData = await driveResponse.json();
+
+    // Combine restaurant data with travel times
+    const enrichedRestaurants = restaurants.map((place, index) => {
+      let walkMinutes = null;
+      let driveMinutes = null;
+      let distanceMiles = null;
+
+      if (walkData.rows && walkData.rows[0] && walkData.rows[0].elements[index]) {
+        const walkElement = walkData.rows[0].elements[index];
+        if (walkElement.status === 'OK') {
+          walkMinutes = Math.round(walkElement.duration.value / 60);
+          distanceMiles = Math.round((walkElement.distance.value / 1609.34) * 10) / 10;
+        }
+      }
+
+      if (driveData.rows && driveData.rows[0] && driveData.rows[0].elements[index]) {
+        const driveElement = driveData.rows[0].elements[index];
+        if (driveElement.status === 'OK') {
+          driveMinutes = Math.round(driveElement.duration.value / 60);
+        }
+      }
+
+      return {
+        name: place.name,
+        vicinity: place.vicinity,
+        formatted_address: place.formatted_address,
+        rating: place.rating,
+        price_level: place.price_level,
+        opening_hours: place.opening_hours,
+        geometry: place.geometry,
+        place_id: place.place_id,
+        distanceMiles,
+        walkMinutes,
+        driveMinutes
+      };
+    });
 
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
-        restaurants,
-        debug: {
-          location_found: `${lat}, ${lng}`,
-          results_count: restaurants.length
-        }
+        restaurants: enrichedRestaurants,
+        confirmedAddress
       })
     };
 
   } catch (error) {
-    console.error('Unexpected error:', error);
+    console.error('Search error:', error);
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
-        error: 'Unexpected error',
-        debug: {
-          message: error.message,
-          stack: error.stack
-        }
+        error: 'Search failed',
+        message: error.message
       })
     };
   }
