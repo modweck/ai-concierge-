@@ -4,7 +4,7 @@
 </style></head><body>
 <div class="container"><div class="card"><h1>🍽️ AI Concierge</h1><p class="subtitle">Find restaurants you can actually get into</p></div>
 <div id="search" class="card">
-<div style="margin-bottom:20px"><label>📍 Your Location</label><input type="text" id="addressInput" placeholder="Enter address" value="New York, NY"></div>
+<div style="margin-bottom:20px"><label>📍 Your Location</label><div style="display:flex;gap:10px"><input type="text" id="addressInput" placeholder="Enter address" value="New York, NY" style="flex:1"><button onclick="useCurrentLocation()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">📍 Use My Location</button></div></div>
 
 <div style="margin-bottom:20px"><label>🕐 Time</label><select id="timewindow"><option value="breakfast">Breakfast</option><option value="lunch">Lunch</option><option value="prime" selected>Dinner</option></select></div>
 
@@ -47,6 +47,17 @@
 <script>
 let state={transport:'walk',qualityFilter:'any'};
 let allRestaurants=[];
+
+function useCurrentLocation(){
+if(navigator.geolocation){
+navigator.geolocation.getCurrentPosition(
+position=>{
+document.getElementById('addressInput').value=`${position.coords.latitude},${position.coords.longitude}`;
+},
+error=>alert('Could not get location')
+);
+}
+}
 
 function setTransport(mode){
 state.transport=mode;
@@ -92,18 +103,21 @@ body:JSON.stringify({location,radius:5000,cuisine:cuisine==='any'?undefined:cuis
 });
 
 const data=await response.json();
+console.log('Got',data.restaurants?.length,'restaurants');
 if(data.confirmedAddress){
 document.getElementById('warnings').innerHTML=`<div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 ${data.confirmedAddress}</div>`;
 }
 allRestaurants=data.restaurants||[];
 sortResults();
 }catch(error){
+console.error(error);
 document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">😔 Search failed</div>';
 }
 }
 
 function sortResults(){
 let filtered=filterByQuality(allRestaurants);
+console.log('Filtered to',filtered.length,'from',allRestaurants.length);
 const sortBy=document.getElementById('sortBy').value;
 let sorted=[...filtered];
 
