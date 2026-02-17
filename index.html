@@ -5,24 +5,43 @@
 <div class="container"><div class="card"><h1>🍽️ AI Concierge</h1><p class="subtitle">Find restaurants you can actually get into — ranked by real likelihood</p></div>
 <div id="search" class="card">
 <div style="margin-bottom:20px"><label>📍 Your Location</label><div style="display:flex;gap:10px"><input type="text" id="addressInput" placeholder="Enter address or use current location" style="flex:1;padding:14px;border:2px solid #e0e0e0;border-radius:10px;font-size:16px"><button onclick="useCurrentLocation()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600;white-space:nowrap">📍 Use My Location</button></div><div id="locationInfo" style="margin-top:8px;color:#666;font-size:14px"></div></div>
+
 <div style="margin-bottom:20px"><label>📅 Select Date</label><input type="date" id="dateInput" style="width:100%;padding:14px;border:2px solid #e0e0e0;border-radius:10px;font-size:16px" onchange="updateDateInfo()"><div id="dateInfo" style="margin-top:8px;color:#666;font-size:14px"></div></div>
+
 <div style="margin-bottom:20px"><label>🕐 Preferred time slot</label><select id="timewindow" style="width:100%"><option value="breakfast">Breakfast (8-10am)</option><option value="brunch">Brunch (10am-12pm)</option><option value="lunch">Lunch (12-2pm)</option><option value="afternoon">Afternoon (2-5pm)</option><option value="early">Early Dinner (5:30-6:30pm)</option><option value="prime" selected>Prime Dinner (7-8:30pm)</option><option value="late">Late Dinner (9pm+)</option></select></div>
+
 <div style="margin-bottom:20px"><label>🎯 Show me options that are:</label><div class="toggle-group"><button class="toggle-btn" onclick="setDifficulty('easy')">Easy to get</button><button class="toggle-btn" onclick="setDifficulty('medium')">Medium difficulty</button><button class="toggle-btn" onclick="setDifficulty('hard')">Hard to get</button><button class="toggle-btn active" onclick="setDifficulty('all')">Show All</button></div></div>
+
 <div class="form-row"><div><label>👥 Party Size</label><input type="number" id="party" value="2" min="1" max="20"></div><div><label>💰 Budget per Person</label><select id="budget"><option value="0-999">No Price Preference</option><option value="1-50">$1 - $50</option><option value="50-75">$50 - $75</option><option value="80-100" selected>$80 - $100</option><option value="100-125">$100 - $125</option><option value="125-150">$125 - $150</option><option value="150-200">$150 - $200</option><option value="200-500">$200+</option></select></div></div>
-<div style="margin-bottom:20px"><label>🚗 Transportation</label><div class="toggle-group"><button class="toggle-btn active" onclick="setTransport('walk')">🚶‍♂️ Walk</button><button class="toggle-btn" onclick="setTransport('drive')">🚗 Drive</button><button class="toggle-btn" onclick="setTransport('radius')">📍 Radius</button></div></div>
+
+<div style="margin-bottom:20px"><label>🚗 Transportation</label><div class="toggle-group"><button class="toggle-btn active" onclick="setTransport('walk')">🚶 Walk</button><button class="toggle-btn" onclick="setTransport('drive')">🚗 Drive</button><button class="toggle-btn" onclick="setTransport('transit')">🚇 Transit</button><button class="toggle-btn" onclick="setTransport('radius')">📍 Radius</button></div></div>
+
 <div id="walkDistance" style="margin-bottom:20px"><label>🚶 Max Walk (minutes)</label><select id="walkTime"><option value="5">5 minutes</option><option value="10">10 minutes</option><option value="15">15 minutes</option><option value="20" selected>20 minutes</option><option value="25">25 minutes</option><option value="30">30 minutes</option></select></div>
+
 <div id="driveDistance" style="margin-bottom:20px;display:none"><label>🚗 Max Drive Time (minutes)</label><select id="driveTime"><option value="5">5 minutes</option><option value="10">10 minutes</option><option value="15" selected>15 minutes</option><option value="20">20 minutes</option><option value="30">30 minutes</option><option value="45">45 minutes</option></select></div>
+
+<div id="transitDistance" style="margin-bottom:20px;display:none"><label>🚇 Max Transit Time (minutes)</label><select id="transitTime"><option value="10">10 minutes</option><option value="15">15 minutes</option><option value="20" selected>20 minutes</option><option value="30">30 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option></select></div>
+
 <div id="radiusDistance" style="margin-bottom:20px;display:none"><label>📍 Radius (miles)</label><select id="radiusMiles"><option value="0.5">0.5 miles</option><option value="1">1 mile</option><option value="2">2 miles</option><option value="3" selected>3 miles</option><option value="5">5 miles</option><option value="10">10 miles</option></select></div>
+
 <div style="margin-bottom:20px"><label>⭐ Quality Level</label><select id="quality"><option value="any">Any Quality</option><option value="michelin_star">Michelin Star</option><option value="michelin_recommended">Michelin Recommended</option><option value="bib">Bib Gourmand</option><option value="yelp46">Yelp 4.6-5.0 ⭐</option><option value="yelp45" selected>Yelp 4-4.5 ⭐</option></select></div>
+
 <div style="margin-bottom:20px"><label>🍕 Cuisine Type (optional)</label><select id="cuisine"><option value="any">Any Cuisine</option><option value="italian">Italian</option><option value="japanese">Japanese</option><option value="korean">Korean</option><option value="french">French</option><option value="american">American</option><option value="steakhouse">Steakhouse</option><option value="seafood">Seafood</option><option value="mexican">Mexican</option></select></div>
+
 <div style="margin-bottom:20px"><label>🎛️ Vibe Preference (optional)</label><div class="toggle-group"><button class="toggle-btn" onclick="setVibe('loud')">🎉 Loud & Lively</button><button class="toggle-btn active" onclick="setVibe('any')">😌 Any Vibe</button><button class="toggle-btn" onclick="setVibe('quiet')">🤫 Quiet & Chill</button></div></div>
+
 <div style="margin-bottom:20px"><label>💳 Credit Card Benefits (optional)</label><select id="creditcard"><option value="any">Any / No Preference</option><option value="amex">Amex Dining Credit</option><option value="chase">Chase Dining Credit</option><option value="rakuten">Rakuten Cashback</option></select></div>
+
 <div style="margin:20px 0"><label style="display:flex;align-items:center;gap:10px;cursor:pointer"><input type="checkbox" id="nodeposit" style="width:auto;height:18px;cursor:pointer">Show only no-deposit restaurants</label></div>
+
 <button class="btn" onclick="search()" id="searchBtn">🔍 Find Available Tables</button>
 </div>
+
 <div id="results" class="hidden"><button class="back-btn" onclick="back()">← Edit Search</button><div id="warnings"></div><div id="list"></div></div>
+
 <button class="chatbot-btn" onclick="openChat()" title="Chat with AI Concierge">💬</button>
 </div>
+
 <script>
 let state={vibe:'any',difficulty:'all',showAll:false,transport:'walk'};
 
@@ -42,18 +61,18 @@ if(navigator.geolocation){
 document.getElementById('locationInfo').textContent='📍 Getting your location...';
 navigator.geolocation.getCurrentPosition(
 position=>{
-const lat=position.coords.latitude.toFixed(4);
-const lon=position.coords.longitude.toFixed(4);
-document.getElementById('addressInput').value=`Current Location (${lat}, ${lon})`;
-document.getElementById('locationInfo').textContent=`📍 Using your current location`;
+const lat=position.coords.latitude;
+const lon=position.coords.longitude;
+document.getElementById('addressInput').value=`${lat},${lon}`;
+document.getElementById('locationInfo').textContent='📍 Using your current location';
 },
 error=>{
-document.getElementById('locationInfo').textContent='⚠️ Could not get location. Please enter address manually.';
-document.getElementById('addressInput').value='';
+document.getElementById('locationInfo').textContent='⚠️ Could not get location. Error: ' + error.message;
+console.error('Geolocation error:', error);
 }
 );
 }else{
-alert('Geolocation is not supported by your browser. Please enter your address manually.');
+alert('Geolocation is not supported by your browser.');
 }
 }
 
@@ -81,9 +100,11 @@ parentDiv.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'
 event.target.classList.add('active');
 document.getElementById('walkDistance').style.display='none';
 document.getElementById('driveDistance').style.display='none';
+document.getElementById('transitDistance').style.display='none';
 document.getElementById('radiusDistance').style.display='none';
 if(mode=='walk'){document.getElementById('walkDistance').style.display='block'}
 else if(mode=='drive'){document.getElementById('driveDistance').style.display='block'}
+else if(mode=='transit'){document.getElementById('transitDistance').style.display='block'}
 else if(mode=='radius'){document.getElementById('radiusDistance').style.display='block'}
 }
 
@@ -126,6 +147,8 @@ if(state.transport=='walk'){
 radius=+document.getElementById('walkTime').value * 80;
 }else if(state.transport=='drive'){
 radius=+document.getElementById('driveTime').value * 800;
+}else if(state.transport=='transit'){
+radius=+document.getElementById('transitTime').value * 800;
 }else{
 radius=+document.getElementById('radiusMiles').value * 1609;
 }
@@ -148,6 +171,11 @@ throw new Error('Search failed');
 }
 
 const data=await response.json();
+
+if(data.confirmedAddress){
+document.getElementById('warnings').innerHTML=`<div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 Searching near: ${data.confirmedAddress}</div>`;
+}
+
 displayResults(data.restaurants||[]);
 
 }catch(error){
@@ -171,10 +199,13 @@ return;
 let html=restaurants.map(r=>{
 let distanceHtml='';
 if(r.walkMinutes){
-distanceHtml=`<span class="badge distance">🚶 ${Math.round(r.walkMinutes)} min walk</span>`;
+distanceHtml+=`<span class="badge distance">🚶 ${r.walkMinutes} min walk</span>`;
 }
 if(r.driveMinutes){
-distanceHtml+=`<span class="badge distance">🚗 ${Math.round(r.driveMinutes)} min drive</span>`;
+distanceHtml+=`<span class="badge distance">🚗 ${r.driveMinutes} min drive</span>`;
+}
+if(r.transitMinutes){
+distanceHtml+=`<span class="badge distance">🚇 ${r.transitMinutes} min transit</span>`;
 }
 
 return `
