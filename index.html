@@ -22,7 +22,7 @@
 
 <div id="radiusDistance" style="margin-bottom:20px;display:none"><label>📍 Radius (miles)</label><select id="radiusMiles"><option value="0.5">0.5 miles</option><option value="1">1 mile</option><option value="2">2 miles</option><option value="3" selected>3 miles</option><option value="5">5 miles</option><option value="10">10 miles</option></select></div>
 
-<div style="margin-bottom:20px"><label>⭐ Quality Level</label><select id="quality"><option value="any">Any Quality</option><option value="michelin_star">Michelin Star</option><option value="bib">Bib Gourmand</option><option value="michelin_recommended">Michelin Recommended</option><option value="five_star">5-Star Quality</option><option value="top_rated_and_above" selected>Top Rated & Above</option><option value="top_rated_only">Top Rated Only (4.4-4.59)</option></select></div>
+<div style="margin-bottom:20px"><label>⭐ Quality Level</label><select id="quality"><option value="any">Any Quality</option><option value="michelin_star">Michelin Star</option><option value="bib">Bib Gourmand</option><option value="michelin_recommended">Michelin Recommended</option><option value="five_star">5-Star Quality</option><option value="top_rated_and_above" selected>Top Rated & Above</option><option value="top_rated_only">Top Rated</option></select></div>
 
 <div style="margin-bottom:20px"><label>🍕 Cuisine Type (optional)</label><select id="cuisine"><option value="any">Any Cuisine</option><option value="italian">Italian</option><option value="japanese">Japanese</option><option value="korean">Korean</option><option value="french">French</option><option value="american">American</option><option value="steakhouse">Steakhouse</option><option value="seafood">Seafood</option><option value="mexican">Mexican</option></select></div>
 
@@ -50,12 +50,12 @@
 // QUALITY TIER CONFIGURATION
 const QUALITY_CONFIG={
 fiveStarQuality:{
-googleRating:4.6,googleReviews:100,
-yelpRating:4.6,yelpReviews:50
+googleRating:4.6,googleReviews:50,
+yelpRating:4.6,yelpReviews:25
 },
 topRated:{
-googleRatingMin:4.4,googleRatingMax:4.59,googleReviews:100,
-yelpRatingMin:4.4,yelpRatingMax:4.59,yelpReviews:50
+googleRatingMin:4.4,googleRatingMax:4.59,googleReviews:50,
+yelpRatingMin:4.4,yelpRatingMax:4.59,yelpReviews:25
 }
 };
 
