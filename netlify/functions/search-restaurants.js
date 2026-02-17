@@ -1,4 +1,4 @@
-// Clean Backend - Google Only, No Yelp
+// Clean Backend - Returns all restaurants with distances
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) };
@@ -25,8 +25,8 @@ exports.handler = async (event, context) => {
     const { lat, lng } = geocodeData.results[0].geometry.location;
     const confirmedAddress = geocodeData.results[0].formatted_address;
 
-    // Search - use LARGE radius to get lots of results
-    let placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=5000&type=restaurant&key=${GOOGLE_API_KEY}`;
+    // Search with rankby=prominence to get best restaurants
+    let placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=5000&type=restaurant&rankby=prominence&key=${GOOGLE_API_KEY}`;
     if (cuisine) placesUrl += `&keyword=${encodeURIComponent(cuisine)}`;
     if (openNow) placesUrl += `&opennow=true`;
 
@@ -47,31 +47,66 @@ exports.handler = async (event, context) => {
       if (page2Data.results) allRestaurants = allRestaurants.concat(page2Data.results);
     }
 
-    // Calculate distances for first 25
-    const first25 = allRestaurants.slice(0, 25);
-    const destinations = first25.map(p => `${p.geometry.location.lat},${p.geometry.location.lng}`).join('|');
+    // Calculate distances for ALL restaurants (in batches of 25)
+    const batch1 = allRestaurants.slice(0, 25);
+    const batch2 = allRestaurants.slice(25, 50);
+    
     const origin = `${lat},${lng}`;
-
-    const [walkResp, driveResp, transitResp] = await Promise.all([
-      fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=walking&key=${GOOGLE_API_KEY}`),
-      fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=driving&departure_time=now&key=${GOOGLE_API_KEY}`),
-      fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=transit&departure_time=now&key=${GOOGLE_API_KEY}`)
+    
+    // Process batch 1
+    const destinations1 = batch1.map(p => `${p.geometry.location.lat},${p.geometry.location.lng}`).join('|');
+    const [walk1, drive1, transit1] = await Promise.all([
+      fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations1}&mode=walking&key=${GOOGLE_API_KEY}`).then(r=>r.json()),
+      fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations1}&mode=driving&departure_time=now&key=${GOOGLE_API_KEY}`).then(r=>r.json()),
+      fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations1}&mode=transit&departure_time=now&key=${GOOGLE_API_KEY}`).then(r=>r.json())
     ]);
 
-    const [walkData, driveData, transitData] = await Promise.all([walkResp.json(), driveResp.json(), transitResp.json()]);
+    // Process batch 2 if exists
+    let walk2, drive2, transit2;
+    if (batch2.length > 0) {
+      const destinations2 = batch2.map(p => `${p.geometry.location.lat},${p.geometry.location.lng}`).join('|');
+      [walk2, drive2, transit2] = await Promise.all([
+        fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations2}&mode=walking&key=${GOOGLE_API_KEY}`).then(r=>r.json()),
+        fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations2}&mode=driving&departure_time=now&key=${GOOGLE_API_KEY}`).then(r=>r.json()),
+        fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations2}&mode=transit&departure_time=now&key=${GOOGLE_API_KEY}`).then(r=>r.json())
+      ]);
+    }
 
-    const enriched = first25.map((place, idx) => {
+    const enriched = allRestaurants.map((place, idx) => {
       let walkMin = null, driveMin = null, transitMin = null, distMiles = null;
+      
+      // Determine which batch this is in
+      const batchIdx = idx < 25 ? idx : idx - 25;
+      const walkData = idx < 25 ? walk1 : walk2;
+      const driveData = idx < 25 ? drive1 : drive2;
+      const transitData = idx < 25 ? transit1 : transit2;
 
-      if (walkData.rows?.[0]?.elements?.[idx]?.status === 'OK') {
-        walkMin = Math.round(walkData.rows[0].elements[idx].duration.value / 60);
-        distMiles = Math.round((walkData.rows[0].elements[idx].distance.value / 1609.34) * 10) / 10;
+      if (walkData?.rows?.[0]?.elements?.[batchIdx]?.status === 'OK') {
+        walkMin = Math.round(walkData.rows[0].elements[batchIdx].duration.value / 60);
+        distMiles = Math.round((walkData.rows[0].elements[batchIdx].distance.value / 1609.34) * 10) / 10;
       }
-      if (driveData.rows?.[0]?.elements?.[idx]?.status === 'OK') {
-        driveMin = Math.round(driveData.rows[0].elements[idx].duration.value / 60);
+      if (driveData?.rows?.[0]?.elements?.[batchIdx]?.status === 'OK') {
+        driveMin = Math.round(driveData.rows[0].elements[batchIdx].duration.value / 60);
       }
-      if (transitData.rows?.[0]?.elements?.[idx]?.status === 'OK') {
-        transitMin = Math.round(transitData.rows[0].elements[idx].duration.value / 60);
+      if (transitData?.rows?.[0]?.elements?.[batchIdx]?.status === 'OK') {
+        transitMin = Math.round(transitData.rows[0].elements[batchIdx].duration.value / 60);
+      }
+
+      // Calculate straight-line distance as fallback using Haversine formula
+      if (!distMiles) {
+        const R = 3959; // Earth radius in miles
+        const dLat = (place.geometry.location.lat - lat) * Math.PI / 180;
+        const dLon = (place.geometry.location.lng - lng) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(lat * Math.PI / 180) * Math.cos(place.geometry.location.lat * Math.PI / 180) *
+                  Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        distMiles = Math.round(R * c * 10) / 10;
+      }
+
+      // Estimate walk time if not available (3 mph walking speed)
+      if (!walkMin && distMiles) {
+        walkMin = Math.round(distMiles * 20); // 20 min per mile
       }
 
       return {
