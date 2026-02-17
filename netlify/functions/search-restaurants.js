@@ -1,4 +1,4 @@
-// Netlify Function: Search Restaurants with Quality Tier System
+// Netlify Function: Search Restaurants (Simplified - Google Only)
 // Path: /netlify/functions/search-restaurants.js
 
 exports.handler = async (event, context) => {
@@ -12,16 +12,15 @@ exports.handler = async (event, context) => {
 
   try {
     const body = JSON.parse(event.body);
-    const { location, radius, cuisine, priceLevel, openNow } = body;
+    const { location, radius, cuisine, openNow } = body;
 
     const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
-    const YELP_API_KEY = process.env.YELP_API_KEY;
 
-    if (!GOOGLE_API_KEY || !YELP_API_KEY) {
+    if (!GOOGLE_API_KEY) {
       return {
         statusCode: 500,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ error: 'API keys not configured' })
+        body: JSON.stringify({ error: 'API key not configured' })
       };
     }
 
@@ -70,8 +69,8 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Limit to 20 restaurants for better coverage
-    const restaurants = placesData.results.slice(0, 20);
+    // Get ALL restaurants (Google returns max 20)
+    const restaurants = placesData.results;
     
     // Step 3: Get travel times
     const destinations = restaurants.map(place => 
@@ -91,8 +90,8 @@ exports.handler = async (event, context) => {
       transitResponse.json()
     ]);
 
-    // Step 4: Enrich with Yelp data and calculate quality tier
-    const enrichedRestaurants = await Promise.all(restaurants.map(async (place, index) => {
+    // Step 4: Enrich with travel times (NO YELP CALLS)
+    const enrichedRestaurants = restaurants.map((place, index) => {
       let walkMinutes = null;
       let driveMinutes = null;
       let transitMinutes = null;
@@ -121,48 +120,9 @@ exports.handler = async (event, context) => {
         }
       }
 
-      // Get data from Google
+      // Use ONLY Google data
       const googleRating = place.rating || 0;
       const googleReviewCount = place.user_ratings_total || 0;
-
-      // Try to get Yelp data
-      let yelpRating = 0;
-      let yelpReviewCount = 0;
-      let michelinStars = null;
-      let isBibGourmand = false;
-      let isMichelinRecommended = false;
-
-      try {
-        const yelpSearchUrl = `https://api.yelp.com/v3/businesses/search?term=${encodeURIComponent(place.name)}&latitude=${place.geometry.location.lat}&longitude=${place.geometry.location.lng}&limit=1`;
-        const yelpResponse = await fetch(yelpSearchUrl, {
-          headers: { 'Authorization': `Bearer ${YELP_API_KEY}` }
-        });
-
-        if (yelpResponse.ok) {
-          const yelpData = await yelpResponse.json();
-          if (yelpData.businesses && yelpData.businesses.length > 0) {
-            const business = yelpData.businesses[0];
-            yelpRating = business.rating || 0;
-            yelpReviewCount = business.review_count || 0;
-
-            // Check for Michelin
-            if (business.categories) {
-              const categories = business.categories.map(c => c.alias.toLowerCase());
-              if (categories.includes('michelinstar') || categories.includes('michelin_star')) {
-                michelinStars = 1;
-              }
-              if (categories.includes('bibgourmand') || categories.includes('bib_gourmand')) {
-                isBibGourmand = true;
-              }
-              if (categories.includes('michelinrecommended') || categories.includes('michelin_recommended')) {
-                isMichelinRecommended = true;
-              }
-            }
-          }
-        }
-      } catch (yelpError) {
-        // Fail silently, use Google data only
-      }
 
       return {
         name: place.name,
@@ -178,13 +138,13 @@ exports.handler = async (event, context) => {
         transitMinutes,
         googleRating,
         googleReviewCount,
-        yelpRating,
-        yelpReviewCount,
-        michelinStars,
-        isBibGourmand,
-        isMichelinRecommended
+        yelpRating: 0,
+        yelpReviewCount: 0,
+        michelinStars: null,
+        isBibGourmand: false,
+        isMichelinRecommended: false
       };
-    }));
+    });
 
     return {
       statusCode: 200,
