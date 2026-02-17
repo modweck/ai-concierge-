@@ -1,4 +1,4 @@
-// Netlify Function: Search Restaurants with Yelp Integration
+// Netlify Function: Search Restaurants with Quality Tier System
 // Path: /netlify/functions/search-restaurants.js
 
 exports.handler = async (event, context) => {
@@ -70,8 +70,8 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Limit to 10 restaurants
-    const restaurants = placesData.results.slice(0, 10);
+    // Limit to 20 restaurants for better coverage
+    const restaurants = placesData.results.slice(0, 20);
     
     // Step 3: Get travel times
     const destinations = restaurants.map(place => 
@@ -91,7 +91,7 @@ exports.handler = async (event, context) => {
       transitResponse.json()
     ]);
 
-    // Step 4: Enrich with Yelp data
+    // Step 4: Enrich with Yelp data and calculate quality tier
     const enrichedRestaurants = await Promise.all(restaurants.map(async (place, index) => {
       let walkMinutes = null;
       let driveMinutes = null;
@@ -121,8 +121,13 @@ exports.handler = async (event, context) => {
         }
       }
 
-      // Search Yelp for this restaurant
-      let yelpRating = place.rating;
+      // Get data from Google
+      const googleRating = place.rating || 0;
+      const googleReviewCount = place.user_ratings_total || 0;
+
+      // Try to get Yelp data
+      let yelpRating = 0;
+      let yelpReviewCount = 0;
       let michelinStars = null;
       let isBibGourmand = false;
       let isMichelinRecommended = false;
@@ -130,34 +135,21 @@ exports.handler = async (event, context) => {
       try {
         const yelpSearchUrl = `https://api.yelp.com/v3/businesses/search?term=${encodeURIComponent(place.name)}&latitude=${place.geometry.location.lat}&longitude=${place.geometry.location.lng}&limit=1`;
         const yelpResponse = await fetch(yelpSearchUrl, {
-          headers: {
-            'Authorization': `Bearer ${YELP_API_KEY}`
-          }
+          headers: { 'Authorization': `Bearer ${YELP_API_KEY}` }
         });
 
         if (yelpResponse.ok) {
           const yelpData = await yelpResponse.json();
           if (yelpData.businesses && yelpData.businesses.length > 0) {
             const business = yelpData.businesses[0];
-            
-            // Use Yelp rating if available (Yelp ratings are more accurate)
-            if (business.rating) {
-              yelpRating = business.rating;
-            }
+            yelpRating = business.rating || 0;
+            yelpReviewCount = business.review_count || 0;
 
-            // Check for Michelin attributes
-            if (business.attributes) {
-              // Yelp includes Michelin data in attributes
-              if (business.attributes.michelin_stars) {
-                michelinStars = business.attributes.michelin_stars;
-              }
-            }
-
-            // Check categories for Michelin/Bib Gourmand
+            // Check for Michelin
             if (business.categories) {
               const categories = business.categories.map(c => c.alias.toLowerCase());
               if (categories.includes('michelinstar') || categories.includes('michelin_star')) {
-                michelinStars = michelinStars || 1; // At least 1 star
+                michelinStars = 1;
               }
               if (categories.includes('bibgourmand') || categories.includes('bib_gourmand')) {
                 isBibGourmand = true;
@@ -169,15 +161,13 @@ exports.handler = async (event, context) => {
           }
         }
       } catch (yelpError) {
-        console.error('Yelp API error for', place.name, yelpError);
-        // Continue with Google data if Yelp fails
+        // Fail silently, use Google data only
       }
 
       return {
         name: place.name,
         vicinity: place.vicinity,
         formatted_address: place.formatted_address,
-        rating: yelpRating,
         price_level: place.price_level,
         opening_hours: place.opening_hours,
         geometry: place.geometry,
@@ -186,6 +176,10 @@ exports.handler = async (event, context) => {
         walkMinutes,
         driveMinutes,
         transitMinutes,
+        googleRating,
+        googleReviewCount,
+        yelpRating,
+        yelpReviewCount,
         michelinStars,
         isBibGourmand,
         isMichelinRecommended
