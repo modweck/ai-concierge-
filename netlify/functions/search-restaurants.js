@@ -1,4 +1,4 @@
-// Netlify Function: Search Restaurants
+// Netlify Function: Search Restaurants (Debug Version)
 // Path: /netlify/functions/search-restaurants.js
 
 exports.handler = async (event, context) => {
@@ -6,40 +6,101 @@ exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ error: 'Method not allowed' })
     };
   }
 
   try {
-    const { 
-      location, 
-      radius, 
-      cuisine, 
-      priceLevel, 
-      openNow 
-    } = JSON.parse(event.body);
+    // Parse request body
+    let body;
+    try {
+      body = JSON.parse(event.body);
+    } catch (e) {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Invalid JSON in request body' })
+      };
+    }
 
-    // API Keys from environment variables
+    const { location, radius, cuisine, priceLevel, openNow } = body;
+
+    // Check API keys
     const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
     const YELP_API_KEY = process.env.YELP_API_KEY;
 
-    if (!GOOGLE_API_KEY || !YELP_API_KEY) {
+    if (!GOOGLE_API_KEY) {
       return {
         statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          error: 'API keys not configured. Please add GOOGLE_PLACES_API_KEY and YELP_API_KEY to environment variables.' 
+          error: 'GOOGLE_PLACES_API_KEY not configured',
+          debug: 'Environment variable is missing'
+        })
+      };
+    }
+
+    if (!YELP_API_KEY) {
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          error: 'YELP_API_KEY not configured',
+          debug: 'Environment variable is missing'
         })
       };
     }
 
     // Step 1: Geocode the location
     const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${GOOGLE_API_KEY}`;
-    const geocodeResponse = await fetch(geocodeUrl);
-    const geocodeData = await geocodeResponse.json();
+    
+    let geocodeResponse;
+    try {
+      geocodeResponse = await fetch(geocodeUrl);
+    } catch (e) {
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          error: 'Failed to call Geocoding API',
+          debug: e.message
+        })
+      };
+    }
+
+    let geocodeData;
+    try {
+      geocodeData = await geocodeResponse.json();
+    } catch (e) {
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          error: 'Failed to parse Geocoding API response',
+          debug: e.message
+        })
+      };
+    }
+
+    if (geocodeData.status !== 'OK') {
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          error: 'Geocoding failed',
+          debug: {
+            status: geocodeData.status,
+            error_message: geocodeData.error_message
+          }
+        })
+      };
+    }
 
     if (!geocodeData.results || geocodeData.results.length === 0) {
       return {
         statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ restaurants: [] })
       };
     }
@@ -56,12 +117,52 @@ exports.handler = async (event, context) => {
       placesUrl += `&opennow=true`;
     }
 
-    const placesResponse = await fetch(placesUrl);
-    const placesData = await placesResponse.json();
+    let placesResponse;
+    try {
+      placesResponse = await fetch(placesUrl);
+    } catch (e) {
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          error: 'Failed to call Places API',
+          debug: e.message
+        })
+      };
+    }
+
+    let placesData;
+    try {
+      placesData = await placesResponse.json();
+    } catch (e) {
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          error: 'Failed to parse Places API response',
+          debug: e.message
+        })
+      };
+    }
+
+    if (placesData.status !== 'OK' && placesData.status !== 'ZERO_RESULTS') {
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          error: 'Places API error',
+          debug: {
+            status: placesData.status,
+            error_message: placesData.error_message
+          }
+        })
+      };
+    }
 
     if (!placesData.results || placesData.results.length === 0) {
       return {
         statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ restaurants: [] })
       };
     }
@@ -80,19 +181,27 @@ exports.handler = async (event, context) => {
 
     return {
       statusCode: 200,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ restaurants })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        restaurants,
+        debug: {
+          location_found: `${lat}, ${lng}`,
+          results_count: restaurants.length
+        }
+      })
     };
 
   } catch (error) {
-    console.error('Search error:', error);
+    console.error('Unexpected error:', error);
     return {
       statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
-        error: 'Search failed', 
-        message: error.message 
+        error: 'Unexpected error',
+        debug: {
+          message: error.message,
+          stack: error.stack
+        }
       })
     };
   }
