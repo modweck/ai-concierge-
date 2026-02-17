@@ -1,4 +1,4 @@
-// Netlify Function: Search Restaurants with Real Distance Matrix
+// Netlify Function: Search Restaurants with Distance Matrix (Walk/Drive/Transit)
 // Path: /netlify/functions/search-restaurants.js
 
 exports.handler = async (event, context) => {
@@ -102,10 +102,16 @@ exports.handler = async (event, context) => {
     const driveResponse = await fetch(driveUrl);
     const driveData = await driveResponse.json();
 
+    // Get transit times
+    const transitUrl = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=transit&departure_time=now&key=${GOOGLE_API_KEY}`;
+    const transitResponse = await fetch(transitUrl);
+    const transitData = await transitResponse.json();
+
     // Combine restaurant data with travel times
     const enrichedRestaurants = restaurants.map((place, index) => {
       let walkMinutes = null;
       let driveMinutes = null;
+      let transitMinutes = null;
       let distanceMiles = null;
 
       if (walkData.rows && walkData.rows[0] && walkData.rows[0].elements[index]) {
@@ -123,6 +129,13 @@ exports.handler = async (event, context) => {
         }
       }
 
+      if (transitData.rows && transitData.rows[0] && transitData.rows[0].elements[index]) {
+        const transitElement = transitData.rows[0].elements[index];
+        if (transitElement.status === 'OK') {
+          transitMinutes = Math.round(transitElement.duration.value / 60);
+        }
+      }
+
       return {
         name: place.name,
         vicinity: place.vicinity,
@@ -134,7 +147,8 @@ exports.handler = async (event, context) => {
         place_id: place.place_id,
         distanceMiles,
         walkMinutes,
-        driveMinutes
+        driveMinutes,
+        transitMinutes
       };
     });
 
