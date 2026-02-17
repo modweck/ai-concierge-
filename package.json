@@ -1,0 +1,8 @@
+{
+  "name": "ai-concierge-backend",
+  "version": "1.0.0",
+  "description": "Backend functions for AI Concierge restaurant finder",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}
