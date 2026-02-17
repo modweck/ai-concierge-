@@ -69,6 +69,9 @@ document.getElementById('addressInput').value='New York, NY';
 document.getElementById('locationInfo').textContent='📍 Searching near: New York, NY';
 document.getElementById('quality').addEventListener('change',function(){
 state.qualityFilter=this.value;
+if(allRestaurants.length>0){
+sortResults();
+}
 });
 });
 
