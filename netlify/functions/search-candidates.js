@@ -20,8 +20,19 @@ function filterEliteRestaurants(candidates) {
     const priceLevel = place.price_level || 0;
     
     // A) Minimum review count
-    if (reviews < 50 && !(priceLevel >= 2 && reviews >= 20)) {
-      excludeReason = `low_review_count (${reviews} reviews)`;
+    if (reviews < 40) {
+      // Exception 1: High rating (4.8+) with decent reviews
+      if (place.googleRating >= 4.8 && reviews >= 25) {
+        // Allow
+      }
+      // Exception 2: Michelin-listed (would need Michelin data integration)
+      // For now, allow if price >= 2 and decent reviews
+      else if (priceLevel >= 2 && reviews >= 15) {
+        // Allow (proxy for Michelin)
+      }
+      else {
+        excludeReason = `low_review_count (${reviews} reviews, need 40+)`;
+      }
     }
 
     // B) Exclude by types
