@@ -32,9 +32,11 @@ exports.handler = async (event, context) => {
     const normalizedLat = Math.round(lat * 10000) / 10000;
     const normalizedLng = Math.round(lng * 10000) / 10000;
     
-    console.log('Raw coordinates:', lat, lng);
-    console.log('Normalized coordinates:', normalizedLat, normalizedLng);
-    console.log('Grid will be deterministic based on normalized coords');
+    console.log('=== COORDINATE DEBUG ===');
+    console.log('1) RAW ORIGIN:', { lat, lng });
+    console.log('2) NORMALIZED ORIGIN:', { lat: normalizedLat, lng: normalizedLng });
+    console.log('Address:', confirmedAddress);
+    console.log('========================');
 
     // Use normalized coords for grid generation
     const gridLat = normalizedLat;
@@ -135,7 +137,10 @@ exports.handler = async (event, context) => {
     });
 
     console.log('Total raw results:', totalRaw);
-    console.log('Unique place_ids:', allCandidates.length);
+    console.log('3) UNIQUE PLACES (after dedupe, BEFORE filters):', allCandidates.length);
+    
+    // Log first 10 place_ids for comparison
+    console.log('Sample place_ids:', allCandidates.slice(0, 10).map(p => p.place_id).join(', '));
 
     // Calculate straight-line distance for sorting (using normalized origin)
     const candidatesWithDistance = allCandidates.map(place => {
@@ -168,6 +173,12 @@ exports.handler = async (event, context) => {
     // Filter: within 1 mile
     const within1Mile = candidatesWithDistance.filter(r => r.distanceMiles <= 1.0);
     console.log('Within 1 mile:', within1Mile.length);
+    
+    // Count by rating BEFORE sorting
+    const rating46Plus = within1Mile.filter(r => r.googleRating >= 4.6).length;
+    const rating44Plus = within1Mile.filter(r => r.googleRating >= 4.4).length;
+    console.log('4) AFTER rating >= 4.6 filter:', rating46Plus);
+    console.log('   After rating >= 4.4 filter:', rating44Plus);
 
     // Deterministic sort: rating DESC, reviews DESC, distance ASC, name ASC
     within1Mile.sort((a, b) => {
@@ -178,6 +189,7 @@ exports.handler = async (event, context) => {
     });
 
     console.log('Returning', within1Mile.length, 'restaurants (deterministic sort)');
+    console.log('5) ALL PLACE_IDs (within 1 mile):', within1Mile.map(r => r.place_id).join(','));
 
     return {
       statusCode: 200,
