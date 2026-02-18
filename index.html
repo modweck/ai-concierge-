@@ -252,13 +252,21 @@ let filtered=filterByQuality(allRestaurants);
 const sortBy=document.getElementById('sortBy').value;
 let sorted=[...filtered];
 
-if(sortBy==='rating')sorted.sort((a,b)=>b.googleRating-a.googleRating);
-else if(sortBy==='distance')sorted.sort((a,b)=>{
-const aMin=Math.min(a.walkMinutes||999,a.driveMinutes||999,a.transitMinutes||999);
-const bMin=Math.min(b.walkMinutes||999,b.driveMinutes||999,b.transitMinutes||999);
-return aMin-bMin;
+if(sortBy==='rating'){
+sorted.sort((a,b)=>b.googleRating-a.googleRating);
+}else if(sortBy==='distance'){
+// Sort by actual walk duration (seconds), then rating, then reviews, then name
+sorted.sort((a,b)=>{
+const aDuration = a.walkDurationSeconds || (a.walkMinutes * 60) || 999999;
+const bDuration = b.walkDurationSeconds || (b.walkMinutes * 60) || 999999;
+if(aDuration !== bDuration) return aDuration - bDuration;
+if(b.googleRating !== a.googleRating) return b.googleRating - a.googleRating;
+if(b.googleReviewCount !== a.googleReviewCount) return b.googleReviewCount - a.googleReviewCount;
+return a.name.localeCompare(b.name);
 });
-else if(sortBy==='price')sorted.sort((a,b)=>(a.price_level||0)-(b.price_level||0));
+}else if(sortBy==='price'){
+sorted.sort((a,b)=>(a.price_level||0)-(b.price_level||0));
+}
 
 displayResults(sorted);
 }
