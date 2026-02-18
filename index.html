@@ -157,8 +157,18 @@ document.getElementById('warnings').innerHTML=`
 
 sortResults();
 
-// STEP 2: Enrich the TIME-FILTERED list (not the full Step 1 list!)
-const toEnrich = allRestaurants.slice(0,80);
+// STEP 2: Enrich with dynamic limits based on transport mode
+let enrichLimit = 80; // Default for drive/transit
+if(state.transport==='walk'){
+  if(maxWalkMinutes >= 30){
+    enrichLimit = 150; // 30-min walk gets more coverage
+  } else if(maxWalkMinutes >= 20){
+    enrichLimit = 120; // 20-min walk
+  }
+}
+
+const toEnrich = allRestaurants.slice(0, enrichLimit);
+console.log('Enriching', toEnrich.length, 'candidates');
 
 const step2Response=await fetch('/.netlify/functions/enrich-times',{
 method:'POST',
