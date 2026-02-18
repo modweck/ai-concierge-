@@ -66,18 +66,25 @@ exports.handler = async (event, context) => {
         let driveMin = place.driveMinEstimate;
         let transitMin = place.transitMinEstimate;
         let distMiles = place.distanceMiles;
+        let walkSeconds = null;
+        let driveSeconds = null;
+        let transitSeconds = null;
 
         if (modeData?.rows?.[0]?.elements?.[idx]?.status === 'OK') {
           const realMin = Math.round(modeData.rows[0].elements[idx].duration.value / 60);
+          const realSeconds = modeData.rows[0].elements[idx].duration.value;
           const realDist = Math.round((modeData.rows[0].elements[idx].distance.value / 1609.34) * 10) / 10;
           
           if (transportMode === 'walk') {
             walkMin = realMin;
+            walkSeconds = realSeconds;
             distMiles = realDist;
           } else if (transportMode === 'drive') {
             driveMin = realMin;
+            driveSeconds = realSeconds;
           } else if (transportMode === 'transit') {
             transitMin = realMin;
+            transitSeconds = realSeconds;
           }
         }
 
@@ -86,7 +93,10 @@ exports.handler = async (event, context) => {
           distanceMiles: distMiles,
           walkMinutes: walkMin,
           driveMinutes: driveMin,
-          transitMinutes: transitMin
+          transitMinutes: transitMin,
+          walkDurationSeconds: walkSeconds,
+          driveDurationSeconds: driveSeconds,
+          transitDurationSeconds: transitSeconds
         });
       });
     }
