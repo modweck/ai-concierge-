@@ -1,4 +1,72 @@
 // Deterministic 1-mile grid coverage with full pagination
+// Elite restaurant filtering - removes food trucks, delis, chains, fake 5.0s
+function filterEliteRestaurants(candidates) {
+  const FAST_CASUAL_CHAINS = [
+    'dos toros', 'chopt', 'just salad', 'sweetgreen', 'dig inn', 'cava', 'chipotle'
+  ];
+
+  const EXCLUDED_TYPES = [
+    'food_truck', 'convenience_store', 'grocery_or_supermarket', 'market', 'vending_machine', 'store'
+  ];
+
+  const NAME_KEYWORDS_EXCLUDE = ['food truck', 'cart', 'truck', 'kiosk', 'market', 'halal'];
+
+  const filtered = [];
+  const excluded = [];
+
+  candidates.forEach(place => {
+    let excludeReason = null;
+    const reviews = place.user_ratings_total || place.googleReviewCount || 0;
+    const priceLevel = place.price_level || 0;
+    
+    // A) Minimum review count
+    if (reviews < 50 && !(priceLevel >= 2 && reviews >= 20)) {
+      excludeReason = `low_review_count (${reviews} reviews)`;
+    }
+
+    // B) Exclude by types
+    if (!excludeReason && place.types) {
+      const types = Array.isArray(place.types) ? place.types : [];
+      if (types.includes('food_truck')) excludeReason = 'type: food_truck';
+      if (types.includes('meal_takeaway') && !types.includes('restaurant')) excludeReason = 'type: meal_takeaway';
+      for (const et of EXCLUDED_TYPES) {
+        if (types.includes(et)) { excludeReason = `type: ${et}`; break; }
+      }
+    }
+
+    // C) Exclude by name keywords
+    if (!excludeReason) {
+      const nameLower = (place.name || '').toLowerCase();
+      for (const kw of NAME_KEYWORDS_EXCLUDE) {
+        if (nameLower.includes(kw)) { excludeReason = `name_keyword: "${kw}"`; break; }
+      }
+      if (!excludeReason && nameLower.includes('deli')) excludeReason = 'name_keyword: "deli"';
+      if (!excludeReason && nameLower.includes('cafe') && (priceLevel <= 1 || reviews < 100)) {
+        excludeReason = 'name_keyword: "cafe" (low_price_or_reviews)';
+      }
+      if (!excludeReason && nameLower.includes('salad') && priceLevel <= 1) {
+        excludeReason = 'name_keyword: "salad" (low_price)';
+      }
+    }
+
+    // D) Exclude chains
+    if (!excludeReason) {
+      const nameLower = (place.name || '').toLowerCase();
+      for (const chain of FAST_CASUAL_CHAINS) {
+        if (nameLower.includes(chain)) { excludeReason = `chain: "${chain}"`; break; }
+      }
+    }
+
+    if (excludeReason) {
+      excluded.push({ place_id: place.place_id, name: place.name, rating: place.googleRating || place.rating, reviews, types: place.types, reason: excludeReason });
+    } else {
+      filtered.push(place);
+    }
+  });
+
+  return { filtered, excluded };
+}
+
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) };
@@ -220,35 +288,53 @@ exports.handler = async (event, context) => {
     const within1Mile = candidatesWithDistance.filter(r => r.distanceMiles <= 1.0);
     console.log('Within 1 mile:', within1Mile.length);
     
-    // Count by rating BEFORE sorting
-    const rating46Plus = within1Mile.filter(r => r.googleRating >= 4.6).length;
-    const rating44Plus = within1Mile.filter(r => r.googleRating >= 4.4).length;
+    // Apply Elite Restaurant filtering
+    const { filtered: eliteFiltered, excluded: eliteExcluded } = filterEliteRestaurants(within1Mile);
+    
+    console.log('=== ELITE FILTERING ===');
+    console.log('Before elite filter:', within1Mile.length);
+    console.log('After elite filter:', eliteFiltered.length);
+    console.log('Excluded:', eliteExcluded.length);
+    
+    if (eliteExcluded.length > 0) {
+      console.log('Excluded items:');
+      eliteExcluded.forEach(item => {
+        console.log(`  - ${item.name} (${item.rating}⭐, ${item.reviews} reviews) - ${item.reason}`);
+      });
+    }
+    console.log('========================');
+    
+    // Count by rating AFTER elite filtering
+    const rating46Plus = eliteFiltered.filter(r => r.googleRating >= 4.6).length;
+    const rating44Plus = eliteFiltered.filter(r => r.googleRating >= 4.4).length;
     console.log('4) AFTER rating >= 4.6 filter:', rating46Plus);
     console.log('   After rating >= 4.4 filter:', rating44Plus);
 
     // Deterministic sort to ensure consistent results (frontend will re-sort by walk duration)
-    within1Mile.sort((a, b) => {
+    eliteFiltered.sort((a, b) => {
       if (b.googleRating !== a.googleRating) return b.googleRating - a.googleRating;
       if (b.googleReviewCount !== a.googleReviewCount) return b.googleReviewCount - a.googleReviewCount;
       if (a.distanceMiles !== b.distanceMiles) return a.distanceMiles - b.distanceMiles;
       return a.name.localeCompare(b.name);
     });
 
-    console.log('Returning', within1Mile.length, 'restaurants (sorted by rating, will re-sort by walk duration after enrichment)');
-    console.log('5) ALL PLACE_IDs (within 1 mile):', within1Mile.map(r => r.place_id).join(','));
+    console.log('Returning', eliteFiltered.length, 'restaurants (sorted by rating, will re-sort by walk duration after enrichment)');
+    console.log('5) ALL PLACE_IDs (within 1 mile):', eliteFiltered.map(r => r.place_id).join(','));
 
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        candidates: within1Mile,
+        candidates: eliteFiltered,
         confirmedAddress,
         userLocation: { lat: gridLat, lng: gridLng }, // Use normalized coords
-        totalCandidates: within1Mile.length,
+        totalCandidates: eliteFiltered.length,
         stats: {
           totalRaw,
           uniquePlaceIds: allCandidates.length,
           within1Mile: within1Mile.length,
+          afterEliteFilter: eliteFiltered.length,
+          excluded: eliteExcluded.length,
           normalizedCoords: { lat: gridLat, lng: gridLng },
           rawCoords: { lat, lng }
         }
