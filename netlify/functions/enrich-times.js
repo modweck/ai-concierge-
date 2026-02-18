@@ -1,4 +1,4 @@
-// Step 2: Enrich with SINGLE transport mode only (not all 3)
+// Step 2: Enrich with debug error handling
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) };
@@ -11,21 +11,35 @@ exports.handler = async (event, context) => {
 
     console.log('=== STEP 2: ENRICH TIMES ===');
     console.log('Received candidates:', candidates?.length);
-    console.log('Mode:', transportMode);
-    console.log('UserLocation:', userLocation);
+    console.log('TransportMode:', transportMode);
 
+    // Validation
     if (!candidates || !Array.isArray(candidates)) {
-      throw new Error('Invalid candidates array');
+      return { statusCode: 400, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Invalid candidates array', receivedType: typeof candidates }) };
+    }
+
+    if (candidates.length === 0) {
+      return { statusCode: 400, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Empty candidates array' }) };
     }
 
     if (!userLocation || !userLocation.lat || !userLocation.lng) {
-      throw new Error('Invalid userLocation');
+      return { statusCode: 400, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Invalid userLocation', received: userLocation }) };
+    }
+
+    // Skip Distance Matrix for radius mode
+    if (transportMode === 'radius') {
+      console.log('Radius mode - returning estimates only');
+      return {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ enrichedCandidates: candidates })
+      };
     }
 
     const { lat, lng } = userLocation;
     const origin = `${lat},${lng}`;
 
-    // Sort by distance and take closest 80
+    // Sort and take closest 80
     const sorted = [...candidates].sort((a, b) => a.distanceMiles - b.distanceMiles);
     const shortlist = sorted.slice(0, 80);
     
@@ -34,7 +48,6 @@ exports.handler = async (event, context) => {
     const batchSize = 25;
     const enriched = [];
 
-    // Only fetch the selected transport mode (saves 66% API calls!)
     const modeMap = {
       'walk': 'walking',
       'drive': 'driving',
@@ -46,7 +59,6 @@ exports.handler = async (event, context) => {
       const batch = shortlist.slice(i, i + batchSize);
       const destinations = batch.map(p => `${p.geometry.location.lat},${p.geometry.location.lng}`).join('|');
       
-      // Single API call instead of 3!
       const modeData = await fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=${apiMode}&departure_time=now&key=${GOOGLE_API_KEY}`).then(r=>r.json());
 
       batch.forEach((place, idx) => {
@@ -55,7 +67,6 @@ exports.handler = async (event, context) => {
         let transitMin = place.transitMinEstimate;
         let distMiles = place.distanceMiles;
 
-        // Update the selected mode with real data
         if (modeData?.rows?.[0]?.elements?.[idx]?.status === 'OK') {
           const realMin = Math.round(modeData.rows[0].elements[idx].duration.value / 60);
           const realDist = Math.round((modeData.rows[0].elements[idx].distance.value / 1609.34) * 10) / 10;
@@ -90,6 +101,15 @@ exports.handler = async (event, context) => {
 
   } catch (error) {
     console.error('ERROR:', error);
-    return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Failed', message: error.message }) };
+    // Return full error details for debugging
+    return { 
+      statusCode: 500, 
+      headers: { 'Content-Type': 'application/json' }, 
+      body: JSON.stringify({ 
+        error: 'Failed', 
+        message: error.message, 
+        stack: error.stack 
+      }) 
+    };
   }
 };
