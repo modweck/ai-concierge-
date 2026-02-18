@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
 
     console.log('=== DETERMINISTIC 1-MILE GRID SEARCH ===');
 
-    // Geocode
+    // Geocode the input location
     const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${GOOGLE_API_KEY}`;
     const geocodeResponse = await fetch(geocodeUrl);
     const geocodeData = await geocodeResponse.json();
@@ -24,8 +24,46 @@ exports.handler = async (event, context) => {
       return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ candidates: [], confirmedAddress: null }) };
     }
 
-    const { lat, lng } = geocodeData.results[0].geometry.location;
+    let { lat, lng } = geocodeData.results[0].geometry.location;
     const confirmedAddress = geocodeData.results[0].formatted_address;
+    const locationType = geocodeData.results[0].geometry.location_type;
+
+    console.log('Initial geocode:', { lat, lng, locationType, address: confirmedAddress });
+
+    // If input looks like raw GPS coordinates (lat,lng format), apply reverse-geocoding normalization
+    const isRawGPS = location.match(/^-?\d+\.\d+,\s*-?\d+\.\d+$/);
+    
+    if (isRawGPS) {
+      console.log('Detected raw GPS input - applying reverse-geocode normalization');
+      const reverseUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&result_type=street_address|premise&key=${GOOGLE_API_KEY}`;
+      const reverseResponse = await fetch(reverseUrl);
+      const reverseData = await reverseResponse.json();
+      
+      if (reverseData.status === 'OK' && reverseData.results[0]) {
+        const rooftopResult = reverseData.results[0];
+        const oldLat = lat;
+        const oldLng = lng;
+        lat = rooftopResult.geometry.location.lat;
+        lng = rooftopResult.geometry.location.lng;
+        
+        // Calculate delta distance
+        const R = 3959 * 5280; // Earth radius in feet
+        const dLat = (lat - oldLat) * Math.PI / 180;
+        const dLon = (lng - oldLng) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(oldLat * Math.PI / 180) * Math.cos(lat * Math.PI / 180) *
+                  Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const deltaFeet = R * c;
+        
+        console.log('GPS normalized via reverse-geocode:', { 
+          oldCoords: { lat: oldLat, lng: oldLng },
+          newCoords: { lat, lng },
+          deltaFeet: Math.round(deltaFeet),
+          rooftopAddress: rooftopResult.formatted_address
+        });
+      }
+    }
 
     // Normalize coordinates to 4 decimal places (~11 meters precision)
     // Maintains correctness while preventing micro-GPS drift from creating new grids
@@ -36,6 +74,12 @@ exports.handler = async (event, context) => {
     console.log('1) RAW ORIGIN:', { lat, lng });
     console.log('2) NORMALIZED ORIGIN (4-decimal):', { lat: normalizedLat, lng: normalizedLng });
     console.log('Address:', confirmedAddress);
+    
+    // Calculate how far apart the raw coords are from normalized
+    const normDeltaLat = Math.abs(lat - normalizedLat);
+    const normDeltaLng = Math.abs(lng - normalizedLng);
+    const normDeltaFeet = Math.sqrt(normDeltaLat * normDeltaLat + normDeltaLng * normDeltaLng) * 69 * 5280;
+    console.log('Normalization delta:', Math.round(normDeltaFeet), 'feet');
     console.log('========================');
 
     // Use normalized coords for grid generation
