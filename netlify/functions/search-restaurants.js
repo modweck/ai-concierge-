@@ -58,6 +58,8 @@ exports.handler = async (event, context) => {
     const offsetMiles = 0.7; // ~0.7 miles
     const offsetDegrees = offsetMiles / 69; // rough conversion
     
+    console.log('Grid search parameters: offset =', offsetMiles, 'miles, radius = 1600m per point');
+    
     const searchGrid = [
       { lat, lng }, // Center
       { lat: lat + offsetDegrees, lng }, // North
@@ -174,8 +176,16 @@ exports.handler = async (event, context) => {
 
     console.log('After time filter:', timeFiltered.length, 'restaurants');
 
+    // DIAGNOSTIC LOGGING - Check what we have before quality filter
+    const rating46Plus = timeFiltered.filter(r => r.googleRating >= 4.6).length;
+    const rating46Plus50Reviews = timeFiltered.filter(r => r.googleRating >= 4.6 && r.googleReviewCount >= 50).length;
+    const rating46Plus25Reviews = timeFiltered.filter(r => r.googleRating >= 4.6 && r.googleReviewCount >= 25).length;
+    console.log('DIAGNOSTIC: Rating ≥4.6 (any reviews):', rating46Plus);
+    console.log('DIAGNOSTIC: Rating ≥4.6 AND ≥50 reviews:', rating46Plus50Reviews);
+    console.log('DIAGNOSTIC: Rating ≥4.6 AND ≥25 reviews:', rating46Plus25Reviews);
+
     // STEP 4: Apply quality filter
-    const MIN_REVIEW_COUNT = 75; // NYC threshold
+    const MIN_REVIEW_COUNT = 25;
     let finalResults = timeFiltered;
 
     if (qualityFilter === 'five_star') {
