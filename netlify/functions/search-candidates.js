@@ -47,7 +47,7 @@ exports.handler = async (event, context) => {
     // Multiple search strategies
     const allFetches = [];
 
-    // Strategy 1: Nearby Search from all grid points
+    // Strategy 1: Nearby Search from all grid points (2 pages each)
     async function fetchNearby(searchLat, searchLng) {
       let url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=${searchRadius}&type=restaurant&key=${GOOGLE_API_KEY}`;
       if (cuisine) url += `&keyword=${encodeURIComponent(cuisine)}`;
@@ -56,7 +56,19 @@ exports.handler = async (event, context) => {
       const response = await fetch(url);
       const data = await response.json();
       if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') return [];
-      return data.results || [];
+      
+      let allResults = data.results || [];
+      let nextPageToken = data.next_page_token;
+
+      // Get page 2 if available
+      if (nextPageToken) {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        const pageUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=${nextPageToken}&key=${GOOGLE_API_KEY}`;
+        const pageData = await fetch(pageUrl).then(r=>r.json());
+        if (pageData.results) allResults = allResults.concat(pageData.results);
+      }
+
+      return allResults;
     }
 
     gridPoints.forEach(point => {
