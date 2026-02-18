@@ -6,7 +6,7 @@ function filterRestaurantsByTier(candidates) {
     'chopt', 'just salad', 'dos toros', 'sweetgreen', 'shake shack', 'chipotle',
     'dig', 'cava', 'five guys', 'mcdonald', 'starbucks', 'dunkin', 'panera',
     'subway', 'taco bell', 'kfc', 'wendy', 'popeyes', 'panda express',
-    'little caesars', 'domino', 'pizza hut', 'burger king', 'arbys'
+    'domino', 'pizza hut', 'burger king', 'arbys', 'white castle', 'sonic'
   ];
 
   const HARD_JUNK_TYPES = [
@@ -15,29 +15,29 @@ function filterRestaurantsByTier(candidates) {
   ];
 
   const NAME_KEYWORDS_EXCLUDE = [
-    'food truck', 'cart', 'truck', 'kiosk', 'deli'
+    'food truck', 'cart', 'truck', 'kiosk', 'deli', 'halal'
   ];
 
-  // Chain detection (hybrid approach)
+  // Comprehensive chain detection (hybrid approach)
   function isChain(place) {
     const nameLower = (place.name || '').toLowerCase();
     const types = Array.isArray(place.types) ? place.types : [];
     const price = place.price_level ?? null;
     const reviews = place.user_ratings_total ?? place.googleReviewCount ?? 0;
 
-    // 1) Known chain keyword list
+    // A) Known chain keyword list
     for (const chain of KNOWN_CHAINS) {
-      if (nameLower.includes(chain)) return true;
+      if (nameLower.includes(chain)) return { isChain: true, reason: `known_chain: ${chain}` };
     }
 
-    // 2) Heuristic chain detection (for unlisted chains)
+    // B) Heuristic chain detection (unlisted chains)
     if (price !== null && price <= 1 && reviews >= 150) {
       if (types.includes('meal_takeaway') || types.includes('fast_food_restaurant')) {
-        return true;
+        return { isChain: true, reason: 'heuristic_chain (low_price + high_reviews + takeaway/fast_food)' };
       }
     }
 
-    return false;
+    return { isChain: false, reason: null };
   }
 
   const elite = [];
@@ -50,22 +50,38 @@ function filterRestaurantsByTier(candidates) {
       const rating = place.googleRating ?? place.rating ?? 0;
       const nameLower = (place.name || '').toLowerCase();
       const types = Array.isArray(place.types) ? place.types : [];
+      const isMichelinListed = false; // Placeholder
       let excludeReason = null;
 
-      // Check hard junk (always exclude)
-      for (const junkType of HARD_JUNK_TYPES) {
-        if (types.includes(junkType)) { 
-          excludeReason = `hard_junk: ${junkType}`; 
-          break; 
+      // 1) Fake 5.0 prevention - stricter review thresholds
+      if (!isMichelinListed) {
+        if (rating >= 4.9 && reviews < 50) {
+          excludeReason = `fake_5.0_prevention (${rating}⭐ with only ${reviews} reviews, need 50+)`;
+        } else if (rating >= 4.6 && rating < 4.9 && reviews < 30) {
+          excludeReason = `low_review_count (${rating}⭐ with ${reviews} reviews, need 30+)`;
         }
       }
 
-      // Meal takeaway-only (unless also restaurant)
-      if (!excludeReason && types.includes('meal_takeaway') && !types.includes('restaurant')) {
-        excludeReason = 'meal_takeaway-only';
+      // 2) Check hard junk (food trucks, grocery, etc)
+      if (!excludeReason) {
+        for (const junkType of HARD_JUNK_TYPES) {
+          if (types.includes(junkType)) { 
+            excludeReason = `hard_junk: ${junkType}`; 
+            break; 
+          }
+        }
       }
 
-      // Name keyword exclusions (deli, cart, etc)
+      // 2) Street food / meal takeaway-only
+      if (!excludeReason) {
+        if (types.includes('street_food')) {
+          excludeReason = 'street_food';
+        } else if (types.includes('meal_takeaway') && !types.includes('restaurant')) {
+          excludeReason = 'meal_takeaway-only';
+        }
+      }
+
+      // 2) Name keyword exclusions (halal, cart, deli, etc)
       if (!excludeReason) {
         for (const kw of NAME_KEYWORDS_EXCLUDE) {
           if (nameLower.includes(kw)) { 
@@ -75,9 +91,12 @@ function filterRestaurantsByTier(candidates) {
         }
       }
 
-      // Global chain filter (both tiers)
-      if (!excludeReason && isChain(place)) {
-        excludeReason = 'chain_restaurant';
+      // 3) Global chain filter (both tiers)
+      if (!excludeReason) {
+        const chainCheck = isChain(place);
+        if (chainCheck.isChain) {
+          excludeReason = chainCheck.reason;
+        }
       }
 
       if (excludeReason) {
@@ -86,37 +105,17 @@ function filterRestaurantsByTier(candidates) {
           name: place.name, 
           rating, 
           reviews, 
+          types: types.join(', '),
           reason: excludeReason 
         });
         return;
       }
 
-      // ELITE (4.6+) - Strict filtering
+      // ELITE (4.6+) - Already passed review thresholds above
       if (rating >= 4.6) {
-        const isMichelinListed = false; // Placeholder for Michelin API
-        let passElite = false;
-
-        if (isMichelinListed) {
-          passElite = true;
-        } else if (reviews >= 30) {
-          passElite = true;
-        } else if (rating >= 4.8 && reviews >= 20) {
-          passElite = true;
-        }
-
-        if (passElite) {
-          elite.push(place);
-        } else {
-          excluded.push({ 
-            place_id: place.place_id, 
-            name: place.name, 
-            rating, 
-            reviews, 
-            reason: `elite_low_reviews (${reviews}, need 30+)` 
-          });
-        }
+        elite.push(place);
       }
-      // MORE OPTIONS (4.4-4.59) - Lighter filtering
+      // MORE OPTIONS (4.4-4.59) - Lighter review threshold
       else if (rating >= 4.4) {
         let passMoreOptions = false;
 
@@ -134,6 +133,7 @@ function filterRestaurantsByTier(candidates) {
             name: place.name, 
             rating, 
             reviews, 
+            types: types.join(', '),
             reason: `more_options_low_reviews (${reviews}, need 10+)` 
           });
         }
@@ -145,6 +145,7 @@ function filterRestaurantsByTier(candidates) {
           name: place.name, 
           rating, 
           reviews, 
+          types: types.join(', '),
           reason: 'rating_below_4.4' 
         });
       }
@@ -155,6 +156,7 @@ function filterRestaurantsByTier(candidates) {
         name: place.name,
         rating: 0,
         reviews: 0,
+        types: '',
         reason: `filter_error: ${err.message}`
       });
     }
@@ -409,9 +411,13 @@ exports.handler = async (event, context) => {
     console.log('Excluded:', tierExcluded.length);
     
     if (tierExcluded.length > 0) {
-      console.log('Excluded items:');
-      tierExcluded.slice(0, 10).forEach(item => {
-        console.log(`  - ${item.name} (${item.rating}⭐, ${item.reviews} reviews) - ${item.reason}`);
+      console.log('=== EXCLUDED ITEMS (first 15) ===');
+      tierExcluded.slice(0, 15).forEach(item => {
+        console.log(`  ${item.name}`);
+        console.log(`    Rating: ${item.rating}⭐ | Reviews: ${item.reviews}`);
+        console.log(`    Types: ${item.types || 'none'}`);
+        console.log(`    Reason: ${item.reason}`);
+        console.log('');
       });
     }
     console.log('===========================');
