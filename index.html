@@ -24,6 +24,8 @@
 
 <div style="margin-bottom:20px"><label>🍕 Cuisine</label><select id="cuisine"><option value="any">Any</option><option value="italian">Italian</option><option value="japanese">Japanese</option><option value="korean">Korean</option><option value="french">French</option><option value="american">American</option></select></div>
 
+<div style="margin-bottom:20px"><label style="display:flex;align-items:center;gap:10px;cursor:pointer"><input type="checkbox" id="broaderCoverage" style="width:auto;height:18px;cursor:pointer"><span>🌍 Broader coverage (searches wider area, may be slower)</span></label></div>
+
 <button class="btn" onclick="search()">🔍 Find Restaurants</button>
 </div>
 
@@ -88,6 +90,7 @@ async function search(){
 const location=document.getElementById('addressInput').value;
 const cuisine=document.getElementById('cuisine').value;
 const timeSlot=document.getElementById('timewindow').value;
+const broaderCoverage=document.getElementById('broaderCoverage').checked;
 state.qualityFilter=document.getElementById('quality').value;
 const openNow=(timeSlot=='prime'||timeSlot=='lunch');
 
@@ -99,7 +102,7 @@ try{
 const response=await fetch('/.netlify/functions/search-restaurants',{
 method:'POST',
 headers:{'Content-Type':'application/json'},
-body:JSON.stringify({location,radius:5000,cuisine:cuisine==='any'?undefined:cuisine,openNow})
+body:JSON.stringify({location,radius:5000,cuisine:cuisine==='any'?undefined:cuisine,openNow,broaderCoverage})
 });
 
 const data=await response.json();
