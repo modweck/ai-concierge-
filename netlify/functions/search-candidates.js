@@ -323,7 +323,7 @@ exports.handler = async (event, context) => {
     }
 
     const cacheKey = getCacheKey(location, 'all', 20);
-    const cachedResult = null; // TEMPORARY: Skip cache to force Michelin rebuild
+    const cachedResult = getFromCache(cacheKey);
     if (cachedResult) {
       timings.total_ms = Date.now() - t0;
       return stableResponse(
