@@ -146,6 +146,7 @@ exports.handler = async (event, context) => {
     });
 
     console.log('Returning', candidatesWithEstimates.length, 'candidates (NO rating filter)');
+    console.log('WALK MODE PRIORITY: Up to 150 enrichment for 30-min, 120 for 20-min, 80 for drive/transit');
 
     return {
       statusCode: 200,
