@@ -5,14 +5,16 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    const startTime = Date.now();
+    // ADAPTIVE DM BUDGET: Progressive enrichment based on filters
     const body = JSON.parse(event.body);
-    const { candidates, userLocation, transportMode } = body;
+    const { candidates, userLocation, transportMode, targetMinResults = 20, cuisineFilter = null, walkTimeLimit = null } = body;
     const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
-    console.log('=== STEP 2: ENRICH TIMES ===');
+    console.log('=== STEP 2: PROGRESSIVE ENRICHMENT ===');
     console.log('Received candidates:', candidates?.length);
     console.log('TransportMode:', transportMode);
+    console.log('Cuisine filter:', cuisineFilter || 'none');
+    console.log('Walk time limit:', walkTimeLimit || 'none');
 
     // Validation
     if (!candidates || !Array.isArray(candidates)) {
@@ -40,33 +42,31 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // PRE-RANK to reduce DM calls: Take top 40 by quality score
-    const MAX_DM_CANDIDATES = 40;
-    console.log('Pre-ranking candidates before DM...');
+    // ADAPTIVE DM BUDGET: Depends on filters
+    let maxDmBudget = 50; // Default: no cuisine filter
+    if (cuisineFilter) {
+      maxDmBudget = 150; // Cuisine selected: allow more DM calls to ensure coverage
+    }
     
-    // DETERMINISM: Sort by place_id first to ensure consistent order
-    const sorted = [...candidates].sort((a, b) => a.place_id.localeCompare(b.place_id));
-    
-    const ranked = sorted.map(c => ({
-      ...c,
-      qualityScore: (c.googleRating || 0) * 1000 + Math.log10((c.googleReviewCount || 1) + 1) * 100
-    })).sort((a, b) => {
-      // Sort by quality score DESC, then place_id ASC for determinism
-      if (b.qualityScore !== a.qualityScore) return b.qualityScore - a.qualityScore;
-      return a.place_id.localeCompare(b.place_id);
-    });
-    
-    const toEnrich = ranked.slice(0, MAX_DM_CANDIDATES);
-    console.log(`Reduced from ${candidates.length} to ${toEnrich.length} for DM enrichment`);
+    console.log(`DM Budget: ${maxDmBudget} destinations (cuisine filter: ${cuisineFilter ? 'yes' : 'no'})`);
 
     const { lat, lng } = userLocation;
     const origin = `${lat},${lng}`;
 
-    console.log('Enriching', toEnrich.length, 'candidates with Distance Matrix');
+    // DETERMINISTIC ORDERING: Sort by rating DESC, reviews DESC, place_id ASC
+    console.log('Sorting candidates deterministically...');
+    const sortedCandidates = [...candidates].sort((a, b) => {
+      if (b.googleRating !== a.googleRating) return b.googleRating - a.googleRating;
+      if (b.googleReviewCount !== a.googleReviewCount) return b.googleReviewCount - a.googleReviewCount;
+      return a.place_id.localeCompare(b.place_id);
+    });
+
+    console.log(`Progressive enrichment: Will enrich up to ${Math.min(sortedCandidates.length, maxDmBudget)} candidates in batches of 25`);
 
     const dmStartTime = Date.now();
     const batchSize = 25;
     const enriched = [];
+    let withinWalkCount = 0;
 
     const modeMap = {
       'walk': 'walking',
@@ -75,60 +75,80 @@ exports.handler = async (event, context) => {
     };
     const apiMode = modeMap[transportMode] || 'walking';
 
-    // Process batches in parallel
+    // Progressive enrichment: Process batches until we have enough results OR hit budget
+    const candidatesToEnrich = sortedCandidates.slice(0, maxDmBudget);
     const batches = [];
-    for (let i = 0; i < toEnrich.length; i += batchSize) {
-      batches.push(toEnrich.slice(i, i + batchSize));
+    for (let i = 0; i < candidatesToEnrich.length; i += batchSize) {
+      batches.push(candidatesToEnrich.slice(i, i + batchSize));
     }
 
-    console.log(`Processing ${batches.length} batches in parallel...`);
+    console.log(`Processing ${batches.length} batches progressively...`);
     
-    const batchPromises = batches.map(async (batch) => {
+    for (let batchIndex = 0; batchIndex < batches.length; batchIndex++) {
+      const batch = batches[batchIndex];
+      console.log(`Batch ${batchIndex + 1}/${batches.length}: Processing ${batch.length} candidates...`);
+      
       const destinations = batch.map(p => `${p.geometry.location.lat},${p.geometry.location.lng}`).join('|');
-      const modeData = await fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=${apiMode}&departure_time=now&key=${GOOGLE_API_KEY}`).then(r=>r.json());
+      
+      try {
+        const modeData = await fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=${apiMode}&departure_time=now&key=${GOOGLE_API_KEY}`).then(r=>r.json());
 
-      return batch.map((place, idx) => {
-        let walkMin = place.walkMinEstimate;
-        let driveMin = place.driveMinEstimate;
-        let transitMin = place.transitMinEstimate;
-        let distMiles = place.distanceMiles;
-        let walkSeconds = null;
-        let driveSeconds = null;
-        let transitSeconds = null;
+        const batchEnriched = batch.map((place, idx) => {
+          let walkMin = place.walkMinEstimate;
+          let driveMin = place.driveMinEstimate;
+          let transitMin = place.transitMinEstimate;
+          let distMiles = place.distanceMiles;
+          let walkSeconds = null;
+          let driveSeconds = null;
+          let transitSeconds = null;
 
-        if (modeData?.rows?.[0]?.elements?.[idx]?.status === 'OK') {
-          const realMin = Math.round(modeData.rows[0].elements[idx].duration.value / 60);
-          const realSeconds = modeData.rows[0].elements[idx].duration.value;
-          const realDist = Math.round((modeData.rows[0].elements[idx].distance.value / 1609.34) * 10) / 10;
-          
-          if (transportMode === 'walk') {
-            walkMin = realMin;
-            walkSeconds = realSeconds;
-            distMiles = realDist;
-          } else if (transportMode === 'drive') {
-            driveMin = realMin;
-            driveSeconds = realSeconds;
-          } else if (transportMode === 'transit') {
-            transitMin = realMin;
-            transitSeconds = realSeconds;
+          if (modeData?.rows?.[0]?.elements?.[idx]?.status === 'OK') {
+            const realMin = Math.round(modeData.rows[0].elements[idx].duration.value / 60);
+            const realSeconds = modeData.rows[0].elements[idx].duration.value;
+            const realDist = Math.round((modeData.rows[0].elements[idx].distance.value / 1609.34) * 10) / 10;
+            
+            if (transportMode === 'walk') {
+              walkMin = realMin;
+              walkSeconds = realSeconds;
+              distMiles = realDist;
+              
+              // Track how many are within walk limit
+              if (walkTimeLimit && walkMin <= walkTimeLimit) {
+                withinWalkCount++;
+              }
+            } else if (transportMode === 'drive') {
+              driveMin = realMin;
+              driveSeconds = realSeconds;
+            } else if (transportMode === 'transit') {
+              transitMin = realMin;
+              transitSeconds = realSeconds;
+            }
           }
+
+          return {
+            ...place,
+            distanceMiles: distMiles,
+            walkMinutes: walkMin,
+            driveMinutes: driveMin,
+            transitMinutes: transitMin,
+            walkDurationSeconds: walkSeconds,
+            driveDurationSeconds: driveSeconds,
+            transitDurationSeconds: transitSeconds
+          };
+        });
+
+        enriched.push(...batchEnriched);
+        
+        // Early stopping: If we have enough within-walk results, stop enriching
+        if (walkTimeLimit && withinWalkCount >= targetMinResults) {
+          console.log(`Early stop: Found ${withinWalkCount} within ${walkTimeLimit} min (target: ${targetMinResults})`);
+          break;
         }
-
-        return {
-          ...place,
-          distanceMiles: distMiles,
-          walkMinutes: walkMin,
-          driveMinutes: driveMin,
-          transitMinutes: transitMin,
-          walkDurationSeconds: walkSeconds,
-          driveDurationSeconds: driveSeconds,
-          transitDurationSeconds: transitSeconds
-        };
-      });
-    });
-
-    const batchResults = await Promise.all(batchPromises);
-    batchResults.forEach(batch => enriched.push(...batch));
+      } catch (error) {
+        console.error(`Batch ${batchIndex + 1} failed:`, error);
+        // Continue with next batch
+      }
+    }
 
     const dmTime = Date.now() - dmStartTime;
     const totalTime = Date.now() - startTime;
