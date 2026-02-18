@@ -1,4 +1,4 @@
-// Comprehensive search backend - gets close to "all restaurants" matching filters
+// Multi-query Text Search for better coverage
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) };
@@ -25,96 +25,51 @@ exports.handler = async (event, context) => {
     const { lat, lng } = geocodeData.results[0].geometry.location;
     const confirmedAddress = geocodeData.results[0].formatted_address;
 
-    // Helper: Fetch all pages from a single search location using TEXT SEARCH
-    async function fetchAllPages(searchLat, searchLng) {
-      // Use Text Search instead of Nearby Search - allows us to request "highly rated"
-      const query = cuisine 
-        ? `highly rated ${cuisine} restaurants` 
-        : 'highly rated restaurants';
+    // STEP 1: Run multiple text search queries for comprehensive coverage
+    const baseQueries = [
+      'top rated restaurants',
+      'best restaurants',
+      'highly rated restaurants',
+      'popular restaurants',
+      '4.5 star restaurants'
+    ];
+    
+    if (cuisine) {
+      baseQueries.push(`top rated ${cuisine} restaurants`);
+      baseQueries.push(`best ${cuisine} restaurants`);
+    }
+    
+    console.log('Running', baseQueries.length, 'text search queries');
+    
+    const allCandidates = [];
+    const seenIds = new Set();
+    
+    for (const query of baseQueries) {
+      let searchUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(query)}&location=${lat},${lng}&radius=3000&key=${GOOGLE_API_KEY}`;
+      if (openNow) searchUrl += `&opennow=true`;
       
-      let placesUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(query)}&location=${searchLat},${searchLng}&radius=2400&key=${GOOGLE_API_KEY}`;
-      if (openNow) placesUrl += `&opennow=true`;
-
-      const response = await fetch(placesUrl);
+      const response = await fetch(searchUrl);
       const data = await response.json();
       
-      if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') return [];
-      
-      let allResults = data.results || [];
-      let nextPageToken = data.next_page_token;
-
-      // Get all pages (up to 3)
-      let pageCount = 1;
-      while (nextPageToken && pageCount < 3) {
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        const pageResponse = await fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=${nextPageToken}&key=${GOOGLE_API_KEY}`);
-        const pageData = await pageResponse.json();
-        
-        if (pageData.results) allResults = allResults.concat(pageData.results);
-        nextPageToken = pageData.next_page_token;
-        pageCount++;
+      if (data.status === 'OK' && data.results) {
+        data.results.forEach(place => {
+          if (!seenIds.has(place.place_id)) {
+            seenIds.add(place.place_id);
+            allCandidates.push(place);
+          }
+        });
       }
-
-      return allResults;
     }
-
-    // STEP 1: Build comprehensive candidate pool with grid search
-    const offsetMiles = 1.0; // Increased from 0.7 to 1.0 miles
-    const offsetDegrees = offsetMiles / 69;
     
-    console.log('Grid search parameters: offset =', offsetMiles, 'miles, radius = 2400m per point');
-    
-    // 13-point grid for better coverage
-    const searchGrid = [
-      { lat, lng }, // Center
-      { lat: lat + offsetDegrees, lng }, // North
-      { lat: lat - offsetDegrees, lng }, // South
-      { lat, lng: lng + offsetDegrees }, // East
-      { lat, lng: lng - offsetDegrees }, // West
-      { lat: lat + offsetDegrees, lng: lng + offsetDegrees }, // NE
-      { lat: lat + offsetDegrees, lng: lng - offsetDegrees }, // NW
-      { lat: lat - offsetDegrees, lng: lng + offsetDegrees }, // SE
-      { lat: lat - offsetDegrees, lng: lng - offsetDegrees }, // SW
-      // Additional intermediate points
-      { lat: lat + (offsetDegrees * 0.5), lng }, // N-mid
-      { lat: lat - (offsetDegrees * 0.5), lng }, // S-mid
-      { lat, lng: lng + (offsetDegrees * 0.5) }, // E-mid
-      { lat, lng: lng - (offsetDegrees * 0.5) }  // W-mid
-    ];
+    console.log('Found', allCandidates.length, 'unique candidates from text search');
 
-    console.log('Starting grid search with', searchGrid.length, 'locations');
-    const gridSearchPromises = searchGrid.map(loc => fetchAllPages(loc.lat, loc.lng));
-    const gridResults = await Promise.all(gridSearchPromises);
-
-    // Deduplicate by place_id
-    const seenIds = new Set();
-    const allCandidates = [];
-    gridResults.forEach(results => {
-      results.forEach(place => {
-        if (!seenIds.has(place.place_id)) {
-          seenIds.add(place.place_id);
-          allCandidates.push(place);
-        }
-      });
-    });
-
-    console.log('Found', allCandidates.length, 'unique candidates');
-
-    // STEP 2: Calculate real distance/times for ALL candidates (in batches of 25)
+    // STEP 2: Calculate distances (batches of 25)
     const origin = `${lat},${lng}`;
     const batchSize = 25;
-    const batches = [];
-    
-    for (let i = 0; i < allCandidates.length; i += batchSize) {
-      batches.push(allCandidates.slice(i, i + batchSize));
-    }
-
-    console.log('Processing', batches.length, 'batches for distance calculation');
-
     const enrichedCandidates = [];
     
-    for (let batchIdx = 0; batchIdx < batches.length; batchIdx++) {
-      const batch = batches[batchIdx];
+    for (let i = 0; i < allCandidates.length; i += batchSize) {
+      const batch = allCandidates.slice(i, i + batchSize);
       const destinations = batch.map(p => `${p.geometry.location.lat},${p.geometry.location.lng}`).join('|');
       
       const [walkData, driveData, transitData] = await Promise.all([
@@ -137,7 +92,7 @@ exports.handler = async (event, context) => {
           transitMin = Math.round(transitData.rows[0].elements[idx].duration.value / 60);
         }
 
-        // Fallback distance calculation
+        // Fallback distance
         if (!distMiles) {
           const R = 3959;
           const dLat = (place.geometry.location.lat - lat) * Math.PI / 180;
@@ -171,9 +126,7 @@ exports.handler = async (event, context) => {
       });
     }
 
-    console.log('Enriched', enrichedCandidates.length, 'candidates with distance data');
-
-    // STEP 3: Hard filter by travel time based on transport mode
+    // STEP 3: Filter by travel time
     let timeFiltered = enrichedCandidates;
     
     if (transportMode === 'walk' && maxWalkMinutes) {
@@ -186,7 +139,7 @@ exports.handler = async (event, context) => {
 
     console.log('After time filter:', timeFiltered.length, 'restaurants');
 
-    // DIAGNOSTIC LOGGING - Check what we have before quality filter
+    // DIAGNOSTIC
     const rating46Plus = timeFiltered.filter(r => r.googleRating >= 4.6).length;
     const rating46Plus50Reviews = timeFiltered.filter(r => r.googleRating >= 4.6 && r.googleReviewCount >= 50).length;
     const rating46Plus25Reviews = timeFiltered.filter(r => r.googleRating >= 4.6 && r.googleReviewCount >= 25).length;
@@ -208,17 +161,13 @@ exports.handler = async (event, context) => {
 
     console.log('After quality filter:', finalResults.length, 'restaurants');
 
-    // Sort by rating desc
+    // Sort by rating
     finalResults.sort((a, b) => b.googleRating - a.googleRating);
 
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
-        restaurants: finalResults,
-        confirmedAddress,
-        totalFound: finalResults.length
-      })
+      body: JSON.stringify({ restaurants: finalResults, confirmedAddress, totalFound: finalResults.length })
     };
 
   } catch (error) {
