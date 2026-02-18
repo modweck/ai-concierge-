@@ -492,9 +492,9 @@ exports.handler = async (event, context) => {
       };
     });
 
-    // Filter: within 1 mile
-    const within1Mile = candidatesWithDistance.filter(r => r.distanceMiles <= 1.0);
-    console.log('Within 1 mile:', within1Mile.length);
+    // Filter: within 1.3 miles (increased from 1.0 for better 20-min walk coverage)
+    const within1Mile = candidatesWithDistance.filter(r => r.distanceMiles <= 1.3);
+    console.log('Within 1.3 miles:', within1Mile.length);
     
     // DEBUG: Log sample candidates before filtering
     if (within1Mile.length > 0) {
@@ -509,7 +509,7 @@ exports.handler = async (event, context) => {
     const { elite, moreOptions, excluded: tierExcluded } = filterRestaurantsByTier(within1Mile);
     
     console.log('=== TWO-TIER FILTERING ===');
-    console.log('Within 1 mile:', within1Mile.length);
+    console.log('Within 1.3 miles:', within1Mile.length);
     console.log('Elite (4.6+):', elite.length);
     console.log('More Options (4.4+):', moreOptions.length);
     console.log('Excluded:', tierExcluded.length);
