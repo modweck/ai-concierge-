@@ -187,7 +187,10 @@ headers:{'Content-Type':'application/json'},
 body:JSON.stringify({
 candidates:toEnrich,
 userLocation:step1Data.userLocation,
-transportMode:state.transport
+transportMode:state.transport,
+targetMinResults: 20,
+cuisineFilter: cuisine === 'any' ? null : cuisine,
+walkTimeLimit: maxWalkMinutes
 }),
 signal:searchAbortController.signal
 });
