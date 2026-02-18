@@ -107,6 +107,8 @@ exports.handler = async (event, context) => {
       };
     });
 
+    console.log('totalCandidatesBeforeRating:', candidatesWithEstimates.length);
+
     // Apply rating filter
     let filtered = candidatesWithEstimates;
     if (qualityFilter === 'five_star') {
@@ -117,7 +119,7 @@ exports.handler = async (event, context) => {
       filtered = filtered.filter(r => r.googleRating >= 4.4 && r.googleRating < 4.6);
     }
 
-    console.log('After rating filter:', filtered.length);
+    console.log('afterRating:', filtered.length);
 
     return {
       statusCode: 200,
