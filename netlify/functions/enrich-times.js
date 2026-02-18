@@ -43,10 +43,18 @@ exports.handler = async (event, context) => {
     // PRE-RANK to reduce DM calls: Take top 40 by quality score
     const MAX_DM_CANDIDATES = 40;
     console.log('Pre-ranking candidates before DM...');
-    const ranked = candidates.map(c => ({
+    
+    // DETERMINISM: Sort by place_id first to ensure consistent order
+    const sorted = [...candidates].sort((a, b) => a.place_id.localeCompare(b.place_id));
+    
+    const ranked = sorted.map(c => ({
       ...c,
       qualityScore: (c.googleRating || 0) * 1000 + Math.log10((c.googleReviewCount || 1) + 1) * 100
-    })).sort((a, b) => b.qualityScore - a.qualityScore);
+    })).sort((a, b) => {
+      // Sort by quality score DESC, then place_id ASC for determinism
+      if (b.qualityScore !== a.qualityScore) return b.qualityScore - a.qualityScore;
+      return a.place_id.localeCompare(b.place_id);
+    });
     
     const toEnrich = ranked.slice(0, MAX_DM_CANDIDATES);
     console.log(`Reduced from ${candidates.length} to ${toEnrich.length} for DM enrichment`);
