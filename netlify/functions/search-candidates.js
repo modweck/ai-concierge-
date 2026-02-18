@@ -15,7 +15,12 @@ function filterRestaurantsByTier(candidates) {
   ];
 
   const NAME_KEYWORDS_EXCLUDE = [
-    'food truck', 'cart', 'truck', 'kiosk', 'deli', 'halal'
+    'food truck', 'cart', 'truck', 'kiosk', 'deli'
+  ];
+
+  // Specific fast-casual / takeout-grill exclusions
+  const FAST_CASUAL_NAMES = [
+    'wrap-n-run', 'dumpling shop'
   ];
 
   // Comprehensive chain detection (hybrid approach)
@@ -81,13 +86,38 @@ function filterRestaurantsByTier(candidates) {
         }
       }
 
-      // 2) Name keyword exclusions (halal, cart, deli, etc)
+      // 2) Halal carts/stands (keep real halal restaurants with 200+ reviews)
+      if (!excludeReason) {
+        if (nameLower.includes('halal') && reviews < 200) {
+          excludeReason = 'halal_cart (low_reviews)';
+        }
+      }
+
+      // 2) Name keyword exclusions (cart, deli, etc - not halal, handled above)
       if (!excludeReason) {
         for (const kw of NAME_KEYWORDS_EXCLUDE) {
           if (nameLower.includes(kw)) { 
             excludeReason = `name_keyword: "${kw}"`; 
             break; 
           }
+        }
+      }
+
+      // 3) Fast-casual / takeout-grill specific names
+      if (!excludeReason) {
+        for (const name of FAST_CASUAL_NAMES) {
+          if (nameLower.includes(name)) {
+            excludeReason = `fast_casual_name: "${name}"`;
+            break;
+          }
+        }
+      }
+
+      // 3) Takeout-grill heuristic (meal_takeaway + low price)
+      if (!excludeReason) {
+        const price = place.price_level ?? null;
+        if (price !== null && price <= 1 && types.includes('meal_takeaway')) {
+          excludeReason = 'takeout_grill (low_price + meal_takeaway)';
         }
       }
 
