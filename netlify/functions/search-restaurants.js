@@ -25,8 +25,8 @@ exports.handler = async (event, context) => {
     const { lat, lng } = geocodeData.results[0].geometry.location;
     const confirmedAddress = geocodeData.results[0].formatted_address;
 
-    // Search with rankby=prominence to get best restaurants
-    let placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=5000&type=restaurant&rankby=prominence&key=${GOOGLE_API_KEY}`;
+    // Search - remove rankby, just use radius
+    let placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=5000&type=restaurant&key=${GOOGLE_API_KEY}`;
     if (cuisine) placesUrl += `&keyword=${encodeURIComponent(cuisine)}`;
     if (openNow) placesUrl += `&opennow=true`;
 
@@ -45,15 +45,23 @@ exports.handler = async (event, context) => {
       const page2Response = await fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=${placesData.next_page_token}&key=${GOOGLE_API_KEY}`);
       const page2Data = await page2Response.json();
       if (page2Data.results) allRestaurants = allRestaurants.concat(page2Data.results);
+      
+      // Get page 3
+      if (page2Data.next_page_token) {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        const page3Response = await fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=${page2Data.next_page_token}&key=${GOOGLE_API_KEY}`);
+        const page3Data = await page3Response.json();
+        if (page3Data.results) allRestaurants = allRestaurants.concat(page3Data.results);
+      }
     }
 
-    // Calculate distances for ALL restaurants (in batches of 25)
-    const batch1 = allRestaurants.slice(0, 25);
-    const batch2 = allRestaurants.slice(25, 50);
+    // Calculate distances for first 30 only (to save API calls)
+    const first30 = allRestaurants.slice(0, 30);
     
     const origin = `${lat},${lng}`;
     
-    // Process batch 1
+    // Process first 25
+    const batch1 = first30.slice(0, 25);
     const destinations1 = batch1.map(p => `${p.geometry.location.lat},${p.geometry.location.lng}`).join('|');
     const [walk1, drive1, transit1] = await Promise.all([
       fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations1}&mode=walking&key=${GOOGLE_API_KEY}`).then(r=>r.json()),
@@ -61,8 +69,9 @@ exports.handler = async (event, context) => {
       fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations1}&mode=transit&departure_time=now&key=${GOOGLE_API_KEY}`).then(r=>r.json())
     ]);
 
-    // Process batch 2 if exists
+    // Process remaining 5 (26-30)
     let walk2, drive2, transit2;
+    const batch2 = first30.slice(25, 30);
     if (batch2.length > 0) {
       const destinations2 = batch2.map(p => `${p.geometry.location.lat},${p.geometry.location.lng}`).join('|');
       [walk2, drive2, transit2] = await Promise.all([
