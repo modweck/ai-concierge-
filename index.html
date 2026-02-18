@@ -24,8 +24,6 @@
 
 <div style="margin-bottom:20px"><label>🍕 Cuisine</label><select id="cuisine"><option value="any">Any</option><option value="italian">Italian</option><option value="japanese">Japanese</option><option value="korean">Korean</option><option value="french">French</option><option value="american">American</option></select></div>
 
-<div style="margin-bottom:20px"><label style="display:flex;align-items:center;gap:10px;cursor:pointer"><input type="checkbox" id="broaderCoverage" style="width:auto;height:18px;cursor:pointer"><span>🌍 Broader coverage (searches wider area, may be slower)</span></label></div>
-
 <button class="btn" onclick="search()">🔍 Find Restaurants</button>
 </div>
 
@@ -90,25 +88,62 @@ async function search(){
 const location=document.getElementById('addressInput').value;
 const cuisine=document.getElementById('cuisine').value;
 const timeSlot=document.getElementById('timewindow').value;
-const broaderCoverage=document.getElementById('broaderCoverage').checked;
 state.qualityFilter=document.getElementById('quality').value;
 const openNow=(timeSlot=='prime'||timeSlot=='lunch');
 
+// Get max times based on transport mode
+let maxWalkMinutes = null;
+let maxDriveMinutes = null;
+let maxTransitMinutes = null;
+
+if(state.transport==='walk'){
+maxWalkMinutes = parseInt(document.getElementById('walkTime').value);
+}else if(state.transport==='drive'){
+maxDriveMinutes = parseInt(document.getElementById('driveTime').value);
+}else if(state.transport==='transit'){
+maxTransitMinutes = parseInt(document.getElementById('transitTime').value);
+}
+
 document.getElementById('search').classList.add('hidden');
 document.getElementById('results').classList.remove('hidden');
-document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">🔍 Searching...</div>';
+document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">🔍 Searching comprehensively...</div>';
 
 try{
 const response=await fetch('/.netlify/functions/search-restaurants',{
 method:'POST',
 headers:{'Content-Type':'application/json'},
-body:JSON.stringify({location,radius:5000,cuisine:cuisine==='any'?undefined:cuisine,openNow,broaderCoverage})
+body:JSON.stringify({
+location,
+cuisine:cuisine==='any'?undefined:cuisine,
+openNow,
+maxWalkMinutes,
+maxDriveMinutes,
+maxTransitMinutes,
+transportMode:state.transport,
+qualityFilter:state.qualityFilter
+})
 });
 
 const data=await response.json();
-console.log('Got',data.restaurants?.length,'restaurants');
+
+// Display total found message
+let transportDesc = '';
+if(state.transport==='walk')transportDesc = `${maxWalkMinutes}-minute walk`;
+else if(state.transport==='drive')transportDesc = `${maxDriveMinutes}-minute drive`;
+else if(state.transport==='transit')transportDesc = `${maxTransitMinutes}-minute transit`;
+else transportDesc = 'your area';
+
+const totalFoundMsg = data.totalFound 
+  ? `Found ${data.totalFound} restaurant${data.totalFound !== 1 ? 's' : ''} matching your filters within a ${transportDesc}.`
+  : '';
+
 if(data.confirmedAddress){
-document.getElementById('warnings').innerHTML=`<div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 ${data.confirmedAddress}</div>`;
+document.getElementById('warnings').innerHTML=`
+<div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
+📍 ${data.confirmedAddress}
+</div>
+${totalFoundMsg ? `<div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:600">${totalFoundMsg}</div>` : ''}
+`;
 }
 allRestaurants=data.restaurants||[];
 sortResults();
@@ -120,7 +155,6 @@ document.getElementById('list').innerHTML='<div style="text-align:center;padding
 
 function sortResults(){
 let filtered=filterByQuality(allRestaurants);
-console.log('Filtered to',filtered.length,'from',allRestaurants.length);
 const sortBy=document.getElementById('sortBy').value;
 let sorted=[...filtered];
 
