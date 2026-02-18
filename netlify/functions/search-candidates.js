@@ -27,10 +27,10 @@ exports.handler = async (event, context) => {
     const { lat, lng } = geocodeData.results[0].geometry.location;
     const confirmedAddress = geocodeData.results[0].formatted_address;
 
-    // Normalize coordinates to 4 decimal places (~11 meters precision)
-    // This ensures same location = same grid, even with GPS drift
-    const normalizedLat = Math.round(lat * 10000) / 10000;
-    const normalizedLng = Math.round(lng * 10000) / 10000;
+    // Normalize coordinates to 3 decimal places (~111 meters precision)
+    // This ensures nearby locations snap to same grid (prevents 20m differences from creating new grids)
+    const normalizedLat = Math.round(lat * 1000) / 1000;
+    const normalizedLng = Math.round(lng * 1000) / 1000;
     
     console.log('=== COORDINATE DEBUG ===');
     console.log('1) RAW ORIGIN:', { lat, lng });
