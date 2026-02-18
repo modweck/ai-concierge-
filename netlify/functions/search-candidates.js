@@ -1,4 +1,4 @@
-// Step 1: Fast candidate search with estimated times (<8s)
+// Step 1: Ultra-fast candidate search - NO pagination, parallel fetches (<5s)
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) };
@@ -13,8 +13,7 @@ exports.handler = async (event, context) => {
       return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'API key not configured' }) };
     }
 
-    console.log('=== STEP 1: CANDIDATE SEARCH START ===');
-    console.log('Location:', location);
+    console.log('=== STEP 1: FAST CANDIDATE SEARCH ===');
 
     // Geocode
     const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${GOOGLE_API_KEY}`;
@@ -28,27 +27,25 @@ exports.handler = async (event, context) => {
     const { lat, lng } = geocodeData.results[0].geometry.location;
     const confirmedAddress = geocodeData.results[0].formatted_address;
 
-    // 9-point grid for maximum coverage
+    // 9-point grid
     const offsetMiles = 0.8;
     const offsetDegrees = offsetMiles / 69;
     const searchRadius = 2000;
     
     const gridPoints = [
-      { lat, lng, label: 'Center' },
-      { lat: lat + offsetDegrees, lng, label: 'North' },
-      { lat: lat - offsetDegrees, lng, label: 'South' },
-      { lat, lng: lng + offsetDegrees, label: 'East' },
-      { lat, lng: lng - offsetDegrees, label: 'West' },
-      { lat: lat + offsetDegrees, lng: lng + offsetDegrees, label: 'NE' },
-      { lat: lat + offsetDegrees, lng: lng - offsetDegrees, label: 'NW' },
-      { lat: lat - offsetDegrees, lng: lng + offsetDegrees, label: 'SE' },
-      { lat: lat - offsetDegrees, lng: lng - offsetDegrees, label: 'SW' }
+      { lat, lng },
+      { lat: lat + offsetDegrees, lng },
+      { lat: lat - offsetDegrees, lng },
+      { lat, lng: lng + offsetDegrees },
+      { lat, lng: lng - offsetDegrees },
+      { lat: lat + offsetDegrees, lng: lng + offsetDegrees },
+      { lat: lat + offsetDegrees, lng: lng - offsetDegrees },
+      { lat: lat - offsetDegrees, lng: lng + offsetDegrees },
+      { lat: lat - offsetDegrees, lng: lng - offsetDegrees }
     ];
 
-    console.log('9-point grid for maximum coverage');
-
-    // Fetch with pagination
-    async function fetchNearby(searchLat, searchLng, label) {
+    // Fetch ONLY first page from each grid point (NO pagination)
+    async function fetchFirstPage(searchLat, searchLng) {
       let url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=${searchRadius}&type=restaurant&key=${GOOGLE_API_KEY}`;
       if (cuisine) url += `&keyword=${encodeURIComponent(cuisine)}`;
       if (openNow) url += `&opennow=true`;
@@ -56,43 +53,31 @@ exports.handler = async (event, context) => {
       const response = await fetch(url);
       const data = await response.json();
       if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') return [];
-      
-      let allResults = data.results || [];
-      let nextPageToken = data.next_page_token;
-      let pageCount = 1;
-
-      while (nextPageToken && pageCount < 3) {
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        const pageUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=${nextPageToken}&key=${GOOGLE_API_KEY}`;
-        const pageData = await fetch(pageUrl).then(r=>r.json());
-        if (pageData.results) allResults = allResults.concat(pageData.results);
-        nextPageToken = pageData.next_page_token;
-        pageCount++;
-      }
-
-      console.log(`${label}: ${allResults.length} results`);
-      return allResults;
+      return data.results || [];
     }
 
-    const allCandidates = [];
-    const seenIds = new Set();
+    // Parallel fetch all grid points
+    console.log('Fetching 9 grid points in parallel (first page only)');
+    const gridFetches = gridPoints.map(point => fetchFirstPage(point.lat, point.lng));
+    const gridResults = await Promise.all(gridFetches);
 
-    // Fetch from all grid points
-    for (const point of gridPoints) {
-      const results = await fetchNearby(point.lat, point.lng, point.label);
+    // Dedupe
+    const seenIds = new Set();
+    const allCandidates = [];
+    gridResults.forEach(results => {
       results.forEach(place => {
         if (!seenIds.has(place.place_id)) {
           seenIds.add(place.place_id);
           allCandidates.push(place);
         }
       });
-    }
+    });
 
-    console.log('Total candidates:', allCandidates.length);
+    console.log('Total unique candidates:', allCandidates.length);
 
     // Calculate straight-line distance and estimate times
     const candidatesWithEstimates = allCandidates.map(place => {
-      const R = 3959; // miles
+      const R = 3959;
       const dLat = (place.geometry.location.lat - lat) * Math.PI / 180;
       const dLon = (place.geometry.location.lng - lng) * Math.PI / 180;
       const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
@@ -101,10 +86,9 @@ exports.handler = async (event, context) => {
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
       const distMiles = R * c;
       
-      // Estimate times (conservative)
-      const walkMinEstimate = Math.round(distMiles * 20); // 3 mph
-      const driveMinEstimate = Math.round(distMiles * 4); // 15 mph city average
-      const transitMinEstimate = Math.round(distMiles * 6); // 10 mph with stops
+      const walkMinEstimate = Math.round(distMiles * 20);
+      const driveMinEstimate = Math.round(distMiles * 4);
+      const transitMinEstimate = Math.round(distMiles * 6);
 
       return {
         place_id: place.place_id,
@@ -119,8 +103,7 @@ exports.handler = async (event, context) => {
         distanceMiles: Math.round(distMiles * 10) / 10,
         walkMinEstimate,
         driveMinEstimate,
-        transitMinEstimate,
-        needsEnrichment: true
+        transitMinEstimate
       };
     });
 
@@ -135,7 +118,6 @@ exports.handler = async (event, context) => {
     }
 
     console.log('After rating filter:', filtered.length);
-    console.log('=== STEP 1 COMPLETE ===');
 
     return {
       statusCode: 200,
