@@ -28,7 +28,7 @@ exports.handler = async (event, context) => {
     // Helper: Fetch all pages from a single search location
     async function fetchAllPages(searchLat, searchLng) {
       let placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=1600&type=restaurant&key=${GOOGLE_API_KEY}`;
-      // DO NOT pass cuisine to Google - we'll filter after getting all results
+      if (cuisine) placesUrl += `&keyword=${encodeURIComponent(cuisine)}`;
       if (openNow) placesUrl += `&opennow=true`;
 
       const response = await fetch(placesUrl);
@@ -187,18 +187,6 @@ exports.handler = async (event, context) => {
     }
 
     console.log('After quality filter:', finalResults.length, 'restaurants');
-
-    // STEP 5: Apply cuisine filter (after getting full pool)
-    if (cuisine) {
-      const cuisineLower = cuisine.toLowerCase();
-      finalResults = finalResults.filter(r => {
-        // Check if cuisine keyword appears in name or vicinity
-        const name = (r.name || '').toLowerCase();
-        const vicinity = (r.vicinity || '').toLowerCase();
-        return name.includes(cuisineLower) || vicinity.includes(cuisineLower);
-      });
-      console.log('After cuisine filter:', finalResults.length, 'restaurants');
-    }
 
     // Sort by rating desc
     finalResults.sort((a, b) => b.googleRating - a.googleRating);
