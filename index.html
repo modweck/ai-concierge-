@@ -172,9 +172,9 @@ sortResults();
 let enrichLimit = 80; // Default for drive/transit
 if(state.transport==='walk'){
   if(maxWalkMinutes >= 30){
-    enrichLimit = 150; // 30-min walk gets more coverage
+    enrichLimit = 100; // 30-min walk
   } else if(maxWalkMinutes >= 20){
-    enrichLimit = 120; // 20-min walk
+    enrichLimit = 60; // 20-min walk (optimized)
   }
 }
 
