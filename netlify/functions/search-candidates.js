@@ -27,6 +27,19 @@ exports.handler = async (event, context) => {
     const { lat, lng } = geocodeData.results[0].geometry.location;
     const confirmedAddress = geocodeData.results[0].formatted_address;
 
+    // Normalize coordinates to 4 decimal places (~11 meters precision)
+    // This ensures same location = same grid, even with GPS drift
+    const normalizedLat = Math.round(lat * 10000) / 10000;
+    const normalizedLng = Math.round(lng * 10000) / 10000;
+    
+    console.log('Raw coordinates:', lat, lng);
+    console.log('Normalized coordinates:', normalizedLat, normalizedLng);
+    console.log('Grid will be deterministic based on normalized coords');
+
+    // Use normalized coords for grid generation
+    const gridLat = normalizedLat;
+    const gridLng = normalizedLng;
+
     // Generate fixed 7-point grid within 1 mile (hexagonal pattern + center)
     // 1 mile = 1609 meters, we use 600m radius per node
     const gridRadius = 600; // meters per search node
@@ -34,13 +47,13 @@ exports.handler = async (event, context) => {
     const offsetDegrees = offsetMiles / 69;
     
     const gridPoints = [
-      { lat, lng, label: 'Center' },
-      { lat: lat + offsetDegrees, lng, label: 'North' },
-      { lat: lat - offsetDegrees, lng, label: 'South' },
-      { lat, lng: lng + offsetDegrees, label: 'East' },
-      { lat, lng: lng - offsetDegrees, label: 'West' },
-      { lat: lat + (offsetDegrees * 0.5), lng: lng + (offsetDegrees * 0.866), label: 'NE' },
-      { lat: lat - (offsetDegrees * 0.5), lng: lng - (offsetDegrees * 0.866), label: 'SW' }
+      { lat: gridLat, lng: gridLng, label: 'Center' },
+      { lat: gridLat + offsetDegrees, lng: gridLng, label: 'North' },
+      { lat: gridLat - offsetDegrees, lng: gridLng, label: 'South' },
+      { lat: gridLat, lng: gridLng + offsetDegrees, label: 'East' },
+      { lat: gridLat, lng: gridLng - offsetDegrees, label: 'West' },
+      { lat: gridLat + (offsetDegrees * 0.5), lng: gridLng + (offsetDegrees * 0.866), label: 'NE' },
+      { lat: gridLat - (offsetDegrees * 0.5), lng: gridLng - (offsetDegrees * 0.866), label: 'SW' }
     ];
 
     console.log('Grid: 7 fixed points, 600m radius per node');
@@ -124,13 +137,13 @@ exports.handler = async (event, context) => {
     console.log('Total raw results:', totalRaw);
     console.log('Unique place_ids:', allCandidates.length);
 
-    // Calculate straight-line distance for sorting
+    // Calculate straight-line distance for sorting (using normalized origin)
     const candidatesWithDistance = allCandidates.map(place => {
       const R = 3959; // miles
-      const dLat = (place.geometry.location.lat - lat) * Math.PI / 180;
-      const dLon = (place.geometry.location.lng - lng) * Math.PI / 180;
+      const dLat = (place.geometry.location.lat - gridLat) * Math.PI / 180;
+      const dLon = (place.geometry.location.lng - gridLng) * Math.PI / 180;
       const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.cos(lat * Math.PI / 180) * Math.cos(place.geometry.location.lat * Math.PI / 180) *
+                Math.cos(gridLat * Math.PI / 180) * Math.cos(place.geometry.location.lat * Math.PI / 180) *
                 Math.sin(dLon/2) * Math.sin(dLon/2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
       const distMiles = R * c;
@@ -172,12 +185,14 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({
         candidates: within1Mile,
         confirmedAddress,
-        userLocation: { lat, lng },
+        userLocation: { lat: gridLat, lng: gridLng }, // Use normalized coords
         totalCandidates: within1Mile.length,
         stats: {
           totalRaw,
           uniquePlaceIds: allCandidates.length,
-          within1Mile: within1Mile.length
+          within1Mile: within1Mile.length,
+          normalizedCoords: { lat: gridLat, lng: gridLng },
+          rawCoords: { lat, lng }
         }
       })
     };
