@@ -10,7 +10,17 @@ exports.handler = async (event, context) => {
     const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
     console.log('=== STEP 2: ENRICH TIMES ===');
+    console.log('Received candidates:', candidates?.length);
     console.log('Mode:', transportMode);
+    console.log('UserLocation:', userLocation);
+
+    if (!candidates || !Array.isArray(candidates)) {
+      throw new Error('Invalid candidates array');
+    }
+
+    if (!userLocation || !userLocation.lat || !userLocation.lng) {
+      throw new Error('Invalid userLocation');
+    }
 
     const { lat, lng } = userLocation;
     const origin = `${lat},${lng}`;
