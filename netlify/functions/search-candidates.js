@@ -1,65 +1,51 @@
 // Deterministic 1-mile grid coverage with full pagination
-// Elite restaurant filtering - Curated & Premium
-// Philosophy: Quality over quantity. Different neighborhoods = different result counts.
-function filterEliteRestaurants(candidates) {
-  // Note: Fast-casual chains NOT auto-excluded (user may want them)
-  // Only exclude obvious non-destinations: food trucks, delis, grocery, carts
+// Two-tier filtering: Elite (4.6+) and More Options (4.4+)
+function filterRestaurantsByTier(candidates) {
+  const FAST_CASUAL_CHAINS = [
+    'dos toros', 'chopt', 'just salad', 'sweetgreen', 'dig inn', 'cava', 
+    'chipotle', 'panera', 'pret a manger', 'au bon pain', 'shake shack'
+  ];
 
-  const EXCLUDED_TYPES = [
+  const HARD_JUNK_TYPES = [
     'food_truck', 'convenience_store', 'grocery_or_supermarket', 
     'market', 'vending_machine', 'store'
   ];
 
   const NAME_KEYWORDS_EXCLUDE = [
-    'food truck', 'cart', 'truck', 'kiosk', 'market', 'halal', 'deli'
+    'food truck', 'cart', 'truck', 'kiosk', 'deli'
   ];
 
-  const filtered = [];
+  const elite = [];
+  const moreOptions = [];
   const excluded = [];
 
   candidates.forEach(place => {
-    let excludeReason = null;
     const reviews = place.user_ratings_total || place.googleReviewCount || 0;
     const rating = place.googleRating || place.rating || 0;
-    const priceLevel = place.price_level || 0;
-    
-    // 1) Minimum review threshold = 30 (balanced for NYC)
-    if (reviews < 30) {
-      // Exception 1: Michelin-listed (verified data only - would need Michelin API integration)
-      // TODO: Check place.isMichelinListed when Michelin data is integrated
-      const isMichelinListed = false; // Placeholder for future Michelin API
-      
-      if (isMichelinListed) {
-        // Allow - Michelin verification overrides review count
-      }
-      // Exception 2: High rating (4.8+) with decent reviews
-      else if (rating >= 4.8 && reviews >= 20) {
-        // Allow - likely legitimate new gem
-      }
-      else {
-        excludeReason = `low_review_count (${reviews} reviews, need 30+)`;
+    const nameLower = (place.name || '').toLowerCase();
+    const types = Array.isArray(place.types) ? place.types : [];
+    let excludeReason = null;
+
+    // Check hard junk (always exclude)
+    for (const junkType of HARD_JUNK_TYPES) {
+      if (types.includes(junkType)) { 
+        excludeReason = `hard_junk: ${junkType}`; 
+        break; 
       }
     }
 
-    // 2) Exclude casual / non-destination spots by type
-    if (!excludeReason && place.types) {
-      const types = Array.isArray(place.types) ? place.types : [];
-      
-      if (types.includes('food_truck')) excludeReason = 'type: food_truck';
-      if (types.includes('meal_takeaway') && !types.includes('restaurant')) {
-        excludeReason = 'type: meal_takeaway (not restaurant)';
-      }
-      
-      for (const et of EXCLUDED_TYPES) {
-        if (types.includes(et)) { excludeReason = `type: ${et}`; break; }
-      }
+    // Meal takeaway-only (unless also restaurant)
+    if (!excludeReason && types.includes('meal_takeaway') && !types.includes('restaurant')) {
+      excludeReason = 'meal_takeaway-only';
     }
 
-    // 2) Exclude by name keywords (deli, food truck, etc)
+    // Name keyword exclusions (deli, cart, etc)
     if (!excludeReason) {
-      const nameLower = (place.name || '').toLowerCase();
       for (const kw of NAME_KEYWORDS_EXCLUDE) {
-        if (nameLower.includes(kw)) { excludeReason = `name_keyword: "${kw}"`; break; }
+        if (nameLower.includes(kw)) { 
+          excludeReason = `name_keyword: "${kw}"`; 
+          break; 
+        }
       }
     }
 
@@ -67,17 +53,90 @@ function filterEliteRestaurants(candidates) {
       excluded.push({ 
         place_id: place.place_id, 
         name: place.name, 
-        rating: rating,
+        rating, 
         reviews, 
-        types: place.types, 
         reason: excludeReason 
       });
-    } else {
-      filtered.push(place);
+      return;
+    }
+
+    // ELITE (4.6+) - Strict filtering
+    if (rating >= 4.6) {
+      const isMichelinListed = false; // Placeholder for Michelin API
+      let passElite = false;
+
+      if (isMichelinListed) {
+        passElite = true; // Michelin always passes
+      } else if (reviews >= 30) {
+        passElite = true;
+      } else if (rating >= 4.8 && reviews >= 20) {
+        passElite = true;
+      }
+
+      // Elite: exclude fast-casual chains
+      if (passElite) {
+        let isChain = false;
+        for (const chain of FAST_CASUAL_CHAINS) {
+          if (nameLower.includes(chain)) { 
+            isChain = true;
+            excluded.push({ 
+              place_id: place.place_id, 
+              name: place.name, 
+              rating, 
+              reviews, 
+              reason: `elite_chain_filter: "${chain}"` 
+            });
+            break; 
+          }
+        }
+        if (!isChain) {
+          elite.push(place);
+        }
+      } else {
+        excluded.push({ 
+          place_id: place.place_id, 
+          name: place.name, 
+          rating, 
+          reviews, 
+          reason: `elite_low_reviews (${reviews}, need 30+)` 
+        });
+      }
+    }
+    // MORE OPTIONS (4.4-4.59) - Lighter filtering
+    else if (rating >= 4.4) {
+      let passMoreOptions = false;
+
+      if (reviews >= 10) {
+        passMoreOptions = true;
+      } else if (rating >= 4.7 && reviews >= 5) {
+        passMoreOptions = true;
+      }
+
+      if (passMoreOptions) {
+        moreOptions.push(place); // No chain filter here
+      } else {
+        excluded.push({ 
+          place_id: place.place_id, 
+          name: place.name, 
+          rating, 
+          reviews, 
+          reason: `more_options_low_reviews (${reviews}, need 10+)` 
+        });
+      }
+    }
+    // Below 4.4 - exclude
+    else {
+      excluded.push({ 
+        place_id: place.place_id, 
+        name: place.name, 
+        rating, 
+        reviews, 
+        reason: 'rating_below_4.4' 
+      });
     }
   });
 
-  return { filtered, excluded };
+  return { elite, moreOptions, excluded };
 }
 
 exports.handler = async (event, context) => {
@@ -301,58 +360,51 @@ exports.handler = async (event, context) => {
     const within1Mile = candidatesWithDistance.filter(r => r.distanceMiles <= 1.0);
     console.log('Within 1 mile:', within1Mile.length);
     
-    // Apply Elite Restaurant filtering
-    const { filtered: eliteFiltered, excluded: eliteExcluded } = filterEliteRestaurants(within1Mile);
+    // Apply Two-Tier filtering: Elite (4.6+) and More Options (4.4+)
+    const { elite, moreOptions, excluded: tierExcluded } = filterRestaurantsByTier(within1Mile);
     
-    console.log('=== ELITE FILTERING ===');
-    console.log('Before elite filter:', within1Mile.length);
-    console.log('After elite filter:', eliteFiltered.length);
-    console.log('Excluded:', eliteExcluded.length);
+    console.log('=== TWO-TIER FILTERING ===');
+    console.log('Within 1 mile:', within1Mile.length);
+    console.log('Elite (4.6+):', elite.length);
+    console.log('More Options (4.4+):', moreOptions.length);
+    console.log('Excluded:', tierExcluded.length);
     
-    if (eliteExcluded.length > 0) {
+    if (tierExcluded.length > 0) {
       console.log('Excluded items:');
-      eliteExcluded.forEach(item => {
+      tierExcluded.slice(0, 10).forEach(item => {
         console.log(`  - ${item.name} (${item.rating}⭐, ${item.reviews} reviews) - ${item.reason}`);
       });
     }
-    console.log('========================');
+    console.log('===========================');
     
-    // Count by rating AFTER elite filtering
-    const rating46Plus = eliteFiltered.filter(r => r.googleRating >= 4.6).length;
-    const rating44Plus = eliteFiltered.filter(r => r.googleRating >= 4.4).length;
-    console.log('4) AFTER rating >= 4.6 filter:', rating46Plus);
-    console.log('   After rating >= 4.4 filter:', rating44Plus);
-
-    // 3) Sort strictly: walk_time ASC, rating DESC, review_count DESC
-    // Note: This is pre-enrichment sort. Frontend will re-sort by actual walk_duration_seconds.
-    eliteFiltered.sort((a, b) => {
-      // Estimated walk time ascending (will be re-sorted with real times after enrichment)
+    // Sort both tiers: walk_time ASC, rating DESC, review_count DESC
+    const sortByWalkTime = (a, b) => {
       if (a.walkMinEstimate !== b.walkMinEstimate) return a.walkMinEstimate - b.walkMinEstimate;
-      // Rating descending
       if (b.googleRating !== a.googleRating) return b.googleRating - a.googleRating;
-      // Review count descending
       if (b.googleReviewCount !== a.googleReviewCount) return b.googleReviewCount - a.googleReviewCount;
-      // Name ascending (tie-breaker)
       return a.name.localeCompare(b.name);
-    });
-
-    console.log('Returning', eliteFiltered.length, 'restaurants (sorted by rating, will re-sort by walk duration after enrichment)');
-    console.log('5) ALL PLACE_IDs (within 1 mile):', eliteFiltered.map(r => r.place_id).join(','));
+    };
+    
+    elite.sort(sortByWalkTime);
+    moreOptions.sort(sortByWalkTime);
+    
+    console.log('Returning Elite:', elite.length, 'More Options:', moreOptions.length);
 
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        candidates: eliteFiltered,
+        elite: elite,
+        moreOptions: moreOptions,
         confirmedAddress,
-        userLocation: { lat: gridLat, lng: gridLng }, // Use normalized coords
-        totalCandidates: eliteFiltered.length,
+        userLocation: { lat: gridLat, lng: gridLng },
         stats: {
           totalRaw,
           uniquePlaceIds: allCandidates.length,
           within1Mile: within1Mile.length,
-          afterEliteFilter: eliteFiltered.length,
-          excluded: eliteExcluded.length,
+          eliteCount: elite.length,
+          moreOptionsCount: moreOptions.length,
+          excluded: tierExcluded.length,
           normalizedCoords: { lat: gridLat, lng: gridLng },
           rawCoords: { lat, lng }
         }
