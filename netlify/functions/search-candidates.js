@@ -253,8 +253,12 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    const startTime = Date.now();
-    const timings = {};
+    const t0 = Date.now(); // Overall handler start
+    const timings = {
+      places_fetch_ms: 0,
+      filtering_ms: 0,
+      total_ms: 0
+    };
     
     const body = JSON.parse(event.body);
     const { location, cuisine, openNow } = body;
@@ -268,10 +272,11 @@ exports.handler = async (event, context) => {
     const cacheKey = getCacheKey(location, 'all', 20); // Simple key for now
     const cachedResult = getFromCache(cacheKey);
     if (cachedResult) {
+      timings.total_ms = Date.now() - t0;
       return stableResponse(
         cachedResult.elite,
         cachedResult.moreOptions,
-        { ...cachedResult.stats, cached: true, total_ms: Date.now() - startTime },
+        { ...cachedResult.stats, cached: true, performance: { ...timings, cache_hit: true } },
         null
       );
     }
@@ -424,10 +429,13 @@ exports.handler = async (event, context) => {
     }
 
     // Fetch from all grid points in parallel
+    const placesStart = Date.now();
     const gridFetches = gridPoints.map(point => 
       fetchWithFullPagination(point.lat, point.lng, point.label)
     );
     const gridResults = await Promise.all(gridFetches);
+    timings.places_fetch_ms = Date.now() - placesStart;
+    console.log(`⏱️ Places API fetch: ${timings.places_fetch_ms}ms`);
 
     // Merge and dedupe by place_id ONLY
     const seenIds = new Set();
@@ -540,13 +548,13 @@ exports.handler = async (event, context) => {
     elite.sort(sortByWalkTime);
     moreOptions.sort(sortByWalkTime);
     timings.filtering_ms = Date.now() - filterStartTime;
-    timings.total_ms = Date.now() - startTime;
+    timings.total_ms = Date.now() - t0;
     
     console.log('Returning Elite:', elite.length, 'More Options:', moreOptions.length);
     console.log('=== PERFORMANCE ===');
-    console.log('places_fetch_ms:', timings.places_fetch_ms);
-    console.log('filtering_ms:', timings.filtering_ms);
-    console.log('total_ms:', timings.total_ms);
+    console.log(`places_fetch_ms: ${timings.places_fetch_ms}ms`);
+    console.log(`filtering_ms: ${timings.filtering_ms}ms`);
+    console.log(`total_ms: ${timings.total_ms}ms`);
     console.log('cache_hit: false');
     console.log('===================');
 
