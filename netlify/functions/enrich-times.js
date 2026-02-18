@@ -5,6 +5,8 @@ exports.handler = async (event, context) => {
   }
 
   try {
+    const startTime = Date.now();
+    
     // ADAPTIVE DM BUDGET: Progressive enrichment based on filters
     const body = JSON.parse(event.body);
     const { candidates, userLocation, transportMode, targetMinResults = 20, cuisineFilter = null, walkTimeLimit = null } = body;
@@ -75,25 +77,31 @@ exports.handler = async (event, context) => {
     };
     const apiMode = modeMap[transportMode] || 'walking';
 
-    // Progressive enrichment: Process batches until we have enough results OR hit budget
+    // Progressive enrichment: Process batches with concurrency=2
     const candidatesToEnrich = sortedCandidates.slice(0, maxDmBudget);
     const batches = [];
     for (let i = 0; i < candidatesToEnrich.length; i += batchSize) {
       batches.push(candidatesToEnrich.slice(i, i + batchSize));
     }
 
-    console.log(`Processing ${batches.length} batches progressively...`);
+    console.log(`Processing ${batches.length} batches with concurrency=2...`);
     
-    for (let batchIndex = 0; batchIndex < batches.length; batchIndex++) {
-      const batch = batches[batchIndex];
-      console.log(`Batch ${batchIndex + 1}/${batches.length}: Processing ${batch.length} candidates...`);
+    // Process in waves of 2 concurrent batches
+    for (let waveStart = 0; waveStart < batches.length; waveStart += 2) {
+      const waveBatches = batches.slice(waveStart, waveStart + 2);
+      const waveNum = Math.floor(waveStart / 2) + 1;
+      console.log(`Wave ${waveNum}: Processing ${waveBatches.length} batches in parallel...`);
       
-      const destinations = batch.map(p => `${p.geometry.location.lat},${p.geometry.location.lng}`).join('|');
-      
-      try {
-        const modeData = await fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=${apiMode}&departure_time=now&key=${GOOGLE_API_KEY}`).then(r=>r.json());
+      const wavePromises = waveBatches.map(async (batch, relativeIdx) => {
+        const batchIndex = waveStart + relativeIdx;
+        console.log(`  Batch ${batchIndex + 1}/${batches.length}: ${batch.length} candidates`);
+        
+        const destinations = batch.map(p => `${p.geometry.location.lat},${p.geometry.location.lng}`).join('|');
+        
+        try {
+          const modeData = await fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=${apiMode}&key=${GOOGLE_API_KEY}`).then(r=>r.json());
 
-        const batchEnriched = batch.map((place, idx) => {
+          const batchEnriched = batch.map((place, idx) => {
           let walkMin = place.walkMinEstimate;
           let driveMin = place.driveMinEstimate;
           let transitMin = place.transitMinEstimate;
@@ -139,16 +147,34 @@ exports.handler = async (event, context) => {
 
         enriched.push(...batchEnriched);
         
-        // Early stopping: If we have enough within-walk results, stop enriching
-        if (walkTimeLimit && withinWalkCount >= targetMinResults) {
-          console.log(`Early stop: Found ${withinWalkCount} within ${walkTimeLimit} min (target: ${targetMinResults})`);
-          break;
-        }
+        return batchEnriched;
       } catch (error) {
-        console.error(`Batch ${batchIndex + 1} failed:`, error);
-        // Continue with next batch
+        console.error(`  Batch ${batchIndex + 1} failed:`, error);
+        // STABILITY: Push batch with estimates only - never drop candidates
+        const fallbackBatch = batch.map(place => ({
+          ...place,
+          distanceMiles: place.distanceMiles,
+          walkMinutes: place.walkMinEstimate,
+          driveMinutes: place.driveMinEstimate,
+          transitMinutes: place.transitMinEstimate,
+          walkDurationSeconds: null,
+          driveDurationSeconds: null,
+          transitDurationSeconds: null
+        }));
+        enriched.push(...fallbackBatch);
+        console.log(`  Using estimates for batch ${batchIndex + 1}`);
+        return fallbackBatch;
       }
+    });
+
+    await Promise.all(wavePromises);
+    
+    // Early stopping check after each wave
+    if (walkTimeLimit && withinWalkCount >= targetMinResults) {
+      console.log(`Early stop after wave ${waveNum}: Found ${withinWalkCount} within ${walkTimeLimit} min (target: ${targetMinResults})`);
+      break;
     }
+  }
 
     const dmTime = Date.now() - dmStartTime;
     const totalTime = Date.now() - startTime;
