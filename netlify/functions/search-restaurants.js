@@ -27,7 +27,7 @@ exports.handler = async (event, context) => {
 
     // Helper: Fetch all pages from a single search location
     async function fetchAllPages(searchLat, searchLng) {
-      let placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=1600&type=restaurant&key=${GOOGLE_API_KEY}`;
+      let placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=2400&type=restaurant&key=${GOOGLE_API_KEY}`;
       if (cuisine) placesUrl += `&keyword=${encodeURIComponent(cuisine)}`;
       if (openNow) placesUrl += `&opennow=true`;
 
@@ -55,11 +55,12 @@ exports.handler = async (event, context) => {
     }
 
     // STEP 1: Build comprehensive candidate pool with grid search
-    const offsetMiles = 0.7; // ~0.7 miles
-    const offsetDegrees = offsetMiles / 69; // rough conversion
+    const offsetMiles = 1.0; // Increased from 0.7 to 1.0 miles
+    const offsetDegrees = offsetMiles / 69;
     
-    console.log('Grid search parameters: offset =', offsetMiles, 'miles, radius = 1600m per point');
+    console.log('Grid search parameters: offset =', offsetMiles, 'miles, radius = 2400m per point');
     
+    // 13-point grid for better coverage
     const searchGrid = [
       { lat, lng }, // Center
       { lat: lat + offsetDegrees, lng }, // North
@@ -69,7 +70,12 @@ exports.handler = async (event, context) => {
       { lat: lat + offsetDegrees, lng: lng + offsetDegrees }, // NE
       { lat: lat + offsetDegrees, lng: lng - offsetDegrees }, // NW
       { lat: lat - offsetDegrees, lng: lng + offsetDegrees }, // SE
-      { lat: lat - offsetDegrees, lng: lng - offsetDegrees }  // SW
+      { lat: lat - offsetDegrees, lng: lng - offsetDegrees }, // SW
+      // Additional intermediate points
+      { lat: lat + (offsetDegrees * 0.5), lng }, // N-mid
+      { lat: lat - (offsetDegrees * 0.5), lng }, // S-mid
+      { lat, lng: lng + (offsetDegrees * 0.5) }, // E-mid
+      { lat, lng: lng - (offsetDegrees * 0.5) }  // W-mid
     ];
 
     console.log('Starting grid search with', searchGrid.length, 'locations');
