@@ -2,10 +2,8 @@
 // Elite restaurant filtering - Curated & Premium
 // Philosophy: Quality over quantity. Different neighborhoods = different result counts.
 function filterEliteRestaurants(candidates) {
-  const FAST_CASUAL_CHAINS = [
-    'dos toros', 'chopt', 'just salad', 'sweetgreen', 'dig inn', 'cava', 
-    'chipotle', 'panera', 'pret a manger', 'au bon pain', 'shake shack'
-  ];
+  // Note: Fast-casual chains NOT auto-excluded (user may want them)
+  // Only exclude obvious non-destinations: food trucks, delis, grocery, carts
 
   const EXCLUDED_TYPES = [
     'food_truck', 'convenience_store', 'grocery_or_supermarket', 
@@ -25,8 +23,8 @@ function filterEliteRestaurants(candidates) {
     const rating = place.googleRating || place.rating || 0;
     const priceLevel = place.price_level || 0;
     
-    // 1) Minimum review threshold = 40 (NYC curated standard)
-    if (reviews < 40) {
+    // 1) Minimum review threshold = 30 (balanced for NYC)
+    if (reviews < 30) {
       // Exception 1: Michelin-listed (verified data only - would need Michelin API integration)
       // TODO: Check place.isMichelinListed when Michelin data is integrated
       const isMichelinListed = false; // Placeholder for future Michelin API
@@ -35,11 +33,11 @@ function filterEliteRestaurants(candidates) {
         // Allow - Michelin verification overrides review count
       }
       // Exception 2: High rating (4.8+) with decent reviews
-      else if (rating >= 4.8 && reviews >= 25) {
+      else if (rating >= 4.8 && reviews >= 20) {
         // Allow - likely legitimate new gem
       }
       else {
-        excludeReason = `low_review_count (${reviews} reviews, need 40+)`;
+        excludeReason = `low_review_count (${reviews} reviews, need 30+)`;
       }
     }
 
@@ -62,14 +60,6 @@ function filterEliteRestaurants(candidates) {
       const nameLower = (place.name || '').toLowerCase();
       for (const kw of NAME_KEYWORDS_EXCLUDE) {
         if (nameLower.includes(kw)) { excludeReason = `name_keyword: "${kw}"`; break; }
-      }
-    }
-
-    // 2) Exclude fast-casual chains
-    if (!excludeReason) {
-      const nameLower = (place.name || '').toLowerCase();
-      for (const chain of FAST_CASUAL_CHAINS) {
-        if (nameLower.includes(chain)) { excludeReason = `chain: "${chain}"`; break; }
       }
     }
 
