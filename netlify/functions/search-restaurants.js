@@ -34,11 +34,20 @@ exports.handler = async (event, context) => {
     const baseQueries = [
       'restaurants',
       'top rated restaurants',
-      'best restaurants'
+      'best restaurants',
+      'highly rated restaurants',
+      'popular restaurants',
+      'fine dining',
+      'casual dining',
+      'upscale restaurants',
+      'good restaurants',
+      '4.5 star restaurants'
     ];
     
     if (cuisine) {
       baseQueries.push(`${cuisine} restaurants`);
+      baseQueries.push(`top rated ${cuisine} restaurants`);
+      baseQueries.push(`best ${cuisine} food`);
     }
     
     console.log('Running', baseQueries.length, 'queries with radius:', searchRadius, 'm');
