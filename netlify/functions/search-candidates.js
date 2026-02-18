@@ -226,7 +226,15 @@ exports.handler = async (event, context) => {
     console.log('4) AFTER rating >= 4.6 filter:', rating46Plus);
     console.log('   After rating >= 4.4 filter:', rating44Plus);
 
-    console.log('Returning', within1Mile.length, 'restaurants (unsorted - will sort by walk duration after enrichment)');
+    // Deterministic sort to ensure consistent results (frontend will re-sort by walk duration)
+    within1Mile.sort((a, b) => {
+      if (b.googleRating !== a.googleRating) return b.googleRating - a.googleRating;
+      if (b.googleReviewCount !== a.googleReviewCount) return b.googleReviewCount - a.googleReviewCount;
+      if (a.distanceMiles !== b.distanceMiles) return a.distanceMiles - b.distanceMiles;
+      return a.name.localeCompare(b.name);
+    });
+
+    console.log('Returning', within1Mile.length, 'restaurants (sorted by rating, will re-sort by walk duration after enrichment)');
     console.log('5) ALL PLACE_IDs (within 1 mile):', within1Mile.map(r => r.place_id).join(','));
 
     return {
