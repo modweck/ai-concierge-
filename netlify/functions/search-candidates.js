@@ -1,9 +1,12 @@
 // Deterministic 1-mile grid coverage with full pagination
 // Two-tier filtering: Elite (4.6+) and More Options (4.4+)
+// Global chain exclusion for both tiers
 function filterRestaurantsByTier(candidates) {
-  const FAST_CASUAL_CHAINS = [
-    'dos toros', 'chopt', 'just salad', 'sweetgreen', 'dig inn', 'cava', 
-    'chipotle', 'panera', 'pret a manger', 'au bon pain', 'shake shack'
+  const KNOWN_CHAINS = [
+    'chopt', 'just salad', 'dos toros', 'sweetgreen', 'shake shack', 'chipotle',
+    'dig', 'cava', 'five guys', 'mcdonald', 'starbucks', 'dunkin', 'panera',
+    'subway', 'taco bell', 'kfc', 'wendy', 'popeyes', 'panda express',
+    'little caesars', 'domino', 'pizza hut', 'burger king', 'arbys'
   ];
 
   const HARD_JUNK_TYPES = [
@@ -15,123 +18,144 @@ function filterRestaurantsByTier(candidates) {
     'food truck', 'cart', 'truck', 'kiosk', 'deli'
   ];
 
+  // Chain detection (hybrid approach)
+  function isChain(place) {
+    const nameLower = (place.name || '').toLowerCase();
+    const types = Array.isArray(place.types) ? place.types : [];
+    const price = place.price_level ?? null;
+    const reviews = place.user_ratings_total ?? place.googleReviewCount ?? 0;
+
+    // 1) Known chain keyword list
+    for (const chain of KNOWN_CHAINS) {
+      if (nameLower.includes(chain)) return true;
+    }
+
+    // 2) Heuristic chain detection (for unlisted chains)
+    if (price !== null && price <= 1 && reviews >= 150) {
+      if (types.includes('meal_takeaway') || types.includes('fast_food_restaurant')) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   const elite = [];
   const moreOptions = [];
   const excluded = [];
 
   candidates.forEach(place => {
-    const reviews = place.user_ratings_total || place.googleReviewCount || 0;
-    const rating = place.googleRating || place.rating || 0;
-    const nameLower = (place.name || '').toLowerCase();
-    const types = Array.isArray(place.types) ? place.types : [];
-    let excludeReason = null;
+    try {
+      const reviews = place.user_ratings_total ?? place.googleReviewCount ?? 0;
+      const rating = place.googleRating ?? place.rating ?? 0;
+      const nameLower = (place.name || '').toLowerCase();
+      const types = Array.isArray(place.types) ? place.types : [];
+      let excludeReason = null;
 
-    // Check hard junk (always exclude)
-    for (const junkType of HARD_JUNK_TYPES) {
-      if (types.includes(junkType)) { 
-        excludeReason = `hard_junk: ${junkType}`; 
-        break; 
-      }
-    }
-
-    // Meal takeaway-only (unless also restaurant)
-    if (!excludeReason && types.includes('meal_takeaway') && !types.includes('restaurant')) {
-      excludeReason = 'meal_takeaway-only';
-    }
-
-    // Name keyword exclusions (deli, cart, etc)
-    if (!excludeReason) {
-      for (const kw of NAME_KEYWORDS_EXCLUDE) {
-        if (nameLower.includes(kw)) { 
-          excludeReason = `name_keyword: "${kw}"`; 
+      // Check hard junk (always exclude)
+      for (const junkType of HARD_JUNK_TYPES) {
+        if (types.includes(junkType)) { 
+          excludeReason = `hard_junk: ${junkType}`; 
           break; 
         }
       }
-    }
 
-    if (excludeReason) {
-      excluded.push({ 
-        place_id: place.place_id, 
-        name: place.name, 
-        rating, 
-        reviews, 
-        reason: excludeReason 
-      });
-      return;
-    }
-
-    // ELITE (4.6+) - Strict filtering
-    if (rating >= 4.6) {
-      const isMichelinListed = false; // Placeholder for Michelin API
-      let passElite = false;
-
-      if (isMichelinListed) {
-        passElite = true; // Michelin always passes
-      } else if (reviews >= 30) {
-        passElite = true;
-      } else if (rating >= 4.8 && reviews >= 20) {
-        passElite = true;
+      // Meal takeaway-only (unless also restaurant)
+      if (!excludeReason && types.includes('meal_takeaway') && !types.includes('restaurant')) {
+        excludeReason = 'meal_takeaway-only';
       }
 
-      // Elite: exclude fast-casual chains
-      if (passElite) {
-        let isChain = false;
-        for (const chain of FAST_CASUAL_CHAINS) {
-          if (nameLower.includes(chain)) { 
-            isChain = true;
-            excluded.push({ 
-              place_id: place.place_id, 
-              name: place.name, 
-              rating, 
-              reviews, 
-              reason: `elite_chain_filter: "${chain}"` 
-            });
+      // Name keyword exclusions (deli, cart, etc)
+      if (!excludeReason) {
+        for (const kw of NAME_KEYWORDS_EXCLUDE) {
+          if (nameLower.includes(kw)) { 
+            excludeReason = `name_keyword: "${kw}"`; 
             break; 
           }
         }
-        if (!isChain) {
-          elite.push(place);
+      }
+
+      // Global chain filter (both tiers)
+      if (!excludeReason && isChain(place)) {
+        excludeReason = 'chain_restaurant';
+      }
+
+      if (excludeReason) {
+        excluded.push({ 
+          place_id: place.place_id, 
+          name: place.name, 
+          rating, 
+          reviews, 
+          reason: excludeReason 
+        });
+        return;
+      }
+
+      // ELITE (4.6+) - Strict filtering
+      if (rating >= 4.6) {
+        const isMichelinListed = false; // Placeholder for Michelin API
+        let passElite = false;
+
+        if (isMichelinListed) {
+          passElite = true;
+        } else if (reviews >= 30) {
+          passElite = true;
+        } else if (rating >= 4.8 && reviews >= 20) {
+          passElite = true;
         }
-      } else {
+
+        if (passElite) {
+          elite.push(place);
+        } else {
+          excluded.push({ 
+            place_id: place.place_id, 
+            name: place.name, 
+            rating, 
+            reviews, 
+            reason: `elite_low_reviews (${reviews}, need 30+)` 
+          });
+        }
+      }
+      // MORE OPTIONS (4.4-4.59) - Lighter filtering
+      else if (rating >= 4.4) {
+        let passMoreOptions = false;
+
+        if (reviews >= 10) {
+          passMoreOptions = true;
+        } else if (rating >= 4.7 && reviews >= 5) {
+          passMoreOptions = true;
+        }
+
+        if (passMoreOptions) {
+          moreOptions.push(place);
+        } else {
+          excluded.push({ 
+            place_id: place.place_id, 
+            name: place.name, 
+            rating, 
+            reviews, 
+            reason: `more_options_low_reviews (${reviews}, need 10+)` 
+          });
+        }
+      }
+      // Below 4.4 - exclude
+      else {
         excluded.push({ 
           place_id: place.place_id, 
           name: place.name, 
           rating, 
           reviews, 
-          reason: `elite_low_reviews (${reviews}, need 30+)` 
+          reason: 'rating_below_4.4' 
         });
       }
-    }
-    // MORE OPTIONS (4.4-4.59) - Lighter filtering
-    else if (rating >= 4.4) {
-      let passMoreOptions = false;
-
-      if (reviews >= 10) {
-        passMoreOptions = true;
-      } else if (rating >= 4.7 && reviews >= 5) {
-        passMoreOptions = true;
-      }
-
-      if (passMoreOptions) {
-        moreOptions.push(place); // No chain filter here
-      } else {
-        excluded.push({ 
-          place_id: place.place_id, 
-          name: place.name, 
-          rating, 
-          reviews, 
-          reason: `more_options_low_reviews (${reviews}, need 10+)` 
-        });
-      }
-    }
-    // Below 4.4 - exclude
-    else {
-      excluded.push({ 
-        place_id: place.place_id, 
-        name: place.name, 
-        rating, 
-        reviews, 
-        reason: 'rating_below_4.4' 
+    } catch (err) {
+      console.error('Error filtering place:', place.name, err);
+      excluded.push({
+        place_id: place.place_id,
+        name: place.name,
+        rating: 0,
+        reviews: 0,
+        reason: `filter_error: ${err.message}`
       });
     }
   });
@@ -140,6 +164,21 @@ function filterRestaurantsByTier(candidates) {
 }
 
 exports.handler = async (event, context) => {
+  // Stable response shape - always return this structure
+  const stableResponse = (elite = [], moreOptions = [], stats = {}, error = null) => ({
+    statusCode: 200,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      elite: Array.isArray(elite) ? elite : [],
+      moreOptions: Array.isArray(moreOptions) ? moreOptions : [],
+      confirmedAddress: stats.confirmedAddress || null,
+      userLocation: stats.userLocation || null,
+      stats: stats,
+      error: error
+    })
+  });
+
+  try {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
@@ -390,29 +429,25 @@ exports.handler = async (event, context) => {
     
     console.log('Returning Elite:', elite.length, 'More Options:', moreOptions.length);
 
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        elite: elite,
-        moreOptions: moreOptions,
-        confirmedAddress,
-        userLocation: { lat: gridLat, lng: gridLng },
-        stats: {
-          totalRaw,
-          uniquePlaceIds: allCandidates.length,
-          within1Mile: within1Mile.length,
-          eliteCount: elite.length,
-          moreOptionsCount: moreOptions.length,
-          excluded: tierExcluded.length,
-          normalizedCoords: { lat: gridLat, lng: gridLng },
-          rawCoords: { lat, lng }
-        }
-      })
-    };
+    return stableResponse(elite, moreOptions, {
+      totalRaw,
+      uniquePlaceIds: allCandidates.length,
+      within1Mile: within1Mile.length,
+      eliteCount: elite.length,
+      moreOptionsCount: moreOptions.length,
+      excluded: tierExcluded.length,
+      normalizedCoords: { lat: gridLat, lng: gridLng },
+      rawCoords: { lat, lng },
+      confirmedAddress,
+      userLocation: { lat: gridLat, lng: gridLng }
+    }, null);
 
   } catch (error) {
-    console.error('ERROR:', error);
-    return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Failed', message: error.message, stack: error.stack }) };
+    console.error('ERROR in search-candidates:', error);
+    return stableResponse([], [], {}, error.message);
+  }
+  } catch (outerError) {
+    console.error('FATAL ERROR:', outerError);
+    return stableResponse([], [], {}, outerError.message);
   }
 };
