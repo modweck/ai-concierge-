@@ -1,10 +1,84 @@
 // Deterministic 1-mile grid coverage with full pagination
 // Two-tier filtering: Elite (4.6+) and More Options (4.4+)
 // Global chain exclusion for both tiers
+// Michelin overlay (badge only - does not change candidate pool)
+
+const fs = require('fs');
+const path = require('path');
+
+// Load Michelin data once at startup
+let MICHELIN_DATA = [];
+try {
+  const michelinPath = path.join(__dirname, '../../data/michelin_nyc.json');
+  MICHELIN_DATA = JSON.parse(fs.readFileSync(michelinPath, 'utf8'));
+  console.log(`Loaded ${MICHELIN_DATA.length} Michelin entries`);
+} catch (err) {
+  console.warn('Michelin data not found or invalid, continuing without:', err.message);
+}
+
+// Normalize name for matching
+function normalizeName(name) {
+  return name.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+}
+
+// Match Michelin data to candidates (badge overlay only)
+function attachMichelinData(candidates) {
+  if (!MICHELIN_DATA.length) return;
+  
+  candidates.forEach(place => {
+    const placeName = normalizeName(place.name);
+    
+    // Try matching
+    for (const michelin of MICHELIN_DATA) {
+      const michelinName = normalizeName(michelin.name);
+      
+      // 1) Exact normalized name match
+      if (placeName === michelinName) {
+        place.michelin = {
+          distinction: michelin.distinction,
+          stars: michelin.stars
+        };
+        return;
+      }
+      
+      // 2) Contains match (careful - avoid false positives)
+      if (placeName.includes(michelinName) || michelinName.includes(placeName)) {
+        if (Math.abs(placeName.length - michelinName.length) <= 5) {
+          place.michelin = {
+            distinction: michelin.distinction,
+            stars: michelin.stars
+          };
+          return;
+        }
+      }
+      
+      // 3) Coordinate proximity (within 50 meters)
+      if (michelin.lat && michelin.lng && place.geometry?.location) {
+        const R = 6371000; // Earth radius in meters
+        const dLat = (place.geometry.location.lat - michelin.lat) * Math.PI / 180;
+        const dLon = (place.geometry.location.lng - michelin.lng) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(michelin.lat * Math.PI / 180) * 
+                  Math.cos(place.geometry.location.lat * Math.PI / 180) *
+                  Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const distance = R * c;
+        
+        if (distance <= 50) {
+          place.michelin = {
+            distinction: michelin.distinction,
+            stars: michelin.stars
+          };
+          return;
+        }
+      }
+    }
+  });
+}
 
 // In-memory cache with 10-minute TTL
 const resultCache = new Map();
-const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes
+const CACHE_TTL_MS = 10 * 60 * 1000;
 
 function getCacheKey(location, qualityMode, walkMinutes) {
   return `${location}_${qualityMode}_${walkMinutes}`;
@@ -30,7 +104,6 @@ function setCache(key, data) {
     timestamp: Date.now()
   });
   
-  // Cleanup old entries (simple LRU)
   if (resultCache.size > 100) {
     const oldest = Array.from(resultCache.entries())
       .sort((a, b) => a[1].timestamp - b[1].timestamp)[0];
@@ -55,24 +128,20 @@ function filterRestaurantsByTier(candidates) {
     'food truck', 'cart', 'truck', 'kiosk', 'deli'
   ];
 
-  // Specific fast-casual / takeout-grill exclusions
   const FAST_CASUAL_NAMES = [
     'wrap-n-run', 'dumpling shop'
   ];
 
-  // Comprehensive chain detection (hybrid approach)
   function isChain(place) {
     const nameLower = (place.name || '').toLowerCase();
     const types = Array.isArray(place.types) ? place.types : [];
     const price = place.price_level ?? null;
     const reviews = place.user_ratings_total ?? place.googleReviewCount ?? 0;
 
-    // A) Known chain keyword list
     for (const chain of KNOWN_CHAINS) {
       if (nameLower.includes(chain)) return { isChain: true, reason: `known_chain: ${chain}` };
     }
 
-    // B) Heuristic chain detection (unlisted chains)
     if (price !== null && price <= 1 && reviews >= 150) {
       if (types.includes('meal_takeaway') || types.includes('fast_food_restaurant')) {
         return { isChain: true, reason: 'heuristic_chain (low_price + high_reviews + takeaway/fast_food)' };
@@ -92,10 +161,9 @@ function filterRestaurantsByTier(candidates) {
       const rating = place.googleRating ?? place.rating ?? 0;
       const nameLower = (place.name || '').toLowerCase();
       const types = Array.isArray(place.types) ? place.types : [];
-      const isMichelinListed = false; // Placeholder
+      const isMichelinListed = false;
       let excludeReason = null;
 
-      // 1) Fake 5.0 prevention - stricter review thresholds
       if (!isMichelinListed) {
         if (rating >= 4.9 && reviews < 50) {
           excludeReason = `fake_5.0_prevention (${rating}⭐ with only ${reviews} reviews, need 50+)`;
@@ -104,7 +172,6 @@ function filterRestaurantsByTier(candidates) {
         }
       }
 
-      // 2) Check hard junk (food trucks, grocery, etc)
       if (!excludeReason) {
         for (const junkType of HARD_JUNK_TYPES) {
           if (types.includes(junkType)) { 
@@ -114,7 +181,6 @@ function filterRestaurantsByTier(candidates) {
         }
       }
 
-      // 2) Street food / meal takeaway-only
       if (!excludeReason) {
         if (types.includes('street_food')) {
           excludeReason = 'street_food';
@@ -123,14 +189,12 @@ function filterRestaurantsByTier(candidates) {
         }
       }
 
-      // 2) Halal carts/stands (keep real halal restaurants with 200+ reviews)
       if (!excludeReason) {
         if (nameLower.includes('halal') && reviews < 200) {
           excludeReason = 'halal_cart (low_reviews)';
         }
       }
 
-      // 2) Name keyword exclusions (cart, deli, etc - not halal, handled above)
       if (!excludeReason) {
         for (const kw of NAME_KEYWORDS_EXCLUDE) {
           if (nameLower.includes(kw)) { 
@@ -140,7 +204,6 @@ function filterRestaurantsByTier(candidates) {
         }
       }
 
-      // 3) Fast-casual / takeout-grill specific names
       if (!excludeReason) {
         for (const name of FAST_CASUAL_NAMES) {
           if (nameLower.includes(name)) {
@@ -150,7 +213,6 @@ function filterRestaurantsByTier(candidates) {
         }
       }
 
-      // 3) Takeout-grill heuristic (meal_takeaway + low price)
       if (!excludeReason) {
         const price = place.price_level ?? null;
         if (price !== null && price <= 1 && types.includes('meal_takeaway')) {
@@ -158,7 +220,6 @@ function filterRestaurantsByTier(candidates) {
         }
       }
 
-      // 3) Global chain filter (both tiers)
       if (!excludeReason) {
         const chainCheck = isChain(place);
         if (chainCheck.isChain) {
@@ -178,14 +239,10 @@ function filterRestaurantsByTier(candidates) {
         return;
       }
 
-      // ELITE (4.6+) - Already passed review thresholds above
       if (rating >= 4.6) {
         elite.push(place);
-      }
-      // MORE OPTIONS (4.4-4.59) - Lighter review threshold
-      else if (rating >= 4.4) {
+      } else if (rating >= 4.4) {
         let passMoreOptions = false;
-
         if (reviews >= 10) {
           passMoreOptions = true;
         } else if (rating >= 4.7 && reviews >= 5) {
@@ -204,9 +261,7 @@ function filterRestaurantsByTier(candidates) {
             reason: `more_options_low_reviews (${reviews}, need 10+)` 
           });
         }
-      }
-      // Below 4.4 - exclude
-      else {
+      } else {
         excluded.push({ 
           place_id: place.place_id, 
           name: place.name, 
@@ -233,7 +288,6 @@ function filterRestaurantsByTier(candidates) {
 }
 
 exports.handler = async (event, context) => {
-  // Stable response shape - always return this structure
   const stableResponse = (elite = [], moreOptions = [], stats = {}, error = null) => ({
     statusCode: 200,
     headers: { 'Content-Type': 'application/json' },
@@ -253,7 +307,7 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    const t0 = Date.now(); // Overall handler start
+    const t0 = Date.now();
     const timings = {
       places_fetch_ms: 0,
       filtering_ms: 0,
@@ -268,8 +322,7 @@ exports.handler = async (event, context) => {
       return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'API key not configured' }) };
     }
 
-    // Check cache early
-    const cacheKey = getCacheKey(location, 'all', 20); // Simple key for now
+    const cacheKey = getCacheKey(location, 'all', 20);
     const cachedResult = getFromCache(cacheKey);
     if (cachedResult) {
       timings.total_ms = Date.now() - t0;
@@ -283,7 +336,6 @@ exports.handler = async (event, context) => {
 
     console.log('=== DETERMINISTIC 1-MILE GRID SEARCH ===');
 
-    // Geocode the input location
     const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${GOOGLE_API_KEY}`;
     const geocodeResponse = await fetch(geocodeUrl);
     const geocodeData = await geocodeResponse.json();
@@ -298,7 +350,6 @@ exports.handler = async (event, context) => {
 
     console.log('Initial geocode:', { lat, lng, locationType, address: confirmedAddress });
 
-    // If input looks like raw GPS coordinates (lat,lng format), apply reverse-geocoding normalization
     const isRawGPS = location.match(/^-?\d+\.\d+,\s*-?\d+\.\d+$/);
     
     if (isRawGPS) {
@@ -314,8 +365,7 @@ exports.handler = async (event, context) => {
         lat = rooftopResult.geometry.location.lat;
         lng = rooftopResult.geometry.location.lng;
         
-        // Calculate delta distance
-        const R = 3959 * 5280; // Earth radius in feet
+        const R = 3959 * 5280;
         const dLat = (lat - oldLat) * Math.PI / 180;
         const dLon = (lng - oldLng) * Math.PI / 180;
         const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
@@ -333,8 +383,6 @@ exports.handler = async (event, context) => {
       }
     }
 
-    // Normalize coordinates to 4 decimal places (~11 meters precision)
-    // Maintains correctness while preventing micro-GPS drift from creating new grids
     const normalizedLat = Math.round(lat * 10000) / 10000;
     const normalizedLng = Math.round(lng * 10000) / 10000;
     
@@ -343,21 +391,17 @@ exports.handler = async (event, context) => {
     console.log('2) NORMALIZED ORIGIN (4-decimal):', { lat: normalizedLat, lng: normalizedLng });
     console.log('Address:', confirmedAddress);
     
-    // Calculate how far apart the raw coords are from normalized
     const normDeltaLat = Math.abs(lat - normalizedLat);
     const normDeltaLng = Math.abs(lng - normalizedLng);
     const normDeltaFeet = Math.sqrt(normDeltaLat * normDeltaLat + normDeltaLng * normDeltaLng) * 69 * 5280;
     console.log('Normalization delta:', Math.round(normDeltaFeet), 'feet');
     console.log('========================');
 
-    // Use normalized coords for grid generation
     const gridLat = normalizedLat;
     const gridLng = normalizedLng;
 
-    // Generate optimized 9-node grid for NYC coverage
-    // Node radius: 750m, spacing: 600m (~0.37 miles)
-    const gridRadius = 750; // meters per search node
-    const spacingMiles = 0.37; // 600 meters
+    const gridRadius = 750;
+    const spacingMiles = 0.37;
     const spacingDegrees = spacingMiles / 69;
     
     const gridPoints = [
@@ -374,7 +418,6 @@ exports.handler = async (event, context) => {
 
     console.log('Grid: 9 nodes, 750m radius per node, 600m spacing');
 
-    // Fetch with FULL pagination and retry logic
     async function fetchWithFullPagination(searchLat, searchLng, label) {
       let url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=${gridRadius}&type=restaurant&key=${GOOGLE_API_KEY}`;
       if (cuisine) url += `&keyword=${encodeURIComponent(cuisine)}`;
@@ -392,16 +435,13 @@ exports.handler = async (event, context) => {
       let nextPageToken = data.next_page_token;
       let pageCount = 1;
 
-      // DETERMINISM: Always fetch exactly 3 pages (or until no more pages)
-      // This ensures same inputs = same candidate pool
       const MAX_PAGES = 3;
       while (nextPageToken && pageCount < MAX_PAGES) {
-        await new Promise(resolve => setTimeout(resolve, 2000)); // Required delay
+        await new Promise(resolve => setTimeout(resolve, 2000));
         
         let retries = 0;
         let pageData = null;
         
-        // Retry logic for INVALID_REQUEST
         while (retries < 5) {
           const pageUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=${nextPageToken}&key=${GOOGLE_API_KEY}`;
           const pageResponse = await fetch(pageUrl);
@@ -428,7 +468,6 @@ exports.handler = async (event, context) => {
       return allResults;
     }
 
-    // Fetch from all grid points in parallel
     const placesStart = Date.now();
     const gridFetches = gridPoints.map(point => 
       fetchWithFullPagination(point.lat, point.lng, point.label)
@@ -437,7 +476,6 @@ exports.handler = async (event, context) => {
     timings.places_fetch_ms = Date.now() - placesStart;
     console.log(`⏱️ Places API fetch: ${timings.places_fetch_ms}ms`);
 
-    // Merge and dedupe by place_id ONLY
     const seenIds = new Set();
     const allCandidates = [];
     let totalRaw = 0;
@@ -455,17 +493,12 @@ exports.handler = async (event, context) => {
     console.log('Total raw results:', totalRaw);
     console.log('3) UNIQUE PLACES (after dedupe, BEFORE filters):', allCandidates.length);
     
-    // DETERMINISM: Sort by place_id to ensure consistent order
-    // Google API returns in arbitrary order, so we enforce determinism
     allCandidates.sort((a, b) => a.place_id.localeCompare(b.place_id));
     console.log('Sorted by place_id for determinism');
-    
-    // Log first 10 place_ids for comparison
     console.log('Sample place_ids:', allCandidates.slice(0, 10).map(p => p.place_id).join(', '));
 
-    // Calculate straight-line distance for sorting (using normalized origin)
     const candidatesWithDistance = allCandidates.map(place => {
-      const R = 3959; // miles
+      const R = 3959;
       const dLat = (place.geometry.location.lat - gridLat) * Math.PI / 180;
       const dLon = (place.geometry.location.lng - gridLng) * Math.PI / 180;
       const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
@@ -492,11 +525,9 @@ exports.handler = async (event, context) => {
       };
     });
 
-    // Filter: within 1.3 miles (increased from 1.0 for better 20-min walk coverage)
     const within1Mile = candidatesWithDistance.filter(r => r.distanceMiles <= 1.3);
     console.log('Within 1.3 miles:', within1Mile.length);
     
-    // DEBUG: Log sample candidates before filtering
     if (within1Mile.length > 0) {
       console.log('=== SAMPLE CANDIDATES BEFORE FILTERING ===');
       within1Mile.slice(0, 3).forEach(c => {
@@ -504,9 +535,11 @@ exports.handler = async (event, context) => {
       });
     }
     
-    // Apply Two-Tier filtering: Elite (4.6+) and More Options (4.4+)
     const filterStartTime = Date.now();
     const { elite, moreOptions, excluded: tierExcluded } = filterRestaurantsByTier(within1Mile);
+    
+    // ATTACH MICHELIN DATA (badge overlay only - does not change tiers)
+    attachMichelinData([...elite, ...moreOptions]);
     
     console.log('=== TWO-TIER FILTERING ===');
     console.log('Within 1.3 miles:', within1Mile.length);
@@ -524,7 +557,6 @@ exports.handler = async (event, context) => {
         console.log('');
       });
       
-      // Count by reason
       const reasonCounts = {};
       tierExcluded.forEach(item => {
         const reason = item.reason.split('(')[0].split(':')[0].trim();
@@ -537,7 +569,6 @@ exports.handler = async (event, context) => {
     }
     console.log('===========================');
     
-    // Sort both tiers: walk_time ASC, rating DESC, review_count DESC
     const sortByWalkTime = (a, b) => {
       if (a.walkMinEstimate !== b.walkMinEstimate) return a.walkMinEstimate - b.walkMinEstimate;
       if (b.googleRating !== a.googleRating) return b.googleRating - a.googleRating;
@@ -577,7 +608,6 @@ exports.handler = async (event, context) => {
       }
     };
 
-    // Cache the result
     setCache(cacheKey, { elite, moreOptions, stats: result });
 
     return stableResponse(elite, moreOptions, result, null);
