@@ -118,10 +118,11 @@ document.getElementById('results').classList.remove('hidden');
 document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">🔍 Finding candidates...<br><small style="color:#666;margin-top:8px;display:block">Step 1 of 2</small></div>';
 
 try{
+const step1ClientStart = performance.now();
 const step1Response=await fetch('/.netlify/functions/search-candidates',{
 method:'POST',
 headers:{'Content-Type':'application/json'},
-body:JSON.stringify({location,cuisine:cuisine==='any'?undefined:cuisine,openNow}),
+body:JSON.stringify({location,cuisine:cuisine==='any'?undefined:cuisine,openNow,qualityFilter:state.qualityFilter}),
 signal:searchAbortController.signal
 });
 
@@ -131,6 +132,8 @@ throw new Error(`Server error ${step1Response.status}: ${errorText}`);
 }
 
 const step1Data=await step1Response.json();
+const step1ClientMs = Math.round(performance.now() - step1ClientStart);
+console.log(`⏱️ Step 1 client time: ${step1ClientMs}ms`);
 
 // Null-safe array extraction
 const eliteRestaurants = Array.isArray(step1Data.elite) ? step1Data.elite : [];
@@ -181,6 +184,7 @@ if(state.transport==='walk'){
 const toEnrich = allRestaurants.slice(0, enrichLimit);
 console.log('Enriching', toEnrich.length, 'candidates');
 
+const step2ClientStart = performance.now();
 const step2Response=await fetch('/.netlify/functions/enrich-times',{
 method:'POST',
 headers:{'Content-Type':'application/json'},
@@ -197,6 +201,8 @@ signal:searchAbortController.signal
 
 if(step2Response.ok){
 const step2Data=await step2Response.json();
+const step2ClientMs = Math.round(performance.now() - step2ClientStart);
+console.log(`⏱️ Step 2 client time: ${step2ClientMs}ms`);
 console.log('Step 2:',step2Data.enrichedCandidates.length,'enriched');
 
 allRestaurants=step2Data.enrichedCandidates;
