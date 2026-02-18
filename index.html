@@ -87,17 +87,13 @@ return true;
 }
 
 async function search(){
-// Prevent concurrent searches
 if(isSearching){
-console.log('Search already in progress, ignoring click');
+console.log('Search already in progress');
 return;
 }
-
-// Cancel any previous search
 if(searchAbortController){
 searchAbortController.abort();
 }
-
 isSearching=true;
 searchAbortController=new AbortController();
 
@@ -112,82 +108,97 @@ const timeSlot=document.getElementById('timewindow').value;
 state.qualityFilter=document.getElementById('quality').value;
 const openNow=(timeSlot=='prime'||timeSlot=='lunch');
 
-let maxWalkMinutes = null;
-let maxDriveMinutes = null;
-let maxTransitMinutes = null;
-
-if(state.transport==='walk'){
-maxWalkMinutes = parseInt(document.getElementById('walkTime').value);
-}else if(state.transport==='drive'){
-maxDriveMinutes = parseInt(document.getElementById('driveTime').value);
-}else if(state.transport==='transit'){
-maxTransitMinutes = parseInt(document.getElementById('transitTime').value);
-}
+let maxWalkMinutes=null,maxDriveMinutes=null,maxTransitMinutes=null;
+if(state.transport==='walk')maxWalkMinutes=parseInt(document.getElementById('walkTime').value);
+else if(state.transport==='drive')maxDriveMinutes=parseInt(document.getElementById('driveTime').value);
+else if(state.transport==='transit')maxTransitMinutes=parseInt(document.getElementById('transitTime').value);
 
 document.getElementById('search').classList.add('hidden');
 document.getElementById('results').classList.remove('hidden');
-document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">🔍 Searching comprehensively...<br><small style="color:#666;margin-top:8px;display:block">This may take up to 60 seconds</small></div>';
+document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">🔍 Finding candidates...<br><small style="color:#666;margin-top:8px;display:block">Step 1 of 2</small></div>';
 
 try{
-const response=await fetch('/.netlify/functions/search-restaurants',{
+const step1Response=await fetch('/.netlify/functions/search-candidates',{
 method:'POST',
 headers:{'Content-Type':'application/json'},
-body:JSON.stringify({
-location,
-cuisine:cuisine==='any'?undefined:cuisine,
-openNow,
-maxWalkMinutes,
-maxDriveMinutes,
-maxTransitMinutes,
-transportMode:state.transport,
-qualityFilter:state.qualityFilter
-}),
+body:JSON.stringify({location,cuisine:cuisine==='any'?undefined:cuisine,openNow,qualityFilter:state.qualityFilter}),
 signal:searchAbortController.signal
 });
 
-if(!response.ok){
-const errorText=await response.text();
-throw new Error(`Server error ${response.status}: ${errorText}`);
+if(!step1Response.ok){
+const errorText=await step1Response.text();
+throw new Error(`Server error ${step1Response.status}: ${errorText}`);
 }
 
-const data=await response.json();
+const step1Data=await step1Response.json();
+console.log('Step 1:',step1Data.candidates.length,'candidates');
 
-let transportDesc = '';
-if(state.transport==='walk')transportDesc = `${maxWalkMinutes}-minute walk`;
-else if(state.transport==='drive')transportDesc = `${maxDriveMinutes}-minute drive`;
-else if(state.transport==='transit')transportDesc = `${maxTransitMinutes}-minute transit`;
-else transportDesc = 'your area';
+allRestaurants=step1Data.candidates.map(c=>({...c,walkMinutes:c.walkMinEstimate,driveMinutes:c.driveMinEstimate,transitMinutes:c.transitMinEstimate}));
 
-const totalFoundMsg = data.totalFound 
-  ? `Found ${data.totalFound} restaurant${data.totalFound !== 1 ? 's' : ''} matching your filters within a ${transportDesc}.`
-  : '';
+let timeFiltered=allRestaurants;
+if(state.transport==='walk'&&maxWalkMinutes)timeFiltered=timeFiltered.filter(r=>r.walkMinutes&&r.walkMinutes<=maxWalkMinutes);
+else if(state.transport==='drive'&&maxDriveMinutes)timeFiltered=timeFiltered.filter(r=>r.driveMinutes&&r.driveMinutes<=maxDriveMinutes);
+else if(state.transport==='transit'&&maxTransitMinutes)timeFiltered=timeFiltered.filter(r=>r.transitMinutes&&r.transitMinutes<=maxTransitMinutes);
 
-if(data.confirmedAddress){
+allRestaurants=timeFiltered;
+
+if(step1Data.confirmedAddress){
+let transportDesc='';
+if(state.transport==='walk')transportDesc=`${maxWalkMinutes}-minute walk`;
+else if(state.transport==='drive')transportDesc=`${maxDriveMinutes}-minute drive`;
+else if(state.transport==='transit')transportDesc=`${maxTransitMinutes}-minute transit`;
+else transportDesc='your area';
+
 document.getElementById('warnings').innerHTML=`
-<div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-📍 ${data.confirmedAddress}
-</div>
-${totalFoundMsg ? `<div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:600">${totalFoundMsg}</div>` : ''}
+<div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 ${step1Data.confirmedAddress}</div>
+<div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e;font-weight:600">⏱️ Showing ${allRestaurants.length} results with estimated times. Getting precise times...</div>
 `;
 }
-allRestaurants=data.restaurants||[];
+
 sortResults();
+
+const step2Response=await fetch('/.netlify/functions/enrich-times',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({candidates:step1Data.candidates.slice(0,100),userLocation:step1Data.userLocation,maxCandidates:100}),
+signal:searchAbortController.signal
+});
+
+if(step2Response.ok){
+const step2Data=await step2Response.json();
+console.log('Step 2:',step2Data.enrichedCandidates.length,'enriched');
+
+allRestaurants=step2Data.enrichedCandidates;
+
+let realTimeFiltered=allRestaurants;
+if(state.transport==='walk'&&maxWalkMinutes)realTimeFiltered=realTimeFiltered.filter(r=>r.walkMinutes&&r.walkMinutes<=maxWalkMinutes);
+else if(state.transport==='drive'&&maxDriveMinutes)realTimeFiltered=realTimeFiltered.filter(r=>r.driveMinutes&&r.driveMinutes<=maxDriveMinutes);
+else if(state.transport==='transit'&&maxTransitMinutes)realTimeFiltered=realTimeFiltered.filter(r=>r.transitMinutes&&r.transitMinutes<=maxTransitMinutes);
+
+allRestaurants=realTimeFiltered;
+
+let transportDesc='';
+if(state.transport==='walk')transportDesc=`${maxWalkMinutes}-minute walk`;
+else if(state.transport==='drive')transportDesc=`${maxDriveMinutes}-minute drive`;
+else if(state.transport==='transit')transportDesc=`${maxTransitMinutes}-minute transit`;
+else transportDesc='your area';
+
+document.getElementById('warnings').innerHTML=`
+<div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 ${step1Data.confirmedAddress}</div>
+<div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:600">✓ Found ${allRestaurants.length} restaurants within a ${transportDesc}.</div>
+`;
+
+sortResults();
+}
+
 }catch(error){
 console.error('Search error:',error);
-if(error.name==='AbortError'){
-console.log('Search was cancelled');
-return;
-}
+if(error.name==='AbortError')return;
 let errorMsg='😔 Search failed';
-if(error.message.includes('429')){
-errorMsg='⏱️ Too many requests. Please wait a moment and try again.';
-}else if(error.message.includes('500')){
-errorMsg='🔧 Server error. Please try again.';
-}else if(error.message.includes('timeout')||error.message.includes('fetch')){
-errorMsg='⏱️ Search is taking longer than expected. Please try again in a moment.';
-}else if(error.message){
-errorMsg=`😔 ${error.message}`;
-}
+if(error.message.includes('429'))errorMsg='⏱️ Too many requests. Please wait and try again.';
+else if(error.message.includes('500'))errorMsg='🔧 Server error. Please try again.';
+else if(error.message.includes('504')||error.message.includes('timeout'))errorMsg='⏱️ Search timed out. Please try again.';
+else if(error.message)errorMsg=`😔 ${error.message}`;
 document.getElementById('list').innerHTML=`<div style="text-align:center;padding:40px">${errorMsg}</div>`;
 }finally{
 isSearching=false;
