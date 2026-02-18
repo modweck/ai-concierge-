@@ -309,11 +309,26 @@ if(r.walkMinutes)distanceHtml+=`<span class="badge distance">🚶 ${r.walkMinute
 if(r.driveMinutes)distanceHtml+=`<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
 if(r.transitMinutes)distanceHtml+=`<span class="badge distance">🚇 ${r.transitMinutes} min</span>`;
 
+// Michelin badge
+let michelinHtml='';
+if(r.michelin){
+if(r.michelin.distinction==='star'){
+const starCount = r.michelin.stars || 1;
+const starText = starCount === 1 ? 'One Star' : starCount === 2 ? 'Two Star' : 'Three Star';
+michelinHtml=`<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin ${starText}</span>`;
+}else if(r.michelin.distinction==='bib'){
+michelinHtml=`<span class="badge" style="background:#10b981;color:white;border-color:#10b981">🟢 Bib Gourmand</span>`;
+}else if(r.michelin.distinction==='recommended'){
+michelinHtml=`<span class="badge" style="background:#6366f1;color:white;border-color:#6366f1">Michelin Recommended</span>`;
+}
+}
+
 return`
 <div class="restaurant">
 <h3>${r.name}</h3>
 <div class="cuisine">${r.vicinity||r.formatted_address||''}</div>
 <div class="badges">
+${michelinHtml}
 <span class="badge">⭐ ${r.googleRating.toFixed(1)} (${r.googleReviewCount || 0})</span>
 <span class="badge">💰 ${r.price_level?'$'.repeat(r.price_level):'N/A'}</span>
 ${r.opening_hours?.open_now?'<span class="badge">✅ Open</span>':''}
