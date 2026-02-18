@@ -488,7 +488,16 @@ exports.handler = async (event, context) => {
     const within1Mile = candidatesWithDistance.filter(r => r.distanceMiles <= 1.0);
     console.log('Within 1 mile:', within1Mile.length);
     
+    // DEBUG: Log sample candidates before filtering
+    if (within1Mile.length > 0) {
+      console.log('=== SAMPLE CANDIDATES BEFORE FILTERING ===');
+      within1Mile.slice(0, 3).forEach(c => {
+        console.log(`${c.name}: ${c.googleRating}⭐ (${c.googleReviewCount} reviews)`);
+      });
+    }
+    
     // Apply Two-Tier filtering: Elite (4.6+) and More Options (4.4+)
+    const filterStartTime = Date.now();
     const { elite, moreOptions, excluded: tierExcluded } = filterRestaurantsByTier(within1Mile);
     
     console.log('=== TWO-TIER FILTERING ===');
@@ -498,13 +507,24 @@ exports.handler = async (event, context) => {
     console.log('Excluded:', tierExcluded.length);
     
     if (tierExcluded.length > 0) {
-      console.log('=== EXCLUDED ITEMS (first 15) ===');
-      tierExcluded.slice(0, 15).forEach(item => {
+      console.log('=== EXCLUDED ITEMS (first 20) ===');
+      tierExcluded.slice(0, 20).forEach(item => {
         console.log(`  ${item.name}`);
         console.log(`    Rating: ${item.rating}⭐ | Reviews: ${item.reviews}`);
         console.log(`    Types: ${item.types || 'none'}`);
         console.log(`    Reason: ${item.reason}`);
         console.log('');
+      });
+      
+      // Count by reason
+      const reasonCounts = {};
+      tierExcluded.forEach(item => {
+        const reason = item.reason.split('(')[0].split(':')[0].trim();
+        reasonCounts[reason] = (reasonCounts[reason] || 0) + 1;
+      });
+      console.log('=== EXCLUSION SUMMARY ===');
+      Object.entries(reasonCounts).sort((a,b) => b[1] - a[1]).forEach(([reason, count]) => {
+        console.log(`${reason}: ${count}`);
       });
     }
     console.log('===========================');
