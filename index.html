@@ -160,7 +160,11 @@ sortResults();
 const step2Response=await fetch('/.netlify/functions/enrich-times',{
 method:'POST',
 headers:{'Content-Type':'application/json'},
-body:JSON.stringify({candidates:step1Data.candidates.slice(0,100),userLocation:step1Data.userLocation,maxCandidates:100}),
+body:JSON.stringify({
+candidates:step1Data.candidates.slice(0,80),
+userLocation:step1Data.userLocation,
+transportMode:state.transport
+}),
 signal:searchAbortController.signal
 });
 
