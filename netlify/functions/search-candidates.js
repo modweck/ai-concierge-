@@ -1,4 +1,4 @@
-// Step 1: Large candidate pool - NO rating filter (moved to frontend)
+// Deterministic 1-mile grid coverage with full pagination
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) };
@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
       return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'API key not configured' }) };
     }
 
-    console.log('=== STEP 1: BUILD LARGE CANDIDATE POOL ===');
+    console.log('=== DETERMINISTIC 1-MILE GRID SEARCH ===');
 
     // Geocode
     const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${GOOGLE_API_KEY}`;
@@ -27,82 +27,92 @@ exports.handler = async (event, context) => {
     const { lat, lng } = geocodeData.results[0].geometry.location;
     const confirmedAddress = geocodeData.results[0].formatted_address;
 
-    // 9-point grid
-    const offsetMiles = 0.8;
+    // Generate fixed 7-point grid within 1 mile (hexagonal pattern + center)
+    // 1 mile = 1609 meters, we use 600m radius per node
+    const gridRadius = 600; // meters per search node
+    const offsetMiles = 0.5; // half mile offset for grid points
     const offsetDegrees = offsetMiles / 69;
-    const searchRadius = 2000;
     
     const gridPoints = [
-      { lat, lng },
-      { lat: lat + offsetDegrees, lng },
-      { lat: lat - offsetDegrees, lng },
-      { lat, lng: lng + offsetDegrees },
-      { lat, lng: lng - offsetDegrees },
-      { lat: lat + offsetDegrees, lng: lng + offsetDegrees },
-      { lat: lat + offsetDegrees, lng: lng - offsetDegrees },
-      { lat: lat - offsetDegrees, lng: lng + offsetDegrees },
-      { lat: lat - offsetDegrees, lng: lng - offsetDegrees }
+      { lat, lng, label: 'Center' },
+      { lat: lat + offsetDegrees, lng, label: 'North' },
+      { lat: lat - offsetDegrees, lng, label: 'South' },
+      { lat, lng: lng + offsetDegrees, label: 'East' },
+      { lat, lng: lng - offsetDegrees, label: 'West' },
+      { lat: lat + (offsetDegrees * 0.5), lng: lng + (offsetDegrees * 0.866), label: 'NE' },
+      { lat: lat - (offsetDegrees * 0.5), lng: lng - (offsetDegrees * 0.866), label: 'SW' }
     ];
 
-    // Multiple search strategies
-    const allFetches = [];
+    console.log('Grid: 7 fixed points, 600m radius per node');
 
-    // Strategy 1: Nearby Search from all grid points (2 pages each)
-    async function fetchNearby(searchLat, searchLng) {
-      let url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=${searchRadius}&type=restaurant&key=${GOOGLE_API_KEY}`;
+    // Fetch with FULL pagination and retry logic
+    async function fetchWithFullPagination(searchLat, searchLng, label) {
+      let url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=${gridRadius}&type=restaurant&key=${GOOGLE_API_KEY}`;
       if (cuisine) url += `&keyword=${encodeURIComponent(cuisine)}`;
       if (openNow) url += `&opennow=true`;
 
       const response = await fetch(url);
       const data = await response.json();
-      if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') return [];
+      
+      if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') {
+        console.log(`${label}: API error ${data.status}`);
+        return [];
+      }
       
       let allResults = data.results || [];
       let nextPageToken = data.next_page_token;
+      let pageCount = 1;
 
-      // Get page 2 if available
-      if (nextPageToken) {
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        const pageUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=${nextPageToken}&key=${GOOGLE_API_KEY}`;
-        const pageData = await fetch(pageUrl).then(r=>r.json());
-        if (pageData.results) allResults = allResults.concat(pageData.results);
+      // Paginate until no more pages
+      while (nextPageToken) {
+        await new Promise(resolve => setTimeout(resolve, 2000)); // Required delay
+        
+        let retries = 0;
+        let pageData = null;
+        
+        // Retry logic for INVALID_REQUEST
+        while (retries < 5) {
+          const pageUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=${nextPageToken}&key=${GOOGLE_API_KEY}`;
+          const pageResponse = await fetch(pageUrl);
+          pageData = await pageResponse.json();
+          
+          if (pageData.status === 'INVALID_REQUEST') {
+            retries++;
+            console.log(`${label}: INVALID_REQUEST retry ${retries}/5`);
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            continue;
+          }
+          break;
+        }
+        
+        if (pageData && pageData.results) {
+          allResults = allResults.concat(pageData.results);
+          pageCount++;
+        }
+        
+        nextPageToken = pageData?.next_page_token;
+        
+        // Safety: max 3 pages per node
+        if (pageCount >= 3) break;
       }
 
+      console.log(`${label}: ${allResults.length} results (${pageCount} pages)`);
       return allResults;
     }
 
-    gridPoints.forEach(point => {
-      allFetches.push(fetchNearby(point.lat, point.lng));
-    });
+    // Fetch from all grid points in parallel
+    const gridFetches = gridPoints.map(point => 
+      fetchWithFullPagination(point.lat, point.lng, point.label)
+    );
+    const gridResults = await Promise.all(gridFetches);
 
-    // Strategy 2: Text Search queries (only when cuisine is "any")
-    async function fetchTextSearch(query) {
-      const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(query)}&location=${lat},${lng}&radius=${searchRadius}&key=${GOOGLE_API_KEY}`;
-      const response = await fetch(url);
-      const data = await response.json();
-      if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') return [];
-      return data.results || [];
-    }
-
-    if (!cuisine) {
-      const textQueries = [
-        'restaurant',
-        'best restaurants',
-        'top rated restaurants',
-        'fine dining'
-      ];
-      textQueries.forEach(query => {
-        allFetches.push(fetchTextSearch(query));
-      });
-    }
-
-    console.log('Running', allFetches.length, 'parallel queries');
-    const allResults = await Promise.all(allFetches);
-
-    // Dedupe by place_id
+    // Merge and dedupe by place_id ONLY
     const seenIds = new Set();
     const allCandidates = [];
-    allResults.forEach(results => {
+    let totalRaw = 0;
+
+    gridResults.forEach(results => {
+      totalRaw += results.length;
       results.forEach(place => {
         if (!seenIds.has(place.place_id)) {
           seenIds.add(place.place_id);
@@ -111,11 +121,12 @@ exports.handler = async (event, context) => {
       });
     });
 
-    console.log('Total unique candidates:', allCandidates.length);
+    console.log('Total raw results:', totalRaw);
+    console.log('Unique place_ids:', allCandidates.length);
 
-    // Calculate estimates - NO RATING FILTER
-    const candidatesWithEstimates = allCandidates.map(place => {
-      const R = 3959;
+    // Calculate straight-line distance for sorting
+    const candidatesWithDistance = allCandidates.map(place => {
+      const R = 3959; // miles
       const dLat = (place.geometry.location.lat - lat) * Math.PI / 180;
       const dLon = (place.geometry.location.lng - lng) * Math.PI / 180;
       const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
@@ -123,10 +134,6 @@ exports.handler = async (event, context) => {
                 Math.sin(dLon/2) * Math.sin(dLon/2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
       const distMiles = R * c;
-      
-      const walkMinEstimate = Math.round(distMiles * 20);
-      const driveMinEstimate = Math.round(distMiles * 4);
-      const transitMinEstimate = Math.round(distMiles * 6);
 
       return {
         place_id: place.place_id,
@@ -139,23 +146,39 @@ exports.handler = async (event, context) => {
         googleRating: place.rating || 0,
         googleReviewCount: place.user_ratings_total || 0,
         distanceMiles: Math.round(distMiles * 10) / 10,
-        walkMinEstimate,
-        driveMinEstimate,
-        transitMinEstimate
+        walkMinEstimate: Math.round(distMiles * 20),
+        driveMinEstimate: Math.round(distMiles * 4),
+        transitMinEstimate: Math.round(distMiles * 6)
       };
     });
 
-    console.log('Returning', candidatesWithEstimates.length, 'candidates (NO rating filter)');
-    console.log('WALK MODE PRIORITY: Up to 150 enrichment for 30-min, 120 for 20-min, 80 for drive/transit');
+    // Filter: within 1 mile
+    const within1Mile = candidatesWithDistance.filter(r => r.distanceMiles <= 1.0);
+    console.log('Within 1 mile:', within1Mile.length);
+
+    // Deterministic sort: rating DESC, reviews DESC, distance ASC, name ASC
+    within1Mile.sort((a, b) => {
+      if (b.googleRating !== a.googleRating) return b.googleRating - a.googleRating;
+      if (b.googleReviewCount !== a.googleReviewCount) return b.googleReviewCount - a.googleReviewCount;
+      if (a.distanceMiles !== b.distanceMiles) return a.distanceMiles - b.distanceMiles;
+      return a.name.localeCompare(b.name);
+    });
+
+    console.log('Returning', within1Mile.length, 'restaurants (deterministic sort)');
 
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        candidates: candidatesWithEstimates,
+        candidates: within1Mile,
         confirmedAddress,
         userLocation: { lat, lng },
-        totalCandidates: candidatesWithEstimates.length
+        totalCandidates: within1Mile.length,
+        stats: {
+          totalRaw,
+          uniquePlaceIds: allCandidates.length,
+          within1Mile: within1Mile.length
+        }
       })
     };
 
