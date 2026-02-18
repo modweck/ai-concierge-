@@ -1,6 +1,43 @@
 // Deterministic 1-mile grid coverage with full pagination
 // Two-tier filtering: Elite (4.6+) and More Options (4.4+)
 // Global chain exclusion for both tiers
+
+// In-memory cache with 10-minute TTL
+const resultCache = new Map();
+const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes
+
+function getCacheKey(location, qualityMode, walkMinutes) {
+  return `${location}_${qualityMode}_${walkMinutes}`;
+}
+
+function getFromCache(key) {
+  const cached = resultCache.get(key);
+  if (!cached) return null;
+  
+  const age = Date.now() - cached.timestamp;
+  if (age > CACHE_TTL_MS) {
+    resultCache.delete(key);
+    return null;
+  }
+  
+  console.log(`Cache HIT (age: ${Math.round(age/1000)}s)`);
+  return cached.data;
+}
+
+function setCache(key, data) {
+  resultCache.set(key, {
+    data,
+    timestamp: Date.now()
+  });
+  
+  // Cleanup old entries (simple LRU)
+  if (resultCache.size > 100) {
+    const oldest = Array.from(resultCache.entries())
+      .sort((a, b) => a[1].timestamp - b[1].timestamp)[0];
+    resultCache.delete(oldest[0]);
+  }
+}
+
 function filterRestaurantsByTier(candidates) {
   const KNOWN_CHAINS = [
     'chopt', 'just salad', 'dos toros', 'sweetgreen', 'shake shack', 'chipotle',
@@ -216,12 +253,27 @@ exports.handler = async (event, context) => {
   }
 
   try {
+    const startTime = Date.now();
+    const timings = {};
+    
     const body = JSON.parse(event.body);
     const { location, cuisine, openNow } = body;
     const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
     if (!GOOGLE_API_KEY) {
       return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'API key not configured' }) };
+    }
+
+    // Check cache early
+    const cacheKey = getCacheKey(location, 'all', 20); // Simple key for now
+    const cachedResult = getFromCache(cacheKey);
+    if (cachedResult) {
+      return stableResponse(
+        cachedResult.elite,
+        cachedResult.moreOptions,
+        { ...cachedResult.stats, cached: true, total_ms: Date.now() - startTime },
+        null
+      );
     }
 
     console.log('=== DETERMINISTIC 1-MILE GRID SEARCH ===');
@@ -335,8 +387,10 @@ exports.handler = async (event, context) => {
       let nextPageToken = data.next_page_token;
       let pageCount = 1;
 
-      // Paginate until no more pages
-      while (nextPageToken) {
+      // DETERMINISM: Always fetch exactly 3 pages (or until no more pages)
+      // This ensures same inputs = same candidate pool
+      const MAX_PAGES = 3;
+      while (nextPageToken && pageCount < MAX_PAGES) {
         await new Promise(resolve => setTimeout(resolve, 2000)); // Required delay
         
         let retries = 0;
@@ -363,9 +417,6 @@ exports.handler = async (event, context) => {
         }
         
         nextPageToken = pageData?.next_page_token;
-        
-        // Safety: max 3 pages per node
-        if (pageCount >= 3) break;
       }
 
       console.log(`${label}: ${allResults.length} results (${pageCount} pages)`);
@@ -396,6 +447,11 @@ exports.handler = async (event, context) => {
     console.log('Total raw results:', totalRaw);
     console.log('3) UNIQUE PLACES (after dedupe, BEFORE filters):', allCandidates.length);
     
+    // DETERMINISM: Sort by place_id to ensure consistent order
+    // Google API returns in arbitrary order, so we enforce determinism
+    allCandidates.sort((a, b) => a.place_id.localeCompare(b.place_id));
+    console.log('Sorted by place_id for determinism');
+    
     // Log first 10 place_ids for comparison
     console.log('Sample place_ids:', allCandidates.slice(0, 10).map(p => p.place_id).join(', '));
 
@@ -418,6 +474,7 @@ exports.handler = async (event, context) => {
         price_level: place.price_level,
         opening_hours: place.opening_hours,
         geometry: place.geometry,
+        types: place.types || [],
         googleRating: place.rating || 0,
         googleReviewCount: place.user_ratings_total || 0,
         distanceMiles: Math.round(distMiles * 10) / 10,
@@ -462,10 +519,18 @@ exports.handler = async (event, context) => {
     
     elite.sort(sortByWalkTime);
     moreOptions.sort(sortByWalkTime);
+    timings.filtering_ms = Date.now() - filterStartTime;
+    timings.total_ms = Date.now() - startTime;
     
     console.log('Returning Elite:', elite.length, 'More Options:', moreOptions.length);
+    console.log('=== PERFORMANCE ===');
+    console.log('places_fetch_ms:', timings.places_fetch_ms);
+    console.log('filtering_ms:', timings.filtering_ms);
+    console.log('total_ms:', timings.total_ms);
+    console.log('cache_hit: false');
+    console.log('===================');
 
-    return stableResponse(elite, moreOptions, {
+    const result = {
       totalRaw,
       uniquePlaceIds: allCandidates.length,
       within1Mile: within1Mile.length,
@@ -475,8 +540,19 @@ exports.handler = async (event, context) => {
       normalizedCoords: { lat: gridLat, lng: gridLng },
       rawCoords: { lat, lng },
       confirmedAddress,
-      userLocation: { lat: gridLat, lng: gridLng }
-    }, null);
+      userLocation: { lat: gridLat, lng: gridLng },
+      performance: {
+        ...timings,
+        cache_hit: false,
+        cache_key: cacheKey,
+        candidates_before_dm: elite.length + moreOptions.length
+      }
+    };
+
+    // Cache the result
+    setCache(cacheKey, { elite, moreOptions, stats: result });
+
+    return stableResponse(elite, moreOptions, result, null);
 
   } catch (error) {
     console.error('ERROR in search-candidates:', error);
