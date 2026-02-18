@@ -100,43 +100,36 @@ exports.handler = async (event, context) => {
 
     console.log('After coverage pool (Nearby):', allCandidates.length);
 
-    // STEP 2: Quality pool (Text Search from all grid points)
+    // STEP 2: Quality pool (REDUCED - only 2 queries from center point for speed)
     const qualityQueries = [
       'best restaurants near me',
-      'top rated restaurants near me',
-      'highly rated restaurants near me',
-      'michelin restaurants near me'
+      'top rated restaurants near me'
     ];
     
     if (cuisine) {
       qualityQueries.push(`best ${cuisine} near me`);
-      qualityQueries.push(`top ${cuisine} restaurants near me`);
     }
 
-    console.log('Running', qualityQueries.length, 'quality queries across', gridPoints.length, 'grid points');
+    console.log('Running', qualityQueries.length, 'quality queries from center point');
 
-    for (const point of gridPoints) {
-      for (const query of qualityQueries) {
-        const results = await fetchTextSearch(query, point.lat, point.lng);
-        results.forEach(place => {
-          if (!seenIds.has(place.place_id)) {
-            seenIds.add(place.place_id);
-            allCandidates.push(place);
-          }
-        });
-      }
+    for (const query of qualityQueries) {
+      const results = await fetchTextSearch(query, lat, lng);
+      results.forEach(place => {
+        if (!seenIds.has(place.place_id)) {
+          seenIds.add(place.place_id);
+          allCandidates.push(place);
+        }
+      });
     }
 
     console.log('After quality pool (Text):', allCandidates.length);
 
-    // STEP 3: Dynamic shortlist by straight-line distance
-    let shortlistSize = 150; // Default for 20-min walk
+    // STEP 3: Reduced shortlist for faster Distance Matrix
+    let shortlistSize = 80; // Reduced from 150 for 20-min walk
     if (transportMode === 'walk' && maxWalkMinutes >= 30) {
-      shortlistSize = 250;
-    } else if (transportMode === 'drive' && maxDriveMinutes >= 30) {
-      shortlistSize = 350;
-    } else if (transportMode === 'drive') {
-      shortlistSize = 200;
+      shortlistSize = 100; // Reduced from 250
+    } else if (transportMode === 'drive' || transportMode === 'transit') {
+      shortlistSize = 120; // Reduced from 200-350
     }
     
     console.log('Shortlisting top', shortlistSize, 'by straight-line distance');
