@@ -199,4 +199,142 @@ if(step2Response.ok){
 const step2Data=await step2Response.json();
 console.log('Step 2:',step2Data.enrichedCandidates.length,'enriched');
 
-allRestaurants=step2Da
+allRestaurants=step2Data.enrichedCandidates;
+
+let realTimeFiltered=allRestaurants;
+if(state.transport==='walk'&&maxWalkMinutes)realTimeFiltered=realTimeFiltered.filter(r=>r.walkMinutes&&r.walkMinutes<=maxWalkMinutes);
+else if(state.transport==='drive'&&maxDriveMinutes)realTimeFiltered=realTimeFiltered.filter(r=>r.driveMinutes&&r.driveMinutes<=maxDriveMinutes);
+else if(state.transport==='transit'&&maxTransitMinutes)realTimeFiltered=realTimeFiltered.filter(r=>r.transitMinutes&&r.transitMinutes<=maxTransitMinutes);
+
+allRestaurants=realTimeFiltered;
+
+let transportDesc='';
+if(state.transport==='walk')transportDesc=`${maxWalkMinutes}-minute walk`;
+else if(state.transport==='drive')transportDesc=`${maxDriveMinutes}-minute drive`;
+else if(state.transport==='transit')transportDesc=`${maxTransitMinutes}-minute transit`;
+else transportDesc='your area';
+
+// Count by quality level
+const eliteCount = allRestaurants.filter(r=>r.googleRating>=4.6).length;
+const topRatedCount = allRestaurants.filter(r=>r.googleRating>=4.4).length;
+
+// Build quality message based on filter
+let qualityMsg = '';
+if(state.qualityFilter==='five_star'){
+qualityMsg = `Found ${eliteCount} Elite restaurants (4.6+) within a ${transportDesc}.`;
+}else if(state.qualityFilter==='top_rated_and_above'){
+qualityMsg = `Found ${topRatedCount} Top Rated restaurants (4.4+) within a ${transportDesc}.`;
+}else{
+qualityMsg = `Found ${allRestaurants.length} restaurants within a ${transportDesc}.`;
+}
+
+// Performance metrics display
+const step1Perf = step1Data.stats?.performance || {};
+const step2Perf = step2Data.performance || {};
+const totalMs = (step1Perf.total_ms || 0) + (step2Perf.total_ms || 0);
+const perfHtml = `<div style="margin-top:8px;color:#666;font-size:13px">
+⚡ ${totalMs}ms total | 
+Places: ${step1Perf.places_fetch_ms || 0}ms | 
+Filter: ${step1Perf.filtering_ms || 0}ms | 
+DM: ${step2Perf.distance_matrix_ms || 0}ms
+${step1Perf.cache_hit ? ' | 💾 Cached' : ''}
+</div>`;
+
+let expandWarning = '';
+if(state.qualityFilter==='five_star' && eliteCount < 8 && !state.showExpanded){
+expandWarning = `<div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e">
+Only ${eliteCount} elite matches. <button onclick="expandToTopRated()" style="background:#000;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600;margin-left:8px">Expand to 4.4+ Top Rated?</button>
+</div>`;
+}
+
+document.getElementById('warnings').innerHTML=`
+<div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 ${step1Data.confirmedAddress}</div>
+<div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:600">✓ ${qualityMsg}${perfHtml}</div>
+${expandWarning}
+`;
+
+sortResults();
+}
+
+}catch(error){
+console.error('Search error:',error);
+if(error.name==='AbortError')return;
+let errorMsg='😔 Search failed';
+if(error.message.includes('429'))errorMsg='⏱️ Too many requests. Please wait and try again.';
+else if(error.message.includes('500'))errorMsg='🔧 Server error. Please try again.';
+else if(error.message.includes('504')||error.message.includes('timeout'))errorMsg='⏱️ Search timed out. Please try again.';
+else if(error.message)errorMsg=`😔 ${error.message}`;
+document.getElementById('list').innerHTML=`<div style="text-align:center;padding:40px">${errorMsg}</div>`;
+}finally{
+isSearching=false;
+searchBtn.disabled=false;
+searchBtn.style.opacity='1';
+searchBtn.textContent='🔍 Find Restaurants';
+}
+}
+
+function sortResults(){
+let filtered=filterByQuality(allRestaurants);
+const sortBy=document.getElementById('sortBy').value;
+let sorted=[...filtered];
+
+if(sortBy==='rating'){
+sorted.sort((a,b)=>b.googleRating-a.googleRating);
+}else if(sortBy==='distance'){
+// Sort by actual walk duration (seconds), then rating, then reviews, then name
+sorted.sort((a,b)=>{
+const aDuration = a.walkDurationSeconds || (a.walkMinutes * 60) || 999999;
+const bDuration = b.walkDurationSeconds || (b.walkMinutes * 60) || 999999;
+if(aDuration !== bDuration) return aDuration - bDuration;
+if(b.googleRating !== a.googleRating) return b.googleRating - a.googleRating;
+if(b.googleReviewCount !== a.googleReviewCount) return b.googleReviewCount - a.googleReviewCount;
+return a.name.localeCompare(b.name);
+});
+}else if(sortBy==='price'){
+sorted.sort((a,b)=>(a.price_level||0)-(b.price_level||0));
+}
+
+displayResults(sorted);
+}
+
+function displayResults(restaurants){
+if(!restaurants.length){
+document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">No restaurants found</div>';
+return;
+}
+
+let html=restaurants.map(r=>{
+let distanceHtml='';
+if(r.walkMinutes)distanceHtml+=`<span class="badge distance">🚶 ${r.walkMinutes} min</span>`;
+if(r.driveMinutes)distanceHtml+=`<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
+if(r.transitMinutes)distanceHtml+=`<span class="badge distance">🚇 ${r.transitMinutes} min</span>`;
+
+return`
+<div class="restaurant">
+<h3>${r.name}</h3>
+<div class="cuisine">${r.vicinity||r.formatted_address||''}</div>
+<div class="badges">
+<span class="badge">⭐ ${r.googleRating.toFixed(1)} (${r.googleReviewCount || 0})</span>
+<span class="badge">💰 ${r.price_level?'$'.repeat(r.price_level):'N/A'}</span>
+${r.opening_hours?.open_now?'<span class="badge">✅ Open</span>':''}
+${distanceHtml}
+<button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${r.place_id}','_blank')" style="margin-left:auto;padding:8px 16px;background:#4285f4;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600;font-size:14px">📍 Maps</button>
+</div>
+</div>
+`;
+}).join('');
+
+document.getElementById('list').innerHTML=html;
+}
+
+function back(){
+document.getElementById('search').classList.remove('hidden');
+document.getElementById('results').classList.add('hidden');
+}
+
+function expandToTopRated(){
+state.showExpanded=true;
+state.qualityFilter='top_rated_and_above';
+sortResults();
+}
+</script></body></html>
