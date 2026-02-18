@@ -131,9 +131,20 @@ throw new Error(`Server error ${step1Response.status}: ${errorText}`);
 }
 
 const step1Data=await step1Response.json();
-console.log('Step 1:',step1Data.candidates.length,'candidates');
 
-allRestaurants=step1Data.candidates.map(c=>({...c,walkMinutes:c.walkMinEstimate,driveMinutes:c.driveMinEstimate,transitMinutes:c.transitMinEstimate}));
+// Null-safe array extraction
+const eliteRestaurants = Array.isArray(step1Data.elite) ? step1Data.elite : [];
+const moreOptionsRestaurants = Array.isArray(step1Data.moreOptions) ? step1Data.moreOptions : [];
+
+console.log('Step 1: Elite:', eliteRestaurants.length, 'More Options:', moreOptionsRestaurants.length);
+
+// Combine both tiers for now (will separate in UI later)
+allRestaurants = [...eliteRestaurants, ...moreOptionsRestaurants].map(c=>({
+...c,
+walkMinutes:c.walkMinEstimate,
+driveMinutes:c.driveMinEstimate,
+transitMinutes:c.transitMinEstimate
+}));
 
 let timeFiltered=allRestaurants;
 if(state.transport==='walk'&&maxWalkMinutes)timeFiltered=timeFiltered.filter(r=>r.walkMinutes&&r.walkMinutes<=maxWalkMinutes);
@@ -288,7 +299,7 @@ return`
 <h3>${r.name}</h3>
 <div class="cuisine">${r.vicinity||r.formatted_address||''}</div>
 <div class="badges">
-<span class="badge">⭐ ${r.googleRating.toFixed(1)}</span>
+<span class="badge">⭐ ${r.googleRating.toFixed(1)} (${r.googleReviewCount || 0})</span>
 <span class="badge">💰 ${r.price_level?'$'.repeat(r.price_level):'N/A'}</span>
 ${r.opening_hours?.open_now?'<span class="badge">✅ Open</span>':''}
 ${distanceHtml}
