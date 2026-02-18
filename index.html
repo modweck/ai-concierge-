@@ -225,6 +225,18 @@ qualityMsg = `Found ${topRatedCount} Top Rated restaurants (4.4+) within a ${tra
 qualityMsg = `Found ${allRestaurants.length} restaurants within a ${transportDesc}.`;
 }
 
+// Performance metrics display
+const step1Perf = step1Data.stats?.performance || {};
+const step2Perf = step2Data.performance || {};
+const totalMs = (step1Perf.total_ms || 0) + (step2Perf.total_ms || 0);
+const perfHtml = `<div style="margin-top:8px;color:#666;font-size:13px">
+⚡ ${totalMs}ms total | 
+Places: ${step1Perf.places_fetch_ms || 0}ms | 
+Filter: ${step1Perf.filtering_ms || 0}ms | 
+DM: ${step2Perf.distance_matrix_ms || 0}ms
+${step1Perf.cache_hit ? ' | 💾 Cached' : ''}
+</div>`;
+
 let expandWarning = '';
 if(state.qualityFilter==='five_star' && eliteCount < 8 && !state.showExpanded){
 expandWarning = `<div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e">
@@ -234,7 +246,7 @@ Only ${eliteCount} elite matches. <button onclick="expandToTopRated()" style="ba
 
 document.getElementById('warnings').innerHTML=`
 <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 ${step1Data.confirmedAddress}</div>
-<div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:600">✓ ${qualityMsg}</div>
+<div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:600">✓ ${qualityMsg}${perfHtml}</div>
 ${expandWarning}
 `;
 
