@@ -25,10 +25,14 @@ exports.handler = async (event, context) => {
     const { lat, lng } = geocodeData.results[0].geometry.location;
     const confirmedAddress = geocodeData.results[0].formatted_address;
 
-    // Helper: Fetch all pages from a single search location
+    // Helper: Fetch all pages from a single search location using TEXT SEARCH
     async function fetchAllPages(searchLat, searchLng) {
-      let placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=2400&type=restaurant&key=${GOOGLE_API_KEY}`;
-      if (cuisine) placesUrl += `&keyword=${encodeURIComponent(cuisine)}`;
+      // Use Text Search instead of Nearby Search - allows us to request "highly rated"
+      const query = cuisine 
+        ? `highly rated ${cuisine} restaurants` 
+        : 'highly rated restaurants';
+      
+      let placesUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(query)}&location=${searchLat},${searchLng}&radius=2400&key=${GOOGLE_API_KEY}`;
       if (openNow) placesUrl += `&opennow=true`;
 
       const response = await fetch(placesUrl);
