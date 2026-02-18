@@ -31,7 +31,7 @@ exports.handler = async (event, context) => {
     const allCandidates = [];
     const seenIds = new Set();
     
-    // Grid setup
+    // Grid setup - ALL 9 POINTS
     const offsetMiles = 0.8;
     const offsetDegrees = offsetMiles / 69;
     const searchRadius = 2000;
@@ -41,8 +41,14 @@ exports.handler = async (event, context) => {
       { lat: lat + offsetDegrees, lng, label: 'North' },
       { lat: lat - offsetDegrees, lng, label: 'South' },
       { lat, lng: lng + offsetDegrees, label: 'East' },
-      { lat, lng: lng - offsetDegrees, label: 'West' }
+      { lat, lng: lng - offsetDegrees, label: 'West' },
+      { lat: lat + offsetDegrees, lng: lng + offsetDegrees, label: 'NE' },
+      { lat: lat + offsetDegrees, lng: lng - offsetDegrees, label: 'NW' },
+      { lat: lat - offsetDegrees, lng: lng + offsetDegrees, label: 'SE' },
+      { lat: lat - offsetDegrees, lng: lng - offsetDegrees, label: 'SW' }
     ];
+
+    console.log('Using 9-point grid for comprehensive coverage');
 
     // Helper: Nearby Search with pagination
     async function fetchNearby(searchLat, searchLng, label) {
@@ -80,16 +86,19 @@ exports.handler = async (event, context) => {
       return data.results || [];
     }
 
-    // STEP 1: Coverage pool (Nearby Search - center point only for speed)
-    const nearbyResults = await fetchNearby(lat, lng, 'Coverage');
-    nearbyResults.forEach(place => {
-      if (!seenIds.has(place.place_id)) {
-        seenIds.add(place.place_id);
-        allCandidates.push(place);
-      }
-    });
+    // STEP 1: Coverage pool (Nearby Search on ALL 9 grid points)
+    console.log('Running Nearby Search on all 9 grid points...');
+    for (const point of gridPoints) {
+      const nearbyResults = await fetchNearby(point.lat, point.lng, point.label);
+      nearbyResults.forEach(place => {
+        if (!seenIds.has(place.place_id)) {
+          seenIds.add(place.place_id);
+          allCandidates.push(place);
+        }
+      });
+    }
 
-    console.log('After coverage pool:', allCandidates.length);
+    console.log('After coverage pool (Nearby):', allCandidates.length);
 
     // STEP 2: Quality pool (Text Search from all grid points)
     const qualityQueries = [
@@ -118,9 +127,19 @@ exports.handler = async (event, context) => {
       }
     }
 
-    console.log('After quality pool:', allCandidates.length);
+    console.log('After quality pool (Text):', allCandidates.length);
 
-    // STEP 3: Shortlist by straight-line distance (keep closest 70)
+    // STEP 3: Dynamic shortlist by straight-line distance
+    let shortlistSize = 150; // Default for 20-min walk
+    if (transportMode === 'walk' && maxWalkMinutes >= 30) {
+      shortlistSize = 250;
+    } else if (transportMode === 'drive' && maxDriveMinutes >= 30) {
+      shortlistSize = 350;
+    } else if (transportMode === 'drive') {
+      shortlistSize = 200;
+    }
+    
+    console.log('Shortlisting top', shortlistSize, 'by straight-line distance');
     allCandidates.forEach(place => {
       const R = 3959;
       const dLat = (place.geometry.location.lat - lat) * Math.PI / 180;
@@ -133,9 +152,9 @@ exports.handler = async (event, context) => {
     });
 
     allCandidates.sort((a, b) => a._straightLineDistance - b._straightLineDistance);
-    const shortlist = allCandidates.slice(0, 70);
+    const shortlist = allCandidates.slice(0, shortlistSize);
     
-    console.log('Shortlisted closest 70 by straight-line distance');
+    console.log('Collected', allCandidates.length, 'candidates → Shortlisted', shortlist.length, 'for Distance Matrix');
 
     // STEP 4: Distance Matrix only on shortlist
     const origin = `${lat},${lng}`;
@@ -210,6 +229,7 @@ exports.handler = async (event, context) => {
     console.log('Rating ≥4.0:', rating40);
     console.log('Rating ≥4.4:', rating44);
     console.log('Rating ≥4.6:', rating46);
+    console.log('SUMMARY: Collected', allCandidates.length, '→', timeFiltered.length, 'within time →', rating46, 'rated ≥4.6');
 
     // STEP 6: Apply quality filter
     let finalResults = timeFiltered;
