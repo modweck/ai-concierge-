@@ -83,7 +83,7 @@ exports.handler = async (event, context) => {
 
         enriched.push({
           ...place,
-          distanceMiles,
+          distanceMiles: distMiles,
           walkMinutes: walkMin,
           driveMinutes: driveMin,
           transitMinutes: transitMin
