@@ -47,6 +47,8 @@
 <script>
 let state={transport:'walk',qualityFilter:'any'};
 let allRestaurants=[];
+let isSearching=false;
+let searchAbortController=null;
 
 function useCurrentLocation(){
 if(navigator.geolocation){
@@ -85,13 +87,31 @@ return true;
 }
 
 async function search(){
+// Prevent concurrent searches
+if(isSearching){
+console.log('Search already in progress, ignoring click');
+return;
+}
+
+// Cancel any previous search
+if(searchAbortController){
+searchAbortController.abort();
+}
+
+isSearching=true;
+searchAbortController=new AbortController();
+
+const searchBtn=document.querySelector('.btn');
+searchBtn.disabled=true;
+searchBtn.style.opacity='0.5';
+searchBtn.textContent='🔍 Searching...';
+
 const location=document.getElementById('addressInput').value;
 const cuisine=document.getElementById('cuisine').value;
 const timeSlot=document.getElementById('timewindow').value;
 state.qualityFilter=document.getElementById('quality').value;
 const openNow=(timeSlot=='prime'||timeSlot=='lunch');
 
-// Get max times based on transport mode
 let maxWalkMinutes = null;
 let maxDriveMinutes = null;
 let maxTransitMinutes = null;
@@ -106,7 +126,7 @@ maxTransitMinutes = parseInt(document.getElementById('transitTime').value);
 
 document.getElementById('search').classList.add('hidden');
 document.getElementById('results').classList.remove('hidden');
-document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">🔍 Searching comprehensively...</div>';
+document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">🔍 Searching comprehensively...<br><small style="color:#666;margin-top:8px;display:block">This may take up to 60 seconds</small></div>';
 
 try{
 const response=await fetch('/.netlify/functions/search-restaurants',{
@@ -121,12 +141,17 @@ maxDriveMinutes,
 maxTransitMinutes,
 transportMode:state.transport,
 qualityFilter:state.qualityFilter
-})
+}),
+signal:searchAbortController.signal
 });
+
+if(!response.ok){
+const errorText=await response.text();
+throw new Error(`Server error ${response.status}: ${errorText}`);
+}
 
 const data=await response.json();
 
-// Display total found message
 let transportDesc = '';
 if(state.transport==='walk')transportDesc = `${maxWalkMinutes}-minute walk`;
 else if(state.transport==='drive')transportDesc = `${maxDriveMinutes}-minute drive`;
@@ -148,8 +173,27 @@ ${totalFoundMsg ? `<div style="background:#d1fae5;border:2px solid #6ee7b7;paddi
 allRestaurants=data.restaurants||[];
 sortResults();
 }catch(error){
-console.error(error);
-document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">😔 Search failed</div>';
+console.error('Search error:',error);
+if(error.name==='AbortError'){
+console.log('Search was cancelled');
+return;
+}
+let errorMsg='😔 Search failed';
+if(error.message.includes('429')){
+errorMsg='⏱️ Too many requests. Please wait a moment and try again.';
+}else if(error.message.includes('500')){
+errorMsg='🔧 Server error. Please try again.';
+}else if(error.message.includes('timeout')||error.message.includes('fetch')){
+errorMsg='⏱️ Search is taking longer than expected. Please try again in a moment.';
+}else if(error.message){
+errorMsg=`😔 ${error.message}`;
+}
+document.getElementById('list').innerHTML=`<div style="text-align:center;padding:40px">${errorMsg}</div>`;
+}finally{
+isSearching=false;
+searchBtn.disabled=false;
+searchBtn.style.opacity='1';
+searchBtn.textContent='🔍 Find Restaurants';
 }
 }
 
