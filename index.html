@@ -45,7 +45,7 @@
 </div>
 
 <script>
-let state={transport:'walk',qualityFilter:'any'};
+let state={transport:'walk',qualityFilter:'any',showExpanded:false};
 let allRestaurants=[];
 let isSearching=false;
 let searchAbortController=null;
@@ -121,7 +121,7 @@ try{
 const step1Response=await fetch('/.netlify/functions/search-candidates',{
 method:'POST',
 headers:{'Content-Type':'application/json'},
-body:JSON.stringify({location,cuisine:cuisine==='any'?undefined:cuisine,openNow,qualityFilter:state.qualityFilter}),
+body:JSON.stringify({location,cuisine:cuisine==='any'?undefined:cuisine,openNow}),
 signal:searchAbortController.signal
 });
 
@@ -157,11 +157,14 @@ document.getElementById('warnings').innerHTML=`
 
 sortResults();
 
+// STEP 2: Enrich the TIME-FILTERED list (not the full Step 1 list!)
+const toEnrich = allRestaurants.slice(0,80);
+
 const step2Response=await fetch('/.netlify/functions/enrich-times',{
 method:'POST',
 headers:{'Content-Type':'application/json'},
 body:JSON.stringify({
-candidates:step1Data.candidates.slice(0,80),
+candidates:toEnrich,
 userLocation:step1Data.userLocation,
 transportMode:state.transport
 }),
@@ -187,9 +190,20 @@ else if(state.transport==='drive')transportDesc=`${maxDriveMinutes}-minute drive
 else if(state.transport==='transit')transportDesc=`${maxTransitMinutes}-minute transit`;
 else transportDesc='your area';
 
+// Check Elite (4.6+) count
+const eliteCount = allRestaurants.filter(r=>r.googleRating>=4.6).length;
+let expandWarning = '';
+
+if(state.qualityFilter==='five_star' && eliteCount < 8 && !state.showExpanded){
+expandWarning = `<div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e">
+Only ${eliteCount} elite matches (4.6+). <button onclick="expandToTopRated()" style="background:#000;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600;margin-left:8px">Expand to 4.4+ Top Rated?</button>
+</div>`;
+}
+
 document.getElementById('warnings').innerHTML=`
 <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 ${step1Data.confirmedAddress}</div>
 <div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:600">✓ Found ${allRestaurants.length} restaurants within a ${transportDesc}.</div>
+${expandWarning}
 `;
 
 sortResults();
@@ -261,5 +275,11 @@ document.getElementById('list').innerHTML=html;
 function back(){
 document.getElementById('search').classList.remove('hidden');
 document.getElementById('results').classList.add('hidden');
+}
+
+function expandToTopRated(){
+state.showExpanded=true;
+state.qualityFilter='top_rated_and_above';
+sortResults();
 }
 </script></body></html>
