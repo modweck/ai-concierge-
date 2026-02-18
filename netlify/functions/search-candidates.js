@@ -1,4 +1,4 @@
-// Step 1: Ultra-fast candidate search - NO pagination, parallel fetches (<5s)
+// Step 1: Large candidate pool - NO rating filter (moved to frontend)
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) };
@@ -6,14 +6,14 @@ exports.handler = async (event, context) => {
 
   try {
     const body = JSON.parse(event.body);
-    const { location, cuisine, openNow, qualityFilter } = body;
+    const { location, cuisine, openNow } = body;
     const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
     if (!GOOGLE_API_KEY) {
       return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'API key not configured' }) };
     }
 
-    console.log('=== STEP 1: FAST CANDIDATE SEARCH ===');
+    console.log('=== STEP 1: BUILD LARGE CANDIDATE POOL ===');
 
     // Geocode
     const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${GOOGLE_API_KEY}`;
@@ -44,8 +44,11 @@ exports.handler = async (event, context) => {
       { lat: lat - offsetDegrees, lng: lng - offsetDegrees }
     ];
 
-    // Fetch ONLY first page from each grid point (NO pagination)
-    async function fetchFirstPage(searchLat, searchLng) {
+    // Multiple search strategies
+    const allFetches = [];
+
+    // Strategy 1: Nearby Search from all grid points
+    async function fetchNearby(searchLat, searchLng) {
       let url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=${searchRadius}&type=restaurant&key=${GOOGLE_API_KEY}`;
       if (cuisine) url += `&keyword=${encodeURIComponent(cuisine)}`;
       if (openNow) url += `&opennow=true`;
@@ -56,15 +59,38 @@ exports.handler = async (event, context) => {
       return data.results || [];
     }
 
-    // Parallel fetch all grid points
-    console.log('Fetching 9 grid points in parallel (first page only)');
-    const gridFetches = gridPoints.map(point => fetchFirstPage(point.lat, point.lng));
-    const gridResults = await Promise.all(gridFetches);
+    gridPoints.forEach(point => {
+      allFetches.push(fetchNearby(point.lat, point.lng));
+    });
 
-    // Dedupe
+    // Strategy 2: Text Search queries (only when cuisine is "any")
+    async function fetchTextSearch(query) {
+      const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(query)}&location=${lat},${lng}&radius=${searchRadius}&key=${GOOGLE_API_KEY}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') return [];
+      return data.results || [];
+    }
+
+    if (!cuisine) {
+      const textQueries = [
+        'restaurant',
+        'best restaurants',
+        'top rated restaurants',
+        'fine dining'
+      ];
+      textQueries.forEach(query => {
+        allFetches.push(fetchTextSearch(query));
+      });
+    }
+
+    console.log('Running', allFetches.length, 'parallel queries');
+    const allResults = await Promise.all(allFetches);
+
+    // Dedupe by place_id
     const seenIds = new Set();
     const allCandidates = [];
-    gridResults.forEach(results => {
+    allResults.forEach(results => {
       results.forEach(place => {
         if (!seenIds.has(place.place_id)) {
           seenIds.add(place.place_id);
@@ -75,7 +101,7 @@ exports.handler = async (event, context) => {
 
     console.log('Total unique candidates:', allCandidates.length);
 
-    // Calculate straight-line distance and estimate times
+    // Calculate estimates - NO RATING FILTER
     const candidatesWithEstimates = allCandidates.map(place => {
       const R = 3959;
       const dLat = (place.geometry.location.lat - lat) * Math.PI / 180;
@@ -107,33 +133,21 @@ exports.handler = async (event, context) => {
       };
     });
 
-    console.log('totalCandidatesBeforeRating:', candidatesWithEstimates.length);
-
-    // Apply rating filter
-    let filtered = candidatesWithEstimates;
-    if (qualityFilter === 'five_star') {
-      filtered = filtered.filter(r => r.googleRating >= 4.6);
-    } else if (qualityFilter === 'top_rated_and_above') {
-      filtered = filtered.filter(r => r.googleRating >= 4.4);
-    } else if (qualityFilter === 'top_rated') {
-      filtered = filtered.filter(r => r.googleRating >= 4.4 && r.googleRating < 4.6);
-    }
-
-    console.log('afterRating:', filtered.length);
+    console.log('Returning', candidatesWithEstimates.length, 'candidates (NO rating filter)');
 
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        candidates: filtered,
+        candidates: candidatesWithEstimates,
         confirmedAddress,
         userLocation: { lat, lng },
-        totalCandidates: filtered.length
+        totalCandidates: candidatesWithEstimates.length
       })
     };
 
   } catch (error) {
     console.error('ERROR:', error);
-    return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Failed', message: error.message }) };
+    return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Failed', message: error.message, stack: error.stack }) };
   }
 };
