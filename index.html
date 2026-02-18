@@ -190,19 +190,30 @@ else if(state.transport==='drive')transportDesc=`${maxDriveMinutes}-minute drive
 else if(state.transport==='transit')transportDesc=`${maxTransitMinutes}-minute transit`;
 else transportDesc='your area';
 
-// Check Elite (4.6+) count
+// Count by quality level
 const eliteCount = allRestaurants.filter(r=>r.googleRating>=4.6).length;
-let expandWarning = '';
+const topRatedCount = allRestaurants.filter(r=>r.googleRating>=4.4).length;
 
+// Build quality message based on filter
+let qualityMsg = '';
+if(state.qualityFilter==='five_star'){
+qualityMsg = `Found ${eliteCount} Elite restaurants (4.6+) within a ${transportDesc}.`;
+}else if(state.qualityFilter==='top_rated_and_above'){
+qualityMsg = `Found ${topRatedCount} Top Rated restaurants (4.4+) within a ${transportDesc}.`;
+}else{
+qualityMsg = `Found ${allRestaurants.length} restaurants within a ${transportDesc}.`;
+}
+
+let expandWarning = '';
 if(state.qualityFilter==='five_star' && eliteCount < 8 && !state.showExpanded){
 expandWarning = `<div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e">
-Only ${eliteCount} elite matches (4.6+). <button onclick="expandToTopRated()" style="background:#000;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600;margin-left:8px">Expand to 4.4+ Top Rated?</button>
+Only ${eliteCount} elite matches. <button onclick="expandToTopRated()" style="background:#000;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600;margin-left:8px">Expand to 4.4+ Top Rated?</button>
 </div>`;
 }
 
 document.getElementById('warnings').innerHTML=`
 <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 ${step1Data.confirmedAddress}</div>
-<div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:600">✓ Found ${allRestaurants.length} restaurants within a ${transportDesc}.</div>
+<div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:600">✓ ${qualityMsg}</div>
 ${expandWarning}
 `;
 
