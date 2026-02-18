@@ -63,6 +63,31 @@ exports.handler = async (event, context) => {
     
     console.log('Found', allCandidates.length, 'unique candidates from text search');
 
+    // DIAGNOSTIC: Check raw rating data from Google
+    console.log('=== RAW RATING DIAGNOSTICS ===');
+    const missingRating = allCandidates.filter(p => !p.rating && p.rating !== 0).length;
+    const missingReviewCount = allCandidates.filter(p => !p.user_ratings_total && p.user_ratings_total !== 0).length;
+    console.log('Candidates missing rating field:', missingRating, '/', allCandidates.length);
+    console.log('Candidates missing user_ratings_total field:', missingReviewCount, '/', allCandidates.length);
+    
+    // Print first 20 raw
+    console.log('First 20 candidates (raw from Google):');
+    allCandidates.slice(0, 20).forEach((p, idx) => {
+      console.log(`  ${idx + 1}. "${p.name}" | rating=${p.rating} (type: ${typeof p.rating}) | reviews=${p.user_ratings_total} (type: ${typeof p.user_ratings_total})`);
+    });
+    
+    // Count by rating tier BEFORE any filtering
+    const rating40 = allCandidates.filter(p => p.rating >= 4.0).length;
+    const rating42 = allCandidates.filter(p => p.rating >= 4.2).length;
+    const rating44 = allCandidates.filter(p => p.rating >= 4.4).length;
+    const rating46 = allCandidates.filter(p => p.rating >= 4.6).length;
+    console.log('Rating distribution (BEFORE filters):');
+    console.log('  ≥4.0:', rating40);
+    console.log('  ≥4.2:', rating42);
+    console.log('  ≥4.4:', rating44);
+    console.log('  ≥4.6:', rating46);
+    console.log('=== END DIAGNOSTICS ===');
+
     // STEP 2: Calculate distances (batches of 25)
     const origin = `${lat},${lng}`;
     const batchSize = 25;
@@ -147,16 +172,15 @@ exports.handler = async (event, context) => {
     console.log('DIAGNOSTIC: Rating ≥4.6 AND ≥50 reviews:', rating46Plus50Reviews);
     console.log('DIAGNOSTIC: Rating ≥4.6 AND ≥25 reviews:', rating46Plus25Reviews);
 
-    // STEP 4: Apply quality filter
-    const MIN_REVIEW_COUNT = 25;
+    // STEP 4: Apply quality filter (NO REVIEW COUNT REQUIREMENT)
     let finalResults = timeFiltered;
 
     if (qualityFilter === 'five_star') {
-      finalResults = finalResults.filter(r => r.googleRating >= 4.6 && r.googleReviewCount >= MIN_REVIEW_COUNT);
+      finalResults = finalResults.filter(r => r.googleRating >= 4.6);
     } else if (qualityFilter === 'top_rated_and_above') {
-      finalResults = finalResults.filter(r => r.googleRating >= 4.4 && r.googleReviewCount >= MIN_REVIEW_COUNT);
+      finalResults = finalResults.filter(r => r.googleRating >= 4.4);
     } else if (qualityFilter === 'top_rated') {
-      finalResults = finalResults.filter(r => r.googleRating >= 4.4 && r.googleRating < 4.6 && r.googleReviewCount >= MIN_REVIEW_COUNT);
+      finalResults = finalResults.filter(r => r.googleRating >= 4.4 && r.googleRating < 4.6);
     }
 
     console.log('After quality filter:', finalResults.length, 'restaurants');
