@@ -27,14 +27,14 @@ exports.handler = async (event, context) => {
     const { lat, lng } = geocodeData.results[0].geometry.location;
     const confirmedAddress = geocodeData.results[0].formatted_address;
 
-    // Normalize coordinates to 3 decimal places (~111 meters precision)
-    // This ensures nearby locations snap to same grid (prevents 20m differences from creating new grids)
-    const normalizedLat = Math.round(lat * 1000) / 1000;
-    const normalizedLng = Math.round(lng * 1000) / 1000;
+    // Normalize coordinates to 4 decimal places (~11 meters precision)
+    // Maintains correctness while preventing micro-GPS drift from creating new grids
+    const normalizedLat = Math.round(lat * 10000) / 10000;
+    const normalizedLng = Math.round(lng * 10000) / 10000;
     
     console.log('=== COORDINATE DEBUG ===');
     console.log('1) RAW ORIGIN:', { lat, lng });
-    console.log('2) NORMALIZED ORIGIN:', { lat: normalizedLat, lng: normalizedLng });
+    console.log('2) NORMALIZED ORIGIN (4-decimal):', { lat: normalizedLat, lng: normalizedLng });
     console.log('Address:', confirmedAddress);
     console.log('========================');
 
@@ -42,23 +42,25 @@ exports.handler = async (event, context) => {
     const gridLat = normalizedLat;
     const gridLng = normalizedLng;
 
-    // Generate fixed 7-point grid within 1 mile (hexagonal pattern + center)
-    // 1 mile = 1609 meters, we use 600m radius per node
-    const gridRadius = 600; // meters per search node
-    const offsetMiles = 0.5; // half mile offset for grid points
-    const offsetDegrees = offsetMiles / 69;
+    // Generate optimized 9-node grid for NYC coverage
+    // Node radius: 750m, spacing: 600m (~0.37 miles)
+    const gridRadius = 750; // meters per search node
+    const spacingMiles = 0.37; // 600 meters
+    const spacingDegrees = spacingMiles / 69;
     
     const gridPoints = [
       { lat: gridLat, lng: gridLng, label: 'Center' },
-      { lat: gridLat + offsetDegrees, lng: gridLng, label: 'North' },
-      { lat: gridLat - offsetDegrees, lng: gridLng, label: 'South' },
-      { lat: gridLat, lng: gridLng + offsetDegrees, label: 'East' },
-      { lat: gridLat, lng: gridLng - offsetDegrees, label: 'West' },
-      { lat: gridLat + (offsetDegrees * 0.5), lng: gridLng + (offsetDegrees * 0.866), label: 'NE' },
-      { lat: gridLat - (offsetDegrees * 0.5), lng: gridLng - (offsetDegrees * 0.866), label: 'SW' }
+      { lat: gridLat + spacingDegrees, lng: gridLng, label: 'North' },
+      { lat: gridLat - spacingDegrees, lng: gridLng, label: 'South' },
+      { lat: gridLat, lng: gridLng + spacingDegrees, label: 'East' },
+      { lat: gridLat, lng: gridLng - spacingDegrees, label: 'West' },
+      { lat: gridLat + spacingDegrees, lng: gridLng + spacingDegrees, label: 'NE' },
+      { lat: gridLat + spacingDegrees, lng: gridLng - spacingDegrees, label: 'NW' },
+      { lat: gridLat - spacingDegrees, lng: gridLng + spacingDegrees, label: 'SE' },
+      { lat: gridLat - spacingDegrees, lng: gridLng - spacingDegrees, label: 'SW' }
     ];
 
-    console.log('Grid: 7 fixed points, 600m radius per node');
+    console.log('Grid: 9 nodes, 750m radius per node, 600m spacing');
 
     // Fetch with FULL pagination and retry logic
     async function fetchWithFullPagination(searchLat, searchLng, label) {
