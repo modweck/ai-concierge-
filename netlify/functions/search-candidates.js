@@ -220,7 +220,7 @@ exports.handler = async (event, context) => {
         return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'API key not configured' }) };
       }
 
-const cacheKey = getCacheKey(location, 'all', 20) + '_v11';
+const cacheKey = getCacheKey(location, 'all', 20) + '_v12';
       const cachedResult = getFromCache(cacheKey);
       if (cachedResult) {
         timings.total_ms = Date.now() - t0;
