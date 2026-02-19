@@ -1,8 +1,30 @@
 // netlify/functions/search-michelin.js
-// Returns ALL Michelin restaurants (NYC + boroughs) sorted by distance to the user's input location
+// Returns ALL Michelin restaurants from michelin_nyc.json sorted by distance from the user's location.
+// If a Michelin entry has no lat/lng, it will be geocoded once and cached in memory (10 min).
 
 const fs = require("fs");
 const path = require("path");
+
+// In-memory geocode cache (per warm function instance)
+const geoCache = new Map();
+const GEO_TTL_MS = 10 * 60 * 1000;
+
+function cacheGet(key) {
+  const v = geoCache.get(key);
+  if (!v) return null;
+  if (Date.now() - v.t > GEO_TTL_MS) {
+    geoCache.delete(key);
+    return null;
+  }
+  return v.data;
+}
+function cacheSet(key, data) {
+  geoCache.set(key, { t: Date.now(), data });
+  if (geoCache.size > 300) {
+    const oldest = Array.from(geoCache.entries()).sort((a, b) => a[1].t - b[1].t)[0];
+    if (oldest) geoCache.delete(oldest[0]);
+  }
+}
 
 function normalizeName(name) {
   return String(name || "")
@@ -26,15 +48,44 @@ function haversineMiles(lat1, lon1, lat2, lon2) {
   return R * c;
 }
 
-// Load Michelin JSON at startup (same folder as this function file)
+// Load Michelin list at startup
 let MICHELIN = [];
 try {
   const p = path.join(__dirname, "michelin_nyc.json");
   MICHELIN = JSON.parse(fs.readFileSync(p, "utf8"));
-  console.log(`[Michelin] Loaded entries: ${MICHELIN.length} from ${p}`);
+  console.log(`[Michelin] Loaded entries: ${MICHELIN.length} (${p})`);
 } catch (e) {
   console.log(`[Michelin] FAILED to load michelin_nyc.json: ${e.message}`);
   MICHELIN = [];
+}
+
+async function geocodeAddressOrText(query, apiKey) {
+  const cacheKey = normalizeName(query);
+  const cached = cacheGet(cacheKey);
+  if (cached) return cached;
+
+  // Use Places Text Search (better for business names)
+  const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(
+    query
+  )}&key=${apiKey}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  if (data.status === "OK" && data.results?.[0]) {
+    const r = data.results[0];
+    const out = {
+      lat: r.geometry?.location?.lat ?? null,
+      lng: r.geometry?.location?.lng ?? null,
+      formatted_address: r.formatted_address ?? null,
+      place_id: r.place_id ?? null,
+    };
+    cacheSet(cacheKey, out);
+    return out;
+  }
+
+  cacheSet(cacheKey, null);
+  return null;
 }
 
 exports.handler = async (event) => {
@@ -45,9 +96,7 @@ exports.handler = async (event) => {
   });
 
   try {
-    if (event.httpMethod !== "POST") {
-      return json(405, { error: "Method not allowed" });
-    }
+    if (event.httpMethod !== "POST") return json(405, { error: "Method not allowed" });
 
     const body = JSON.parse(event.body || "{}");
     const location = body.location;
@@ -61,69 +110,78 @@ exports.handler = async (event) => {
       return json(500, { error: "API key not configured" });
     }
 
-    // 1) Geocode the user's location input
+    // Geocode the user's input location
     const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
       location
     )}&key=${GOOGLE_API_KEY}`;
 
-    const geocodeRes = await fetch(geocodeUrl);
-    const geocodeData = await geocodeRes.json();
+    const gRes = await fetch(geocodeUrl);
+    const gData = await gRes.json();
 
-    if (geocodeData.status !== "OK" || !geocodeData.results?.[0]) {
+    if (gData.status !== "OK" || !gData.results?.[0]) {
       return json(200, {
         location,
         confirmedAddress: null,
         userLocation: null,
         michelin: [],
-        error: `Geocode failed: ${geocodeData.status}${
-          geocodeData.error_message ? " - " + geocodeData.error_message : ""
-        }`,
+        error: `Geocode failed: ${gData.status}${gData.error_message ? " - " + gData.error_message : ""}`,
       });
     }
 
-    const confirmedAddress = geocodeData.results[0].formatted_address;
-    const userLat = geocodeData.results[0].geometry.location.lat;
-    const userLng = geocodeData.results[0].geometry.location.lng;
+    const confirmedAddress = gData.results[0].formatted_address;
+    const userLat = gData.results[0].geometry.location.lat;
+    const userLng = gData.results[0].geometry.location.lng;
 
-    // 2) Build Michelin list + compute distance
-    const out = (MICHELIN || [])
-      .map((m) => {
-        const lat = typeof m.lat === "number" ? m.lat : null;
-        const lng = typeof m.lng === "number" ? m.lng : null;
-        const distMiles =
-          lat !== null && lng !== null
-            ? haversineMiles(userLat, userLng, lat, lng)
-            : null;
+    // Build output list: ensure each entry has lat/lng by geocoding "Name, New York, NY"
+    const out = [];
+    for (const m of MICHELIN) {
+      const name = m.name;
+      const stars = m.stars ?? null;
+      const distinction = m.distinction || "star";
 
-        return {
-          name: m.name,
-          distinction: m.distinction || "star",
-          stars: m.stars ?? null,
-          address: m.address || null,
-          lat,
-          lng,
-          distanceMiles: distMiles !== null ? Math.round(distMiles * 10) / 10 : null,
-          walkMinEstimate: distMiles !== null ? Math.round(distMiles * 20) : null, // rough
-          driveMinEstimate: distMiles !== null ? Math.round(distMiles * 4) : null, // rough
-        };
-      })
-      .sort((a, b) => {
-        // distance-null goes to bottom
-        if (a.distanceMiles === null && b.distanceMiles === null) {
-          return normalizeName(a.name).localeCompare(normalizeName(b.name));
+      let lat = typeof m.lat === "number" ? m.lat : null;
+      let lng = typeof m.lng === "number" ? m.lng : null;
+      let address = m.address || null;
+
+      // If no coordinates, geocode it
+      if (lat === null || lng === null) {
+        const guess = await geocodeAddressOrText(`${name}, New York, NY`, GOOGLE_API_KEY);
+        if (guess?.lat != null && guess?.lng != null) {
+          lat = guess.lat;
+          lng = guess.lng;
+          address = address || guess.formatted_address || null;
         }
-        if (a.distanceMiles === null) return 1;
-        if (b.distanceMiles === null) return -1;
-        if (a.distanceMiles !== b.distanceMiles) return a.distanceMiles - b.distanceMiles;
-        return normalizeName(a.name).localeCompare(normalizeName(b.name));
-      });
+      }
 
-    console.log(
-      `[Michelin] Returned ${out.length} entries. First 3: ${out
-        .slice(0, 3)
-        .map((x) => `${x.name} (${x.distanceMiles}mi)`)
-        .join(", ")}`
-    );
+      const dist =
+        lat != null && lng != null ? haversineMiles(userLat, userLng, lat, lng) : null;
+
+      out.push({
+        name,
+        distinction,
+        stars,
+        address,
+        lat,
+        lng,
+        distanceMiles: dist != null ? Math.round(dist * 10) / 10 : null,
+        walkMinEstimate: dist != null ? Math.round(dist * 20) : null,
+        driveMinEstimate: dist != null ? Math.round(dist * 4) : null,
+      });
+    }
+
+    // Sort by distance
+    out.sort((a, b) => {
+      if (a.distanceMiles == null && b.distanceMiles == null) {
+        return normalizeName(a.name).localeCompare(normalizeName(b.name));
+      }
+      if (a.distanceMiles == null) return 1;
+      if (b.distanceMiles == null) return -1;
+      if (a.distanceMiles !== b.distanceMiles) return a.distanceMiles - b.distanceMiles;
+      return normalizeName(a.name).localeCompare(normalizeName(b.name));
+    });
+
+    const matchedCoordsCount = out.filter((x) => x.lat != null && x.lng != null).length;
+    console.log(`[Michelin] Returned ${out.length} entries. With coords: ${matchedCoordsCount}`);
 
     return json(200, {
       location,
