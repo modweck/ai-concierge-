@@ -1,6 +1,3 @@
-// One-time function to fix Michelin coordinates
-// Call this at: /.netlify/functions/fix-michelin-coords
-
 const MICHELIN_RESTAURANTS = [
   { name: "Le Bernardin", distinction: "Three Stars", stars: 3 },
   { name: "Eleven Madison Park", distinction: "Three Stars", stars: 3 },
@@ -63,11 +60,11 @@ async function lookupRestaurant(name, apiKey) {
         found: true
       };
     } else {
-      console.log(`❌ NOT FOUND: ${name} (status: ${data.status})`);
+      console.log(`NOT FOUND: ${name} (status: ${data.status})`);
       return { name, found: false, status: data.status };
     }
   } catch (error) {
-    console.log(`❌ ERROR looking up ${name}:`, error.message);
+    console.log(`ERROR looking up ${name}:`, error.message);
     return { name, found: false, error: error.message };
   }
 }
@@ -82,7 +79,7 @@ exports.handler = async (event, context) => {
     };
   }
   
-  console.log('🔍 Looking up all Michelin restaurants...');
+  console.log('Looking up all Michelin restaurants...');
   
   const results = [];
   
@@ -100,7 +97,7 @@ exports.handler = async (event, context) => {
         place_id: lookup.place_id,
         address: lookup.address
       });
-      console.log(`✅ Found: ${lookup.name} at ${lookup.lat}, ${lookup.lng}`);
+      console.log(`Found: ${lookup.name} at ${lookup.lat}, ${lookup.lng}`);
     } else {
       results.push({
         name: restaurant.name,
@@ -119,14 +116,14 @@ exports.handler = async (event, context) => {
   const found = results.filter(r => r.lat !== null).length;
   const notFound = results.filter(r => r.lat === null);
   
-  console.log(`\n=== SUMMARY ===`);
+  console.log('SUMMARY');
   console.log(`Total: ${MICHELIN_RESTAURANTS.length}`);
   console.log(`Found: ${found}`);
   console.log(`Not found: ${notFound.length}`);
   
   if (notFound.length > 0) {
-    console.log('\n❌ NOT FOUND:');
-    notFound.forEach(r => console.log(`   - ${r.name} (${r.status || r.note})`));
+    console.log('NOT FOUND:');
+    notFound.forEach(r => console.log(`- ${r.name} (${r.status || r.note})`));
   }
   
   return {
