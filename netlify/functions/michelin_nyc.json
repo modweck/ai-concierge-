@@ -1,72 +1,239 @@
-[
-  {
-    "name": "Le Bernardin",
-    "distinction": "Three Stars",
-    "stars": 3,
-    "lat": 40.7614,
-    "lng": -73.9776
-  },
-  {
-    "name": "Eleven Madison Park",
-    "distinction": "Three Stars",
-    "stars": 3,
-    "lat": 40.7414,
-    "lng": -73.9871
-  },
-  {
-    "name": "Per Se",
-    "distinction": "Three Stars",
-    "stars": 3,
-    "lat": 40.7686,
-    "lng": -73.9832
-  },
-  {
-    "name": "Masa",
-    "distinction": "Three Stars",
-    "stars": 3,
-    "lat": 40.7686,
-    "lng": -73.9832
-  },
-  {
-    "name": "Daniel",
-    "distinction": "Two Stars",
-    "stars": 2,
-    "lat": 40.7641,
-    "lng": -73.9664
-  },
-  {
-    "name": "Jean-Georges",
-    "distinction": "Two Stars",
-    "stars": 2,
-    "lat": 40.7686,
-    "lng": -73.9832
-  },
-  {
-    "name": "Atomix",
-    "distinction": "Two Stars",
-    "stars": 2,
-    "lat": 40.7282,
-    "lng": -73.9857
-  },
-  {
-    "name": "Gramercy Tavern",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7387,
-    "lng": -73.9884
-  },
-  {
-    "name": "The Modern",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7614,
-    "lng": -73.9776
-  },
-  {
-    "name": "Carbone",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7258,
-    "lng": -74.0023
-  }
-]
+name	"Le Bernardin"
+distinction	"Three Stars"
+stars	3
+lat	40.7614
+lng	-73.9776
+1	
+name	"Eleven Madison Park"
+distinction	"Three Stars"
+stars	3
+lat	40.7414
+lng	-73.9871
+2	
+name	"Per Se"
+distinction	"Three Stars"
+stars	3
+lat	40.7686
+lng	-73.9832
+3	
+name	"Masa"
+distinction	"Three Stars"
+stars	3
+lat	40.7686
+lng	-73.9832
+4	
+name	"Chef's Table at Brooklyn Fare"
+distinction	"Two Stars"
+stars	2
+lat	40.6845
+lng	-73.9874
+5	
+name	"Atomix"
+distinction	"Two Stars"
+stars	2
+lat	40.7282
+lng	-73.9857
+6	
+name	"Jungsik"
+distinction	"Two Stars"
+stars	2
+lat	40.7446
+lng	-73.9934
+7	
+name	"Daniel"
+distinction	"Two Stars"
+stars	2
+lat	40.7641
+lng	-73.9664
+8	
+name	"Jean-Georges"
+distinction	"Two Stars"
+stars	2
+lat	40.7686
+lng	-73.9832
+9	
+name	"Momofuku Ko"
+distinction	"Two Stars"
+stars	2
+lat	40.7282
+lng	-73.9857
+10	
+name	"Atera"
+distinction	"Two Stars"
+stars	2
+lat	40.7183
+lng	-74.0090JS:-74.009
+11	
+name	"Gabriel Kreuther"
+distinction	"Two Stars"
+stars	2
+lat	40.7570JS:40.757
+lng	-73.9795
+12	
+name	"Aquavit"
+distinction	"One Star"
+stars	1
+lat	40.7580JS:40.758
+lng	-73.9741
+13	
+name	"Gramercy Tavern"
+distinction	"One Star"
+stars	1
+lat	40.7387
+lng	-73.9884
+14	
+name	"The Modern"
+distinction	"One Star"
+stars	1
+lat	40.7614
+lng	-73.9776
+15	
+name	"Marea"
+distinction	"One Star"
+stars	1
+lat	40.7686
+lng	-73.9832
+16	
+name	"Sushi Nakazawa"
+distinction	"One Star"
+stars	1
+lat	40.7353
+lng	-74.0060JS:-74.006
+17	
+name	"Babbo"
+distinction	"One Star"
+stars	1
+lat	40.7309
+lng	-74.0012
+18	
+name	"Carbone"
+distinction	"One Star"
+stars	1
+lat	40.7258
+lng	-74.0023
+19	
+name	"Blue Hill"
+distinction	"One Star"
+stars	1
+lat	40.7309
+lng	-74.0012
+20	
+name	"Union Square Cafe"
+distinction	"One Star"
+stars	1
+lat	40.7359
+lng	-73.9911
+21	
+name	"Craft"
+distinction	"One Star"
+stars	1
+lat	40.7410JS:40.741
+lng	-73.9881
+22	
+name	"Casa Mono"
+distinction	"One Star"
+stars	1
+lat	40.7376
+lng	-73.9875
+23	
+name	"Contra"
+distinction	"One Star"
+stars	1
+lat	40.7215
+lng	-73.9880JS:-73.988
+24	
+name	"Kosaka"
+distinction	"One Star"
+stars	1
+lat	40.7309
+lng	-74.0012
+25	
+name	"Kyo Ya"
+distinction	"One Star"
+stars	1
+lat	40.7258
+lng	-73.9866
+26	
+name	"Kajitsu"
+distinction	"One Star"
+stars	1
+lat	40.7258
+lng	-73.9866
+27	
+name	"15 East"
+distinction	"One Star"
+stars	1
+lat	40.7368
+lng	-73.9889
+28	
+name	"Tocqueville"
+distinction	"One Star"
+stars	1
+lat	40.7368
+lng	-73.9912
+29	
+name	"Aureole"
+distinction	"One Star"
+stars	1
+lat	40.7580JS:40.758
+lng	-73.9741
+30	
+name	"Sushi Yasuda"
+distinction	"One Star"
+stars	1
+lat	40.7530JS:40.753
+lng	-73.9707
+31	
+name	"Ai Fiori"
+distinction	"One Star"
+stars	1
+lat	40.7614
+lng	-73.9778
+32	
+name	"Cagen"
+distinction	"One Star"
+stars	1
+lat	40.7282
+lng	-73.9857
+33	
+name	"Benno"
+distinction	"One Star"
+stars	1
+lat	40.7586
+lng	-73.9789
+34	
+name	"Betony"
+distinction	"One Star"
+stars	1
+lat	40.7580JS:40.758
+lng	-73.9795
+35	
+name	"Blanca"
+distinction	"Two Stars"
+stars	2
+lat	40.7071
+lng	-73.9565
+36	
+name	"Bouley"
+distinction	"One Star"
+stars	1
+lat	40.7183
+lng	-74.0090JS:-74.009
+37	
+name	"Brushstroke"
+distinction	"One Star"
+stars	1
+lat	40.7183
+lng	-74.0090JS:-74.009
+38	
+name	"Delaware and Hudson"
+distinction	"One Star"
+stars	1
+lat	40.7071
+lng	-73.9600JS:-73.96
+39	
+name	"Ichimura"
+distinction	"One Star"
+stars	1
+lat	40.7183
+lng	-74.0090JS:-74.009
