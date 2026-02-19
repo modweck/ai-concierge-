@@ -1,353 +1,753 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Concierge</title><style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,sans-serif;background:#f5f5f5;padding:20px}.container{max-width:900px;margin:0 auto}.card{background:white;padding:30px;border-radius:16px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}h1{font-size:36px;margin-bottom:8px}.subtitle{color:#666;font-size:18px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}label{display:block;font-weight:600;margin-bottom:10px;color:#333;font-size:15px}input,select{width:100%;padding:14px;border:2px solid #e0e0e0;border-radius:10px;font-size:16px}input:focus,select:focus{outline:none;border-color:#000}.btn{width:100%;padding:18px;background:#000;color:white;border:none;border-radius:12px;font-size:18px;font-weight:700;cursor:pointer;margin-top:10px}.btn:hover{background:#333}.btn:disabled{background:#ccc;cursor:not-allowed}.restaurant{background:white;padding:28px;border-radius:16px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:all 0.2s}.restaurant:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.12)}.restaurant h3{margin:0 0 6px 0;font-size:24px}.cuisine{color:#999;font-size:15px;margin-bottom:16px}.badges{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0;align-items:center}.badge{padding:8px 14px;border-radius:20px;font-size:14px;font-weight:600;border:2px solid #e0e0e0;background:#fafafa}.badge.distance{background:#e0f2fe;border-color:#7dd3fc;color:#075985}.hidden{display:none}.back-btn{padding:12px 24px;border:2px solid #ddd;border-radius:10px;background:white;cursor:pointer;font-weight:600;margin-bottom:24px;font-size:16px}.toggle-group{display:flex;gap:12px;margin-top:10px}.toggle-btn{flex:1;padding:14px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-size:15px;font-weight:600;color:#333}.toggle-btn.active{background:#000;color:white;border-color:#000}.toggle-btn:hover{border-color:#000;background:#f5f5f5}.toggle-btn:hover.active{background:#000}.sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:16px;background:#f9fafb;border-radius:12px}.chatbot-btn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:#000;color:white;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:all 0.2s}.chatbot-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,0.4)}@media(max-width:768px){.form-row{grid-template-columns:1fr}.toggle-group{flex-direction:column}}
-</style></head><body>
-<div class="container"><div class="card"><h1>🍽️ AI Concierge</h1><p class="subtitle">Find restaurants you can actually get into</p></div>
-<div id="search" class="card">
-<div style="margin-bottom:20px"><label>📍 Your Location</label><div style="display:flex;gap:10px"><input type="text" id="addressInput" placeholder="Enter address" value="New York, NY" style="flex:1"><button onclick="useCurrentLocation()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">📍 Use My Location</button></div></div>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Concierge</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:system-ui,sans-serif;background:#f5f5f5;padding:20px}
+    .container{max-width:900px;margin:0 auto}
+    .card{background:white;padding:30px;border-radius:16px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+    h1{font-size:36px;margin-bottom:8px}
+    .subtitle{color:#666;font-size:18px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+    label{display:block;font-weight:600;margin-bottom:10px;color:#333;font-size:15px}
+    input,select{width:100%;padding:14px;border:2px solid #e0e0e0;border-radius:10px;font-size:16px}
+    input:focus,select:focus{outline:none;border-color:#000}
+    .btn{width:100%;padding:18px;background:#000;color:white;border:none;border-radius:12px;font-size:18px;font-weight:700;cursor:pointer;margin-top:10px}
+    .btn:hover{background:#333}
+    .btn:disabled{background:#ccc;cursor:not-allowed}
+    .restaurant{background:white;padding:28px;border-radius:16px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:all 0.2s}
+    .restaurant:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.12)}
+    .restaurant h3{margin:0 0 6px 0;font-size:24px}
+    .cuisine{color:#999;font-size:15px;margin-bottom:16px}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0;align-items:center}
+    .badge{padding:8px 14px;border-radius:20px;font-size:14px;font-weight:600;border:2px solid #e0e0e0;background:#fafafa}
+    .badge.distance{background:#e0f2fe;border-color:#7dd3fc;color:#075985}
+    .hidden{display:none}
+    .back-btn{padding:12px 24px;border:2px solid #ddd;border-radius:10px;background:white;cursor:pointer;font-weight:600;margin-bottom:24px;font-size:16px}
+    .toggle-group{display:flex;gap:12px;margin-top:10px}
+    .toggle-btn{flex:1;padding:14px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-size:15px;font-weight:600;color:#333}
+    .toggle-btn.active{background:#000;color:white;border-color:#000}
+    .toggle-btn:hover{border-color:#000;background:#f5f5f5}
+    .toggle-btn:hover.active{background:#000}
+    .sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:16px;background:#f9fafb;border-radius:12px}
+    .chatbot-btn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:#000;color:white;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:all 0.2s}
+    .chatbot-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,0.4)}
+    @media(max-width:768px){.form-row{grid-template-columns:1fr}.toggle-group{flex-direction:column}}
+  </style>
+</head>
 
-<div style="margin-bottom:20px"><label>🕐 Time</label><select id="timewindow"><option value="breakfast">Breakfast</option><option value="lunch">Lunch</option><option value="prime" selected>Dinner</option></select></div>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>🍽️ AI Concierge</h1>
+      <p class="subtitle">Find restaurants you can actually get into</p>
+    </div>
 
-<div class="form-row"><div><label>👥 Party Size</label><input type="number" id="party" value="2" min="1" max="20"></div><div><label>💰 Budget</label><select id="budget"><option value="0-999">Any</option><option value="1-50">$</option><option value="50-100" selected>$$</option><option value="100-150">$$$</option><option value="150-500">$$$$</option></select></div></div>
+    <div id="search" class="card">
+      <div style="margin-bottom:20px">
+        <label>📍 Your Location</label>
+        <div style="display:flex;gap:10px">
+          <input type="text" id="addressInput" placeholder="Enter address" value="New York, NY" style="flex:1" />
+          <button onclick="useCurrentLocation()"
+            style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">
+            📍 Use My Location
+          </button>
+        </div>
+      </div>
 
-<div style="margin-bottom:20px"><label>🚗 Transportation</label><div class="toggle-group"><button class="toggle-btn active" onclick="setTransport('walk')">🚶 Walk</button><button class="toggle-btn" onclick="setTransport('drive')">🚗 Drive</button><button class="toggle-btn" onclick="setTransport('transit')">🚇 Transit</button><button class="toggle-btn" onclick="setTransport('radius')">📍 Radius</button></div></div>
+      <div style="margin-bottom:20px">
+        <label>🕐 Time</label>
+        <select id="timewindow">
+          <option value="breakfast">Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="prime" selected>Dinner</option>
+        </select>
+      </div>
 
-<div id="walkDistance" style="margin-bottom:20px"><label>🚶 Max Walk</label><select id="walkTime"><option value="10">10 min</option><option value="15">15 min</option><option value="20" selected>20 min</option><option value="30">30 min</option></select></div>
+      <div class="form-row">
+        <div>
+          <label>👥 Party Size</label>
+          <input type="number" id="party" value="2" min="1" max="20" />
+        </div>
+        <div>
+          <label>💰 Budget</label>
+          <select id="budget">
+            <option value="0-999">Any</option>
+            <option value="1-50">$</option>
+            <option value="50-100" selected>$$</option>
+            <option value="100-150">$$$</option>
+            <option value="150-500">$$$$</option>
+          </select>
+        </div>
+      </div>
 
-<div id="driveDistance" style="margin-bottom:20px;display:none"><label>🚗 Max Drive</label><select id="driveTime"><option value="10">10 min</option><option value="15" selected>15 min</option><option value="20">20 min</option><option value="30">30 min</option></select></div>
+      <div style="margin-bottom:20px">
+        <label>🚗 Transportation</label>
+        <div class="toggle-group">
+          <button class="toggle-btn active" onclick="setTransport('walk', event)">🚶 Walk</button>
+          <button class="toggle-btn" onclick="setTransport('drive', event)">🚗 Drive</button>
+          <button class="toggle-btn" onclick="setTransport('transit', event)">🚇 Transit</button>
+          <button class="toggle-btn" onclick="setTransport('radius', event)">📍 Radius</button>
+        </div>
+      </div>
 
-<div id="transitDistance" style="margin-bottom:20px;display:none"><label>🚇 Max Transit</label><select id="transitTime"><option value="15">15 min</option><option value="20" selected>20 min</option><option value="30">30 min</option><option value="45">45 min</option></select></div>
+      <div id="walkDistance" style="margin-bottom:20px">
+        <label>🚶 Max Walk</label>
+        <select id="walkTime">
+          <option value="10">10 min</option>
+          <option value="15">15 min</option>
+          <option value="20" selected>20 min</option>
+          <option value="30">30 min</option>
+        </select>
+      </div>
 
-<div id="radiusDistance" style="margin-bottom:20px;display:none"><label>📍 Radius</label><select id="radiusMiles"><option value="1">1 mile</option><option value="2">2 miles</option><option value="3" selected>3 miles</option><option value="5">5 miles</option></select></div>
+      <div id="driveDistance" style="margin-bottom:20px;display:none">
+        <label>🚗 Max Drive</label>
+        <select id="driveTime">
+          <option value="10">10 min</option>
+          <option value="15" selected>15 min</option>
+          <option value="20">20 min</option>
+          <option value="30">30 min</option>
+        </select>
+      </div>
 
-<div style="margin-bottom:20px"><label>⭐ Quality</label><select id="quality"><option value="any" selected>Any Quality</option><option value="michelin">Michelin</option><option value="five_star">5-Star (4.6+)</option><option value="top_rated_and_above">Top Rated & Above (4.4+)</option><option value="top_rated">Top Rated (4.4-4.59)</option></select></div>
+      <div id="transitDistance" style="margin-bottom:20px;display:none">
+        <label>🚇 Max Transit</label>
+        <select id="transitTime">
+          <option value="15">15 min</option>
+          <option value="20" selected>20 min</option>
+          <option value="30">30 min</option>
+          <option value="45">45 min</option>
+        </select>
+      </div>
 
-<div style="margin-bottom:20px"><label>🍕 Cuisine</label><select id="cuisine"><option value="any">Any</option><option value="italian">Italian</option><option value="japanese">Japanese</option><option value="korean">Korean</option><option value="french">French</option><option value="american">American</option></select></div>
+      <div id="radiusDistance" style="margin-bottom:20px;display:none">
+        <label>📍 Radius</label>
+        <select id="radiusMiles">
+          <option value="1">1 mile</option>
+          <option value="2">2 miles</option>
+          <option value="3" selected>3 miles</option>
+          <option value="5">5 miles</option>
+        </select>
+      </div>
 
-<button class="btn" onclick="search()">🔍 Find Restaurants</button>
-</div>
+      <div style="margin-bottom:20px">
+        <label>⭐ Quality</label>
+        <select id="quality">
+          <option value="any" selected>Any Quality</option>
+          <option value="michelin">Michelin</option>
+          <option value="five_star">5-Star (4.6+)</option>
+          <option value="top_rated_and_above">Top Rated & Above (4.4+)</option>
+          <option value="top_rated">Top Rated (4.4-4.59)</option>
+        </select>
+      </div>
 
-<div id="results" class="hidden">
-<button class="back-btn" onclick="back()">← Back</button>
-<div id="warnings"></div>
-<div class="sort-bar">
-<label style="margin:0;font-weight:600">📊 Sort:</label>
-<select id="sortBy" onchange="sortResults()">
-<option value="rating">Rating</option>
-<option value="distance">Distance</option>
-<option value="price">Price</option>
-</select>
-</div>
-<div id="list"></div>
-</div>
+      <div style="margin-bottom:20px">
+        <label>🍕 Cuisine</label>
+        <select id="cuisine">
+          <option value="any">Any</option>
+          <option value="italian">Italian</option>
+          <option value="japanese">Japanese</option>
+          <option value="korean">Korean</option>
+          <option value="french">French</option>
+          <option value="american">American</option>
+        </select>
+      </div>
 
-<button class="chatbot-btn" onclick="alert('Chat coming soon!')">💬</button>
-</div>
+      <button class="btn" onclick="search()">🔍 Find Restaurants</button>
+    </div>
 
-<script>
-let state={transport:'walk',qualityFilter:'any',showExpanded:false};
-let allRestaurants=[];
-let isSearching=false;
-let searchAbortController=null;
+    <div id="results" class="hidden">
+      <button class="back-btn" onclick="back()">← Back</button>
+      <div id="warnings"></div>
 
-function useCurrentLocation(){
-if(navigator.geolocation){
-navigator.geolocation.getCurrentPosition(
-position=>{
-document.getElementById('addressInput').value=`${position.coords.latitude},${position.coords.longitude}`;
-},
-error=>alert('Could not get location')
-);
-}
-}
+      <div class="sort-bar">
+        <label style="margin:0;font-weight:600">📊 Sort:</label>
+        <select id="sortBy" onchange="sortResults()">
+          <option value="rating">Rating</option>
+          <option value="distance">Distance</option>
+          <option value="price">Price</option>
+        </select>
+      </div>
 
-function setTransport(mode){
-state.transport=mode;
-const parentDiv=event.target.parentElement;
-parentDiv.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));
-event.target.classList.add('active');
-document.getElementById('walkDistance').style.display=mode=='walk'?'block':'none';
-document.getElementById('driveDistance').style.display=mode=='drive'?'block':'none';
-document.getElementById('transitDistance').style.display=mode=='transit'?'block':'none';
-document.getElementById('radiusDistance').style.display=mode=='radius'?'block':'none';
-}
+      <div id="list"></div>
+    </div>
 
-function filterByQuality(restaurants){
-const q=state.qualityFilter;
-if(q==='any')return restaurants;
-return restaurants.filter(r=>{
-if(q==='michelin')return r.michelin;
-if(q==='five_star')return r.googleRating>=4.6;
-if(q==='top_rated_and_above')return r.googleRating>=4.4;
-if(q==='top_rated')return r.googleRating>=4.4&&r.googleRating<4.6;
-return true;
-});
-}
+    <button class="chatbot-btn" onclick="alert('Chat coming soon!')">💬</button>
+  </div>
 
-async function search(){
-if(isSearching){
-console.log('Search already in progress');
-return;
-}
-if(searchAbortController){
-searchAbortController.abort();
-}
-isSearching=true;
-searchAbortController=new AbortController();
+  <script>
+    let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false };
+    let allRestaurants = [];
+    let isSearching = false;
+    let searchAbortController = null;
 
-const searchBtn=document.querySelector('.btn');
-searchBtn.disabled=true;
-searchBtn.style.opacity='0.5';
-searchBtn.textContent='🔍 Searching...';
+    function useCurrentLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            document.getElementById('addressInput').value =
+              `${position.coords.latitude},${position.coords.longitude}`;
+          },
+          error => alert('Could not get location')
+        );
+      }
+    }
 
-const location=document.getElementById('addressInput').value;
-const cuisine=document.getElementById('cuisine').value;
-const timeSlot=document.getElementById('timewindow').value;
-state.qualityFilter=document.getElementById('quality').value;
-const openNow=(timeSlot=='prime'||timeSlot=='lunch');
+    function setTransport(mode, ev) {
+      state.transport = mode;
+      const parentDiv = ev.target.parentElement;
+      parentDiv.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+      ev.target.classList.add('active');
 
-let maxWalkMinutes=null,maxDriveMinutes=null,maxTransitMinutes=null;
-if(state.transport==='walk')maxWalkMinutes=parseInt(document.getElementById('walkTime').value);
-else if(state.transport==='drive')maxDriveMinutes=parseInt(document.getElementById('driveTime').value);
-else if(state.transport==='transit')maxTransitMinutes=parseInt(document.getElementById('transitTime').value);
+      document.getElementById('walkDistance').style.display = mode === 'walk' ? 'block' : 'none';
+      document.getElementById('driveDistance').style.display = mode === 'drive' ? 'block' : 'none';
+      document.getElementById('transitDistance').style.display = mode === 'transit' ? 'block' : 'none';
+      document.getElementById('radiusDistance').style.display = mode === 'radius' ? 'block' : 'none';
+    }
 
-document.getElementById('search').classList.add('hidden');
-document.getElementById('results').classList.remove('hidden');
-document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">🔍 Finding candidates...<br><small style="color:#666;margin-top:8px;display:block">Step 1 of 2</small></div>';
+    function filterByQuality(restaurants) {
+      const q = state.qualityFilter;
+      if (q === 'any') return restaurants;
+      return restaurants.filter(r => {
+        if (q === 'michelin') return r.michelin;
+        if (q === 'five_star') return (r.googleRating || 0) >= 4.6;
+        if (q === 'top_rated_and_above') return (r.googleRating || 0) >= 4.4;
+        if (q === 'top_rated') return (r.googleRating || 0) >= 4.4 && (r.googleRating || 0) < 4.6;
+        return true;
+      });
+    }
 
-try{
-const step1Response=await fetch('/.netlify/functions/search-candidates',{
-method:'POST',
-headers:{'Content-Type':'application/json'},
-body:JSON.stringify({location,cuisine:cuisine==='any'?undefined:cuisine,openNow}),
-signal:searchAbortController.signal
-});
+    async function search() {
+      if (isSearching) return;
 
-if(!step1Response.ok){
-const errorText=await step1Response.text();
-throw new Error(`Server error ${step1Response.status}: ${errorText}`);
-}
+      if (searchAbortController) searchAbortController.abort();
+      isSearching = true;
+      searchAbortController = new AbortController();
 
-const step1Data=await step1Response.json();
+      const searchBtn = document.querySelector('.btn');
+      searchBtn.disabled = true;
+      searchBtn.style.opacity = '0.5';
+      searchBtn.textContent = '🔍 Searching...';
 
-// Null-safe array extraction
-const eliteRestaurants = Array.isArray(step1Data.elite) ? step1Data.elite : [];
-const moreOptionsRestaurants = Array.isArray(step1Data.moreOptions) ? step1Data.moreOptions : [];
+      const location = document.getElementById('addressInput').value;
+      const cuisine = document.getElementById('cuisine').value;
+      const timeSlot = document.getElementById('timewindow').value;
+      state.qualityFilter = document.getElementById('quality').value;
+      const openNow = (timeSlot === 'prime' || timeSlot === 'lunch');
 
-console.log('Step 1: Elite:', eliteRestaurants.length, 'More Options:', moreOptionsRestaurants.length);
+      let maxWalkMinutes = null, maxDriveMinutes = null, maxTransitMinutes = null;
+      if (state.transport === 'walk') maxWalkMinutes = parseInt(document.getElementById('walkTime').value);
+      else if (state.transport === 'drive') maxDriveMinutes = parseInt(document.getElementById('driveTime').value);
+      else if (state.transport === 'transit') maxTransitMinutes = parseInt(document.getElementById('transitTime').value);
 
-// Combine both tiers for now (will separate in UI later)
-allRestaurants = [...eliteRestaurants, ...moreOptionsRestaurants].map(c=>({
-...c,
-walkMinutes:c.walkMinEstimate,
-driveMinutes:c.driveMinEstimate,
-transitMinutes:c.transitMinEstimate
-}));
+      document.getElementById('search').classList.add('hidden');
+      document.getElementById('results').classList.remove('hidden');
+      document.getElementById('list').innerHTML =
+        '<div style="text-align:center;padding:40px">🔍 Finding candidates...<br><small style="color:#666;margin-top:8px;display:block">Step 1 of 2</small></div>';
 
-let timeFiltered=allRestaurants;
-if(state.transport==='walk'&&maxWalkMinutes)timeFiltered=timeFiltered.filter(r=>r.walkMinutes&&r.walkMinutes<=maxWalkMinutes);
-else if(state.transport==='drive'&&maxDriveMinutes)timeFiltered=timeFiltered.filter(r=>r.driveMinutes&&r.driveMinutes<=maxDriveMinutes);
-else if(state.transport==='transit'&&maxTransitMinutes)timeFiltered=timeFiltered.filter(r=>r.transitMinutes&&r.transitMinutes<=maxTransitMinutes);
+      try {
+        // ---- STEP 1 ----
+        const step1Response = await fetch('/.netlify/functions/search-candidates', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            location,
+            cuisine: cuisine === 'any' ? undefined : cuisine,
+            openNow,
 
-allRestaurants=timeFiltered;
+            // NEW: informs Step 1 about true-elite walk mode
+            qualityMode: state.qualityFilter,
+            transportMode: state.transport,
+            walkTimeLimit: maxWalkMinutes || null
+          }),
+          signal: searchAbortController.signal
+        });
 
-if(step1Data.confirmedAddress){
-let transportDesc='';
-if(state.transport==='walk')transportDesc=`${maxWalkMinutes}-minute walk`;
-else if(state.transport==='drive')transportDesc=`${maxDriveMinutes}-minute drive`;
-else if(state.transport==='transit')transportDesc=`${maxTransitMinutes}-minute transit`;
-else transportDesc='your area';
+        if (!step1Response.ok) {
+          const errorText = await step1Response.text();
+          throw new Error(`Server error ${step1Response.status}: ${errorText}`);
+        }
 
-document.getElementById('warnings').innerHTML=`
-<div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 ${step1Data.confirmedAddress}</div>
-<div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e;font-weight:600">⏱️ Showing ${allRestaurants.length} results with estimated times. Getting precise times...</div>
-`;
-}
+        const step1Data = await step1Response.json();
 
-sortResults();
+        const eliteRestaurants = Array.isArray(step1Data.elite) ? step1Data.elite : [];
+        const moreOptionsRestaurants = Array.isArray(step1Data.moreOptions) ? step1Data.moreOptions : [];
 
-// STEP 2: Enrich with dynamic limits based on transport mode
-let enrichLimit = 80; // Default for drive/transit
-if(state.transport==='walk'){
-  if(maxWalkMinutes >= 30){
-    enrichLimit = 100; // 30-min walk
-  } else if(maxWalkMinutes >= 20){
-    enrichLimit = 60; // 20-min walk (optimized)
+        allRestaurants = [...eliteRestaurants, ...moreOptionsRestaurants].map(c => ({
+          ...c,
+          walkMinutes: c.walkMinEstimate,
+          driveMinutes: c.driveMinEstimate,
+          transitMinutes: c.transitMinEstimate
+        }));
+
+        // quick estimate filter before DM
+        let timeFiltered = allRestaurants;
+        if (state.transport === 'walk' && maxWalkMinutes) timeFiltered = timeFiltered.filter(r => r.walkMinutes && r.walkMinutes <= maxWalkMinutes);
+        else if (state.transport === 'drive' && maxDriveMinutes) timeFiltered = timeFiltered.filter(r => r.driveMinutes && r.driveMinutes <= maxDriveMinutes);
+        else if (state.transport === 'transit' && maxTransitMinutes) timeFiltered = timeFiltered.filter(r => r.transitMinutes && r.transitMinutes <= maxTransitMinutes);
+        allRestaurants = timeFiltered;
+
+        if (step1Data.confirmedAddress) {
+          let transportDesc = '';
+          if (state.transport === 'walk') transportDesc = `${maxWalkMinutes}-minute walk`;
+          else if (state.transport === 'drive') transportDesc = `${maxDriveMinutes}-minute drive`;
+          else if (state.transport === 'transit') transportDesc = `${maxTransitMinutes}-minute transit`;
+          else transportDesc = 'your area';
+
+          document.getElementById('warnings').innerHTML = `
+            <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 ${step1Data.confirmedAddress}</div>
+            <div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e;font-weight:600">⏱️ Showing ${allRestaurants.length} results with estimated times. Getting precise times...</div>
+          `;
+        }
+
+        sortResults();
+
+        // ---- STEP 2: Enrich ----
+        let enrichLimit = 80; // default
+        if (state.transport === 'walk') {
+          if (maxWalkMinutes >= 30) enrichLimit = 120;
+          else if (maxWalkMinutes >= 20) enrichLimit = 80;
+        }
+
+        // IMPORTANT: if user selects 5-star + walk, we want to enrich ALL candidates (frontend sends full list)
+        const isTrueEliteWalkMode = (state.transport === 'walk' && state.qualityFilter === 'five_star');
+        const toEnrich = isTrueEliteWalkMode ? allRestaurants : allRestaurants.slice(0, enrichLimit);
+
+        const step2Response = await fetch('/.netlify/functions/enrich-times', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            candidates: toEnrich,
+            userLocation: step1Data.userLocation,
+            transportMode: state.transport,
+
+            // NEW: informs Step 2 about true-elite walk mode
+            qualityMode: state.qualityFilter,
+
+            targetMinResults: 20,
+            cuisineFilter: cuisine === 'any' ? null : cuisine,
+            walkTimeLimit: maxWalkMinutes || null
+          }),
+          signal: searchAbortController.signal
+        });
+
+        if (step2Response.ok) {
+          const step2Data = await step2Response.json();
+          allRestaurants = Array.isArray(step2Data.enrichedCandidates) ? step2Data.enrichedCandidates : [];
+
+          // re-filter using REAL times
+          let realTimeFiltered = allRestaurants;
+          if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes && r.walkMinutes <= maxWalkMinutes);
+          else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes && r.driveMinutes <= maxDriveMinutes);
+          else if (state.transport === 'transit' && maxTransitMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.transitMinutes && r.transitMinutes <= maxTransitMinutes);
+          allRestaurants = realTimeFiltered;
+
+          let transportDesc = '';
+          if (state.transport === 'walk') transportDesc = `${maxWalkMinutes}-minute walk`;
+          else if (state.transport === 'drive') transportDesc = `${maxDriveMinutes}-minute drive`;
+          else if (state.transport === 'transit') transportDesc = `${maxTransitMinutes}-minute transit`;
+          else transportDesc = 'your area';
+
+          const eliteCount = allRestaurants.filter(r => (r.googleRating || 0) >= 4.6).length;
+          const topRatedCount = allRestaurants.filter(r => (r.googleRating || 0) >= 4.4).length;
+
+          let qualityMsg = '';
+          if (state.qualityFilter === 'five_star') qualityMsg = `Found ${eliteCount} Elite restaurants (4.6+) within a ${transportDesc}.`;
+          else if (state.qualityFilter === 'top_rated_and_above') qualityMsg = `Found ${topRatedCount} Top Rated restaurants (4.4+) within a ${transportDesc}.`;
+          else qualityMsg = `Found ${allRestaurants.length} restaurants within a ${transportDesc}.`;
+
+          const step1Perf = step1Data.stats?.performance || {};
+          const step2Perf = step2Data.performance || {};
+          const totalMs = (step1Perf.total_ms || 0) + (step2Perf.total_ms || 0);
+
+          const perfHtml = `<div style="margin-top:8px;color:#666;font-size:13px">
+            ⚡ ${totalMs}ms total |
+            Places: ${step1Perf.places_fetch_ms || 0}ms |
+            Filter: ${step1Perf.filtering_ms || 0}ms |
+            DM: ${step2Perf.distance_matrix_ms || 0}ms
+            ${step1Perf.cache_hit ? ' | 💾 Cached' : ''}
+          </div>`;
+
+          let expandWarning = '';
+          if (state.qualityFilter === 'five_star' && eliteCount < 8 && !state.showExpanded) {
+            expandWarning = `<div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e">
+              Only ${eliteCount} elite matches.
+              <button onclick="expandToTopRated()" style="background:#000;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600;margin-left:8px">
+                Expand to 4.4+ Top Rated?
+              </button>
+            </div>`;
+          }
+
+          document.getElementById('warnings').innerHTML = `
+            <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 ${step1Data.confirmedAddress}</div>
+            <div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:600">
+              ✓ ${qualityMsg}${perfHtml}
+            </div>
+            ${expandWarning}
+          `;
+
+          sortResults();
+        }
+
+      } catch (error) {
+        console.error('Search error:', error);
+        if (error.name === 'AbortError') return;
+
+        let errorMsg = '😔 Search failed';
+        if (error.message.includes('429')) errorMsg = '⏱️ Too many requests. Please wait and try again.';
+        else if (error.message.includes('500')) errorMsg = '🔧 Server error. Please try again.';
+        else if (error.message.includes('504') || error.message.includes('timeout')) errorMsg = '⏱️ Search timed out. Please try again.';
+        else if (error.message) errorMsg = `😔 ${error.message}`;
+
+        document.getElementById('list').innerHTML = `<div style="text-align:center;padding:40px">${errorMsg}</div>`;
+      } finally {
+        isSearching = false;
+        const searchBtn = document.querySelector('.btn');
+        searchBtn.disabled = false;
+        searchBtn.style.opacity = '1';
+        searchBtn.textContent = '🔍 Find Restaurants';
+      }
+    }
+
+    function sortResults() {
+      let filtered = filterByQuality(allRestaurants);
+      const sortBy = document.getElementById('sortBy').value;
+      let sorted = [...filtered];
+
+      if (sortBy === 'rating') {
+        sorted.sort((a, b) => (b.googleRating || 0) - (a.googleRating || 0));
+      } else if (sortBy === 'distance') {
+        // Sort by actual walk duration (seconds), then rating, then reviews, then name
+        sorted.sort((a, b) => {
+          const aDuration = a.walkDurationSeconds || ((a.walkMinutes || 999999) * 60);
+          const bDuration = b.walkDurationSeconds || ((b.walkMinutes || 999999) * 60);
+          if (aDuration !== bDuration) return aDuration - bDuration;
+          if ((b.googleRating || 0) !== (a.googleRating || 0)) return (b.googleRating || 0) - (a.googleRating || 0);
+          if ((b.googleReviewCount || 0) !== (a.googleReviewCount || 0)) return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
+          return (a.name || '').localeCompare(b.name || '');
+        });
+      } else if (sortBy === 'price') {
+        sorted.sort((a, b) => ((a.price_level || 0) - (b.price_level || 0)));
+      }
+
+      displayResults(sorted);
+    }
+
+    function displayResults(restaurants) {
+      if (!restaurants.length) {
+        document.getElementById('list').innerHTML =
+          '<div style="text-align:center;padding:40px">No restaurants found</div>';
+        return;
+      }
+
+      let html = restaurants.map(r => {
+        let distanceHtml = '';
+        if (r.walkMinutes) distanceHtml += `<span class="badge distance">🚶 ${r.walkMinutes} min</span>`;
+        if (r.driveMinutes) distanceHtml += `<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
+        if (r.transitMinutes) distanceHtml += `<span class="badge distance">🚇 ${r.transitMinutes} min</span>`;
+
+        let michelinHtml = '';
+        if (r.michelin) {
+          if (r.michelin.distinction === 'star') {
+            const starCount = r.michelin.stars || 1;
+            const starText = starCount === 1 ? 'One Star' : starCount === 2 ? 'Two Star' : 'Three Star';
+            michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin ${starText}</span>`;
+          } else if (r.michelin.distinction === 'bib') {
+            michelinHtml = `<span class="badge" style="background:#10b981;color:white;border-color:#10b981">🟢 Bib Gourmand</span>`;
+          } else if (r.michelin.distinction === 'recommended') {
+            michelinHtml = `<span class="badge" style="background:#6366f1;color:white;border-color:#6366f1">Michelin Recommended</span>`;
+          }
+        }
+
+        return `
+          <div class="restaurant">
+            <h3>${r.name}</h3>
+            <div class="cuisine">${r.vicinity || r.formatted_address || ''}</div>
+            <div class="badges">
+              ${michelinHtml}
+              <span class="badge">⭐ ${(r.googleRating || 0).toFixed(1)} (${r.googleReviewCount || 0})</span>
+              <span class="badge">💰 ${r.price_level ? '$'.repeat(r.price_level) : 'N/A'}</span>
+              ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
+              ${distanceHtml}
+              <button
+                onclick="window.open('https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${r.place_id}','_blank')"
+                style="margin-left:auto;padding:8px 16px;background:#4285f4;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600;font-size:14px">
+                📍 Maps
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('list').innerHTML = html;
+    }
+
+    function back() {
+      document.getElementById('search').classList.remove('hidden');
+      document.getElementById('results').classList.add('hidden');
+    }
+
+    function expandToTopRated() {
+      state.showExpanded = true;
+      state.qualityFilter = 'top_rated_and_above';
+      sortResults();
+    }
+  </script>
+</body>
+</html>
+2) FULL enrich-times.js (copy/paste entire file)
+// enrich-times.js (Netlify Function)
+// Step 2: Enrich times via Distance Matrix
+// SPECIAL: true 4.6+ walk mode => enrich ALL candidates (no budget cap)
+
+exports.handler = async (event) => {
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Method not allowed' })
+    };
   }
-}
 
-const toEnrich = allRestaurants.slice(0, enrichLimit);
-console.log('Enriching', toEnrich.length, 'candidates');
+  try {
+    const startTime = Date.now();
 
-const step2Response=await fetch('/.netlify/functions/enrich-times',{
-method:'POST',
-headers:{'Content-Type':'application/json'},
-body:JSON.stringify({
-candidates:toEnrich,
-userLocation:step1Data.userLocation,
-transportMode:state.transport,
-targetMinResults: 20,
-cuisineFilter: cuisine === 'any' ? null : cuisine,
-walkTimeLimit: maxWalkMinutes
-}),
-signal:searchAbortController.signal
-});
+    const body = JSON.parse(event.body || '{}');
+    const {
+      candidates,
+      userLocation,
+      transportMode,
+      qualityMode,              // NEW
+      targetMinResults = 20,
+      cuisineFilter = null,
+      walkTimeLimit = null
+    } = body;
 
-if(step2Response.ok){
-const step2Data=await step2Response.json();
-console.log('Step 2:',step2Data.enrichedCandidates.length,'enriched');
+    const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
-allRestaurants=step2Data.enrichedCandidates;
+    console.log('=== STEP 2: ENRICH TIMES ===');
+    console.log('Received candidates:', Array.isArray(candidates) ? candidates.length : 'INVALID');
+    console.log('TransportMode:', transportMode);
+    console.log('QualityMode:', qualityMode || 'none');
+    console.log('Cuisine filter:', cuisineFilter || 'none');
+    console.log('Walk time limit:', walkTimeLimit || 'none');
 
-let realTimeFiltered=allRestaurants;
-if(state.transport==='walk'&&maxWalkMinutes)realTimeFiltered=realTimeFiltered.filter(r=>r.walkMinutes&&r.walkMinutes<=maxWalkMinutes);
-else if(state.transport==='drive'&&maxDriveMinutes)realTimeFiltered=realTimeFiltered.filter(r=>r.driveMinutes&&r.driveMinutes<=maxDriveMinutes);
-else if(state.transport==='transit'&&maxTransitMinutes)realTimeFiltered=realTimeFiltered.filter(r=>r.transitMinutes&&r.transitMinutes<=maxTransitMinutes);
+    // Validation
+    if (!Array.isArray(candidates)) {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Invalid candidates array' })
+      };
+    }
 
-allRestaurants=realTimeFiltered;
+    if (candidates.length === 0) {
+      return {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          enrichedCandidates: [],
+          performance: { distance_matrix_ms: 0, total_ms: Date.now() - startTime }
+        })
+      };
+    }
 
-let transportDesc='';
-if(state.transport==='walk')transportDesc=`${maxWalkMinutes}-minute walk`;
-else if(state.transport==='drive')transportDesc=`${maxDriveMinutes}-minute drive`;
-else if(state.transport==='transit')transportDesc=`${maxTransitMinutes}-minute transit`;
-else transportDesc='your area';
+    if (!userLocation || typeof userLocation.lat !== 'number' || typeof userLocation.lng !== 'number') {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Invalid userLocation' })
+      };
+    }
 
-// Count by quality level
-const eliteCount = allRestaurants.filter(r=>r.googleRating>=4.6).length;
-const topRatedCount = allRestaurants.filter(r=>r.googleRating>=4.4).length;
+    if (!GOOGLE_API_KEY) {
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'API key not configured' })
+      };
+    }
 
-// Build quality message based on filter
-let qualityMsg = '';
-if(state.qualityFilter==='five_star'){
-qualityMsg = `Found ${eliteCount} Elite restaurants (4.6+) within a ${transportDesc}.`;
-}else if(state.qualityFilter==='top_rated_and_above'){
-qualityMsg = `Found ${topRatedCount} Top Rated restaurants (4.4+) within a ${transportDesc}.`;
-}else{
-qualityMsg = `Found ${allRestaurants.length} restaurants within a ${transportDesc}.`;
-}
+    // Skip Distance Matrix for radius mode
+    if (transportMode === 'radius') {
+      console.log('Radius mode - returning estimates only');
+      return {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          enrichedCandidates: candidates,
+          performance: { distance_matrix_ms: 0, total_ms: Date.now() - startTime }
+        })
+      };
+    }
 
-// Performance metrics display
-const step1Perf = step1Data.stats?.performance || {};
-const step2Perf = step2Data.performance || {};
-const totalMs = (step1Perf.total_ms || 0) + (step2Perf.total_ms || 0);
-const perfHtml = `<div style="margin-top:8px;color:#666;font-size:13px">
-⚡ ${totalMs}ms total | 
-Places: ${step1Perf.places_fetch_ms || 0}ms | 
-Filter: ${step1Perf.filtering_ms || 0}ms | 
-DM: ${step2Perf.distance_matrix_ms || 0}ms
-${step1Perf.cache_hit ? ' | 💾 Cached' : ''}
-</div>`;
+    const isTrueEliteWalkMode = (transportMode === 'walk' && qualityMode === 'five_star');
 
-let expandWarning = '';
-if(state.qualityFilter==='five_star' && eliteCount < 8 && !state.showExpanded){
-expandWarning = `<div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e">
-Only ${eliteCount} elite matches. <button onclick="expandToTopRated()" style="background:#000;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600;margin-left:8px">Expand to 4.4+ Top Rated?</button>
-</div>`;
-}
+    // DM budget rules
+    let maxDmBudget = 50; // default cap
+    if (cuisineFilter) maxDmBudget = 150;
 
-document.getElementById('warnings').innerHTML=`
-<div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">📍 ${step1Data.confirmedAddress}</div>
-<div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:600">✓ ${qualityMsg}${perfHtml}</div>
-${expandWarning}
-`;
+    // SPECIAL: enrich everything for true elite walk
+    if (isTrueEliteWalkMode) {
+      maxDmBudget = candidates.length;
+    }
 
-sortResults();
-}
+    console.log(`DM Budget: ${maxDmBudget} destinations (trueEliteWalk=${isTrueEliteWalkMode})`);
 
-}catch(error){
-console.error('Search error:',error);
-if(error.name==='AbortError')return;
-let errorMsg='😔 Search failed';
-if(error.message.includes('429'))errorMsg='⏱️ Too many requests. Please wait and try again.';
-else if(error.message.includes('500'))errorMsg='🔧 Server error. Please try again.';
-else if(error.message.includes('504')||error.message.includes('timeout'))errorMsg='⏱️ Search timed out. Please try again.';
-else if(error.message)errorMsg=`😔 ${error.message}`;
-document.getElementById('list').innerHTML=`<div style="text-align:center;padding:40px">${errorMsg}</div>`;
-}finally{
-isSearching=false;
-searchBtn.disabled=false;
-searchBtn.style.opacity='1';
-searchBtn.textContent='🔍 Find Restaurants';
-}
-}
+    const { lat, lng } = userLocation;
+    const origin = `${lat},${lng}`;
 
-function sortResults(){
-let filtered=filterByQuality(allRestaurants);
-const sortBy=document.getElementById('sortBy').value;
-let sorted=[...filtered];
+    // Deterministic ordering
+    const sortedCandidates = [...candidates].sort((a, b) => {
+      if ((b.googleRating || 0) !== (a.googleRating || 0)) return (b.googleRating || 0) - (a.googleRating || 0);
+      if ((b.googleReviewCount || 0) !== (a.googleReviewCount || 0)) return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
+      return (a.place_id || '').localeCompare(b.place_id || '');
+    });
 
-if(sortBy==='rating'){
-sorted.sort((a,b)=>b.googleRating-a.googleRating);
-}else if(sortBy==='distance'){
-// Sort by actual walk duration (seconds), then rating, then reviews, then name
-sorted.sort((a,b)=>{
-const aDuration = a.walkDurationSeconds || (a.walkMinutes * 60) || 999999;
-const bDuration = b.walkDurationSeconds || (b.walkMinutes * 60) || 999999;
-if(aDuration !== bDuration) return aDuration - bDuration;
-if(b.googleRating !== a.googleRating) return b.googleRating - a.googleRating;
-if(b.googleReviewCount !== a.googleReviewCount) return b.googleReviewCount - a.googleReviewCount;
-return a.name.localeCompare(b.name);
-});
-}else if(sortBy==='price'){
-sorted.sort((a,b)=>(a.price_level||0)-(b.price_level||0));
-}
+    const candidatesToEnrich = sortedCandidates.slice(0, maxDmBudget);
 
-displayResults(sorted);
-}
+    const modeMap = { walk: 'walking', drive: 'driving', transit: 'transit' };
+    const apiMode = modeMap[transportMode] || 'walking';
 
-function displayResults(restaurants){
-if(!restaurants.length){
-document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">No restaurants found</div>';
-return;
-}
+    const dmStartTime = Date.now();
+    const batchSize = 25;
 
-let html=restaurants.map(r=>{
-let distanceHtml='';
-if(r.walkMinutes)distanceHtml+=`<span class="badge distance">🚶 ${r.walkMinutes} min</span>`;
-if(r.driveMinutes)distanceHtml+=`<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
-if(r.transitMinutes)distanceHtml+=`<span class="badge distance">🚇 ${r.transitMinutes} min</span>`;
+    const batches = [];
+    for (let i = 0; i < candidatesToEnrich.length; i += batchSize) {
+      batches.push(candidatesToEnrich.slice(i, i + batchSize));
+    }
 
-// Michelin badge
-let michelinHtml='';
-if(r.michelin){
-if(r.michelin.distinction==='star'){
-const starCount = r.michelin.stars || 1;
-const starText = starCount === 1 ? 'One Star' : starCount === 2 ? 'Two Star' : 'Three Star';
-michelinHtml=`<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin ${starText}</span>`;
-}else if(r.michelin.distinction==='bib'){
-michelinHtml=`<span class="badge" style="background:#10b981;color:white;border-color:#10b981">🟢 Bib Gourmand</span>`;
-}else if(r.michelin.distinction==='recommended'){
-michelinHtml=`<span class="badge" style="background:#6366f1;color:white;border-color:#6366f1">Michelin Recommended</span>`;
-}
-}
+    console.log(`Processing ${batches.length} batches with concurrency=2...`);
 
-return`
-<div class="restaurant">
-<h3>${r.name}</h3>
-<div class="cuisine">${r.vicinity||r.formatted_address||''}</div>
-<div class="badges">
-${michelinHtml}
-<span class="badge">⭐ ${r.googleRating.toFixed(1)} (${r.googleReviewCount || 0})</span>
-<span class="badge">💰 ${r.price_level?'$'.repeat(r.price_level):'N/A'}</span>
-${r.opening_hours?.open_now?'<span class="badge">✅ Open</span>':''}
-${distanceHtml}
-<button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${r.place_id}','_blank')" style="margin-left:auto;padding:8px 16px;background:#4285f4;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600;font-size:14px">📍 Maps</button>
-</div>
-</div>
-`;
-}).join('');
+    const enriched = [];
+    let withinWalkCount = 0;
 
-document.getElementById('list').innerHTML=html;
-}
+    // Process waves of 2 concurrent batches
+    for (let waveStart = 0; waveStart < batches.length; waveStart += 2) {
+      const waveBatches = batches.slice(waveStart, waveStart + 2);
+      const waveNum = Math.floor(waveStart / 2) + 1;
 
-function back(){
-document.getElementById('search').classList.remove('hidden');
-document.getElementById('results').classList.add('hidden');
-}
+      const wavePromises = waveBatches.map(async (batch, relIdx) => {
+        const batchIndex = waveStart + relIdx;
+        console.log(`Wave ${waveNum} - Batch ${batchIndex + 1}/${batches.length}: ${batch.length} candidates`);
 
-function expandToTopRated(){
-state.showExpanded=true;
-state.qualityFilter='top_rated_and_above';
-sortResults();
-}
-</script></body></html>
+        const destinations = batch
+          .map(p => `${p.geometry.location.lat},${p.geometry.location.lng}`)
+          .join('|');
+
+        try {
+          const modeData = await fetch(
+            `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=${apiMode}&key=${GOOGLE_API_KEY}`
+          ).then(r => r.json());
+
+          const batchEnriched = batch.map((place, idx) => {
+            let walkMin = place.walkMinEstimate;
+            let driveMin = place.driveMinEstimate;
+            let transitMin = place.transitMinEstimate;
+
+            let distMiles = place.distanceMiles;
+
+            let walkSeconds = null;
+            let driveSeconds = null;
+            let transitSeconds = null;
+
+            if (modeData?.rows?.[0]?.elements?.[idx]?.status === 'OK') {
+              const el = modeData.rows[0].elements[idx];
+              const realMin = Math.round(el.duration.value / 60);
+              const realSeconds = el.duration.value;
+              const realDist = Math.round((el.distance.value / 1609.34) * 10) / 10;
+
+              if (transportMode === 'walk') {
+                walkMin = realMin;
+                walkSeconds = realSeconds;
+                distMiles = realDist;
+                if (walkTimeLimit && walkMin <= walkTimeLimit) withinWalkCount++;
+              } else if (transportMode === 'drive') {
+                driveMin = realMin;
+                driveSeconds = realSeconds;
+              } else if (transportMode === 'transit') {
+                transitMin = realMin;
+                transitSeconds = realSeconds;
+              }
+            }
+
+            return {
+              ...place,
+              distanceMiles: distMiles,
+              walkMinutes: walkMin,
+              driveMinutes: driveMin,
+              transitMinutes: transitMin,
+              walkDurationSeconds: walkSeconds,
+              driveDurationSeconds: driveSeconds,
+              transitDurationSeconds: transitSeconds
+            };
+          });
+
+          enriched.push(...batchEnriched);
+          return batchEnriched;
+
+        } catch (error) {
+          console.error(`Batch ${batchIndex + 1} failed:`, error);
+
+          // fallback to estimates (never drop candidates)
+          const fallbackBatch = batch.map(place => ({
+            ...place,
+            distanceMiles: place.distanceMiles,
+            walkMinutes: place.walkMinEstimate,
+            driveMinutes: place.driveMinEstimate,
+            transitMinutes: place.transitMinEstimate,
+            walkDurationSeconds: null,
+            driveDurationSeconds: null,
+            transitDurationSeconds: null
+          }));
+
+          enriched.push(...fallbackBatch);
+          return fallbackBatch;
+        }
+      });
+
+      await Promise.all(wavePromises);
+
+      // Early stopping ONLY for non-true mode
+      if (!isTrueEliteWalkMode && walkTimeLimit && withinWalkCount >= targetMinResults) {
+        console.log(`Early stop after wave ${waveNum}: withinWalk=${withinWalkCount} target=${targetMinResults}`);
+        break;
+      }
+    }
+
+    const dmTime = Date.now() - dmStartTime;
+    const totalTime = Date.now() - startTime;
+
+    console.log('=== PERFORMANCE ===');
+    console.log('distance_matrix_ms:', dmTime);
+    console.log('total_ms:', totalTime);
+    console.log('candidates_enriched:', enriched.length);
+    console.log('===================');
+
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        enrichedCandidates: enriched,
+        performance: {
+          distance_matrix_ms: dmTime,
+          total_ms: totalTime,
+          candidates_before_dm: candidates.length,
+          candidates_after_dm: enriched.length
+        }
+      })
+    };
+
+  } catch (error) {
+    console.error('ERROR:', error);
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Failed', message: error.message, stack: error.stack })
+    };
+  }
+};
