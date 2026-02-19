@@ -1,15 +1,3 @@
-// ===== MICHELIN OVERLAY (badge only) =====
-const fs = require('fs');
-const path = require('path');
-
-let MICHELIN_DATA = [];
-
-function loadMichelin() {
-  // We want the file to live next to this function:
-  // netlify/functions/michelin_nyc.json
-  const candidates = [
-    path.join(__dirname, 'michelin_nyc.json'), // ✅ correct for Netlify Functions bundle
-    path.join(process.cwd(), 'netlify/functions/michelin_nyc.json'), // fallback
   ];
 
   for (const p of candidates) {
