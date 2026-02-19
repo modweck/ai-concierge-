@@ -20,7 +20,7 @@
 
 <div id="radiusDistance" style="margin-bottom:20px;display:none"><label>📍 Radius</label><select id="radiusMiles"><option value="1">1 mile</option><option value="2">2 miles</option><option value="3" selected>3 miles</option><option value="5">5 miles</option></select></div>
 
-<div style="margin-bottom:20px"><label>⭐ Quality</label><select id="quality"><option value="any" selected>Any Quality</option><option value="michelin_star">Michelin Star</option><option value="bib">Bib Gourmand</option><option value="michelin_recommended">Michelin Recommended</option><option value="five_star">5-Star (4.6+)</option><option value="top_rated_and_above">Top Rated & Above (4.4+)</option><option value="top_rated">Top Rated (4.4-4.59)</option></select></div>
+<div style="margin-bottom:20px"><label>⭐ Quality</label><select id="quality"><option value="any" selected>Any Quality</option><option value="michelin">Michelin</option><option value="five_star">5-Star (4.6+)</option><option value="top_rated_and_above">Top Rated & Above (4.4+)</option><option value="top_rated">Top Rated (4.4-4.59)</option></select></div>
 
 <div style="margin-bottom:20px"><label>🍕 Cuisine</label><select id="cuisine"><option value="any">Any</option><option value="italian">Italian</option><option value="japanese">Japanese</option><option value="korean">Korean</option><option value="french">French</option><option value="american">American</option></select></div>
 
@@ -76,9 +76,7 @@ function filterByQuality(restaurants){
 const q=state.qualityFilter;
 if(q==='any')return restaurants;
 return restaurants.filter(r=>{
-if(q==='michelin_star')return r.michelin && r.michelin.distinction==='star';
-if(q==='bib')return r.michelin && r.michelin.distinction==='bib';
-if(q==='michelin_recommended')return r.michelin && r.michelin.distinction==='recommended';
+if(q==='michelin')return r.michelin;
 if(q==='five_star')return r.googleRating>=4.6;
 if(q==='top_rated_and_above')return r.googleRating>=4.4;
 if(q==='top_rated')return r.googleRating>=4.4&&r.googleRating<4.6;
@@ -118,11 +116,10 @@ document.getElementById('results').classList.remove('hidden');
 document.getElementById('list').innerHTML='<div style="text-align:center;padding:40px">🔍 Finding candidates...<br><small style="color:#666;margin-top:8px;display:block">Step 1 of 2</small></div>';
 
 try{
-const step1ClientStart = performance.now();
 const step1Response=await fetch('/.netlify/functions/search-candidates',{
 method:'POST',
 headers:{'Content-Type':'application/json'},
-body:JSON.stringify({location,cuisine:cuisine==='any'?undefined:cuisine,openNow,qualityFilter:state.qualityFilter}),
+body:JSON.stringify({location,cuisine:cuisine==='any'?undefined:cuisine,openNow}),
 signal:searchAbortController.signal
 });
 
@@ -132,8 +129,6 @@ throw new Error(`Server error ${step1Response.status}: ${errorText}`);
 }
 
 const step1Data=await step1Response.json();
-const step1ClientMs = Math.round(performance.now() - step1ClientStart);
-console.log(`⏱️ Step 1 client time: ${step1ClientMs}ms`);
 
 // Null-safe array extraction
 const eliteRestaurants = Array.isArray(step1Data.elite) ? step1Data.elite : [];
@@ -184,7 +179,6 @@ if(state.transport==='walk'){
 const toEnrich = allRestaurants.slice(0, enrichLimit);
 console.log('Enriching', toEnrich.length, 'candidates');
 
-const step2ClientStart = performance.now();
 const step2Response=await fetch('/.netlify/functions/enrich-times',{
 method:'POST',
 headers:{'Content-Type':'application/json'},
@@ -201,8 +195,6 @@ signal:searchAbortController.signal
 
 if(step2Response.ok){
 const step2Data=await step2Response.json();
-const step2ClientMs = Math.round(performance.now() - step2ClientStart);
-console.log(`⏱️ Step 2 client time: ${step2ClientMs}ms`);
 console.log('Step 2:',step2Data.enrichedCandidates.length,'enriched');
 
 allRestaurants=step2Data.enrichedCandidates;
