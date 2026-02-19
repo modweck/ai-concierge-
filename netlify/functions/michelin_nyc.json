@@ -20,6 +20,7 @@
   { "name": "Saga", "distinction": "star", "stars": 2, "address": "70 Pine St, New York, NY 10005", "lat": 40.7068, "lng": -74.0084 },
   { "name": "Sushi Noz", "distinction": "star", "stars": 2, "address": "181 E 78th St, New York, NY 10075", "lat": 40.7750, "lng": -73.9566 },
   { "name": "The Modern", "distinction": "star", "stars": 2, "address": "9 W 53rd St, New York, NY 10019", "lat": 40.7614, "lng": -73.9776 },
+
   { "name": "Café Boulud", "distinction": "star", "stars": 1, "address": "20 E 76th St, New York, NY 10021", "lat": 40.7743, "lng": -73.9638 },
   { "name": "Casa Mono", "distinction": "star", "stars": 1, "address": "52 Irving Pl, New York, NY 10003", "lat": 40.7357, "lng": -73.9876 },
   { "name": "Caviar Russe", "distinction": "star", "stars": 1, "address": "538 Madison Ave, New York, NY 10022", "lat": 40.7600, "lng": -73.9729 },
