@@ -1,10 +1,13 @@
-// enrich-times.js (Netlify Function)
-// Step 2: Enrich times via Distance Matrix
-// SPECIAL: true 4.6+ walk mode => enrich ALL candidates (no budget cap)
+// Step 2: Enrich with performance optimization (Distance Matrix)
+// Progressive enrichment + early stop + concurrency waves
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) };
+    return {
+      statusCode: 405,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Method not allowed' })
+    };
   }
 
   try {
@@ -15,7 +18,6 @@ exports.handler = async (event) => {
       candidates,
       userLocation,
       transportMode,
-      qualityMode,              // NEW
       targetMinResults = 20,
       cuisineFilter = null,
       walkTimeLimit = null
@@ -23,26 +25,49 @@ exports.handler = async (event) => {
 
     const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
-    console.log('=== STEP 2: ENRICH TIMES ===');
-    console.log('Received candidates:', Array.isArray(candidates) ? candidates.length : 'INVALID');
+    console.log('=== STEP 2: PROGRESSIVE ENRICHMENT ===');
+    console.log('Received candidates:', candidates?.length);
     console.log('TransportMode:', transportMode);
-    console.log('QualityMode:', qualityMode || 'none');
     console.log('Cuisine filter:', cuisineFilter || 'none');
     console.log('Walk time limit:', walkTimeLimit || 'none');
 
-    if (!Array.isArray(candidates)) {
-      return { statusCode: 400, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Invalid candidates array' }) };
-    }
-    if (candidates.length === 0) {
-      return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ enrichedCandidates: [], performance: { distance_matrix_ms: 0, total_ms: Date.now() - startTime } }) };
-    }
-    if (!userLocation || typeof userLocation.lat !== 'number' || typeof userLocation.lng !== 'number') {
-      return { statusCode: 400, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Invalid userLocation' }) };
-    }
     if (!GOOGLE_API_KEY) {
-      return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'API key not configured' }) };
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'API key not configured (GOOGLE_PLACES_API_KEY)' })
+      };
     }
 
+    // Validation
+    if (!candidates || !Array.isArray(candidates)) {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Invalid candidates array', receivedType: typeof candidates })
+      };
+    }
+
+    if (candidates.length === 0) {
+      return {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          enrichedCandidates: [],
+          performance: { distance_matrix_ms: 0, total_ms: Date.now() - startTime }
+        })
+      };
+    }
+
+    if (!userLocation || typeof userLocation.lat !== 'number' || typeof userLocation.lng !== 'number') {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Invalid userLocation', received: userLocation })
+      };
+    }
+
+    // Skip DM for radius mode
     if (transportMode === 'radius') {
       console.log('Radius mode - returning estimates only');
       return {
@@ -55,30 +80,22 @@ exports.handler = async (event) => {
       };
     }
 
-    const isTrueEliteWalkMode = (transportMode === 'walk' && qualityMode === 'five_star');
-
-    // DM budget rules
-    let maxDmBudget = 50; // default cap
+    // Adaptive DM budget
+    let maxDmBudget = 50;
     if (cuisineFilter) maxDmBudget = 150;
+    maxDmBudget = Math.min(maxDmBudget, candidates.length);
 
-    // SPECIAL: enrich everything for true elite walk
-    if (isTrueEliteWalkMode) {
-      maxDmBudget = candidates.length;
-    }
-
-    console.log(`DM Budget: ${maxDmBudget} destinations (trueEliteWalk=${isTrueEliteWalkMode})`);
+    console.log(`DM Budget: ${maxDmBudget} destinations`);
 
     const { lat, lng } = userLocation;
     const origin = `${lat},${lng}`;
 
     // Deterministic ordering
-    const sortedCandidates = [...candidates].sort((a, b) => {
+    const sortedCandidates = [...candidates].sort((a,b) => {
       if ((b.googleRating || 0) !== (a.googleRating || 0)) return (b.googleRating || 0) - (a.googleRating || 0);
       if ((b.googleReviewCount || 0) !== (a.googleReviewCount || 0)) return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
-      return (a.place_id || '').localeCompare(b.place_id || '');
+      return String(a.place_id || '').localeCompare(String(b.place_id || ''));
     });
-
-    const candidatesToEnrich = sortedCandidates.slice(0, maxDmBudget);
 
     const modeMap = { walk: 'walking', drive: 'driving', transit: 'transit' };
     const apiMode = modeMap[transportMode] || 'walking';
@@ -86,6 +103,7 @@ exports.handler = async (event) => {
     const dmStartTime = Date.now();
     const batchSize = 25;
 
+    const candidatesToEnrich = sortedCandidates.slice(0, maxDmBudget);
     const batches = [];
     for (let i = 0; i < candidatesToEnrich.length; i += batchSize) {
       batches.push(candidatesToEnrich.slice(i, i + batchSize));
@@ -100,32 +118,29 @@ exports.handler = async (event) => {
       const waveBatches = batches.slice(waveStart, waveStart + 2);
       const waveNum = Math.floor(waveStart / 2) + 1;
 
-      const wavePromises = waveBatches.map(async (batch, relIdx) => {
-        const batchIndex = waveStart + relIdx;
-        console.log(`Wave ${waveNum} - Batch ${batchIndex + 1}/${batches.length}: ${batch.length} candidates`);
+      const wavePromises = waveBatches.map(async (batch, relativeIdx) => {
+        const batchIndex = waveStart + relativeIdx;
 
         const destinations = batch
           .map(p => `${p.geometry.location.lat},${p.geometry.location.lng}`)
           .join('|');
 
         try {
-          const modeData = await fetch(
-            `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=${apiMode}&key=${GOOGLE_API_KEY}`
-          ).then(r => r.json());
+          const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&mode=${apiMode}&key=${GOOGLE_API_KEY}`;
+          const modeData = await fetch(url).then(r => r.json());
 
           const batchEnriched = batch.map((place, idx) => {
             let walkMin = place.walkMinEstimate;
             let driveMin = place.driveMinEstimate;
             let transitMin = place.transitMinEstimate;
-
             let distMiles = place.distanceMiles;
 
             let walkSeconds = null;
             let driveSeconds = null;
             let transitSeconds = null;
 
-            if (modeData?.rows?.[0]?.elements?.[idx]?.status === 'OK') {
-              const el = modeData.rows[0].elements[idx];
+            const el = modeData?.rows?.[0]?.elements?.[idx];
+            if (el?.status === 'OK') {
               const realMin = Math.round(el.duration.value / 60);
               const realSeconds = el.duration.value;
               const realDist = Math.round((el.distance.value / 1609.34) * 10) / 10;
@@ -134,6 +149,7 @@ exports.handler = async (event) => {
                 walkMin = realMin;
                 walkSeconds = realSeconds;
                 distMiles = realDist;
+
                 if (walkTimeLimit && walkMin <= walkTimeLimit) withinWalkCount++;
               } else if (transportMode === 'drive') {
                 driveMin = realMin;
@@ -159,11 +175,11 @@ exports.handler = async (event) => {
           enriched.push(...batchEnriched);
           return batchEnriched;
 
-        } catch (error) {
-          console.error(`Batch ${batchIndex + 1} failed:`, error);
+        } catch (err) {
+          console.error(`Batch ${batchIndex + 1} failed:`, err);
 
-          // fallback to estimates
-          const fallbackBatch = batch.map(place => ({
+          // Never drop candidates — fallback to estimates
+          const fallback = batch.map(place => ({
             ...place,
             distanceMiles: place.distanceMiles,
             walkMinutes: place.walkMinEstimate,
@@ -174,16 +190,15 @@ exports.handler = async (event) => {
             transitDurationSeconds: null
           }));
 
-          enriched.push(...fallbackBatch);
-          return fallbackBatch;
+          enriched.push(...fallback);
+          return fallback;
         }
       });
 
       await Promise.all(wavePromises);
 
-      // Early stopping ONLY for non-true mode (true mode must enrich all)
-      if (!isTrueEliteWalkMode && walkTimeLimit && withinWalkCount >= targetMinResults) {
-        console.log(`Early stop after wave ${waveNum}: withinWalk=${withinWalkCount} target=${targetMinResults}`);
+      if (walkTimeLimit && withinWalkCount >= targetMinResults) {
+        console.log(`Early stop after wave ${waveNum}: Found ${withinWalkCount} within ${walkTimeLimit} min`);
         break;
       }
     }
@@ -216,7 +231,11 @@ exports.handler = async (event) => {
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: 'Failed', message: error.message, stack: error.stack })
+      body: JSON.stringify({
+        error: 'Failed',
+        message: error.message,
+        stack: error.stack
+      })
     };
   }
 };
