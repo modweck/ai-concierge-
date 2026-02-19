@@ -1,3 +1,7 @@
+// One-time function to fix Michelin coordinates
+// Call this at: /.netlify/functions/fix-michelin-coords
+
+const MICHELIN_RESTAURANTS = [
   { name: "Le Bernardin", distinction: "Three Stars", stars: 3 },
   { name: "Eleven Madison Park", distinction: "Three Stars", stars: 3 },
   { name: "Per Se", distinction: "Three Stars", stars: 3 },
@@ -109,7 +113,6 @@ exports.handler = async (event, context) => {
       });
     }
     
-    // Wait 100ms between requests
     await new Promise(resolve => setTimeout(resolve, 100));
   }
   
