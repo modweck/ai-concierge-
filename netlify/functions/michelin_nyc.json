@@ -1,282 +1,145 @@
-[
-  {
-    "name": "Le Bernardin",
-    "distinction": "Three Stars",
-    "stars": 3,
-    "lat": 40.7614,
-    "lng": -73.9776
-  },
-  {
-    "name": "Eleven Madison Park",
-    "distinction": "Three Stars",
-    "stars": 3,
-    "lat": 40.7414,
-    "lng": -73.9871
-  },
-  {
-    "name": "Per Se",
-    "distinction": "Three Stars",
-    "stars": 3,
-    "lat": 40.7686,
-    "lng": -73.9832
-  },
-  {
-    "name": "Masa",
-    "distinction": "Three Stars",
-    "stars": 3,
-    "lat": 40.7686,
-    "lng": -73.9832
-  },
-  {
-    "name": "Chef's Table at Brooklyn Fare",
-    "distinction": "Two Stars",
-    "stars": 2,
-    "lat": 40.6845,
-    "lng": -73.9874
-  },
-  {
-    "name": "Atomix",
-    "distinction": "Two Stars",
-    "stars": 2,
-    "lat": 40.7282,
-    "lng": -73.9857
-  },
-  {
-    "name": "Jungsik",
-    "distinction": "Two Stars",
-    "stars": 2,
-    "lat": 40.7446,
-    "lng": -73.9934
-  },
-  {
-    "name": "Daniel",
-    "distinction": "Two Stars",
-    "stars": 2,
-    "lat": 40.7641,
-    "lng": -73.9664
-  },
-  {
-    "name": "Jean-Georges",
-    "distinction": "Two Stars",
-    "stars": 2,
-    "lat": 40.7686,
-    "lng": -73.9832
-  },
-  {
-    "name": "Momofuku Ko",
-    "distinction": "Two Stars",
-    "stars": 2,
-    "lat": 40.7282,
-    "lng": -73.9857
-  },
-  {
-    "name": "Atera",
-    "distinction": "Two Stars",
-    "stars": 2,
-    "lat": 40.7183,
-    "lng": -74.0090
-  },
-  {
-    "name": "Gabriel Kreuther",
-    "distinction": "Two Stars",
-    "stars": 2,
-    "lat": 40.7570,
-    "lng": -73.9795
-  },
-  {
-    "name": "Aquavit",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7580,
-    "lng": -73.9741
-  },
-  {
-    "name": "Gramercy Tavern",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7387,
-    "lng": -73.9884
-  },
-  {
-    "name": "The Modern",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7614,
-    "lng": -73.9776
-  },
-  {
-    "name": "Marea",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7686,
-    "lng": -73.9832
-  },
-  {
-    "name": "Sushi Nakazawa",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7353,
-    "lng": -74.0060
-  },
-  {
-    "name": "Babbo",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7309,
-    "lng": -74.0012
-  },
-  {
-    "name": "Carbone",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7258,
-    "lng": -74.0023
-  },
-  {
-    "name": "Blue Hill",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7309,
-    "lng": -74.0012
-  },
-  {
-    "name": "Union Square Cafe",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7359,
-    "lng": -73.9911
-  },
-  {
-    "name": "Craft",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7410,
-    "lng": -73.9881
-  },
-  {
-    "name": "Casa Mono",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7376,
-    "lng": -73.9875
-  },
-  {
-    "name": "Contra",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7215,
-    "lng": -73.9880
-  },
-  {
-    "name": "Kosaka",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7309,
-    "lng": -74.0012
-  },
-  {
-    "name": "Kyo Ya",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7258,
-    "lng": -73.9866
-  },
-  {
-    "name": "Kajitsu",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7258,
-    "lng": -73.9866
-  },
-  {
-    "name": "15 East",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7368,
-    "lng": -73.9889
-  },
-  {
-    "name": "Tocqueville",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7368,
-    "lng": -73.9912
-  },
-  {
-    "name": "Aureole",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7580,
-    "lng": -73.9741
-  },
-  {
-    "name": "Sushi Yasuda",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7530,
-    "lng": -73.9707
-  },
-  {
-    "name": "Ai Fiori",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7614,
-    "lng": -73.9778
-  },
-  {
-    "name": "Cagen",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7282,
-    "lng": -73.9857
-  },
-  {
-    "name": "Benno",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7586,
-    "lng": -73.9789
-  },
-  {
-    "name": "Betony",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7580,
-    "lng": -73.9795
-  },
-  {
-    "name": "Blanca",
-    "distinction": "Two Stars",
-    "stars": 2,
-    "lat": 40.7071,
-    "lng": -73.9565
-  },
-  {
-    "name": "Bouley",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7183,
-    "lng": -74.0090
-  },
-  {
-    "name": "Brushstroke",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7183,
-    "lng": -74.0090
-  },
-  {
-    "name": "Delaware and Hudson",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7071,
-    "lng": -73.9600
-  },
-  {
-    "name": "Ichimura",
-    "distinction": "One Star",
-    "stars": 1,
-    "lat": 40.7183,
-    "lng": -74.0090
+// One-time function to fix Michelin coordinates
+// Call this at: /.netlify/functions/fix-michelin-coords
+
+const MICHELIN_RESTAURANTS = [
+  { name: "Le Bernardin", distinction: "Three Stars", stars: 3 },
+  { name: "Eleven Madison Park", distinction: "Three Stars", stars: 3 },
+  { name: "Per Se", distinction: "Three Stars", stars: 3 },
+  { name: "Masa", distinction: "Three Stars", stars: 3 },
+  { name: "Chef's Table at Brooklyn Fare", distinction: "Two Stars", stars: 2 },
+  { name: "Atomix", distinction: "Two Stars", stars: 2 },
+  { name: "Jungsik", distinction: "Two Stars", stars: 2 },
+  { name: "Daniel", distinction: "Two Stars", stars: 2 },
+  { name: "Jean-Georges", distinction: "Two Stars", stars: 2 },
+  { name: "Momofuku Ko", distinction: "Two Stars", stars: 2 },
+  { name: "Atera", distinction: "Two Stars", stars: 2 },
+  { name: "Gabriel Kreuther", distinction: "Two Stars", stars: 2 },
+  { name: "Aquavit", distinction: "One Star", stars: 1 },
+  { name: "Gramercy Tavern", distinction: "One Star", stars: 1 },
+  { name: "The Modern", distinction: "One Star", stars: 1 },
+  { name: "Marea", distinction: "One Star", stars: 1 },
+  { name: "Sushi Nakazawa", distinction: "One Star", stars: 1 },
+  { name: "Babbo", distinction: "One Star", stars: 1 },
+  { name: "Carbone", distinction: "One Star", stars: 1 },
+  { name: "Blue Hill", distinction: "One Star", stars: 1 },
+  { name: "Union Square Cafe", distinction: "One Star", stars: 1 },
+  { name: "Craft", distinction: "One Star", stars: 1 },
+  { name: "Casa Mono", distinction: "One Star", stars: 1 },
+  { name: "Contra", distinction: "One Star", stars: 1 },
+  { name: "Kosaka", distinction: "One Star", stars: 1 },
+  { name: "Kyo Ya", distinction: "One Star", stars: 1 },
+  { name: "Kajitsu", distinction: "One Star", stars: 1 },
+  { name: "15 East", distinction: "One Star", stars: 1 },
+  { name: "Tocqueville", distinction: "One Star", stars: 1 },
+  { name: "Aureole", distinction: "One Star", stars: 1 },
+  { name: "Sushi Yasuda", distinction: "One Star", stars: 1 },
+  { name: "Ai Fiori", distinction: "One Star", stars: 1 },
+  { name: "Cagen", distinction: "One Star", stars: 1 },
+  { name: "Benno", distinction: "One Star", stars: 1 },
+  { name: "Betony", distinction: "One Star", stars: 1 },
+  { name: "Blanca", distinction: "Two Stars", stars: 2 },
+  { name: "Bouley", distinction: "One Star", stars: 1 },
+  { name: "Brushstroke", distinction: "One Star", stars: 1 },
+  { name: "Delaware and Hudson", distinction: "One Star", stars: 1 },
+  { name: "Ichimura", distinction: "One Star", stars: 1 }
+];
+
+async function lookupRestaurant(name, apiKey) {
+  const query = `${name} restaurant New York City`;
+  const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(query)}&key=${apiKey}`;
+  
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    if (data.status === 'OK' && data.results.length > 0) {
+      const place = data.results[0];
+      return {
+        name: place.name,
+        lat: place.geometry.location.lat,
+        lng: place.geometry.location.lng,
+        place_id: place.place_id,
+        address: place.formatted_address,
+        found: true
+      };
+    } else {
+      console.log(`❌ NOT FOUND: ${name} (status: ${data.status})`);
+      return { name, found: false, status: data.status };
+    }
+  } catch (error) {
+    console.log(`❌ ERROR looking up ${name}:`, error.message);
+    return { name, found: false, error: error.message };
   }
-]
+}
+
+exports.handler = async (event, context) => {
+  const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
+  
+  if (!GOOGLE_API_KEY) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'API key not configured' })
+    };
+  }
+  
+  console.log('🔍 Looking up all Michelin restaurants...');
+  
+  const results = [];
+  
+  for (const restaurant of MICHELIN_RESTAURANTS) {
+    console.log(`Looking up: ${restaurant.name}...`);
+    const lookup = await lookupRestaurant(restaurant.name, GOOGLE_API_KEY);
+    
+    if (lookup.found) {
+      results.push({
+        name: lookup.name,
+        distinction: restaurant.distinction,
+        stars: restaurant.stars,
+        lat: lookup.lat,
+        lng: lookup.lng,
+        place_id: lookup.place_id,
+        address: lookup.address
+      });
+      console.log(`✅ Found: ${lookup.name} at ${lookup.lat}, ${lookup.lng}`);
+    } else {
+      results.push({
+        name: restaurant.name,
+        distinction: restaurant.distinction,
+        stars: restaurant.stars,
+        lat: null,
+        lng: null,
+        note: "NOT_FOUND_IN_GOOGLE",
+        status: lookup.status
+      });
+    }
+    
+    // Wait 100ms between requests
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  
+  const found = results.filter(r => r.lat !== null).length;
+  const notFound = results.filter(r => r.lat === null);
+  
+  console.log(`\n=== SUMMARY ===`);
+  console.log(`Total: ${MICHELIN_RESTAURANTS.length}`);
+  console.log(`Found: ${found}`);
+  console.log(`Not found: ${notFound.length}`);
+  
+  if (notFound.length > 0) {
+    console.log('\n❌ NOT FOUND:');
+    notFound.forEach(r => console.log(`   - ${r.name} (${r.status || r.note})`));
+  }
+  
+  return {
+    statusCode: 200,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      success: true,
+      total: MICHELIN_RESTAURANTS.length,
+      found: found,
+      notFound: notFound.length,
+      results: results,
+      notFoundList: notFound.map(r => r.name)
+    }, null, 2)
+  };
+};
