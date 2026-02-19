@@ -35,6 +35,11 @@ function normalizeName(name) {
 function attachMichelinData(candidates) {
   if (!MICHELIN_DATA.length) return;
   
+  console.log('=== MICHELIN MATCHING DEBUG ===');
+  console.log(`Checking ${candidates.length} candidates against ${MICHELIN_DATA.length} Michelin entries`);
+  
+  const matched = [];
+  
   candidates.forEach(place => {
     const placeName = normalizeName(place.name);
     
@@ -48,6 +53,7 @@ function attachMichelinData(candidates) {
           distinction: michelin.distinction,
           stars: michelin.stars
         };
+        matched.push(`✅ EXACT: "${place.name}" matched "${michelin.name}"`);
         return;
       }
       
@@ -58,6 +64,7 @@ function attachMichelinData(candidates) {
             distinction: michelin.distinction,
             stars: michelin.stars
           };
+          matched.push(`✅ CONTAINS: "${place.name}" matched "${michelin.name}"`);
           return;
         }
       }
@@ -79,11 +86,16 @@ function attachMichelinData(candidates) {
             distinction: michelin.distinction,
             stars: michelin.stars
           };
+          matched.push(`✅ COORDS: "${place.name}" matched "${michelin.name}" (${Math.round(distance)}m away)`);
           return;
         }
       }
     }
   });
+  
+  console.log(`Matched ${matched.length} Michelin restaurants:`);
+  matched.forEach(m => console.log(m));
+  console.log('===============================');
 }
 
 // In-memory cache with 10-minute TTL
@@ -220,7 +232,7 @@ exports.handler = async (event, context) => {
         return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'API key not configured' }) };
       }
 
-const cacheKey = getCacheKey(location, 'all', 20) + '_v12';
+      const cacheKey = getCacheKey(location, 'all', 20) + '_v13';
       const cachedResult = getFromCache(cacheKey);
       if (cachedResult) {
         timings.total_ms = Date.now() - t0;
