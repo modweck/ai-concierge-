@@ -9,7 +9,7 @@ const path = require('path');
 // Load Michelin data once at startup
 let MICHELIN_DATA = [];
 try {
-  const michelinPath = path.join(__dirname, '../../data/michelin_nyc.json');
+const michelinPath = path.join(__dirname, 'michelin_nyc.json');
   MICHELIN_DATA = JSON.parse(fs.readFileSync(michelinPath, 'utf8'));
   console.log(`Loaded ${MICHELIN_DATA.length} Michelin entries`);
 } catch (err) {
