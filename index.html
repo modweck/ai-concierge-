@@ -463,13 +463,16 @@ function displayResults(restaurants) {
 
     let michelinHtml = '';
     if (r.michelin) {
-      if (r.michelin.distinction === 'star') {
-        const starCount = r.michelin.stars || 1;
-        const starText = starCount === 1 ? 'One Star' : starCount === 2 ? 'Two Star' : 'Three Star';
-        michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin ${starText}</span>`;
-      } else if (r.michelin.distinction === 'bib') {
+      const stars = r.michelin.stars || 0;
+      if (stars === 3) {
+        michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐⭐ Michelin Three Stars</span>`;
+      } else if (stars === 2) {
+        michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐ Michelin Two Stars</span>`;
+      } else if (stars === 1) {
+        michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin One Star</span>`;
+      } else if (r.michelin.distinction === 'Bib Gourmand') {
         michelinHtml = `<span class="badge" style="background:#10b981;color:white;border-color:#10b981">🟢 Bib Gourmand</span>`;
-      } else if (r.michelin.distinction === 'recommended') {
+      } else if (r.michelin.distinction === 'Recommended') {
         michelinHtml = `<span class="badge" style="background:#6366f1;color:white;border-color:#6366f1">Michelin Recommended</span>`;
       }
     }
