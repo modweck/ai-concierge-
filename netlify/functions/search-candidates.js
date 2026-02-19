@@ -7,12 +7,23 @@ const path = require('path');
 
 // Load Michelin data once at startup
 let MICHELIN_DATA = [];
+
+// DEBUG: Show what files are available
+console.log('Michelin __dirname:', __dirname);
+try {
+  console.log('Files in __dirname:', fs.readdirSync(__dirname));
+} catch (e) {
+  console.log('Could not read __dirname:', e.message);
+}
+
 try {
   const michelinPath = path.join(__dirname, 'michelin_nyc.json');
+  console.log('Trying to load from:', michelinPath);
   MICHELIN_DATA = JSON.parse(fs.readFileSync(michelinPath, 'utf8'));
-  console.log(`Loaded ${MICHELIN_DATA.length} Michelin entries`);
+  console.log(`✅ Loaded ${MICHELIN_DATA.length} Michelin entries from: ${michelinPath}`);
 } catch (err) {
-  console.warn('Michelin data not found or invalid, continuing without:', err.message);
+  console.warn('❌ Michelin data not found or invalid:', err.message);
+  console.warn('Tried path:', path.join(__dirname, 'michelin_nyc.json'));
 }
 
 // Normalize name for matching
@@ -209,7 +220,7 @@ exports.handler = async (event, context) => {
         return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'API key not configured' }) };
       }
 
-      const cacheKey = getCacheKey(location, 'all', 20) + '_v8';
+      const cacheKey = getCacheKey(location, 'all', 20) + '_v9';
       const cachedResult = getFromCache(cacheKey);
       if (cachedResult) {
         timings.total_ms = Date.now() - t0;
