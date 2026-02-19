@@ -528,9 +528,6 @@ exports.handler = async (event, context) => {
     const within1Mile = candidatesWithDistance.filter(r => r.distanceMiles <= 1.3);
     console.log('Within 1.3 miles:', within1Mile.length);
     
-    // ATTACH MICHELIN DATA FIRST (before filtering, before caching)
-    attachMichelinData(within1Mile);
-    
     if (within1Mile.length > 0) {
       console.log('=== SAMPLE CANDIDATES BEFORE FILTERING ===');
       within1Mile.slice(0, 3).forEach(c => {
@@ -540,6 +537,9 @@ exports.handler = async (event, context) => {
     
     const filterStartTime = Date.now();
     const { elite, moreOptions, excluded: tierExcluded } = filterRestaurantsByTier(within1Mile);
+    
+    // ATTACH MICHELIN BADGES TO FILTERED RESULTS
+    attachMichelinData([...elite, ...moreOptions]);
     
     console.log('=== TWO-TIER FILTERING ===');
     console.log('Within 1.3 miles:', within1Mile.length);
