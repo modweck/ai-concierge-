@@ -167,8 +167,8 @@ function filterRestaurantsByTier(candidates) {
       if (!isMichelinListed) {
         if (rating >= 4.9 && reviews < 50) {
           excludeReason = `fake_5.0_prevention (${rating}⭐ with only ${reviews} reviews, need 50+)`;
-        } else if (rating >= 4.6 && rating < 4.9 && reviews < 30) {
-          excludeReason = `low_review_count (${rating}⭐ with ${reviews} reviews, need 30+)`;
+        } else if (rating >= 4.6 && rating < 4.9 && reviews < 10) {
+          excludeReason = `low_review_count (${rating}⭐ with ${reviews} reviews, need 10+)`;
         }
       }
 
