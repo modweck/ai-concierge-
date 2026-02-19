@@ -1,7 +1,4 @@
-const fs = require("fs");
-const path = require("path");
 
-// -------------------- MICHELIN LOADER (ROBUST) --------------------
 let MICHELIN_DATA = [];
 
 function safeLoadJson(filePath) {
