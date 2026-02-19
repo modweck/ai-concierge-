@@ -1,11 +1,5 @@
 [build]
   functions = "netlify/functions"
-  publish = "."
 
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
-
-[dev]
-  functions = "netlify/functions"
+[functions]
+  included_files = ["netlify/functions/*.json"]
