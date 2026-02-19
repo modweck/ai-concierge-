@@ -232,7 +232,7 @@ exports.handler = async (event, context) => {
         return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'API key not configured' }) };
       }
 
-      const cacheKey = getCacheKey(location, 'all', 20) + '_v13';
+      const cacheKey = getCacheKey(location, 'all', 20) + '_v14';
       const cachedResult = getFromCache(cacheKey);
       if (cachedResult) {
         timings.total_ms = Date.now() - t0;
@@ -488,6 +488,7 @@ exports.handler = async (event, context) => {
       
       // ATTACH MICHELIN BADGES TO FILTERED RESULTS
       console.log('=== MICHELIN MATCHING ===');
+      console.log(`[Michelin] About to call attachMichelinData with ${elite.length} elite + ${moreOptions.length} moreOptions = ${elite.length + moreOptions.length} total`);
       attachMichelinData([...elite, ...moreOptions]);
       const michelinCount = [...elite, ...moreOptions].filter(p => p.michelin).length;
       console.log(`Michelin restaurants matched: ${michelinCount}`);
