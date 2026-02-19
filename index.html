@@ -135,7 +135,7 @@
         <label>⭐ Quality</label>
         <select id="quality">
           <option value="any" selected>Any Quality</option>
-          <option value="michelin">Michelin</option>
+          <option value="michelin">Michelin (ALL NYC)</option>
           <option value="five_star">5-Star (4.6+)</option>
           <option value="top_rated_and_above">Top Rated & Above (4.4+)</option>
           <option value="top_rated">Top Rated (4.4-4.59)</option>
@@ -208,13 +208,33 @@ function setTransport(evt, mode) {
 function filterByQuality(restaurants) {
   const q = state.qualityFilter;
   if (q === 'any') return restaurants;
+
+  // Michelin mode: results returned are already Michelin-only.
+  if (q === 'michelin') return restaurants;
+
   return restaurants.filter(r => {
-    if (q === 'michelin') return !!r.michelin;
     if (q === 'five_star') return (r.googleRating || 0) >= 4.6;
     if (q === 'top_rated_and_above') return (r.googleRating || 0) >= 4.4;
     if (q === 'top_rated') return (r.googleRating || 0) >= 4.4 && (r.googleRating || 0) < 4.6;
     return true;
   });
+}
+
+// NEW: Michelin search (ALL NYC) — skips Step2 DM because Michelin list is citywide
+async function runMichelinSearch(locationInput, signal) {
+  const res = await fetch('/.netlify/functions/search-michelin', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ location: locationInput }),
+    signal
+  });
+
+  if (!res.ok) {
+    const txt = await res.text();
+    throw new Error(`search-michelin failed: ${res.status} ${txt}`);
+  }
+
+  return await res.json();
 }
 
 async function search() {
@@ -248,6 +268,71 @@ async function search() {
     '<div style="text-align:center;padding:40px">🔍 Finding candidates...<br><small style="color:#666;margin-top:8px;display:block">Step 1 of 2</small></div>';
 
   try {
+    // ✅ MICHELIN MODE (ALL NYC)
+    if (state.qualityFilter === 'michelin') {
+      // Make sorting default to distance in Michelin mode
+      document.getElementById('sortBy').value = 'distance';
+
+      document.getElementById('list').innerHTML =
+        '<div style="text-align:center;padding:40px">⭐ Loading Michelin (ALL NYC)...<br><small style="color:#666;margin-top:8px;display:block">This searches the full city</small></div>';
+
+      const t0 = Date.now();
+      const michelinData = await runMichelinSearch(location, searchAbortController.signal);
+
+      if (michelinData?.error) {
+        document.getElementById('warnings').innerHTML = `
+          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
+            ❌ ${michelinData.error}
+          </div>
+        `;
+        document.getElementById('list').innerHTML =
+          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
+        return;
+      }
+
+      const list = Array.isArray(michelinData.michelin) ? michelinData.michelin : [];
+
+      // Convert to the same structure your renderer expects
+      allRestaurants = list.map(x => ({
+        name: x.name,
+        vicinity: x.address || '',
+        formatted_address: x.address || '',
+        place_id: x.place_id || null,
+        googleRating: null,
+        googleReviewCount: null,
+        price_level: null,
+        opening_hours: null,
+        walkMinutes: x.walkMinEstimate || null,
+        driveMinutes: x.driveMinEstimate || null,
+        transitMinutes: null,
+        walkMinEstimate: x.walkMinEstimate || null,
+        driveMinEstimate: x.driveMinEstimate || null,
+        transitMinEstimate: null,
+        walkDurationSeconds: x.walkMinEstimate ? x.walkMinEstimate * 60 : null,
+        distanceMiles: x.distanceMiles || null,
+        michelin: { stars: x.stars || 0, distinction: x.distinction || 'star' },
+        _mapsQuery: x.mapsQuery || null
+      }));
+
+      const totalMs = Date.now() - t0;
+
+      document.getElementById('warnings').innerHTML = `
+        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
+          📍 ${michelinData.confirmedAddress || location}
+        </div>
+        <div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
+          ✓ Found ${allRestaurants.length} Michelin restaurants across NYC.
+          <div style="margin-top:8px;color:#666;font-size:13px">
+            ⚡ ${totalMs}ms total
+          </div>
+        </div>
+      `;
+
+      sortResults();
+      return;
+    }
+
+    // ✅ NORMAL MODE (Google 4.6 / 4.4 flow) — your original logic unchanged
     // STEP 1
     const step1Response = await fetch('/.netlify/functions/search-candidates', {
       method: 'POST',
@@ -464,21 +549,25 @@ function displayResults(restaurants) {
     let michelinHtml = '';
     if (r.michelin) {
       const stars = r.michelin.stars || 0;
-      if (stars === 3) {
-        michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐⭐ Michelin Three Stars</span>`;
-      } else if (stars === 2) {
-        michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐ Michelin Two Stars</span>`;
-      } else if (stars === 1) {
-        michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin One Star</span>`;
-      } else if (r.michelin.distinction === 'Bib Gourmand') {
-        michelinHtml = `<span class="badge" style="background:#10b981;color:white;border-color:#10b981">🟢 Bib Gourmand</span>`;
-      } else if (r.michelin.distinction === 'Recommended') {
-        michelinHtml = `<span class="badge" style="background:#6366f1;color:white;border-color:#6366f1">Michelin Recommended</span>`;
-      }
+      if (stars === 3) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐⭐ Michelin Three Stars</span>`;
+      else if (stars === 2) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐ Michelin Two Stars</span>`;
+      else if (stars === 1) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin One Star</span>`;
+      else michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">Michelin</span>`;
     }
 
     const rating = (r.googleRating || 0);
     const reviews = (r.googleReviewCount || 0);
+
+    const ratingHtml = (r.googleRating != null && r.googleRating !== 0)
+      ? `<span class="badge">⭐ ${rating.toFixed(1)} (${reviews})</span>`
+      : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
+
+    const priceHtml = r.price_level ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : `<span class="badge">💰 N/A</span>`;
+
+    // Maps link fallback if no place_id
+    const mapsUrl = r.place_id
+      ? `https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${r.place_id}`
+      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || 'New York, NY'))}`;
 
     return `
       <div class="restaurant">
@@ -486,11 +575,11 @@ function displayResults(restaurants) {
         <div class="cuisine">${r.vicinity || r.formatted_address || ''}</div>
         <div class="badges">
           ${michelinHtml}
-          <span class="badge">⭐ ${rating.toFixed(1)} (${reviews})</span>
-          <span class="badge">💰 ${r.price_level ? '$'.repeat(r.price_level) : 'N/A'}</span>
+          ${ratingHtml}
+          ${priceHtml}
           ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
           ${distanceHtml}
-          <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${r.place_id}','_blank')"
+          <button onclick="window.open('${mapsUrl}','_blank')"
             style="margin-left:auto;padding:8px 16px;background:#4285f4;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px">
             📍 Maps
           </button>
