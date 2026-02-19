@@ -112,45 +112,7 @@ function setCache(key, data) {
 }
 
 function filterRestaurantsByTier(candidates) {
-  const KNOWN_CHAINS = [
-    'chopt', 'just salad', 'dos toros', 'sweetgreen', 'shake shack', 'chipotle',
-    'dig', 'cava', 'five guys', 'mcdonald', 'starbucks', 'dunkin', 'panera',
-    'subway', 'taco bell', 'kfc', 'wendy', 'popeyes', 'panda express',
-    'domino', 'pizza hut', 'burger king', 'arbys', 'white castle', 'sonic'
-  ];
-
-  const HARD_JUNK_TYPES = [
-    'food_truck', 'convenience_store', 'grocery_or_supermarket', 
-    'market', 'vending_machine', 'store'
-  ];
-
-  const NAME_KEYWORDS_EXCLUDE = [
-    'food truck', 'cart', 'truck', 'kiosk', 'deli'
-  ];
-
-  const FAST_CASUAL_NAMES = [
-    'wrap-n-run', 'dumpling shop'
-  ];
-
-  function isChain(place) {
-    const nameLower = (place.name || '').toLowerCase();
-    const types = Array.isArray(place.types) ? place.types : [];
-    const price = place.price_level ?? null;
-    const reviews = place.user_ratings_total ?? place.googleReviewCount ?? 0;
-
-    for (const chain of KNOWN_CHAINS) {
-      if (nameLower.includes(chain)) return { isChain: true, reason: `known_chain: ${chain}` };
-    }
-
-    if (price !== null && price <= 1 && reviews >= 150) {
-      if (types.includes('meal_takeaway') || types.includes('fast_food_restaurant')) {
-        return { isChain: true, reason: 'heuristic_chain (low_price + high_reviews + takeaway/fast_food)' };
-      }
-    }
-
-    return { isChain: false, reason: null };
-  }
-
+  // SIMPLIFIED FILTERING - Only filter by rating, nothing else
   const elite = [];
   const moreOptions = [];
   const excluded = [];
@@ -159,115 +121,36 @@ function filterRestaurantsByTier(candidates) {
     try {
       const reviews = place.user_ratings_total ?? place.googleReviewCount ?? 0;
       const rating = place.googleRating ?? place.rating ?? 0;
-      const nameLower = (place.name || '').toLowerCase();
-      const types = Array.isArray(place.types) ? place.types : [];
-      const isMichelinListed = false;
-      let excludeReason = null;
 
-      if (!isMichelinListed) {
-        if (rating >= 4.9 && reviews < 50) {
-          excludeReason = `fake_5.0_prevention (${rating}⭐ with only ${reviews} reviews, need 50+)`;
-        } else if (rating >= 4.6 && rating < 4.9 && reviews < 10) {
-          excludeReason = `low_review_count (${rating}⭐ with ${reviews} reviews, need 10+)`;
-        }
-      }
-
-      if (!excludeReason) {
-        for (const junkType of HARD_JUNK_TYPES) {
-          if (types.includes(junkType)) { 
-            excludeReason = `hard_junk: ${junkType}`; 
-            break; 
-          }
-        }
-      }
-
-      if (!excludeReason) {
-        if (types.includes('street_food')) {
-          excludeReason = 'street_food';
-        } else if (types.includes('meal_takeaway') && !types.includes('restaurant')) {
-          excludeReason = 'meal_takeaway-only';
-        }
-      }
-
-      if (!excludeReason) {
-        if (nameLower.includes('halal') && reviews < 200) {
-          excludeReason = 'halal_cart (low_reviews)';
-        }
-      }
-
-      if (!excludeReason) {
-        for (const kw of NAME_KEYWORDS_EXCLUDE) {
-          if (nameLower.includes(kw)) { 
-            excludeReason = `name_keyword: "${kw}"`; 
-            break; 
-          }
-        }
-      }
-
-      if (!excludeReason) {
-        for (const name of FAST_CASUAL_NAMES) {
-          if (nameLower.includes(name)) {
-            excludeReason = `fast_casual_name: "${name}"`;
-            break;
-          }
-        }
-      }
-
-      if (!excludeReason) {
-        const price = place.price_level ?? null;
-        if (price !== null && price <= 1 && types.includes('meal_takeaway')) {
-          excludeReason = 'takeout_grill (low_price + meal_takeaway)';
-        }
-      }
-
-      if (!excludeReason) {
-        const chainCheck = isChain(place);
-        if (chainCheck.isChain) {
-          excludeReason = chainCheck.reason;
-        }
-      }
-
-      if (excludeReason) {
+      // ONLY exclude if rating is too low OR obvious fake reviews
+      if (rating >= 4.9 && reviews < 50) {
         excluded.push({ 
           place_id: place.place_id, 
           name: place.name, 
           rating, 
           reviews, 
-          types: types.join(', '),
-          reason: excludeReason 
+          types: '',
+          reason: `fake_5.0_prevention (${rating}⭐ with only ${reviews} reviews)` 
         });
         return;
       }
 
+      // Elite: 4.6+
       if (rating >= 4.6) {
         elite.push(place);
-      } else if (rating >= 4.4) {
-        let passMoreOptions = false;
-        if (reviews >= 10) {
-          passMoreOptions = true;
-        } else if (rating >= 4.7 && reviews >= 5) {
-          passMoreOptions = true;
-        }
-
-        if (passMoreOptions) {
-          moreOptions.push(place);
-        } else {
-          excluded.push({ 
-            place_id: place.place_id, 
-            name: place.name, 
-            rating, 
-            reviews, 
-            types: types.join(', '),
-            reason: `more_options_low_reviews (${reviews}, need 10+)` 
-          });
-        }
-      } else {
+      } 
+      // More Options: 4.4+
+      else if (rating >= 4.4) {
+        moreOptions.push(place);
+      } 
+      // Below 4.4: exclude
+      else {
         excluded.push({ 
           place_id: place.place_id, 
           name: place.name, 
           rating, 
           reviews, 
-          types: types.join(', '),
+          types: '',
           reason: 'rating_below_4.4' 
         });
       }
@@ -283,6 +166,11 @@ function filterRestaurantsByTier(candidates) {
       });
     }
   });
+
+  console.log('SIMPLIFIED FILTER RESULTS:');
+  console.log(`  Elite (4.6+): ${elite.length}`);
+  console.log(`  More Options (4.4+): ${moreOptions.length}`);
+  console.log(`  Excluded: ${excluded.length}`);
 
   return { elite, moreOptions, excluded };
 }
@@ -322,7 +210,7 @@ exports.handler = async (event, context) => {
       return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'API key not configured' }) };
     }
 
-    const cacheKey = getCacheKey(location, 'all', 20) + '_v4';
+    const cacheKey = getCacheKey(location, 'all', 20) + '_v7';
     const cachedResult = getFromCache(cacheKey);
     if (cachedResult) {
       timings.total_ms = Date.now() - t0;
