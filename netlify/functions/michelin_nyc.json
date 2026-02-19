@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Le Bernardin",
+    "distinction": "Three Stars",
+    "stars": 3,
+    "lat": 40.7614,
+    "lng": -73.9776
+  },
+  {
+    "name": "Eleven Madison Park",
+    "distinction": "Three Stars",
+    "stars": 3,
+    "lat": 40.7414,
+    "lng": -73.9871
+  },
+  {
+    "name": "Per Se",
+    "distinction": "Three Stars",
+    "stars": 3,
+    "lat": 40.7686,
+    "lng": -73.9832
+  },
+  {
+    "name": "Masa",
+    "distinction": "Three Stars",
+    "stars": 3,
+    "lat": 40.7686,
+    "lng": -73.9832
+  },
+  {
+    "name": "Daniel",
+    "distinction": "Two Stars",
+    "stars": 2,
+    "lat": 40.7641,
+    "lng": -73.9664
+  },
+  {
+    "name": "Jean-Georges",
+    "distinction": "Two Stars",
+    "stars": 2,
+    "lat": 40.7686,
+    "lng": -73.9832
+  },
+  {
+    "name": "Atomix",
+    "distinction": "Two Stars",
+    "stars": 2,
+    "lat": 40.7282,
+    "lng": -73.9857
+  },
+  {
+    "name": "Gramercy Tavern",
+    "distinction": "One Star",
+    "stars": 1,
+    "lat": 40.7387,
+    "lng": -73.9884
+  },
+  {
+    "name": "The Modern",
+    "distinction": "One Star",
+    "stars": 1,
+    "lat": 40.7614,
+    "lng": -73.9776
+  },
+  {
+    "name": "Carbone",
+    "distinction": "One Star",
+    "stars": 1,
+    "lat": 40.7258,
+    "lng": -74.0023
+  }
+]
