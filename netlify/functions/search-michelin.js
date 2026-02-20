@@ -1,5 +1,3 @@
-// netlify/functions/search-michelin.js
-
 function stableResponse(payload, statusCode = 200) {
   return {
     statusCode,
@@ -81,35 +79,28 @@ async function mapWithConcurrency(items, limit, fn) {
     }
   }
 
-  const workers = Array.from(
-    { length: Math.min(limit, items.length) },
-    worker
-  );
+  const workers = Array.from({ length: Math.min(limit, items.length) }, worker);
 
   await Promise.all(workers);
   return results;
 }
 
 //
-// 🔥 LOAD MICHELIN LIST (BUNDLER-SAFE METHOD)
+// 🔥 LOAD MICHELIN LIST
 //
 
 let MICHELIN_LIST = [];
 let MICHELIN_LOAD_ERROR = null;
 
 try {
-MICHELIN_LIST = require("./michelin_nyc.json");
+  MICHELIN_LIST = require("./michelin_nyc.json");
 
   if (!Array.isArray(MICHELIN_LIST)) {
-    MICHELIN_LOAD_ERROR = "michelin_nyc.js did not export an array";
+    MICHELIN_LOAD_ERROR = "michelin_nyc.json did not export an array";
     MICHELIN_LIST = [];
   }
-
-  console.log("[Michelin] Loaded entries:", MICHELIN_LIST.length);
-  console.log("[Michelin] Sample entry:", MICHELIN_LIST[0] || null);
-
 } catch (e) {
-  MICHELIN_LOAD_ERROR = `Failed to require michelin_nyc.js: ${e.message}`;
+  MICHELIN_LOAD_ERROR = `Failed to require michelin_nyc.json: ${e.message}`;
   console.log("[Michelin]", MICHELIN_LOAD_ERROR);
   MICHELIN_LIST = [];
 }
@@ -139,18 +130,12 @@ exports.handler = async (event) => {
       : 15;
 
     if (!location) {
-      return stableResponse(
-        { error: "Missing location", michelin: [] },
-        400
-      );
+      return stableResponse({ error: "Missing location", michelin: [] }, 400);
     }
 
     const geo = await geocodeAddress(location, apiKey);
     if (geo.error) {
-      return stableResponse(
-        { error: geo.error, michelin: [] },
-        400
-      );
+      return stableResponse({ error: geo.error, michelin: [] }, 400);
     }
 
     const { origin, confirmedAddress } = geo;
@@ -169,54 +154,45 @@ exports.handler = async (event) => {
       );
     }
 
-    const resolved = await mapWithConcurrency(
-      MICHELIN_LIST,
-      5,
-      async (m) => {
-        const name = m?.name ? String(m.name).trim() : "";
-        if (!name) return null;
+    const resolved = await mapWithConcurrency(MICHELIN_LIST, 5, async (m) => {
+      const name = m?.name ? String(m.name).trim() : "";
+      if (!name) return null;
 
-        const query = `${name}, New York, NY`;
-        const place = await findPlaceByText(query, apiKey);
-        if (!place?.geometry?.location) return null;
+      const query = `${name}, New York, NY`;
+      const place = await findPlaceByText(query, apiKey);
+      if (!place?.geometry?.location) return null;
 
-        const lat = place.geometry.location.lat;
-        const lng = place.geometry.location.lng;
+      const lat = place.geometry.location.lat;
+      const lng = place.geometry.location.lng;
 
-        const distanceMiles =
-          Math.round(
-            haversineMiles(origin.lat, origin.lng, lat, lng) * 10
-          ) / 10;
+      const distanceMiles =
+        Math.round(haversineMiles(origin.lat, origin.lng, lat, lng) * 10) / 10;
 
-        if (distanceMiles > radiusMiles) return null;
+      if (distanceMiles > radiusMiles) return null;
 
-        return {
-          place_id: place.place_id || null,
-          name: place.name || name,
-          formatted_address: place.formatted_address || "",
-          geometry: { location: { lat, lng } },
+      return {
+        place_id: place.place_id || null,
+        name: place.name || name,
+        formatted_address: place.formatted_address || "",
+        geometry: { location: { lat, lng } },
 
-          googleRating: place.rating || 0,
-          googleReviewCount:
-            place.user_ratings_total || 0,
-          price_level: place.price_level ?? null,
+        googleRating: place.rating || 0,
+        googleReviewCount: place.user_ratings_total || 0,
+        price_level: place.price_level ?? null,
 
-          distanceMiles,
+        distanceMiles,
 
-          michelin: {
-            distinction: m.distinction || "star",
-            stars: Number(m.stars || 0),
-          },
-        };
-      }
-    );
+        michelin: {
+          distinction: m.distinction || "star",
+          stars: Number(m.stars || 0),
+        },
+      };
+    });
 
     const michelin = resolved
       .filter(Boolean)
       .sort(
-        (a, b) =>
-          (a.distanceMiles ?? 999999) -
-          (b.distanceMiles ?? 999999)
+        (a, b) => (a.distanceMiles ?? 999999) - (b.distanceMiles ?? 999999)
       );
 
     return stableResponse({
