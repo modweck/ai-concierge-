@@ -389,10 +389,14 @@ exports.handler = async (event) => {
       'bagel_shop', 'donut_shop', 'juice_shop', 'smoothie_shop',
       'food_court', 'fast_food_restaurant', 'convenience_store',
       'grocery_store', 'supermarket', 'liquor_store', 'bar', 'night_club',
-      'meal_delivery', 'meal_takeaway'
+      'meal_delivery', 'meal_takeaway',
+      'shopping_mall', 'department_store', 'tourist_attraction',
+      'amusement_park', 'museum', 'park', 'stadium', 'movie_theater',
+      'observation_deck', 'visitor_center', 'event_venue', 'market',
+      'clothing_store', 'shoe_store', 'electronics_store'
     ];
 
-    // Name patterns to EXCLUDE — chains, delis, coffee, ice cream
+    // Name patterns to EXCLUDE — chains, delis, coffee, ice cream, non-restaurants
     const EXCLUDED_NAME_PATTERNS = [
       /\bstarbucks\b/i, /\bdunkin\b/i, /\bmcdonald/i, /\bsubway\b/i,
       /\bchipotle\b/i, /\bshake shack\b/i, /\bsweetgreen\b/i,
@@ -404,7 +408,9 @@ exports.handler = async (event) => {
       /\bboba\b/i, /\bbubble tea\b/i, /\bcoffee\b/i, /\bespresso\b/i,
       /\bbakery\b/i, /\bdonut\b/i, /\bdoughnut\b/i, /\bbagel\b/i,
       /\bcreperie\b/i, /\bfood truck\b/i, /\bfood cart\b/i,
-      /\bpizza hut\b/i, /\blittle caesars\b/i
+      /\bpizza hut\b/i, /\blittle caesars\b/i,
+      /\bwestfield\b/i, /\bobservatory\b/i, /\bpier \d+\b/i,
+      /\bworld trade center\b/i, /\btimes square\b/i
     ];
 
     // Merge & deduplicate
