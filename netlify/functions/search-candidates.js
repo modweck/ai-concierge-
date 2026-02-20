@@ -370,12 +370,11 @@ exports.handler = async (event) => {
       'french': ['french_restaurant'],
       'greek': ['greek_restaurant'],
       'indian': ['indian_restaurant'],
-      'italian': ['italian_restaurant', 'pizza_restaurant'],
+      'italian': ['italian_restaurant'],
       'japanese': ['japanese_restaurant', 'sushi_restaurant', 'ramen_restaurant'],
       'korean': ['korean_restaurant'],
       'mediterranean': ['mediterranean_restaurant', 'greek_restaurant', 'middle_eastern_restaurant', 'lebanese_restaurant', 'turkish_restaurant'],
       'mexican': ['mexican_restaurant'],
-      'pizza': ['pizza_restaurant'],
       'seafood': ['seafood_restaurant'],
       'spanish': ['spanish_restaurant'],
       'steakhouse': ['steak_house'],
@@ -383,6 +382,30 @@ exports.handler = async (event) => {
       'thai': ['thai_restaurant'],
       'vietnamese': ['vietnamese_restaurant']
     };
+
+    // Types to EXCLUDE — not real sit-down restaurants
+    const EXCLUDED_TYPES = [
+      'ice_cream_shop', 'coffee_shop', 'cafe', 'bakery', 'sandwich_shop',
+      'bagel_shop', 'donut_shop', 'juice_shop', 'smoothie_shop',
+      'food_court', 'fast_food_restaurant', 'convenience_store',
+      'grocery_store', 'supermarket', 'liquor_store', 'bar', 'night_club',
+      'meal_delivery', 'meal_takeaway'
+    ];
+
+    // Name patterns to EXCLUDE — chains, delis, coffee, ice cream
+    const EXCLUDED_NAME_PATTERNS = [
+      /\bstarbucks\b/i, /\bdunkin\b/i, /\bmcdonald/i, /\bsubway\b/i,
+      /\bchipotle\b/i, /\bshake shack\b/i, /\bsweetgreen\b/i,
+      /\bpanera\b/i, /\bpret a manger\b/i, /\bchick-fil-a\b/i,
+      /\bwendy'?s\b/i, /\bburger king\b/i, /\btaco bell\b/i,
+      /\bpopeyes\b/i, /\bfive guys\b/i, /\bpapa john/i, /\bdomino/i,
+      /\bdeli\b/i, /\bbodega\b/i, /\bice cream\b/i, /\bgelato\b/i,
+      /\bfrozen yogurt\b/i, /\bjuice\b/i, /\bsmoothie\b/i,
+      /\bboba\b/i, /\bbubble tea\b/i, /\bcoffee\b/i, /\bespresso\b/i,
+      /\bbakery\b/i, /\bdonut\b/i, /\bdoughnut\b/i, /\bbagel\b/i,
+      /\bcreperie\b/i, /\bfood truck\b/i, /\bfood cart\b/i,
+      /\bpizza hut\b/i, /\blittle caesars\b/i
+    ];
 
     // Merge & deduplicate
     const seen = new Set(), all = [];
@@ -394,17 +417,30 @@ exports.handler = async (event) => {
 
     console.log(`📊 MERGE: Legacy=${legacyN} + Nearby=+${nearbyN} + Text=+${textN} = ${all.length}`);
 
+    // Filter out non-restaurants (delis, chains, ice cream, coffee, etc.)
+    const beforeExclude = all.length;
+    const cleaned = all.filter(p => {
+      const pTypes = (p.types || []).map(t => t.toLowerCase());
+      const pName = (p.name || '');
+      // Exclude by type (but only if it doesn't ALSO have 'restaurant' type)
+      const hasRestaurantType = pTypes.some(t => t.includes('restaurant'));
+      const hasExcludedType = pTypes.some(t => EXCLUDED_TYPES.includes(t));
+      if (hasExcludedType && !hasRestaurantType) return false;
+      // Exclude by name pattern
+      if (EXCLUDED_NAME_PATTERNS.some(rx => rx.test(pName))) return false;
+      return true;
+    });
+    if (cleaned.length < beforeExclude) console.log(`🧹 Excluded ${beforeExclude - cleaned.length} non-restaurants (chains/delis/coffee/ice cream)`);
+
     // Post-filter by cuisine type if cuisine is selected
-    let cuisineFiltered = all;
+    let cuisineFiltered = cleaned;
     if (cuisineStr) {
       const allowedTypes = CUISINE_TYPE_MAP[cuisineStr.toLowerCase()] || [];
       if (allowedTypes.length > 0) {
         const beforeCount = cuisineFiltered.length;
         cuisineFiltered = cuisineFiltered.filter(p => {
           const pTypes = (p.types || []).map(t => t.toLowerCase());
-          // Keep if any of the restaurant's types match our allowed types
           const matches = allowedTypes.some(at => pTypes.includes(at));
-          // Also keep if name contains the cuisine word (catches unlabeled places)
           const nameMatch = (p.name || '').toLowerCase().includes(cuisineStr.toLowerCase());
           return matches || nameMatch;
         });
