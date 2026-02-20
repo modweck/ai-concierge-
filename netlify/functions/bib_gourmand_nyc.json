@@ -1,415 +1,500 @@
-0	
-name	"Sal Tang's"
-cuisine	"Chinese Contemporary"
-distinction	"bib_gourmand"
-stars	0
-1	
-name	"La Dong"
-cuisine	"Vietnamese"
-distinction	"bib_gourmand"
-stars	0
-2	
-name	"Phayul"
-cuisine	"Tibetan"
-distinction	"bib_gourmand"
-stars	0
-3	
-name	"Cardamom"
-cuisine	"Indian"
-distinction	"bib_gourmand"
-stars	0
-4	
-name	"Ruffian"
-cuisine	"Contemporary"
-distinction	"bib_gourmand"
-stars	0
-5	
-name	"Bohemian Spirit"
-cuisine	"Czech"
-distinction	"bib_gourmand"
-stars	0
-6	
-name	"Bánh Anh Em"
-cuisine	"Vietnamese"
-distinction	"bib_gourmand"
-stars	0
-7	
-name	"Ishq"
-cuisine	"Indian"
-distinction	"bib_gourmand"
-stars	0
-8	
-name	"Yellow Rose"
-cuisine	"Tex-Mex"
-distinction	"bib_gourmand"
-stars	0
-9	
-name	"SaRanRom Thai"
-cuisine	"Thai"
-distinction	"bib_gourmand"
-stars	0
-10	
-name	"Gordo's Cantina"
-cuisine	"Mexican"
-distinction	"bib_gourmand"
-stars	0
-11	
-name	"Hupo"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-12	
-name	"Rolo's"
-cuisine	"American"
-distinction	"bib_gourmand"
-stars	0
-13	
-name	"Hometown Bar B Que New York"
-cuisine	"Barbecue"
-distinction	"bib_gourmand"
-stars	0
-14	
-name	"Bayon"
-cuisine	"Cambodian"
-distinction	"bib_gourmand"
-stars	0
-15	
-name	"CheLi"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-16	
-name	"Cho Dang Gol"
-cuisine	"Korean"
-distinction	"bib_gourmand"
-stars	0
-17	
-name	"Laliko"
-cuisine	"Central Asian"
-distinction	"bib_gourmand"
-stars	0
-18	
-name	"Pierozek"
-cuisine	"Polish"
-distinction	"bib_gourmand"
-stars	0
-19	
-name	"Caleta 111 Cevicheria"
-cuisine	"Peruvian"
-distinction	"bib_gourmand"
-stars	0
-20	
-name	"Tong Sam Gyup Goo Yi"
-cuisine	"Korean"
-distinction	"bib_gourmand"
-stars	0
-21	
-name	"Legend of Taste"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-22	
-name	"Miss Ada"
-cuisine	"Israeli"
-distinction	"bib_gourmand"
-stars	0
-23	
-name	"Oso"
-cuisine	"Mexican"
-distinction	"bib_gourmand"
-stars	0
-24	
-name	"Thai Diner"
-cuisine	"Thai"
-distinction	"bib_gourmand"
-stars	0
-25	
-name	"Chavela's"
-cuisine	"Mexican"
-distinction	"bib_gourmand"
-stars	0
-26	
-name	"Speedy Romeo"
-cuisine	"Pizza"
-distinction	"bib_gourmand"
-stars	0
-27	
-name	"Katz's"
-cuisine	"Deli"
-distinction	"bib_gourmand"
-stars	0
-28	
-name	"Untable"
-cuisine	"Thai"
-distinction	"bib_gourmand"
-stars	0
-29	
-name	"Little Alley"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-30	
-name	"Pinch Chinese"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-31	
-name	"Café Mars"
-cuisine	"Contemporary"
-distinction	"bib_gourmand"
-stars	0
-32	
-name	"Dhamaka"
-cuisine	"Indian"
-distinction	"bib_gourmand"
-stars	0
-33	
-name	"Tha Phraya"
-cuisine	"Thai Contemporary"
-distinction	"bib_gourmand"
-stars	0
-34	
-name	"Nami Nori"
-cuisine	"Japanese"
-distinction	"bib_gourmand"
-stars	0
-35	
-name	"Sagara"
-cuisine	"Sri Lankan"
-distinction	"bib_gourmand"
-stars	0
-36	
-name	"Shalom Japan"
-cuisine	"Fusion"
-distinction	"bib_gourmand"
-stars	0
-37	
-name	"HanGawi"
-cuisine	"Korean"
-distinction	"bib_gourmand"
-stars	0
-38	
-name	"Tolo"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-39	
-name	"Little Myanmar"
-cuisine	"Burmese"
-distinction	"bib_gourmand"
-stars	0
-40	
-name	"Kung Fu Little Steamed Buns Ramen"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-41	
-name	"Tonchin"
-cuisine	"Japanese"
-distinction	"bib_gourmand"
-stars	0
-42	
-name	"Russ & Daughters Cafe"
-cuisine	"American"
-distinction	"bib_gourmand"
-stars	0
-43	
-name	"Una Pizza Napoletana"
-cuisine	"Pizza"
-distinction	"bib_gourmand"
-stars	0
-44	
-name	"Dim Sum Go Go"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-45	
-name	"Pranakhon"
-cuisine	"Thai"
-distinction	"bib_gourmand"
-stars	0
-46	
-name	"Agi's Counter"
-cuisine	"Creative"
-distinction	"bib_gourmand"
-stars	0
-47	
-name	"Jiang Nan"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-48	
-name	"8282"
-cuisine	"Korean"
-distinction	"bib_gourmand"
-stars	0
-49	
-name	"Alley 41"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-50	
-name	"Alta Calidad"
-cuisine	"Mexican"
-distinction	"bib_gourmand"
-stars	0
-51	
-name	"Atla"
-cuisine	"Mexican"
-distinction	"bib_gourmand"
-stars	0
-52	
-name	"Bonnie's"
-cuisine	"Cantonese"
-distinction	"bib_gourmand"
-stars	0
-53	
-name	"Boro6 Wine Bar"
-cuisine	"Contemporary"
-distinction	"bib_gourmand"
-stars	0
-54	
-name	"Bungalow"
-cuisine	"Indian"
-distinction	"bib_gourmand"
-stars	0
-55	
-name	"Burrata"
-cuisine	"Italian-American"
-distinction	"bib_gourmand"
-stars	0
-56	
-name	"C as in Charlie"
-cuisine	"Fusion"
-distinction	"bib_gourmand"
-stars	0
-57	
-name	"Cervo's"
-cuisine	"Spanish"
-distinction	"bib_gourmand"
-stars	0
-58	
-name	"Chalong"
-cuisine	"Thai"
-distinction	"bib_gourmand"
-stars	0
-59	
-name	"Chuan Tian Xia"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-60	
-name	"Chutney Masala"
-cuisine	"Indian"
-distinction	"bib_gourmand"
-stars	0
-61	
-name	"Coqodaq"
-cuisine	"Korean"
-distinction	"bib_gourmand"
-stars	0
-62	
-name	"Covacha"
-cuisine	"Mexican"
-distinction	"bib_gourmand"
-stars	0
-63	
-name	"Enoteca Maria"
-cuisine	"Italian"
-distinction	"bib_gourmand"
-stars	0
-64	
-name	"Falansai"
-cuisine	"Vietnamese"
-distinction	"bib_gourmand"
-stars	0
-65	
-name	"Haenyeo"
-cuisine	"Korean"
-distinction	"bib_gourmand"
-stars	0
-66	
-name	"LORE"
-cuisine	"Contemporary"
-distinction	"bib_gourmand"
-stars	0
-67	
-name	"Lungi"
-cuisine	"Sri Lankan"
-distinction	"bib_gourmand"
-stars	0
-68	
-name	"MáLà Project"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-69	
-name	"Momofuku Noodle Bar"
-cuisine	"Asian"
-distinction	"bib_gourmand"
-stars	0
-70	
-name	"Noreetuh"
-cuisine	"Asian"
-distinction	"bib_gourmand"
-stars	0
-71	
-name	"Olmo"
-cuisine	"Contemporary"
-distinction	"bib_gourmand"
-stars	0
-72	
-name	"Peppercorn Station"
-cuisine	"Chinese"
-distinction	"bib_gourmand"
-stars	0
-73	
-name	"Potluck Club"
-cuisine	"Korean"
-distinction	"bib_gourmand"
-stars	0
-74	
-name	"Roberta's"
-cuisine	"Pizza"
-distinction	"bib_gourmand"
-stars	0
-75	
-name	"Runner Up"
-cuisine	"Contemporary"
-distinction	"bib_gourmand"
-stars	0
-76	
-name	"Yemenat"
-cuisine	"Middle Eastern"
-distinction	"bib_gourmand"
-stars	0
-77	
-name	"Win Son"
-cuisine	"Taiwanese"
-distinction	"bib_gourmand"
-stars	0
-78	
-name	"Zaab Zaab"
-cuisine	"Isan"
-distinction	"bib_gourmand"
-stars	0
-79	
-name	"Cecily"
-cuisine	"Contemporary"
-distinction	"bib_gourmand"
-stars	0
-80	
-name	"Soba Totto"
-cuisine	"Japanese"
-distinction	"bib_gourmand"
-stars	0
-81	
-name	"Oxomoco"
-cuisine	"Mexican"
-distinction	"bib_gourmand"
-stars	0
-82	
-name	"Ugly Baby"
-cuisine	"Thai"
-distinction	"bib_gourmand"
-stars	0
+[
+  {
+    "name": "Sal Tang's",
+    "cuisine": "Chinese Contemporary",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "La Dong",
+    "cuisine": "Vietnamese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Phayul",
+    "cuisine": "Tibetan",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Cardamom",
+    "cuisine": "Indian",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Ruffian",
+    "cuisine": "Contemporary",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Bohemian Spirit",
+    "cuisine": "Czech",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Bánh Anh Em",
+    "cuisine": "Vietnamese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Ishq",
+    "cuisine": "Indian",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Yellow Rose",
+    "cuisine": "Tex-Mex",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "SaRanRom Thai",
+    "cuisine": "Thai",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Gordo's Cantina",
+    "cuisine": "Mexican",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Hupo",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Rolo's",
+    "cuisine": "American",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Hometown Bar B Que New York",
+    "cuisine": "Barbecue",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Bayon",
+    "cuisine": "Cambodian",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "CheLi",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Cho Dang Gol",
+    "cuisine": "Korean",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Laliko",
+    "cuisine": "Central Asian",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Pierozek",
+    "cuisine": "Polish",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Caleta 111 Cevicheria",
+    "cuisine": "Peruvian",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Tong Sam Gyup Goo Yi",
+    "cuisine": "Korean",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Legend of Taste",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Miss Ada",
+    "cuisine": "Israeli",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Oso",
+    "cuisine": "Mexican",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Thai Diner",
+    "cuisine": "Thai",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Chavela's",
+    "cuisine": "Mexican",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Speedy Romeo",
+    "cuisine": "Pizza",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Katz's",
+    "cuisine": "Deli",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Untable",
+    "cuisine": "Thai",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Little Alley",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Pinch Chinese",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Café Mars",
+    "cuisine": "Contemporary",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Dhamaka",
+    "cuisine": "Indian",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Tha Phraya",
+    "cuisine": "Thai Contemporary",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Nami Nori",
+    "cuisine": "Japanese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Sagara",
+    "cuisine": "Sri Lankan",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Shalom Japan",
+    "cuisine": "Fusion",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "HanGawi",
+    "cuisine": "Korean",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Tolo",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Little Myanmar",
+    "cuisine": "Burmese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Kung Fu Little Steamed Buns Ramen",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Tonchin",
+    "cuisine": "Japanese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Russ & Daughters Cafe",
+    "cuisine": "American",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Una Pizza Napoletana",
+    "cuisine": "Pizza",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Dim Sum Go Go",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Pranakhon",
+    "cuisine": "Thai",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Agi's Counter",
+    "cuisine": "Creative",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Jiang Nan",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "8282",
+    "cuisine": "Korean",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Alley 41",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Alta Calidad",
+    "cuisine": "Mexican",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Atla",
+    "cuisine": "Mexican",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Bonnie's",
+    "cuisine": "Cantonese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Boro6 Wine Bar",
+    "cuisine": "Contemporary",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Bungalow",
+    "cuisine": "Indian",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Burrata",
+    "cuisine": "Italian-American",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "C as in Charlie",
+    "cuisine": "Fusion",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Cervo's",
+    "cuisine": "Spanish",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Chalong",
+    "cuisine": "Thai",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Chuan Tian Xia",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Chutney Masala",
+    "cuisine": "Indian",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Coqodaq",
+    "cuisine": "Korean",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Covacha",
+    "cuisine": "Mexican",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Enoteca Maria",
+    "cuisine": "Italian",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Falansai",
+    "cuisine": "Vietnamese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Haenyeo",
+    "cuisine": "Korean",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "LORE",
+    "cuisine": "Contemporary",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Lungi",
+    "cuisine": "Sri Lankan",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "MáLà Project",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Momofuku Noodle Bar",
+    "cuisine": "Asian",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Noreetuh",
+    "cuisine": "Asian",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Olmo",
+    "cuisine": "Contemporary",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Peppercorn Station",
+    "cuisine": "Chinese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Potluck Club",
+    "cuisine": "Korean",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Roberta's",
+    "cuisine": "Pizza",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Runner Up",
+    "cuisine": "Contemporary",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Yemenat",
+    "cuisine": "Middle Eastern",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Win Son",
+    "cuisine": "Taiwanese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Zaab Zaab",
+    "cuisine": "Isan",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Cecily",
+    "cuisine": "Contemporary",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Soba Totto",
+    "cuisine": "Japanese",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Oxomoco",
+    "cuisine": "Mexican",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  },
+  {
+    "name": "Ugly Baby",
+    "cuisine": "Thai",
+    "distinction": "bib_gourmand",
+    "stars": 0
+  }
+]
