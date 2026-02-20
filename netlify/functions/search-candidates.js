@@ -121,8 +121,8 @@ function filterRestaurantsByTier(candidates, qualityMode) {
       if (rating >= 5.0 && reviews < 500) { excluded.push({ name: place.name, reason: `perfect_5.0 (${reviews}rev)` }); continue; }
       // 4.9 needs 50+ reviews
       if (rating >= 4.9 && reviews < 50) { excluded.push({ name: place.name, reason: `unreliable ${rating}\u2605/${reviews}rev` }); continue; }
-      // 4.7-4.8 needs 20+ reviews
-      if (rating >= 4.7 && reviews < 20) { excluded.push({ name: place.name, reason: `few_reviews ${rating}\u2605/${reviews}rev` }); continue; }
+      // 4.7-4.8 needs 50+ reviews
+      if (rating >= 4.7 && reviews < 50) { excluded.push({ name: place.name, reason: `few_reviews ${rating}\u2605/${reviews}rev` }); continue; }
       // Everything else needs 25+ reviews
       if (reviews < 25) { excluded.push({ name: place.name, reason: `min_reviews (${reviews})` }); continue; }
       if (rating >= eliteMin) elite.push(place);
@@ -266,7 +266,7 @@ exports.handler = async (event) => {
     const KEY = process.env.GOOGLE_PLACES_API_KEY;
     if (!KEY) return stableResponse([], [], {}, 'API key not configured');
 
-    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v8';
+    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v9';
     const cached = getFromCache(cacheKey);
     if (cached) { timings.total_ms = Date.now()-t0; return stableResponse(cached.elite, cached.moreOptions, { ...cached.stats, cached: true, performance: { ...timings, cache_hit: true } }); }
 
