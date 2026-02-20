@@ -419,6 +419,30 @@ exports.handler = async (event) => {
     }
     if (injected) console.log(`\u2705 Injected ${injected} Michelin restaurants not in Google results`);
 
+    // INJECT Bib Gourmand restaurants that weren't in Google results
+    const bibPlaces = getBibGourmandPlaces();
+    let bibInjected = 0;
+    for (const b of bibPlaces) {
+      if (!b?.lat || !b?.lng) continue;
+      if (b.name && existingNames.has(normalizeName(b.name))) continue;
+      const d = haversineMiles(gLat, gLng, b.lat, b.lng);
+      if (d > 7.0) continue;
+      within.push({
+        place_id: null, name: b.name,
+        vicinity: b.address || '', formatted_address: b.address || '',
+        price_level: null, opening_hours: null,
+        geometry: { location: { lat: b.lat, lng: b.lng } },
+        types: [], googleRating: 0, googleReviewCount: 0,
+        distanceMiles: Math.round(d * 10) / 10,
+        walkMinEstimate: Math.round(d * 20), driveMinEstimate: Math.round(d * 4), transitMinEstimate: Math.round(d * 6),
+        michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: b.cuisine || null,
+        _source: 'bib_inject'
+      });
+      existingNames.add(normalizeName(b.name));
+      bibInjected++;
+    }
+    if (bibInjected) console.log(`\u2705 Injected ${bibInjected} Bib Gourmand restaurants not in Google results`);
+
     const fStart = Date.now();
     const { elite, moreOptions, excluded } = filterRestaurantsByTier(within, qualityMode);
     timings.filtering_ms = Date.now() - fStart;
