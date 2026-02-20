@@ -175,6 +175,12 @@ function filterRestaurantsByTier(candidates, qualityMode) {
       const rating = Number(place.googleRating ?? place.rating ?? 0) || 0;
       const name = place.name || '';
 
+      // 0) Michelin restaurants bypass ALL review filters
+      if (place.michelin) {
+        elite.push(place);
+        continue;
+      }
+
       // 1) Junk type / name filter
       const junkReason = isJunkPlace(place);
       if (junkReason) { excluded.push({ name, reason: `junk(${junkReason})` }); continue; }
