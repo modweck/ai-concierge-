@@ -565,8 +565,9 @@ function displayResults(restaurants) {
       else if (stars === 3) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐⭐ Michelin Three Stars</span>`;
       else if (stars === 2) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐ Michelin Two Stars</span>`;
       else if (stars === 1) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin One Star</span>`;
-      else michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">Michelin</span>`;
-    }
+else if (distinction === 'bib') michelinHtml = `<span class="badge" style="background:#e65100;color:white;border-color:#e65100">🍽️ Bib Gourmand</span>`;
+      else if (distinction === 'recommended') michelinHtml = `<span class="badge" style="background:#9c27b0;color:white;border-color:#9c27b0">✨ Michelin Recommended</span>`;
+      else michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">Michelin Selected</span>`;    }
 
     const rating = (r.googleRating || 0);
     const reviews = (r.googleReviewCount || 0);
