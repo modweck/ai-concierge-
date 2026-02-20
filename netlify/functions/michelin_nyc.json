@@ -1,3 +1,5 @@
+	
+0	
 name	"Le Bernardin"
 distinction	"star"
 stars	3
@@ -15,8 +17,8 @@ address	"11 Madison Ave, New York, NY 10010"
 name	"Per Se"
 distinction	"star"
 stars	3
-latitude	40.768218
-longitude	-73.982899
+latitude	40.7682178
+longitude	-73.9828988
 address	"10 Columbus Cir, New York, NY 10019"
 3	
 name	"Sushi Sho"
@@ -37,14 +39,14 @@ name	"Aquavit"
 distinction	"star"
 stars	2
 latitude	40.7608694
-longitude	-73.972278
+longitude	-73.9722777
 address	"65 E 55th St, New York, NY 10022"
 6	
 name	"Aska"
 distinction	"star"
 stars	2
 latitude	40.7124154
-longitude	-73.966525
+longitude	-73.9665245
 address	"47 S 5th St, Brooklyn, NY 11249"
 7	
 name	"Atera"
@@ -72,7 +74,7 @@ name	"Gabriel Kreuther"
 distinction	"star"
 stars	2
 latitude	40.7545381
-longitude	-73.982503
+longitude	-73.9825026
 address	"41 W 42nd St, New York, NY 10036"
 11	
 name	"Jean-Georges"
@@ -93,7 +95,7 @@ name	"Jungsik"
 distinction	"star"
 stars	2
 latitude	40.7188267
-longitude	-74.009075
+longitude	-74.0090751
 address	"2 Harrison St, New York, NY 10013"
 14	
 name	"Masa"
@@ -113,8 +115,8 @@ address	"17 W 20th St, New York, NY 10011"
 name	"Saga"
 distinction	"star"
 stars	2
-latitude	40.706505
-longitude	-74.007772
+latitude	40.7065047
+longitude	-74.0077715
 address	"70 Pine St 63rd Floor, New York, NY 10005"
 17	
 name	"Sushi Noz"
@@ -134,7 +136,7 @@ address	"9 W 53rd St, New York, NY 10019"
 name	"Café Boulud"
 distinction	"star"
 stars	1
-latitude	40.765067
+latitude	40.7650665
 longitude	-73.9676538
 address	"100 E 63rd St, New York, NY 10065"
 20	
@@ -155,7 +157,7 @@ address	"538 Madison Ave, New York, NY 10022"
 name	"Crown Shy"
 distinction	"star"
 stars	1
-latitude	40.706196
+latitude	40.7061962
 longitude	-74.0075229
 address	"70 Pine St Ground Floor, New York, NY 10005"
 23	
@@ -169,9 +171,9 @@ address	"86 Allen St, New York, NY 10002"
 name	"Estela"
 distinction	"star"
 stars	1
-latitude	40.724641
+latitude	40.7246413
 longitude	-73.994739
-address	"47 E Houston St 1st floor, New York, NY 10012"
+address	"47 E Houston St, New York, NY 10012"
 25	
 name	"Francie"
 distinction	"star"
@@ -183,7 +185,7 @@ address	"136 Broadway, Brooklyn, NY 11249"
 name	"Jeju Noodle Bar"
 distinction	"star"
 stars	1
-latitude	40.732989
+latitude	40.7329889
 longitude	-74.0073417
 address	"679 Greenwich St, New York, NY 10014"
 27	
@@ -198,7 +200,7 @@ name	"Kochi"
 distinction	"star"
 stars	1
 latitude	40.7619926
-longitude	-73.993469
+longitude	-73.9934692
 address	"652 10th Ave, New York, NY 10036"
 29	
 name	"Kosaka"
@@ -226,13 +228,13 @@ name	"Noksu"
 distinction	"star"
 stars	1
 latitude	40.7483485
-longitude	-73.987809
+longitude	-73.9878089
 address	"49 W 32nd St, New York, NY 10001"
 33	
 name	"Oxalis"
 distinction	"star"
 stars	1
-latitude	40.672908
+latitude	40.6729083
 longitude	-73.9626279
 address	"791 Washington Ave, Brooklyn, NY 11238"
 34	
@@ -253,7 +255,7 @@ address	"69 Leonard St, New York, NY 10013"
 name	"Sushi Nakazawa"
 distinction	"star"
 stars	1
-latitude	40.731805
+latitude	40.7318046
 longitude	-74.0045493
 address	"23 Commerce St, New York, NY 10014"
 37	
@@ -261,7 +263,7 @@ name	"Tuome"
 distinction	"star"
 stars	1
 latitude	40.724053
-longitude	-73.982853
+longitude	-73.9828525
 address	"536 E 5th St, New York, NY 10009"
 38	
 name	"Yoshino"
