@@ -394,14 +394,19 @@ exports.handler = async (event) => {
 
     // INJECT Michelin restaurants that weren't in Google results
     // This ensures they appear in 4.7+, 4.5+, etc. modes
+    // When cuisine filter is active, only inject matching restaurants
     const existingIds = new Set(within.map(r => r.place_id).filter(Boolean));
     const existingNames = new Set(within.map(r => normalizeName(r.name)).filter(Boolean));
     let injected = 0;
     for (const m of michelin) {
       if (!m?.lat || !m?.lng) continue;
-      // Skip if already matched
       if (m.place_id && existingIds.has(m.place_id)) continue;
       if (m.name && existingNames.has(normalizeName(m.name))) continue;
+      // Cuisine filter: skip if cuisine doesn't match
+      if (cuisineStr && m.cuisine) {
+        const mc = m.cuisine.toLowerCase();
+        if (!mc.includes(cuisineStr.toLowerCase())) continue;
+      }
       const d = haversineMiles(gLat, gLng, m.lat, m.lng);
       if (d > 7.0) continue; // same radius as normal results
       within.push({
@@ -413,6 +418,7 @@ exports.handler = async (event) => {
         distanceMiles: Math.round(d * 10) / 10,
         walkMinEstimate: Math.round(d * 20), driveMinEstimate: Math.round(d * 4), transitMinEstimate: Math.round(d * 6),
         michelin: { stars: m.stars || 0, distinction: m.distinction || 'star' },
+        cuisine: m.cuisine || null,
         _source: 'michelin_inject'
       });
       injected++;
@@ -425,6 +431,11 @@ exports.handler = async (event) => {
     for (const b of bibPlaces) {
       if (!b?.lat || !b?.lng) continue;
       if (b.name && existingNames.has(normalizeName(b.name))) continue;
+      // Cuisine filter: skip if cuisine doesn't match
+      if (cuisineStr && b.cuisine) {
+        const bc = b.cuisine.toLowerCase();
+        if (!bc.includes(cuisineStr.toLowerCase())) continue;
+      }
       const d = haversineMiles(gLat, gLng, b.lat, b.lng);
       if (d > 7.0) continue;
       within.push({
