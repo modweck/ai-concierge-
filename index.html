@@ -11,7 +11,6 @@
     .card{background:white;padding:30px;border-radius:16px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
     h1{font-size:36px;margin-bottom:8px}
     .subtitle{color:#666;font-size:18px}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
     label{display:block;font-weight:600;margin-bottom:10px;color:#333;font-size:15px}
     input,select{width:100%;padding:14px;border:2px solid #e0e0e0;border-radius:10px;font-size:16px}
     input:focus,select:focus{outline:none;border-color:#000}
@@ -36,7 +35,7 @@
     .chatbot-btn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:#000;color:white;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:all 0.2s}
     .chatbot-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,0.4)}
     .pac-container{z-index:10000!important;font-family:system-ui,sans-serif}
-    @media(max-width:768px){.form-row{grid-template-columns:1fr}.toggle-group{flex-direction:column}}
+    @media(max-width:768px){.toggle-group{flex-direction:column}}
   </style>
 </head>
 
@@ -65,21 +64,9 @@
         </select>
       </div>
 
-      <div class="form-row">
-        <div>
-          <label>👥 Party Size</label>
-          <input type="number" id="party" value="2" min="1" max="20">
-        </div>
-        <div>
-          <label>💰 Budget</label>
-          <select id="budget">
-            <option value="0-999">Any</option>
-            <option value="1-50">$</option>
-            <option value="50-100" selected>$$</option>
-            <option value="100-150">$$$</option>
-            <option value="150-500">$$$$</option>
-          </select>
-        </div>
+      <div style="margin-bottom:20px">
+        <label>👥 Party Size</label>
+        <input type="number" id="party" value="2" min="1" max="20">
       </div>
 
       <div style="margin-bottom:20px">
@@ -531,14 +518,12 @@ function sortResults() {
   let sorted = [...filtered];
 
   if (sortBy === 'rating') {
-    // Rating: Michelin 3-star > 2-star > 1-star > Bib Gourmand > Recommended > then Google rating
     sorted.sort((a, b) => {
       const ma = michelinRank(a), mb = michelinRank(b);
       if (ma !== mb) return mb - ma;
       return (b.googleRating || 0) - (a.googleRating || 0);
     });
   } else if (sortBy === 'distance') {
-    // Distance: closest first, then michelin rank as tiebreaker
     sorted.sort((a, b) => {
       const da = a.distanceMiles ?? 999999;
       const db = b.distanceMiles ?? 999999;
