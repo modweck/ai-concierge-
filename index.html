@@ -170,6 +170,14 @@
           <option value="rating">Rating</option>
           <option value="price">Price</option>
         </select>
+        <label style="margin:0;font-weight:600;margin-left:16px">💰 Budget:</label>
+        <select id="budgetFilter" onchange="sortResults()">
+          <option value="any">Any</option>
+          <option value="1">$ (Budget)</option>
+          <option value="2">$$ (Moderate)</option>
+          <option value="3">$$$ (Upscale)</option>
+          <option value="4">$$$$ (Fine Dining)</option>
+        </select>
       </div>
 
       <div id="list"></div>
@@ -514,6 +522,17 @@ async function search() {
 
 function sortResults() {
   let filtered = filterByQuality(allRestaurants);
+
+  // Budget filter
+  const budgetVal = document.getElementById('budgetFilter').value;
+  if (budgetVal !== 'any') {
+    const maxPrice = parseInt(budgetVal, 10);
+    filtered = filtered.filter(r => {
+      if (!r.price_level) return true; // show N/A restaurants (don't hide them)
+      return r.price_level <= maxPrice;
+    });
+  }
+
   const sortBy = document.getElementById('sortBy').value;
   let sorted = [...filtered];
 
@@ -582,7 +601,7 @@ function displayResults(restaurants) {
         ? `<span class="badge">⭐ ${Number(rating).toFixed(1)} (${reviews})</span>`
         : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
 
-    const priceHtml = r.price_level ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : `<span class="badge">💰 N/A</span>`;
+    const priceHtml = r.price_level ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
 
     const mapsUrl = r.place_id
       ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
