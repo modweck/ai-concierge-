@@ -53,7 +53,7 @@ function haversineMiles(lat1, lng1, lat2, lng2) {
   return R * c;
 }
 
-// Basic concurrency limiter (so we don’t blast Google)
+// Basic concurrency limiter (so we don't blast Google)
 async function runWithConcurrency(items, limit, worker) {
   const results = [];
   let i = 0;
@@ -68,11 +68,9 @@ async function runWithConcurrency(items, limit, worker) {
 }
 
 // Resolve Michelin list -> real Google Places (place_id + geometry + address)
-// Uses Places Text Search (works well for restaurant names)
 async function resolveMichelinPlaces(GOOGLE_API_KEY) {
   if (!GOOGLE_API_KEY) return [];
 
-  // Serve cache
   if (MICHELIN_RESOLVED && (Date.now() - MICHELIN_RESOLVED_AT) < MICHELIN_RESOLVE_TTL_MS) {
     console.log(`💾 Michelin resolved cache HIT (${MICHELIN_RESOLVED.length})`);
     return MICHELIN_RESOLVED;
@@ -91,7 +89,6 @@ async function resolveMichelinPlaces(GOOGLE_API_KEY) {
     const name = m?.name;
     if (!name) return null;
 
-    // Force NYC context for better precision
     const query = encodeURIComponent(`${name} New York NY`);
     const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&type=restaurant&key=${GOOGLE_API_KEY}`;
 
@@ -100,19 +97,9 @@ async function resolveMichelinPlaces(GOOGLE_API_KEY) {
       const data = await resp.json();
 
       if (data.status !== 'OK' || !data.results?.length) {
-        return {
-          ...m,
-          place_id: null,
-          address: null,
-          lat: null,
-          lng: null,
-          googleRating: null,
-          googleReviewCount: null,
-          _resolveStatus: data.status
-        };
+        return { ...m, place_id: null, address: null, lat: null, lng: null, googleRating: null, googleReviewCount: null, _resolveStatus: data.status };
       }
 
-      // Pick best match: exact normalized name if possible, otherwise first result
       const target = normalizeName(name);
       let best = data.results[0];
 
@@ -133,16 +120,7 @@ async function resolveMichelinPlaces(GOOGLE_API_KEY) {
         _resolveStatus: data.status
       };
     } catch (e) {
-      return {
-        ...m,
-        place_id: null,
-        address: null,
-        lat: null,
-        lng: null,
-        googleRating: null,
-        googleReviewCount: null,
-        _resolveStatus: `ERR:${e.message}`
-      };
+      return { ...m, place_id: null, address: null, lat: null, lng: null, googleRating: null, googleReviewCount: null, _resolveStatus: `ERR:${e.message}` };
     }
   });
 
@@ -155,7 +133,7 @@ async function resolveMichelinPlaces(GOOGLE_API_KEY) {
   return MICHELIN_RESOLVED;
 }
 
-// Badge overlay for normal mode: match candidates to Michelin by place_id first, then name
+// Badge overlay for normal mode
 function attachMichelinBadgesToCandidates(candidates, michelinResolved) {
   if (!Array.isArray(candidates) || !candidates.length) return;
   if (!Array.isArray(michelinResolved) || !michelinResolved.length) return;
@@ -201,20 +179,14 @@ function getCacheKey(location, qualityMode, cuisine, openNow) {
 function getFromCache(key) {
   const cached = resultCache.get(key);
   if (!cached) return null;
-
   const age = Date.now() - cached.timestamp;
-  if (age > CACHE_TTL_MS) {
-    resultCache.delete(key);
-    return null;
-  }
-
+  if (age > CACHE_TTL_MS) { resultCache.delete(key); return null; }
   console.log(`Cache HIT (age: ${Math.round(age / 1000)}s)`);
   return cached.data;
 }
 
 function setCache(key, data) {
   resultCache.set(key, { data, timestamp: Date.now() });
-
   if (resultCache.size > 100) {
     const oldest = Array.from(resultCache.entries())
       .sort((a, b) => a[1].timestamp - b[1].timestamp)[0];
@@ -225,58 +197,50 @@ function setCache(key, data) {
 function normalizeQualityMode(qualityModeRaw) {
   const q = String(qualityModeRaw || 'any').toLowerCase().trim();
 
-  // New frontend values
   if (q === 'recommended_44') return 'recommended_44';
   if (q === 'elite_45') return 'elite_45';
   if (q === 'strict_elite_46') return 'strict_elite_46';
   if (q === 'strict_elite_47') return 'strict_elite_47';
 
-  // Back-compat with older frontend values
   if (q === 'five_star') return 'elite_45';
   if (q === 'top_rated_and_above') return 'recommended_44';
   if (q === 'top_rated') return 'recommended_44';
 
-  // Existing modes
   if (q === 'michelin') return 'michelin';
   if (q === 'any') return 'any';
 
   return q;
 }
 
-// SIMPLIFIED FILTERING - Only filter by rating (now respects qualityMode)
+// SIMPLIFIED FILTERING
 function filterRestaurantsByTier(candidates, qualityMode) {
   const elite = [];
   const moreOptions = [];
   const excluded = [];
 
-  // Defaults
   let eliteMin = 4.5;
   let moreMin = 4.4;
   let strict47 = false;
 
-  // Strict 4.7
   if (qualityMode === 'strict_elite_47') {
     strict47 = true;
     eliteMin = 4.7;
-    moreMin = 999; // none
+    moreMin = 999;
   }
 
-  // Strict elite: only return >= 4.6
   if (qualityMode === 'strict_elite_46') {
     eliteMin = 4.6;
-    moreMin = 999; // none
+    moreMin = 999;
   }
 
-  // Elite: >= 4.5 (with 4.4+ in moreOptions)
   if (qualityMode === 'elite_45') {
     eliteMin = 4.5;
     moreMin = 4.4;
   }
 
-  // Recommended: >= 4.4 (all in elite for simplicity)
   if (qualityMode === 'recommended_44') {
     eliteMin = 4.4;
-    moreMin = 999; // none
+    moreMin = 999;
   }
 
   candidates.forEach(place => {
@@ -290,12 +254,8 @@ function filterRestaurantsByTier(candidates, qualityMode) {
       // Fake 5.0 prevention
       if (rating >= 4.9 && reviews < 50) {
         excluded.push({
-          place_id: place.place_id,
-          name: place.name,
-          rating,
-          reviews,
-          types: '',
-          reason: `fake_5.0_prevention (${rating}⭐ with only ${reviews} reviews)`
+          place_id: place.place_id, name: place.name, rating, reviews,
+          types: '', reason: `fake_5.0_prevention (${rating}⭐ with only ${reviews} reviews)`
         });
         return;
       }
@@ -304,22 +264,14 @@ function filterRestaurantsByTier(candidates, qualityMode) {
       else if (!strict47 && rating >= moreMin) moreOptions.push(place);
       else {
         excluded.push({
-          place_id: place.place_id,
-          name: place.name,
-          rating,
-          reviews,
-          types: '',
-          reason: 'rating_below_threshold'
+          place_id: place.place_id, name: place.name, rating, reviews,
+          types: '', reason: 'rating_below_threshold'
         });
       }
     } catch (err) {
       excluded.push({
-        place_id: place?.place_id,
-        name: place?.name,
-        rating: 0,
-        reviews: 0,
-        types: '',
-        reason: `filter_error: ${err.message}`
+        place_id: place?.place_id, name: place?.name, rating: 0, reviews: 0,
+        types: '', reason: `filter_error: ${err.message}`
       });
     }
   });
@@ -333,12 +285,46 @@ function filterRestaurantsByTier(candidates, qualityMode) {
   return { elite, moreOptions, excluded };
 }
 
+// =========================================================================
+// FIX: Generate a denser grid that covers more area
+// The old grid had 17 points with 1.5-mile spacing and 1500m radius.
+// In dense cities, each point only gets 60 results from Google, so many
+// restaurants get missed. This new version:
+//   - Uses a tighter grid spacing (0.75 miles ≈ 1.2 km)
+//   - Uses a smaller radius per point (800m) so circles overlap less
+//   - Covers 3 rings out (about 2.25 miles in each direction)
+//   - Generates ~37 grid points instead of 17
+// This catches WAY more unique restaurants in dense neighborhoods.
+// =========================================================================
+function buildSearchGrid(centerLat, centerLng) {
+  const spacingMiles = 0.75;       // tighter spacing = more coverage
+  const spacingDegrees = spacingMiles / 69;
+  const rings = 3;                 // go out 3 steps in each direction
+
+  const points = [];
+
+  for (let dy = -rings; dy <= rings; dy++) {
+    for (let dx = -rings; dx <= rings; dx++) {
+      // Skip corners that are too far (makes a rough circle instead of square)
+      const distFromCenter = Math.sqrt(dy * dy + dx * dx);
+      if (distFromCenter > rings + 0.5) continue;
+
+      points.push({
+        lat: centerLat + (dy * spacingDegrees),
+        lng: centerLng + (dx * spacingDegrees),
+        label: `grid_${dy}_${dx}`
+      });
+    }
+  }
+
+  console.log(`🗺️ Search grid: ${points.length} points (spacing: ${spacingMiles} mi, rings: ${rings})`);
+  return points;
+}
+
 exports.handler = async (event) => {
   const stableResponse = (elite = [], moreOptions = [], stats = {}, error = null) => ({
     statusCode: 200,
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       elite: Array.isArray(elite) ? elite : [],
       moreOptions: Array.isArray(moreOptions) ? moreOptions : [],
@@ -371,13 +357,12 @@ exports.handler = async (event) => {
       return stableResponse([], [], {}, 'API key not configured (GOOGLE_PLACES_API_KEY)');
     }
 
-    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v1';
+    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v2';
     const cachedResult = getFromCache(cacheKey);
     if (cachedResult) {
       timings.total_ms = Date.now() - t0;
       return stableResponse(
-        cachedResult.elite,
-        cachedResult.moreOptions,
+        cachedResult.elite, cachedResult.moreOptions,
         { ...cachedResult.stats, cached: true, performance: { ...timings, cache_hit: true } },
         null
       );
@@ -400,17 +385,11 @@ exports.handler = async (event) => {
       const geocodeData = await geocodeResponse.json();
 
       if (geocodeData.status !== 'OK') {
-        return stableResponse(
-          [],
-          [],
-          {
-            confirmedAddress: null,
-            userLocation: null,
-            performance: { places_fetch_ms: 0, filtering_ms: 0, total_ms: Date.now() - t0, cache_hit: false },
-            geocode: { status: geocodeData.status, error_message: geocodeData.error_message || null, input: locStr }
-          },
-          `Geocode failed: ${geocodeData.status}${geocodeData.error_message ? ' - ' + geocodeData.error_message : ''}`
-        );
+        return stableResponse([], [], {
+          confirmedAddress: null, userLocation: null,
+          performance: { places_fetch_ms: 0, filtering_ms: 0, total_ms: Date.now() - t0, cache_hit: false },
+          geocode: { status: geocodeData.status, error_message: geocodeData.error_message || null, input: locStr }
+        }, `Geocode failed: ${geocodeData.status}${geocodeData.error_message ? ' - ' + geocodeData.error_message : ''}`);
       }
 
       lat = geocodeData.results[0].geometry.location.lat;
@@ -418,14 +397,12 @@ exports.handler = async (event) => {
       confirmedAddress = geocodeData.results[0].formatted_address;
     }
 
-    // Normalize to 4 decimals for determinism
     const gridLat = Math.round(lat * 10000) / 10000;
     const gridLng = Math.round(lng * 10000) / 10000;
 
-    // ✅ MICHELIN MODE
+    // ✅ MICHELIN MODE (unchanged)
     if (qualityMode === 'michelin') {
       const resolved = await resolveMichelinPlaces(GOOGLE_API_KEY);
-
       const maxMiles = 15.0;
 
       const within = resolved
@@ -433,15 +410,11 @@ exports.handler = async (event) => {
         .map(r => {
           const distMiles = haversineMiles(gridLat, gridLng, r.lat, r.lng);
           return {
-            place_id: r.place_id || null,
-            name: r.name,
-            vicinity: r.address || '',
-            formatted_address: r.address || '',
-            price_level: null,
-            opening_hours: null,
+            place_id: r.place_id || null, name: r.name,
+            vicinity: r.address || '', formatted_address: r.address || '',
+            price_level: null, opening_hours: null,
             geometry: { location: { lat: r.lat, lng: r.lng } },
-            googleRating: r.googleRating ?? null,
-            googleReviewCount: r.googleReviewCount ?? null,
+            googleRating: r.googleRating ?? null, googleReviewCount: r.googleReviewCount ?? null,
             distanceMiles: Math.round(distMiles * 10) / 10,
             walkMinEstimate: Math.round(distMiles * 20),
             driveMinEstimate: Math.round(distMiles * 4),
@@ -453,53 +426,30 @@ exports.handler = async (event) => {
         .sort((a, b) => (a.distanceMiles ?? 999999) - (b.distanceMiles ?? 999999));
 
       timings.total_ms = Date.now() - t0;
-
       const stats = {
-        confirmedAddress,
-        userLocation: { lat: gridLat, lng: gridLng },
-        michelinMode: true,
-        maxMiles,
-        count: within.length,
+        confirmedAddress, userLocation: { lat: gridLat, lng: gridLng },
+        michelinMode: true, maxMiles, count: within.length,
         performance: { ...timings, cache_hit: false }
       };
-
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
       return stableResponse(within, [], stats, null);
     }
 
-    // 2) NORMAL MODE: grid search with pagination
-    const gridRadius = 1500;
-    const spacingMiles = 1.5;
-    const spacingDegrees = spacingMiles / 69;
+    // =========================================================================
+    // 2) NORMAL MODE: DENSER grid search with pagination
+    // =========================================================================
 
-    const gridPoints = [
-      { lat: gridLat, lng: gridLng, label: 'Center' },
-      { lat: gridLat, lng: gridLng + spacingDegrees, label: 'E1' },
-      { lat: gridLat, lng: gridLng + spacingDegrees * 2, label: 'E2' },
-      { lat: gridLat, lng: gridLng - spacingDegrees, label: 'W1' },
-      { lat: gridLat, lng: gridLng - spacingDegrees * 2, label: 'W2' },
+    // FIX: Use 800m radius (was 1500m). With tighter grid spacing,
+    // smaller radius means less overlap and Google returns different
+    // restaurants for each point instead of the same ones.
+    const gridRadius = 800;
 
-      { lat: gridLat + spacingDegrees, lng: gridLng, label: 'N1' },
-      { lat: gridLat + spacingDegrees, lng: gridLng + spacingDegrees, label: 'NE1' },
-      { lat: gridLat + spacingDegrees, lng: gridLng - spacingDegrees, label: 'NW1' },
-
-      { lat: gridLat + spacingDegrees * 2, lng: gridLng, label: 'N2' },
-      { lat: gridLat + spacingDegrees * 2, lng: gridLng + spacingDegrees, label: 'NE2' },
-      { lat: gridLat + spacingDegrees * 2, lng: gridLng - spacingDegrees, label: 'NW2' },
-
-      { lat: gridLat - spacingDegrees, lng: gridLng, label: 'S1' },
-      { lat: gridLat - spacingDegrees, lng: gridLng + spacingDegrees, label: 'SE1' },
-      { lat: gridLat - spacingDegrees, lng: gridLng - spacingDegrees, label: 'SW1' },
-
-      { lat: gridLat - spacingDegrees * 2, lng: gridLng, label: 'S2' },
-      { lat: gridLat - spacingDegrees * 2, lng: gridLng + spacingDegrees, label: 'SE2' },
-      { lat: gridLat - spacingDegrees * 2, lng: gridLng - spacingDegrees, label: 'SW2' }
-    ];
+    // FIX: Build a much denser grid (was 17 points, now ~37)
+    const gridPoints = buildSearchGrid(gridLat, gridLng);
 
     async function fetchWithFullPagination(searchLat, searchLng, label) {
       let url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=${gridRadius}&type=restaurant&key=${GOOGLE_API_KEY}`;
 
-      // IMPORTANT: don't search keyword="any"
       if (cuisine && String(cuisine).toLowerCase().trim() !== 'any') {
         url += `&keyword=${encodeURIComponent(cuisine)}`;
       }
@@ -550,11 +500,15 @@ exports.handler = async (event) => {
       return allResults;
     }
 
+    // FIX: Run grid fetches with concurrency limit to avoid hammering Google
+    // (was Promise.all on all points which could hit rate limits)
     const placesStart = Date.now();
-    const gridFetches = gridPoints.map(point => fetchWithFullPagination(point.lat, point.lng, point.label));
-    const gridResults = await Promise.all(gridFetches);
+    const gridResults = await runWithConcurrency(gridPoints, 8, async (point) => {
+      return fetchWithFullPagination(point.lat, point.lng, point.label);
+    });
     timings.places_fetch_ms = Date.now() - placesStart;
 
+    // Deduplicate by place_id
     const seenIds = new Set();
     const allCandidates = [];
     let totalRaw = 0;
@@ -569,12 +523,13 @@ exports.handler = async (event) => {
       });
     });
 
+    console.log(`📊 Grid search: ${totalRaw} raw → ${allCandidates.length} unique restaurants`);
+
+    // Add distance info to each candidate
     const candidatesWithDistance = allCandidates.map(place => {
       const distMiles = haversineMiles(
-        gridLat,
-        gridLng,
-        place.geometry.location.lat,
-        place.geometry.location.lng
+        gridLat, gridLng,
+        place.geometry.location.lat, place.geometry.location.lng
       );
 
       return {
@@ -595,8 +550,13 @@ exports.handler = async (event) => {
       };
     });
 
-    const maxMiles = 5.0;
+    // FIX: Increased max distance from 5.0 to 7.0 miles
+    // This gives more breathing room for the enrichment step
+    // (the frontend still filters by actual walk/drive/transit time)
+    const maxMiles = 7.0;
     const withinMiles = candidatesWithDistance.filter(r => r.distanceMiles <= maxMiles);
+
+    console.log(`📊 Within ${maxMiles} miles: ${withinMiles.length} restaurants`);
 
     const michelinResolved = await resolveMichelinPlaces(GOOGLE_API_KEY);
     attachMichelinBadgesToCandidates(withinMiles, michelinResolved);
@@ -627,11 +587,12 @@ exports.handler = async (event) => {
       confirmedAddress,
       userLocation: { lat: gridLat, lng: gridLng },
       qualityMode,
+      gridPoints: gridPoints.length,
+      gridRadius,
       performance: { ...timings, cache_hit: false }
     };
 
     setCache(cacheKey, { elite, moreOptions, stats });
-
     return stableResponse(elite, moreOptions, stats, null);
   } catch (error) {
     console.error('ERROR in search-candidates:', error);
