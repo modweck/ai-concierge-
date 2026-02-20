@@ -1,19 +1,29 @@
+// FILE PATH (create this file exactly here):
 // netlify/functions/search-michelin.js
-// Michelin mode: resolve Michelin names -> Google Places (place_id + lat/lng)
-// Filter to 20 miles from user, sort by distance by default.
+//
+// What it does:
+// - Loads michelin_nyc.json (names only)
+// - Geocodes the user's location
+// - For EACH Michelin restaurant, uses Google Places Find Place to get:
+//   place_id, address, lat/lng, rating, review count, price_level
+// - Computes straight-line distance from user
+// - Filters to <= 15 miles
+// - Sorts by distance ASC
+//
+// Required env var:
+// GOOGLE_PLACES_API_KEY
 
 const fs = require("fs");
 const path = require("path");
 
-// ---- Load Michelin base list at cold start (names + stars only) ----
-let MICHELIN = [];
+let MICHELIN_LIST = [];
 try {
   const p = path.join(__dirname, "michelin_nyc.json");
-  MICHELIN = JSON.parse(fs.readFileSync(p, "utf8"));
-  console.log(`[Michelin] Loaded entries: ${MICHELIN.length}`);
+  MICHELIN_LIST = JSON.parse(fs.readFileSync(p, "utf8"));
+  console.log(`[Michelin] Loaded entries: ${Array.isArray(MICHELIN_LIST) ? MICHELIN_LIST.length : 0}`);
 } catch (e) {
   console.log(`[Michelin] Failed to load michelin_nyc.json: ${e.message}`);
-  MICHELIN = [];
+  MICHELIN_LIST = [];
 }
 
 function stableResponse(payload, statusCode = 200) {
@@ -25,195 +35,162 @@ function stableResponse(payload, statusCode = 200) {
 }
 
 function haversineMiles(lat1, lon1, lat2, lon2) {
-  const R = 3958.8;
+  const R = 3958.8; // miles
   const toRad = (x) => (x * Math.PI) / 180;
   const dLat = toRad(lat2 - lat1);
   const dLon = toRad(lon2 - lon1);
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(toRad(lat1)) *
-      Math.cos(toRad(lat2)) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return R * c;
 }
 
-// Simple concurrency limiter
-async function runWithConcurrency(items, limit, worker) {
+async function geocodeAddress(address, apiKey) {
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`;
+  const r = await fetch(url);
+  const j = await r.json();
+  if (j.status !== "OK" || !j.results?.[0]) {
+    return { error: `Geocode failed: ${j.status}${j.error_message ? " - " + j.error_message : ""}` };
+  }
+  return {
+    origin: j.results[0].geometry.location,
+    confirmedAddress: j.results[0].formatted_address,
+  };
+}
+
+async function findPlaceByText(query, apiKey) {
+  const url =
+    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json` +
+    `?input=${encodeURIComponent(query)}` +
+    `&inputtype=textquery` +
+    `&fields=place_id,formatted_address,geometry/location,rating,user_ratings_total,price_level,name` +
+    `&key=${apiKey}`;
+
+  const r = await fetch(url);
+  const j = await r.json();
+
+  if (j.status !== "OK" || !j.candidates?.[0]) return null;
+  return j.candidates[0];
+}
+
+async function mapWithConcurrency(items, limit, fn) {
   const results = new Array(items.length);
-  let i = 0;
-  const runners = Array.from({ length: limit }, async () => {
-    while (i < items.length) {
-      const idx = i++;
-      results[idx] = await worker(items[idx], idx);
+  let idx = 0;
+
+  async function worker() {
+    while (idx < items.length) {
+      const i = idx++;
+      try {
+        results[i] = await fn(items[i], i);
+      } catch (e) {
+        results[i] = null;
+      }
     }
-  });
-  await Promise.all(runners);
+  }
+
+  const workers = Array.from({ length: Math.min(limit, items.length) }, worker);
+  await Promise.all(workers);
   return results;
 }
 
 exports.handler = async (event) => {
   try {
-    if (event.httpMethod !== "POST") {
-      return stableResponse({ error: "Method not allowed" }, 405);
-    }
+    if (event.httpMethod !== "POST") return stableResponse({ error: "Method not allowed" }, 405);
 
-    const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
-    if (!GOOGLE_API_KEY) {
-      return stableResponse({ error: "GOOGLE_PLACES_API_KEY not configured" }, 500);
-    }
+    const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+    if (!apiKey) return stableResponse({ error: "GOOGLE_PLACES_API_KEY not configured" }, 500);
 
     const body = JSON.parse(event.body || "{}");
     const location = String(body.location || "").trim();
-    const maxMiles = typeof body.maxMiles === "number" ? body.maxMiles : 20;
-
     if (!location) {
-      return stableResponse({ error: "Missing location", michelin: [] }, 200);
-    }
-
-    // 1) Geocode user location
-    const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
-      location
-    )}&key=${GOOGLE_API_KEY}`;
-
-    const geoResp = await fetch(geocodeUrl);
-    const geo = await geoResp.json();
-
-    if (geo.status !== "OK" || !geo.results?.[0]) {
       return stableResponse({
-        error: `Geocode failed: ${geo.status}${
-          geo.error_message ? " - " + geo.error_message : ""
-        }`,
+        error: "Missing location",
         michelin: [],
         confirmedAddress: null,
         userLocation: null,
       });
     }
 
-    const origin = geo.results[0].geometry.location;
-    const confirmedAddress = geo.results[0].formatted_address;
+    const radiusMiles = Number(body.radiusMiles || 15);
 
-    // 2) Resolve each Michelin name to a real Google place (Text Search)
-    const baseList = Array.isArray(MICHELIN) ? MICHELIN : [];
-    if (!baseList.length) {
+    const geo = await geocodeAddress(location, apiKey);
+    if (geo.error) {
       return stableResponse({
+        error: geo.error,
         michelin: [],
-        confirmedAddress,
-        userLocation: origin,
-        stats: { michelinCount: 0, loaded: 0 },
+        confirmedAddress: null,
+        userLocation: null,
       });
     }
 
-    console.log(`[Michelin] Resolving ${baseList.length} entries via Places Text Search...`);
+    const { origin, confirmedAddress } = geo;
 
-    const resolved = await runWithConcurrency(baseList, 5, async (m) => {
-      const name = String(m.name || "").trim();
-      if (!name) return null;
+    const list = Array.isArray(MICHELIN_LIST) ? MICHELIN_LIST : [];
+    if (!list.length) {
+      return stableResponse({
+        error: "Michelin list is empty (michelin_nyc.json)",
+        michelin: [],
+        confirmedAddress,
+        userLocation: origin,
+      });
+    }
 
-      // Force NYC context for accuracy
-      const query = encodeURIComponent(`${name} New York NY`);
-      const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&type=restaurant&key=${GOOGLE_API_KEY}`;
+    // Query format: "<name>, New York, NY" helps reduce wrong matches
+    const resolved = await mapWithConcurrency(list, 5, async (m) => {
+      const query = `${m.name}, New York, NY`;
+      const place = await findPlaceByText(query, apiKey);
+      if (!place?.geometry?.location) return null;
 
-      try {
-        const resp = await fetch(url);
-        const data = await resp.json();
+      const lat = place.geometry.location.lat;
+      const lng = place.geometry.location.lng;
 
-        if (data.status !== "OK" || !data.results?.length) {
-          return {
-            name,
-            distinction: m.distinction || "star",
-            stars: m.stars || 0,
-            place_id: null,
-            geometry: null,
-            formatted_address: null,
-            vicinity: null,
-            googleRating: null,
-            googleReviewCount: null,
-            distanceMiles: null,
-            walkMinEstimate: null,
-            driveMinEstimate: null,
-            transitMinEstimate: null,
-            _resolveStatus: data.status,
-          };
-        }
+      const distanceMiles = Math.round(haversineMiles(origin.lat, origin.lng, lat, lng) * 10) / 10;
 
-        const best = data.results[0];
-        const lat = best.geometry?.location?.lat;
-        const lng = best.geometry?.location?.lng;
+      // Filter here
+      if (Number.isFinite(radiusMiles) && distanceMiles > radiusMiles) return null;
 
-        let distanceMiles = null;
-        let walkMinEstimate = null;
-        let driveMinEstimate = null;
-        let transitMinEstimate = null;
+      // Rough estimates (optional)
+      const walkMinEstimate = Math.round(distanceMiles * 20);
+      const driveMinEstimate = Math.round(distanceMiles * 4);
+      const transitMinEstimate = Math.round(distanceMiles * 6);
 
-        if (typeof lat === "number" && typeof lng === "number") {
-          distanceMiles = Math.round(haversineMiles(origin.lat, origin.lng, lat, lng) * 10) / 10;
-          walkMinEstimate = Math.round(distanceMiles * 20);
-          driveMinEstimate = Math.round(distanceMiles * 4);
-          transitMinEstimate = Math.round(distanceMiles * 6);
-        }
+      return {
+        place_id: place.place_id || null,
+        name: place.name || m.name,
+        vicinity: place.formatted_address || "",
+        formatted_address: place.formatted_address || "",
+        geometry: { location: { lat, lng } },
 
-        return {
-          place_id: best.place_id || null,
-          name: best.name || name,
-          vicinity: best.formatted_address || best.vicinity || "",
-          formatted_address: best.formatted_address || best.vicinity || "",
-          geometry: typeof lat === "number" && typeof lng === "number" ? { location: { lat, lng } } : null,
-          googleRating: best.rating ?? null,
-          googleReviewCount: best.user_ratings_total ?? null,
-          price_level: best.price_level ?? null,
-          distanceMiles,
-          walkMinEstimate,
-          driveMinEstimate,
-          transitMinEstimate,
-          michelin: {
-            distinction: m.distinction || "star",
-            stars: m.stars || 0,
-          },
-          _resolveStatus: data.status,
-        };
-      } catch (e) {
-        return {
-          name,
-          distinction: m.distinction || "star",
-          stars: m.stars || 0,
-          place_id: null,
-          geometry: null,
-          formatted_address: null,
-          vicinity: null,
-          googleRating: null,
-          googleReviewCount: null,
-          distanceMiles: null,
-          walkMinEstimate: null,
-          driveMinEstimate: null,
-          transitMinEstimate: null,
-          _resolveStatus: `ERR:${e.message}`,
-        };
-      }
+        googleRating: place.rating || 0,
+        googleReviewCount: place.user_ratings_total || 0,
+        price_level: place.price_level ?? null,
+
+        distanceMiles,
+        walkMinEstimate,
+        driveMinEstimate,
+        transitMinEstimate,
+
+        michelin: { distinction: m.distinction || "star", stars: m.stars || 0 },
+      };
     });
 
-    // 3) Filter + sort by distance
-    const clean = resolved.filter(Boolean);
+    const michelin = resolved.filter(Boolean);
 
-    const withDistance = clean.filter((x) => typeof x.distanceMiles === "number");
-    const within = withDistance.filter((x) => x.distanceMiles <= maxMiles);
+    // Sort by distance
+    michelin.sort((a, b) => (a.distanceMiles ?? 999999) - (b.distanceMiles ?? 999999));
 
-    within.sort((a, b) => (a.distanceMiles ?? 999999) - (b.distanceMiles ?? 999999));
-
-    console.log(
-      `[Michelin] Resolved: ${withDistance.length}/${clean.length} with coords. Returning within ${maxMiles} miles: ${within.length}`
-    );
+    console.log(`[Michelin] Returning ${michelin.length} entries within ${radiusMiles} miles`);
 
     return stableResponse({
-      michelin: within,
+      michelin,
       confirmedAddress,
       userLocation: origin,
       stats: {
-        loaded: baseList.length,
-        resolvedWithCoords: withDistance.length,
-        returned: within.length,
-        maxMiles,
+        requestedRadiusMiles: radiusMiles,
+        listCount: list.length,
+        returnedCount: michelin.length,
       },
     });
   } catch (e) {
