@@ -1,1 +1,1 @@
-module.exports = require("./michelin_nyc.json");
+[ { "name": "Le Bernardin", "distinction": "star", "stars": 3 }, { "name": "Eleven Madison Park", "distinction": "star", "stars": 3 } ]
