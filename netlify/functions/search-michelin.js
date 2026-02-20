@@ -98,7 +98,7 @@ let MICHELIN_LIST = [];
 let MICHELIN_LOAD_ERROR = null;
 
 try {
-  MICHELIN_LIST = require("./michelin_nyc.js");
+MICHELIN_LIST = require("./michelin_nyc.json");
 
   if (!Array.isArray(MICHELIN_LIST)) {
     MICHELIN_LOAD_ERROR = "michelin_nyc.js did not export an array";
