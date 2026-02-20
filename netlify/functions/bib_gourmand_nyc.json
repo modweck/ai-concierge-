@@ -1,0 +1,317 @@
+	
+0	
+name	"8282"
+distinction	"bib_gourmand"
+cuisine	"Korean"
+1	
+name	"Agi's Counter"
+distinction	"bib_gourmand"
+cuisine	"Creative"
+2	
+name	"Alley 41"
+distinction	"bib_gourmand"
+cuisine	"Chinese"
+3	
+name	"Alta Calidad"
+distinction	"bib_gourmand"
+cuisine	"Mexican"
+4	
+name	"Atla"
+distinction	"bib_gourmand"
+cuisine	"Mexican"
+5	
+name	"Bánh Anh Em"
+distinction	"bib_gourmand"
+cuisine	"Vietnamese"
+6	
+name	"Bayon"
+distinction	"bib_gourmand"
+cuisine	"Cambodian"
+7	
+name	"Bohemian Spirit"
+distinction	"bib_gourmand"
+cuisine	"Czech"
+8	
+name	"Bonnie's"
+distinction	"bib_gourmand"
+cuisine	"Cantonese"
+9	
+name	"Boro6 Wine Bar"
+distinction	"bib_gourmand"
+cuisine	"Contemporary"
+10	
+name	"Bungalow"
+distinction	"bib_gourmand"
+cuisine	"Indian"
+11	
+name	"Burrata"
+distinction	"bib_gourmand"
+cuisine	"Italian-American"
+12	
+name	"C as in Charlie"
+distinction	"bib_gourmand"
+cuisine	"Fusion"
+13	
+name	"Café Mars"
+distinction	"bib_gourmand"
+cuisine	"Contemporary"
+14	
+name	"Caleta 111 Cevicheria"
+distinction	"bib_gourmand"
+cuisine	"Peruvian"
+15	
+name	"Cardamom"
+distinction	"bib_gourmand"
+cuisine	"Indian"
+16	
+name	"Cervo's"
+distinction	"bib_gourmand"
+cuisine	"Spanish"
+17	
+name	"Chalong"
+distinction	"bib_gourmand"
+cuisine	"Thai"
+18	
+name	"Chavela's"
+distinction	"bib_gourmand"
+cuisine	"Mexican"
+19	
+name	"CheLi"
+distinction	"bib_gourmand"
+cuisine	"Chinese"
+20	
+name	"Cho Dang Gol"
+distinction	"bib_gourmand"
+cuisine	"Korean"
+21	
+name	"Chuan Tian Xia"
+distinction	"bib_gourmand"
+cuisine	"Chinese"
+22	
+name	"Chutney Masala"
+distinction	"bib_gourmand"
+cuisine	"Indian"
+23	
+name	"Coqodaq"
+distinction	"bib_gourmand"
+cuisine	"Korean"
+24	
+name	"Covacha"
+distinction	"bib_gourmand"
+cuisine	"Mexican"
+25	
+name	"Dhamaka"
+distinction	"bib_gourmand"
+cuisine	"Indian"
+26	
+name	"Dim Sum Go Go"
+distinction	"bib_gourmand"
+cuisine	"Chinese"
+27	
+name	"Enoteca Maria"
+distinction	"bib_gourmand"
+cuisine	"Italian"
+28	
+name	"Falansai"
+distinction	"bib_gourmand"
+cuisine	"Vietnamese"
+29	
+name	"Gordo's Cantina"
+distinction	"bib_gourmand"
+cuisine	"Mexican"
+30	
+name	"Haenyeo"
+distinction	"bib_gourmand"
+cuisine	"Korean"
+31	
+name	"HanGawi"
+distinction	"bib_gourmand"
+cuisine	"Korean"
+32	
+name	"Hometown Bar B Que New York"
+distinction	"bib_gourmand"
+cuisine	"Barbecue"
+33	
+name	"Hupo"
+distinction	"bib_gourmand"
+cuisine	"Chinese"
+34	
+name	"Ishq"
+distinction	"bib_gourmand"
+cuisine	"Indian"
+35	
+name	"Jiang Nan"
+distinction	"bib_gourmand"
+cuisine	"Chinese"
+36	
+name	"Katz's"
+distinction	"bib_gourmand"
+cuisine	"Deli"
+37	
+name	"Kung Fu Little Steamed Buns Ramen"
+distinction	"bib_gourmand"
+cuisine	"Chinese"
+38	
+name	"La Dong"
+distinction	"bib_gourmand"
+cuisine	"Vietnamese"
+39	
+name	"Laliko"
+distinction	"bib_gourmand"
+cuisine	"Central Asian"
+40	
+name	"Legend of Taste"
+distinction	"bib_gourmand"
+cuisine	"Chinese"
+41	
+name	"Little Alley"
+distinction	"bib_gourmand"
+cuisine	"Chinese"
+42	
+name	"Little Myanmar"
+distinction	"bib_gourmand"
+cuisine	"Burmese"
+43	
+name	"LORE"
+distinction	"bib_gourmand"
+cuisine	"Contemporary"
+44	
+name	"Lungi"
+distinction	"bib_gourmand"
+cuisine	"Sri Lankan"
+45	
+name	"MáLà Project"
+distinction	"bib_gourmand"
+cuisine	"Sichuan"
+46	
+name	"Miss Ada"
+distinction	"bib_gourmand"
+cuisine	"Israeli"
+47	
+name	"Momofuku Noodle Bar"
+distinction	"bib_gourmand"
+cuisine	"Asian"
+48	
+name	"Nami Nori"
+distinction	"bib_gourmand"
+cuisine	"Japanese"
+49	
+name	"Noreetuh"
+distinction	"bib_gourmand"
+cuisine	"Asian"
+50	
+name	"Olmo"
+distinction	"bib_gourmand"
+cuisine	"Italian"
+51	
+name	"Oso"
+distinction	"bib_gourmand"
+cuisine	"Mexican"
+52	
+name	"Peppercorn Station"
+distinction	"bib_gourmand"
+cuisine	"Sichuan"
+53	
+name	"Phayul"
+distinction	"bib_gourmand"
+cuisine	"Tibetan"
+54	
+name	"Pierozek"
+distinction	"bib_gourmand"
+cuisine	"Polish"
+55	
+name	"Pinch Chinese"
+distinction	"bib_gourmand"
+cuisine	"Chinese"
+56	
+name	"Potluck Club"
+distinction	"bib_gourmand"
+cuisine	"American"
+57	
+name	"Pranakhon"
+distinction	"bib_gourmand"
+cuisine	"Thai"
+58	
+name	"Roberta's"
+distinction	"bib_gourmand"
+cuisine	"Pizza"
+59	
+name	"Rolo's"
+distinction	"bib_gourmand"
+cuisine	"American"
+60	
+name	"Ruffian"
+distinction	"bib_gourmand"
+cuisine	"Contemporary"
+61	
+name	"Runner Up"
+distinction	"bib_gourmand"
+cuisine	"American"
+62	
+name	"Russ & Daughters Cafe"
+distinction	"bib_gourmand"
+cuisine	"American"
+63	
+name	"Sagara"
+distinction	"bib_gourmand"
+cuisine	"Sri Lankan"
+64	
+name	"Sal Tang's"
+distinction	"bib_gourmand"
+cuisine	"Chinese Contemporary"
+65	
+name	"SaRanRom Thai"
+distinction	"bib_gourmand"
+cuisine	"Thai"
+66	
+name	"Shalom Japan"
+distinction	"bib_gourmand"
+cuisine	"Fusion"
+67	
+name	"Speedy Romeo"
+distinction	"bib_gourmand"
+cuisine	"Pizza"
+68	
+name	"Tha Phraya"
+distinction	"bib_gourmand"
+cuisine	"Thai"
+69	
+name	"Thai Diner"
+distinction	"bib_gourmand"
+cuisine	"Thai"
+70	
+name	"Tolo"
+distinction	"bib_gourmand"
+cuisine	"Chinese"
+71	
+name	"Tonchin"
+distinction	"bib_gourmand"
+cuisine	"Japanese"
+72	
+name	"Tong Sam Gyup Goo Yi"
+distinction	"bib_gourmand"
+cuisine	"Korean"
+73	
+name	"Una Pizza Napoletana"
+distinction	"bib_gourmand"
+cuisine	"Pizza"
+74	
+name	"Untable"
+distinction	"bib_gourmand"
+cuisine	"Thai"
+75	
+name	"Win Son"
+distinction	"bib_gourmand"
+cuisine	"Taiwanese"
+76	
+name	"Yemenat"
+distinction	"bib_gourmand"
+cuisine	"Middle Eastern"
+77	
+name	"Yellow Rose"
+distinction	"bib_gourmand"
+cuisine	"Tex-Mex"
+78	
+name	"Zaab Zaab"
+distinction	"bib_gourmand"
+cuisine	"Isan"
