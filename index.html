@@ -208,11 +208,16 @@ function setTransport(evt, mode) {
 function filterByQuality(restaurants) {
   const q = state.qualityFilter;
   if (q === 'any') return restaurants;
-  if (q === 'michelin') return restaurants; // Michelin mode already returns Michelin-only
+  if (q === 'michelin') return restaurants;
+
   return restaurants.filter(r => {
-    if (q === 'five_star') return (r.googleRating || 0) >= 4.6;
-    if (q === 'top_rated_and_above') return (r.googleRating || 0) >= 4.4;
-    if (q === 'top_rated') return (r.googleRating || 0) >= 4.4 && (r.googleRating || 0) < 4.6;
+    const rating = Number(r.googleRating || 0);
+
+    // Match backend tiers
+    if (q === 'five_star') return rating >= 4.5;
+    if (q === 'top_rated_and_above') return rating >= 4.4;
+    if (q === 'top_rated') return rating >= 4.4 && rating < 4.5;
+
     return true;
   });
 }
@@ -233,7 +238,9 @@ async function search() {
   const cuisine = document.getElementById('cuisine').value;
   const timeSlot = document.getElementById('timewindow').value;
   state.qualityFilter = document.getElementById('quality').value;
-  const openNow = (timeSlot === 'prime' || timeSlot === 'lunch');
+
+  // IMPORTANT: do NOT force "open now" based on time dropdown
+  const openNow = false;
 
   let maxWalkMinutes = null, maxDriveMinutes = null, maxTransitMinutes = null;
   if (state.transport === 'walk') maxWalkMinutes = parseInt(document.getElementById('walkTime').value, 10);
@@ -248,7 +255,6 @@ async function search() {
     '<div style="text-align:center;padding:40px">🔍 Finding candidates...</div>';
 
   try {
-    // ✅ MICHELIN MODE (15 MILE RADIUS) — ignores your walk/drive/transit limits
     if (state.qualityFilter === 'michelin') {
       document.getElementById('sortBy').value = 'distance';
       document.getElementById('list').innerHTML =
@@ -299,14 +305,14 @@ async function search() {
       return;
     }
 
-    // ✅ NORMAL MODE (Google 4.6 / 4.4 flow)
     const step1Response = await fetch('/.netlify/functions/search-candidates', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         location,
         cuisine: cuisine === 'any' ? undefined : cuisine,
-        openNow
+        openNow,
+        quality: state.qualityFilter
       }),
       signal: searchAbortController.signal
     });
@@ -504,12 +510,6 @@ function displayResults(restaurants) {
 function back() {
   document.getElementById('search').classList.remove('hidden');
   document.getElementById('results').classList.add('hidden');
-}
-
-function expandToTopRated() {
-  state.showExpanded = true;
-  state.qualityFilter = 'top_rated_and_above';
-  sortResults();
 }
 </script>
 </body>
