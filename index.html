@@ -136,9 +136,9 @@
         <select id="quality">
           <option value="any" selected>Any Quality</option>
           <option value="michelin">Michelin (15 mile radius)</option>
-          <option value="five_star">5-Star (4.6+)</option>
+          <option value="five_star">5-Star (4.5+)</option>
           <option value="top_rated_and_above">Top Rated & Above (4.4+)</option>
-          <option value="top_rated">Top Rated (4.4-4.59)</option>
+          <option value="top_rated">Top Rated (4.4-4.49)</option>
         </select>
       </div>
 
@@ -297,8 +297,8 @@ async function search() {
         <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
           📍 ${data.confirmedAddress || location}
         </div>
-        <div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-          ✓ Showing ${allRestaurants.length} Michelin restaurants within 15 miles (sorted by distance)
+        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
+          ✓ Showing <span id="resultCount">0</span> Michelin restaurants within 15 miles (sorted by distance)
         </div>
       `;
 
@@ -411,19 +411,20 @@ async function search() {
       };
     });
 
-    // Apply real-time filter AFTER enrichment, but don't drop due to missing values
+    // Apply real-time filter AFTER enrichment
     let realTimeFiltered = allRestaurants;
     if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
     else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
     else if (state.transport === 'transit' && maxTransitMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
     allRestaurants = realTimeFiltered;
 
+    // ✅ Count badge now uses a live span that displayResults() updates to the rendered list length
     document.getElementById('warnings').innerHTML = `
       <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
         📍 ${step1Data.confirmedAddress || location}
       </div>
-      <div style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-        ✓ Showing ${allRestaurants.length} restaurants
+      <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
+        ✓ Showing <span id="resultCount">0</span> restaurants
       </div>
     `;
 
@@ -475,6 +476,10 @@ function sortResults() {
 }
 
 function displayResults(restaurants) {
+  // ✅ This keeps the green banner count matched to what is rendered on screen
+  const countEl = document.getElementById('resultCount');
+  if (countEl) countEl.textContent = String(restaurants.length);
+
   if (!restaurants.length) {
     document.getElementById('list').innerHTML =
       '<div style="text-align:center;padding:40px">No restaurants found</div>';
@@ -501,13 +506,13 @@ function displayResults(restaurants) {
     const reviews = (r.googleReviewCount || 0);
 
     const ratingHtml = (r.googleRating != null && r.googleRating !== 0)
-      ? `<span class="badge">⭐ ${Number(rating).toFixed(1)} (${reviews})</span>`
+      ? `<span class="badge">⭐ ${Number(rating).toFixed(1)} (${reviews})</span>` 
       : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
 
     const priceHtml = r.price_level ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : `<span class="badge">💰 N/A</span>`;
 
     const mapsUrl = r.place_id
-      ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
+      ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}` 
       : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || 'New York, NY'))}`;
 
     return `
