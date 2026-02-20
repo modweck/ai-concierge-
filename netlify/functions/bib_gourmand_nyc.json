@@ -3,498 +3,747 @@
     "name": "Sal Tang's",
     "cuisine": "Chinese Contemporary",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.728,
+    "lng": -73.9842,
+    "address": "63 Clinton St, New York, NY 10002"
   },
   {
     "name": "La Dong",
     "cuisine": "Vietnamese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7628,
+    "lng": -73.923,
+    "address": "34-04 36th Ave, Astoria, NY 11106"
   },
   {
     "name": "Phayul",
     "cuisine": "Tibetan",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.75,
+    "lng": -73.89,
+    "address": "74-06 37th Ave, Jackson Heights, NY 11372"
   },
   {
     "name": "Cardamom",
     "cuisine": "Indian",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7193,
+    "lng": -73.999,
+    "address": "290 Hudson St, New York, NY 10013"
   },
   {
     "name": "Ruffian",
     "cuisine": "Contemporary",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7286,
+    "lng": -73.9897,
+    "address": "125 E 7th St, New York, NY 10009"
   },
   {
     "name": "Bohemian Spirit",
     "cuisine": "Czech",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7605,
+    "lng": -73.9222,
+    "address": "27-08 23rd Ave, Astoria, NY 11105"
   },
   {
     "name": "Bánh Anh Em",
     "cuisine": "Vietnamese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7143,
+    "lng": -73.9614,
+    "address": "140 N 8th St, Brooklyn, NY 11249"
   },
   {
     "name": "Ishq",
     "cuisine": "Indian",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7358,
+    "lng": -74.0004,
+    "address": "52 W 14th St, New York, NY 10011"
   },
   {
     "name": "Yellow Rose",
     "cuisine": "Tex-Mex",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7218,
+    "lng": -73.9875,
+    "address": "102 Ave B, New York, NY 10009"
   },
   {
     "name": "SaRanRom Thai",
     "cuisine": "Thai",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7131,
+    "lng": -73.9579,
+    "address": "169 Bedford Ave, Brooklyn, NY 11211"
   },
   {
     "name": "Gordo's Cantina",
     "cuisine": "Mexican",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7135,
+    "lng": -73.9613,
+    "address": "131 N 7th St, Brooklyn, NY 11249"
   },
   {
     "name": "Hupo",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.728,
+    "lng": -73.9865,
+    "address": "120 1st Ave, New York, NY 10009"
   },
   {
     "name": "Rolo's",
     "cuisine": "American",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7229,
+    "lng": -73.9953,
+    "address": "212 E Houston St, New York, NY 10002"
   },
   {
     "name": "Hometown Bar B Que New York",
     "cuisine": "Barbecue",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6766,
+    "lng": -73.9802,
+    "address": "454 Van Brunt St, Brooklyn, NY 11231"
   },
   {
     "name": "Bayon",
     "cuisine": "Cambodian",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7626,
+    "lng": -73.9237,
+    "address": "33-13 Broadway, Astoria, NY 11106"
   },
   {
     "name": "CheLi",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7156,
+    "lng": -73.9977,
+    "address": "176 Mott St, New York, NY 10013"
   },
   {
     "name": "Cho Dang Gol",
     "cuisine": "Korean",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.748,
+    "lng": -73.9872,
+    "address": "55 W 35th St, New York, NY 10001"
   },
   {
     "name": "Laliko",
     "cuisine": "Central Asian",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.5776,
+    "lng": -73.9727,
+    "address": "1703 Sheepshead Bay Rd, Brooklyn, NY 11235"
   },
   {
     "name": "Pierozek",
     "cuisine": "Polish",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7119,
+    "lng": -73.9534,
+    "address": "166 Bedford Ave, Brooklyn, NY 11211"
   },
   {
     "name": "Caleta 111 Cevicheria",
     "cuisine": "Peruvian",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7525,
+    "lng": -73.891,
+    "address": "111 Roosevelt Ave, Jackson Heights, NY 11372"
   },
   {
     "name": "Tong Sam Gyup Goo Yi",
     "cuisine": "Korean",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7623,
+    "lng": -73.8298,
+    "address": "162-23 Depot Rd, Flushing, NY 11358"
   },
   {
     "name": "Legend of Taste",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.763,
+    "lng": -73.829,
+    "address": "42-07 Main St, Flushing, NY 11355"
   },
   {
     "name": "Miss Ada",
     "cuisine": "Israeli",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6882,
+    "lng": -73.9771,
+    "address": "184 DeKalb Ave, Brooklyn, NY 11205"
   },
   {
     "name": "Oso",
     "cuisine": "Mexican",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7032,
+    "lng": -73.9929,
+    "address": "636 Sackett St, Brooklyn, NY 11217"
   },
   {
     "name": "Thai Diner",
     "cuisine": "Thai",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7202,
+    "lng": -73.9959,
+    "address": "186 Mott St, New York, NY 10012"
   },
   {
     "name": "Chavela's",
     "cuisine": "Mexican",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6803,
+    "lng": -73.9669,
+    "address": "736 Franklin Ave, Brooklyn, NY 11238"
   },
   {
     "name": "Speedy Romeo",
     "cuisine": "Pizza",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6788,
+    "lng": -73.9631,
+    "address": "376 Classon Ave, Brooklyn, NY 11238"
   },
   {
     "name": "Katz's",
     "cuisine": "Deli",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7223,
+    "lng": -73.9874,
+    "address": "205 E Houston St, New York, NY 10002"
   },
   {
     "name": "Untable",
     "cuisine": "Thai",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.719,
+    "lng": -73.9848,
+    "address": "175 E 2nd St, New York, NY 10009"
   },
   {
     "name": "Little Alley",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7429,
+    "lng": -73.9833,
+    "address": "115 E 27th St, New York, NY 10016"
   },
   {
     "name": "Pinch Chinese",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7256,
+    "lng": -73.99,
+    "address": "177 Prince St, New York, NY 10012"
   },
   {
     "name": "Café Mars",
     "cuisine": "Contemporary",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6788,
+    "lng": -73.976,
+    "address": "218 Court St, Brooklyn, NY 11201"
   },
   {
     "name": "Dhamaka",
     "cuisine": "Indian",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7168,
+    "lng": -73.9925,
+    "address": "119 Delancey St, New York, NY 10002"
   },
   {
     "name": "Tha Phraya",
     "cuisine": "Thai Contemporary",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7138,
+    "lng": -73.9581,
+    "address": "171 Bedford Ave, Brooklyn, NY 11211"
   },
   {
     "name": "Nami Nori",
     "cuisine": "Japanese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7342,
+    "lng": -74.0031,
+    "address": "33 Carmine St, New York, NY 10014"
   },
   {
     "name": "Sagara",
     "cuisine": "Sri Lankan",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7275,
+    "lng": -73.989,
+    "address": "86 1st Ave, New York, NY 10009"
   },
   {
     "name": "Shalom Japan",
     "cuisine": "Fusion",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7118,
+    "lng": -73.9557,
+    "address": "310 S 4th St, Brooklyn, NY 11211"
   },
   {
     "name": "HanGawi",
     "cuisine": "Korean",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7478,
+    "lng": -73.9826,
+    "address": "12 E 32nd St, New York, NY 10016"
   },
   {
     "name": "Tolo",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.729,
+    "lng": -73.9858,
+    "address": "178 1st Ave, New York, NY 10009"
   },
   {
     "name": "Little Myanmar",
     "cuisine": "Burmese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.728,
+    "lng": -73.9858,
+    "address": "131 1st Ave, New York, NY 10003"
   },
   {
     "name": "Kung Fu Little Steamed Buns Ramen",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7555,
+    "lng": -73.993,
+    "address": "811 8th Ave, New York, NY 10019"
   },
   {
     "name": "Tonchin",
     "cuisine": "Japanese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7556,
+    "lng": -73.9862,
+    "address": "13 W 36th St, New York, NY 10018"
   },
   {
     "name": "Russ & Daughters Cafe",
     "cuisine": "American",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7228,
+    "lng": -73.9884,
+    "address": "127 Orchard St, New York, NY 10002"
   },
   {
     "name": "Una Pizza Napoletana",
     "cuisine": "Pizza",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7262,
+    "lng": -73.9866,
+    "address": "175 Orchard St, New York, NY 10002"
   },
   {
     "name": "Dim Sum Go Go",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.714,
+    "lng": -73.9982,
+    "address": "5 E Broadway, New York, NY 10038"
   },
   {
     "name": "Pranakhon",
     "cuisine": "Thai",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7183,
+    "lng": -73.9932,
+    "address": "88 University Pl, New York, NY 10003"
   },
   {
     "name": "Agi's Counter",
     "cuisine": "Creative",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6779,
+    "lng": -73.9629,
+    "address": "818 Classon Ave, Brooklyn, NY 11238"
   },
   {
     "name": "Jiang Nan",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7626,
+    "lng": -73.8303,
+    "address": "40-52 Main St, Flushing, NY 11354"
   },
   {
     "name": "8282",
     "cuisine": "Korean",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7485,
+    "lng": -73.9868,
+    "address": "8 W 36th St, New York, NY 10018"
   },
   {
     "name": "Alley 41",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7628,
+    "lng": -73.829,
+    "address": "41-44 Main St, Flushing, NY 11355"
   },
   {
     "name": "Alta Calidad",
     "cuisine": "Mexican",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6794,
+    "lng": -73.975,
+    "address": "552 Vanderbilt Ave, Brooklyn, NY 11238"
   },
   {
     "name": "Atla",
     "cuisine": "Mexican",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.726,
+    "lng": -73.9935,
+    "address": "372 Lafayette St, New York, NY 10012"
   },
   {
     "name": "Bonnie's",
     "cuisine": "Cantonese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.712,
+    "lng": -73.9558,
+    "address": "398 S 2nd St, Brooklyn, NY 11211"
   },
   {
     "name": "Boro6 Wine Bar",
     "cuisine": "Contemporary",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7556,
+    "lng": -73.9225,
+    "address": "28-60 Steinway St, Astoria, NY 11103"
   },
   {
     "name": "Bungalow",
     "cuisine": "Indian",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.68,
+    "lng": -73.975,
+    "address": "547 Vanderbilt Ave, Brooklyn, NY 11238"
   },
   {
     "name": "Burrata",
     "cuisine": "Italian-American",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.743,
+    "lng": -73.941,
+    "address": "43-03 Queens Blvd, Sunnyside, NY 11104"
   },
   {
     "name": "C as in Charlie",
     "cuisine": "Fusion",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7193,
+    "lng": -73.988,
+    "address": "123 E 1st St, New York, NY 10009"
   },
   {
     "name": "Cervo's",
     "cuisine": "Spanish",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7189,
+    "lng": -73.9864,
+    "address": "43 Canal St, New York, NY 10002"
   },
   {
     "name": "Chalong",
     "cuisine": "Thai",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6963,
+    "lng": -73.9712,
+    "address": "238 Flatbush Ave, Brooklyn, NY 11217"
   },
   {
     "name": "Chuan Tian Xia",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7636,
+    "lng": -73.8286,
+    "address": "41-28 Main St, Flushing, NY 11355"
   },
   {
     "name": "Chutney Masala",
     "cuisine": "Indian",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.8917,
+    "lng": -73.8953,
+    "address": "4032 Hillman Ave, Bronx, NY 10463"
   },
   {
     "name": "Coqodaq",
     "cuisine": "Korean",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7467,
+    "lng": -73.9854,
+    "address": "5 W 31st St, New York, NY 10001"
   },
   {
     "name": "Covacha",
     "cuisine": "Mexican",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7125,
+    "lng": -73.9555,
+    "address": "180 S 4th St, Brooklyn, NY 11211"
   },
   {
     "name": "Enoteca Maria",
     "cuisine": "Italian",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6434,
+    "lng": -74.0769,
+    "address": "27 Hyatt St, Staten Island, NY 10301"
   },
   {
     "name": "Falansai",
     "cuisine": "Vietnamese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7026,
+    "lng": -73.9296,
+    "address": "112 Harrison Pl, Brooklyn, NY 11237"
   },
   {
     "name": "Haenyeo",
     "cuisine": "Korean",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6845,
+    "lng": -73.978,
+    "address": "239 5th Ave, Brooklyn, NY 11215"
   },
   {
     "name": "LORE",
     "cuisine": "Contemporary",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.682,
+    "lng": -73.9765,
+    "address": "566 Vanderbilt Ave, Brooklyn, NY 11238"
   },
   {
     "name": "Lungi",
     "cuisine": "Sri Lankan",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7292,
+    "lng": -73.9898,
+    "address": "30 St Marks Pl, New York, NY 10003"
   },
   {
     "name": "MáLà Project",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7268,
+    "lng": -73.9893,
+    "address": "122 1st Ave, New York, NY 10009"
   },
   {
     "name": "Momofuku Noodle Bar",
     "cuisine": "Asian",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7293,
+    "lng": -73.9843,
+    "address": "171 1st Ave, New York, NY 10003"
   },
   {
     "name": "Noreetuh",
     "cuisine": "Asian",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7267,
+    "lng": -73.9867,
+    "address": "128 1st Ave, New York, NY 10009"
   },
   {
     "name": "Olmo",
     "cuisine": "Contemporary",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6917,
+    "lng": -73.9747,
+    "address": "157 Adelphi St, Brooklyn, NY 11205"
   },
   {
     "name": "Peppercorn Station",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6887,
+    "lng": -73.9803,
+    "address": "36 Willoughby St, Brooklyn, NY 11201"
   },
   {
     "name": "Potluck Club",
     "cuisine": "Korean",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7116,
+    "lng": -73.9564,
+    "address": "251 Grand St, Brooklyn, NY 11211"
   },
   {
     "name": "Roberta's",
     "cuisine": "Pizza",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.705,
+    "lng": -73.9336,
+    "address": "261 Moore St, Brooklyn, NY 11206"
   },
   {
     "name": "Runner Up",
     "cuisine": "Contemporary",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7082,
+    "lng": -73.9498,
+    "address": "46 Graham Ave, Brooklyn, NY 11206"
   },
   {
     "name": "Yemenat",
     "cuisine": "Middle Eastern",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.706,
+    "lng": -73.951,
+    "address": "234 Grand St, Brooklyn, NY 11211"
   },
   {
     "name": "Win Son",
     "cuisine": "Taiwanese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7127,
+    "lng": -73.956,
+    "address": "159 Graham Ave, Brooklyn, NY 11206"
   },
   {
     "name": "Zaab Zaab",
     "cuisine": "Isan",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7122,
+    "lng": -73.9424,
+    "address": "533 Metropolitan Ave, Brooklyn, NY 11211"
   },
   {
     "name": "Cecily",
     "cuisine": "Contemporary",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7266,
+    "lng": -73.9898,
+    "address": "135 1st Ave, New York, NY 10003"
   },
   {
     "name": "Soba Totto",
     "cuisine": "Japanese",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7537,
+    "lng": -73.973,
+    "address": "211 E 43rd St, New York, NY 10017"
   },
   {
     "name": "Oxomoco",
     "cuisine": "Mexican",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.7176,
+    "lng": -73.9617,
+    "address": "128 Greenpoint Ave, Brooklyn, NY 11222"
   },
   {
     "name": "Ugly Baby",
     "cuisine": "Thai",
     "distinction": "bib_gourmand",
-    "stars": 0
+    "stars": 0,
+    "lat": 40.6802,
+    "lng": -73.9782,
+    "address": "407 Smith St, Brooklyn, NY 11231"
   }
 ]
