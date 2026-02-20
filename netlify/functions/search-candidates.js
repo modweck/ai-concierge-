@@ -1,3 +1,8 @@
+bash
+
+cat /home/claude/search-candidates.js
+Output
+
 const fs = require('fs');
 const path = require('path');
 
@@ -456,3 +461,7 @@ exports.handler = async (event) => {
     return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ elite: [], moreOptions: [], stats: {}, error: error.message }) };
   }
 };
+Done
+Here are all 3 files. Copy each one completely.
+
+FILE 1: index.html
