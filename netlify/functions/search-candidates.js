@@ -221,11 +221,53 @@ function setCache(key, data) {
   }
 }
 
-// SIMPLIFIED FILTERING - Only filter by rating
-function filterRestaurantsByTier(candidates) {
+function normalizeQualityMode(qualityModeRaw) {
+  const q = String(qualityModeRaw || 'any').toLowerCase().trim();
+
+  // New frontend values
+  if (q === 'recommended_44') return 'recommended_44';
+  if (q === 'elite_45') return 'elite_45';
+  if (q === 'strict_elite_47') return 'strict_elite_47';
+
+  // Back-compat with older frontend values
+  if (q === 'five_star') return 'elite_45';
+  if (q === 'top_rated_and_above') return 'recommended_44';
+  if (q === 'top_rated') return 'recommended_44';
+
+  // Existing modes
+  if (q === 'michelin') return 'michelin';
+  if (q === 'any') return 'any';
+
+  return q;
+}
+
+// SIMPLIFIED FILTERING - Only filter by rating (now respects qualityMode)
+function filterRestaurantsByTier(candidates, qualityMode) {
   const elite = [];
   const moreOptions = [];
   const excluded = [];
+
+  // Default behavior (unchanged)
+  let eliteMin = 4.5;
+  let moreMin = 4.4;
+
+  // Strict elite: only return >= 4.7 to reduce enrichment work
+  if (qualityMode === 'strict_elite_47') {
+    eliteMin = 4.7;
+    moreMin = 999; // effectively none
+  }
+
+  // Elite: >= 4.5 (same as default)
+  if (qualityMode === 'elite_45') {
+    eliteMin = 4.5;
+    moreMin = 4.4;
+  }
+
+  // Recommended: return >= 4.4 in elite bucket (so frontend can sort/filter)
+  if (qualityMode === 'recommended_44') {
+    eliteMin = 4.4;
+    moreMin = 999; // effectively none
+  }
 
   candidates.forEach(place => {
     try {
@@ -248,9 +290,8 @@ function filterRestaurantsByTier(candidates) {
         return;
       }
 
-      // IMPORTANT: 4.5+ bucket (this is what you want for “4.6+” behavior)
-      if (rating >= 4.5) elite.push(place);
-      else if (rating >= 4.4) moreOptions.push(place);
+      if (rating >= eliteMin) elite.push(place);
+      else if (rating >= moreMin) moreOptions.push(place);
       else {
         excluded.push({
           place_id: place.place_id,
@@ -258,7 +299,7 @@ function filterRestaurantsByTier(candidates) {
           rating,
           reviews,
           types: '',
-          reason: 'rating_below_4.4'
+          reason: `rating_below_${Math.min(eliteMin, moreMin) === 999 ? 'threshold' : Math.min(eliteMin, moreMin)}`
         });
       }
     } catch (err) {
@@ -274,8 +315,9 @@ function filterRestaurantsByTier(candidates) {
   });
 
   console.log('SIMPLIFIED FILTER RESULTS:');
-  console.log(`  Elite (4.5+): ${elite.length}`);
-  console.log(`  More Options (4.4+): ${moreOptions.length}`);
+  console.log(`  qualityMode: ${qualityMode}`);
+  console.log(`  Elite (>= ${eliteMin}): ${elite.length}`);
+  console.log(`  More Options (>= ${moreMin === 999 ? 'none' : moreMin}): ${moreOptions.length}`);
   console.log(`  Excluded: ${excluded.length}`);
 
   return { elite, moreOptions, excluded };
@@ -311,7 +353,7 @@ exports.handler = async (event) => {
 
     const body = JSON.parse(event.body || '{}');
     const { location, cuisine, openNow, quality } = body;
-    const qualityMode = (quality || 'any').toLowerCase();
+    const qualityMode = normalizeQualityMode(quality || 'any');
 
     const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
@@ -535,7 +577,7 @@ exports.handler = async (event) => {
     attachMichelinBadgesToCandidates(withinMiles, michelinResolved);
 
     const filterStart = Date.now();
-    const { elite, moreOptions, excluded: tierExcluded } = filterRestaurantsByTier(withinMiles);
+    const { elite, moreOptions, excluded: tierExcluded } = filterRestaurantsByTier(withinMiles, qualityMode);
     timings.filtering_ms = Date.now() - filterStart;
     timings.total_ms = Date.now() - t0;
 
@@ -560,6 +602,7 @@ exports.handler = async (event) => {
       normalizedCoords: { lat: gridLat, lng: gridLng },
       confirmedAddress,
       userLocation: { lat: gridLat, lng: gridLng },
+      qualityMode,
       performance: { ...timings, cache_hit: false }
     };
 
