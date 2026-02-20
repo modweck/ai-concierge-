@@ -6,7 +6,8 @@
     "stars": 0,
     "lat": 40.728,
     "lng": -73.9842,
-    "address": "63 Clinton St, New York, NY 10002"
+    "address": "63 Clinton St, New York, NY 10002",
+    "price_level": 2
   },
   {
     "name": "La Dong",
@@ -15,7 +16,8 @@
     "stars": 0,
     "lat": 40.7628,
     "lng": -73.923,
-    "address": "34-04 36th Ave, Astoria, NY 11106"
+    "address": "34-04 36th Ave, Astoria, NY 11106",
+    "price_level": 1
   },
   {
     "name": "Phayul",
@@ -24,7 +26,8 @@
     "stars": 0,
     "lat": 40.75,
     "lng": -73.89,
-    "address": "74-06 37th Ave, Jackson Heights, NY 11372"
+    "address": "74-06 37th Ave, Jackson Heights, NY 11372",
+    "price_level": 1
   },
   {
     "name": "Cardamom",
@@ -33,7 +36,8 @@
     "stars": 0,
     "lat": 40.7193,
     "lng": -73.999,
-    "address": "290 Hudson St, New York, NY 10013"
+    "address": "290 Hudson St, New York, NY 10013",
+    "price_level": 2
   },
   {
     "name": "Ruffian",
@@ -42,7 +46,8 @@
     "stars": 0,
     "lat": 40.7286,
     "lng": -73.9897,
-    "address": "125 E 7th St, New York, NY 10009"
+    "address": "125 E 7th St, New York, NY 10009",
+    "price_level": 2
   },
   {
     "name": "Bohemian Spirit",
@@ -51,7 +56,8 @@
     "stars": 0,
     "lat": 40.7605,
     "lng": -73.9222,
-    "address": "27-08 23rd Ave, Astoria, NY 11105"
+    "address": "27-08 23rd Ave, Astoria, NY 11105",
+    "price_level": 2
   },
   {
     "name": "Bánh Anh Em",
@@ -60,7 +66,8 @@
     "stars": 0,
     "lat": 40.7143,
     "lng": -73.9614,
-    "address": "140 N 8th St, Brooklyn, NY 11249"
+    "address": "140 N 8th St, Brooklyn, NY 11249",
+    "price_level": 2
   },
   {
     "name": "Ishq",
@@ -69,7 +76,8 @@
     "stars": 0,
     "lat": 40.7358,
     "lng": -74.0004,
-    "address": "52 W 14th St, New York, NY 10011"
+    "address": "52 W 14th St, New York, NY 10011",
+    "price_level": 2
   },
   {
     "name": "Yellow Rose",
@@ -78,7 +86,8 @@
     "stars": 0,
     "lat": 40.7218,
     "lng": -73.9875,
-    "address": "102 Ave B, New York, NY 10009"
+    "address": "102 Ave B, New York, NY 10009",
+    "price_level": 2
   },
   {
     "name": "SaRanRom Thai",
@@ -87,7 +96,8 @@
     "stars": 0,
     "lat": 40.7131,
     "lng": -73.9579,
-    "address": "169 Bedford Ave, Brooklyn, NY 11211"
+    "address": "169 Bedford Ave, Brooklyn, NY 11211",
+    "price_level": 2
   },
   {
     "name": "Gordo's Cantina",
@@ -96,7 +106,8 @@
     "stars": 0,
     "lat": 40.7135,
     "lng": -73.9613,
-    "address": "131 N 7th St, Brooklyn, NY 11249"
+    "address": "131 N 7th St, Brooklyn, NY 11249",
+    "price_level": 2
   },
   {
     "name": "Hupo",
@@ -105,7 +116,8 @@
     "stars": 0,
     "lat": 40.728,
     "lng": -73.9865,
-    "address": "120 1st Ave, New York, NY 10009"
+    "address": "120 1st Ave, New York, NY 10009",
+    "price_level": 2
   },
   {
     "name": "Rolo's",
@@ -114,7 +126,8 @@
     "stars": 0,
     "lat": 40.7229,
     "lng": -73.9953,
-    "address": "212 E Houston St, New York, NY 10002"
+    "address": "212 E Houston St, New York, NY 10002",
+    "price_level": 2
   },
   {
     "name": "Hometown Bar B Que New York",
@@ -123,7 +136,8 @@
     "stars": 0,
     "lat": 40.6766,
     "lng": -73.9802,
-    "address": "454 Van Brunt St, Brooklyn, NY 11231"
+    "address": "454 Van Brunt St, Brooklyn, NY 11231",
+    "price_level": 2
   },
   {
     "name": "Bayon",
@@ -132,7 +146,8 @@
     "stars": 0,
     "lat": 40.7626,
     "lng": -73.9237,
-    "address": "33-13 Broadway, Astoria, NY 11106"
+    "address": "33-13 Broadway, Astoria, NY 11106",
+    "price_level": 1
   },
   {
     "name": "CheLi",
@@ -141,7 +156,8 @@
     "stars": 0,
     "lat": 40.7156,
     "lng": -73.9977,
-    "address": "176 Mott St, New York, NY 10013"
+    "address": "176 Mott St, New York, NY 10013",
+    "price_level": 2
   },
   {
     "name": "Cho Dang Gol",
@@ -150,7 +166,8 @@
     "stars": 0,
     "lat": 40.748,
     "lng": -73.9872,
-    "address": "55 W 35th St, New York, NY 10001"
+    "address": "55 W 35th St, New York, NY 10001",
+    "price_level": 2
   },
   {
     "name": "Laliko",
@@ -159,7 +176,8 @@
     "stars": 0,
     "lat": 40.5776,
     "lng": -73.9727,
-    "address": "1703 Sheepshead Bay Rd, Brooklyn, NY 11235"
+    "address": "1703 Sheepshead Bay Rd, Brooklyn, NY 11235",
+    "price_level": 2
   },
   {
     "name": "Pierozek",
@@ -168,7 +186,8 @@
     "stars": 0,
     "lat": 40.7119,
     "lng": -73.9534,
-    "address": "166 Bedford Ave, Brooklyn, NY 11211"
+    "address": "166 Bedford Ave, Brooklyn, NY 11211",
+    "price_level": 1
   },
   {
     "name": "Caleta 111 Cevicheria",
@@ -177,7 +196,8 @@
     "stars": 0,
     "lat": 40.7525,
     "lng": -73.891,
-    "address": "111 Roosevelt Ave, Jackson Heights, NY 11372"
+    "address": "111 Roosevelt Ave, Jackson Heights, NY 11372",
+    "price_level": 1
   },
   {
     "name": "Tong Sam Gyup Goo Yi",
@@ -186,7 +206,8 @@
     "stars": 0,
     "lat": 40.7623,
     "lng": -73.8298,
-    "address": "162-23 Depot Rd, Flushing, NY 11358"
+    "address": "162-23 Depot Rd, Flushing, NY 11358",
+    "price_level": 2
   },
   {
     "name": "Legend of Taste",
@@ -195,7 +216,8 @@
     "stars": 0,
     "lat": 40.763,
     "lng": -73.829,
-    "address": "42-07 Main St, Flushing, NY 11355"
+    "address": "42-07 Main St, Flushing, NY 11355",
+    "price_level": 1
   },
   {
     "name": "Miss Ada",
@@ -204,7 +226,8 @@
     "stars": 0,
     "lat": 40.6882,
     "lng": -73.9771,
-    "address": "184 DeKalb Ave, Brooklyn, NY 11205"
+    "address": "184 DeKalb Ave, Brooklyn, NY 11205",
+    "price_level": 3
   },
   {
     "name": "Oso",
@@ -213,7 +236,8 @@
     "stars": 0,
     "lat": 40.7032,
     "lng": -73.9929,
-    "address": "636 Sackett St, Brooklyn, NY 11217"
+    "address": "636 Sackett St, Brooklyn, NY 11217",
+    "price_level": 2
   },
   {
     "name": "Thai Diner",
@@ -222,7 +246,8 @@
     "stars": 0,
     "lat": 40.7202,
     "lng": -73.9959,
-    "address": "186 Mott St, New York, NY 10012"
+    "address": "186 Mott St, New York, NY 10012",
+    "price_level": 2
   },
   {
     "name": "Chavela's",
@@ -231,7 +256,8 @@
     "stars": 0,
     "lat": 40.6803,
     "lng": -73.9669,
-    "address": "736 Franklin Ave, Brooklyn, NY 11238"
+    "address": "736 Franklin Ave, Brooklyn, NY 11238",
+    "price_level": 2
   },
   {
     "name": "Speedy Romeo",
@@ -240,7 +266,8 @@
     "stars": 0,
     "lat": 40.6788,
     "lng": -73.9631,
-    "address": "376 Classon Ave, Brooklyn, NY 11238"
+    "address": "376 Classon Ave, Brooklyn, NY 11238",
+    "price_level": 2
   },
   {
     "name": "Katz's",
@@ -249,7 +276,8 @@
     "stars": 0,
     "lat": 40.7223,
     "lng": -73.9874,
-    "address": "205 E Houston St, New York, NY 10002"
+    "address": "205 E Houston St, New York, NY 10002",
+    "price_level": 2
   },
   {
     "name": "Untable",
@@ -258,7 +286,8 @@
     "stars": 0,
     "lat": 40.719,
     "lng": -73.9848,
-    "address": "175 E 2nd St, New York, NY 10009"
+    "address": "175 E 2nd St, New York, NY 10009",
+    "price_level": 2
   },
   {
     "name": "Little Alley",
@@ -267,7 +296,8 @@
     "stars": 0,
     "lat": 40.7429,
     "lng": -73.9833,
-    "address": "115 E 27th St, New York, NY 10016"
+    "address": "115 E 27th St, New York, NY 10016",
+    "price_level": 2
   },
   {
     "name": "Pinch Chinese",
@@ -276,7 +306,8 @@
     "stars": 0,
     "lat": 40.7256,
     "lng": -73.99,
-    "address": "177 Prince St, New York, NY 10012"
+    "address": "177 Prince St, New York, NY 10012",
+    "price_level": 2
   },
   {
     "name": "Café Mars",
@@ -285,7 +316,8 @@
     "stars": 0,
     "lat": 40.6788,
     "lng": -73.976,
-    "address": "218 Court St, Brooklyn, NY 11201"
+    "address": "218 Court St, Brooklyn, NY 11201",
+    "price_level": 3
   },
   {
     "name": "Dhamaka",
@@ -294,7 +326,8 @@
     "stars": 0,
     "lat": 40.7168,
     "lng": -73.9925,
-    "address": "119 Delancey St, New York, NY 10002"
+    "address": "119 Delancey St, New York, NY 10002",
+    "price_level": 2
   },
   {
     "name": "Tha Phraya",
@@ -303,7 +336,8 @@
     "stars": 0,
     "lat": 40.7138,
     "lng": -73.9581,
-    "address": "171 Bedford Ave, Brooklyn, NY 11211"
+    "address": "171 Bedford Ave, Brooklyn, NY 11211",
+    "price_level": 2
   },
   {
     "name": "Nami Nori",
@@ -312,7 +346,8 @@
     "stars": 0,
     "lat": 40.7342,
     "lng": -74.0031,
-    "address": "33 Carmine St, New York, NY 10014"
+    "address": "33 Carmine St, New York, NY 10014",
+    "price_level": 3
   },
   {
     "name": "Sagara",
@@ -321,7 +356,8 @@
     "stars": 0,
     "lat": 40.7275,
     "lng": -73.989,
-    "address": "86 1st Ave, New York, NY 10009"
+    "address": "86 1st Ave, New York, NY 10009",
+    "price_level": 2
   },
   {
     "name": "Shalom Japan",
@@ -330,7 +366,8 @@
     "stars": 0,
     "lat": 40.7118,
     "lng": -73.9557,
-    "address": "310 S 4th St, Brooklyn, NY 11211"
+    "address": "310 S 4th St, Brooklyn, NY 11211",
+    "price_level": 2
   },
   {
     "name": "HanGawi",
@@ -339,7 +376,8 @@
     "stars": 0,
     "lat": 40.7478,
     "lng": -73.9826,
-    "address": "12 E 32nd St, New York, NY 10016"
+    "address": "12 E 32nd St, New York, NY 10016",
+    "price_level": 2
   },
   {
     "name": "Tolo",
@@ -348,7 +386,8 @@
     "stars": 0,
     "lat": 40.729,
     "lng": -73.9858,
-    "address": "178 1st Ave, New York, NY 10009"
+    "address": "178 1st Ave, New York, NY 10009",
+    "price_level": 2
   },
   {
     "name": "Little Myanmar",
@@ -357,7 +396,8 @@
     "stars": 0,
     "lat": 40.728,
     "lng": -73.9858,
-    "address": "131 1st Ave, New York, NY 10003"
+    "address": "131 1st Ave, New York, NY 10003",
+    "price_level": 1
   },
   {
     "name": "Kung Fu Little Steamed Buns Ramen",
@@ -366,7 +406,8 @@
     "stars": 0,
     "lat": 40.7555,
     "lng": -73.993,
-    "address": "811 8th Ave, New York, NY 10019"
+    "address": "811 8th Ave, New York, NY 10019",
+    "price_level": 1
   },
   {
     "name": "Tonchin",
@@ -375,7 +416,8 @@
     "stars": 0,
     "lat": 40.7556,
     "lng": -73.9862,
-    "address": "13 W 36th St, New York, NY 10018"
+    "address": "13 W 36th St, New York, NY 10018",
+    "price_level": 2
   },
   {
     "name": "Russ & Daughters Cafe",
@@ -384,7 +426,8 @@
     "stars": 0,
     "lat": 40.7228,
     "lng": -73.9884,
-    "address": "127 Orchard St, New York, NY 10002"
+    "address": "127 Orchard St, New York, NY 10002",
+    "price_level": 2
   },
   {
     "name": "Una Pizza Napoletana",
@@ -393,7 +436,8 @@
     "stars": 0,
     "lat": 40.7262,
     "lng": -73.9866,
-    "address": "175 Orchard St, New York, NY 10002"
+    "address": "175 Orchard St, New York, NY 10002",
+    "price_level": 2
   },
   {
     "name": "Dim Sum Go Go",
@@ -402,7 +446,8 @@
     "stars": 0,
     "lat": 40.714,
     "lng": -73.9982,
-    "address": "5 E Broadway, New York, NY 10038"
+    "address": "5 E Broadway, New York, NY 10038",
+    "price_level": 1
   },
   {
     "name": "Pranakhon",
@@ -411,7 +456,8 @@
     "stars": 0,
     "lat": 40.7183,
     "lng": -73.9932,
-    "address": "88 University Pl, New York, NY 10003"
+    "address": "88 University Pl, New York, NY 10003",
+    "price_level": 2
   },
   {
     "name": "Agi's Counter",
@@ -420,7 +466,8 @@
     "stars": 0,
     "lat": 40.6779,
     "lng": -73.9629,
-    "address": "818 Classon Ave, Brooklyn, NY 11238"
+    "address": "818 Classon Ave, Brooklyn, NY 11238",
+    "price_level": 3
   },
   {
     "name": "Jiang Nan",
@@ -429,7 +476,8 @@
     "stars": 0,
     "lat": 40.7626,
     "lng": -73.8303,
-    "address": "40-52 Main St, Flushing, NY 11354"
+    "address": "40-52 Main St, Flushing, NY 11354",
+    "price_level": 2
   },
   {
     "name": "8282",
@@ -438,7 +486,8 @@
     "stars": 0,
     "lat": 40.7485,
     "lng": -73.9868,
-    "address": "8 W 36th St, New York, NY 10018"
+    "address": "8 W 36th St, New York, NY 10018",
+    "price_level": 2
   },
   {
     "name": "Alley 41",
@@ -447,7 +496,8 @@
     "stars": 0,
     "lat": 40.7628,
     "lng": -73.829,
-    "address": "41-44 Main St, Flushing, NY 11355"
+    "address": "41-44 Main St, Flushing, NY 11355",
+    "price_level": 1
   },
   {
     "name": "Alta Calidad",
@@ -456,7 +506,8 @@
     "stars": 0,
     "lat": 40.6794,
     "lng": -73.975,
-    "address": "552 Vanderbilt Ave, Brooklyn, NY 11238"
+    "address": "552 Vanderbilt Ave, Brooklyn, NY 11238",
+    "price_level": 2
   },
   {
     "name": "Atla",
@@ -465,7 +516,8 @@
     "stars": 0,
     "lat": 40.726,
     "lng": -73.9935,
-    "address": "372 Lafayette St, New York, NY 10012"
+    "address": "372 Lafayette St, New York, NY 10012",
+    "price_level": 2
   },
   {
     "name": "Bonnie's",
@@ -474,7 +526,8 @@
     "stars": 0,
     "lat": 40.712,
     "lng": -73.9558,
-    "address": "398 S 2nd St, Brooklyn, NY 11211"
+    "address": "398 S 2nd St, Brooklyn, NY 11211",
+    "price_level": 2
   },
   {
     "name": "Boro6 Wine Bar",
@@ -483,7 +536,8 @@
     "stars": 0,
     "lat": 40.7556,
     "lng": -73.9225,
-    "address": "28-60 Steinway St, Astoria, NY 11103"
+    "address": "28-60 Steinway St, Astoria, NY 11103",
+    "price_level": 2
   },
   {
     "name": "Bungalow",
@@ -492,7 +546,8 @@
     "stars": 0,
     "lat": 40.68,
     "lng": -73.975,
-    "address": "547 Vanderbilt Ave, Brooklyn, NY 11238"
+    "address": "547 Vanderbilt Ave, Brooklyn, NY 11238",
+    "price_level": 2
   },
   {
     "name": "Burrata",
@@ -501,7 +556,8 @@
     "stars": 0,
     "lat": 40.743,
     "lng": -73.941,
-    "address": "43-03 Queens Blvd, Sunnyside, NY 11104"
+    "address": "43-03 Queens Blvd, Sunnyside, NY 11104",
+    "price_level": 2
   },
   {
     "name": "C as in Charlie",
@@ -510,7 +566,8 @@
     "stars": 0,
     "lat": 40.7193,
     "lng": -73.988,
-    "address": "123 E 1st St, New York, NY 10009"
+    "address": "123 E 1st St, New York, NY 10009",
+    "price_level": 2
   },
   {
     "name": "Cervo's",
@@ -519,7 +576,8 @@
     "stars": 0,
     "lat": 40.7189,
     "lng": -73.9864,
-    "address": "43 Canal St, New York, NY 10002"
+    "address": "43 Canal St, New York, NY 10002",
+    "price_level": 3
   },
   {
     "name": "Chalong",
@@ -528,7 +586,8 @@
     "stars": 0,
     "lat": 40.6963,
     "lng": -73.9712,
-    "address": "238 Flatbush Ave, Brooklyn, NY 11217"
+    "address": "238 Flatbush Ave, Brooklyn, NY 11217",
+    "price_level": 2
   },
   {
     "name": "Chuan Tian Xia",
@@ -537,7 +596,8 @@
     "stars": 0,
     "lat": 40.7636,
     "lng": -73.8286,
-    "address": "41-28 Main St, Flushing, NY 11355"
+    "address": "41-28 Main St, Flushing, NY 11355",
+    "price_level": 1
   },
   {
     "name": "Chutney Masala",
@@ -546,7 +606,8 @@
     "stars": 0,
     "lat": 40.8917,
     "lng": -73.8953,
-    "address": "4032 Hillman Ave, Bronx, NY 10463"
+    "address": "4032 Hillman Ave, Bronx, NY 10463",
+    "price_level": 2
   },
   {
     "name": "Coqodaq",
@@ -555,7 +616,8 @@
     "stars": 0,
     "lat": 40.7467,
     "lng": -73.9854,
-    "address": "5 W 31st St, New York, NY 10001"
+    "address": "5 W 31st St, New York, NY 10001",
+    "price_level": 2
   },
   {
     "name": "Covacha",
@@ -564,7 +626,8 @@
     "stars": 0,
     "lat": 40.7125,
     "lng": -73.9555,
-    "address": "180 S 4th St, Brooklyn, NY 11211"
+    "address": "180 S 4th St, Brooklyn, NY 11211",
+    "price_level": 2
   },
   {
     "name": "Enoteca Maria",
@@ -573,7 +636,8 @@
     "stars": 0,
     "lat": 40.6434,
     "lng": -74.0769,
-    "address": "27 Hyatt St, Staten Island, NY 10301"
+    "address": "27 Hyatt St, Staten Island, NY 10301",
+    "price_level": 2
   },
   {
     "name": "Falansai",
@@ -582,7 +646,8 @@
     "stars": 0,
     "lat": 40.7026,
     "lng": -73.9296,
-    "address": "112 Harrison Pl, Brooklyn, NY 11237"
+    "address": "112 Harrison Pl, Brooklyn, NY 11237",
+    "price_level": 2
   },
   {
     "name": "Haenyeo",
@@ -591,7 +656,8 @@
     "stars": 0,
     "lat": 40.6845,
     "lng": -73.978,
-    "address": "239 5th Ave, Brooklyn, NY 11215"
+    "address": "239 5th Ave, Brooklyn, NY 11215",
+    "price_level": 2
   },
   {
     "name": "LORE",
@@ -600,7 +666,8 @@
     "stars": 0,
     "lat": 40.682,
     "lng": -73.9765,
-    "address": "566 Vanderbilt Ave, Brooklyn, NY 11238"
+    "address": "566 Vanderbilt Ave, Brooklyn, NY 11238",
+    "price_level": 3
   },
   {
     "name": "Lungi",
@@ -609,7 +676,8 @@
     "stars": 0,
     "lat": 40.7292,
     "lng": -73.9898,
-    "address": "30 St Marks Pl, New York, NY 10003"
+    "address": "30 St Marks Pl, New York, NY 10003",
+    "price_level": 2
   },
   {
     "name": "MáLà Project",
@@ -618,7 +686,8 @@
     "stars": 0,
     "lat": 40.7268,
     "lng": -73.9893,
-    "address": "122 1st Ave, New York, NY 10009"
+    "address": "122 1st Ave, New York, NY 10009",
+    "price_level": 1
   },
   {
     "name": "Momofuku Noodle Bar",
@@ -627,7 +696,8 @@
     "stars": 0,
     "lat": 40.7293,
     "lng": -73.9843,
-    "address": "171 1st Ave, New York, NY 10003"
+    "address": "171 1st Ave, New York, NY 10003",
+    "price_level": 2
   },
   {
     "name": "Noreetuh",
@@ -636,7 +706,8 @@
     "stars": 0,
     "lat": 40.7267,
     "lng": -73.9867,
-    "address": "128 1st Ave, New York, NY 10009"
+    "address": "128 1st Ave, New York, NY 10009",
+    "price_level": 3
   },
   {
     "name": "Olmo",
@@ -645,7 +716,8 @@
     "stars": 0,
     "lat": 40.6917,
     "lng": -73.9747,
-    "address": "157 Adelphi St, Brooklyn, NY 11205"
+    "address": "157 Adelphi St, Brooklyn, NY 11205",
+    "price_level": 3
   },
   {
     "name": "Peppercorn Station",
@@ -654,7 +726,8 @@
     "stars": 0,
     "lat": 40.6887,
     "lng": -73.9803,
-    "address": "36 Willoughby St, Brooklyn, NY 11201"
+    "address": "36 Willoughby St, Brooklyn, NY 11201",
+    "price_level": 1
   },
   {
     "name": "Potluck Club",
@@ -663,7 +736,8 @@
     "stars": 0,
     "lat": 40.7116,
     "lng": -73.9564,
-    "address": "251 Grand St, Brooklyn, NY 11211"
+    "address": "251 Grand St, Brooklyn, NY 11211",
+    "price_level": 2
   },
   {
     "name": "Roberta's",
@@ -672,7 +746,8 @@
     "stars": 0,
     "lat": 40.705,
     "lng": -73.9336,
-    "address": "261 Moore St, Brooklyn, NY 11206"
+    "address": "261 Moore St, Brooklyn, NY 11206",
+    "price_level": 2
   },
   {
     "name": "Runner Up",
@@ -681,7 +756,8 @@
     "stars": 0,
     "lat": 40.7082,
     "lng": -73.9498,
-    "address": "46 Graham Ave, Brooklyn, NY 11206"
+    "address": "46 Graham Ave, Brooklyn, NY 11206",
+    "price_level": 2
   },
   {
     "name": "Yemenat",
@@ -690,7 +766,8 @@
     "stars": 0,
     "lat": 40.706,
     "lng": -73.951,
-    "address": "234 Grand St, Brooklyn, NY 11211"
+    "address": "234 Grand St, Brooklyn, NY 11211",
+    "price_level": 1
   },
   {
     "name": "Win Son",
@@ -699,7 +776,8 @@
     "stars": 0,
     "lat": 40.7127,
     "lng": -73.956,
-    "address": "159 Graham Ave, Brooklyn, NY 11206"
+    "address": "159 Graham Ave, Brooklyn, NY 11206",
+    "price_level": 2
   },
   {
     "name": "Zaab Zaab",
@@ -708,7 +786,8 @@
     "stars": 0,
     "lat": 40.7122,
     "lng": -73.9424,
-    "address": "533 Metropolitan Ave, Brooklyn, NY 11211"
+    "address": "533 Metropolitan Ave, Brooklyn, NY 11211",
+    "price_level": 1
   },
   {
     "name": "Cecily",
@@ -717,7 +796,8 @@
     "stars": 0,
     "lat": 40.7266,
     "lng": -73.9898,
-    "address": "135 1st Ave, New York, NY 10003"
+    "address": "135 1st Ave, New York, NY 10003",
+    "price_level": 3
   },
   {
     "name": "Soba Totto",
@@ -726,7 +806,8 @@
     "stars": 0,
     "lat": 40.7537,
     "lng": -73.973,
-    "address": "211 E 43rd St, New York, NY 10017"
+    "address": "211 E 43rd St, New York, NY 10017",
+    "price_level": 2
   },
   {
     "name": "Oxomoco",
@@ -735,7 +816,8 @@
     "stars": 0,
     "lat": 40.7176,
     "lng": -73.9617,
-    "address": "128 Greenpoint Ave, Brooklyn, NY 11222"
+    "address": "128 Greenpoint Ave, Brooklyn, NY 11222",
+    "price_level": 3
   },
   {
     "name": "Ugly Baby",
@@ -744,6 +826,7 @@
     "stars": 0,
     "lat": 40.6802,
     "lng": -73.9782,
-    "address": "407 Smith St, Brooklyn, NY 11231"
+    "address": "407 Smith St, Brooklyn, NY 11231",
+    "price_level": 2
   }
 ]
