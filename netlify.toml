@@ -1,5 +1,5 @@
 [build]
   functions = "netlify/functions"
-
 [functions]
-  included_files = ["netlify/functions/michelin_nyc.json"]
+  included_files = ["netlify/functions/michelin_nyc.json", "netlify/functions/bib_gourmand_nyc.json"]
+  timeout = 60
