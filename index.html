@@ -522,7 +522,20 @@ function sortResults() {
   let sorted = [...filtered];
 
   if (sortBy === 'rating') {
-    sorted.sort((a,b)=>(b.googleRating||0)-(a.googleRating||0));
+    sorted.sort((a,b)=>{
+      function michelinRank(r) {
+        if (!r.michelin) return 0;
+        const d = r.michelin.distinction || '';
+        const s = r.michelin.stars || 0;
+        if (s >= 1) return 100 + s;
+        if (d === 'bib_gourmand' || d === 'bib') return 50;
+        if (d === 'recommended') return 25;
+        return 10;
+      }
+      const ma = michelinRank(a), mb = michelinRank(b);
+      if (ma !== mb) return mb - ma;
+      return (b.googleRating||0)-(a.googleRating||0);
+    });
   } else if (sortBy === 'distance') {
     sorted.sort((a,b)=>{
       const aDuration = a.walkDurationSeconds || ((a.walkMinutes||999999) * 60);
