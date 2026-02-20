@@ -10,8 +10,8 @@ const fetch = (...args) => {
 let MICHELIN_BASE = [];
 try {
   MICHELIN_BASE = JSON.parse(fs.readFileSync(path.join(__dirname, 'michelin_nyc.json'), 'utf8'));
-  console.log(`✅ Michelin base: ${MICHELIN_BASE.length} entries`);
-} catch (err) { console.warn('❌ Michelin base missing:', err.message); }
+  console.log(`\u2705 Michelin base: ${MICHELIN_BASE.length} entries`);
+} catch (err) { console.warn('\u274c Michelin base missing:', err.message); }
 
 let MICHELIN_RESOLVED = null;
 let MICHELIN_RESOLVED_AT = 0;
@@ -43,12 +43,13 @@ async function runWithConcurrency(items, limit, worker) {
   return results;
 }
 
-// ---- Michelin resolution ----
+// ---- Michelin ----
 async function resolveMichelinPlaces(GOOGLE_API_KEY) {
   if (!GOOGLE_API_KEY) return [];
   if (MICHELIN_RESOLVED && (Date.now() - MICHELIN_RESOLVED_AT) < MICHELIN_RESOLVE_TTL_MS) return MICHELIN_RESOLVED;
   if (!MICHELIN_BASE?.length) { MICHELIN_RESOLVED = []; MICHELIN_RESOLVED_AT = Date.now(); return []; }
-  console.log(`🔎 Resolving Michelin... (${MICHELIN_BASE.length})`);
+
+  console.log(`\ud83d\udd0e Resolving Michelin... (${MICHELIN_BASE.length})`);
   const resolved = await runWithConcurrency(MICHELIN_BASE, 5, async (m) => {
     if (!m?.name) return null;
     const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(m.name + ' New York NY')}&type=restaurant&key=${GOOGLE_API_KEY}`;
@@ -61,9 +62,10 @@ async function resolveMichelinPlaces(GOOGLE_API_KEY) {
       return { ...m, place_id: best.place_id || null, address: best.formatted_address || null, lat: best.geometry?.location?.lat ?? null, lng: best.geometry?.location?.lng ?? null, googleRating: best.rating ?? null, googleReviewCount: best.user_ratings_total ?? null };
     } catch { return { ...m, place_id: null, address: null, lat: null, lng: null, googleRating: null, googleReviewCount: null }; }
   });
+
   MICHELIN_RESOLVED = resolved.filter(Boolean);
   MICHELIN_RESOLVED_AT = Date.now();
-  console.log(`✅ Michelin resolved: ${MICHELIN_RESOLVED.filter(x => x.place_id).length}/${MICHELIN_RESOLVED.length}`);
+  console.log(`\u2705 Michelin resolved: ${MICHELIN_RESOLVED.filter(x => x.place_id).length}/${MICHELIN_RESOLVED.length}`);
   return MICHELIN_RESOLVED;
 }
 
@@ -76,18 +78,18 @@ function attachMichelinBadges(candidates, michelinResolved) {
     const m = (c?.place_id && byId.get(c.place_id)) || (normalizeName(c?.name) && byName.get(normalizeName(c.name)));
     if (m) { c.michelin = { stars: m.stars || 0, distinction: m.distinction || 'star' }; matched++; }
   }
-  console.log(`✅ Michelin badges: ${matched}`);
+  console.log(`\u2705 Michelin badges: ${matched}`);
 }
 
 // ---- Cache ----
 const resultCache = new Map();
 const CACHE_TTL_MS = 10 * 60 * 1000;
-function getCacheKey(loc, q, c, o) { return `${loc}_${q}_${String(c || 'any').toLowerCase().trim()}_${o ? 'open' : 'any'}`; }
-function getFromCache(key) { const c = resultCache.get(key); if (!c) return null; if (Date.now() - c.timestamp > CACHE_TTL_MS) { resultCache.delete(key); return null; } return c.data; }
-function setCache(key, data) { resultCache.set(key, { data, timestamp: Date.now() }); if (resultCache.size > 100) { const o = Array.from(resultCache.entries()).sort((a, b) => a[1].timestamp - b[1].timestamp)[0]; resultCache.delete(o[0]); } }
+function getCacheKey(loc, q, c, o) { return `${loc}_${q}_${String(c||'any').toLowerCase().trim()}_${o?'open':'any'}`; }
+function getFromCache(key) { const c = resultCache.get(key); if (!c) return null; if (Date.now()-c.timestamp > CACHE_TTL_MS) { resultCache.delete(key); return null; } return c.data; }
+function setCache(key, data) { resultCache.set(key, { data, timestamp: Date.now() }); if (resultCache.size > 100) { const o = Array.from(resultCache.entries()).sort((a,b)=>a[1].timestamp-b[1].timestamp)[0]; resultCache.delete(o[0]); } }
 
 function normalizeQualityMode(q) {
-  q = String(q || 'any').toLowerCase().trim();
+  q = String(q||'any').toLowerCase().trim();
   if (q === 'recommended_44') return 'recommended_44';
   if (q === 'elite_45') return 'elite_45';
   if (q === 'strict_elite_46') return 'strict_elite_46';
@@ -98,37 +100,7 @@ function normalizeQualityMode(q) {
   return 'any';
 }
 
-// ---- Junk detection ----
-const EXCLUDED_TYPES = new Set([
-  'lodging', 'hotel', 'motel', 'cafe', 'bar', 'night_club',
-  'bakery', 'grocery_or_supermarket', 'supermarket', 'convenience_store',
-  'gas_station', 'store', 'liquor_store', 'drugstore', 'meal_delivery',
-  'ice_cream_shop', 'coffee_shop', 'bagel_shop', 'donut_shop',
-  'sandwich_shop', 'food_court'
-]);
-
-const JUNK_NAME_PATTERNS = [
-  /\bfood\s*truck/i, /\bfood\s*cart/i, /\bfood\s*stand/i,
-  /\bdeli\b/i, /\bbodega/i, /\bconvenience/i, /\bgrocery/i,
-  /\bmarket\b/i, /\bmini\s*mart/i, /\bgas\s*station/i,
-  /\b99\s*cent/i, /\bdollar\s*(store|tree)/i,
-  /\bpizza\s*(store|shop|counter|slice|place)\b/i,
-  /\bhalal\s*(cart|stand|truck|food)/i,
-  /\bhotdog/i, /\bhot\s*dog\s*(cart|stand|truck)/i,
-  /\bcatering\b/i, /\bvending/i, /\bcafeteria/i,
-  /\bcanteen/i, /\bbuffet\b/i
-];
-
-function isJunkPlace(place) {
-  const types = place.types || [];
-  for (const t of types) { if (EXCLUDED_TYPES.has(t)) return `type:${t}`; }
-  for (const t of types) { if (t.includes('hotel') || t.includes('lodging')) return `type:${t}`; }
-  const name = String(place.name || '');
-  for (const pattern of JUNK_NAME_PATTERNS) { if (pattern.test(name)) return `name:${pattern}`; }
-  return false;
-}
-
-// ---- Filter with Michelin bypass ----
+// ---- Filter with low-review protection ----
 function filterRestaurantsByTier(candidates, qualityMode) {
   const elite = [], moreOptions = [], excluded = [];
   let eliteMin = 4.5, moreMin = 4.4, strict47 = false;
@@ -141,50 +113,32 @@ function filterRestaurantsByTier(candidates, qualityMode) {
     try {
       const reviews = Number(place.user_ratings_total ?? place.googleReviewCount ?? 0) || 0;
       const rating = Number(place.googleRating ?? place.rating ?? 0) || 0;
-      const name = place.name || '';
 
-      // =====================================================
-      // MICHELIN BYPASS: Michelin restaurants ALWAYS pass
-      // No review minimum, no rating minimum, no junk filter
-      // A Michelin star beats any Google review count
-      // =====================================================
-      if (place.michelin) {
-        elite.push(place);
-        continue;
-      }
+      // MICHELIN BYPASS: Michelin restaurants always pass all filters
+      if (place.michelin) { elite.push(place); continue; }
 
-      // 1) Junk type / name filter
-      const junkReason = isJunkPlace(place);
-      if (junkReason) { excluded.push({ name, reason: `junk(${junkReason})` }); continue; }
-
-      // 2) Perfect 5.0 — almost always fake, block unless 500+ reviews
-      if (rating >= 5.0 && reviews < 500) { excluded.push({ name, reason: `perfect_5.0 (${reviews}rev)` }); continue; }
-
-      // 3) 4.9 needs 50+ reviews
-      if (rating >= 4.9 && reviews < 50) { excluded.push({ name, reason: `unreliable ${rating}★/${reviews}rev` }); continue; }
-
-      // 4) 4.7-4.8 needs 20+ reviews
-      if (rating >= 4.7 && reviews < 20) { excluded.push({ name, reason: `few_reviews ${rating}★/${reviews}rev` }); continue; }
-
-      // 5) Everything else needs 25+ reviews
-      if (reviews < 25) { excluded.push({ name, reason: `min_reviews (${reviews})` }); continue; }
-
+      if (rating >= 4.9 && reviews < 50) { excluded.push({ name: place.name, reason: `unreliable ${rating}\u2605/${reviews}rev` }); continue; }
+      if (rating >= 4.7 && reviews < 20) { excluded.push({ name: place.name, reason: `few_reviews ${rating}\u2605/${reviews}rev` }); continue; }
+      if (reviews < 10) { excluded.push({ name: place.name, reason: `min_reviews ${reviews}` }); continue; }
       if (rating >= eliteMin) elite.push(place);
       else if (!strict47 && rating >= moreMin) moreOptions.push(place);
-      else excluded.push({ name, reason: 'below_threshold' });
+      else excluded.push({ name: place.name, reason: 'below_threshold' });
     } catch (err) { excluded.push({ name: place?.name, reason: `error: ${err.message}` }); }
   }
-
   console.log(`FILTER ${qualityMode}: Elite(>=${eliteMin}):${elite.length} | More:${moreOptions.length} | Excl:${excluded.length}`);
   return { elite, moreOptions, excluded };
 }
 
-
-// ---- LAYER 2: New API Nearby Search — 5 radius rings ----
+// =========================================================================
+// LAYER 2: New API Nearby Search \u2014 5 radius rings (was 7)
+// Dropped 500m and 6000m \u2014 500m overlaps with legacy grid center,
+// 6000m overlaps heavily with 8000m
+// =========================================================================
 async function newApiNearbyRings(lat, lng, KEY) {
   const rings = [1000, 2000, 3500, 5500, 8000];
   const fieldMask = 'places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.priceLevel,places.currentOpeningHours,places.types';
   const all = [], seen = new Set();
+
   await runWithConcurrency(rings, 5, async (radius) => {
     try {
       const resp = await fetch('https://places.googleapis.com/v1/places:searchNearby', {
@@ -196,27 +150,28 @@ async function newApiNearbyRings(lat, lng, KEY) {
           languageCode: 'en'
         })
       });
-      if (!resp.ok) { console.log(`⚠️ Nearby ${radius}m: HTTP ${resp.status}`); return; }
+      if (!resp.ok) { console.log(`\u26a0\ufe0f Nearby ${radius}m: HTTP ${resp.status}`); return; }
       const data = await resp.json();
       let added = 0;
       for (const p of (data.places || [])) {
         const id = p.id || ''; if (!id || seen.has(id)) continue; seen.add(id); added++;
-        all.push({
-          place_id: id, name: p.displayName?.text || '', vicinity: p.formattedAddress || '', formatted_address: p.formattedAddress || '',
+        all.push({ place_id: id, name: p.displayName?.text || '', vicinity: p.formattedAddress || '', formatted_address: p.formattedAddress || '',
           geometry: { location: { lat: p.location?.latitude ?? null, lng: p.location?.longitude ?? null } },
           rating: p.rating ?? 0, user_ratings_total: p.userRatingCount ?? 0,
           price_level: convertPrice(p.priceLevel), opening_hours: p.currentOpeningHours ? { open_now: p.currentOpeningHours.openNow === true } : null,
-          types: p.types || [], _source: 'new_nearby'
-        });
+          types: p.types || [], _source: 'new_nearby' });
       }
-      console.log(`✅ Nearby ${radius}m: ${(data.places || []).length} ret, ${added} new`);
-    } catch (err) { console.log(`⚠️ Nearby ${radius}m: ${err.message}`); }
+      console.log(`\u2705 Nearby ${radius}m: ${(data.places||[]).length} ret, ${added} new`);
+    } catch (err) { console.log(`\u26a0\ufe0f Nearby ${radius}m: ${err.message}`); }
   });
   return all;
 }
 
-
-// ---- LAYER 3: Text Search by cuisine ----
+// =========================================================================
+// LAYER 3: Text Search by cuisine \u2014 12 queries (was 18)
+// Dropped: pizza, brunch, ramen, vietnamese, greek, steakhouse
+// (these overlap heavily with italian, american, japanese, etc.)
+// =========================================================================
 async function newApiTextByCuisine(lat, lng, userCuisine, KEY) {
   let queries;
   if (userCuisine) {
@@ -231,8 +186,10 @@ async function newApiTextByCuisine(lat, lng, userCuisine, KEY) {
       'best sushi restaurants', 'best seafood restaurants'
     ];
   }
+
   const fieldMask = 'places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.priceLevel,places.currentOpeningHours,places.types';
   const all = [], seen = new Set();
+
   await runWithConcurrency(queries, 6, async (query) => {
     try {
       const resp = await fetch('https://places.googleapis.com/v1/places:searchText', {
@@ -244,21 +201,19 @@ async function newApiTextByCuisine(lat, lng, userCuisine, KEY) {
           languageCode: 'en'
         })
       });
-      if (!resp.ok) { console.log(`⚠️ Text "${query}": HTTP ${resp.status}`); return; }
+      if (!resp.ok) { console.log(`\u26a0\ufe0f Text "${query}": HTTP ${resp.status}`); return; }
       const data = await resp.json();
       let added = 0;
       for (const p of (data.places || [])) {
         const id = p.id || ''; if (!id || seen.has(id)) continue; seen.add(id); added++;
-        all.push({
-          place_id: id, name: p.displayName?.text || '', vicinity: p.formattedAddress || '', formatted_address: p.formattedAddress || '',
+        all.push({ place_id: id, name: p.displayName?.text || '', vicinity: p.formattedAddress || '', formatted_address: p.formattedAddress || '',
           geometry: { location: { lat: p.location?.latitude ?? null, lng: p.location?.longitude ?? null } },
           rating: p.rating ?? 0, user_ratings_total: p.userRatingCount ?? 0,
           price_level: convertPrice(p.priceLevel), opening_hours: p.currentOpeningHours ? { open_now: p.currentOpeningHours.openNow === true } : null,
-          types: p.types || [], _source: 'new_text'
-        });
+          types: p.types || [], _source: 'new_text' });
       }
-      console.log(`✅ Text "${query}": ${(data.places || []).length} ret, ${added} new`);
-    } catch (err) { console.log(`⚠️ Text "${query}": ${err.message}`); }
+      console.log(`\u2705 Text "${query}": ${(data.places||[]).length} ret, ${added} new`);
+    } catch (err) { console.log(`\u26a0\ufe0f Text "${query}": ${err.message}`); }
   });
   return all;
 }
@@ -268,29 +223,31 @@ function convertPrice(str) {
   return { PRICE_LEVEL_FREE: 0, PRICE_LEVEL_INEXPENSIVE: 1, PRICE_LEVEL_MODERATE: 2, PRICE_LEVEL_EXPENSIVE: 3, PRICE_LEVEL_VERY_EXPENSIVE: 4 }[str] ?? null;
 }
 
-
-// ---- Legacy grid — 2 rings, no pagination ----
+// =========================================================================
+// Legacy grid \u2014 2 rings instead of 3 (~25 points instead of ~37)
+// No pagination \u2014 just page 1 (20 results per point)
+// The new API layers now cover what pages 2-3 used to catch
+// =========================================================================
 function buildGrid(cLat, cLng) {
   const sp = 0.75 / 69;
-  const rings = 2;
+  const rings = 2;  // was 3
   const pts = [];
   for (let dy = -rings; dy <= rings; dy++)
     for (let dx = -rings; dx <= rings; dx++) {
-      if (Math.sqrt(dy * dy + dx * dx) > rings + 0.5) continue;
-      pts.push({ lat: cLat + dy * sp, lng: cLng + dx * sp });
+      if (Math.sqrt(dy*dy + dx*dx) > rings + 0.5) continue;
+      pts.push({ lat: cLat + dy*sp, lng: cLng + dx*sp });
     }
-  console.log(`🗺️ Grid: ${pts.length} points (2 rings, no pagination)`);
+  console.log(`\ud83d\uddfa\ufe0f Grid: ${pts.length} points (2 rings, no pagination)`);
   return pts;
 }
-
 
 // =========================================================================
 // MAIN HANDLER
 // =========================================================================
 exports.handler = async (event) => {
-  const stableResponse = (elite = [], more = [], stats = {}, error = null) => ({
+  const stableResponse = (elite=[], more=[], stats={}, error=null) => ({
     statusCode: 200, headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ elite: elite || [], moreOptions: more || [], confirmedAddress: stats.confirmedAddress || null, userLocation: stats.userLocation || null, stats, error })
+    body: JSON.stringify({ elite: elite||[], moreOptions: more||[], confirmedAddress: stats.confirmedAddress||null, userLocation: stats.userLocation||null, stats, error })
   });
 
   try {
@@ -298,68 +255,55 @@ exports.handler = async (event) => {
 
     const t0 = Date.now();
     const timings = { legacy_ms: 0, new_nearby_ms: 0, new_text_ms: 0, filtering_ms: 0, total_ms: 0 };
-
     const body = JSON.parse(event.body || '{}');
     const { location, cuisine, openNow, quality } = body;
     const qualityMode = normalizeQualityMode(quality || 'any');
-
     const KEY = process.env.GOOGLE_PLACES_API_KEY;
     if (!KEY) return stableResponse([], [], {}, 'API key not configured');
 
-    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v6';
+    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v7';
     const cached = getFromCache(cacheKey);
-    if (cached) {
-      timings.total_ms = Date.now() - t0;
-      return stableResponse(cached.elite, cached.moreOptions, { ...cached.stats, cached: true, performance: { ...timings, cache_hit: true } });
-    }
+    if (cached) { timings.total_ms = Date.now()-t0; return stableResponse(cached.elite, cached.moreOptions, { ...cached.stats, cached: true, performance: { ...timings, cache_hit: true } }); }
 
-    // ---- Geocode ----
+    // Geocode
     let lat, lng, confirmedAddress = null;
-    const locStr = String(location || '').trim();
+    const locStr = String(location||'').trim();
     const cm = locStr.match(/^(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)$/);
-    if (cm) {
-      lat = +cm[1]; lng = +cm[2];
-      confirmedAddress = `(${lat.toFixed(5)}, ${lng.toFixed(5)})`;
-    } else {
-      const gd = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(locStr)}&key=${KEY}`).then(r => r.json());
-      if (gd.status !== 'OK') return stableResponse([], [], { performance: { total_ms: Date.now() - t0 } }, `Geocode failed: ${gd.status}`);
-      lat = gd.results[0].geometry.location.lat;
-      lng = gd.results[0].geometry.location.lng;
+    if (cm) { lat = +cm[1]; lng = +cm[2]; confirmedAddress = `(${lat.toFixed(5)}, ${lng.toFixed(5)})`; }
+    else {
+      const gd = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(locStr)}&key=${KEY}`).then(r=>r.json());
+      if (gd.status !== 'OK') return stableResponse([],[],{ performance: { total_ms: Date.now()-t0 } }, `Geocode failed: ${gd.status}`);
+      lat = gd.results[0].geometry.location.lat; lng = gd.results[0].geometry.location.lng;
       confirmedAddress = gd.results[0].formatted_address;
     }
-    const gLat = Math.round(lat * 10000) / 10000;
-    const gLng = Math.round(lng * 10000) / 10000;
+    const gLat = Math.round(lat*10000)/10000, gLng = Math.round(lng*10000)/10000;
 
-    // ---- MICHELIN MODE ----
+    // Michelin mode (unchanged)
     if (qualityMode === 'michelin') {
       const resolved = await resolveMichelinPlaces(KEY);
       const within = resolved.filter(r => r?.lat != null && r?.lng != null).map(r => {
         const d = haversineMiles(gLat, gLng, r.lat, r.lng);
-        return {
-          place_id: r.place_id, name: r.name, vicinity: r.address || '', formatted_address: r.address || '',
+        return { place_id: r.place_id, name: r.name, vicinity: r.address||'', formatted_address: r.address||'',
           price_level: null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
-          distanceMiles: Math.round(d * 10) / 10, walkMinEstimate: Math.round(d * 20), driveMinEstimate: Math.round(d * 4), transitMinEstimate: null,
-          michelin: { stars: r.stars || 0, distinction: r.distinction || 'star' }
-        };
-      }).filter(r => r.distanceMiles <= 15).sort((a, b) => a.distanceMiles - b.distanceMiles);
-
-      timings.total_ms = Date.now() - t0;
+          distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: null,
+          michelin: { stars: r.stars||0, distinction: r.distinction||'star' } };
+      }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
+      timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, michelinMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
       return stableResponse(within, [], stats);
     }
 
     // =========================================================================
-    // THREE-LAYER PARALLEL SEARCH
-    // Layer 1: Legacy grid (2 rings, ~25 points, 800m radius, page 1 only)
-    // Layer 2: New API Nearby Search (5 radius rings)
-    // Layer 3: New API Text Search (12 cuisine queries OR 2 specific)
+    // THREE-LAYER PARALLEL SEARCH (speed-optimized)
     // =========================================================================
     const cuisineStr = (cuisine && String(cuisine).toLowerCase().trim() !== 'any') ? cuisine : null;
 
     const [legacyFlat, nearbyResults, textResults] = await Promise.all([
-      // LAYER 1: Legacy grid
+
+      // LAYER 1: Legacy grid \u2014 NO PAGINATION (just page 1 = 20 results per point)
+      // This alone saves 4-8 seconds because we skip the 2s waits for page tokens
       (async () => {
         const start = Date.now();
         const grid = buildGrid(gLat, gLng);
@@ -373,21 +317,25 @@ exports.handler = async (event) => {
         timings.legacy_ms = Date.now() - start;
         return results.flat();
       })(),
-      // LAYER 2: New API Nearby rings
-      (async () => { const s = Date.now(); const r = await newApiNearbyRings(gLat, gLng, KEY); timings.new_nearby_ms = Date.now() - s; return r; })(),
-      // LAYER 3: New API Text Search
-      (async () => { const s = Date.now(); const r = await newApiTextByCuisine(gLat, gLng, cuisineStr, KEY); timings.new_text_ms = Date.now() - s; return r; })()
+
+      // LAYER 2: New Nearby rings
+      (async () => { const s = Date.now(); const r = await newApiNearbyRings(gLat, gLng, KEY); timings.new_nearby_ms = Date.now()-s; return r; })(),
+
+      // LAYER 3: New Text Search by cuisine
+      (async () => { const s = Date.now(); const r = await newApiTextByCuisine(gLat, gLng, cuisineStr, KEY); timings.new_text_ms = Date.now()-s; return r; })()
     ]);
 
-    // ---- Merge & deduplicate ----
+    // Merge & deduplicate
     const seen = new Set(), all = [];
     let legacyN = 0, nearbyN = 0, textN = 0, rawN = 0;
+
     for (const p of legacyFlat) { rawN++; if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); legacyN++; } }
     for (const p of nearbyResults) { if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); nearbyN++; } }
     for (const p of textResults) { if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); textN++; } }
-    console.log(`📊 MERGE: Legacy=${legacyN} + Nearby=+${nearbyN} + Text=+${textN} = ${all.length}`);
 
-    // ---- Distance ----
+    console.log(`\ud83d\udcca MERGE: Legacy=${legacyN} + Nearby=+${nearbyN} + Text=+${textN} = ${all.length}`);
+
+    // Distance
     const withDist = all.map(p => {
       const pLat = p.geometry?.location?.lat, pLng = p.geometry?.location?.lng;
       const d = (pLat != null && pLng != null) ? haversineMiles(gLat, gLng, pLat, pLng) : 999;
@@ -396,33 +344,56 @@ exports.handler = async (event) => {
         vicinity: p.vicinity || p.formatted_address || '', formatted_address: p.formatted_address || p.vicinity || '',
         price_level: p.price_level, opening_hours: p.opening_hours, geometry: p.geometry, types: p.types || [],
         googleRating: p.rating || p.googleRating || 0, googleReviewCount: p.user_ratings_total || p.googleReviewCount || 0,
-        distanceMiles: Math.round(d * 10) / 10, walkMinEstimate: Math.round(d * 20), driveMinEstimate: Math.round(d * 4), transitMinEstimate: Math.round(d * 6),
+        distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
         _source: p._source || 'legacy'
       };
     });
 
     const within = withDist.filter(r => r.distanceMiles <= 7.0);
-    console.log(`📊 Within 7mi: ${within.length}`);
+    console.log(`\ud83d\udcca Within 7mi: ${within.length}`);
 
-    // Michelin badges
     const michelin = await resolveMichelinPlaces(KEY);
     attachMichelinBadges(within, michelin);
 
-    // Filter
+    // INJECT Michelin restaurants that weren't in Google results
+    // This ensures they appear in 4.7+, 4.5+, etc. modes
+    const existingIds = new Set(within.map(r => r.place_id).filter(Boolean));
+    const existingNames = new Set(within.map(r => normalizeName(r.name)).filter(Boolean));
+    let injected = 0;
+    for (const m of michelin) {
+      if (!m?.lat || !m?.lng) continue;
+      // Skip if already matched
+      if (m.place_id && existingIds.has(m.place_id)) continue;
+      if (m.name && existingNames.has(normalizeName(m.name))) continue;
+      const d = haversineMiles(gLat, gLng, m.lat, m.lng);
+      if (d > 7.0) continue; // same radius as normal results
+      within.push({
+        place_id: m.place_id, name: m.name,
+        vicinity: m.address || '', formatted_address: m.address || '',
+        price_level: null, opening_hours: null,
+        geometry: { location: { lat: m.lat, lng: m.lng } },
+        types: [], googleRating: m.googleRating || 0, googleReviewCount: m.googleReviewCount || 0,
+        distanceMiles: Math.round(d * 10) / 10,
+        walkMinEstimate: Math.round(d * 20), driveMinEstimate: Math.round(d * 4), transitMinEstimate: Math.round(d * 6),
+        michelin: { stars: m.stars || 0, distinction: m.distinction || 'star' },
+        _source: 'michelin_inject'
+      });
+      injected++;
+    }
+    if (injected) console.log(`\u2705 Injected ${injected} Michelin restaurants not in Google results`);
+
     const fStart = Date.now();
     const { elite, moreOptions, excluded } = filterRestaurantsByTier(within, qualityMode);
     timings.filtering_ms = Date.now() - fStart;
     timings.total_ms = Date.now() - t0;
 
-    // Sort
-    const sortFn = (a, b) => {
+    const sortFn = (a,b) => {
       if (a.walkMinEstimate !== b.walkMinEstimate) return a.walkMinEstimate - b.walkMinEstimate;
       if (b.googleRating !== a.googleRating) return b.googleRating - a.googleRating;
       if (b.googleReviewCount !== a.googleReviewCount) return b.googleReviewCount - a.googleReviewCount;
-      return String(a.name || '').localeCompare(String(b.name || ''));
+      return String(a.name||'').localeCompare(String(b.name||''));
     };
-    elite.sort(sortFn);
-    moreOptions.sort(sortFn);
+    elite.sort(sortFn); moreOptions.sort(sortFn);
 
     const stats = {
       totalRaw: rawN, uniquePlaceIds: all.length, withinMiles: within.length,
