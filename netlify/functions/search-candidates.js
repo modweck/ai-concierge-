@@ -100,7 +100,67 @@ function normalizeQualityMode(q) {
   return 'any';
 }
 
-// ---- Filter with low-review protection ----
+// ---- Filter: review minimums + junk removal ----
+
+// Google types that are NOT real sit-down restaurants
+const EXCLUDED_TYPES = new Set([
+  // Legacy API types
+  'lodging', 'hotel', 'motel', 'cafe', 'bar', 'night_club',
+  'bakery', 'grocery_or_supermarket', 'supermarket', 'convenience_store',
+  'gas_station', 'store', 'liquor_store', 'drugstore',
+  'meal_delivery',
+  // New API types
+  'ice_cream_shop', 'coffee_shop', 'bagel_shop', 'donut_shop',
+  'sandwich_shop', 'food_court'
+]);
+
+// Name patterns for delis, food trucks, pizza counters, bodegas, etc.
+const JUNK_NAME_PATTERNS = [
+  /\bfood\s*truck/i,
+  /\bfood\s*cart/i,
+  /\bfood\s*stand/i,
+  /\bdeli\b/i,
+  /\bbodega/i,
+  /\bconvenience/i,
+  /\bgrocery/i,
+  /\bmarket\b/i,        // "Whole Foods Market", "Fish Market" etc
+  /\bmini\s*mart/i,
+  /\bgas\s*station/i,
+  /\b99\s*cent/i,
+  /\bdollar\s*(store|tree)/i,
+  /\bpizza\s*(store|shop|counter|slice|place)\b/i,  // "pizza slice" but NOT "pizza restaurant"
+  /\bhalal\s*(cart|stand|truck|food)/i,
+  /\bhotdog/i,
+  /\bhot\s*dog\s*(cart|stand|truck)/i,
+  /\bcatering\b/i,
+  /\bvending/i,
+  /\bcafeteria/i,
+  /\bcanteen/i,
+  /\bbuffet\b/i
+];
+
+function isJunkPlace(place) {
+  // Check Google types
+  const types = place.types || [];
+  for (const t of types) {
+    if (EXCLUDED_TYPES.has(t)) return `type:${t}`;
+  }
+
+  // If it has "lodging" or "hotel" anywhere in types, it's a hotel
+  // (e.g. "The Mark Hotel" showing up as a restaurant)
+  for (const t of types) {
+    if (t.includes('hotel') || t.includes('lodging')) return `type:${t}`;
+  }
+
+  // Check name patterns
+  const name = String(place.name || '');
+  for (const pattern of JUNK_NAME_PATTERNS) {
+    if (pattern.test(name)) return `name:${pattern}`;
+  }
+
+  return false;
+}
+
 function filterRestaurantsByTier(candidates, qualityMode) {
   const elite = [], moreOptions = [], excluded = [];
   let eliteMin = 4.5, moreMin = 4.4, strict47 = false;
@@ -113,14 +173,30 @@ function filterRestaurantsByTier(candidates, qualityMode) {
     try {
       const reviews = Number(place.user_ratings_total ?? place.googleReviewCount ?? 0) || 0;
       const rating = Number(place.googleRating ?? place.rating ?? 0) || 0;
-      if (rating >= 4.9 && reviews < 50) { excluded.push({ name: place.name, reason: `unreliable ${rating}★/${reviews}rev` }); continue; }
-      if (rating >= 4.7 && reviews < 20) { excluded.push({ name: place.name, reason: `few_reviews ${rating}★/${reviews}rev` }); continue; }
-      if (reviews < 10) { excluded.push({ name: place.name, reason: `min_reviews ${reviews}` }); continue; }
+      const name = place.name || '';
+
+      // 1) Junk type / name filter
+      const junkReason = isJunkPlace(place);
+      if (junkReason) { excluded.push({ name, reason: `junk(${junkReason})` }); continue; }
+
+      // 2) Perfect 5.0 — almost always fake/inflated, block unless 500+ reviews
+      if (rating >= 5.0 && reviews < 500) { excluded.push({ name, reason: `perfect_5.0 (${reviews}rev)` }); continue; }
+
+      // 3) 4.9 needs 50+ reviews
+      if (rating >= 4.9 && reviews < 50) { excluded.push({ name, reason: `unreliable ${rating}★/${reviews}rev` }); continue; }
+
+      // 4) 4.7-4.8 needs 20+ reviews
+      if (rating >= 4.7 && reviews < 20) { excluded.push({ name, reason: `few_reviews ${rating}★/${reviews}rev` }); continue; }
+
+      // 5) Everything else needs 25+ reviews (was 10)
+      if (reviews < 25) { excluded.push({ name, reason: `min_reviews (${reviews})` }); continue; }
+
       if (rating >= eliteMin) elite.push(place);
       else if (!strict47 && rating >= moreMin) moreOptions.push(place);
-      else excluded.push({ name: place.name, reason: 'below_threshold' });
+      else excluded.push({ name, reason: 'below_threshold' });
     } catch (err) { excluded.push({ name: place?.name, reason: `error: ${err.message}` }); }
   }
+
   console.log(`FILTER ${qualityMode}: Elite(>=${eliteMin}):${elite.length} | More:${moreOptions.length} | Excl:${excluded.length}`);
   return { elite, moreOptions, excluded };
 }
