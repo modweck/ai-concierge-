@@ -43,21 +43,21 @@
 <body>
   <div class="container">
     <div class="card">
-      <h1>\ud83c\udf7d\ufe0f AI Concierge</h1>
+      <h1>🍽️ AI Concierge</h1>
       <p class="subtitle">Find restaurants you can actually get into</p>
     </div>
 
     <div id="search" class="card">
       <div style="margin-bottom:20px">
-        <label>\ud83d\udccd Your Location</label>
+        <label>📍 Your Location</label>
         <div style="display:flex;gap:10px">
           <input type="text" id="addressInput" placeholder="Enter address" value="New York, NY" style="flex:1">
-          <button onclick="useCurrentLocation()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">\ud83d\udccd Use My Location</button>
+          <button onclick="useCurrentLocation()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">📍 Use My Location</button>
         </div>
       </div>
 
       <div style="margin-bottom:20px">
-        <label>\ud83d\udd50 Time</label>
+        <label>🕐 Time</label>
         <select id="timewindow">
           <option value="breakfast">Breakfast</option>
           <option value="lunch">Lunch</option>
@@ -67,11 +67,11 @@
 
       <div class="form-row">
         <div>
-          <label>\ud83d\udc65 Party Size</label>
+          <label>👥 Party Size</label>
           <input type="number" id="party" value="2" min="1" max="20">
         </div>
         <div>
-          <label>\ud83d\udcb0 Budget</label>
+          <label>💰 Budget</label>
           <select id="budget">
             <option value="0-999">Any</option>
             <option value="1-50">$</option>
@@ -83,17 +83,17 @@
       </div>
 
       <div style="margin-bottom:20px">
-        <label>\ud83d\ude97 Transportation</label>
+        <label>🚗 Transportation</label>
         <div class="toggle-group">
-          <button class="toggle-btn active" onclick="setTransport(event,'walk')">\ud83d\udeb6 Walk</button>
-          <button class="toggle-btn" onclick="setTransport(event,'drive')">\ud83d\ude97 Drive</button>
-          <button class="toggle-btn" onclick="setTransport(event,'transit')">\ud83d\ude87 Transit</button>
-          <button class="toggle-btn" onclick="setTransport(event,'radius')">\ud83d\udccd Radius</button>
+          <button class="toggle-btn active" onclick="setTransport(event,'walk')">🚶 Walk</button>
+          <button class="toggle-btn" onclick="setTransport(event,'drive')">🚗 Drive</button>
+          <button class="toggle-btn" onclick="setTransport(event,'transit')">🚇 Transit</button>
+          <button class="toggle-btn" onclick="setTransport(event,'radius')">📍 Radius</button>
         </div>
       </div>
 
       <div id="walkDistance" style="margin-bottom:20px">
-        <label>\ud83d\udeb6 Max Walk</label>
+        <label>🚶 Max Walk</label>
         <select id="walkTime">
           <option value="10">10 min</option>
           <option value="15">15 min</option>
@@ -103,7 +103,7 @@
       </div>
 
       <div id="driveDistance" style="margin-bottom:20px;display:none">
-        <label>\ud83d\ude97 Max Drive</label>
+        <label>🚗 Max Drive</label>
         <select id="driveTime">
           <option value="10">10 min</option>
           <option value="15" selected>15 min</option>
@@ -113,7 +113,7 @@
       </div>
 
       <div id="transitDistance" style="margin-bottom:20px;display:none">
-        <label>\ud83d\ude87 Max Transit</label>
+        <label>🚇 Max Transit</label>
         <select id="transitTime">
           <option value="15">15 min</option>
           <option value="20" selected>20 min</option>
@@ -123,7 +123,7 @@
       </div>
 
       <div id="radiusDistance" style="margin-bottom:20px;display:none">
-        <label>\ud83d\udccd Radius</label>
+        <label>📍 Radius</label>
         <select id="radiusMiles">
           <option value="1">1 mile</option>
           <option value="2">2 miles</option>
@@ -133,7 +133,7 @@
       </div>
 
       <div style="margin-bottom:20px">
-        <label>\u2b50 Quality</label>
+        <label>⭐ Quality</label>
         <select id="quality">
           <option value="any" selected>Any Quality</option>
           <option value="michelin">Michelin (15 mile radius)</option>
@@ -144,7 +144,7 @@
       </div>
 
       <div style="margin-bottom:20px">
-        <label>\ud83c\udf55 Cuisine</label>
+        <label>🍕 Cuisine</label>
         <select id="cuisine">
           <option value="any">Any</option>
           <option value="american">American</option>
@@ -168,15 +168,15 @@
         </select>
       </div>
 
-      <button class="btn" onclick="search()">\ud83d\udd0d Find Restaurants</button>
+      <button class="btn" onclick="search()">🔍 Find Restaurants</button>
     </div>
 
     <div id="results" class="hidden">
-      <button class="back-btn" onclick="back()">\u2190 Back</button>
+      <button class="back-btn" onclick="back()">← Back</button>
       <div id="warnings"></div>
 
       <div class="sort-bar">
-        <label style="margin:0;font-weight:600">\ud83d\udcca Sort:</label>
+        <label style="margin:0;font-weight:600">📊 Sort:</label>
         <select id="sortBy" onchange="sortResults()">
           <option value="distance">Distance</option>
           <option value="rating">Rating</option>
@@ -187,7 +187,7 @@
       <div id="list"></div>
     </div>
 
-    <button class="chatbot-btn" onclick="alert('Chat coming soon!')">\ud83d\udcac</button>
+    <button class="chatbot-btn" onclick="alert('Chat coming soon!')">💬</button>
   </div>
 
 <script>
@@ -246,7 +246,7 @@ async function search() {
   const searchBtn = document.querySelector('.btn');
   searchBtn.disabled = true;
   searchBtn.style.opacity = '0.5';
-  searchBtn.textContent = '\ud83d\udd0d Searching...';
+  searchBtn.textContent = '🔍 Searching...';
 
   const location = document.getElementById('addressInput').value;
   const cuisine = document.getElementById('cuisine').value;
@@ -264,13 +264,13 @@ async function search() {
 
   document.getElementById('warnings').innerHTML = '';
   document.getElementById('list').innerHTML =
-    '<div style="text-align:center;padding:40px">\ud83d\udd0d Finding candidates...</div>';
+    '<div style="text-align:center;padding:40px">🔍 Finding candidates...</div>';
 
   try {
     if (state.qualityFilter === 'michelin') {
       document.getElementById('sortBy').value = 'distance';
       document.getElementById('list').innerHTML =
-        '<div style="text-align:center;padding:40px">\ud83c\udfc5 Loading Michelin (15 mile radius)...</div>';
+        '<div style="text-align:center;padding:40px">🏅 Loading Michelin (15 mile radius)...</div>';
 
       const resp = await fetch('/.netlify/functions/search-michelin', {
         method: 'POST',
@@ -289,7 +289,7 @@ async function search() {
       if (data?.error) {
         document.getElementById('warnings').innerHTML = `
           <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-            \u274c ${data.error}
+            ❌ ${data.error}
           </div>
         `;
         document.getElementById('list').innerHTML =
@@ -306,10 +306,10 @@ async function search() {
 
       document.getElementById('warnings').innerHTML = `
         <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-          \ud83d\udccd ${data.confirmedAddress || location}
+          📍 ${data.confirmedAddress || location}
         </div>
         <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-          \u2713 Showing <span id="resultCount">0</span> Michelin restaurants within 15 miles (sorted by distance)
+          ✓ Showing <span id="resultCount">0</span> Michelin restaurants within 15 miles (sorted by distance)
         </div>
       `;
 
@@ -334,7 +334,7 @@ async function search() {
     if (step1Data?.error) {
       document.getElementById('warnings').innerHTML = `
         <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-          \u274c ${step1Data.error}
+          ❌ ${step1Data.error}
         </div>
       `;
       document.getElementById('list').innerHTML =
@@ -354,13 +354,13 @@ async function search() {
 
     document.getElementById('warnings').innerHTML = `
       <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-        \ud83d\udccd ${step1Data.confirmedAddress || location}
+        📍 ${step1Data.confirmedAddress || location}
       </div>
       <div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e;font-weight:700">
-        \u23f1\ufe0f Found ${allRestaurants.length} candidates. Getting precise times...
+        ⏱️ Found ${allRestaurants.length} candidates. Getting precise times...
       </div>
       <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-        \u2713 Showing <span id="resultCount">0</span> restaurants
+        ✓ Showing <span id="resultCount">0</span> restaurants
       </div>
     `;
 
@@ -438,10 +438,10 @@ async function search() {
 
     document.getElementById('warnings').innerHTML = `
       <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-        \ud83d\udccd ${step1Data.confirmedAddress || location}
+        📍 ${step1Data.confirmedAddress || location}
       </div>
       <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-        \u2713 Showing <span id="resultCount">0</span> restaurants
+        ✓ Showing <span id="resultCount">0</span> restaurants
       </div>
     `;
 
@@ -451,7 +451,7 @@ async function search() {
     console.error('Search error:', error);
     if (error.name === 'AbortError') return;
 
-    const errorMsg = error.message ? `\ud83d\ude14 ${error.message}` : '\ud83d\ude14 Search failed';
+    const errorMsg = error.message ? `😔 ${error.message}` : '😔 Search failed';
 
     document.getElementById('warnings').innerHTML = `
       <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
@@ -464,7 +464,7 @@ async function search() {
     const searchBtn = document.querySelector('.btn');
     searchBtn.disabled = false;
     searchBtn.style.opacity = '1';
-    searchBtn.textContent = '\ud83d\udd0d Find Restaurants';
+    searchBtn.textContent = '🔍 Find Restaurants';
   }
 }
 
@@ -504,17 +504,17 @@ function displayResults(restaurants) {
 
   const html = restaurants.map(r => {
     let distanceHtml = '';
-    if (r.walkMinutes != null) distanceHtml += `<span class="badge distance">\ud83d\udeb6 ${r.walkMinutes} min</span>`;
-    if (r.driveMinutes != null) distanceHtml += `<span class="badge distance">\ud83d\ude97 ${r.driveMinutes} min</span>`;
-    if (r.transitMinutes != null) distanceHtml += `<span class="badge distance">\ud83d\ude87 ${r.transitMinutes} min</span>`;
-    if (r.distanceMiles != null) distanceHtml += `<span class="badge distance">\ud83d\udccd ${r.distanceMiles} mi</span>`;
+    if (r.walkMinutes != null) distanceHtml += `<span class="badge distance">🚶 ${r.walkMinutes} min</span>`;
+    if (r.driveMinutes != null) distanceHtml += `<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
+    if (r.transitMinutes != null) distanceHtml += `<span class="badge distance">🚇 ${r.transitMinutes} min</span>`;
+    if (r.distanceMiles != null) distanceHtml += `<span class="badge distance">📍 ${r.distanceMiles} mi</span>`;
 
     let michelinHtml = '';
     if (r.michelin) {
       const stars = r.michelin.stars || 0;
-      if (stars === 3) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">\u2b50\u2b50\u2b50 Michelin Three Stars</span>`;
-      else if (stars === 2) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">\u2b50\u2b50 Michelin Two Stars</span>`;
-      else if (stars === 1) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">\u2b50 Michelin One Star</span>`;
+      if (stars === 3) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐⭐ Michelin Three Stars</span>`;
+      else if (stars === 2) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐ Michelin Two Stars</span>`;
+      else if (stars === 1) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin One Star</span>`;
       else michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">Michelin</span>`;
     }
 
@@ -524,10 +524,10 @@ function displayResults(restaurants) {
     const ratingHtml = r.michelin
       ? ''
       : (r.googleRating != null && r.googleRating !== 0)
-        ? `<span class="badge">\u2b50 ${Number(rating).toFixed(1)} (${reviews})</span>`
-        : `<span class="badge" style="color:#666">\u2b50 Google rating N/A</span>`;
+        ? `<span class="badge">⭐ ${Number(rating).toFixed(1)} (${reviews})</span>`
+        : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
 
-    const priceHtml = r.price_level ? `<span class="badge">\ud83d\udcb0 ${'$'.repeat(r.price_level)}</span>` : `<span class="badge">\ud83d\udcb0 N/A</span>`;
+    const priceHtml = r.price_level ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : `<span class="badge">💰 N/A</span>`;
 
     const mapsUrl = r.place_id
       ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
@@ -541,11 +541,11 @@ function displayResults(restaurants) {
           ${michelinHtml}
           ${ratingHtml}
           ${priceHtml}
-          ${r.opening_hours?.open_now ? '<span class="badge">\u2705 Open</span>' : ''}
+          ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
           ${distanceHtml}
           <button onclick="window.open('${mapsUrl}','_blank')"
             style="margin-left:auto;padding:8px 16px;background:#4285f4;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px">
-            \ud83d\udccd Maps
+            📍 Maps
           </button>
         </div>
       </div>
