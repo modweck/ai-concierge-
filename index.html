@@ -330,6 +330,9 @@ async function search() {
     const eliteRestaurants = Array.isArray(step1Data.elite) ? step1Data.elite : [];
     const moreOptionsRestaurants = Array.isArray(step1Data.moreOptions) ? step1Data.moreOptions : [];
 
+    // IMPORTANT FIX:
+    // Do NOT time-filter before enrichment (that was shrinking to 3 candidates).
+    // We keep all candidates, enrich a big closest-first pool, then time-filter using real walkMinutes.
     allRestaurants = [...eliteRestaurants, ...moreOptionsRestaurants].map(c => ({
       ...c,
       walkMinutes: c.walkMinutes ?? c.walkMinEstimate ?? null,
@@ -337,18 +340,15 @@ async function search() {
       transitMinutes: c.transitMinutes ?? c.transitMinEstimate ?? null
     }));
 
-    let timeFiltered = allRestaurants;
-    if (state.transport === 'walk' && maxWalkMinutes) timeFiltered = timeFiltered.filter(r => r.walkMinutes && r.walkMinutes <= maxWalkMinutes);
-    else if (state.transport === 'drive' && maxDriveMinutes) timeFiltered = timeFiltered.filter(r => r.driveMinutes && r.driveMinutes <= maxDriveMinutes);
-    else if (state.transport === 'transit' && maxTransitMinutes) timeFiltered = timeFiltered.filter(r => r.transitMinutes && r.transitMinutes <= maxTransitMinutes);
-    allRestaurants = timeFiltered;
-
     document.getElementById('warnings').innerHTML = `
       <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
         📍 ${step1Data.confirmedAddress || location}
       </div>
       <div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e;font-weight:700">
-        ⏱️ Showing ${allRestaurants.length} results with estimated times. Getting precise times...
+        ⏱️ Found ${allRestaurants.length} candidates. Getting precise times...
+      </div>
+      <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
+        ✓ Showing <span id="resultCount">0</span> restaurants
       </div>
     `;
 
@@ -366,7 +366,22 @@ async function search() {
     }
 
     const originalCandidates = [...allRestaurants];
-    const toEnrich = originalCandidates.slice(0, enrichLimit);
+
+    // IMPORTANT FIX:
+    // Enrich closest-first so we get real walk times for nearby restaurants
+    const toEnrich = [...originalCandidates]
+      .sort((a, b) => {
+        const da = (a.distanceMiles ?? 999999);
+        const db = (b.distanceMiles ?? 999999);
+        if (da !== db) return da - db;
+
+        const wa = (a.walkMinEstimate ?? 999999);
+        const wb = (b.walkMinEstimate ?? 999999);
+        if (wa !== wb) return wa - wb;
+
+        return String(a.name || '').localeCompare(String(b.name || ''));
+      })
+      .slice(0, enrichLimit);
 
     const step2Response = await fetch('/.netlify/functions/enrich-times', {
       method: 'POST',
@@ -404,6 +419,7 @@ async function search() {
       };
     });
 
+    // FINAL filter by REAL times
     let realTimeFiltered = allRestaurants;
     if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
     else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
