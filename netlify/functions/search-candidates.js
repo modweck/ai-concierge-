@@ -1,393 +1,195 @@
-// Deterministic grid coverage with full pagination
-// SIMPLIFIED filtering: Only by rating
-// Michelin overlay (badge only - does not change candidate pool)
+const fs = require("fs");
+const path = require("path");
 
-const fs = require('fs');
-const path = require('path');
-
-// -------------------- MICHELIN LOADER (robust paths) --------------------
-let MICHELIN_DATA = [];
-let MICHELIN_SOURCE = null;
-
-function tryLoadJson(filePath) {
-  try {
-    const raw = fs.readFileSync(filePath, 'utf8');
-    const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed)) return parsed;
-    return null;
-  } catch (_) {
-    return null;
-  }
+// Load Michelin list at cold start
+let MICHELIN = [];
+try {
+  const p = path.join(__dirname, "michelin_nyc.json");
+  MICHELIN = JSON.parse(fs.readFileSync(p, "utf8"));
+  console.log(`[Michelin] Loaded entries: ${Array.isArray(MICHELIN) ? MICHELIN.length : 0}`);
+} catch (e) {
+  console.log(`[Michelin] Failed to load michelin_nyc.json: ${e.message}`);
+  MICHELIN = [];
 }
 
-(function loadMichelinOnce() {
-  console.log('[Michelin] __dirname:', __dirname);
+// In-memory cache (persists while the function instance stays warm)
+const placeCache = new Map(); // key: normalized name -> { place_id, lat, lng, address }
 
-  // Try multiple likely locations (Netlify bundling can be weird)
-  const candidates = [
-    path.join(__dirname, 'michelin_nyc.json'),            // ✅ recommended
-    path.join(__dirname, '..', 'data', 'michelin_nyc.json'),
-    path.join(process.cwd(), 'netlify', 'functions', 'michelin_nyc.json'),
-    path.join(process.cwd(), 'data', 'michelin_nyc.json')
-  ];
+function stableResponse(payload, statusCode = 200) {
+  return {
+    statusCode,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  };
+}
 
-  for (const p of candidates) {
-    const loaded = tryLoadJson(p);
-    if (loaded && loaded.length) {
-      MICHELIN_DATA = loaded;
-      MICHELIN_SOURCE = p;
-      break;
-    }
-  }
+function toRad(x) {
+  return (x * Math.PI) / 180;
+}
 
-  if (MICHELIN_DATA.length) {
-    console.log(`[Michelin] ✅ Loaded entries: ${MICHELIN_DATA.length}`);
-    console.log(`[Michelin] ✅ Loaded from: ${MICHELIN_SOURCE}`);
-  } else {
-    console.log('[Michelin] ❌ Entries loaded: 0');
-    console.log('[Michelin] Tried paths:', candidates);
-  }
-})();
+function haversineMiles(lat1, lon1, lat2, lon2) {
+  const R = 3958.8; // miles
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
 
-function normalizeName(name) {
-  return (name || '')
+function normalizeName(s) {
+  return String(s || "")
     .toLowerCase()
-    .replace(/[^\w\s]/g, '')
-    .replace(/\s+/g, ' ')
+    .normalize("NFD")                 // remove accents (César -> Cesar)
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\w\s]/g, "")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
-// Badge overlay only
-function attachMichelinData(candidates) {
-  if (!MICHELIN_DATA.length) return 0;
+async function geocodeAddress(address, apiKey) {
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
+    address
+  )}&key=${apiKey}`;
+  const r = await fetch(url);
+  const j = await r.json();
+  return j;
+}
 
-  let matchedCount = 0;
+async function textSearchPlace(query, apiKey) {
+  const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(
+    query
+  )}&key=${apiKey}`;
+  const r = await fetch(url);
+  const j = await r.json();
+  return j;
+}
 
-  for (const place of candidates) {
-    const placeName = normalizeName(place.name);
+async function resolveMichelinPlace(m, apiKey) {
+  const key = normalizeName(m.name);
+  if (placeCache.has(key)) return placeCache.get(key);
 
-    for (const michelin of MICHELIN_DATA) {
-      const michelinName = normalizeName(michelin.name);
-
-      // 1) Exact name
-      if (placeName && placeName === michelinName) {
-        place.michelin = { distinction: michelin.distinction, stars: michelin.stars };
-        matchedCount++;
-        break;
-      }
-
-      // 2) Loose contains (very conservative)
-      if (placeName && michelinName) {
-        if ((placeName.includes(michelinName) || michelinName.includes(placeName)) &&
-            Math.abs(placeName.length - michelinName.length) <= 5) {
-          place.michelin = { distinction: michelin.distinction, stars: michelin.stars };
-          matchedCount++;
-          break;
-        }
-      }
-
-      // 3) Coords proximity (within 80m)
-      if (michelin.lat && michelin.lng && place.geometry?.location) {
-        const R = 6371000;
-        const dLat = (place.geometry.location.lat - michelin.lat) * Math.PI / 180;
-        const dLon = (place.geometry.location.lng - michelin.lng) * Math.PI / 180;
-
-        const a =
-          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-          Math.cos(michelin.lat * Math.PI / 180) *
-            Math.cos(place.geometry.location.lat * Math.PI / 180) *
-            Math.sin(dLon / 2) * Math.sin(dLon / 2);
-
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        const distance = R * c;
-
-        if (distance <= 80) {
-          place.michelin = { distinction: michelin.distinction, stars: michelin.stars };
-          matchedCount++;
-          break;
-        }
-      }
-    }
+  // If your JSON already has lat/lng, trust it and cache it
+  if (typeof m.lat === "number" && typeof m.lng === "number") {
+    const cached = {
+      place_id: m.place_id || null,
+      lat: m.lat,
+      lng: m.lng,
+      address: m.address || "",
+    };
+    placeCache.set(key, cached);
+    return cached;
   }
 
-  return matchedCount;
-}
+  // Otherwise, look it up via Places Text Search
+  // Add "New York, NY" to reduce wrong matches
+  const q = `${m.name} New York, NY`;
+  const ts = await textSearchPlace(q, apiKey);
 
-// -------------------- CACHE --------------------
-const resultCache = new Map();
-const CACHE_TTL_MS = 10 * 60 * 1000;
-
-function getCacheKey(location, qualityMode, walkMinutes) {
-  return `${location}_${qualityMode}_${walkMinutes}`;
-}
-
-function getFromCache(key) {
-  const cached = resultCache.get(key);
-  if (!cached) return null;
-
-  const age = Date.now() - cached.timestamp;
-  if (age > CACHE_TTL_MS) {
-    resultCache.delete(key);
+  if (ts.status !== "OK" || !ts.results || !ts.results[0]) {
+    // cache negative so we don’t hammer API
+    placeCache.set(key, null);
     return null;
   }
 
-  console.log(`Cache HIT (age: ${Math.round(age / 1000)}s)`);
-  return cached.data;
+  const top = ts.results[0];
+  const loc = top.geometry && top.geometry.location ? top.geometry.location : null;
+
+  const cached = {
+    place_id: top.place_id || null,
+    lat: loc && typeof loc.lat === "number" ? loc.lat : null,
+    lng: loc && typeof loc.lng === "number" ? loc.lng : null,
+    address: top.formatted_address || top.name || "",
+  };
+
+  placeCache.set(key, cached);
+  return cached;
 }
 
-function setCache(key, data) {
-  resultCache.set(key, { data, timestamp: Date.now() });
-
-  if (resultCache.size > 100) {
-    const oldest = Array.from(resultCache.entries()).sort((a, b) => a[1].timestamp - b[1].timestamp)[0];
-    resultCache.delete(oldest[0]);
-  }
-}
-
-// -------------------- FILTERING (simple) --------------------
-function filterRestaurantsByTier(candidates) {
-  const elite = [];
-  const moreOptions = [];
-  const excluded = [];
-
-  for (const place of candidates) {
-    const reviews = place.user_ratings_total ?? place.googleReviewCount ?? 0;
-    const rating = place.googleRating ?? place.rating ?? 0;
-
-    // prevent fake 5.0
-    if (rating >= 4.9 && reviews < 50) {
-      excluded.push({ name: place.name, rating, reviews, reason: 'fake_5.0_prevention' });
-      continue;
-    }
-
-    if (rating >= 4.6) elite.push(place);
-    else if (rating >= 4.4) moreOptions.push(place);
-    else excluded.push({ name: place.name, rating, reviews, reason: 'rating_below_4.4' });
-  }
-
-  console.log('SIMPLIFIED FILTER RESULTS:');
-  console.log(`  Elite (4.6+): ${elite.length}`);
-  console.log(`  More Options (4.4+): ${moreOptions.length}`);
-  console.log(`  Excluded: ${excluded.length}`);
-
-  return { elite, moreOptions, excluded };
-}
-
-// -------------------- HANDLER --------------------
+// IMPORTANT: CommonJS Netlify export (this fixes your 502)
 exports.handler = async (event) => {
-  const stableResponse = (elite = [], moreOptions = [], stats = {}, error = null) => ({
-    statusCode: 200,
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      elite: Array.isArray(elite) ? elite : [],
-      moreOptions: Array.isArray(moreOptions) ? moreOptions : [],
-      confirmedAddress: stats.confirmedAddress || null,
-      userLocation: stats.userLocation || null,
-      stats,
-      error
-    })
-  });
-
   try {
-    if (event.httpMethod !== 'POST') {
-      return { statusCode: 405, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) };
+    if (event.httpMethod !== "POST") {
+      return stableResponse({ error: "Method not allowed" }, 405);
     }
 
-    const t0 = Date.now();
-    const timings = { places_fetch_ms: 0, filtering_ms: 0, total_ms: 0 };
-
-    const body = JSON.parse(event.body || '{}');
-    const { location, cuisine, openNow } = body;
-
-    const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
-    if (!GOOGLE_API_KEY) {
-      return stableResponse([], [], {}, 'API key not configured');
+    const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+    if (!apiKey) {
+      return stableResponse({ error: "GOOGLE_PLACES_API_KEY not configured" }, 500);
     }
 
-    // IMPORTANT: bump this when you change logic (forces fresh results)
-    const cacheKey = getCacheKey(location, 'all', 20) + '_v16';
-    const cached = getFromCache(cacheKey);
-    if (cached) {
-      timings.total_ms = Date.now() - t0;
-      return stableResponse(
-        cached.elite,
-        cached.moreOptions,
-        { ...cached.stats, cached: true, performance: { ...timings, cache_hit: true } },
-        null
-      );
+    const body = JSON.parse(event.body || "{}");
+    const locationInput = String(body.location || "").trim();
+    const radiusMiles = Number(body.radiusMiles || 15); // DEFAULT 15 miles (your request)
+
+    if (!locationInput) {
+      return stableResponse({ error: "Missing location", michelin: [] }, 200);
     }
 
-    console.log('=== DETERMINISTIC GRID SEARCH (anti-60-cap) ===');
-
-    // Geocode
-    const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${GOOGLE_API_KEY}`;
-    const geocodeResponse = await fetch(geocodeUrl);
-    const geocodeData = await geocodeResponse.json();
-
-    if (geocodeData.status !== 'OK' || !geocodeData.results?.[0]) {
-      return stableResponse([], [], {}, `Geocode failed: ${geocodeData.status}`);
+    // Geocode user
+    const geo = await geocodeAddress(locationInput, apiKey);
+    if (geo.status !== "OK" || !geo.results || !geo.results[0]) {
+      return stableResponse({
+        error: `Geocode failed: ${geo.status}${geo.error_message ? " - " + geo.error_message : ""}`,
+        michelin: [],
+        confirmedAddress: null,
+        userLocation: null,
+      });
     }
 
-    let { lat, lng } = geocodeData.results[0].geometry.location;
-    const confirmedAddress = geocodeData.results[0].formatted_address;
+    const origin = geo.results[0].geometry.location;
+    const confirmedAddress = geo.results[0].formatted_address;
 
-    const gridLat = Math.round(lat * 10000) / 10000;
-    const gridLng = Math.round(lng * 10000) / 10000;
-    console.log('Normalized origin:', { gridLat, gridLng });
+    const list = Array.isArray(MICHELIN) ? MICHELIN : [];
 
-    // ✅ KEY FIX: smaller radius + denser grid (beats 60-result cap)
-    const gridRadius = 750;      // meters
-    const spacingMiles = 0.37;   // miles
-    const spacingDegrees = spacingMiles / 69;
+    // Resolve places (sequential but safe; list sizes are manageable)
+    const resolved = [];
+    for (const m of list) {
+      const place = await resolveMichelinPlace(m, apiKey);
+      if (!place || place.lat == null || place.lng == null) continue;
 
-    // 5x5 grid (25 nodes)
-    const steps = [-2, -1, 0, 1, 2];
-    const gridPoints = [];
-    for (const i of steps) {
-      for (const j of steps) {
-        gridPoints.push({
-          lat: gridLat + i * spacingDegrees,
-          lng: gridLng + j * spacingDegrees,
-          label: `P_${i}_${j}`
-        });
-      }
-    }
-    console.log(`Grid: ${gridPoints.length} nodes, ${gridRadius}m radius per node, ${spacingMiles} mile spacing`);
+      const dist = haversineMiles(origin.lat, origin.lng, place.lat, place.lng);
+      if (dist > radiusMiles) continue;
 
-    async function fetchWithFullPagination(searchLat, searchLng, label) {
-      let url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=${gridRadius}&type=restaurant&key=${GOOGLE_API_KEY}`;
-      if (cuisine) url += `&keyword=${encodeURIComponent(cuisine)}`;
-      if (openNow) url += `&opennow=true`;
+      const distanceMiles = Math.round(dist * 10) / 10;
 
-      const response = await fetch(url);
-      const data = await response.json();
-      if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') {
-        console.log(`${label}: API error ${data.status}`);
-        return [];
-      }
-
-      let allResults = data.results || [];
-      let nextPageToken = data.next_page_token;
-      let pageCount = 1;
-
-      while (nextPageToken && pageCount < 3) {
-        await new Promise((r) => setTimeout(r, 2000));
-
-        let pageData = null;
-        for (let retries = 0; retries < 5; retries++) {
-          const pageUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=${nextPageToken}&key=${GOOGLE_API_KEY}`;
-          const pageResponse = await fetch(pageUrl);
-          pageData = await pageResponse.json();
-
-          if (pageData.status === 'INVALID_REQUEST') {
-            await new Promise((r) => setTimeout(r, 2000));
-            continue;
-          }
-          break;
-        }
-
-        if (pageData?.results) {
-          allResults = allResults.concat(pageData.results);
-          pageCount++;
-        }
-        nextPageToken = pageData?.next_page_token;
-      }
-
-      console.log(`${label}: ${allResults.length} results (${pageCount} pages)`);
-      return allResults;
-    }
-
-    // Fetch grid
-    const placesStart = Date.now();
-    const gridResults = await Promise.all(
-      gridPoints.map((p) => fetchWithFullPagination(p.lat, p.lng, p.label))
-    );
-    timings.places_fetch_ms = Date.now() - placesStart;
-    console.log(`⏱️ Places API fetch: ${timings.places_fetch_ms}ms`);
-
-    // Dedupe
-    const seen = new Set();
-    const allCandidates = [];
-    let totalRaw = 0;
-
-    for (const results of gridResults) {
-      totalRaw += results.length;
-      for (const place of results) {
-        if (!seen.has(place.place_id)) {
-          seen.add(place.place_id);
-          allCandidates.push(place);
-        }
-      }
-    }
-
-    console.log('Total raw results:', totalRaw);
-    console.log('Unique places (after dedupe):', allCandidates.length);
-
-    // Build candidate objects with distance
-    const candidatesWithDistance = allCandidates.map((place) => {
-      const R = 3959;
-      const dLat = (place.geometry.location.lat - gridLat) * Math.PI / 180;
-      const dLon = (place.geometry.location.lng - gridLng) * Math.PI / 180;
-      const a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(gridLat * Math.PI / 180) *
-          Math.cos(place.geometry.location.lat * Math.PI / 180) *
-          Math.sin(dLon / 2) * Math.sin(dLon / 2);
-      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      const distMiles = R * c;
-
-      return {
+      resolved.push({
+        name: m.name,
         place_id: place.place_id,
-        name: place.name,
-        vicinity: place.vicinity,
-        formatted_address: place.formatted_address,
-        price_level: place.price_level,
-        opening_hours: place.opening_hours,
-        geometry: place.geometry,
-        types: place.types || [],
-        googleRating: place.rating || 0,
-        googleReviewCount: place.user_ratings_total || 0,
-        distanceMiles: Math.round(distMiles * 10) / 10,
-        walkMinEstimate: Math.round(distMiles * 20)
-      };
-    });
+        formatted_address: place.address || "",
+        vicinity: place.address || "",
+        geometry: { location: { lat: place.lat, lng: place.lng } },
 
-    // Keep up to 5 miles
-    const within5Miles = candidatesWithDistance.filter((r) => r.distanceMiles <= 5.0);
+        // for your UI / sorting
+        distanceMiles,
+        walkMinEstimate: Math.round(distanceMiles * 20),
+        driveMinEstimate: Math.round(distanceMiles * 4),
+        transitMinEstimate: Math.round(distanceMiles * 6),
 
-    const filterStart = Date.now();
-    const { elite, moreOptions, excluded } = filterRestaurantsByTier(within5Miles);
-    timings.filtering_ms = Date.now() - filterStart;
+        michelin: {
+          distinction: m.distinction || "star",
+          stars: Number(m.stars || 0),
+        },
+      });
+    }
 
-    // Michelin overlay
-    console.log('=== MICHELIN MATCHING ===');
-    console.log(`[Michelin] Entries loaded: ${MICHELIN_DATA.length}`);
-    const michelinMatched = attachMichelinData([...elite, ...moreOptions]);
-    console.log(`Michelin restaurants matched: ${michelinMatched}`);
+    // Sort by distance by default (your request)
+    resolved.sort((a, b) => (a.distanceMiles ?? 999999) - (b.distanceMiles ?? 999999));
 
-    timings.total_ms = Date.now() - t0;
-
-    const stats = {
-      totalRaw,
-      uniquePlaceIds: allCandidates.length,
-      within5Miles: within5Miles.length,
-      eliteCount: elite.length,
-      moreOptionsCount: moreOptions.length,
-      excludedCount: excluded.length,
+    return stableResponse({
+      michelin: resolved,
       confirmedAddress,
-      userLocation: { lat: gridLat, lng: gridLng },
-      performance: { ...timings, cache_hit: false, cache_key: cacheKey }
-    };
-
-    setCache(cacheKey, { elite, moreOptions, stats });
-
-    return stableResponse(elite, moreOptions, stats, null);
-  } catch (err) {
-    console.error('FATAL ERROR:', err);
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ elite: [], moreOptions: [], error: err.message })
-    };
+      userLocation: origin,
+      stats: {
+        loadedMichelinList: list.length,
+        returnedWithinRadius: resolved.length,
+        radiusMiles,
+      },
+    });
+  } catch (e) {
+    console.log("search-michelin error:", e);
+    return stableResponse({ error: e.message || "Unknown error", michelin: [] }, 200);
   }
 };
