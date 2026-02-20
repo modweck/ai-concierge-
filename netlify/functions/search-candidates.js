@@ -194,7 +194,8 @@ const resultCache = new Map();
 const CACHE_TTL_MS = 10 * 60 * 1000;
 
 function getCacheKey(location, qualityMode, cuisine, openNow) {
-  return `${location}_${qualityMode}_${cuisine || 'any'}_${openNow ? 'open' : 'any'}`;
+  const c = String(cuisine || 'any').toLowerCase().trim();
+  return `${location}_${qualityMode}_${c}_${openNow ? 'open' : 'any'}`;
 }
 
 function getFromCache(key) {
@@ -228,12 +229,12 @@ function normalizeQualityMode(qualityModeRaw) {
   if (q === 'recommended_44') return 'recommended_44';
   if (q === 'elite_45') return 'elite_45';
   if (q === 'strict_elite_46') return 'strict_elite_46';
+  if (q === 'strict_elite_47') return 'strict_elite_47';
 
   // Back-compat with older frontend values
   if (q === 'five_star') return 'elite_45';
   if (q === 'top_rated_and_above') return 'recommended_44';
   if (q === 'top_rated') return 'recommended_44';
-  if (q === 'strict_elite_47') return 'strict_elite_46'; // if any old deploys still send it
 
   // Existing modes
   if (q === 'michelin') return 'michelin';
@@ -251,6 +252,14 @@ function filterRestaurantsByTier(candidates, qualityMode) {
   // Defaults
   let eliteMin = 4.5;
   let moreMin = 4.4;
+  let strict47 = false;
+
+  // Strict 4.7
+  if (qualityMode === 'strict_elite_47') {
+    strict47 = true;
+    eliteMin = 4.7;
+    moreMin = 999; // none
+  }
 
   // Strict elite: only return >= 4.6
   if (qualityMode === 'strict_elite_46') {
@@ -292,7 +301,7 @@ function filterRestaurantsByTier(candidates, qualityMode) {
       }
 
       if (rating >= eliteMin) elite.push(place);
-      else if (rating >= moreMin) moreOptions.push(place);
+      else if (!strict47 && rating >= moreMin) moreOptions.push(place);
       else {
         excluded.push({
           place_id: place.place_id,
@@ -374,27 +383,40 @@ exports.handler = async (event) => {
       );
     }
 
-    // 1) Geocode origin
-    const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${GOOGLE_API_KEY}`;
-    const geocodeResponse = await fetch(geocodeUrl);
-    const geocodeData = await geocodeResponse.json();
+    // 1) Determine origin (supports "lat,lng" OR address)
+    let lat, lng;
+    let confirmedAddress = null;
 
-    if (geocodeData.status !== 'OK') {
-      return stableResponse(
-        [],
-        [],
-        {
-          confirmedAddress: null,
-          userLocation: null,
-          performance: { places_fetch_ms: 0, filtering_ms: 0, total_ms: Date.now() - t0, cache_hit: false },
-          geocode: { status: geocodeData.status, error_message: geocodeData.error_message || null, input: location }
-        },
-        `Geocode failed: ${geocodeData.status}${geocodeData.error_message ? ' - ' + geocodeData.error_message : ''}`
-      );
+    const locStr = String(location || '').trim();
+    const coordMatch = locStr.match(/^(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)$/);
+
+    if (coordMatch) {
+      lat = Number(coordMatch[1]);
+      lng = Number(coordMatch[2]);
+      confirmedAddress = `Coordinates (${lat.toFixed(5)}, ${lng.toFixed(5)})`;
+    } else {
+      const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(locStr)}&key=${GOOGLE_API_KEY}`;
+      const geocodeResponse = await fetch(geocodeUrl);
+      const geocodeData = await geocodeResponse.json();
+
+      if (geocodeData.status !== 'OK') {
+        return stableResponse(
+          [],
+          [],
+          {
+            confirmedAddress: null,
+            userLocation: null,
+            performance: { places_fetch_ms: 0, filtering_ms: 0, total_ms: Date.now() - t0, cache_hit: false },
+            geocode: { status: geocodeData.status, error_message: geocodeData.error_message || null, input: locStr }
+          },
+          `Geocode failed: ${geocodeData.status}${geocodeData.error_message ? ' - ' + geocodeData.error_message : ''}`
+        );
+      }
+
+      lat = geocodeData.results[0].geometry.location.lat;
+      lng = geocodeData.results[0].geometry.location.lng;
+      confirmedAddress = geocodeData.results[0].formatted_address;
     }
-
-    let { lat, lng } = geocodeData.results[0].geometry.location;
-    const confirmedAddress = geocodeData.results[0].formatted_address;
 
     // Normalize to 4 decimals for determinism
     const gridLat = Math.round(lat * 10000) / 10000;
@@ -476,7 +498,12 @@ exports.handler = async (event) => {
 
     async function fetchWithFullPagination(searchLat, searchLng, label) {
       let url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${searchLat},${searchLng}&radius=${gridRadius}&type=restaurant&key=${GOOGLE_API_KEY}`;
-      if (cuisine) url += `&keyword=${encodeURIComponent(cuisine)}`;
+
+      // IMPORTANT: don't search keyword="any"
+      if (cuisine && String(cuisine).toLowerCase().trim() !== 'any') {
+        url += `&keyword=${encodeURIComponent(cuisine)}`;
+      }
+
       if (openNow) url += `&opennow=true`;
 
       const response = await fetch(url);
