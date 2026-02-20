@@ -1,20 +1,7 @@
 // netlify/functions/search-michelin.js
+
 const fs = require("fs");
 const path = require("path");
-
-// If you are NOT on Node 18+ in Netlify, uncomment next two lines:
-// const fetch = require("node-fetch"); // npm i node-fetch@2
-// global.fetch = fetch;
-
-let MICHELIN_LIST = [];
-try {
-  const p = path.join(__dirname, "michelin_nyc.json");
-  MICHELIN_LIST = JSON.parse(fs.readFileSync(p, "utf8"));
-  console.log(`[Michelin] Loaded entries: ${Array.isArray(MICHELIN_LIST) ? MICHELIN_LIST.length : 0}`);
-} catch (e) {
-  console.log(`[Michelin] Failed to load michelin_nyc.json: ${e.message}`);
-  MICHELIN_LIST = [];
-}
 
 function stableResponse(payload, statusCode = 200) {
   return {
@@ -25,7 +12,7 @@ function stableResponse(payload, statusCode = 200) {
 }
 
 function haversineMiles(lat1, lon1, lat2, lon2) {
-  const R = 3958.8;
+  const R = 3958.8; // miles
   const toRad = (x) => (x * Math.PI) / 180;
   const dLat = toRad(lat2 - lat1);
   const dLon = toRad(lon2 - lon1);
@@ -37,7 +24,9 @@ function haversineMiles(lat1, lon1, lat2, lon2) {
 }
 
 async function geocodeAddress(address, apiKey) {
-  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`;
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
+    address
+  )}&key=${apiKey}`;
   const r = await fetch(url);
   const j = await r.json();
   if (j.status !== "OK" || !j.results?.[0]) {
@@ -49,23 +38,8 @@ async function geocodeAddress(address, apiKey) {
   };
 }
 
-function normalizeMichelinEntry(m) {
-  // supports: "Atomix" or {name:"Atomix", stars:2, distinction:"star"}
-  if (typeof m === "string") {
-    return { name: m, distinction: "star", stars: 0 };
-  }
-  if (m && typeof m === "object") {
-    return {
-      name: String(m.name || "").trim(),
-      distinction: m.distinction || "star",
-      stars: Number(m.stars || 0),
-    };
-  }
-  return null;
-}
-
 async function findPlaceByText(query, apiKey) {
-  // IMPORTANT: geometry (not geometry/location)
+  // IMPORTANT: fields must include `geometry` (not geometry/location)
   const url =
     `https://maps.googleapis.com/maps/api/place/findplacefromtext/json` +
     `?input=${encodeURIComponent(query)}` +
@@ -73,22 +47,15 @@ async function findPlaceByText(query, apiKey) {
     `&fields=place_id,formatted_address,geometry,rating,user_ratings_total,price_level,name` +
     `&key=${apiKey}`;
 
-  for (let attempt = 0; attempt < 3; attempt++) {
-    const r = await fetch(url);
-    const j = await r.json();
+  const r = await fetch(url);
+  const j = await r.json();
 
-    if (j.status === "OK" && j.candidates?.[0]) return j.candidates[0];
-
-    // simple backoff on quota/rate limiting
-    if (j.status === "OVER_QUERY_LIMIT") {
-      await new Promise((res) => setTimeout(res, 200 * (attempt + 1)));
-      continue;
-    }
-
+  if (j.status !== "OK" || !j.candidates?.[0]) {
+    // helpful log for debugging
+    console.log("[FindPlace] status:", j.status, "query:", query, j.error_message || "");
     return null;
   }
-
-  return null;
+  return j.candidates[0];
 }
 
 async function mapWithConcurrency(items, limit, fn) {
@@ -100,7 +67,7 @@ async function mapWithConcurrency(items, limit, fn) {
       const i = idx++;
       try {
         results[i] = await fn(items[i], i);
-      } catch {
+      } catch (e) {
         results[i] = null;
       }
     }
@@ -109,6 +76,40 @@ async function mapWithConcurrency(items, limit, fn) {
   const workers = Array.from({ length: Math.min(limit, items.length) }, worker);
   await Promise.all(workers);
   return results;
+}
+
+// --- Load Michelin list at cold start ---
+let MICHELIN_LIST = [];
+let MICHELIN_LOAD_ERROR = null;
+
+try {
+  const p = path.join(__dirname, "michelin_nyc.json");
+
+  // DEBUG: show what files exist next to the function at runtime
+  try {
+    const filesHere = fs.readdirSync(__dirname);
+    console.log("[Michelin] __dirname:", __dirname);
+    console.log("[Michelin] Files in __dirname:", filesHere);
+  } catch (e) {
+    console.log("[Michelin] Could not list __dirname files:", e.message);
+  }
+
+  const raw = fs.readFileSync(p, "utf8");
+  const parsed = JSON.parse(raw);
+
+  if (!Array.isArray(parsed)) {
+    MICHELIN_LOAD_ERROR = `michelin_nyc.json parsed but was not an array (type=${typeof parsed})`;
+    MICHELIN_LIST = [];
+  } else {
+    MICHELIN_LIST = parsed;
+  }
+
+  console.log(`[Michelin] Loaded entries: ${MICHELIN_LIST.length}`);
+  console.log("[Michelin] Sample entry:", MICHELIN_LIST?.[0] || null);
+} catch (e) {
+  MICHELIN_LOAD_ERROR = `Failed to load michelin_nyc.json: ${e.message}`;
+  console.log(`[Michelin] ${MICHELIN_LOAD_ERROR}`);
+  MICHELIN_LIST = [];
 }
 
 exports.handler = async (event) => {
@@ -120,26 +121,40 @@ exports.handler = async (event) => {
 
     const body = JSON.parse(event.body || "{}");
     const location = String(body.location || "").trim();
+    const radiusMiles = Number.isFinite(Number(body.radiusMiles)) ? Number(body.radiusMiles) : 15;
+
     if (!location) {
       return stableResponse({ error: "Missing location", michelin: [], confirmedAddress: null, userLocation: null }, 400);
     }
 
-    const radiusMiles = Number.isFinite(Number(body.radiusMiles)) ? Number(body.radiusMiles) : 15;
-
     const geo = await geocodeAddress(location, apiKey);
-    if (geo.error) return stableResponse({ error: geo.error, michelin: [], confirmedAddress: null, userLocation: null }, 400);
+    if (geo.error) {
+      return stableResponse({ error: geo.error, michelin: [], confirmedAddress: null, userLocation: null }, 400);
+    }
 
     const { origin, confirmedAddress } = geo;
 
-    const raw = Array.isArray(MICHELIN_LIST) ? MICHELIN_LIST : [];
-    const list = raw.map(normalizeMichelinEntry).filter((x) => x && x.name);
-
-    if (!list.length) {
-      return stableResponse({ error: "Michelin list is empty or invalid (michelin_nyc.json)", michelin: [], confirmedAddress, userLocation: origin }, 500);
+    if (!MICHELIN_LIST.length) {
+      return stableResponse(
+        {
+          error: "Michelin list is empty or invalid (michelin_nyc.json)",
+          debug: {
+            loadError: MICHELIN_LOAD_ERROR,
+            loadedCount: MICHELIN_LIST.length,
+          },
+          michelin: [],
+          confirmedAddress,
+          userLocation: origin,
+        },
+        500
+      );
     }
 
-    const resolved = await mapWithConcurrency(list, 5, async (m) => {
-      const query = `${m.name}, New York, NY`;
+    const resolved = await mapWithConcurrency(MICHELIN_LIST, 5, async (m) => {
+      const name = (m && m.name) ? String(m.name).trim() : "";
+      if (!name) return null;
+
+      const query = `${name}, New York, NY`;
       const place = await findPlaceByText(query, apiKey);
       if (!place?.geometry?.location) return null;
 
@@ -147,11 +162,11 @@ exports.handler = async (event) => {
       const lng = place.geometry.location.lng;
 
       const distanceMiles = Math.round(haversineMiles(origin.lat, origin.lng, lat, lng) * 10) / 10;
-      if (Number.isFinite(radiusMiles) && distanceMiles > radiusMiles) return null;
+      if (distanceMiles > radiusMiles) return null;
 
       return {
         place_id: place.place_id || null,
-        name: place.name || m.name,
+        name: place.name || name,
         formatted_address: place.formatted_address || "",
         geometry: { location: { lat, lng } },
 
@@ -161,7 +176,7 @@ exports.handler = async (event) => {
 
         distanceMiles,
 
-        michelin: { distinction: m.distinction, stars: m.stars },
+        michelin: { distinction: m.distinction || "star", stars: Number(m.stars || 0) },
       };
     });
 
@@ -173,7 +188,7 @@ exports.handler = async (event) => {
       userLocation: origin,
       stats: {
         requestedRadiusMiles: radiusMiles,
-        listCount: list.length,
+        listCount: MICHELIN_LIST.length,
         returnedCount: michelin.length,
       },
     });
