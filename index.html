@@ -36,8 +36,7 @@
     .chatbot-btn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:#000;color:white;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:all 0.2s}
     .chatbot-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,0.4)}
     .pac-container{z-index:10000!important;font-family:system-ui,sans-serif}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
-    @media(max-width:768px){.toggle-group{flex-direction:column}.form-row{grid-template-columns:1fr}}
+    @media(max-width:768px){.toggle-group{flex-direction:column}}
   </style>
 </head>
 
@@ -133,41 +132,29 @@
         </select>
       </div>
 
-      <div class="form-row">
-        <div>
-          <label>💰 Budget</label>
-          <select id="budget">
-            <option value="any" selected>Any Price</option>
-            <option value="1">$ (Budget)</option>
-            <option value="2">$$ (Moderate)</option>
-            <option value="3">$$$ (Upscale)</option>
-            <option value="4">$$$$ (Fine Dining)</option>
-          </select>
-        </div>
-        <div>
-          <label>🍕 Cuisine</label>
-          <select id="cuisine">
-            <option value="any">Any</option>
-            <option value="american">American</option>
-            <option value="barbecue">Barbecue</option>
-            <option value="chinese">Chinese</option>
-            <option value="french">French</option>
-            <option value="greek">Greek</option>
-            <option value="indian">Indian</option>
-            <option value="italian">Italian</option>
-            <option value="japanese">Japanese</option>
-            <option value="korean">Korean</option>
-            <option value="mediterranean">Mediterranean</option>
-            <option value="mexican">Mexican</option>
-            <option value="pizza">Pizza</option>
-            <option value="seafood">Seafood</option>
-            <option value="spanish">Spanish</option>
-            <option value="steakhouse">Steakhouse</option>
-            <option value="sushi">Sushi</option>
-            <option value="thai">Thai</option>
-            <option value="vietnamese">Vietnamese</option>
-          </select>
-        </div>
+      <div style="margin-bottom:20px">
+        <label>🍕 Cuisine</label>
+        <select id="cuisine">
+          <option value="any">Any</option>
+          <option value="american">American</option>
+          <option value="barbecue">Barbecue</option>
+          <option value="chinese">Chinese</option>
+          <option value="french">French</option>
+          <option value="greek">Greek</option>
+          <option value="indian">Indian</option>
+          <option value="italian">Italian</option>
+          <option value="japanese">Japanese</option>
+          <option value="korean">Korean</option>
+          <option value="mediterranean">Mediterranean</option>
+          <option value="mexican">Mexican</option>
+          <option value="pizza">Pizza</option>
+          <option value="seafood">Seafood</option>
+          <option value="spanish">Spanish</option>
+          <option value="steakhouse">Steakhouse</option>
+          <option value="sushi">Sushi</option>
+          <option value="thai">Thai</option>
+          <option value="vietnamese">Vietnamese</option>
+        </select>
       </div>
 
       <button class="btn" onclick="search()">🔍 Find Restaurants</button>
@@ -193,7 +180,7 @@
   </div>
 
 <script>
-let state = { transport: 'walk', qualityFilter: 'any', budgetFilter: 'any', showExpanded: false };
+let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false };
 let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
@@ -206,6 +193,10 @@ function michelinRank(r) {
   if (d === 'bib_gourmand' || d === 'bib') return 50;
   if (d === 'recommended') return 25;
   return 10;
+}
+
+function hasPrice(r) {
+  return r.price_level != null && r.price_level !== undefined && r.price_level > 0;
 }
 
 function useCurrentLocation() {
@@ -249,10 +240,6 @@ function filterByQuality(restaurants) {
   });
 }
 
-function hasPrice(r) {
-  return r.price_level != null && r.price_level !== undefined;
-}
-
 async function search() {
   if (isSearching) return;
 
@@ -268,7 +255,6 @@ async function search() {
   const location = document.getElementById('addressInput').value;
   const cuisine = document.getElementById('cuisine').value;
   state.qualityFilter = document.getElementById('quality').value;
-  state.budgetFilter = document.getElementById('budget').value;
 
   const openNow = false;
 
@@ -530,56 +516,53 @@ async function search() {
   }
 }
 
-function applySorting(arr) {
+function sortResults() {
+  let filtered = filterByQuality(allRestaurants);
   const sortBy = document.getElementById('sortBy').value;
-  const sorted = [...arr];
 
-  if (sortBy === 'rating') {
-    sorted.sort((a, b) => {
+  if (sortBy === 'price') {
+    // Price sort: $ first → $$$$ last → N/A at very bottom
+    const priced = filtered.filter(r => hasPrice(r));
+    const noPrice = filtered.filter(r => !hasPrice(r));
+
+    // Sort priced: lowest first, michelin rank as tiebreaker within same price
+    priced.sort((a, b) => {
+      if (a.price_level !== b.price_level) return a.price_level - b.price_level;
       const ma = michelinRank(a), mb = michelinRank(b);
       if (ma !== mb) return mb - ma;
       return (b.googleRating || 0) - (a.googleRating || 0);
     });
-  } else if (sortBy === 'distance') {
-    sorted.sort((a, b) => {
-      const da = a.distanceMiles ?? 999999;
-      const db = b.distanceMiles ?? 999999;
-      if (da !== db) return da - db;
+
+    // Sort N/A by michelin rank then rating
+    noPrice.sort((a, b) => {
       const ma = michelinRank(a), mb = michelinRank(b);
       if (ma !== mb) return mb - ma;
-      if ((b.googleRating || 0) !== (a.googleRating || 0)) return (b.googleRating || 0) - (a.googleRating || 0);
-      return String(a.name || '').localeCompare(String(b.name || ''));
+      return (b.googleRating || 0) - (a.googleRating || 0);
     });
-  } else if (sortBy === 'price') {
-    sorted.sort((a, b) => {
-      const ma = michelinRank(a), mb = michelinRank(b);
-      if (ma !== mb) return mb - ma;
-      return (a.price_level || 0) - (b.price_level || 0);
-    });
-  }
 
-  return sorted;
-}
-
-function sortResults() {
-  let filtered = filterByQuality(allRestaurants);
-  const budgetVal = state.budgetFilter;
-  const budgetActive = budgetVal !== 'any';
-
-  if (!budgetActive) {
-    // No budget filter: sort everything together, render normally
-    const sorted = applySorting(filtered);
-    displayResults(sorted, false);
+    displayResults(priced, noPrice);
   } else {
-    // Budget filter ON: split into priced matches vs N/A
-    const maxPrice = parseInt(budgetVal, 10);
-    const priced = filtered.filter(r => hasPrice(r) && r.price_level <= maxPrice);
-    const noPrice = filtered.filter(r => !hasPrice(r));
+    let sorted = [...filtered];
 
-    const sortedPriced = applySorting(priced);
-    const sortedNoPrice = applySorting(noPrice);
+    if (sortBy === 'rating') {
+      sorted.sort((a, b) => {
+        const ma = michelinRank(a), mb = michelinRank(b);
+        if (ma !== mb) return mb - ma;
+        return (b.googleRating || 0) - (a.googleRating || 0);
+      });
+    } else if (sortBy === 'distance') {
+      sorted.sort((a, b) => {
+        const da = a.distanceMiles ?? 999999;
+        const db = b.distanceMiles ?? 999999;
+        if (da !== db) return da - db;
+        const ma = michelinRank(a), mb = michelinRank(b);
+        if (ma !== mb) return mb - ma;
+        if ((b.googleRating || 0) !== (a.googleRating || 0)) return (b.googleRating || 0) - (a.googleRating || 0);
+        return String(a.name || '').localeCompare(String(b.name || ''));
+      });
+    }
 
-    displayResults(sortedPriced, true, sortedNoPrice);
+    displayResults(sorted, null);
   }
 }
 
@@ -611,7 +594,7 @@ function renderCard(r) {
       ? `<span class="badge">⭐ ${Number(rating).toFixed(1)} (${reviews})</span>`
       : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
 
-  const priceHtml = r.price_level ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
+  const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
 
   const mapsUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
@@ -636,7 +619,7 @@ function renderCard(r) {
   `;
 }
 
-function displayResults(restaurants, hasBudgetFilter, noPriceRestaurants) {
+function displayResults(restaurants, noPriceRestaurants) {
   const totalCount = restaurants.length + (noPriceRestaurants ? noPriceRestaurants.length : 0);
   const countEl = document.getElementById('resultCount');
   if (countEl) countEl.textContent = String(totalCount);
@@ -649,9 +632,9 @@ function displayResults(restaurants, hasBudgetFilter, noPriceRestaurants) {
 
   let html = restaurants.map(r => renderCard(r)).join('');
 
-  // When budget filter is active, show N/A restaurants in a separate section at the bottom
-  if (hasBudgetFilter && noPriceRestaurants && noPriceRestaurants.length > 0) {
-    html += `<div class="section-divider">💰 Price not available (${noPriceRestaurants.length} restaurants)</div>`;
+  // When sorting by price, show N/A restaurants at the bottom with a divider
+  if (noPriceRestaurants && noPriceRestaurants.length > 0) {
+    html += `<div class="section-divider">💰 Price not available (${noPriceRestaurants.length})</div>`;
     html += noPriceRestaurants.map(r => renderCard(r)).join('');
   }
 
