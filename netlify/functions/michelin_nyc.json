@@ -1,1 +1,1 @@
-netlify/functions/michelin_nyc.json
+module.exports = require("./michelin_nyc.json");
