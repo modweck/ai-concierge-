@@ -213,7 +213,7 @@ function filterByQuality(restaurants) {
   return restaurants.filter(r => {
     const rating = Number(r.googleRating || 0);
 
-    // FIX: match backend tiering so you don't collapse to 1 result
+    // Match backend tiers so you don't collapse to 1-5 results
     if (q === 'five_star') return rating >= 4.5;
     if (q === 'top_rated_and_above') return rating >= 4.4;
     if (q === 'top_rated') return rating >= 4.4 && rating < 4.5;
@@ -239,7 +239,7 @@ async function search() {
   const timeSlot = document.getElementById('timewindow').value;
   state.qualityFilter = document.getElementById('quality').value;
 
-  // FIX: don't accidentally restrict to "open now" based on dropdown
+  // IMPORTANT: do NOT force "open now" based on time slot
   const openNow = false;
 
   let maxWalkMinutes = null, maxDriveMinutes = null, maxTransitMinutes = null;
@@ -255,6 +255,7 @@ async function search() {
     '<div style="text-align:center;padding:40px">🔍 Finding candidates...</div>';
 
   try {
+    // MICHELIN MODE
     if (state.qualityFilter === 'michelin') {
       document.getElementById('sortBy').value = 'distance';
       document.getElementById('list').innerHTML =
@@ -305,6 +306,7 @@ async function search() {
       return;
     }
 
+    // NORMAL MODE (search-candidates)
     const step1Response = await fetch('/.netlify/functions/search-candidates', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -335,15 +337,16 @@ async function search() {
 
     allRestaurants = [...eliteRestaurants, ...moreOptionsRestaurants].map(c => ({
       ...c,
-      walkMinutes: c.walkMinEstimate,
-      driveMinutes: c.driveMinEstimate,
-      transitMinutes: c.transitMinEstimate
+      walkMinutes: c.walkMinutes ?? c.walkMinEstimate ?? null,
+      driveMinutes: c.driveMinutes ?? c.driveMinEstimate ?? null,
+      transitMinutes: c.transitMinutes ?? c.transitMinEstimate ?? null
     }));
 
+    // Apply quick filter using estimates
     let timeFiltered = allRestaurants;
-    if (state.transport === 'walk' && maxWalkMinutes) timeFiltered = timeFiltered.filter(r => (r.walkMinutes ?? r.walkMinEstimate) && (r.walkMinutes ?? r.walkMinEstimate) <= maxWalkMinutes);
-    else if (state.transport === 'drive' && maxDriveMinutes) timeFiltered = timeFiltered.filter(r => (r.driveMinutes ?? r.driveMinEstimate) && (r.driveMinutes ?? r.driveMinEstimate) <= maxDriveMinutes);
-    else if (state.transport === 'transit' && maxTransitMinutes) timeFiltered = timeFiltered.filter(r => (r.transitMinutes ?? r.transitMinEstimate) && (r.transitMinutes ?? r.transitMinEstimate) <= maxTransitMinutes);
+    if (state.transport === 'walk' && maxWalkMinutes) timeFiltered = timeFiltered.filter(r => r.walkMinutes && r.walkMinutes <= maxWalkMinutes);
+    else if (state.transport === 'drive' && maxDriveMinutes) timeFiltered = timeFiltered.filter(r => r.driveMinutes && r.driveMinutes <= maxDriveMinutes);
+    else if (state.transport === 'transit' && maxTransitMinutes) timeFiltered = timeFiltered.filter(r => r.transitMinutes && r.transitMinutes <= maxTransitMinutes);
     allRestaurants = timeFiltered;
 
     document.getElementById('warnings').innerHTML = `
@@ -357,14 +360,20 @@ async function search() {
 
     sortResults();
 
-    // Enrich step (kept from your version)
-    let enrichLimit = 80;
+    // --- Enrich travel times (do NOT discard candidates beyond enrichLimit) ---
+    let enrichLimit = 200;
     if (state.transport === 'walk') {
-      if (maxWalkMinutes >= 30) enrichLimit = 100;
-      else if (maxWalkMinutes >= 20) enrichLimit = 60;
+      if (maxWalkMinutes >= 30) enrichLimit = 250;
+      else if (maxWalkMinutes >= 20) enrichLimit = 200;
+      else enrichLimit = 150;
+    } else if (state.transport === 'drive') {
+      enrichLimit = 200;
+    } else if (state.transport === 'transit') {
+      enrichLimit = 200;
     }
 
-    const toEnrich = allRestaurants.slice(0, enrichLimit);
+    const originalCandidates = [...allRestaurants];
+    const toEnrich = originalCandidates.slice(0, enrichLimit);
 
     const step2Response = await fetch('/.netlify/functions/enrich-times', {
       method: 'POST',
@@ -386,20 +395,27 @@ async function search() {
     }
 
     const step2Data = await step2Response.json();
-    allRestaurants = Array.isArray(step2Data.enrichedCandidates) ? step2Data.enrichedCandidates : [];
+    const enriched = Array.isArray(step2Data.enrichedCandidates) ? step2Data.enrichedCandidates : [];
+    const enrichedById = new Map(enriched.map(r => [r.place_id, r]));
 
-    // FIX: fallback to estimates if enrich misses some values
-    allRestaurants = allRestaurants.map(r => ({
-      ...r,
-      walkMinutes: r.walkMinutes ?? r.walkMinEstimate ?? null,
-      driveMinutes: r.driveMinutes ?? r.driveMinEstimate ?? null,
-      transitMinutes: r.transitMinutes ?? r.transitMinEstimate ?? null
-    }));
+    allRestaurants = originalCandidates.map(r => {
+      const e = enrichedById.get(r.place_id);
+      if (!e) return r;
 
+      return {
+        ...r,
+        ...e,
+        walkMinutes: e.walkMinutes ?? e.walkMinEstimate ?? r.walkMinutes ?? r.walkMinEstimate ?? null,
+        driveMinutes: e.driveMinutes ?? e.driveMinEstimate ?? r.driveMinutes ?? r.driveMinEstimate ?? null,
+        transitMinutes: e.transitMinutes ?? e.transitMinEstimate ?? r.transitMinutes ?? r.transitMinEstimate ?? null
+      };
+    });
+
+    // Apply real-time filter AFTER enrichment, but don't drop due to missing values
     let realTimeFiltered = allRestaurants;
-    if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes && r.walkMinutes <= maxWalkMinutes);
-    else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes && r.driveMinutes <= maxDriveMinutes);
-    else if (state.transport === 'transit' && maxTransitMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.transitMinutes && r.transitMinutes <= maxTransitMinutes);
+    if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
+    else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
+    else if (state.transport === 'transit' && maxTransitMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
     allRestaurants = realTimeFiltered;
 
     document.getElementById('warnings').innerHTML = `
@@ -467,9 +483,9 @@ function displayResults(restaurants) {
 
   const html = restaurants.map(r => {
     let distanceHtml = '';
-    if (r.walkMinutes) distanceHtml += `<span class="badge distance">🚶 ${r.walkMinutes} min</span>`;
-    if (r.driveMinutes) distanceHtml += `<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
-    if (r.transitMinutes) distanceHtml += `<span class="badge distance">🚇 ${r.transitMinutes} min</span>`;
+    if (r.walkMinutes != null) distanceHtml += `<span class="badge distance">🚶 ${r.walkMinutes} min</span>`;
+    if (r.driveMinutes != null) distanceHtml += `<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
+    if (r.transitMinutes != null) distanceHtml += `<span class="badge distance">🚇 ${r.transitMinutes} min</span>`;
     if (r.distanceMiles != null) distanceHtml += `<span class="badge distance">📍 ${r.distanceMiles} mi</span>`;
 
     let michelinHtml = '';
@@ -485,7 +501,7 @@ function displayResults(restaurants) {
     const reviews = (r.googleReviewCount || 0);
 
     const ratingHtml = (r.googleRating != null && r.googleRating !== 0)
-      ? `<span class="badge">⭐ ${rating.toFixed(1)} (${reviews})</span>`
+      ? `<span class="badge">⭐ ${Number(rating).toFixed(1)} (${reviews})</span>`
       : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
 
     const priceHtml = r.price_level ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : `<span class="badge">💰 N/A</span>`;
