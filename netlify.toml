@@ -1,5 +1,2 @@
-[build]
-  functions = "netlify/functions"
-
 [functions]
   included_files = ["netlify/functions/michelin_nyc.json"]
