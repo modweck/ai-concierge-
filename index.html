@@ -32,10 +32,12 @@
     .toggle-btn:hover{border-color:#000;background:#f5f5f5}
     .toggle-btn:hover.active{background:#000}
     .sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:16px;background:#f9fafb;border-radius:12px}
+    .section-divider{padding:12px 16px;margin:24px 0 16px 0;background:#f3f4f6;border-radius:10px;font-size:14px;font-weight:600;color:#6b7280;border-left:4px solid #d1d5db}
     .chatbot-btn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:#000;color:white;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:all 0.2s}
     .chatbot-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,0.4)}
     .pac-container{z-index:10000!important;font-family:system-ui,sans-serif}
-    @media(max-width:768px){.toggle-group{flex-direction:column}}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+    @media(max-width:768px){.toggle-group{flex-direction:column}.form-row{grid-template-columns:1fr}}
   </style>
 </head>
 
@@ -131,29 +133,41 @@
         </select>
       </div>
 
-      <div style="margin-bottom:20px">
-        <label>🍕 Cuisine</label>
-        <select id="cuisine">
-          <option value="any">Any</option>
-          <option value="american">American</option>
-          <option value="barbecue">Barbecue</option>
-          <option value="chinese">Chinese</option>
-          <option value="french">French</option>
-          <option value="greek">Greek</option>
-          <option value="indian">Indian</option>
-          <option value="italian">Italian</option>
-          <option value="japanese">Japanese</option>
-          <option value="korean">Korean</option>
-          <option value="mediterranean">Mediterranean</option>
-          <option value="mexican">Mexican</option>
-          <option value="pizza">Pizza</option>
-          <option value="seafood">Seafood</option>
-          <option value="spanish">Spanish</option>
-          <option value="steakhouse">Steakhouse</option>
-          <option value="sushi">Sushi</option>
-          <option value="thai">Thai</option>
-          <option value="vietnamese">Vietnamese</option>
-        </select>
+      <div class="form-row">
+        <div>
+          <label>💰 Budget</label>
+          <select id="budget">
+            <option value="any" selected>Any Price</option>
+            <option value="1">$ (Budget)</option>
+            <option value="2">$$ (Moderate)</option>
+            <option value="3">$$$ (Upscale)</option>
+            <option value="4">$$$$ (Fine Dining)</option>
+          </select>
+        </div>
+        <div>
+          <label>🍕 Cuisine</label>
+          <select id="cuisine">
+            <option value="any">Any</option>
+            <option value="american">American</option>
+            <option value="barbecue">Barbecue</option>
+            <option value="chinese">Chinese</option>
+            <option value="french">French</option>
+            <option value="greek">Greek</option>
+            <option value="indian">Indian</option>
+            <option value="italian">Italian</option>
+            <option value="japanese">Japanese</option>
+            <option value="korean">Korean</option>
+            <option value="mediterranean">Mediterranean</option>
+            <option value="mexican">Mexican</option>
+            <option value="pizza">Pizza</option>
+            <option value="seafood">Seafood</option>
+            <option value="spanish">Spanish</option>
+            <option value="steakhouse">Steakhouse</option>
+            <option value="sushi">Sushi</option>
+            <option value="thai">Thai</option>
+            <option value="vietnamese">Vietnamese</option>
+          </select>
+        </div>
       </div>
 
       <button class="btn" onclick="search()">🔍 Find Restaurants</button>
@@ -170,14 +184,6 @@
           <option value="rating">Rating</option>
           <option value="price">Price</option>
         </select>
-        <label style="margin:0;font-weight:600;margin-left:16px">💰 Budget:</label>
-        <select id="budgetFilter" onchange="sortResults()">
-          <option value="any">Any</option>
-          <option value="1">$ (Budget)</option>
-          <option value="2">$$ (Moderate)</option>
-          <option value="3">$$$ (Upscale)</option>
-          <option value="4">$$$$ (Fine Dining)</option>
-        </select>
       </div>
 
       <div id="list"></div>
@@ -187,12 +193,11 @@
   </div>
 
 <script>
-let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false };
+let state = { transport: 'walk', qualityFilter: 'any', budgetFilter: 'any', showExpanded: false };
 let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
 
-// Michelin ranking: 3-star(103) > 2-star(102) > 1-star(101) > Bib Gourmand(50) > Recommended(25) > regular(0)
 function michelinRank(r) {
   if (!r.michelin) return 0;
   const d = r.michelin.distinction || '';
@@ -244,6 +249,10 @@ function filterByQuality(restaurants) {
   });
 }
 
+function hasPrice(r) {
+  return r.price_level != null && r.price_level !== undefined;
+}
+
 async function search() {
   if (isSearching) return;
 
@@ -259,6 +268,7 @@ async function search() {
   const location = document.getElementById('addressInput').value;
   const cuisine = document.getElementById('cuisine').value;
   state.qualityFilter = document.getElementById('quality').value;
+  state.budgetFilter = document.getElementById('budget').value;
 
   const openNow = false;
 
@@ -520,21 +530,9 @@ async function search() {
   }
 }
 
-function sortResults() {
-  let filtered = filterByQuality(allRestaurants);
-
-  // Budget filter
-  const budgetVal = document.getElementById('budgetFilter').value;
-  if (budgetVal !== 'any') {
-    const maxPrice = parseInt(budgetVal, 10);
-    filtered = filtered.filter(r => {
-      if (!r.price_level) return true; // show N/A restaurants (don't hide them)
-      return r.price_level <= maxPrice;
-    });
-  }
-
+function applySorting(arr) {
   const sortBy = document.getElementById('sortBy').value;
-  let sorted = [...filtered];
+  const sorted = [...arr];
 
   if (sortBy === 'rating') {
     sorted.sort((a, b) => {
@@ -560,71 +558,102 @@ function sortResults() {
     });
   }
 
-  displayResults(sorted);
+  return sorted;
 }
 
-function displayResults(restaurants) {
-  const countEl = document.getElementById('resultCount');
-  if (countEl) countEl.textContent = String(restaurants.length);
+function sortResults() {
+  let filtered = filterByQuality(allRestaurants);
+  const budgetVal = state.budgetFilter;
+  const budgetActive = budgetVal !== 'any';
 
-  if (!restaurants.length) {
+  if (!budgetActive) {
+    // No budget filter: sort everything together, render normally
+    const sorted = applySorting(filtered);
+    displayResults(sorted, false);
+  } else {
+    // Budget filter ON: split into priced matches vs N/A
+    const maxPrice = parseInt(budgetVal, 10);
+    const priced = filtered.filter(r => hasPrice(r) && r.price_level <= maxPrice);
+    const noPrice = filtered.filter(r => !hasPrice(r));
+
+    const sortedPriced = applySorting(priced);
+    const sortedNoPrice = applySorting(noPrice);
+
+    displayResults(sortedPriced, true, sortedNoPrice);
+  }
+}
+
+function renderCard(r) {
+  let distanceHtml = '';
+  if (r.walkMinutes != null) distanceHtml += `<span class="badge distance">🚶 ${r.walkMinutes} min</span>`;
+  if (r.driveMinutes != null) distanceHtml += `<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
+  if (r.transitMinutes != null) distanceHtml += `<span class="badge distance">🚇 ${r.transitMinutes} min</span>`;
+  if (r.distanceMiles != null) distanceHtml += `<span class="badge distance">📍 ${r.distanceMiles} mi</span>`;
+
+  let michelinHtml = '';
+  if (r.michelin) {
+    const stars = r.michelin.stars || 0;
+    const distinction = r.michelin.distinction || '';
+    if (stars === 3) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐⭐ Michelin Three Stars</span>`;
+    else if (stars === 2) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐ Michelin Two Stars</span>`;
+    else if (stars === 1) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin One Star</span>`;
+    else if (distinction === 'bib_gourmand' || distinction === 'bib') michelinHtml = `<span class="badge" style="background:#e65100;color:white;border-color:#e65100">🍽️ Bib Gourmand</span>`;
+    else if (distinction === 'recommended') michelinHtml = `<span class="badge" style="background:#9c27b0;color:white;border-color:#9c27b0">✨ Michelin Recommended</span>`;
+    else michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">Michelin Selected</span>`;
+  }
+
+  const rating = (r.googleRating || 0);
+  const reviews = (r.googleReviewCount || 0);
+
+  const ratingHtml = r.michelin
+    ? ''
+    : (r.googleRating != null && r.googleRating !== 0)
+      ? `<span class="badge">⭐ ${Number(rating).toFixed(1)} (${reviews})</span>`
+      : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
+
+  const priceHtml = r.price_level ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
+
+  const mapsUrl = r.place_id
+    ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
+    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || 'New York, NY'))}`;
+
+  return `
+    <div class="restaurant">
+      <h3>${r.name || 'Unknown'}</h3>
+      <div class="cuisine">${r.vicinity || r.formatted_address || ''}</div>
+      <div class="badges">
+        ${michelinHtml}
+        ${ratingHtml}
+        ${priceHtml}
+        ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
+        ${distanceHtml}
+        <button onclick="window.open('${mapsUrl}','_blank')"
+          style="margin-left:auto;padding:8px 16px;background:#4285f4;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px">
+          📍 Maps
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function displayResults(restaurants, hasBudgetFilter, noPriceRestaurants) {
+  const totalCount = restaurants.length + (noPriceRestaurants ? noPriceRestaurants.length : 0);
+  const countEl = document.getElementById('resultCount');
+  if (countEl) countEl.textContent = String(totalCount);
+
+  if (!totalCount) {
     document.getElementById('list').innerHTML =
       '<div style="text-align:center;padding:40px">No restaurants found</div>';
     return;
   }
 
-  const html = restaurants.map(r => {
-    let distanceHtml = '';
-    if (r.walkMinutes != null) distanceHtml += `<span class="badge distance">🚶 ${r.walkMinutes} min</span>`;
-    if (r.driveMinutes != null) distanceHtml += `<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
-    if (r.transitMinutes != null) distanceHtml += `<span class="badge distance">🚇 ${r.transitMinutes} min</span>`;
-    if (r.distanceMiles != null) distanceHtml += `<span class="badge distance">📍 ${r.distanceMiles} mi</span>`;
+  let html = restaurants.map(r => renderCard(r)).join('');
 
-    let michelinHtml = '';
-    if (r.michelin) {
-      const stars = r.michelin.stars || 0;
-      const distinction = r.michelin.distinction || '';
-      if (stars === 3) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐⭐ Michelin Three Stars</span>`;
-      else if (stars === 2) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐ Michelin Two Stars</span>`;
-      else if (stars === 1) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin One Star</span>`;
-      else if (distinction === 'bib_gourmand' || distinction === 'bib') michelinHtml = `<span class="badge" style="background:#e65100;color:white;border-color:#e65100">🍽️ Bib Gourmand</span>`;
-      else if (distinction === 'recommended') michelinHtml = `<span class="badge" style="background:#9c27b0;color:white;border-color:#9c27b0">✨ Michelin Recommended</span>`;
-      else michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">Michelin Selected</span>`;
-    }
-
-    const rating = (r.googleRating || 0);
-    const reviews = (r.googleReviewCount || 0);
-
-    const ratingHtml = r.michelin
-      ? ''
-      : (r.googleRating != null && r.googleRating !== 0)
-        ? `<span class="badge">⭐ ${Number(rating).toFixed(1)} (${reviews})</span>`
-        : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
-
-    const priceHtml = r.price_level ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
-
-    const mapsUrl = r.place_id
-      ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
-      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || 'New York, NY'))}`;
-
-    return `
-      <div class="restaurant">
-        <h3>${r.name || 'Unknown'}</h3>
-        <div class="cuisine">${r.vicinity || r.formatted_address || ''}</div>
-        <div class="badges">
-          ${michelinHtml}
-          ${ratingHtml}
-          ${priceHtml}
-          ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
-          ${distanceHtml}
-          <button onclick="window.open('${mapsUrl}','_blank')"
-            style="margin-left:auto;padding:8px 16px;background:#4285f4;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px">
-            📍 Maps
-          </button>
-        </div>
-      </div>
-    `;
-  }).join('');
+  // When budget filter is active, show N/A restaurants in a separate section at the bottom
+  if (hasBudgetFilter && noPriceRestaurants && noPriceRestaurants.length > 0) {
+    html += `<div class="section-divider">💰 Price not available (${noPriceRestaurants.length} restaurants)</div>`;
+    html += noPriceRestaurants.map(r => renderCard(r)).join('');
+  }
 
   document.getElementById('list').innerHTML = html;
 }
