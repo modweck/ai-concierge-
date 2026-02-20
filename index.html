@@ -213,7 +213,7 @@ function filterByQuality(restaurants) {
   return restaurants.filter(r => {
     const rating = Number(r.googleRating || 0);
 
-    // Match backend tiers
+    // FIX: match backend tiering so you don't collapse to 1 result
     if (q === 'five_star') return rating >= 4.5;
     if (q === 'top_rated_and_above') return rating >= 4.4;
     if (q === 'top_rated') return rating >= 4.4 && rating < 4.5;
@@ -239,7 +239,7 @@ async function search() {
   const timeSlot = document.getElementById('timewindow').value;
   state.qualityFilter = document.getElementById('quality').value;
 
-  // IMPORTANT: do NOT force "open now" based on time dropdown
+  // FIX: don't accidentally restrict to "open now" based on dropdown
   const openNow = false;
 
   let maxWalkMinutes = null, maxDriveMinutes = null, maxTransitMinutes = null;
@@ -341,9 +341,9 @@ async function search() {
     }));
 
     let timeFiltered = allRestaurants;
-    if (state.transport === 'walk' && maxWalkMinutes) timeFiltered = timeFiltered.filter(r => r.walkMinutes && r.walkMinutes <= maxWalkMinutes);
-    else if (state.transport === 'drive' && maxDriveMinutes) timeFiltered = timeFiltered.filter(r => r.driveMinutes && r.driveMinutes <= maxDriveMinutes);
-    else if (state.transport === 'transit' && maxTransitMinutes) timeFiltered = timeFiltered.filter(r => r.transitMinutes && r.transitMinutes <= maxTransitMinutes);
+    if (state.transport === 'walk' && maxWalkMinutes) timeFiltered = timeFiltered.filter(r => (r.walkMinutes ?? r.walkMinEstimate) && (r.walkMinutes ?? r.walkMinEstimate) <= maxWalkMinutes);
+    else if (state.transport === 'drive' && maxDriveMinutes) timeFiltered = timeFiltered.filter(r => (r.driveMinutes ?? r.driveMinEstimate) && (r.driveMinutes ?? r.driveMinEstimate) <= maxDriveMinutes);
+    else if (state.transport === 'transit' && maxTransitMinutes) timeFiltered = timeFiltered.filter(r => (r.transitMinutes ?? r.transitMinEstimate) && (r.transitMinutes ?? r.transitMinEstimate) <= maxTransitMinutes);
     allRestaurants = timeFiltered;
 
     document.getElementById('warnings').innerHTML = `
@@ -357,6 +357,7 @@ async function search() {
 
     sortResults();
 
+    // Enrich step (kept from your version)
     let enrichLimit = 80;
     if (state.transport === 'walk') {
       if (maxWalkMinutes >= 30) enrichLimit = 100;
@@ -386,6 +387,14 @@ async function search() {
 
     const step2Data = await step2Response.json();
     allRestaurants = Array.isArray(step2Data.enrichedCandidates) ? step2Data.enrichedCandidates : [];
+
+    // FIX: fallback to estimates if enrich misses some values
+    allRestaurants = allRestaurants.map(r => ({
+      ...r,
+      walkMinutes: r.walkMinutes ?? r.walkMinEstimate ?? null,
+      driveMinutes: r.driveMinutes ?? r.driveMinEstimate ?? null,
+      transitMinutes: r.transitMinutes ?? r.transitMinEstimate ?? null
+    }));
 
     let realTimeFiltered = allRestaurants;
     if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes && r.walkMinutes <= maxWalkMinutes);
