@@ -197,6 +197,17 @@ let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
 
+// Michelin ranking: 3-star(103) > 2-star(102) > 1-star(101) > Bib Gourmand(50) > Recommended(25) > regular(0)
+function michelinRank(r) {
+  if (!r.michelin) return 0;
+  const d = r.michelin.distinction || '';
+  const s = r.michelin.stars || 0;
+  if (s >= 1) return 100 + s;
+  if (d === 'bib_gourmand' || d === 'bib') return 50;
+  if (d === 'recommended') return 25;
+  return 10;
+}
+
 function useCurrentLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -227,7 +238,7 @@ function filterByQuality(restaurants) {
   if (q === 'bib_gourmand') return restaurants;
 
   return restaurants.filter(r => {
-    if (r.michelin) return true; // Michelin always passes
+    if (r.michelin) return true;
     const rating = Number(r.googleRating || 0);
 
     if (q === 'strict_elite_47') return rating >= 4.7;
@@ -319,7 +330,6 @@ async function search() {
       return;
     }
 
-    // Bib Gourmand mode — uses search-candidates with quality=bib_gourmand
     if (state.qualityFilter === 'bib_gourmand') {
       document.getElementById('sortBy').value = 'distance';
       document.getElementById('list').innerHTML =
@@ -477,7 +487,6 @@ async function search() {
       };
     });
 
-    // FINAL filter by REAL times
     let realTimeFiltered = allRestaurants;
     if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
     else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
@@ -522,32 +531,29 @@ function sortResults() {
   let sorted = [...filtered];
 
   if (sortBy === 'rating') {
-    sorted.sort((a,b)=>{
-      function michelinRank(r) {
-        if (!r.michelin) return 0;
-        const d = r.michelin.distinction || '';
-        const s = r.michelin.stars || 0;
-        if (s >= 1) return 100 + s;
-        if (d === 'bib_gourmand' || d === 'bib') return 50;
-        if (d === 'recommended') return 25;
-        return 10;
-      }
+    // Rating: Michelin 3-star > 2-star > 1-star > Bib Gourmand > Recommended > then Google rating
+    sorted.sort((a, b) => {
       const ma = michelinRank(a), mb = michelinRank(b);
       if (ma !== mb) return mb - ma;
-      return (b.googleRating||0)-(a.googleRating||0);
+      return (b.googleRating || 0) - (a.googleRating || 0);
     });
   } else if (sortBy === 'distance') {
-    sorted.sort((a,b)=>{
-      const aDuration = a.walkDurationSeconds || ((a.walkMinutes||999999) * 60);
-      const bDuration = b.walkDurationSeconds || ((b.walkMinutes||999999) * 60);
-      if (aDuration !== bDuration) return aDuration - bDuration;
-      if ((a.distanceMiles ?? 999999) !== (b.distanceMiles ?? 999999)) return (a.distanceMiles ?? 999999) - (b.distanceMiles ?? 999999);
-      if ((b.googleRating||0) !== (a.googleRating||0)) return (b.googleRating||0) - (a.googleRating||0);
-      if ((b.googleReviewCount||0) !== (a.googleReviewCount||0)) return (b.googleReviewCount||0) - (a.googleReviewCount||0);
-      return String(a.name||'').localeCompare(String(b.name||''));
+    // Distance: closest first, then michelin rank as tiebreaker
+    sorted.sort((a, b) => {
+      const da = a.distanceMiles ?? 999999;
+      const db = b.distanceMiles ?? 999999;
+      if (da !== db) return da - db;
+      const ma = michelinRank(a), mb = michelinRank(b);
+      if (ma !== mb) return mb - ma;
+      if ((b.googleRating || 0) !== (a.googleRating || 0)) return (b.googleRating || 0) - (a.googleRating || 0);
+      return String(a.name || '').localeCompare(String(b.name || ''));
     });
   } else if (sortBy === 'price') {
-    sorted.sort((a,b)=>(a.price_level||0)-(b.price_level||0));
+    sorted.sort((a, b) => {
+      const ma = michelinRank(a), mb = michelinRank(b);
+      if (ma !== mb) return mb - ma;
+      return (a.price_level || 0) - (b.price_level || 0);
+    });
   }
 
   displayResults(sorted);
@@ -574,13 +580,13 @@ function displayResults(restaurants) {
     if (r.michelin) {
       const stars = r.michelin.stars || 0;
       const distinction = r.michelin.distinction || '';
-      if (distinction === 'bib_gourmand') michelinHtml = `<span class="badge" style="background:#e65100;color:white;border-color:#e65100">🍽️ Bib Gourmand</span>`;
-      else if (stars === 3) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐⭐ Michelin Three Stars</span>`;
+      if (stars === 3) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐⭐ Michelin Three Stars</span>`;
       else if (stars === 2) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐ Michelin Two Stars</span>`;
       else if (stars === 1) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin One Star</span>`;
-else if (distinction === 'bib') michelinHtml = `<span class="badge" style="background:#e65100;color:white;border-color:#e65100">🍽️ Bib Gourmand</span>`;
+      else if (distinction === 'bib_gourmand' || distinction === 'bib') michelinHtml = `<span class="badge" style="background:#e65100;color:white;border-color:#e65100">🍽️ Bib Gourmand</span>`;
       else if (distinction === 'recommended') michelinHtml = `<span class="badge" style="background:#9c27b0;color:white;border-color:#9c27b0">✨ Michelin Recommended</span>`;
-      else michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">Michelin Selected</span>`;    }
+      else michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">Michelin Selected</span>`;
+    }
 
     const rating = (r.googleRating || 0);
     const reviews = (r.googleReviewCount || 0);
@@ -624,7 +630,6 @@ function back() {
   document.getElementById('results').classList.add('hidden');
 }
 
-// ---- Google Places Autocomplete ----
 async function initAutocomplete() {
   try {
     const resp = await fetch('/.netlify/functions/get-maps-key');
@@ -647,7 +652,6 @@ function setupAutocomplete() {
     componentRestrictions: { country: 'us' }
   });
 
-  // When user picks a suggestion, just let it fill the input
   autocomplete.addListener('place_changed', () => {
     const place = autocomplete.getPlace();
     if (place && place.formatted_address) {
@@ -656,7 +660,6 @@ function setupAutocomplete() {
   });
 }
 
-// Load autocomplete on page load
 initAutocomplete();
 </script>
 </body>
