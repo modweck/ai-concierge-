@@ -81,7 +81,9 @@ exports.handler = async (event) => {
     }
 
     // Adaptive DM budget
+    // Key change: in WALK mode, we want to enrich more + closest-first
     let maxDmBudget = 50;
+    if (transportMode === 'walk') maxDmBudget = 120;
     if (cuisineFilter) maxDmBudget = 150;
     maxDmBudget = Math.min(maxDmBudget, candidates.length);
 
@@ -90,10 +92,23 @@ exports.handler = async (event) => {
     const { lat, lng } = userLocation;
     const origin = `${lat},${lng}`;
 
-    // Deterministic ordering
-    const sortedCandidates = [...candidates].sort((a,b) => {
-      if ((b.googleRating || 0) !== (a.googleRating || 0)) return (b.googleRating || 0) - (a.googleRating || 0);
-      if ((b.googleReviewCount || 0) !== (a.googleReviewCount || 0)) return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
+    // Deterministic ordering:
+    // Key change: when walking, prioritize closest first so we don’t waste DM calls on far “top rated” places.
+    const sortedCandidates = [...candidates].sort((a, b) => {
+      if (transportMode === 'walk') {
+        const da = Number(a.distanceMiles ?? 999999);
+        const db = Number(b.distanceMiles ?? 999999);
+        if (da !== db) return da - db;
+      }
+
+      const ra = Number(a.googleRating || 0);
+      const rb = Number(b.googleRating || 0);
+      if (rb !== ra) return rb - ra;
+
+      const rca = Number(a.googleReviewCount || 0);
+      const rcb = Number(b.googleReviewCount || 0);
+      if (rcb !== rca) return rcb - rca;
+
       return String(a.place_id || '').localeCompare(String(b.place_id || ''));
     });
 
