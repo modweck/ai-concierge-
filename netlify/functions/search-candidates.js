@@ -227,12 +227,13 @@ function normalizeQualityMode(qualityModeRaw) {
   // New frontend values
   if (q === 'recommended_44') return 'recommended_44';
   if (q === 'elite_45') return 'elite_45';
-  if (q === 'strict_elite_47') return 'strict_elite_47';
+  if (q === 'strict_elite_46') return 'strict_elite_46';
 
   // Back-compat with older frontend values
   if (q === 'five_star') return 'elite_45';
   if (q === 'top_rated_and_above') return 'recommended_44';
   if (q === 'top_rated') return 'recommended_44';
+  if (q === 'strict_elite_47') return 'strict_elite_46'; // if any old deploys still send it
 
   // Existing modes
   if (q === 'michelin') return 'michelin';
@@ -247,26 +248,26 @@ function filterRestaurantsByTier(candidates, qualityMode) {
   const moreOptions = [];
   const excluded = [];
 
-  // Default behavior (unchanged)
+  // Defaults
   let eliteMin = 4.5;
   let moreMin = 4.4;
 
-  // Strict elite: only return >= 4.7 to reduce enrichment work
-  if (qualityMode === 'strict_elite_47') {
-    eliteMin = 4.7;
-    moreMin = 999; // effectively none
+  // Strict elite: only return >= 4.6
+  if (qualityMode === 'strict_elite_46') {
+    eliteMin = 4.6;
+    moreMin = 999; // none
   }
 
-  // Elite: >= 4.5 (same as default)
+  // Elite: >= 4.5 (with 4.4+ in moreOptions)
   if (qualityMode === 'elite_45') {
     eliteMin = 4.5;
     moreMin = 4.4;
   }
 
-  // Recommended: return >= 4.4 in elite bucket (so frontend can sort/filter)
+  // Recommended: >= 4.4 (all in elite for simplicity)
   if (qualityMode === 'recommended_44') {
     eliteMin = 4.4;
-    moreMin = 999; // effectively none
+    moreMin = 999; // none
   }
 
   candidates.forEach(place => {
@@ -299,7 +300,7 @@ function filterRestaurantsByTier(candidates, qualityMode) {
           rating,
           reviews,
           types: '',
-          reason: `rating_below_${Math.min(eliteMin, moreMin) === 999 ? 'threshold' : Math.min(eliteMin, moreMin)}`
+          reason: 'rating_below_threshold'
         });
       }
     } catch (err) {
@@ -399,7 +400,7 @@ exports.handler = async (event) => {
     const gridLat = Math.round(lat * 10000) / 10000;
     const gridLng = Math.round(lng * 10000) / 10000;
 
-    // ✅ MICHELIN MODE: 15 miles, ignore rating thresholds, return Michelin only sorted by distance
+    // ✅ MICHELIN MODE
     if (qualityMode === 'michelin') {
       const resolved = await resolveMichelinPlaces(GOOGLE_API_KEY);
 
@@ -492,7 +493,6 @@ exports.handler = async (event) => {
 
       const MAX_PAGES = 3;
       while (nextPageToken && pageCount < MAX_PAGES) {
-        // token needs time before it becomes valid
         await new Promise(resolve => setTimeout(resolve, 2000));
 
         let retries = 0;
@@ -568,11 +568,9 @@ exports.handler = async (event) => {
       };
     });
 
-    // Keep your “normal mode” radius behavior
     const maxMiles = 5.0;
     const withinMiles = candidatesWithDistance.filter(r => r.distanceMiles <= maxMiles);
 
-    // Michelin badge overlay in normal mode (does not change pool)
     const michelinResolved = await resolveMichelinPlaces(GOOGLE_API_KEY);
     attachMichelinBadgesToCandidates(withinMiles, michelinResolved);
 
@@ -581,7 +579,6 @@ exports.handler = async (event) => {
     timings.filtering_ms = Date.now() - filterStart;
     timings.total_ms = Date.now() - t0;
 
-    // Sort by walk estimate deterministically
     const sortByWalkTime = (a, b) => {
       if (a.walkMinEstimate !== b.walkMinEstimate) return a.walkMinEstimate - b.walkMinEstimate;
       if (b.googleRating !== a.googleRating) return b.googleRating - a.googleRating;
