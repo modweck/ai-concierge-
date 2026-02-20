@@ -13,8 +13,16 @@ try {
   console.log(`\u2705 Michelin base: ${MICHELIN_BASE.length} entries`);
 } catch (err) { console.warn('\u274c Michelin base missing:', err.message); }
 
+let BIB_GOURMAND_BASE = [];
+try {
+  BIB_GOURMAND_BASE = JSON.parse(fs.readFileSync(path.join(__dirname, 'bib_gourmand_nyc.json'), 'utf8'));
+  console.log(`\u2705 Bib Gourmand base: ${BIB_GOURMAND_BASE.length} entries`);
+} catch (err) { console.warn('\u274c Bib Gourmand base missing:', err.message); }
+
 let MICHELIN_RESOLVED = null;
 let MICHELIN_RESOLVED_AT = 0;
+let BIB_RESOLVED = null;
+let BIB_RESOLVED_AT = 0;
 const MICHELIN_RESOLVE_TTL_MS = 24 * 60 * 60 * 1000;
 
 function normalizeName(name) {
@@ -69,6 +77,31 @@ async function resolveMichelinPlaces(GOOGLE_API_KEY) {
   return MICHELIN_RESOLVED;
 }
 
+async function resolveBibGourmandPlaces(GOOGLE_API_KEY) {
+  if (!GOOGLE_API_KEY) return [];
+  if (BIB_RESOLVED && (Date.now() - BIB_RESOLVED_AT) < MICHELIN_RESOLVE_TTL_MS) return BIB_RESOLVED;
+  if (!BIB_GOURMAND_BASE?.length) { BIB_RESOLVED = []; BIB_RESOLVED_AT = Date.now(); return []; }
+
+  console.log(`\ud83d\udd0e Resolving Bib Gourmand... (${BIB_GOURMAND_BASE.length})`);
+  const resolved = await runWithConcurrency(BIB_GOURMAND_BASE, 5, async (m) => {
+    if (!m?.name) return null;
+    const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(m.name + ' New York NY')}&type=restaurant&key=${GOOGLE_API_KEY}`;
+    try {
+      const data = await fetch(url).then(r => r.json());
+      if (data.status !== 'OK' || !data.results?.length) return { ...m, place_id: null, address: null, lat: null, lng: null, googleRating: null, googleReviewCount: null };
+      const target = normalizeName(m.name);
+      let best = data.results[0];
+      for (const r of data.results) { const rn = normalizeName(r.name); if (rn === target) { best = r; break; } if (rn.startsWith(target) || target.startsWith(rn)) best = r; }
+      return { ...m, place_id: best.place_id || null, address: best.formatted_address || null, lat: best.geometry?.location?.lat ?? null, lng: best.geometry?.location?.lng ?? null, googleRating: best.rating ?? null, googleReviewCount: best.user_ratings_total ?? null };
+    } catch { return { ...m, place_id: null, address: null, lat: null, lng: null, googleRating: null, googleReviewCount: null }; }
+  });
+
+  BIB_RESOLVED = resolved.filter(Boolean);
+  BIB_RESOLVED_AT = Date.now();
+  console.log(`\u2705 Bib Gourmand resolved: ${BIB_RESOLVED.filter(x => x.place_id).length}/${BIB_RESOLVED.length}`);
+  return BIB_RESOLVED;
+}
+
 function attachMichelinBadges(candidates, michelinResolved) {
   if (!candidates?.length || !michelinResolved?.length) return;
   const byId = new Map(), byName = new Map();
@@ -97,6 +130,7 @@ function normalizeQualityMode(q) {
   if (q === 'five_star') return 'elite_45';
   if (q === 'top_rated_and_above' || q === 'top_rated') return 'recommended_44';
   if (q === 'michelin') return 'michelin';
+  if (q === 'bib_gourmand') return 'bib_gourmand';
   return 'any';
 }
 
@@ -266,7 +300,7 @@ exports.handler = async (event) => {
     const KEY = process.env.GOOGLE_PLACES_API_KEY;
     if (!KEY) return stableResponse([], [], {}, 'API key not configured');
 
-    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v9';
+    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v10';
     const cached = getFromCache(cacheKey);
     if (cached) { timings.total_ms = Date.now()-t0; return stableResponse(cached.elite, cached.moreOptions, { ...cached.stats, cached: true, performance: { ...timings, cache_hit: true } }); }
 
@@ -296,6 +330,23 @@ exports.handler = async (event) => {
       }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, michelinMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
+      setCache(cacheKey, { elite: within, moreOptions: [], stats });
+      return stableResponse(within, [], stats);
+    }
+
+    // Bib Gourmand mode — 15 mile radius
+    if (qualityMode === 'bib_gourmand') {
+      const resolved = await resolveBibGourmandPlaces(KEY);
+      const within = resolved.filter(r => r?.lat != null && r?.lng != null).map(r => {
+        const d = haversineMiles(gLat, gLng, r.lat, r.lng);
+        return { place_id: r.place_id, name: r.name, vicinity: r.address||'', formatted_address: r.address||'',
+          price_level: null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
+          googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
+          distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: null,
+          michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: r.cuisine || null };
+      }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
+      timings.total_ms = Date.now()-t0;
+      const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, bibGourmandMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
       return stableResponse(within, [], stats);
     }
