@@ -303,7 +303,7 @@ exports.handler = async (event) => {
       const within = resolved.filter(r => r?.lat != null && r?.lng != null).map(r => {
         const d = haversineMiles(gLat, gLng, r.lat, r.lng);
         return { place_id: r.place_id, name: r.name, vicinity: r.address||'', formatted_address: r.address||'',
-          price_level: null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
+          price_level: r.price_level || null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: null,
           michelin: { stars: r.stars||0, distinction: r.distinction||'star' } };
@@ -321,7 +321,7 @@ exports.handler = async (event) => {
       const within = bibPlaces.map(r => {
         const d = haversineMiles(gLat, gLng, r.lat, r.lng);
         return { place_id: r.place_id, name: r.name, vicinity: r.address||'', formatted_address: r.address||'',
-          price_level: null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
+          price_level: r.price_level || null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: null,
           michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: r.cuisine || null };
@@ -407,7 +407,7 @@ exports.handler = async (event) => {
       within.push({
         place_id: m.place_id, name: m.name,
         vicinity: m.address || '', formatted_address: m.address || '',
-        price_level: null, opening_hours: null,
+        price_level: m.price_level || null, opening_hours: null,
         geometry: { location: { lat: m.lat, lng: m.lng } },
         types: [], googleRating: m.googleRating || 0, googleReviewCount: m.googleReviewCount || 0,
         distanceMiles: Math.round(d * 10) / 10,
@@ -430,7 +430,7 @@ exports.handler = async (event) => {
       within.push({
         place_id: null, name: b.name,
         vicinity: b.address || '', formatted_address: b.address || '',
-        price_level: null, opening_hours: null,
+        price_level: b.price_level || null, opening_hours: null,
         geometry: { location: { lat: b.lat, lng: b.lng } },
         types: [], googleRating: 0, googleReviewCount: 0,
         distanceMiles: Math.round(d * 10) / 10,
