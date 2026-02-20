@@ -599,10 +599,16 @@ function renderCard(r) {
     ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || 'New York, NY'))}`;
 
+  const openTableUrl = `https://www.opentable.com/s?term=${encodeURIComponent(r.name || '')}&covers=2&metroId=8`;
+
   return `
     <div class="restaurant">
       <h3>${r.name || 'Unknown'}</h3>
       <div class="cuisine">${r.vicinity || r.formatted_address || ''}</div>
+      <a href="${openTableUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin:6px 0 4px 0;text-decoration:none;color:#da3743;font-size:13px;font-weight:600">
+        <img src="https://cdn.otstatic.com/third-party/images/opentable-logo-default.svg" alt="OpenTable" style="height:16px;width:auto" onerror="this.parentElement.style.display='none'">
+        Reserve on OpenTable
+      </a>
       <div class="badges">
         ${michelinHtml}
         ${ratingHtml}
