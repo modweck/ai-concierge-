@@ -410,8 +410,18 @@ exports.handler = async (event) => {
       /\bcreperie\b/i, /\bfood truck\b/i, /\bfood cart\b/i,
       /\bpizza hut\b/i, /\blittle caesars\b/i,
       /\bwestfield\b/i, /\bobservatory\b/i, /\bpier \d+\b/i,
-      /\bworld trade center\b/i, /\btimes square\b/i
+      /\bworld trade center\b/i, /\btimes square\b/i,
+      /\bjazz club\b/i, /\bcomedy club\b/i, /\bkaraoke\b/i,
+      /\bbowling\b/i, /\barcade\b/i, /\bbilliard/i, /\bpool hall\b/i,
+      /\bnight ?club\b/i, /\bdisco\b/i, /\bhookah\b/i, /\bshisha\b/i,
+      /\bwine bar\b$/i, /\bcocktail bar\b$/i, /\bsports bar\b$/i,
+      /\btaproom\b/i, /\bbeer hall\b/i, /\bbrewery\b/i, /\bbrew pub\b/i,
+      /\bpub\b$/i, /\btavern\b$/i
     ];
+
+    // Extra check: names that are ONLY "bar" or "lounge" (no restaurant/food words)
+    // e.g. "The Dead Rabbit" won't match, but gets caught by type=bar
+    const RESTAURANT_WORDS = /restaurant|grill|kitchen|bistro|trattoria|osteria|ristorante|brasserie|steakhouse|sushi|ramen|taqueria|pizzeria|diner|eatery|cuisine|bbq|barbecue|seafood|noodle|dumpling|dim sum|omakase|izakaya|cantina/i;
 
     // Merge & deduplicate
     const seen = new Set(), all = [];
@@ -423,7 +433,7 @@ exports.handler = async (event) => {
 
     console.log(`📊 MERGE: Legacy=${legacyN} + Nearby=+${nearbyN} + Text=+${textN} = ${all.length}`);
 
-    // Filter out non-restaurants (delis, chains, ice cream, coffee, etc.)
+    // Filter out non-restaurants (delis, chains, ice cream, coffee, bars, venues, etc.)
     const beforeExclude = all.length;
     const cleaned = all.filter(p => {
       const pTypes = (p.types || []).map(t => t.toLowerCase());
@@ -431,12 +441,17 @@ exports.handler = async (event) => {
       // Exclude by type (but only if it doesn't ALSO have 'restaurant' type)
       const hasRestaurantType = pTypes.some(t => t.includes('restaurant'));
       const hasExcludedType = pTypes.some(t => EXCLUDED_TYPES.includes(t));
-      if (hasExcludedType && !hasRestaurantType) return false;
+      if (hasExcludedType && !hasRestaurantType) {
+        // Last chance: if name has restaurant words, keep it (e.g. "Ane Bar & Restaurant")
+        if (!RESTAURANT_WORDS.test(pName)) return false;
+      }
       // Exclude by name pattern
       if (EXCLUDED_NAME_PATTERNS.some(rx => rx.test(pName))) return false;
+      // If type is bar and name has NO food/restaurant words, exclude
+      if (pTypes.includes('bar') && !hasRestaurantType && !RESTAURANT_WORDS.test(pName)) return false;
       return true;
     });
-    if (cleaned.length < beforeExclude) console.log(`🧹 Excluded ${beforeExclude - cleaned.length} non-restaurants (chains/delis/coffee/ice cream)`);
+    if (cleaned.length < beforeExclude) console.log(`🧹 Excluded ${beforeExclude - cleaned.length} non-restaurants (chains/delis/coffee/bars/venues)`);
 
     // Post-filter by cuisine type if cuisine is selected
     let cuisineFiltered = cleaned;
