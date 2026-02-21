@@ -429,6 +429,8 @@ async function search() {
       document.getElementById('list').innerHTML =
         '<div style="text-align:center;padding:40px">💳 Loading Chase Sapphire Reserve restaurants (15 mile radius)...</div>';
 
+      console.log('🔍 CHASE: Sending request with quality=chase_sapphire, location=' + location);
+
       const resp = await fetch('/.netlify/functions/search-candidates', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -436,7 +438,13 @@ async function search() {
         signal: searchAbortController.signal
       });
 
+      console.log('🔍 CHASE: Response status:', resp.status);
       const data = await resp.json();
+      console.log('🔍 CHASE: Response data keys:', Object.keys(data));
+      console.log('🔍 CHASE: elite count:', data.elite?.length);
+      console.log('🔍 CHASE: moreOptions count:', data.moreOptions?.length);
+      console.log('🔍 CHASE: error:', data.error);
+      console.log('🔍 CHASE: first 3 elite:', data.elite?.slice(0,3)?.map(r => r.name));
 
       if (data?.error) {
         document.getElementById('warnings').innerHTML = `
@@ -455,6 +463,8 @@ async function search() {
         driveMinutes: r.driveMinEstimate,
         transitMinutes: r.transitMinEstimate
       })) : [];
+
+      console.log('🔍 CHASE: allRestaurants count:', allRestaurants.length);
 
       document.getElementById('warnings').innerHTML = `
         <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
