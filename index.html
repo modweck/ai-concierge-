@@ -799,8 +799,8 @@ function renderCard(r) {
   const rakutenHtml = (state.rewardsFilter === 'rakuten') ? `<span class="badge" style="background:#bf0000;color:white;border-color:#bf0000;font-size:12px">🛍️ Rakuten</span>` : '';
 
   const mapsUrl = r.place_id
-    ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
-    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || 'New York, NY'))}`;
+    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
+    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || r.vicinity || r.address || 'New York, NY'))}`;
 
   // Google "I'm Feeling Lucky" goes directly to the top result (usually the restaurant's own site)
   const reserveUrl = `https://www.google.com/search?btnI=1&q=${encodeURIComponent((r.name || '') + ' NYC restaurant reservations')}`;
