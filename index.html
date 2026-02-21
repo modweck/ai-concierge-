@@ -195,6 +195,7 @@ let searchAbortController = null;
 
 function setRewards(mode) {
   state.rewardsFilter = mode;
+  if (allRestaurants.length > 0) sortResults();
 }
 
 function michelinRank(r) {
