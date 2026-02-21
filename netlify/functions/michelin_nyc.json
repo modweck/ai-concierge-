@@ -426,7 +426,7 @@
     "cuisine": "American, Japanese",
     "booking_platform": "tock",
     "booking_url": "https://www.exploretock.com/momofukuko",
-    "chase_sapphire": false
+    "chase_sapphire": true
   },
   {
     "name": "Oiji Mi",
