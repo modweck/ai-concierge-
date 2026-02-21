@@ -9,7 +9,7 @@
     "price_level": 4,
     "cuisine": "French, Seafood",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/le-bernardin"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/le-bernardin?venueId=1387"
   },
   {
     "name": "Eleven Madison Park",
@@ -21,7 +21,7 @@
     "price_level": 4,
     "cuisine": "American",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/eleven-madison-park"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/eleven-madison-park?venueId=70928"
   },
   {
     "name": "Masa",
@@ -57,7 +57,7 @@
     "price_level": 4,
     "cuisine": "French",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/chefs-table-at-brooklyn-fare"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/chefs-table-at-brooklyn-fare?venueId=78907"
   },
   {
     "name": "Atomix",
@@ -129,7 +129,7 @@
     "price_level": 4,
     "cuisine": "French",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/daniel"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/daniel?venueId=29947"
   },
   {
     "name": "Gabriel Kreuther",
@@ -141,7 +141,7 @@
     "price_level": 4,
     "cuisine": "French",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/gabriel-kreuther"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/gabriel-kreuther?venueId=10401"
   },
   {
     "name": "Gramercy Tavern",
@@ -153,7 +153,7 @@
     "price_level": 4,
     "cuisine": "American",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/the-dining-room-at-gramercy-tavern"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/the-dining-room-at-gramercy-tavern?venueId=52209"
   },
   {
     "name": "Jean-Georges",
@@ -165,7 +165,7 @@
     "price_level": 4,
     "cuisine": "French",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/jean-georges"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/jean-georges?venueId=5951"
   },
   {
     "name": "Kochi",
@@ -201,7 +201,7 @@
     "price_level": 4,
     "cuisine": "French",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/labielle"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/labielle?venueId=59006"
   },
   {
     "name": "Le Pavillon",
@@ -213,7 +213,7 @@
     "price_level": 4,
     "cuisine": "French, Seafood",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/le-pavillon"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/le-pavillon?venueId=50955"
   },
   {
     "name": "Sushi Noz",
@@ -237,7 +237,7 @@
     "price_level": 4,
     "cuisine": "American, French",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/the-modern"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/the-modern?venueId=7369"
   },
   {
     "name": "15 East",
@@ -261,7 +261,7 @@
     "price_level": 3,
     "cuisine": "French, American",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/francie"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/francie?venueId=17392"
   },
   {
     "name": "Llama Inn",
@@ -297,7 +297,7 @@
     "price_level": 2,
     "cuisine": "Indian",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/semma"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/semma?venueId=1263"
   },
   {
     "name": "Thai Diner",
@@ -321,7 +321,7 @@
     "price_level": 3,
     "cuisine": "Italian",
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/ci-siamo"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/ci-siamo?venueId=54724"
   },
   {
     "name": "Don Angie",
