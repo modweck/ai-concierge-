@@ -613,17 +613,21 @@ function renderCard(r) {
 
   let bookingHtml = '';
   if (r.booking_url && r.booking_platform) {
-    if (r.booking_platform === 'website') {
-      // Walk-in restaurant — single clickable line linking to their site
+    if (r.booking_platform === 'walkin') {
+      // Confirmed walk-in only — links to their site
       bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#2e7d32;font-size:13px;font-weight:600">🚶 Walk-ins Welcome</a>`;
-    } else {
+    } else if (r.booking_platform === 'website') {
+      // Has a website but not on a major booking platform
+      bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#555;font-size:13px;font-weight:600">🔖 Book through Website</a>`;
+    } else if (r.booking_platform === 'opentable' || r.booking_platform === 'resy' || r.booking_platform === 'tock') {
       const platformName = r.booking_platform === 'opentable' ? 'OpenTable'
-        : r.booking_platform === 'resy' ? 'Resy'
-        : r.booking_platform === 'tock' ? 'Tock' : 'Reserve';
+        : r.booking_platform === 'resy' ? 'Resy' : 'Tock';
       const platformColor = r.booking_platform === 'opentable' ? '#da3743'
-        : r.booking_platform === 'resy' ? '#c2185b'
-        : r.booking_platform === 'tock' ? '#1a73e8' : '#333';
+        : r.booking_platform === 'resy' ? '#c2185b' : '#1a73e8';
       bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:${platformColor};font-size:13px;font-weight:600">🔖 Book with ${platformName}</a>`;
+    } else {
+      // Unknown platform — treat as website
+      bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#555;font-size:13px;font-weight:600">🔖 Book through Website</a>`;
     }
   } else {
     bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#666;font-size:13px;font-weight:600">🔖 Find Reservations</a>`;
