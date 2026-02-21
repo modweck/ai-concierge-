@@ -310,7 +310,7 @@ exports.handler = async (event) => {
         return { place_id: r.place_id, name: r.name, vicinity: r.address||'', formatted_address: r.address||'',
           price_level: r.price_level || null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
-          distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: null,
+          distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: { stars: r.stars||0, distinction: r.distinction||'star' },
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null };
       }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
@@ -329,7 +329,7 @@ exports.handler = async (event) => {
         return { place_id: r.place_id, name: r.name, vicinity: r.address||'', formatted_address: r.address||'',
           price_level: r.price_level || null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
-          distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: null,
+          distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: r.cuisine || null,
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null };
       }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
@@ -495,6 +495,19 @@ exports.handler = async (event) => {
 
     const michelin = await resolveMichelinPlaces(KEY);
     attachMichelinBadges(within, michelin);
+
+    // Attach Bib Gourmand booking data to existing Google results
+    const bibAll = getBibGourmandPlaces();
+    const bibByName = new Map();
+    for (const b of bibAll) { if (b?.name) bibByName.set(normalizeName(b.name), b); }
+    for (const c of within) {
+      const b = normalizeName(c?.name) && bibByName.get(normalizeName(c.name));
+      if (b && !c.michelin) {
+        c.michelin = { stars: 0, distinction: 'bib_gourmand' };
+        c.booking_platform = b.booking_platform || null;
+        c.booking_url = b.booking_url || null;
+      }
+    }
 
     // INJECT Michelin restaurants that weren't in Google results
     // This ensures they appear in 4.7+, 4.5+, etc. modes
