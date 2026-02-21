@@ -423,6 +423,52 @@ async function search() {
       return;
     }
 
+    // Chase Sapphire Reserve mode — dedicated 15 mile radius search
+    if (state.rewardsFilter === 'chase') {
+      document.getElementById('sortBy').value = 'distance';
+      document.getElementById('list').innerHTML =
+        '<div style="text-align:center;padding:40px">💳 Loading Chase Sapphire Reserve restaurants (15 mile radius)...</div>';
+
+      const resp = await fetch('/.netlify/functions/search-candidates', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ location, quality: 'chase_sapphire' }),
+        signal: searchAbortController.signal
+      });
+
+      const data = await resp.json();
+
+      if (data?.error) {
+        document.getElementById('warnings').innerHTML = `
+          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
+            ❌ ${data.error}
+          </div>
+        `;
+        document.getElementById('list').innerHTML =
+          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
+        return;
+      }
+
+      allRestaurants = Array.isArray(data.elite) ? data.elite.map(r => ({
+        ...r,
+        walkMinutes: r.walkMinEstimate,
+        driveMinutes: r.driveMinEstimate,
+        transitMinutes: r.transitMinEstimate
+      })) : [];
+
+      document.getElementById('warnings').innerHTML = `
+        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
+          📍 ${data.confirmedAddress || location}
+        </div>
+        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
+          ✓ Showing <span id="resultCount">0</span> Chase Sapphire Reserve restaurants within 15 miles
+        </div>
+      `;
+
+      sortResults();
+      return;
+    }
+
     const step1Response = await fetch('/.netlify/functions/search-candidates', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
