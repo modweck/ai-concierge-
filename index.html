@@ -611,7 +611,7 @@ function renderCard(r) {
       : r.booking_platform === 'tock' ? '#1a73e8' : '#333';
     bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:${platformColor};font-size:13px;font-weight:600">🔖 Reserve on ${platformName}</a>`;
   } else {
-    bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#da3743;font-size:13px;font-weight:600">🔖 Find Reservation</a>`;
+    bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#666;font-size:13px;font-weight:600">🔖 Find Reservation on Google</a>`;
   }
 
   return `
