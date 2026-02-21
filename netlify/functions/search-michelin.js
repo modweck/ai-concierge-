@@ -1,6 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 
+// =========================================================================
+// LOAD DATA FILES
+// =========================================================================
 
 let MICHELIN_LIST = [];
 let MICHELIN_LOAD_ERROR = null;
@@ -17,6 +20,7 @@ try {
   MICHELIN_LIST = [];
 }
 
+// Booking lookup — maps restaurant names to OpenTable/Resy/Tock URLs
 let BOOKING_LOOKUP = {};
 let BOOKING_KEYS = [];
 try {
@@ -29,6 +33,7 @@ try {
   console.warn("⚠️ Booking lookup missing:", err.message);
 }
 
+// Deposit lookup — restaurants that require deposits/prepay
 let DEPOSIT_LOOKUP = {};
 try {
   DEPOSIT_LOOKUP = JSON.parse(
@@ -39,6 +44,9 @@ try {
   console.warn("⚠️ Deposit lookup missing:", err.message);
 }
 
+// =========================================================================
+// HELPERS
+// =========================================================================
 
 function stableResponse(payload, statusCode = 200) {
   return {
@@ -114,6 +122,9 @@ async function mapWithConcurrency(items, limit, fn) {
   return results;
 }
 
+// =========================================================================
+// BOOKING LOOKUP — matches restaurant names to OpenTable/Resy/Tock URLs
+// =========================================================================
 
 function normalizeForBooking(name) {
   return (name || "")
@@ -157,6 +168,9 @@ function getDepositType(name) {
   return "unknown";
 }
 
+// =========================================================================
+// CACHE — avoid re-geocoding the same Michelin restaurants on every search
+// =========================================================================
 const resolvedCache = new Map(); // name -> { place_id, lat, lng, ... }
 const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
 let cacheTimestamp = 0;
@@ -174,6 +188,9 @@ function setCachedPlace(name, data) {
   resolvedCache.set(name.toLowerCase().trim(), data);
 }
 
+// =========================================================================
+// HANDLER
+// =========================================================================
 
 exports.handler = async (event) => {
   try {
