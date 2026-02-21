@@ -508,7 +508,6 @@ async function search() {
       }
 
       allRestaurants = Array.isArray(data.michelin) ? data.michelin.map(r => {
-        // Calculate walk/drive/transit from distanceMiles if backend didn't provide them
         const d = r.distanceMiles ?? null;
         const walk = r.walkMinEstimate ?? r.walkMinutes ?? (d != null ? Math.round(d * 20) : null);
         const drive = r.driveMinEstimate ?? r.driveMinutes ?? (d != null ? Math.round(d * 4) : null);
@@ -694,7 +693,6 @@ async function search() {
     });
 
     let realTimeFiltered = allRestaurants;
-    // When rewards filter (Chase/Rakuten) is active, skip time-based filtering — show all by distance
     if (state.rewardsFilter === 'any') {
       if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
       else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
@@ -740,11 +738,9 @@ function sortResults() {
   const sortBy = document.getElementById('sortBy').value;
 
   if (sortBy === 'price') {
-    // Price sort: $ first → $$$$ last → N/A at very bottom
     const priced = filtered.filter(r => hasPrice(r));
     const noPrice = filtered.filter(r => !hasPrice(r));
 
-    // Sort priced: lowest first, michelin rank as tiebreaker within same price
     priced.sort((a, b) => {
       if (a.price_level !== b.price_level) return a.price_level - b.price_level;
       const ma = michelinRank(a), mb = michelinRank(b);
@@ -752,7 +748,6 @@ function sortResults() {
       return (b.googleRating || 0) - (a.googleRating || 0);
     });
 
-    // Sort N/A by michelin rank then rating
     noPrice.sort((a, b) => {
       const ma = michelinRank(a), mb = michelinRank(b);
       if (ma !== mb) return mb - ma;
@@ -829,37 +824,38 @@ function renderCard(r) {
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || r.vicinity || r.address || 'New York, NY'))}`;
 
-  // Google Maps link — goes directly to the restaurant's listing with Reserve button
   const reserveUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' restaurant New York, NY')}`;
 
+  // =====================================================================
+  // UPDATED: Color-coded booking buttons + URL cleaning
+  // =====================================================================
   let bookingHtml = '';
   if (r.booking_url && r.booking_platform) {
-    // Clean Google redirect wrappers from URLs
     let cleanUrl = r.booking_url;
+    // Strip Google redirect wrappers
     if (cleanUrl.includes('google.com/url')) {
       try {
         const u = new URL(cleanUrl);
         cleanUrl = u.searchParams.get('q') || u.searchParams.get('url') || cleanUrl;
-      } catch(e) { /* keep original */ }
+      } catch(e) {}
     }
+    // Strip trailing slashes (can cause 404s on some booking platforms)
+    cleanUrl = cleanUrl.replace(/\/+$/, '');
 
     if (r.booking_platform === 'walkin') {
       bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#2e7d32;font-size:13px;font-weight:600">🚶 Walk-ins Welcome</a>`;
-    } else if (r.booking_platform === 'website') {
-      bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#555;font-size:13px;font-weight:600">🔖 Book through Website</a>`;
-    } else if (r.booking_platform === 'opentable' || r.booking_platform === 'resy' || r.booking_platform === 'tock') {
-      const platformName = r.booking_platform === 'opentable' ? 'OpenTable'
-        : r.booking_platform === 'resy' ? 'Resy' : 'Tock';
-      const platformColor = r.booking_platform === 'opentable' ? '#da3743'
-        : r.booking_platform === 'resy' ? '#c2185b' : '#1a73e8';
-      bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:${platformColor};font-size:13px;font-weight:600">🔖 Book with ${platformName}</a>`;
+    } else if (r.booking_platform === 'opentable') {
+      bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;padding:6px 12px;background:#da3743;color:white;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">🔖 Book on OpenTable</a>`;
+    } else if (r.booking_platform === 'resy') {
+      bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;padding:6px 12px;background:#c2185b;color:white;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">🔖 Book on Resy</a>`;
+    } else if (r.booking_platform === 'tock') {
+      bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;padding:6px 12px;background:#1a73e8;color:white;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">🔖 Book on Tock</a>`;
     } else {
       bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#555;font-size:13px;font-weight:600">🔖 Book through Website</a>`;
     }
   } else {
-    // No booking data — use Google Maps with place_id (has Reserve button built in)
     bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#1a73e8;font-size:13px;font-weight:600">🔖 Reserve on Google</a>`;
   }
 
@@ -899,7 +895,6 @@ function displayResults(restaurants, noPriceRestaurants) {
 
   let html = restaurants.map(r => renderCard(r)).join('');
 
-  // When sorting by price, show N/A restaurants at the bottom with a divider
   if (noPriceRestaurants && noPriceRestaurants.length > 0) {
     html += `<div class="section-divider">💰 Price not available (${noPriceRestaurants.length})</div>`;
     html += noPriceRestaurants.map(r => renderCard(r)).join('');
