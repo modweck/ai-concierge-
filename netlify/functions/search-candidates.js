@@ -143,6 +143,9 @@ function filterRestaurantsByTier(candidates, qualityMode) {
       // MICHELIN BYPASS: Michelin restaurants always pass all filters
       if (place.michelin) { elite.push(place); continue; }
 
+      // CHASE SAPPHIRE BYPASS: Chase partner restaurants always pass filters
+      if (place.chase_sapphire) { moreOptions.push(place); continue; }
+
       // 5.0 with under 500 reviews — likely inflated
       if (rating >= 5.0 && reviews < 500) { excluded.push({ name: place.name, reason: `perfect_5.0 (${reviews}rev)` }); continue; }
       // 4.9 needs 50+ reviews
