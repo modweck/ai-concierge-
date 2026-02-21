@@ -700,7 +700,9 @@ function renderCard(r) {
 
   const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
 
-  const chaseHtml = (state.rewardsFilter === 'chase' && (isChaseRestaurant(r.name) || r.chase_sapphire === true))
+  // IMPORTANT FIX:
+  // Show Chase badge even when Rewards=Any (so you can see Chase partners in "Any")
+  const chaseHtml = (isChaseRestaurant(r.name) || r.chase_sapphire === true)
     ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>`
     : '';
 
