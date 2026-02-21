@@ -31,6 +31,22 @@ try {
   console.log(`\u2705 Rakuten base: ${RAKUTEN_BASE.length} entries`);
 } catch (err) { console.warn('\u274c Rakuten base missing:', err.message); }
 
+let DEPOSIT_LOOKUP = {};
+try {
+  DEPOSIT_LOOKUP = JSON.parse(fs.readFileSync(path.join(__dirname, 'deposit_lookup.json'), 'utf8'));
+  console.log(`\u2705 Deposit lookup: ${Object.keys(DEPOSIT_LOOKUP).length} entries`);
+} catch (err) { console.warn('\u274c Deposit lookup missing:', err.message); }
+
+function getDepositType(name) {
+  if (!name) return 'unknown';
+  const key = name.toLowerCase().trim();
+  if (DEPOSIT_LOOKUP[key]) return DEPOSIT_LOOKUP[key];
+  // Fuzzy: try without "the " prefix
+  const noThe = key.replace(/^the\s+/, '');
+  if (DEPOSIT_LOOKUP[noThe]) return DEPOSIT_LOOKUP[noThe];
+  return 'unknown';
+}
+
 let MICHELIN_RESOLVED = null;
 let MICHELIN_RESOLVED_AT = 0;
 const MICHELIN_RESOLVE_TTL_MS = 24 * 60 * 60 * 1000;
@@ -286,10 +302,17 @@ function buildGrid(cLat, cLng) {
 // MAIN HANDLER
 // =========================================================================
 exports.handler = async (event) => {
-  const stableResponse = (elite=[], more=[], stats={}, error=null) => ({
-    statusCode: 200, headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ elite: elite||[], moreOptions: more||[], confirmedAddress: stats.confirmedAddress||null, userLocation: stats.userLocation||null, stats, error })
-  });
+  const stableResponse = (elite=[], more=[], stats={}, error=null) => {
+    // Enrich all results with deposit info
+    const enrichDeposit = (arr) => (arr || []).map(r => ({
+      ...r,
+      deposit_type: r.deposit_type || getDepositType(r.name)
+    }));
+    return {
+      statusCode: 200, headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ elite: enrichDeposit(elite), moreOptions: enrichDeposit(more), confirmedAddress: stats.confirmedAddress||null, userLocation: stats.userLocation||null, stats, error })
+    };
+  };
 
   try {
     if (event.httpMethod !== 'POST') return { statusCode: 405, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) };
