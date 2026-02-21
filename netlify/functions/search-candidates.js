@@ -99,7 +99,6 @@ function attachMichelinBadges(candidates, michelinResolved) {
       c.michelin = { stars: m.stars || 0, distinction: m.distinction || 'star' };
       c.booking_platform = m.booking_platform || null;
       c.booking_url = m.booking_url || null;
-      c.chase_sapphire = m.chase_sapphire || false;
       matched++;
     }
   }
@@ -312,6 +311,12 @@ exports.handler = async (event) => {
     }
     const gLat = Math.round(lat*10000)/10000, gLng = Math.round(lng*10000)/10000;
 
+    // Build Chase name lookup for tagging
+    const chaseNameLookup = new Set();
+    for (const c of CHASE_SAPPHIRE_BASE) {
+      if (c?.name) chaseNameLookup.add(normalizeName(c.name));
+    }
+
     // Michelin mode (unchanged)
     if (qualityMode === 'michelin') {
       const resolved = await resolveMichelinPlaces(KEY);
@@ -322,7 +327,8 @@ exports.handler = async (event) => {
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: { stars: r.stars||0, distinction: r.distinction||'star' },
-          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null, chase_sapphire: r.chase_sapphire || false };
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
+          chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
       }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, michelinMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
@@ -341,7 +347,8 @@ exports.handler = async (event) => {
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: r.cuisine || null,
-          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null, chase_sapphire: r.chase_sapphire || false };
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
+          chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
       }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, bibGourmandMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
@@ -516,7 +523,6 @@ exports.handler = async (event) => {
         c.michelin = { stars: 0, distinction: 'bib_gourmand' };
         c.booking_platform = b.booking_platform || null;
         c.booking_url = b.booking_url || null;
-        c.chase_sapphire = b.chase_sapphire || false;
       }
     }
 
@@ -549,7 +555,6 @@ exports.handler = async (event) => {
         cuisine: m.cuisine || null,
         booking_platform: m.booking_platform || null,
         booking_url: m.booking_url || null,
-        chase_sapphire: m.chase_sapphire || false,
         _source: 'michelin_inject'
       });
       injected++;
@@ -580,7 +585,6 @@ exports.handler = async (event) => {
         michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: b.cuisine || null,
         booking_platform: b.booking_platform || null,
         booking_url: b.booking_url || null,
-        chase_sapphire: b.chase_sapphire || false,
         _source: 'bib_inject'
       });
       existingNames.add(normalizeName(b.name));
@@ -588,7 +592,19 @@ exports.handler = async (event) => {
     }
     if (bibInjected) console.log(`\u2705 Injected ${bibInjected} Bib Gourmand restaurants not in Google results`);
 
-    // INJECT Chase Sapphire restaurants that weren't in Google results or Michelin/Bib
+    // TAG + INJECT Chase Sapphire restaurants
+    // First, build a set of Chase restaurant names for quick lookup
+    const chaseNameSet = new Set();
+    for (const c of CHASE_SAPPHIRE_BASE) {
+      if (c?.name) chaseNameSet.add(normalizeName(c.name));
+    }
+    // Tag any existing restaurants that are Chase partners
+    for (const r of within) {
+      if (r?.name && chaseNameSet.has(normalizeName(r.name))) {
+        r.chase_sapphire = true;
+      }
+    }
+    // Inject Chase restaurants not already in results
     let chaseInjected = 0;
     for (const c of CHASE_SAPPHIRE_BASE) {
       if (!c?.lat || !c?.lng) continue;
@@ -598,7 +614,7 @@ exports.handler = async (event) => {
         if (!cc.includes(cuisineStr.toLowerCase())) continue;
       }
       const d = haversineMiles(gLat, gLng, c.lat, c.lng);
-      if (d > 15.0) continue; // wider radius for Chase (includes Jersey City)
+      if (d > 15.0) continue;
       within.push({
         place_id: null, name: c.name,
         vicinity: c.address || '', formatted_address: c.address || '',
