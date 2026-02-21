@@ -141,7 +141,7 @@
     "googleRating": 4.5,
     "googleReviewCount": 1400,
     "price_level": null,
-    "deposit_type": "deposit"
+    "deposit_type": "none"
   },
   {
     "name": "Fairfax",
@@ -189,7 +189,7 @@
     "googleRating": 4.6,
     "googleReviewCount": 110,
     "price_level": null,
-    "deposit_type": "deposit"
+    "deposit_type": "none"
   },
   {
     "name": "Jeffrey's Grocery",
@@ -253,7 +253,7 @@
     "googleRating": 4.6,
     "googleReviewCount": 1800,
     "price_level": null,
-    "deposit_type": "deposit"
+    "deposit_type": "none"
   },
   {
     "name": "Parcelle Greenwich Village",
@@ -333,7 +333,7 @@
     "googleRating": 4.5,
     "googleReviewCount": 40,
     "price_level": null,
-    "deposit_type": "deposit"
+    "deposit_type": "none"
   },
   {
     "name": "The Golden Swan",
@@ -685,7 +685,7 @@
     "price_level": 4,
     "stars": 1,
     "distinction": "star",
-    "deposit_type": "deposit"
+    "deposit_type": "none"
   },
   {
     "name": "Sushi Noz",
@@ -717,7 +717,7 @@
     "price_level": 4,
     "stars": 1,
     "distinction": "star",
-    "deposit_type": "deposit"
+    "deposit_type": "none"
   },
   {
     "name": "Ci Siamo",
@@ -733,7 +733,7 @@
     "price_level": 3,
     "stars": null,
     "distinction": "recommended",
-    "deposit_type": "deposit"
+    "deposit_type": "none"
   },
   {
     "name": "Don Angie",
