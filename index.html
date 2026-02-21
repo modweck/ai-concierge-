@@ -158,12 +158,11 @@
 
       <div style="margin-bottom:20px">
         <label>🎁 Book with Rewards</label>
-        <div class="toggle-group" style="flex-wrap:wrap">
-          <button class="toggle-btn active" onclick="setRewards(event,'any')" style="flex:1;min-width:80px">All</button>
-          <button class="toggle-btn" onclick="setRewards(event,'chase')" style="flex:2;min-width:180px;font-size:13px">💳 Chase Sapphire Reserve</button>
-          <button class="toggle-btn" onclick="setRewards(event,'rakuten')" style="flex:1;min-width:120px;font-size:13px">🛍️ Rakuten</button>
-        </div>
-        <p id="rewardsHint" style="display:none;margin-top:8px;font-size:12px;color:#666;line-height:1.4"></p>
+        <select id="rewards" onchange="setRewards(this.value)">
+          <option value="any">Any</option>
+          <option value="chase">💳 Chase Sapphire Reserve</option>
+          <option value="rakuten">🛍️ Rakuten</option>
+        </select>
       </div>
 
       <button class="btn" onclick="search()">🔍 Find Restaurants</button>
@@ -194,22 +193,8 @@ let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
 
-function setRewards(evt, mode) {
+function setRewards(mode) {
   state.rewardsFilter = mode;
-  const parentDiv = evt.target.parentElement;
-  parentDiv.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-  evt.target.classList.add('active');
-
-  const hint = document.getElementById('rewardsHint');
-  if (mode === 'chase') {
-    hint.style.display = 'block';
-    hint.innerHTML = '💳 Earn $150 dining credit with Chase Sapphire Reserve at these OpenTable partner restaurants.';
-  } else if (mode === 'rakuten') {
-    hint.style.display = 'block';
-    hint.innerHTML = '🛍️ Earn cashback through Rakuten when dining at partner restaurants.';
-  } else {
-    hint.style.display = 'none';
-  }
 }
 
 function michelinRank(r) {
