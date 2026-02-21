@@ -829,8 +829,10 @@ function renderCard(r) {
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || r.vicinity || r.address || 'New York, NY'))}`;
 
-  // Google Maps link — shows restaurant info with Reserve button built in
-  const reserveUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' restaurant New York, NY')}`;
+  // Google Maps link — goes directly to the restaurant's listing with Reserve button
+  const reserveUrl = r.place_id
+    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
+    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' restaurant New York, NY')}`;
 
   let bookingHtml = '';
   if (r.booking_url && r.booking_platform) {
