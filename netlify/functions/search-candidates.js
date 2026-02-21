@@ -294,7 +294,7 @@ exports.handler = async (event) => {
     const KEY = process.env.GOOGLE_PLACES_API_KEY;
     if (!KEY) return stableResponse([], [], {}, 'API key not configured');
 
-    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v10';
+    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v11';
     const cached = getFromCache(cacheKey);
     if (cached) { timings.total_ms = Date.now()-t0; return stableResponse(cached.elite, cached.moreOptions, { ...cached.stats, cached: true, performance: { ...timings, cache_hit: true } }); }
 
