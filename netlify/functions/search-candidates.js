@@ -37,48 +37,6 @@ try {
   console.log(`\u2705 Deposit lookup: ${Object.keys(DEPOSIT_LOOKUP).length} entries`);
 } catch (err) { console.warn('\u274c Deposit lookup missing:', err.message); }
 
-let BOOKING_LOOKUP = {};
-let BOOKING_KEYS = []; // pre-sorted keys for fuzzy matching
-try {
-  BOOKING_LOOKUP = JSON.parse(fs.readFileSync(path.join(__dirname, 'booking_lookup.json'), 'utf8'));
-  BOOKING_KEYS = Object.keys(BOOKING_LOOKUP);
-  console.log(`\u2705 Booking lookup: ${BOOKING_KEYS.length} entries`);
-} catch (err) { console.warn('\u274c Booking lookup missing:', err.message); }
-
-function normalizeForBooking(name) {
-  return (name || '').toLowerCase().trim()
-    .replace(/\s*[-–—]\s*(midtown|downtown|uptown|east village|west village|tribeca|soho|noho|brooklyn|queens|fidi|financial district|nomad|lincoln square|nyc|new york|manhattan|ny|east|west|north|south).*$/i, '')
-    .replace(/\s+(restaurant|ristorante|nyc|ny|new york|bar & restaurant|bar and restaurant|bar & grill|bar and grill|steakhouse|trattoria|pizzeria|cafe|café|bistro|brasserie|kitchen|dining|room)$/i, '')
-    .replace(/^the\s+/, '')
-    .trim();
-}
-
-function getBookingInfo(name) {
-  if (!name) return null;
-  const key = name.toLowerCase().trim();
-  
-  // 1. Exact match
-  if (BOOKING_LOOKUP[key]) return BOOKING_LOOKUP[key];
-  
-  // 2. Without "the" prefix
-  const noThe = key.replace(/^the\s+/, '');
-  if (BOOKING_LOOKUP[noThe]) return BOOKING_LOOKUP[noThe];
-  
-  // 3. Normalized (strip suffixes like "Restaurant", "NYC", location info)
-  const norm = normalizeForBooking(name);
-  if (norm && BOOKING_LOOKUP[norm]) return BOOKING_LOOKUP[norm];
-  
-  // 4. Check if any lookup key is contained in the Google name, or vice versa
-  for (const lk of BOOKING_KEYS) {
-    if (lk.length < 4) continue; // skip very short keys to avoid false matches
-    if (key.includes(lk) || lk.includes(key)) return BOOKING_LOOKUP[lk];
-    // Also try normalized versions
-    if (norm && norm.length >= 4 && (norm.includes(lk) || lk.includes(norm))) return BOOKING_LOOKUP[lk];
-  }
-  
-  return null;
-}
-
 function getDepositType(name) {
   if (!name) return 'unknown';
   const key = name.toLowerCase().trim();
@@ -119,35 +77,23 @@ async function runWithConcurrency(items, limit, worker) {
   return results;
 }
 
-
 // =========================================================================
 // BOOKING PLATFORM DETECTION
-// First checks static lookup, then fetches restaurant websites and scans
-// for Resy/OpenTable/Tock links
+// Fetches restaurant websites and scans for Resy/OpenTable/Tock links
 // =========================================================================
-const bookingCache = new Map();
-const BOOKING_CACHE_TTL = 24 * 60 * 60 * 1000;
+const bookingCache = new Map(); // place_id -> { platform, url, timestamp }
+const BOOKING_CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
 
 async function detectBookingPlatforms(restaurants, KEY) {
-  // First pass: check booking lookup table (instant, no API calls)
-  for (const r of restaurants) {
-    if (r.booking_platform) continue;
-    const bookingInfo = getBookingInfo(r.name);
-    if (bookingInfo) {
-      r.booking_platform = bookingInfo.platform;
-      r.booking_url = bookingInfo.url;
-      console.log(`📖 Lookup: ${r.name} → ${bookingInfo.platform}`);
-    }
-  }
-
-  // Second pass: for remaining restaurants, fetch their websites
+  // Only process restaurants that don't already have booking data
   const needsDetection = restaurants.filter(r => {
     if (r.booking_platform) return false;
     if (!r.place_id) return false;
+    // Check cache first
     const cached = bookingCache.get(r.place_id);
     if (cached && (Date.now() - cached.timestamp) < BOOKING_CACHE_TTL) {
       if (cached.platform) { r.booking_platform = cached.platform; r.booking_url = cached.url; }
-      return false;
+      return false; // already checked (even if no result)
     }
     return true;
   });
@@ -155,9 +101,9 @@ async function detectBookingPlatforms(restaurants, KEY) {
 
   console.log(`🔍 Detecting booking platforms for ${needsDetection.length} restaurants...`);
   const startTime = Date.now();
-  const TIME_BUDGET_MS = 4000;
+  const TIME_BUDGET_MS = 4000; // Max 4 seconds for all detection
 
-  // Step 1: Batch fetch websiteUri from Google Place Details
+  // Step 1: Batch fetch websiteUri from Google Place Details for restaurants that need it
   const needsWebsite = needsDetection.filter(r => !r.websiteUri);
   if (needsWebsite.length > 0 && (Date.now() - startTime) < TIME_BUDGET_MS) {
     await runWithConcurrency(needsWebsite, 10, async (r) => {
@@ -174,7 +120,8 @@ async function detectBookingPlatforms(restaurants, KEY) {
     });
   }
 
-  // Step 2: Check websiteUri and fetch website HTML to scan for booking links
+  // Step 2: For restaurants with a websiteUri, check if the URL itself is a booking platform
+  // AND fetch the website HTML to scan for booking links
   let detected = 0;
   const withWebsite = needsDetection.filter(r => r.websiteUri);
   if (withWebsite.length > 0 && (Date.now() - startTime) < TIME_BUDGET_MS) {
@@ -182,49 +129,71 @@ async function detectBookingPlatforms(restaurants, KEY) {
       if ((Date.now() - startTime) >= TIME_BUDGET_MS) return;
       const w = (r.websiteUri || '').toLowerCase();
 
-      // Quick check: is the website itself a booking platform URL?
-      if (w.includes('resy.com/cities/')) { r.booking_platform = 'resy'; r.booking_url = r.websiteUri; detected++; return; }
-      if (w.includes('opentable.com/r/') || w.includes('opentable.com/restaurant/')) { r.booking_platform = 'opentable'; r.booking_url = r.websiteUri; detected++; return; }
-      if ((w.includes('exploretock.com/') || w.includes('tock.com/')) && w.split('/').length > 3) { r.booking_platform = 'tock'; r.booking_url = r.websiteUri; detected++; return; }
+    // Quick check: is the website itself a booking platform URL with a restaurant-specific path?
+    if (w.includes('resy.com/cities/')) { r.booking_platform = 'resy'; r.booking_url = r.websiteUri; detected++; return; }
+    if (w.includes('opentable.com/r/') || w.includes('opentable.com/restaurant/')) { r.booking_platform = 'opentable'; r.booking_url = r.websiteUri; detected++; return; }
+    if ((w.includes('exploretock.com/') || w.includes('tock.com/')) && w.split('/').length > 3) { r.booking_platform = 'tock'; r.booking_url = r.websiteUri; detected++; return; }
 
-      // Fetch the restaurant's actual website and scan for booking platform links
-      try {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 3000);
-        const resp = await fetch(r.websiteUri, {
-          signal: controller.signal,
-          headers: { 'User-Agent': 'Mozilla/5.0 (compatible; RestaurantBot/1.0)' },
-          redirect: 'follow'
-        });
-        clearTimeout(timeout);
+    // Fetch the restaurant's actual website and scan for booking platform links
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 3000); // 3s timeout
+      const resp = await fetch(r.websiteUri, {
+        signal: controller.signal,
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; RestaurantBot/1.0)' },
+        redirect: 'follow'
+      });
+      clearTimeout(timeout);
 
-        if (!resp.ok) return;
-        const html = await resp.text();
+      if (!resp.ok) return;
+      const html = await resp.text();
+      const lower = html.toLowerCase();
 
-        const resyMatch = html.match(/href=["'](https?:\/\/(?:www\.)?resy\.com\/cities\/[a-z-]+(?:\/venues)?\/[a-z0-9-]+[^"'\s>]*)["']/i);
-        const otMatch = html.match(/href=["'](https?:\/\/(?:www\.)?opentable\.com\/(?:r\/[a-z0-9-]+|restaurant\/[a-z0-9-]+)[^"'\s>]*)["']/i);
-        const otRefMatch = html.match(/href=["'](https?:\/\/(?:www\.)?opentable\.com\/restref\/client\/\?rid=\d+[^"'\s>]*)["']/i);
-        const tockMatch = html.match(/href=["'](https?:\/\/(?:www\.)?exploretock\.com\/[a-z0-9-]+[^"'\s>]*)["']/i);
+      // Scan for booking platform links in the HTML
+      // ONLY extract URLs that go directly to the restaurant's page, not generic/search URLs
 
-        if (resyMatch) { r.booking_platform = 'resy'; r.booking_url = resyMatch[1]; detected++; }
-        else if (otMatch) { r.booking_platform = 'opentable'; r.booking_url = otMatch[1]; detected++; }
-        else if (otRefMatch) { r.booking_platform = 'opentable'; r.booking_url = otRefMatch[1]; detected++; }
-        else if (tockMatch) { r.booking_platform = 'tock'; r.booking_url = tockMatch[1]; detected++; }
-        else {
-          const broadResy = html.match(/https?:\/\/(?:www\.)?resy\.com\/cities\/[a-z-]+(?:\/venues)?\/[a-z0-9-]+/i);
-          const broadOT = html.match(/https?:\/\/(?:www\.)?opentable\.com\/r\/[a-z0-9-]+/i);
-          const broadTock = html.match(/https?:\/\/(?:www\.)?exploretock\.com\/[a-z0-9-]+/i);
+      // Resy: must have /cities/CITY/venues/SLUG or /cities/CITY/SLUG pattern
+      const resyMatch = html.match(/href=["'](https?:\/\/(?:www\.)?resy\.com\/cities\/[a-z-]+(?:\/venues)?\/[a-z0-9-]+[^"'\s>]*)["']/i);
+      // OpenTable: must have /r/SLUG or /restaurant/ pattern (actual restaurant page)
+      const otMatch = html.match(/href=["'](https?:\/\/(?:www\.)?opentable\.com\/(?:r\/[a-z0-9-]+|restaurant\/[a-z0-9-]+)[^"'\s>]*)["']/i);
+      // Also match OpenTable restref widget with restaurant ID
+      const otRefMatch = html.match(/href=["'](https?:\/\/(?:www\.)?opentable\.com\/restref\/client\/\?rid=\d+[^"'\s>]*)["']/i);
+      // Tock: must have /SLUG pattern (not just the homepage)
+      const tockMatch = html.match(/href=["'](https?:\/\/(?:www\.)?exploretock\.com\/[a-z0-9-]+[^"'\s>]*)["']/i);
 
-          if (broadResy) { r.booking_platform = 'resy'; r.booking_url = broadResy[0]; detected++; }
-          else if (broadOT) { r.booking_platform = 'opentable'; r.booking_url = broadOT[0]; detected++; }
-          else if (broadTock) { r.booking_platform = 'tock'; r.booking_url = broadTock[0]; detected++; }
-        }
-      } catch (e) { /* timeout or fetch error */ }
+      if (resyMatch) {
+        r.booking_platform = 'resy';
+        r.booking_url = resyMatch[1];
+        detected++;
+      } else if (otMatch) {
+        r.booking_platform = 'opentable';
+        r.booking_url = otMatch[1];
+        detected++;
+      } else if (otRefMatch) {
+        r.booking_platform = 'opentable';
+        r.booking_url = otRefMatch[1];
+        detected++;
+      } else if (tockMatch) {
+        r.booking_platform = 'tock';
+        r.booking_url = tockMatch[1];
+        detected++;
+      } else {
+        // Broader search: look for restaurant-specific URLs anywhere in HTML (not just href)
+        const broadResy = html.match(/https?:\/\/(?:www\.)?resy\.com\/cities\/[a-z-]+(?:\/venues)?\/[a-z0-9-]+/i);
+        const broadOT = html.match(/https?:\/\/(?:www\.)?opentable\.com\/r\/[a-z0-9-]+/i);
+        const broadTock = html.match(/https?:\/\/(?:www\.)?exploretock\.com\/[a-z0-9-]+/i);
+
+        if (broadResy) { r.booking_platform = 'resy'; r.booking_url = broadResy[0]; detected++; }
+        else if (broadOT) { r.booking_platform = 'opentable'; r.booking_url = broadOT[0]; detected++; }
+        else if (broadTock) { r.booking_platform = 'tock'; r.booking_url = broadTock[0]; detected++; }
+      }
+    } catch (e) { /* timeout or fetch error — skip */ }
     });
   }
 
-  console.log(`✅ Booking detection: ${detected}/${needsDetection.length} matched (${Date.now() - startTime}ms)`);
+  console.log(`✅ Booking detection: ${detected}/${needsDetection.length} matched to Resy/OpenTable/Tock (${Date.now() - startTime}ms)`);
 
+  // Cache all results (including misses) to avoid re-fetching
   for (const r of needsDetection) {
     if (r.place_id) {
       bookingCache.set(r.place_id, {
@@ -234,6 +203,7 @@ async function detectBookingPlatforms(restaurants, KEY) {
       });
     }
   }
+  // Keep cache size reasonable
   if (bookingCache.size > 500) {
     const entries = Array.from(bookingCache.entries()).sort((a,b) => a[1].timestamp - b[1].timestamp);
     for (let i = 0; i < 100; i++) bookingCache.delete(entries[i][0]);
@@ -488,7 +458,7 @@ exports.handler = async (event) => {
     const KEY = process.env.GOOGLE_PLACES_API_KEY;
     if (!KEY) return stableResponse([], [], {}, 'API key not configured');
 
-    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v13';
+    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v11';
     const cached = getFromCache(cacheKey);
     if (cached) { timings.total_ms = Date.now()-t0; return stableResponse(cached.elite, cached.moreOptions, { ...cached.stats, cached: true, performance: { ...timings, cache_hit: true } }); }
 
@@ -732,12 +702,6 @@ exports.handler = async (event) => {
       // Auto-detect booking platform from website URL
       let bp = p.booking_platform || null;
       let bu = p.booking_url || null;
-      // Check booking lookup table first (most reliable)
-      if (!bp) {
-        const bookingInfo = getBookingInfo(p.name);
-        if (bookingInfo) { bp = bookingInfo.platform; bu = bookingInfo.url; console.log(`📖 Lookup match: ${p.name} → ${bp}`); }
-      }
-      // Fallback: check if websiteUri itself is a booking platform
       if (!bp && p.websiteUri) {
         const w = (p.websiteUri || '').toLowerCase();
         if (w.includes('resy.com/cities/')) { bp = 'resy'; bu = p.websiteUri; }
@@ -887,7 +851,8 @@ exports.handler = async (event) => {
     const { elite, moreOptions, excluded } = filterRestaurantsByTier(within, qualityMode);
     timings.filtering_ms = Date.now() - fStart;
 
-    // DETECT BOOKING PLATFORMS for visible restaurants
+    // DETECT BOOKING PLATFORMS for visible restaurants only
+    // Fetches restaurant websites and scans for Resy/OpenTable/Tock links
     const detectStart = Date.now();
     const visibleRestaurants = [...elite, ...moreOptions];
     await detectBookingPlatforms(visibleRestaurants, KEY);
