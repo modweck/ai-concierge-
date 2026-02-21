@@ -7,7 +7,9 @@
     "lat": 40.7616,
     "lng": -73.9817,
     "price_level": 4,
-    "cuisine": "French, Seafood"
+    "cuisine": "French, Seafood",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/le-bernardin-new-york"
   },
   {
     "name": "Eleven Madison Park",
@@ -17,7 +19,9 @@
     "lat": 40.7421,
     "lng": -73.9874,
     "price_level": 4,
-    "cuisine": "American"
+    "cuisine": "American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/eleven-madison-park"
   },
   {
     "name": "Masa",
@@ -27,7 +31,9 @@
     "lat": 40.7686,
     "lng": -73.983,
     "price_level": 4,
-    "cuisine": "Japanese, Sushi"
+    "cuisine": "Japanese, Sushi",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/masa-new-york"
   },
   {
     "name": "Per Se",
@@ -37,7 +43,9 @@
     "lat": 40.7686,
     "lng": -73.9829,
     "price_level": 4,
-    "cuisine": "French, American"
+    "cuisine": "French, American",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/per-se-new-york"
   },
   {
     "name": "Chef's Table at Brooklyn Fare",
@@ -47,7 +55,9 @@
     "lat": 40.7569,
     "lng": -73.9952,
     "price_level": 4,
-    "cuisine": "French"
+    "cuisine": "French",
+    "booking_platform": "tock",
+    "booking_url": "https://www.exploretock.com/chefsTableatbrooklynfare"
   },
   {
     "name": "Atomix",
@@ -57,7 +67,9 @@
     "lat": 40.7446,
     "lng": -73.9822,
     "price_level": 4,
-    "cuisine": "Korean"
+    "cuisine": "Korean",
+    "booking_platform": "tock",
+    "booking_url": "https://www.exploretock.com/atomix"
   },
   {
     "name": "Jungsik",
@@ -67,7 +79,9 @@
     "lat": 40.7189,
     "lng": -74.0092,
     "price_level": 4,
-    "cuisine": "Korean"
+    "cuisine": "Korean",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/jungsik-new-york"
   },
   {
     "name": "Aquavit",
@@ -77,7 +91,9 @@
     "lat": 40.7605,
     "lng": -73.9722,
     "price_level": 4,
-    "cuisine": "Scandinavian"
+    "cuisine": "Scandinavian",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/aquavit-new-york"
   },
   {
     "name": "Bouley at Home",
@@ -87,7 +103,9 @@
     "lat": 40.7169,
     "lng": -74.0091,
     "price_level": 4,
-    "cuisine": "French"
+    "cuisine": "French",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/bouley-at-home"
   },
   {
     "name": "Casa Mono",
@@ -97,7 +115,9 @@
     "lat": 40.7361,
     "lng": -73.9874,
     "price_level": 3,
-    "cuisine": "Spanish"
+    "cuisine": "Spanish",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/casa-mono"
   },
   {
     "name": "Caviar Russe",
@@ -107,7 +127,9 @@
     "lat": 40.761,
     "lng": -73.9724,
     "price_level": 4,
-    "cuisine": "French, Seafood"
+    "cuisine": "French, Seafood",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/caviar-russe-new-york"
   },
   {
     "name": "Daniel",
@@ -117,7 +139,9 @@
     "lat": 40.7663,
     "lng": -73.9698,
     "price_level": 4,
-    "cuisine": "French"
+    "cuisine": "French",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/daniel-new-york"
   },
   {
     "name": "Gabriel Kreuther",
@@ -127,7 +151,9 @@
     "lat": 40.7545,
     "lng": -73.9826,
     "price_level": 4,
-    "cuisine": "French"
+    "cuisine": "French",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/gabriel-kreuther-new-york"
   },
   {
     "name": "Gramercy Tavern",
@@ -137,7 +163,9 @@
     "lat": 40.7391,
     "lng": -73.9883,
     "price_level": 4,
-    "cuisine": "American"
+    "cuisine": "American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/gramercy-tavern"
   },
   {
     "name": "Jean-Georges",
@@ -147,7 +175,9 @@
     "lat": 40.7679,
     "lng": -73.9812,
     "price_level": 4,
-    "cuisine": "French"
+    "cuisine": "French",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/jean-georges-new-york"
   },
   {
     "name": "Kochi",
@@ -157,7 +187,9 @@
     "lat": 40.7641,
     "lng": -73.9968,
     "price_level": 4,
-    "cuisine": "Korean"
+    "cuisine": "Korean",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/kochi"
   },
   {
     "name": "Kosaka",
@@ -167,7 +199,9 @@
     "lat": 40.7396,
     "lng": -74.0015,
     "price_level": 4,
-    "cuisine": "Japanese, Sushi"
+    "cuisine": "Japanese, Sushi",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/kosaka"
   },
   {
     "name": "L'Abeille",
@@ -177,7 +211,9 @@
     "lat": 40.7332,
     "lng": -74.0064,
     "price_level": 4,
-    "cuisine": "French"
+    "cuisine": "French",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/labeille"
   },
   {
     "name": "Le Pavillon",
@@ -187,7 +223,9 @@
     "lat": 40.7527,
     "lng": -73.9784,
     "price_level": 4,
-    "cuisine": "French, Seafood"
+    "cuisine": "French, Seafood",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/le-pavillon"
   },
   {
     "name": "Oxalis",
@@ -197,7 +235,9 @@
     "lat": 40.6735,
     "lng": -73.9654,
     "price_level": 3,
-    "cuisine": "American"
+    "cuisine": "American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/oxalis"
   },
   {
     "name": "Sushi Noz",
@@ -207,7 +247,9 @@
     "lat": 40.7746,
     "lng": -73.9568,
     "price_level": 4,
-    "cuisine": "Japanese, Sushi"
+    "cuisine": "Japanese, Sushi",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/sushi-noz"
   },
   {
     "name": "The Modern",
@@ -217,7 +259,9 @@
     "lat": 40.7614,
     "lng": -73.9776,
     "price_level": 4,
-    "cuisine": "American, French"
+    "cuisine": "American, French",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-modern-new-york"
   },
   {
     "name": "15 East",
@@ -227,7 +271,9 @@
     "lat": 40.7364,
     "lng": -73.9914,
     "price_level": 4,
-    "cuisine": "Japanese, Sushi"
+    "cuisine": "Japanese, Sushi",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/15-east"
   },
   {
     "name": "Francie",
@@ -237,7 +283,9 @@
     "lat": 40.7101,
     "lng": -73.9627,
     "price_level": 3,
-    "cuisine": "French, American"
+    "cuisine": "French, American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/francie"
   },
   {
     "name": "Contra",
@@ -247,7 +295,9 @@
     "lat": 40.7194,
     "lng": -73.9897,
     "price_level": 3,
-    "cuisine": "American"
+    "cuisine": "American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/contra"
   },
   {
     "name": "Korean Fried Chicken",
@@ -257,7 +307,9 @@
     "lat": 40.6714,
     "lng": -73.9849,
     "price_level": 2,
-    "cuisine": "Korean"
+    "cuisine": "Korean",
+    "booking_platform": null,
+    "booking_url": null
   },
   {
     "name": "Llama Inn",
@@ -267,7 +319,9 @@
     "lat": 40.7162,
     "lng": -73.9496,
     "price_level": 3,
-    "cuisine": "Peruvian"
+    "cuisine": "Peruvian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/llama-inn"
   },
   {
     "name": "Loring Place",
@@ -277,7 +331,9 @@
     "lat": 40.7315,
     "lng": -73.9973,
     "price_level": 3,
-    "cuisine": "American"
+    "cuisine": "American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/loring-place"
   },
   {
     "name": "Semma",
@@ -287,7 +343,9 @@
     "lat": 40.7364,
     "lng": -74.0003,
     "price_level": 2,
-    "cuisine": "Indian"
+    "cuisine": "Indian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/semma"
   },
   {
     "name": "Thai Diner",
@@ -297,7 +355,9 @@
     "lat": 40.7211,
     "lng": -73.9956,
     "price_level": 2,
-    "cuisine": "Thai"
+    "cuisine": "Thai",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/thai-diner"
   },
   {
     "name": "Ci Siamo",
@@ -307,7 +367,9 @@
     "lat": 40.7469,
     "lng": -73.9899,
     "price_level": 3,
-    "cuisine": "Italian"
+    "cuisine": "Italian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/ci-siamo"
   },
   {
     "name": "Don Angie",
@@ -317,7 +379,9 @@
     "lat": 40.737,
     "lng": -74.002,
     "price_level": 3,
-    "cuisine": "Italian"
+    "cuisine": "Italian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/don-angie"
   },
   {
     "name": "Estela",
@@ -327,7 +391,9 @@
     "lat": 40.7251,
     "lng": -73.9945,
     "price_level": 3,
-    "cuisine": "Mediterranean"
+    "cuisine": "Mediterranean",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/estela"
   },
   {
     "name": "Gage & Tollner",
@@ -337,7 +403,9 @@
     "lat": 40.6873,
     "lng": -73.9832,
     "price_level": 3,
-    "cuisine": "American"
+    "cuisine": "American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/gage-and-tollner"
   },
   {
     "name": "I Sodi",
@@ -347,7 +415,9 @@
     "lat": 40.7337,
     "lng": -74.0027,
     "price_level": 3,
-    "cuisine": "Italian"
+    "cuisine": "Italian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/i-sodi"
   },
   {
     "name": "L'Artusi",
@@ -357,7 +427,9 @@
     "lat": 40.7341,
     "lng": -74.0036,
     "price_level": 3,
-    "cuisine": "Italian"
+    "cuisine": "Italian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/lartusi"
   },
   {
     "name": "Momofuku Ko",
@@ -367,7 +439,9 @@
     "lat": 40.7295,
     "lng": -73.9912,
     "price_level": 4,
-    "cuisine": "American, Japanese"
+    "cuisine": "American, Japanese",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/momofuku-ko"
   },
   {
     "name": "Oiji Mi",
@@ -377,7 +451,9 @@
     "lat": 40.7399,
     "lng": -73.9922,
     "price_level": 3,
-    "cuisine": "Korean"
+    "cuisine": "Korean",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/oiji-mi"
   },
   {
     "name": "Rezdôra",
@@ -387,7 +463,9 @@
     "lat": 40.7389,
     "lng": -73.9896,
     "price_level": 3,
-    "cuisine": "Italian"
+    "cuisine": "Italian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/rezdora"
   },
   {
     "name": "Via Carota",
@@ -397,6 +475,8 @@
     "lat": 40.7333,
     "lng": -74.0033,
     "price_level": 3,
-    "cuisine": "Italian"
+    "cuisine": "Italian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/via-carota"
   }
 ]
