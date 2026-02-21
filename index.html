@@ -156,6 +156,16 @@
         </select>
       </div>
 
+      <div style="margin-bottom:20px">
+        <label>🎁 Book with Rewards</label>
+        <div class="toggle-group" style="flex-wrap:wrap">
+          <button class="toggle-btn active" onclick="setRewards(event,'any')" style="flex:1;min-width:80px">All</button>
+          <button class="toggle-btn" onclick="setRewards(event,'chase')" style="flex:2;min-width:180px;font-size:13px">💳 Chase Sapphire Reserve</button>
+          <button class="toggle-btn" onclick="setRewards(event,'rakuten')" style="flex:1;min-width:120px;font-size:13px">🛍️ Rakuten</button>
+        </div>
+        <p id="rewardsHint" style="display:none;margin-top:8px;font-size:12px;color:#666;line-height:1.4"></p>
+      </div>
+
       <button class="btn" onclick="search()">🔍 Find Restaurants</button>
     </div>
 
@@ -179,10 +189,28 @@
   </div>
 
 <script>
-let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false };
+let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any' };
 let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
+
+function setRewards(evt, mode) {
+  state.rewardsFilter = mode;
+  const parentDiv = evt.target.parentElement;
+  parentDiv.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  evt.target.classList.add('active');
+
+  const hint = document.getElementById('rewardsHint');
+  if (mode === 'chase') {
+    hint.style.display = 'block';
+    hint.innerHTML = '💳 Earn $150 dining credit with Chase Sapphire Reserve at these OpenTable partner restaurants.';
+  } else if (mode === 'rakuten') {
+    hint.style.display = 'block';
+    hint.innerHTML = '🛍️ Earn cashback through Rakuten when dining at partner restaurants.';
+  } else {
+    hint.style.display = 'none';
+  }
+}
 
 function michelinRank(r) {
   if (!r.michelin) return 0;
@@ -223,20 +251,29 @@ function setTransport(evt, mode) {
 
 function filterByQuality(restaurants) {
   const q = state.qualityFilter;
-  if (q === 'any') return restaurants;
-  if (q === 'michelin') return restaurants;
-  if (q === 'bib_gourmand') return restaurants;
+  let filtered = restaurants;
 
-  return restaurants.filter(r => {
-    if (r.michelin) return true;
-    const rating = Number(r.googleRating || 0);
+  if (q === 'any') { /* keep all */ }
+  else if (q === 'michelin' || q === 'bib_gourmand') { /* already filtered by search */ }
+  else {
+    filtered = filtered.filter(r => {
+      if (r.michelin) return true;
+      const rating = Number(r.googleRating || 0);
+      if (q === 'strict_elite_47') return rating >= 4.7;
+      if (q === 'elite_45') return rating >= 4.5;
+      if (q === 'recommended_44') return rating >= 4.4;
+      return true;
+    });
+  }
 
-    if (q === 'strict_elite_47') return rating >= 4.7;
-    if (q === 'elite_45') return rating >= 4.5;
-    if (q === 'recommended_44') return rating >= 4.4;
+  // Rewards filter
+  if (state.rewardsFilter === 'chase') {
+    filtered = filtered.filter(r => r.chase_sapphire === true);
+  }
+  // Rakuten filter - placeholder for future
+  // if (state.rewardsFilter === 'rakuten') { filtered = filtered.filter(r => r.rakuten === true); }
 
-    return true;
-  });
+  return filtered;
 }
 
 async function search() {
@@ -604,6 +641,8 @@ function renderCard(r) {
 
   const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
 
+  const chaseHtml = r.chase_sapphire ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
+
   const mapsUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || 'New York, NY'))}`;
@@ -636,12 +675,13 @@ function renderCard(r) {
   return `
     <div class="restaurant">
       <h3>${r.name || 'Unknown'}</h3>
-      <div class="cuisine">${r.vicinity || r.formatted_address || ''}</div>
+      <div class="cuisine">${r.cuisine ? r.cuisine + ' · ' : ''}${r.vicinity || r.formatted_address || ''}</div>
       ${bookingHtml}
       <div class="badges">
         ${michelinHtml}
         ${ratingHtml}
         ${priceHtml}
+        ${chaseHtml}
         ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
         ${distanceHtml}
         <button onclick="window.open('${mapsUrl}','_blank')"
