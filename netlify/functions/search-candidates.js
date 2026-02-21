@@ -120,6 +120,126 @@ async function runWithConcurrency(items, limit, worker) {
 }
 
 
+// =========================================================================
+// BOOKING PLATFORM DETECTION
+// First checks static lookup, then fetches restaurant websites and scans
+// for Resy/OpenTable/Tock links
+// =========================================================================
+const bookingCache = new Map();
+const BOOKING_CACHE_TTL = 24 * 60 * 60 * 1000;
+
+async function detectBookingPlatforms(restaurants, KEY) {
+  // First pass: check booking lookup table (instant, no API calls)
+  for (const r of restaurants) {
+    if (r.booking_platform) continue;
+    const bookingInfo = getBookingInfo(r.name);
+    if (bookingInfo) {
+      r.booking_platform = bookingInfo.platform;
+      r.booking_url = bookingInfo.url;
+      console.log(`📖 Lookup: ${r.name} → ${bookingInfo.platform}`);
+    }
+  }
+
+  // Second pass: for remaining restaurants, fetch their websites
+  const needsDetection = restaurants.filter(r => {
+    if (r.booking_platform) return false;
+    if (!r.place_id) return false;
+    const cached = bookingCache.get(r.place_id);
+    if (cached && (Date.now() - cached.timestamp) < BOOKING_CACHE_TTL) {
+      if (cached.platform) { r.booking_platform = cached.platform; r.booking_url = cached.url; }
+      return false;
+    }
+    return true;
+  });
+  if (!needsDetection.length) return;
+
+  console.log(`🔍 Detecting booking platforms for ${needsDetection.length} restaurants...`);
+  const startTime = Date.now();
+  const TIME_BUDGET_MS = 4000;
+
+  // Step 1: Batch fetch websiteUri from Google Place Details
+  const needsWebsite = needsDetection.filter(r => !r.websiteUri);
+  if (needsWebsite.length > 0 && (Date.now() - startTime) < TIME_BUDGET_MS) {
+    await runWithConcurrency(needsWebsite, 10, async (r) => {
+      if ((Date.now() - startTime) >= TIME_BUDGET_MS) return;
+      try {
+        const resp = await fetch(`https://places.googleapis.com/v1/places/${r.place_id}`, {
+          headers: { 'Content-Type': 'application/json', 'X-Goog-Api-Key': KEY, 'X-Goog-FieldMask': 'websiteUri' }
+        });
+        if (resp.ok) {
+          const data = await resp.json();
+          r.websiteUri = data.websiteUri || null;
+        }
+      } catch (e) { /* skip */ }
+    });
+  }
+
+  // Step 2: Check websiteUri and fetch website HTML to scan for booking links
+  let detected = 0;
+  const withWebsite = needsDetection.filter(r => r.websiteUri);
+  if (withWebsite.length > 0 && (Date.now() - startTime) < TIME_BUDGET_MS) {
+    await runWithConcurrency(withWebsite, 8, async (r) => {
+      if ((Date.now() - startTime) >= TIME_BUDGET_MS) return;
+      const w = (r.websiteUri || '').toLowerCase();
+
+      // Quick check: is the website itself a booking platform URL?
+      if (w.includes('resy.com/cities/')) { r.booking_platform = 'resy'; r.booking_url = r.websiteUri; detected++; return; }
+      if (w.includes('opentable.com/r/') || w.includes('opentable.com/restaurant/')) { r.booking_platform = 'opentable'; r.booking_url = r.websiteUri; detected++; return; }
+      if ((w.includes('exploretock.com/') || w.includes('tock.com/')) && w.split('/').length > 3) { r.booking_platform = 'tock'; r.booking_url = r.websiteUri; detected++; return; }
+
+      // Fetch the restaurant's actual website and scan for booking platform links
+      try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 3000);
+        const resp = await fetch(r.websiteUri, {
+          signal: controller.signal,
+          headers: { 'User-Agent': 'Mozilla/5.0 (compatible; RestaurantBot/1.0)' },
+          redirect: 'follow'
+        });
+        clearTimeout(timeout);
+
+        if (!resp.ok) return;
+        const html = await resp.text();
+
+        const resyMatch = html.match(/href=["'](https?:\/\/(?:www\.)?resy\.com\/cities\/[a-z-]+(?:\/venues)?\/[a-z0-9-]+[^"'\s>]*)["']/i);
+        const otMatch = html.match(/href=["'](https?:\/\/(?:www\.)?opentable\.com\/(?:r\/[a-z0-9-]+|restaurant\/[a-z0-9-]+)[^"'\s>]*)["']/i);
+        const otRefMatch = html.match(/href=["'](https?:\/\/(?:www\.)?opentable\.com\/restref\/client\/\?rid=\d+[^"'\s>]*)["']/i);
+        const tockMatch = html.match(/href=["'](https?:\/\/(?:www\.)?exploretock\.com\/[a-z0-9-]+[^"'\s>]*)["']/i);
+
+        if (resyMatch) { r.booking_platform = 'resy'; r.booking_url = resyMatch[1]; detected++; }
+        else if (otMatch) { r.booking_platform = 'opentable'; r.booking_url = otMatch[1]; detected++; }
+        else if (otRefMatch) { r.booking_platform = 'opentable'; r.booking_url = otRefMatch[1]; detected++; }
+        else if (tockMatch) { r.booking_platform = 'tock'; r.booking_url = tockMatch[1]; detected++; }
+        else {
+          const broadResy = html.match(/https?:\/\/(?:www\.)?resy\.com\/cities\/[a-z-]+(?:\/venues)?\/[a-z0-9-]+/i);
+          const broadOT = html.match(/https?:\/\/(?:www\.)?opentable\.com\/r\/[a-z0-9-]+/i);
+          const broadTock = html.match(/https?:\/\/(?:www\.)?exploretock\.com\/[a-z0-9-]+/i);
+
+          if (broadResy) { r.booking_platform = 'resy'; r.booking_url = broadResy[0]; detected++; }
+          else if (broadOT) { r.booking_platform = 'opentable'; r.booking_url = broadOT[0]; detected++; }
+          else if (broadTock) { r.booking_platform = 'tock'; r.booking_url = broadTock[0]; detected++; }
+        }
+      } catch (e) { /* timeout or fetch error */ }
+    });
+  }
+
+  console.log(`✅ Booking detection: ${detected}/${needsDetection.length} matched (${Date.now() - startTime}ms)`);
+
+  for (const r of needsDetection) {
+    if (r.place_id) {
+      bookingCache.set(r.place_id, {
+        platform: r.booking_platform || null,
+        url: r.booking_url || null,
+        timestamp: Date.now()
+      });
+    }
+  }
+  if (bookingCache.size > 500) {
+    const entries = Array.from(bookingCache.entries()).sort((a,b) => a[1].timestamp - b[1].timestamp);
+    for (let i = 0; i < 100; i++) bookingCache.delete(entries[i][0]);
+  }
+}
+
 // ---- Michelin ----
 async function resolveMichelinPlaces(GOOGLE_API_KEY) {
   if (!GOOGLE_API_KEY) return [];
@@ -368,7 +488,7 @@ exports.handler = async (event) => {
     const KEY = process.env.GOOGLE_PLACES_API_KEY;
     if (!KEY) return stableResponse([], [], {}, 'API key not configured');
 
-    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v12';
+    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v13';
     const cached = getFromCache(cacheKey);
     if (cached) { timings.total_ms = Date.now()-t0; return stableResponse(cached.elite, cached.moreOptions, { ...cached.stats, cached: true, performance: { ...timings, cache_hit: true } }); }
 
@@ -766,6 +886,13 @@ exports.handler = async (event) => {
     const fStart = Date.now();
     const { elite, moreOptions, excluded } = filterRestaurantsByTier(within, qualityMode);
     timings.filtering_ms = Date.now() - fStart;
+
+    // DETECT BOOKING PLATFORMS for visible restaurants
+    const detectStart = Date.now();
+    const visibleRestaurants = [...elite, ...moreOptions];
+    await detectBookingPlatforms(visibleRestaurants, KEY);
+    timings.booking_detect_ms = Date.now() - detectStart;
+
     timings.total_ms = Date.now() - t0;
 
     const sortFn = (a,b) => {
