@@ -599,15 +599,26 @@ function renderCard(r) {
     ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || 'New York, NY'))}`;
 
-  const openTableUrl = `https://www.opentable.com/s?term=${encodeURIComponent(r.name || '')}&covers=2&metroId=8`;
+  const reserveUrl = `https://www.google.com/search?q=${encodeURIComponent((r.name || '') + ' reservations ' + (r.vicinity || r.formatted_address || 'New York, NY'))}`;
+
+  let bookingHtml = '';
+  if (r.booking_url && r.booking_platform) {
+    const platformName = r.booking_platform === 'opentable' ? 'OpenTable'
+      : r.booking_platform === 'resy' ? 'Resy'
+      : r.booking_platform === 'tock' ? 'Tock' : 'Reserve';
+    const platformColor = r.booking_platform === 'opentable' ? '#da3743'
+      : r.booking_platform === 'resy' ? '#c2185b'
+      : r.booking_platform === 'tock' ? '#1a73e8' : '#333';
+    bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:${platformColor};font-size:13px;font-weight:600">🔖 Reserve on ${platformName}</a>`;
+  } else {
+    bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#da3743;font-size:13px;font-weight:600">🔖 Find Reservation</a>`;
+  }
 
   return `
     <div class="restaurant">
       <h3>${r.name || 'Unknown'}</h3>
       <div class="cuisine">${r.vicinity || r.formatted_address || ''}</div>
-      <a href="${openTableUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#da3743;font-size:13px;font-weight:600">
-        🔖 Reserve on OpenTable
-      </a>
+      ${bookingHtml}
       <div class="badges">
         ${michelinHtml}
         ${ratingHtml}
