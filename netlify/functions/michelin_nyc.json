@@ -8,8 +8,8 @@
     "lng": -73.9817,
     "price_level": 4,
     "cuisine": "French, Seafood",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/le-bernardin-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/le-bernardin"
   },
   {
     "name": "Eleven Madison Park",
@@ -20,8 +20,8 @@
     "lng": -73.9874,
     "price_level": 4,
     "cuisine": "American",
-    "booking_platform": "tock",
-    "booking_url": "https://www.exploretock.com/elevenmadisonpark"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/eleven-madison-park"
   },
   {
     "name": "Masa",
@@ -56,8 +56,8 @@
     "lng": -73.9952,
     "price_level": 4,
     "cuisine": "French",
-    "booking_platform": "tock",
-    "booking_url": "https://www.exploretock.com/chefsTableatbrooklynfare"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/chefs-table-at-brooklyn-fare"
   },
   {
     "name": "Atomix",
@@ -128,8 +128,8 @@
     "lng": -73.9698,
     "price_level": 4,
     "cuisine": "French",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/daniel-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/daniel"
   },
   {
     "name": "Gabriel Kreuther",
@@ -140,8 +140,8 @@
     "lng": -73.9826,
     "price_level": 4,
     "cuisine": "French",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/gabriel-kreuther-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/gabriel-kreuther"
   },
   {
     "name": "Gramercy Tavern",
@@ -152,8 +152,8 @@
     "lng": -73.9883,
     "price_level": 4,
     "cuisine": "American",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/gramercy-tavern-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/the-dining-room-at-gramercy-tavern"
   },
   {
     "name": "Jean-Georges",
@@ -164,8 +164,8 @@
     "lng": -73.9812,
     "price_level": 4,
     "cuisine": "French",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/jean-georges-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/jean-georges"
   },
   {
     "name": "Kochi",
@@ -200,8 +200,8 @@
     "lng": -74.0064,
     "price_level": 4,
     "cuisine": "French",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/labeille-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/labielle"
   },
   {
     "name": "Le Pavillon",
@@ -212,8 +212,8 @@
     "lng": -73.9784,
     "price_level": 4,
     "cuisine": "French, Seafood",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/le-pavillon-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/le-pavillon"
   },
   {
     "name": "Sushi Noz",
@@ -236,8 +236,8 @@
     "lng": -73.9776,
     "price_level": 4,
     "cuisine": "American, French",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/the-modern-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/the-modern"
   },
   {
     "name": "15 East",
@@ -260,20 +260,8 @@
     "lng": -73.9627,
     "price_level": 3,
     "cuisine": "French, American",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/francie-brooklyn"
-  },
-  {
-    "name": "Contra",
-    "distinction": "bib",
-    "stars": null,
-    "address": "138 Orchard St, New York, NY 10002",
-    "lat": 40.7194,
-    "lng": -73.9897,
-    "price_level": 3,
-    "cuisine": "American",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/contra-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/francie"
   },
   {
     "name": "Llama Inn",
@@ -284,8 +272,8 @@
     "lng": -73.9496,
     "price_level": 3,
     "cuisine": "Peruvian",
-    "booking_platform": "website",
-    "booking_url": "https://www.llamainnnyc.com/"
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/llama-inn-brooklyn"
   },
   {
     "name": "Loring Place",
@@ -296,8 +284,8 @@
     "lng": -73.9973,
     "price_level": 3,
     "cuisine": "American",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/loring-place-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/loring-place"
   },
   {
     "name": "Semma",
@@ -308,8 +296,8 @@
     "lng": -74.0003,
     "price_level": 2,
     "cuisine": "Indian",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/semma-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/semma"
   },
   {
     "name": "Thai Diner",
@@ -320,8 +308,8 @@
     "lng": -73.9956,
     "price_level": 2,
     "cuisine": "Thai",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/thai-diner-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/thai-diner"
   },
   {
     "name": "Ci Siamo",
@@ -332,8 +320,8 @@
     "lng": -73.9899,
     "price_level": 3,
     "cuisine": "Italian",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/ci-siamo-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/ci-siamo"
   },
   {
     "name": "Don Angie",
@@ -356,8 +344,8 @@
     "lng": -73.9945,
     "price_level": 3,
     "cuisine": "Mediterranean",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/estela-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/estela"
   },
   {
     "name": "Gage & Tollner",
@@ -368,8 +356,8 @@
     "lng": -73.9832,
     "price_level": 3,
     "cuisine": "American",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/gage-and-tollner-brooklyn"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/gage-and-tollner"
   },
   {
     "name": "I Sodi",
@@ -380,8 +368,8 @@
     "lng": -74.0027,
     "price_level": 3,
     "cuisine": "Italian",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/i-sodi-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/i-sodi"
   },
   {
     "name": "L'Artusi",
@@ -392,8 +380,8 @@
     "lng": -74.0036,
     "price_level": 3,
     "cuisine": "Italian",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/lartusi-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/lartusi-ny"
   },
   {
     "name": "Momofuku Ko",
@@ -428,8 +416,8 @@
     "lng": -73.9896,
     "price_level": 3,
     "cuisine": "Italian",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/rezdora-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/rezdora"
   },
   {
     "name": "Via Carota",
@@ -440,7 +428,7 @@
     "lng": -74.0033,
     "price_level": 3,
     "cuisine": "Italian",
-    "booking_platform": "website",
-    "booking_url": "https://www.viacarota.com/"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/via-carota"
   }
 ]
