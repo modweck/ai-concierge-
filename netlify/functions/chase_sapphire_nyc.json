@@ -12,7 +12,8 @@
     "stars": 0,
     "googleRating": 4.0,
     "googleReviewCount": 320,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Gjelina",
@@ -27,7 +28,8 @@
     "stars": 0,
     "googleRating": 4.3,
     "googleReviewCount": 580,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Altro Paradiso",
@@ -42,7 +44,8 @@
     "stars": 0,
     "googleRating": 4.4,
     "googleReviewCount": 1200,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Sunn's",
@@ -57,7 +60,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 85,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Parcelle Chinatown",
@@ -72,7 +76,8 @@
     "stars": 0,
     "googleRating": 4.6,
     "googleReviewCount": 45,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Scarr's Pizza",
@@ -87,7 +92,8 @@
     "stars": 0,
     "googleRating": 4.6,
     "googleReviewCount": 2100,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Kabawa",
@@ -102,7 +108,8 @@
     "stars": 0,
     "googleRating": 4.4,
     "googleReviewCount": 120,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "San Sabino",
@@ -117,7 +124,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 180,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Manhatta",
@@ -132,7 +140,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 1400,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "deposit"
   },
   {
     "name": "Fairfax",
@@ -147,7 +156,8 @@
     "stars": 0,
     "googleRating": 4.3,
     "googleReviewCount": 250,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Demo",
@@ -162,7 +172,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 95,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Muku",
@@ -177,7 +188,8 @@
     "stars": 0,
     "googleRating": 4.6,
     "googleReviewCount": 110,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "deposit"
   },
   {
     "name": "Jeffrey's Grocery",
@@ -192,7 +204,8 @@
     "stars": 0,
     "googleRating": 4.4,
     "googleReviewCount": 750,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "SAPPEISAN",
@@ -207,7 +220,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 60,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Joseph Leonard",
@@ -222,7 +236,8 @@
     "stars": 0,
     "googleRating": 4.4,
     "googleReviewCount": 1100,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Hawksmoor NYC",
@@ -237,7 +252,8 @@
     "stars": 0,
     "googleRating": 4.6,
     "googleReviewCount": 1800,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "deposit"
   },
   {
     "name": "Parcelle Greenwich Village",
@@ -252,7 +268,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 55,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Mitsuru",
@@ -267,7 +284,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 70,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Sailor",
@@ -282,7 +300,8 @@
     "stars": 0,
     "googleRating": 4.4,
     "googleReviewCount": 320,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Bar Kabawa",
@@ -297,7 +316,8 @@
     "stars": 0,
     "googleRating": 4.3,
     "googleReviewCount": 65,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Moody Tongue Sushi",
@@ -312,7 +332,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 40,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "deposit"
   },
   {
     "name": "The Golden Swan",
@@ -327,7 +348,8 @@
     "stars": 0,
     "googleRating": 4.3,
     "googleReviewCount": 180,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Red Hook Tavern",
@@ -342,7 +364,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 650,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Le B.",
@@ -357,7 +380,8 @@
     "stars": 0,
     "googleRating": 4.4,
     "googleReviewCount": 90,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Blu on the Hudson",
@@ -372,7 +396,8 @@
     "stars": 0,
     "googleRating": 4.3,
     "googleReviewCount": 480,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Strange Delight",
@@ -387,7 +412,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 75,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Brass",
@@ -402,7 +428,8 @@
     "stars": 0,
     "googleRating": 4.3,
     "googleReviewCount": 150,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Chez Fifi",
@@ -417,7 +444,8 @@
     "stars": 0,
     "googleRating": 4.4,
     "googleReviewCount": 220,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Bar Miller",
@@ -432,7 +460,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 55,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "ASKA",
@@ -447,7 +476,8 @@
     "stars": 0,
     "googleRating": 4.7,
     "googleReviewCount": 520,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "deposit"
   },
   {
     "name": "Di An Di",
@@ -462,7 +492,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 1400,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Union Square Cafe",
@@ -477,7 +508,8 @@
     "stars": 0,
     "googleRating": 4.5,
     "googleReviewCount": 3200,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "odo",
@@ -492,7 +524,8 @@
     "stars": 0,
     "googleRating": 4.8,
     "googleReviewCount": 280,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "deposit"
   },
   {
     "name": "Noz Market",
@@ -507,7 +540,8 @@
     "stars": 0,
     "googleRating": 4.6,
     "googleReviewCount": 45,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Pig and Khao - UWS",
@@ -522,7 +556,8 @@
     "stars": 0,
     "googleRating": 4.3,
     "googleReviewCount": 180,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Maddy Rose",
@@ -537,7 +572,8 @@
     "stars": 0,
     "googleRating": 4.2,
     "googleReviewCount": 140,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Felina Steak",
@@ -552,7 +588,8 @@
     "stars": 0,
     "googleRating": 4.4,
     "googleReviewCount": 95,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Drift Restaurant & Bar",
@@ -567,7 +604,8 @@
     "stars": 0,
     "googleRating": 4.3,
     "googleReviewCount": 320,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Meximodo",
@@ -582,7 +620,8 @@
     "stars": 0,
     "googleRating": 4.4,
     "googleReviewCount": 110,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Razza",
@@ -597,7 +636,8 @@
     "stars": 0,
     "googleRating": 4.7,
     "googleReviewCount": 2800,
-    "price_level": null
+    "price_level": null,
+    "deposit_type": "none"
   },
   {
     "name": "Casa Mono",
@@ -612,7 +652,8 @@
     "googleReviewCount": 1500,
     "price_level": 3,
     "stars": 1,
-    "distinction": "star"
+    "distinction": "star",
+    "deposit_type": "none"
   },
   {
     "name": "Gramercy Tavern",
@@ -627,7 +668,8 @@
     "googleReviewCount": 5200,
     "price_level": 4,
     "stars": 1,
-    "distinction": "star"
+    "distinction": "star",
+    "deposit_type": "none"
   },
   {
     "name": "L'Abeille",
@@ -642,7 +684,8 @@
     "googleReviewCount": 180,
     "price_level": 4,
     "stars": 1,
-    "distinction": "star"
+    "distinction": "star",
+    "deposit_type": "deposit"
   },
   {
     "name": "Sushi Noz",
@@ -657,7 +700,8 @@
     "googleReviewCount": 350,
     "price_level": 4,
     "stars": 1,
-    "distinction": "star"
+    "distinction": "star",
+    "deposit_type": "deposit"
   },
   {
     "name": "The Modern",
@@ -672,7 +716,8 @@
     "googleReviewCount": 3800,
     "price_level": 4,
     "stars": 1,
-    "distinction": "star"
+    "distinction": "star",
+    "deposit_type": "deposit"
   },
   {
     "name": "Ci Siamo",
@@ -687,7 +732,8 @@
     "googleReviewCount": 1600,
     "price_level": 3,
     "stars": null,
-    "distinction": "recommended"
+    "distinction": "recommended",
+    "deposit_type": "deposit"
   },
   {
     "name": "Don Angie",
@@ -702,7 +748,8 @@
     "googleReviewCount": 1800,
     "price_level": 3,
     "stars": null,
-    "distinction": "recommended"
+    "distinction": "recommended",
+    "deposit_type": "none"
   },
   {
     "name": "Estela",
@@ -717,7 +764,8 @@
     "googleReviewCount": 1100,
     "price_level": 3,
     "stars": null,
-    "distinction": "recommended"
+    "distinction": "recommended",
+    "deposit_type": "none"
   },
   {
     "name": "Tolo",
@@ -732,7 +780,8 @@
     "googleReviewCount": 280,
     "price_level": 2,
     "stars": 0,
-    "distinction": "bib_gourmand"
+    "distinction": "bib_gourmand",
+    "deposit_type": "none"
   },
   {
     "name": "Una Pizza Napoletana",
@@ -747,7 +796,8 @@
     "googleReviewCount": 1900,
     "price_level": 2,
     "stars": 0,
-    "distinction": "bib_gourmand"
+    "distinction": "bib_gourmand",
+    "deposit_type": "none"
   },
   {
     "name": "Momofuku Noodle Bar",
@@ -762,7 +812,8 @@
     "googleReviewCount": 3500,
     "price_level": 2,
     "stars": 0,
-    "distinction": "bib_gourmand"
+    "distinction": "bib_gourmand",
+    "deposit_type": "none"
   },
   {
     "name": "Potluck Club",
@@ -777,6 +828,7 @@
     "googleReviewCount": 220,
     "price_level": 2,
     "stars": 0,
-    "distinction": "bib_gourmand"
+    "distinction": "bib_gourmand",
+    "deposit_type": "none"
   }
 ]
