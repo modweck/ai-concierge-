@@ -1,860 +1,509 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AI Concierge</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:system-ui,sans-serif;background:#f5f5f5;padding:20px}
-    .container{max-width:900px;margin:0 auto}
-    .card{background:white;padding:30px;border-radius:16px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-    h1{font-size:36px;margin-bottom:8px}
-    .subtitle{color:#666;font-size:18px}
-    label{display:block;font-weight:600;margin-bottom:10px;color:#333;font-size:15px}
-    input,select{width:100%;padding:14px;border:2px solid #e0e0e0;border-radius:10px;font-size:16px}
-    input:focus,select:focus{outline:none;border-color:#000}
-    .btn{width:100%;padding:18px;background:#000;color:white;border:none;border-radius:12px;font-size:18px;font-weight:700;cursor:pointer;margin-top:10px}
-    .btn:hover{background:#333}
-    .btn:disabled{background:#ccc;cursor:not-allowed}
-    .restaurant{background:white;padding:28px;border-radius:16px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:all 0.2s}
-    .restaurant:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.12)}
-    .restaurant h3{margin:0 0 6px 0;font-size:24px}
-    .cuisine{color:#999;font-size:15px;margin-bottom:16px}
-    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0;align-items:center}
-    .badge{padding:8px 14px;border-radius:20px;font-size:14px;font-weight:600;border:2px solid #e0e0e0;background:#fafafa}
-    .badge.distance{background:#e0f2fe;border-color:#7dd3fc;color:#075985}
-    .hidden{display:none}
-    .back-btn{padding:12px 24px;border:2px solid #ddd;border-radius:10px;background:white;cursor:pointer;font-weight:600;margin-bottom:24px;font-size:16px}
-    .toggle-group{display:flex;gap:12px;margin-top:10px}
-    .toggle-btn{flex:1;padding:14px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-size:15px;font-weight:600;color:#333}
-    .toggle-btn.active{background:#000;color:white;border-color:#000}
-    .toggle-btn:hover{border-color:#000;background:#f5f5f5}
-    .toggle-btn:hover.active{background:#000}
-    .sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:16px;background:#f9fafb;border-radius:12px}
-    .section-divider{padding:12px 16px;margin:24px 0 16px 0;background:#f3f4f6;border-radius:10px;font-size:14px;font-weight:600;color:#6b7280;border-left:4px solid #d1d5db}
-    .chatbot-btn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:#000;color:white;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:all 0.2s}
-    .chatbot-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,0.4)}
-    .pac-container{z-index:10000!important;font-family:system-ui,sans-serif}
-    @media(max-width:768px){.toggle-group{flex-direction:column}}
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <div class="card">
-      <h1>🍽️ AI Concierge</h1>
-      <p class="subtitle">Find restaurants you can actually get into</p>
-    </div>
-
-    <div id="search" class="card">
-      <div style="margin-bottom:20px">
-        <label>📍 Your Location</label>
-        <div style="display:flex;gap:10px">
-          <input type="text" id="addressInput" placeholder="Enter address" value="New York, NY" style="flex:1">
-          <button onclick="useCurrentLocation()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">📍 Use My Location</button>
-        </div>
-      </div>
-
-      <div style="margin-bottom:20px">
-        <label>🕐 Time</label>
-        <select id="timewindow">
-          <option value="breakfast">Breakfast</option>
-          <option value="lunch">Lunch</option>
-          <option value="prime" selected>Dinner</option>
-        </select>
-      </div>
-
-      <div style="margin-bottom:20px">
-        <label>👥 Party Size</label>
-        <input type="number" id="party" value="2" min="1" max="20">
-      </div>
-
-      <div style="margin-bottom:20px">
-        <label>🚗 Transportation</label>
-        <div class="toggle-group">
-          <button class="toggle-btn active" onclick="setTransport(event,'walk')">🚶 Walk</button>
-          <button class="toggle-btn" onclick="setTransport(event,'drive')">🚗 Drive</button>
-          <button class="toggle-btn" onclick="setTransport(event,'transit')">🚇 Transit</button>
-          <button class="toggle-btn" onclick="setTransport(event,'radius')">📍 Radius</button>
-        </div>
-      </div>
-
-      <div id="walkDistance" style="margin-bottom:20px">
-        <label>🚶 Max Walk</label>
-        <select id="walkTime">
-          <option value="10">10 min</option>
-          <option value="15">15 min</option>
-          <option value="20" selected>20 min</option>
-          <option value="30">30 min</option>
-        </select>
-      </div>
-
-      <div id="driveDistance" style="margin-bottom:20px;display:none">
-        <label>🚗 Max Drive</label>
-        <select id="driveTime">
-          <option value="10">10 min</option>
-          <option value="15" selected>15 min</option>
-          <option value="20">20 min</option>
-          <option value="30">30 min</option>
-        </select>
-      </div>
-
-      <div id="transitDistance" style="margin-bottom:20px;display:none">
-        <label>🚇 Max Transit</label>
-        <select id="transitTime">
-          <option value="15">15 min</option>
-          <option value="20" selected>20 min</option>
-          <option value="30">30 min</option>
-          <option value="45">45 min</option>
-        </select>
-      </div>
-
-      <div id="radiusDistance" style="margin-bottom:20px;display:none">
-        <label>📍 Radius</label>
-        <select id="radiusMiles">
-          <option value="1">1 mile</option>
-          <option value="2">2 miles</option>
-          <option value="3" selected>3 miles</option>
-          <option value="5">5 miles</option>
-        </select>
-      </div>
-
-      <div style="margin-bottom:20px">
-        <label>⭐ Quality</label>
-        <select id="quality">
-          <option value="any" selected>Any Quality</option>
-          <option value="michelin">Michelin Stars</option>
-          <option value="bib_gourmand">Bib Gourmand</option>
-          <option value="recommended_44">Recommended (4.4+)</option>
-          <option value="elite_45">Elite (4.5+)</option>
-          <option value="strict_elite_47">Strict Elite (4.7+)</option>
-        </select>
-      </div>
-
-      <div style="margin-bottom:20px">
-        <label>🍕 Cuisine</label>
-        <select id="cuisine">
-          <option value="any">Any</option>
-          <option value="american">American</option>
-          <option value="barbecue">Barbecue</option>
-          <option value="chinese">Chinese</option>
-          <option value="french">French</option>
-          <option value="greek">Greek</option>
-          <option value="indian">Indian</option>
-          <option value="italian">Italian</option>
-          <option value="japanese">Japanese</option>
-          <option value="korean">Korean</option>
-          <option value="mediterranean">Mediterranean</option>
-          <option value="mexican">Mexican</option>
-          <option value="seafood">Seafood</option>
-          <option value="spanish">Spanish</option>
-          <option value="steakhouse">Steakhouse</option>
-          <option value="sushi">Sushi</option>
-          <option value="thai">Thai</option>
-          <option value="vietnamese">Vietnamese</option>
-        </select>
-      </div>
-
-      <div style="margin-bottom:20px">
-        <label>🎁 Book with Rewards</label>
-        <select id="rewards" onchange="setRewards(this.value)">
-          <option value="any">Any</option>
-          <option value="chase">💳 Chase Sapphire Reserve</option>
-          <option value="rakuten">🛍️ Rakuten</option>
-        </select>
-      </div>
-
-      <button class="btn" onclick="search()">🔍 Find Restaurants</button>
-    </div>
-
-    <div id="results" class="hidden">
-      <button class="back-btn" onclick="back()">← Back</button>
-      <div id="warnings"></div>
-
-      <div class="sort-bar">
-        <label style="margin:0;font-weight:600">📊 Sort:</label>
-        <select id="sortBy" onchange="sortResults()">
-          <option value="distance">Distance</option>
-          <option value="rating">Rating</option>
-          <option value="price">Price</option>
-        </select>
-      </div>
-
-      <div id="list"></div>
-    </div>
-
-    <button class="chatbot-btn" onclick="alert('Chat coming soon!')">💬</button>
-  </div>
-
-<script>
-let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any' };
-let allRestaurants = [];
-let isSearching = false;
-let searchAbortController = null;
-
-function setRewards(mode) {
-  state.rewardsFilter = mode;
-  if (allRestaurants.length > 0) sortResults();
-}
-
-// Chase Sapphire Reserve Exclusive Tables — all restaurant names
-const CHASE_SAPPHIRE_NAMES = [
-  'phoenix palace','gjelina','altro paradiso',"sunn's",'parcelle chinatown',
-  'estela',"l'abeille",'potluck club',"scarr's pizza",'kabawa',
-  'san sabino','manhatta','don angie','fairfax','una pizza napoletana',
-  'tolo','demo','muku',"jeffrey's grocery",'sappeisan',
-  'joseph leonard','hawksmoor nyc','parcelle greenwich village','mitsuru',
-  'sailor','casa mono','momofuku noodle bar','bar kabawa',
-  'moody tongue sushi','the golden swan','red hook tavern','le b.',
-  'blu on the hudson','momofuku noodle bar - uptown','strange delight',
-  'brass','chez fifi','bar miller','aska',
-  'di an di','the tavern at gramercy tavern','union square cafe',
-  'the dining room at gramercy tavern','ci siamo','odo',
-  'the bar room at the modern','sushi noz','noz market','the modern',
-  'pig and khao - uws','maddy rose','felina steak',
-  'drift restaurant & bar','meximodo','razza',
-  'gramercy tavern','hawksmoor','pig and khao'
-];
-
-function isChaseRestaurant(name) {
-  if (!name) return false;
-  const n = name.toLowerCase().trim();
-  for (const cn of CHASE_SAPPHIRE_NAMES) {
-    if (n === cn || n.includes(cn) || cn.includes(n)) return true;
+[
+  {
+    "name": "Le Botaniste 43rd & 3rd",
+    "cuisine": "Vegetarian",
+    "address": "281 3rd Ave, New York, NY",
+    "lat": 40.7527,
+    "lng": -73.9735,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Cafe Fiorello",
+    "cuisine": "Italian",
+    "address": "1900 Broadway, New York, NY 10023",
+    "lat": 40.7725,
+    "lng": -73.9812,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Ammos Estiatorio",
+    "cuisine": "Greek",
+    "address": "52 Vanderbilt Ave, New York, NY 10017",
+    "lat": 40.7535,
+    "lng": -73.9722,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Ginger Sapori & Salute",
+    "cuisine": "Italian",
+    "address": "396 Broome St, New York, NY 10013",
+    "lat": 40.7165,
+    "lng": -73.9975,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Bengal Tiger",
+    "cuisine": "Indian",
+    "address": "58 E 29th St, New York, NY 10016",
+    "lat": 40.7465,
+    "lng": -73.9845,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Francesco",
+    "cuisine": "Italian",
+    "address": "839 2nd Ave, New York, NY 10017",
+    "lat": 40.759,
+    "lng": -73.969,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Asset",
+    "cuisine": "American",
+    "address": "120 Essex St, New York, NY 10002",
+    "lat": 40.722,
+    "lng": -73.988,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Flute - Midtown",
+    "cuisine": "Lounge",
+    "address": "205 W 54th St, New York, NY 10019",
+    "lat": 40.754,
+    "lng": -73.981,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "La Boite en Bois",
+    "cuisine": "French",
+    "address": "75 W 68th St, New York, NY 10023",
+    "lat": 40.7745,
+    "lng": -73.98,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Madera",
+    "cuisine": "Latin American",
+    "address": "43 W 38th St, New York, NY 10018",
+    "lat": 40.748,
+    "lng": -73.985,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Off City",
+    "cuisine": "American",
+    "address": "Midtown, New York, NY",
+    "lat": 40.753,
+    "lng": -73.978,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "The Reading Room",
+    "cuisine": "American",
+    "address": "Midtown, New York, NY",
+    "lat": 40.75,
+    "lng": -73.988,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Beija Flor",
+    "cuisine": "Brazilian",
+    "address": "172 Ave B, New York, NY 10009",
+    "lat": 40.728,
+    "lng": -73.984,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Il Corso",
+    "cuisine": "Italian",
+    "address": "186 Columbus Ave, New York, NY 10023",
+    "lat": 40.772,
+    "lng": -73.9815,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "PizzArte",
+    "cuisine": "Italian",
+    "address": "69 W 55th St, New York, NY 10019",
+    "lat": 40.761,
+    "lng": -73.983,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Loi Estiatorio",
+    "cuisine": "Greek",
+    "address": "132 W 58th St, New York, NY 10019",
+    "lat": 40.7705,
+    "lng": -73.9825,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Nari",
+    "cuisine": "Thai",
+    "address": "Chelsea, New York, NY",
+    "lat": 40.742,
+    "lng": -73.994,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Astro Restaurant",
+    "cuisine": "American",
+    "address": "Upper East Side, New York, NY",
+    "lat": 40.764,
+    "lng": -73.972,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Sparks Steak House",
+    "cuisine": "Steakhouse",
+    "address": "210 E 46th St, New York, NY 10017",
+    "lat": 40.7545,
+    "lng": -73.97,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Honeybrains",
+    "cuisine": "Health Food",
+    "address": "372 6th Ave, New York, NY 10011",
+    "lat": 40.731,
+    "lng": -74.0,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "The Beast Next Door",
+    "cuisine": "Barbecue",
+    "address": "West Village, New York, NY",
+    "lat": 40.7365,
+    "lng": -73.998,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Delbianco Italian Restaurant",
+    "cuisine": "Italian",
+    "address": "Midtown, New York, NY",
+    "lat": 40.759,
+    "lng": -73.985,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Blend on the Water",
+    "cuisine": "Latin American",
+    "address": "Long Island City, NY",
+    "lat": 40.746,
+    "lng": -73.958,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Westville",
+    "cuisine": "American",
+    "address": "210 W 10th St, New York, NY 10014",
+    "lat": 40.7355,
+    "lng": -74.001,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "wagamama - Midtown",
+    "cuisine": "Asian",
+    "address": "1466 Broadway, New York, NY 10036",
+    "lat": 40.756,
+    "lng": -73.98,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Chano's Cantina",
+    "cuisine": "Mexican",
+    "address": "Midtown East, New York, NY",
+    "lat": 40.755,
+    "lng": -73.975,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "La Piazza New York",
+    "cuisine": "Italian",
+    "address": "Midtown, New York, NY",
+    "lat": 40.753,
+    "lng": -73.976,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Taim Mediterranean Kitchen",
+    "cuisine": "Mediterranean",
+    "address": "222 Waverly Pl, New York, NY 10014",
+    "lat": 40.734,
+    "lng": -74.003,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Trattoria Dell'Arte",
+    "cuisine": "Italian",
+    "address": "900 7th Ave, New York, NY 10019",
+    "lat": 40.7645,
+    "lng": -73.979,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "The Comfort Diner",
+    "cuisine": "American",
+    "address": "214 E 45th St, New York, NY 10017",
+    "lat": 40.7505,
+    "lng": -73.973,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "UN Plaza Grill",
+    "cuisine": "American",
+    "address": "845 United Nations Plaza, New York, NY 10017",
+    "lat": 40.749,
+    "lng": -73.968,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Pascalou",
+    "cuisine": "French",
+    "address": "1308 Madison Ave, New York, NY 10128",
+    "lat": 40.792,
+    "lng": -73.953,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "White Olive",
+    "cuisine": "Mediterranean",
+    "address": "Midtown East, New York, NY",
+    "lat": 40.748,
+    "lng": -73.976,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Arcadia Bar and Kitchen",
+    "cuisine": "American",
+    "address": "Midtown, New York, NY",
+    "lat": 40.751,
+    "lng": -73.977,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Sushi Ann",
+    "cuisine": "Japanese",
+    "address": "236 E 51st St, New York, NY 10022",
+    "lat": 40.756,
+    "lng": -73.971,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Shinjuku Ramen",
+    "cuisine": "Japanese",
+    "address": "Midtown East, New York, NY",
+    "lat": 40.7545,
+    "lng": -73.974,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Tam Mai Thai",
+    "cuisine": "Thai",
+    "address": "East Village, New York, NY",
+    "lat": 40.727,
+    "lng": -73.986,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Sweet Chick",
+    "cuisine": "American",
+    "address": "178 Ludlow St, New York, NY 10002",
+    "lat": 40.726,
+    "lng": -73.989,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
+  },
+  {
+    "name": "Brooklyn Diner",
+    "cuisine": "American",
+    "address": "155 W 43rd St, New York, NY 10036",
+    "lat": 40.763,
+    "lng": -73.981,
+    "booking_platform": null,
+    "booking_url": null,
+    "rakuten": true,
+    "googleRating": 0,
+    "googleReviewCount": 0,
+    "price_level": null
   }
-  return false;
-}
-
-function michelinRank(r) {
-  if (!r.michelin) return 0;
-  const d = r.michelin.distinction || '';
-  const s = r.michelin.stars || 0;
-  if (s >= 1) return 100 + s;
-  if (d === 'bib_gourmand' || d === 'bib') return 50;
-  if (d === 'recommended') return 25;
-  return 10;
-}
-
-function hasPrice(r) {
-  return r.price_level != null && r.price_level !== undefined && r.price_level > 0;
-}
-
-function useCurrentLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        document.getElementById('addressInput').value = `${position.coords.latitude},${position.coords.longitude}`;
-      },
-      () => alert('Could not get location')
-    );
-  }
-}
-
-function setTransport(evt, mode) {
-  state.transport = mode;
-  const parentDiv = evt.target.parentElement;
-  parentDiv.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-  evt.target.classList.add('active');
-
-  document.getElementById('walkDistance').style.display = mode === 'walk' ? 'block' : 'none';
-  document.getElementById('driveDistance').style.display = mode === 'drive' ? 'block' : 'none';
-  document.getElementById('transitDistance').style.display = mode === 'transit' ? 'block' : 'none';
-  document.getElementById('radiusDistance').style.display = mode === 'radius' ? 'block' : 'none';
-}
-
-function filterByQuality(restaurants) {
-  const q = state.qualityFilter;
-  let filtered = restaurants;
-
-  if (q === 'any') { /* keep all */ }
-  else if (q === 'michelin' || q === 'bib_gourmand') { /* already filtered by search */ }
-  else {
-    filtered = filtered.filter(r => {
-      if (r.michelin) return true;
-      const rating = Number(r.googleRating || 0);
-      if (q === 'strict_elite_47') return rating >= 4.7;
-      if (q === 'elite_45') return rating >= 4.5;
-      if (q === 'recommended_44') return rating >= 4.4;
-      return true;
-    });
-  }
-
-  return filtered;
-}
-
-async function search() {
-  if (isSearching) return;
-
-  if (searchAbortController) searchAbortController.abort();
-  isSearching = true;
-  searchAbortController = new AbortController();
-
-  const searchBtn = document.querySelector('.btn');
-  searchBtn.disabled = true;
-  searchBtn.style.opacity = '0.5';
-  searchBtn.textContent = '🔍 Searching...';
-
-  const location = document.getElementById('addressInput').value;
-  const cuisine = document.getElementById('cuisine').value;
-  state.qualityFilter = document.getElementById('quality').value;
-
-  const openNow = false;
-
-  let maxWalkMinutes = null, maxDriveMinutes = null, maxTransitMinutes = null;
-  if (state.transport === 'walk') maxWalkMinutes = parseInt(document.getElementById('walkTime').value, 10);
-  else if (state.transport === 'drive') maxDriveMinutes = parseInt(document.getElementById('driveTime').value, 10);
-  else if (state.transport === 'transit') maxTransitMinutes = parseInt(document.getElementById('transitTime').value, 10);
-
-  document.getElementById('search').classList.add('hidden');
-  document.getElementById('results').classList.remove('hidden');
-
-  document.getElementById('warnings').innerHTML = '';
-  document.getElementById('list').innerHTML =
-    '<div style="text-align:center;padding:40px">🔍 Finding candidates...</div>';
-
-  try {
-    // Chase Sapphire Reserve mode — ALWAYS takes priority when selected
-    if (state.rewardsFilter === 'chase') {
-      document.getElementById('sortBy').value = 'distance';
-      document.getElementById('list').innerHTML =
-        '<div style="text-align:center;padding:40px">💳 Loading Chase Sapphire Reserve restaurants (15 mile radius)...</div>';
-
-      const resp = await fetch('/.netlify/functions/search-candidates', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ location, quality: 'chase_sapphire' }),
-        signal: searchAbortController.signal
-      });
-
-      const data = await resp.json();
-
-      if (data?.error) {
-        document.getElementById('warnings').innerHTML = `
-          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-            ❌ ${data.error}
-          </div>
-        `;
-        document.getElementById('list').innerHTML =
-          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
-        return;
-      }
-
-      allRestaurants = Array.isArray(data.elite) ? data.elite.map(r => ({
-        ...r,
-        walkMinutes: r.walkMinEstimate,
-        driveMinutes: r.driveMinEstimate,
-        transitMinutes: r.transitMinEstimate
-      })) : [];
-
-      document.getElementById('warnings').innerHTML = `
-        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-          📍 ${data.confirmedAddress || location}
-        </div>
-        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-          ✓ Showing <span id="resultCount">0</span> Chase Sapphire Reserve restaurants within 15 miles
-        </div>
-      `;
-
-      sortResults();
-      return;
-    }
-
-    // Rakuten mode — dedicated 15 mile radius search
-    if (state.rewardsFilter === 'rakuten') {
-      document.getElementById('sortBy').value = 'distance';
-      document.getElementById('list').innerHTML =
-        '<div style="text-align:center;padding:40px">🛍️ Loading Rakuten restaurants (15 mile radius)...</div>';
-
-      const resp = await fetch('/.netlify/functions/search-candidates', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ location, quality: 'rakuten' }),
-        signal: searchAbortController.signal
-      });
-
-      const data = await resp.json();
-
-      if (data?.error) {
-        document.getElementById('warnings').innerHTML = `
-          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-            ❌ ${data.error}
-          </div>
-        `;
-        document.getElementById('list').innerHTML =
-          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
-        return;
-      }
-
-      allRestaurants = Array.isArray(data.elite) ? data.elite.map(r => ({
-        ...r,
-        walkMinutes: r.walkMinEstimate,
-        driveMinutes: r.driveMinEstimate,
-        transitMinutes: r.transitMinEstimate
-      })) : [];
-
-      document.getElementById('warnings').innerHTML = `
-        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-          📍 ${data.confirmedAddress || location}
-        </div>
-        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-          ✓ Showing <span id="resultCount">0</span> Rakuten restaurants within 15 miles
-        </div>
-      `;
-
-      sortResults();
-      return;
-    }
-
-    if (state.qualityFilter === 'michelin') {
-      document.getElementById('sortBy').value = 'distance';
-      document.getElementById('list').innerHTML =
-        '<div style="text-align:center;padding:40px">🏅 Loading Michelin (15 mile radius)...</div>';
-
-      const resp = await fetch('/.netlify/functions/search-michelin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ location, radiusMiles: 15 }),
-        signal: searchAbortController.signal
-      });
-
-      if (!resp.ok) {
-        const txt = await resp.text();
-        throw new Error(`search-michelin failed: ${resp.status} ${txt}`);
-      }
-
-      const data = await resp.json();
-
-      if (data?.error) {
-        document.getElementById('warnings').innerHTML = `
-          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-            ❌ ${data.error}
-          </div>
-        `;
-        document.getElementById('list').innerHTML =
-          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
-        return;
-      }
-
-      allRestaurants = Array.isArray(data.michelin) ? data.michelin.map(r => {
-        // Calculate walk/drive/transit from distanceMiles if backend didn't provide them
-        const d = r.distanceMiles ?? null;
-        const walk = r.walkMinEstimate ?? r.walkMinutes ?? (d != null ? Math.round(d * 20) : null);
-        const drive = r.driveMinEstimate ?? r.driveMinutes ?? (d != null ? Math.round(d * 4) : null);
-        const transit = r.transitMinEstimate ?? r.transitMinutes ?? (d != null ? Math.round(d * 6) : null);
-        return {
-          ...r,
-          walkMinutes: walk,
-          driveMinutes: drive,
-          transitMinutes: transit,
-          booking_platform: r.booking_platform || null,
-          booking_url: r.booking_url || null
-        };
-      }) : [];
-
-      document.getElementById('warnings').innerHTML = `
-        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-          📍 ${data.confirmedAddress || location}
-        </div>
-        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-          ✓ Showing <span id="resultCount">0</span> Michelin restaurants within 15 miles (sorted by distance)
-        </div>
-      `;
-
-      sortResults();
-      return;
-    }
-
-    if (state.qualityFilter === 'bib_gourmand') {
-      document.getElementById('sortBy').value = 'distance';
-      document.getElementById('list').innerHTML =
-        '<div style="text-align:center;padding:40px">🍽️ Loading Bib Gourmand (15 mile radius)...</div>';
-
-      const resp = await fetch('/.netlify/functions/search-candidates', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ location, quality: 'bib_gourmand' }),
-        signal: searchAbortController.signal
-      });
-
-      const data = await resp.json();
-
-      if (data?.error) {
-        document.getElementById('warnings').innerHTML = `
-          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-            ❌ ${data.error}
-          </div>
-        `;
-        document.getElementById('list').innerHTML =
-          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
-        return;
-      }
-
-      allRestaurants = Array.isArray(data.elite) ? data.elite.map(r => ({
-        ...r,
-        walkMinutes: r.walkMinEstimate,
-        driveMinutes: r.driveMinEstimate,
-        transitMinutes: r.transitMinEstimate
-      })) : [];
-
-      document.getElementById('warnings').innerHTML = `
-        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-          📍 ${data.confirmedAddress || location}
-        </div>
-        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-          ✓ Showing <span id="resultCount">0</span> Bib Gourmand restaurants within 15 miles (sorted by distance)
-        </div>
-      `;
-
-      sortResults();
-      return;
-    }
-
-    const step1Response = await fetch('/.netlify/functions/search-candidates', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        location,
-        cuisine: cuisine === 'any' ? undefined : cuisine,
-        openNow,
-        quality: state.qualityFilter
-      }),
-      signal: searchAbortController.signal
-    });
-
-    const step1Data = await step1Response.json();
-
-    if (step1Data?.error) {
-      document.getElementById('warnings').innerHTML = `
-        <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-          ❌ ${step1Data.error}
-        </div>
-      `;
-      document.getElementById('list').innerHTML =
-        `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
-      return;
-    }
-
-    const eliteRestaurants = Array.isArray(step1Data.elite) ? step1Data.elite : [];
-    const moreOptionsRestaurants = Array.isArray(step1Data.moreOptions) ? step1Data.moreOptions : [];
-
-    allRestaurants = [...eliteRestaurants, ...moreOptionsRestaurants].map(c => ({
-      ...c,
-      walkMinutes: c.walkMinutes ?? c.walkMinEstimate ?? null,
-      driveMinutes: c.driveMinutes ?? c.driveMinEstimate ?? null,
-      transitMinutes: c.transitMinutes ?? c.transitMinEstimate ?? null
-    }));
-
-    document.getElementById('warnings').innerHTML = `
-      <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-        📍 ${step1Data.confirmedAddress || location}
-      </div>
-      <div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e;font-weight:700">
-        ⏱️ Found ${allRestaurants.length} candidates. Getting precise times...
-      </div>
-      <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-        ✓ Showing <span id="resultCount">0</span> restaurants
-      </div>
-    `;
-
-    sortResults();
-
-    let enrichLimit = 200;
-    if (state.transport === 'walk') {
-      if (maxWalkMinutes >= 30) enrichLimit = 250;
-      else if (maxWalkMinutes >= 20) enrichLimit = 200;
-      else enrichLimit = 150;
-    } else if (state.transport === 'drive') {
-      enrichLimit = 200;
-    } else if (state.transport === 'transit') {
-      enrichLimit = 200;
-    }
-
-    const originalCandidates = [...allRestaurants];
-
-    const toEnrich = [...originalCandidates]
-      .sort((a, b) => {
-        const da = (a.distanceMiles ?? 999999);
-        const db = (b.distanceMiles ?? 999999);
-        if (da !== db) return da - db;
-
-        const wa = (a.walkMinEstimate ?? 999999);
-        const wb = (b.walkMinEstimate ?? 999999);
-        if (wa !== wb) return wa - wb;
-
-        return String(a.name || '').localeCompare(String(b.name || ''));
-      })
-      .slice(0, enrichLimit);
-
-    const step2Response = await fetch('/.netlify/functions/enrich-times', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        candidates: toEnrich,
-        userLocation: step1Data.userLocation,
-        transportMode: state.transport,
-        targetMinResults: 20,
-        cuisineFilter: cuisine === 'any' ? null : cuisine,
-        walkTimeLimit: maxWalkMinutes
-      }),
-      signal: searchAbortController.signal
-    });
-
-    if (!step2Response.ok) {
-      const errTxt = await step2Response.text();
-      throw new Error(`enrich-times failed: ${step2Response.status} ${errTxt}`);
-    }
-
-    const step2Data = await step2Response.json();
-    const enriched = Array.isArray(step2Data.enrichedCandidates) ? step2Data.enrichedCandidates : [];
-    const enrichedById = new Map(enriched.map(r => [r.place_id, r]));
-
-    allRestaurants = originalCandidates.map(r => {
-      const e = enrichedById.get(r.place_id);
-      if (!e) return r;
-
-      return {
-        ...r,
-        ...e,
-        walkMinutes: e.walkMinutes ?? e.walkMinEstimate ?? r.walkMinutes ?? r.walkMinEstimate ?? null,
-        driveMinutes: e.driveMinutes ?? e.driveMinEstimate ?? r.driveMinutes ?? r.driveMinEstimate ?? null,
-        transitMinutes: e.transitMinutes ?? e.transitMinEstimate ?? r.transitMinutes ?? r.transitMinEstimate ?? null
-      };
-    });
-
-    let realTimeFiltered = allRestaurants;
-    // When rewards filter (Chase/Rakuten) is active, skip time-based filtering — show all by distance
-    if (state.rewardsFilter === 'any') {
-      if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
-      else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
-      else if (state.transport === 'transit' && maxTransitMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
-    }
-    allRestaurants = realTimeFiltered;
-
-    document.getElementById('warnings').innerHTML = `
-      <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-        📍 ${step1Data.confirmedAddress || location}
-      </div>
-      <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-        ✓ Showing <span id="resultCount">0</span> restaurants
-      </div>
-    `;
-
-    sortResults();
-
-  } catch (error) {
-    console.error('Search error:', error);
-    if (error.name === 'AbortError') return;
-
-    const errorMsg = error.message ? `😔 ${error.message}` : '😔 Search failed';
-
-    document.getElementById('warnings').innerHTML = `
-      <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-        ${errorMsg}
-      </div>
-    `;
-    document.getElementById('list').innerHTML = `<div style="text-align:center;padding:40px">${errorMsg}</div>`;
-  } finally {
-    isSearching = false;
-    const searchBtn = document.querySelector('.btn');
-    searchBtn.disabled = false;
-    searchBtn.style.opacity = '1';
-    searchBtn.textContent = '🔍 Find Restaurants';
-  }
-}
-
-function sortResults() {
-  let filtered = filterByQuality(allRestaurants);
-  const sortBy = document.getElementById('sortBy').value;
-
-  if (sortBy === 'price') {
-    // Price sort: $ first → $$$$ last → N/A at very bottom
-    const priced = filtered.filter(r => hasPrice(r));
-    const noPrice = filtered.filter(r => !hasPrice(r));
-
-    // Sort priced: lowest first, michelin rank as tiebreaker within same price
-    priced.sort((a, b) => {
-      if (a.price_level !== b.price_level) return a.price_level - b.price_level;
-      const ma = michelinRank(a), mb = michelinRank(b);
-      if (ma !== mb) return mb - ma;
-      return (b.googleRating || 0) - (a.googleRating || 0);
-    });
-
-    // Sort N/A by michelin rank then rating
-    noPrice.sort((a, b) => {
-      const ma = michelinRank(a), mb = michelinRank(b);
-      if (ma !== mb) return mb - ma;
-      return (b.googleRating || 0) - (a.googleRating || 0);
-    });
-
-    displayResults(priced, noPrice);
-  } else {
-    let sorted = [...filtered];
-
-    if (sortBy === 'rating') {
-      sorted.sort((a, b) => {
-        const ma = michelinRank(a), mb = michelinRank(b);
-        if (ma !== mb) return mb - ma;
-        return (b.googleRating || 0) - (a.googleRating || 0);
-      });
-    } else if (sortBy === 'distance') {
-      sorted.sort((a, b) => {
-        const da = a.distanceMiles ?? 999999;
-        const db = b.distanceMiles ?? 999999;
-        if (da !== db) return da - db;
-        const ma = michelinRank(a), mb = michelinRank(b);
-        if (ma !== mb) return mb - ma;
-        if ((b.googleRating || 0) !== (a.googleRating || 0)) return (b.googleRating || 0) - (a.googleRating || 0);
-        return String(a.name || '').localeCompare(String(b.name || ''));
-      });
-    }
-
-    displayResults(sorted, null);
-  }
-}
-
-function renderCard(r) {
-  let distanceHtml = '';
-  if (r.walkMinutes != null) distanceHtml += `<span class="badge distance">🚶 ${r.walkMinutes} min</span>`;
-  if (r.driveMinutes != null) distanceHtml += `<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
-  if (r.transitMinutes != null) distanceHtml += `<span class="badge distance">🚇 ${r.transitMinutes} min</span>`;
-  if (r.distanceMiles != null) distanceHtml += `<span class="badge distance">📍 ${r.distanceMiles} mi</span>`;
-
-  let michelinHtml = '';
-  if (r.michelin) {
-    const stars = r.michelin.stars || 0;
-    const distinction = r.michelin.distinction || '';
-    if (stars === 3) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐⭐ Michelin Three Stars</span>`;
-    else if (stars === 2) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐ Michelin Two Stars</span>`;
-    else if (stars === 1) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin One Star</span>`;
-    else if (distinction === 'bib_gourmand' || distinction === 'bib') michelinHtml = `<span class="badge" style="background:#e65100;color:white;border-color:#e65100">🍽️ Bib Gourmand</span>`;
-    else if (distinction === 'recommended') michelinHtml = `<span class="badge" style="background:#9c27b0;color:white;border-color:#9c27b0">✨ Michelin Recommended</span>`;
-    else michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">Michelin Selected</span>`;
-  }
-
-  const rating = (r.googleRating || 0);
-  const reviews = (r.googleReviewCount || 0);
-
-  const ratingHtml = r.michelin
-    ? ''
-    : (r.googleRating != null && r.googleRating !== 0)
-      ? `<span class="badge">⭐ ${Number(rating).toFixed(1)} (${reviews})</span>`
-      : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
-
-  const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
-
-  const chaseHtml = (state.rewardsFilter === 'chase' && isChaseRestaurant(r.name)) ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
-  const rakutenHtml = (state.rewardsFilter === 'rakuten') ? `<span class="badge" style="background:#bf0000;color:white;border-color:#bf0000;font-size:12px">🛍️ Rakuten</span>` : '';
-
-  const mapsUrl = r.place_id
-    ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
-    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || 'New York, NY'))}`;
-
-  // Google "I'm Feeling Lucky" goes directly to the top result (usually the restaurant's own site)
-  const reserveUrl = `https://www.google.com/search?btnI=1&q=${encodeURIComponent((r.name || '') + ' NYC restaurant reservations')}`;
-
-  let bookingHtml = '';
-  if (r.booking_url && r.booking_platform) {
-    if (r.booking_platform === 'walkin') {
-      // Confirmed walk-in only — links to their site
-      bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#2e7d32;font-size:13px;font-weight:600">🚶 Walk-ins Welcome</a>`;
-    } else if (r.booking_platform === 'website') {
-      // Has a website but not on a major booking platform
-      bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#555;font-size:13px;font-weight:600">🔖 Book through Website</a>`;
-    } else if (r.booking_platform === 'opentable' || r.booking_platform === 'resy' || r.booking_platform === 'tock') {
-      const platformName = r.booking_platform === 'opentable' ? 'OpenTable'
-        : r.booking_platform === 'resy' ? 'Resy' : 'Tock';
-      const platformColor = r.booking_platform === 'opentable' ? '#da3743'
-        : r.booking_platform === 'resy' ? '#c2185b' : '#1a73e8';
-      bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:${platformColor};font-size:13px;font-weight:600">🔖 Book with ${platformName}</a>`;
-    } else {
-      // Unknown platform — treat as website
-      bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#555;font-size:13px;font-weight:600">🔖 Book through Website</a>`;
-    }
-  } else {
-    bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#666;font-size:13px;font-weight:600">🔖 Find Reservations</a>`;
-  }
-
-  return `
-    <div class="restaurant">
-      <h3>${r.name || 'Unknown'}</h3>
-      <div class="cuisine">${r.cuisine ? r.cuisine + ' · ' : ''}${r.vicinity || r.formatted_address || ''}</div>
-      ${bookingHtml}
-      <div class="badges">
-        ${michelinHtml}
-        ${ratingHtml}
-        ${priceHtml}
-        ${chaseHtml}
-        ${rakutenHtml}
-        ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
-        ${distanceHtml}
-        <button onclick="window.open('${mapsUrl}','_blank')"
-          style="margin-left:auto;padding:8px 16px;background:#4285f4;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px">
-          📍 Maps
-        </button>
-      </div>
-    </div>
-  `;
-}
-
-function displayResults(restaurants, noPriceRestaurants) {
-  const totalCount = restaurants.length + (noPriceRestaurants ? noPriceRestaurants.length : 0);
-  const countEl = document.getElementById('resultCount');
-  if (countEl) countEl.textContent = String(totalCount);
-
-  if (!totalCount) {
-    document.getElementById('list').innerHTML =
-      '<div style="text-align:center;padding:40px">No restaurants found</div>';
-    return;
-  }
-
-  let html = restaurants.map(r => renderCard(r)).join('');
-
-  // When sorting by price, show N/A restaurants at the bottom with a divider
-  if (noPriceRestaurants && noPriceRestaurants.length > 0) {
-    html += `<div class="section-divider">💰 Price not available (${noPriceRestaurants.length})</div>`;
-    html += noPriceRestaurants.map(r => renderCard(r)).join('');
-  }
-
-  document.getElementById('list').innerHTML = html;
-}
-
-function back() {
-  document.getElementById('search').classList.remove('hidden');
-  document.getElementById('results').classList.add('hidden');
-}
-
-async function initAutocomplete() {
-  try {
-    const resp = await fetch('/.netlify/functions/get-maps-key');
-    const data = await resp.json();
-    if (!data.key) return;
-
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${data.key}&libraries=places&callback=setupAutocomplete`;
-    script.async = true;
-    document.head.appendChild(script);
-  } catch (err) {
-    console.log('Autocomplete init failed:', err);
-  }
-}
-
-function setupAutocomplete() {
-  const input = document.getElementById('addressInput');
-  const autocomplete = new google.maps.places.Autocomplete(input, {
-    types: ['address'],
-    componentRestrictions: { country: 'us' }
-  });
-
-  autocomplete.addListener('place_changed', () => {
-    const place = autocomplete.getPlace();
-    if (place && place.formatted_address) {
-      input.value = place.formatted_address;
-    }
-  });
-}
-
-initAutocomplete();
-</script>
-</body>
-</html>
+]
