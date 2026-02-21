@@ -847,6 +847,8 @@ function renderCard(r) {
 
     if (r.booking_platform === 'walkin') {
       bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#2e7d32;font-size:13px;font-weight:600">🚶 Walk-ins Welcome</a>`;
+    } else if (r.booking_platform === 'website') {
+      bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#555;font-size:13px;font-weight:600">🔖 Book through Website</a>`;
     } else if (r.booking_platform === 'opentable' || r.booking_platform === 'resy' || r.booking_platform === 'tock') {
       const platformName = r.booking_platform === 'opentable' ? 'OpenTable'
         : r.booking_platform === 'resy' ? 'Resy' : 'Tock';
@@ -854,10 +856,10 @@ function renderCard(r) {
         : r.booking_platform === 'resy' ? '#c2185b' : '#1a73e8';
       bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:${platformColor};font-size:13px;font-weight:600">🔖 Book with ${platformName}</a>`;
     } else {
-      // Website or unknown platform — use Google Maps instead (has Reserve button built in)
-      bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#1a73e8;font-size:13px;font-weight:600">🔖 Reserve on Google</a>`;
+      bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#555;font-size:13px;font-weight:600">🔖 Book through Website</a>`;
     }
   } else {
+    // No booking data — use Google Maps with place_id (has Reserve button built in)
     bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#1a73e8;font-size:13px;font-weight:600">🔖 Reserve on Google</a>`;
   }
 
