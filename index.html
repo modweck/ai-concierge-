@@ -265,13 +265,6 @@ function setTransport(evt, mode) {
 
 function filterByQuality(restaurants) {
   const q = state.qualityFilter;
-
-  // IMPORTANT FIX:
-  // If Rewards = Chase, bypass rating-tier filtering and allow chase-tagged entries.
-  if (state.rewardsFilter === 'chase') {
-    return restaurants.filter(r => isChaseRestaurant(r.name) || r.chase_sapphire === true);
-  }
-
   let filtered = restaurants;
 
   if (q === 'any') { /* keep all */ }
@@ -321,6 +314,52 @@ async function search() {
     '<div style="text-align:center;padding:40px">🔍 Finding candidates...</div>';
 
   try {
+    // Chase Sapphire Reserve mode — ALWAYS takes priority when selected
+    if (state.rewardsFilter === 'chase') {
+      document.getElementById('sortBy').value = 'distance';
+      document.getElementById('list').innerHTML =
+        '<div style="text-align:center;padding:40px">💳 Loading Chase Sapphire Reserve restaurants (15 mile radius)...</div>';
+
+      const resp = await fetch('/.netlify/functions/search-candidates', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ location, quality: 'chase_sapphire' }),
+        signal: searchAbortController.signal
+      });
+
+      const data = await resp.json();
+
+      if (data?.error) {
+        document.getElementById('warnings').innerHTML = `
+          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
+            ❌ ${data.error}
+          </div>
+        `;
+        document.getElementById('list').innerHTML =
+          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
+        return;
+      }
+
+      allRestaurants = Array.isArray(data.elite) ? data.elite.map(r => ({
+        ...r,
+        walkMinutes: r.walkMinEstimate,
+        driveMinutes: r.driveMinEstimate,
+        transitMinutes: r.transitMinEstimate
+      })) : [];
+
+      document.getElementById('warnings').innerHTML = `
+        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
+          📍 ${data.confirmedAddress || location}
+        </div>
+        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
+          ✓ Showing <span id="resultCount">0</span> Chase Sapphire Reserve restaurants within 15 miles
+        </div>
+      `;
+
+      sortResults();
+      return;
+    }
+
     if (state.qualityFilter === 'michelin') {
       document.getElementById('sortBy').value = 'distance';
       document.getElementById('list').innerHTML =
@@ -418,62 +457,6 @@ async function search() {
         </div>
         <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
           ✓ Showing <span id="resultCount">0</span> Bib Gourmand restaurants within 15 miles (sorted by distance)
-        </div>
-      `;
-
-      sortResults();
-      return;
-    }
-
-    // Chase Sapphire Reserve mode — dedicated 15 mile radius search
-    if (state.rewardsFilter === 'chase') {
-      document.getElementById('sortBy').value = 'distance';
-      document.getElementById('list').innerHTML =
-        '<div style="text-align:center;padding:40px">💳 Loading Chase Sapphire Reserve restaurants (15 mile radius)...</div>';
-
-      console.log('🔍 CHASE: Sending request with quality=chase_sapphire, location=' + location);
-
-      const resp = await fetch('/.netlify/functions/search-candidates', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ location, quality: 'chase_sapphire' }),
-        signal: searchAbortController.signal
-      });
-
-      console.log('🔍 CHASE: Response status:', resp.status);
-      const data = await resp.json();
-      console.log('🔍 CHASE: Response data keys:', Object.keys(data));
-      console.log('🔍 CHASE: elite count:', data.elite?.length);
-      console.log('🔍 CHASE: moreOptions count:', data.moreOptions?.length);
-      console.log('🔍 CHASE: error:', data.error);
-      console.log('🔍 CHASE: first 3 elite:', data.elite?.slice(0,3)?.map(r => r.name));
-
-      if (data?.error) {
-        document.getElementById('warnings').innerHTML = `
-          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-            ❌ ${data.error}
-          </div>
-        `;
-        document.getElementById('list').innerHTML =
-          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
-        return;
-      }
-
-      allRestaurants = Array.isArray(data.elite) ? data.elite.map(r => ({
-        ...r,
-        walkMinutes: r.walkMinEstimate,
-        driveMinutes: r.driveMinEstimate,
-        transitMinutes: r.transitMinEstimate
-      })) : [];
-
-      console.log('🔍 CHASE: allRestaurants count:', allRestaurants.length);
-
-      document.getElementById('warnings').innerHTML = `
-        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-          📍 ${data.confirmedAddress || location}
-        </div>
-        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-          ✓ Showing <span id="resultCount">0</span> Chase Sapphire Reserve restaurants within 15 miles
         </div>
       `;
 
@@ -714,10 +697,7 @@ function renderCard(r) {
 
   const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
 
-  // IMPORTANT FIX: show Chase badge even when Rewards=Any
-  const chaseHtml = (isChaseRestaurant(r.name) || r.chase_sapphire === true)
-    ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>`
-    : '';
+  const chaseHtml = (state.rewardsFilter === 'chase' && isChaseRestaurant(r.name)) ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
 
   const mapsUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
