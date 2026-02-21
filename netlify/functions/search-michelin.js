@@ -1,215 +1,482 @@
-function stableResponse(payload, statusCode = 200) {
-  return {
-    statusCode,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  };
-}
-
-function haversineMiles(lat1, lon1, lat2, lon2) {
-  const R = 3958.8; // miles
-  const toRad = (x) => (x * Math.PI) / 180;
-
-  const dLat = toRad(lat2 - lat1);
-  const dLon = toRad(lon2 - lon1);
-
-  const a =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos(toRad(lat1)) *
-      Math.cos(toRad(lat2)) *
-      Math.sin(dLon / 2) ** 2;
-
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
-}
-
-async function geocodeAddress(address, apiKey) {
-  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
-    address
-  )}&key=${apiKey}`;
-
-  const r = await fetch(url);
-  const j = await r.json();
-
-  if (j.status !== "OK" || !j.results?.[0]) {
-    return {
-      error: `Geocode failed: ${j.status}${
-        j.error_message ? " - " + j.error_message : ""
-      }`,
-    };
+[
+  {
+    "name": "Le Bernardin",
+    "distinction": "star",
+    "stars": 3,
+    "address": "155 W 51st St, New York, NY 10019",
+    "lat": 40.7616,
+    "lng": -73.9817,
+    "price_level": 4,
+    "cuisine": "French, Seafood",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/le-bernardin-new-york"
+  },
+  {
+    "name": "Eleven Madison Park",
+    "distinction": "star",
+    "stars": 3,
+    "address": "11 Madison Ave, New York, NY 10010",
+    "lat": 40.7421,
+    "lng": -73.9874,
+    "price_level": 4,
+    "cuisine": "American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/eleven-madison-park"
+  },
+  {
+    "name": "Masa",
+    "distinction": "star",
+    "stars": 3,
+    "address": "10 Columbus Cir, New York, NY 10019",
+    "lat": 40.7686,
+    "lng": -73.983,
+    "price_level": 4,
+    "cuisine": "Japanese, Sushi",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/masa-new-york"
+  },
+  {
+    "name": "Per Se",
+    "distinction": "star",
+    "stars": 3,
+    "address": "10 Columbus Cir, New York, NY 10019",
+    "lat": 40.7686,
+    "lng": -73.9829,
+    "price_level": 4,
+    "cuisine": "French, American",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/per-se-new-york"
+  },
+  {
+    "name": "Chef's Table at Brooklyn Fare",
+    "distinction": "star",
+    "stars": 2,
+    "address": "431 W 37th St, New York, NY 10018",
+    "lat": 40.7569,
+    "lng": -73.9952,
+    "price_level": 4,
+    "cuisine": "French",
+    "booking_platform": "tock",
+    "booking_url": "https://www.exploretock.com/chefsTableatbrooklynfare"
+  },
+  {
+    "name": "Atomix",
+    "distinction": "star",
+    "stars": 2,
+    "address": "104 E 30th St, New York, NY 10016",
+    "lat": 40.7446,
+    "lng": -73.9822,
+    "price_level": 4,
+    "cuisine": "Korean",
+    "booking_platform": "tock",
+    "booking_url": "https://www.exploretock.com/atomix"
+  },
+  {
+    "name": "Jungsik",
+    "distinction": "star",
+    "stars": 2,
+    "address": "2 Harrison St, New York, NY 10013",
+    "lat": 40.7189,
+    "lng": -74.0092,
+    "price_level": 4,
+    "cuisine": "Korean",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/jungsik-new-york"
+  },
+  {
+    "name": "Aquavit",
+    "distinction": "star",
+    "stars": 1,
+    "address": "65 E 55th St, New York, NY 10022",
+    "lat": 40.7605,
+    "lng": -73.9722,
+    "price_level": 4,
+    "cuisine": "Scandinavian",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/aquavit-new-york"
+  },
+  {
+    "name": "Bouley at Home",
+    "distinction": "star",
+    "stars": 1,
+    "address": "163 Duane St, New York, NY 10013",
+    "lat": 40.7169,
+    "lng": -74.0091,
+    "price_level": 4,
+    "cuisine": "French",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/bouley-at-home"
+  },
+  {
+    "name": "Casa Mono",
+    "distinction": "star",
+    "stars": 1,
+    "address": "52 Irving Pl, New York, NY 10003",
+    "lat": 40.7361,
+    "lng": -73.9874,
+    "price_level": 3,
+    "cuisine": "Spanish",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/casa-mono"
+  },
+  {
+    "name": "Caviar Russe",
+    "distinction": "star",
+    "stars": 1,
+    "address": "538 Madison Ave, New York, NY 10022",
+    "lat": 40.761,
+    "lng": -73.9724,
+    "price_level": 4,
+    "cuisine": "French, Seafood",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/caviar-russe-new-york"
+  },
+  {
+    "name": "Daniel",
+    "distinction": "star",
+    "stars": 2,
+    "address": "60 E 65th St, New York, NY 10065",
+    "lat": 40.7663,
+    "lng": -73.9698,
+    "price_level": 4,
+    "cuisine": "French",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/daniel-new-york"
+  },
+  {
+    "name": "Gabriel Kreuther",
+    "distinction": "star",
+    "stars": 2,
+    "address": "41 W 42nd St, New York, NY 10036",
+    "lat": 40.7545,
+    "lng": -73.9826,
+    "price_level": 4,
+    "cuisine": "French",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/gabriel-kreuther-new-york"
+  },
+  {
+    "name": "Gramercy Tavern",
+    "distinction": "star",
+    "stars": 1,
+    "address": "42 E 20th St, New York, NY 10003",
+    "lat": 40.7391,
+    "lng": -73.9883,
+    "price_level": 4,
+    "cuisine": "American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/gramercy-tavern"
+  },
+  {
+    "name": "Jean-Georges",
+    "distinction": "star",
+    "stars": 2,
+    "address": "1 Central Park W, New York, NY 10023",
+    "lat": 40.7679,
+    "lng": -73.9812,
+    "price_level": 4,
+    "cuisine": "French",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/jean-georges-new-york"
+  },
+  {
+    "name": "Kochi",
+    "distinction": "star",
+    "stars": 1,
+    "address": "652 10th Ave, New York, NY 10036",
+    "lat": 40.7641,
+    "lng": -73.9968,
+    "price_level": 4,
+    "cuisine": "Korean",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/kochi"
+  },
+  {
+    "name": "Kosaka",
+    "distinction": "star",
+    "stars": 1,
+    "address": "220 W 13th St, New York, NY 10011",
+    "lat": 40.7396,
+    "lng": -74.0015,
+    "price_level": 4,
+    "cuisine": "Japanese, Sushi",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/kosaka"
+  },
+  {
+    "name": "L'Abeille",
+    "distinction": "star",
+    "stars": 1,
+    "address": "435 Hudson St, New York, NY 10014",
+    "lat": 40.7332,
+    "lng": -74.0064,
+    "price_level": 4,
+    "cuisine": "French",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/labeille"
+  },
+  {
+    "name": "Le Pavillon",
+    "distinction": "star",
+    "stars": 1,
+    "address": "1 Vanderbilt Ave, New York, NY 10017",
+    "lat": 40.7527,
+    "lng": -73.9784,
+    "price_level": 4,
+    "cuisine": "French, Seafood",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/le-pavillon"
+  },
+  {
+    "name": "Oxalis",
+    "distinction": "star",
+    "stars": 1,
+    "address": "791 Washington Ave, Brooklyn, NY 11238",
+    "lat": 40.6735,
+    "lng": -73.9654,
+    "price_level": 3,
+    "cuisine": "American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/oxalis"
+  },
+  {
+    "name": "Sushi Noz",
+    "distinction": "star",
+    "stars": 1,
+    "address": "181 E 78th St, New York, NY 10075",
+    "lat": 40.7746,
+    "lng": -73.9568,
+    "price_level": 4,
+    "cuisine": "Japanese, Sushi",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/sushi-noz"
+  },
+  {
+    "name": "The Modern",
+    "distinction": "star",
+    "stars": 1,
+    "address": "9 W 53rd St, New York, NY 10019",
+    "lat": 40.7614,
+    "lng": -73.9776,
+    "price_level": 4,
+    "cuisine": "American, French",
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-modern-new-york"
+  },
+  {
+    "name": "15 East",
+    "distinction": "bib",
+    "stars": null,
+    "address": "15 E 15th St, New York, NY 10003",
+    "lat": 40.7364,
+    "lng": -73.9914,
+    "price_level": 4,
+    "cuisine": "Japanese, Sushi",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/15-east"
+  },
+  {
+    "name": "Francie",
+    "distinction": "bib",
+    "stars": null,
+    "address": "136 Broadway, Brooklyn, NY 11211",
+    "lat": 40.7101,
+    "lng": -73.9627,
+    "price_level": 3,
+    "cuisine": "French, American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/francie"
+  },
+  {
+    "name": "Contra",
+    "distinction": "bib",
+    "stars": null,
+    "address": "138 Orchard St, New York, NY 10002",
+    "lat": 40.7194,
+    "lng": -73.9897,
+    "price_level": 3,
+    "cuisine": "American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/contra"
+  },
+  {
+    "name": "Korean Fried Chicken",
+    "distinction": "bib",
+    "stars": null,
+    "address": "319 5th Ave, Brooklyn, NY 11215",
+    "lat": 40.6714,
+    "lng": -73.9849,
+    "price_level": 2,
+    "cuisine": "Korean",
+    "booking_platform": null,
+    "booking_url": null
+  },
+  {
+    "name": "Llama Inn",
+    "distinction": "bib",
+    "stars": null,
+    "address": "50 Withers St, Brooklyn, NY 11211",
+    "lat": 40.7162,
+    "lng": -73.9496,
+    "price_level": 3,
+    "cuisine": "Peruvian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/llama-inn"
+  },
+  {
+    "name": "Loring Place",
+    "distinction": "bib",
+    "stars": null,
+    "address": "21 W 8th St, New York, NY 10011",
+    "lat": 40.7315,
+    "lng": -73.9973,
+    "price_level": 3,
+    "cuisine": "American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/loring-place"
+  },
+  {
+    "name": "Semma",
+    "distinction": "bib",
+    "stars": null,
+    "address": "60 Greenwich Ave, New York, NY 10011",
+    "lat": 40.7364,
+    "lng": -74.0003,
+    "price_level": 2,
+    "cuisine": "Indian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/semma"
+  },
+  {
+    "name": "Thai Diner",
+    "distinction": "bib",
+    "stars": null,
+    "address": "186 Mott St, New York, NY 10012",
+    "lat": 40.7211,
+    "lng": -73.9956,
+    "price_level": 2,
+    "cuisine": "Thai",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/thai-diner"
+  },
+  {
+    "name": "Ci Siamo",
+    "distinction": "recommended",
+    "stars": null,
+    "address": "50 W 29th St, New York, NY 10001",
+    "lat": 40.7469,
+    "lng": -73.9899,
+    "price_level": 3,
+    "cuisine": "Italian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/ci-siamo"
+  },
+  {
+    "name": "Don Angie",
+    "distinction": "recommended",
+    "stars": null,
+    "address": "103 Greenwich Ave, New York, NY 10014",
+    "lat": 40.737,
+    "lng": -74.002,
+    "price_level": 3,
+    "cuisine": "Italian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/don-angie"
+  },
+  {
+    "name": "Estela",
+    "distinction": "recommended",
+    "stars": null,
+    "address": "47 E Houston St, New York, NY 10012",
+    "lat": 40.7251,
+    "lng": -73.9945,
+    "price_level": 3,
+    "cuisine": "Mediterranean",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/estela"
+  },
+  {
+    "name": "Gage & Tollner",
+    "distinction": "recommended",
+    "stars": null,
+    "address": "372 Fulton St, Brooklyn, NY 11201",
+    "lat": 40.6873,
+    "lng": -73.9832,
+    "price_level": 3,
+    "cuisine": "American",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/gage-and-tollner"
+  },
+  {
+    "name": "I Sodi",
+    "distinction": "recommended",
+    "stars": null,
+    "address": "105 Christopher St, New York, NY 10014",
+    "lat": 40.7337,
+    "lng": -74.0027,
+    "price_level": 3,
+    "cuisine": "Italian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/i-sodi"
+  },
+  {
+    "name": "L'Artusi",
+    "distinction": "recommended",
+    "stars": null,
+    "address": "228 W 10th St, New York, NY 10014",
+    "lat": 40.7341,
+    "lng": -74.0036,
+    "price_level": 3,
+    "cuisine": "Italian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/lartusi"
+  },
+  {
+    "name": "Momofuku Ko",
+    "distinction": "recommended",
+    "stars": null,
+    "address": "8 Extra Pl, New York, NY 10003",
+    "lat": 40.7295,
+    "lng": -73.9912,
+    "price_level": 4,
+    "cuisine": "American, Japanese",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/momofuku-ko"
+  },
+  {
+    "name": "Oiji Mi",
+    "distinction": "recommended",
+    "stars": null,
+    "address": "17 W 19th St, New York, NY 10011",
+    "lat": 40.7399,
+    "lng": -73.9922,
+    "price_level": 3,
+    "cuisine": "Korean",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/oiji-mi"
+  },
+  {
+    "name": "Rezdôra",
+    "distinction": "recommended",
+    "stars": null,
+    "address": "27 E 20th St, New York, NY 10003",
+    "lat": 40.7389,
+    "lng": -73.9896,
+    "price_level": 3,
+    "cuisine": "Italian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/rezdora"
+  },
+  {
+    "name": "Via Carota",
+    "distinction": "recommended",
+    "stars": null,
+    "address": "51 Grove St, New York, NY 10014",
+    "lat": 40.7333,
+    "lng": -74.0033,
+    "price_level": 3,
+    "cuisine": "Italian",
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/via-carota"
   }
-
-  return {
-    origin: j.results[0].geometry.location,
-    confirmedAddress: j.results[0].formatted_address,
-  };
-}
-
-async function findPlaceByText(query, apiKey) {
-  const url =
-    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json` +
-    `?input=${encodeURIComponent(query)}` +
-    `&inputtype=textquery` +
-    `&fields=place_id,formatted_address,geometry,rating,user_ratings_total,price_level,name` +
-    `&key=${apiKey}`;
-
-  const r = await fetch(url);
-  const j = await r.json();
-
-  if (j.status !== "OK" || !j.candidates?.[0]) {
-    console.log("[FindPlace] status:", j.status, "query:", query);
-    return null;
-  }
-
-  return j.candidates[0];
-}
-
-async function mapWithConcurrency(items, limit, fn) {
-  const results = new Array(items.length);
-  let idx = 0;
-
-  async function worker() {
-    while (idx < items.length) {
-      const i = idx++;
-      try {
-        results[i] = await fn(items[i], i);
-      } catch {
-        results[i] = null;
-      }
-    }
-  }
-
-  const workers = Array.from({ length: Math.min(limit, items.length) }, worker);
-
-  await Promise.all(workers);
-  return results;
-}
-
-//
-// 🔥 LOAD MICHELIN LIST
-//
-
-let MICHELIN_LIST = [];
-let MICHELIN_LOAD_ERROR = null;
-
-try {
-  MICHELIN_LIST = require("./michelin_nyc.json");
-
-  if (!Array.isArray(MICHELIN_LIST)) {
-    MICHELIN_LOAD_ERROR = "michelin_nyc.json did not export an array";
-    MICHELIN_LIST = [];
-  }
-} catch (e) {
-  MICHELIN_LOAD_ERROR = `Failed to require michelin_nyc.json: ${e.message}`;
-  console.log("[Michelin]", MICHELIN_LOAD_ERROR);
-  MICHELIN_LIST = [];
-}
-
-//
-// 🚀 HANDLER
-//
-
-exports.handler = async (event) => {
-  try {
-    if (event.httpMethod !== "POST") {
-      return stableResponse({ error: "Method not allowed" }, 405);
-    }
-
-    const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-    if (!apiKey) {
-      return stableResponse(
-        { error: "GOOGLE_PLACES_API_KEY not configured" },
-        500
-      );
-    }
-
-    const body = JSON.parse(event.body || "{}");
-    const location = String(body.location || "").trim();
-    const radiusMiles = Number.isFinite(Number(body.radiusMiles))
-      ? Number(body.radiusMiles)
-      : 15;
-
-    if (!location) {
-      return stableResponse({ error: "Missing location", michelin: [] }, 400);
-    }
-
-    const geo = await geocodeAddress(location, apiKey);
-    if (geo.error) {
-      return stableResponse({ error: geo.error, michelin: [] }, 400);
-    }
-
-    const { origin, confirmedAddress } = geo;
-
-    if (!MICHELIN_LIST.length) {
-      return stableResponse(
-        {
-          error: "Michelin list empty or failed to load",
-          debug: {
-            loadError: MICHELIN_LOAD_ERROR,
-            loadedCount: MICHELIN_LIST.length,
-          },
-          michelin: [],
-        },
-        500
-      );
-    }
-
-    const resolved = await mapWithConcurrency(MICHELIN_LIST, 5, async (m) => {
-      const name = m?.name ? String(m.name).trim() : "";
-      if (!name) return null;
-
-      const query = `${name}, New York, NY`;
-      const place = await findPlaceByText(query, apiKey);
-      if (!place?.geometry?.location) return null;
-
-      const lat = place.geometry.location.lat;
-      const lng = place.geometry.location.lng;
-
-      const distanceMiles =
-        Math.round(haversineMiles(origin.lat, origin.lng, lat, lng) * 10) / 10;
-
-      if (distanceMiles > radiusMiles) return null;
-
-      return {
-        place_id: place.place_id || null,
-        name: place.name || name,
-        formatted_address: place.formatted_address || "",
-        geometry: { location: { lat, lng } },
-
-        googleRating: place.rating || 0,
-        googleReviewCount: place.user_ratings_total || 0,
-        price_level: place.price_level ?? null,
-
-        distanceMiles,
-
-        michelin: {
-          distinction: m.distinction || "star",
-          stars: Number(m.stars || 0),
-        },
-      };
-    });
-
-    const michelin = resolved
-      .filter(Boolean)
-      .sort(
-        (a, b) => (a.distanceMiles ?? 999999) - (b.distanceMiles ?? 999999)
-      );
-
-    return stableResponse({
-      michelin,
-      confirmedAddress,
-      userLocation: origin,
-      stats: {
-        requestedRadiusMiles: radiusMiles,
-        listCount: MICHELIN_LIST.length,
-        returnedCount: michelin.length,
-      },
-    });
-  } catch (e) {
-    console.log("search-michelin error:", e);
-    return stableResponse(
-      { error: e.message || "Unknown error", michelin: [] },
-      500
-    );
-  }
-};
+]
