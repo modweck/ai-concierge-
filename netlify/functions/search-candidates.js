@@ -122,6 +122,7 @@ function normalizeQualityMode(q) {
   if (q === 'top_rated_and_above' || q === 'top_rated') return 'recommended_44';
   if (q === 'michelin') return 'michelin';
   if (q === 'bib_gourmand') return 'bib_gourmand';
+  if (q === 'chase_sapphire') return 'chase_sapphire';
   return 'any';
 }
 
@@ -352,6 +353,25 @@ exports.handler = async (event) => {
       }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, bibGourmandMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
+      setCache(cacheKey, { elite: within, moreOptions: [], stats });
+      return stableResponse(within, [], stats);
+    }
+
+    // Chase Sapphire Reserve mode — 15 mile radius from chase_sapphire_nyc.json
+    if (qualityMode === 'chase_sapphire') {
+      console.log(`💳 Chase Sapphire: ${CHASE_SAPPHIRE_BASE.length} entries`);
+      const within = CHASE_SAPPHIRE_BASE.filter(r => r.lat != null && r.lng != null).map(r => {
+        const d = haversineMiles(gLat, gLng, r.lat, r.lng);
+        return { place_id: r.place_id || null, name: r.name, vicinity: r.address||'', formatted_address: r.address||'',
+          price_level: r.price_level || null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
+          googleRating: r.googleRating || 0, googleReviewCount: r.googleReviewCount || 0,
+          distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
+          michelin: null, cuisine: r.cuisine || null,
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
+          chase_sapphire: true };
+      }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
+      timings.total_ms = Date.now()-t0;
+      const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, chaseSapphireMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
       return stableResponse(within, [], stats);
     }
