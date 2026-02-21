@@ -627,7 +627,7 @@ function renderCard(r) {
 
   const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
 
-  const chaseHtml = r.chase_sapphire ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
+  const chaseHtml = (state.rewardsFilter === 'chase' && r.chase_sapphire) ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
 
   const mapsUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
