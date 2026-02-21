@@ -802,10 +802,14 @@ function renderCard(r) {
   const rating = (r.googleRating || 0);
   const reviews = (r.googleReviewCount || 0);
 
+  const reviewsUrl = r.place_id
+    ? `https://www.google.com/maps/place/?q=place_id:${r.place_id}`
+    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' restaurant New York, NY')}`;
+
   const ratingHtml = r.michelin
     ? ''
     : (r.googleRating != null && r.googleRating !== 0)
-      ? `<span class="badge">⭐ ${Number(rating).toFixed(1)} (${reviews})</span>`
+      ? `<a href="${reviewsUrl}" target="_blank" rel="noopener" class="badge" style="text-decoration:none;cursor:pointer">⭐ ${Number(rating).toFixed(1)} (${reviews})</a>`
       : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
 
   const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
