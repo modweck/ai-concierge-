@@ -201,6 +201,8 @@ exports.handler = async (event) => {
         // Booking data from michelin_nyc.json
         booking_platform: m.booking_platform || null,
         booking_url: m.booking_url || null,
+        chase_sapphire: m.chase_sapphire || false,
+        cuisine: m.cuisine || null,
       };
     });
 
