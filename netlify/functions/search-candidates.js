@@ -110,8 +110,6 @@ async function runWithConcurrency(items, limit, worker) {
 
 // =========================================================================
 // FAST BOOKING DETECTION — lookup-only, no website crawling
-// This replaces the old 150-line version that crawled restaurant websites.
-// Speed improvement: 8-12 seconds → instant (0ms)
 // =========================================================================
 async function detectBookingPlatforms(restaurants, KEY) {
   // Pass 1: Check booking lookup table (instant, no API calls)
@@ -255,9 +253,8 @@ function filterRestaurantsByTier(candidates, qualityMode) {
 }
 
 // =========================================================================
-// LAYER 2: New API Nearby Search — 5 radius rings (was 7)
-// Dropped 500m and 6000m — 500m overlaps with legacy grid center,
-// 6000m overlaps heavily with 8000m
+// LAYER 2: New API Nearby Search — 5 radius rings
+// =========================================================================
 // =========================================================================
 async function newApiNearbyRings(lat, lng, KEY) {
   const rings = [1000, 2000, 3500, 5500, 8000];
@@ -293,9 +290,8 @@ async function newApiNearbyRings(lat, lng, KEY) {
 }
 
 // =========================================================================
-// LAYER 3: Text Search by cuisine — 12 queries (was 18)
-// Dropped: pizza, brunch, ramen, vietnamese, greek, steakhouse
-// (these overlap heavily with italian, american, japanese, etc.)
+// LAYER 3: Text Search by cuisine — 12 queries
+// =========================================================================
 // =========================================================================
 async function newApiTextByCuisine(lat, lng, userCuisine, KEY) {
   let queries;
@@ -349,9 +345,8 @@ function convertPrice(str) {
 }
 
 // =========================================================================
-// Legacy grid — 2 rings instead of 3 (~25 points instead of ~37)
+// Legacy grid — 2 rings, no pagination
 // No pagination — just page 1 (20 results per point)
-// The new API layers now cover what pages 2-3 used to catch
 // =========================================================================
 function buildGrid(cLat, cLng) {
   const sp = 0.75 / 69;
@@ -775,8 +770,7 @@ exports.handler = async (event) => {
     const { elite, moreOptions, excluded } = filterRestaurantsByTier(within, qualityMode);
     timings.filtering_ms = Date.now() - fStart;
 
-    // DETECT BOOKING PLATFORMS for visible restaurants only
-    // Now uses fast lookup instead of slow website crawling
+    // DETECT BOOKING PLATFORMS for visible restaurants
     const detectStart = Date.now();
     const visibleRestaurants = [...elite, ...moreOptions];
     await detectBookingPlatforms(visibleRestaurants, KEY);
