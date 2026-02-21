@@ -1,18 +1,16 @@
 [build]
   functions = "netlify/functions"
   publish = "."
-
 [functions]
   included_files = [
     "netlify/functions/michelin_nyc.json",
     "netlify/functions/bib_gourmand_nyc.json",
-    "netlify/functions/chase_sapphire_nyc.json"
+    "netlify/functions/chase_sapphire_nyc.json",
+    "netlify/functions/rakuten_nyc.json"
   ]
-
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
-
 [dev]
   functions = "netlify/functions"
