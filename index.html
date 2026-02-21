@@ -265,6 +265,13 @@ function setTransport(evt, mode) {
 
 function filterByQuality(restaurants) {
   const q = state.qualityFilter;
+
+  // IMPORTANT FIX:
+  // If Chase is enabled, ignore rating tiers (Chase list may not have ratings)
+  if (state.rewardsFilter === 'chase') {
+    return restaurants.filter(r => isChaseRestaurant(r.name) || r.chase_sapphire === true);
+  }
+
   let filtered = restaurants;
 
   if (q === 'any') { /* keep all */ }
@@ -278,11 +285,6 @@ function filterByQuality(restaurants) {
       if (q === 'recommended_44') return rating >= 4.4;
       return true;
     });
-  }
-
-  // Rewards filter — match by restaurant name
-  if (state.rewardsFilter === 'chase') {
-    filtered = filtered.filter(r => isChaseRestaurant(r.name));
   }
 
   return filtered;
@@ -350,7 +352,6 @@ async function search() {
       }
 
       allRestaurants = Array.isArray(data.michelin) ? data.michelin.map(r => {
-        // Calculate walk/drive/transit from distanceMiles if backend didn't provide them
         const d = r.distanceMiles ?? null;
         const walk = r.walkMinEstimate ?? r.walkMinutes ?? (d != null ? Math.round(d * 20) : null);
         const drive = r.driveMinEstimate ?? r.driveMinutes ?? (d != null ? Math.round(d * 4) : null);
@@ -429,8 +430,6 @@ async function search() {
       document.getElementById('list').innerHTML =
         '<div style="text-align:center;padding:40px">💳 Loading Chase Sapphire Reserve restaurants (15 mile radius)...</div>';
 
-      console.log('🔍 CHASE: Sending request with quality=chase_sapphire, location=' + location);
-
       const resp = await fetch('/.netlify/functions/search-candidates', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -438,13 +437,7 @@ async function search() {
         signal: searchAbortController.signal
       });
 
-      console.log('🔍 CHASE: Response status:', resp.status);
       const data = await resp.json();
-      console.log('🔍 CHASE: Response data keys:', Object.keys(data));
-      console.log('🔍 CHASE: elite count:', data.elite?.length);
-      console.log('🔍 CHASE: moreOptions count:', data.moreOptions?.length);
-      console.log('🔍 CHASE: error:', data.error);
-      console.log('🔍 CHASE: first 3 elite:', data.elite?.slice(0,3)?.map(r => r.name));
 
       if (data?.error) {
         document.getElementById('warnings').innerHTML = `
@@ -463,8 +456,6 @@ async function search() {
         driveMinutes: r.driveMinEstimate,
         transitMinutes: r.transitMinEstimate
       })) : [];
-
-      console.log('🔍 CHASE: allRestaurants count:', allRestaurants.length);
 
       document.getElementById('warnings').innerHTML = `
         <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
@@ -637,11 +628,9 @@ function sortResults() {
   const sortBy = document.getElementById('sortBy').value;
 
   if (sortBy === 'price') {
-    // Price sort: $ first → $$$$ last → N/A at very bottom
     const priced = filtered.filter(r => hasPrice(r));
     const noPrice = filtered.filter(r => !hasPrice(r));
 
-    // Sort priced: lowest first, michelin rank as tiebreaker within same price
     priced.sort((a, b) => {
       if (a.price_level !== b.price_level) return a.price_level - b.price_level;
       const ma = michelinRank(a), mb = michelinRank(b);
@@ -649,7 +638,6 @@ function sortResults() {
       return (b.googleRating || 0) - (a.googleRating || 0);
     });
 
-    // Sort N/A by michelin rank then rating
     noPrice.sort((a, b) => {
       const ma = michelinRank(a), mb = michelinRank(b);
       if (ma !== mb) return mb - ma;
@@ -712,22 +700,21 @@ function renderCard(r) {
 
   const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
 
-  const chaseHtml = (state.rewardsFilter === 'chase' && isChaseRestaurant(r.name)) ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
+  const chaseHtml = (state.rewardsFilter === 'chase' && (isChaseRestaurant(r.name) || r.chase_sapphire === true))
+    ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>`
+    : '';
 
   const mapsUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || 'New York, NY'))}`;
 
-  // Google "I'm Feeling Lucky" goes directly to the top result (usually the restaurant's own site)
   const reserveUrl = `https://www.google.com/search?btnI=1&q=${encodeURIComponent((r.name || '') + ' NYC restaurant reservations')}`;
 
   let bookingHtml = '';
   if (r.booking_url && r.booking_platform) {
     if (r.booking_platform === 'walkin') {
-      // Confirmed walk-in only — links to their site
       bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#2e7d32;font-size:13px;font-weight:600">🚶 Walk-ins Welcome</a>`;
     } else if (r.booking_platform === 'website') {
-      // Has a website but not on a major booking platform
       bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#555;font-size:13px;font-weight:600">🔖 Book through Website</a>`;
     } else if (r.booking_platform === 'opentable' || r.booking_platform === 'resy' || r.booking_platform === 'tock') {
       const platformName = r.booking_platform === 'opentable' ? 'OpenTable'
@@ -736,7 +723,6 @@ function renderCard(r) {
         : r.booking_platform === 'resy' ? '#c2185b' : '#1a73e8';
       bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:${platformColor};font-size:13px;font-weight:600">🔖 Book with ${platformName}</a>`;
     } else {
-      // Unknown platform — treat as website
       bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#555;font-size:13px;font-weight:600">🔖 Book through Website</a>`;
     }
   } else {
@@ -777,7 +763,6 @@ function displayResults(restaurants, noPriceRestaurants) {
 
   let html = restaurants.map(r => renderCard(r)).join('');
 
-  // When sorting by price, show N/A restaurants at the bottom with a divider
   if (noPriceRestaurants && noPriceRestaurants.length > 0) {
     html += `<div class="section-divider">💰 Price not available (${noPriceRestaurants.length})</div>`;
     html += noPriceRestaurants.map(r => renderCard(r)).join('');
