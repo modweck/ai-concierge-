@@ -72,7 +72,7 @@
     "booking_url": "https://resy.com/cities/ny/bohemian-spirit"
   },
   {
-    "name": "Bánh Anh Em",
+    "name": "B\u00e1nh Anh Em",
     "cuisine": "Vietnamese",
     "distinction": "bib_gourmand",
     "stars": 0,
@@ -200,8 +200,8 @@
     "lng": -73.9872,
     "address": "55 W 35th St, New York, NY 10001",
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/cho-dang-gol"
   },
   {
     "name": "Laliko",
@@ -224,8 +224,8 @@
     "lng": -73.9534,
     "address": "166 Bedford Ave, Brooklyn, NY 11211",
     "price_level": 1,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/pierozek"
   },
   {
     "name": "Caleta 111 Cevicheria",
@@ -372,7 +372,7 @@
     "booking_url": "https://resy.com/cities/ny/pinch-chinese"
   },
   {
-    "name": "Café Mars",
+    "name": "Caf\u00e9 Mars",
     "cuisine": "Contemporary",
     "distinction": "bib_gourmand",
     "stars": 0,
@@ -816,7 +816,7 @@
     "booking_url": "https://resy.com/cities/ny/lungi"
   },
   {
-    "name": "MáLà Project",
+    "name": "M\u00e1L\u00e0 Project",
     "cuisine": "Chinese",
     "distinction": "bib_gourmand",
     "stars": 0,
