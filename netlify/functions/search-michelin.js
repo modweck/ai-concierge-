@@ -170,22 +170,37 @@ exports.handler = async (event) => {
 
       if (distanceMiles > radiusMiles) return null;
 
+      // Calculate walk/drive/transit time estimates from distance
+      const walkMinEstimate = Math.round(distanceMiles * 20);
+      const driveMinEstimate = Math.round(distanceMiles * 4);
+      const transitMinEstimate = Math.round(distanceMiles * 6);
+
       return {
         place_id: place.place_id || null,
         name: place.name || name,
+        vicinity: place.formatted_address || "",
         formatted_address: place.formatted_address || "",
         geometry: { location: { lat, lng } },
 
         googleRating: place.rating || 0,
         googleReviewCount: place.user_ratings_total || 0,
-        price_level: place.price_level ?? null,
+        price_level: place.price_level ?? m.price_level ?? null,
 
         distanceMiles,
+
+        // Walk/drive/transit time estimates
+        walkMinEstimate,
+        driveMinEstimate,
+        transitMinEstimate,
 
         michelin: {
           distinction: m.distinction || "star",
           stars: Number(m.stars || 0),
         },
+
+        // Booking data from michelin_nyc.json
+        booking_platform: m.booking_platform || null,
+        booking_url: m.booking_url || null,
       };
     });
 
