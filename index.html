@@ -198,6 +198,34 @@ function setRewards(mode) {
   if (allRestaurants.length > 0) sortResults();
 }
 
+// Chase Sapphire Reserve Exclusive Tables — all restaurant names
+const CHASE_SAPPHIRE_NAMES = [
+  'phoenix palace','gjelina','altro paradiso',"sunn's",'parcelle chinatown',
+  'estela',"l'abeille",'potluck club',"scarr's pizza",'kabawa',
+  'san sabino','manhatta','don angie','fairfax','una pizza napoletana',
+  'tolo','demo','muku',"jeffrey's grocery",'sappeisan',
+  'joseph leonard','hawksmoor nyc','parcelle greenwich village','mitsuru',
+  'sailor','casa mono','momofuku noodle bar','bar kabawa',
+  'moody tongue sushi','the golden swan','red hook tavern','le b.',
+  'blu on the hudson','momofuku noodle bar - uptown','strange delight',
+  'brass','chez fifi','bar miller','aska',
+  'di an di','the tavern at gramercy tavern','union square cafe',
+  'the dining room at gramercy tavern','ci siamo','odo',
+  'the bar room at the modern','sushi noz','noz market','the modern',
+  'pig and khao - uws','maddy rose','felina steak',
+  'drift restaurant & bar','meximodo','razza',
+  'gramercy tavern','hawksmoor','pig and khao'
+];
+
+function isChaseRestaurant(name) {
+  if (!name) return false;
+  const n = name.toLowerCase().trim();
+  for (const cn of CHASE_SAPPHIRE_NAMES) {
+    if (n === cn || n.includes(cn) || cn.includes(n)) return true;
+  }
+  return false;
+}
+
 function michelinRank(r) {
   if (!r.michelin) return 0;
   const d = r.michelin.distinction || '';
@@ -252,12 +280,10 @@ function filterByQuality(restaurants) {
     });
   }
 
-  // Rewards filter
+  // Rewards filter — match by restaurant name
   if (state.rewardsFilter === 'chase') {
-    filtered = filtered.filter(r => r.chase_sapphire === true);
+    filtered = filtered.filter(r => isChaseRestaurant(r.name));
   }
-  // Rakuten filter - placeholder for future
-  // if (state.rewardsFilter === 'rakuten') { filtered = filtered.filter(r => r.rakuten === true); }
 
   return filtered;
 }
@@ -630,7 +656,7 @@ function renderCard(r) {
 
   const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
 
-  const chaseHtml = (state.rewardsFilter === 'chase' && r.chase_sapphire) ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
+  const chaseHtml = (state.rewardsFilter === 'chase' && isChaseRestaurant(r.name)) ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
 
   const mapsUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
