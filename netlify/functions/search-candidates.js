@@ -73,7 +73,6 @@ function getDepositType(name) {
   if (!name) return 'unknown';
   const key = name.toLowerCase().trim();
   if (DEPOSIT_LOOKUP[key]) return DEPOSIT_LOOKUP[key];
-  // Fuzzy: try without "the " prefix
   const noThe = key.replace(/^the\s+/, '');
   if (DEPOSIT_LOOKUP[noThe]) return DEPOSIT_LOOKUP[noThe];
   return 'unknown';
@@ -110,14 +109,12 @@ async function runWithConcurrency(items, limit, worker) {
 }
 
 // =========================================================================
-// BOOKING PLATFORM DETECTION
-// Fetches restaurant websites and scans for Resy/OpenTable/Tock links
+// FAST BOOKING DETECTION — lookup-only, no website crawling
+// This replaces the old 150-line version that crawled restaurant websites.
+// Speed improvement: 8-12 seconds → instant (0ms)
 // =========================================================================
-const bookingCache = new Map(); // place_id -> { platform, url, timestamp }
-const BOOKING_CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
-
 async function detectBookingPlatforms(restaurants, KEY) {
-  // First pass: check booking lookup table (instant, no API calls)
+  // Pass 1: Check booking lookup table (instant, no API calls)
   for (const r of restaurants) {
     if (r.booking_platform) continue;
     const bookingInfo = getBookingInfo(r.name);
@@ -127,275 +124,25 @@ async function detectBookingPlatforms(restaurants, KEY) {
     }
   }
 
-  // Second pass: for remaining restaurants, use detection
-  const needsDetection = restaurants.filter(r => {
-    if (r.booking_platform) return false;
-    if (!r.place_id) return false;
-    // Check cache first
-    const cached = bookingCache.get(r.place_id);
-    if (cached && (Date.now() - cached.timestamp) < BOOKING_CACHE_TTL) {
-      if (cached.platform) { r.booking_platform = cached.platform; r.booking_url = cached.url; }
-      return false; // already checked (even if no result)
-    }
-    return true;
-  });
-  if (!needsDetection.length) return;
-
-  console.log(`🔍 Detecting booking platforms for ${needsDetection.length} restaurants...`);
-  const startTime = Date.now();
-  const TIME_BUDGET_MS = 8000; // Max 8 seconds for all detection (3 steps)
-
-  // Step 1: Batch fetch websiteUri from Google Place Details for restaurants that need it
-  const needsWebsite = needsDetection.filter(r => !r.websiteUri);
-  if (needsWebsite.length > 0 && (Date.now() - startTime) < TIME_BUDGET_MS) {
-    await runWithConcurrency(needsWebsite, 10, async (r) => {
-      if ((Date.now() - startTime) >= TIME_BUDGET_MS) return;
-      try {
-        const resp = await fetch(`https://places.googleapis.com/v1/places/${r.place_id}`, {
-          headers: { 'Content-Type': 'application/json', 'X-Goog-Api-Key': KEY, 'X-Goog-FieldMask': 'websiteUri' }
-        });
-        if (resp.ok) {
-          const data = await resp.json();
-          r.websiteUri = data.websiteUri || null;
-        }
-      } catch (e) { /* skip */ }
-    });
-  }
-
-  // Step 2: For restaurants with a websiteUri, check if the URL itself is a booking platform
-  // AND fetch the website HTML to scan for booking links
-  let detected = 0;
-  const withWebsite = needsDetection.filter(r => r.websiteUri);
-  if (withWebsite.length > 0 && (Date.now() - startTime) < TIME_BUDGET_MS) {
-    await runWithConcurrency(withWebsite, 8, async (r) => {
-      if ((Date.now() - startTime) >= TIME_BUDGET_MS) return;
-      const w = (r.websiteUri || '').toLowerCase();
-
-    // Quick check: is the website itself a booking platform URL with a restaurant-specific path?
-    if (w.includes('resy.com/cities/')) { r.booking_platform = 'resy'; r.booking_url = r.websiteUri; detected++; return; }
-    if (w.includes('opentable.com/r/') || w.includes('opentable.com/restaurant/')) { r.booking_platform = 'opentable'; r.booking_url = r.websiteUri; detected++; return; }
-    if ((w.includes('exploretock.com/') || w.includes('tock.com/')) && w.split('/').length > 3) { r.booking_platform = 'tock'; r.booking_url = r.websiteUri; detected++; return; }
-
-    // Fetch the restaurant's actual website and scan for booking platform links
-    try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 3000); // 3s timeout
-      const resp = await fetch(r.websiteUri, {
-        signal: controller.signal,
-        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; RestaurantBot/1.0)' },
-        redirect: 'follow'
-      });
-      clearTimeout(timeout);
-
-      if (!resp.ok) return;
-      const html = await resp.text();
-      const lower = html.toLowerCase();
-
-      // Scan for booking platform links in the HTML
-      // Check href attributes, iframe src, JavaScript strings, and data attributes
-      // ONLY extract URLs that go directly to the restaurant's page
-
-      // Resy patterns (href, iframe, JS)
-      const resyMatch = html.match(/(?:href|src|action|data-url|content)=["'](https?:\/\/(?:www\.)?resy\.com\/cities\/[a-z-]+(?:\/venues)?\/[a-z0-9-]+[^"'\s>]*)["']/i)
-        || html.match(/"(https?:\/\/(?:www\.)?resy\.com\/cities\/[a-z-]+(?:\/venues)?\/[a-z0-9-]+[^"\\]*)"/i);
-      // OpenTable patterns
-      const otMatch = html.match(/(?:href|src|action|data-url|content)=["'](https?:\/\/(?:www\.)?opentable\.com\/(?:r\/[a-z0-9-]+|restaurant\/[a-z0-9-]+)[^"'\s>]*)["']/i)
-        || html.match(/"(https?:\/\/(?:www\.)?opentable\.com\/(?:r\/[a-z0-9-]+|restaurant\/[a-z0-9-]+)[^"\\]*)"/i);
-      // OpenTable widget embed (restref)
-      const otRefMatch = html.match(/(?:href|src|action)=["'](https?:\/\/(?:www\.)?opentable\.com\/restref\/client\/\?rid=\d+[^"'\s>]*)["']/i)
-        || html.match(/"(https?:\/\/(?:www\.)?opentable\.com\/restref\/client\/\?rid=\d+[^"\\]*)"/i);
-      // Tock patterns
-      const tockMatch = html.match(/(?:href|src|action|data-url|content)=["'](https?:\/\/(?:www\.)?exploretock\.com\/[a-z0-9-]+[^"'\s>]*)["']/i)
-        || html.match(/"(https?:\/\/(?:www\.)?exploretock\.com\/[a-z0-9-]+[^"\\]*)"/i);
-
-      // Clean extracted URL - remove trailing junk chars and query params that aren't needed
-      function cleanBookingUrl(url) {
-        if (!url) return url;
-        return url.replace(/[#?].*$/, '').replace(/\/+$/, ''); // strip query/hash/trailing slashes
-      }
-
-      if (resyMatch) {
-        r.booking_platform = 'resy';
-        r.booking_url = cleanBookingUrl(resyMatch[1]);
-        detected++;
-      } else if (otMatch) {
-        r.booking_platform = 'opentable';
-        r.booking_url = cleanBookingUrl(otMatch[1]);
-        detected++;
-      } else if (otRefMatch) {
-        r.booking_platform = 'opentable';
-        r.booking_url = otRefMatch[1]; // keep query params for restref (rid= is needed)
-        detected++;
-      } else if (tockMatch) {
-        r.booking_platform = 'tock';
-        r.booking_url = cleanBookingUrl(tockMatch[1]);
-        detected++;
-      } else {
-        // Broader search: look for restaurant-specific URLs anywhere in HTML (not just href)
-        const broadResy = html.match(/https?:\/\/(?:www\.)?resy\.com\/cities\/[a-z-]+(?:\/venues)?\/[a-z0-9-]+/i);
-        const broadOT = html.match(/https?:\/\/(?:www\.)?opentable\.com\/r\/[a-z0-9-]+/i);
-        const broadTock = html.match(/https?:\/\/(?:www\.)?exploretock\.com\/[a-z0-9-]+/i);
-
-        if (broadResy) { r.booking_platform = 'resy'; r.booking_url = broadResy[0]; detected++; }
-        else if (broadOT) { r.booking_platform = 'opentable'; r.booking_url = broadOT[0]; detected++; }
-        else if (broadTock) { r.booking_platform = 'tock'; r.booking_url = broadTock[0]; detected++; }
-      }
-    } catch (e) { /* timeout or fetch error — skip */ }
-    });
-  }
-
-  // Step 3: For restaurants STILL without booking data, try constructing URLs
-  // and checking if they actually exist on OpenTable/Resy
-  // NOTE: Both OT and Resy are SPAs that return 200 for non-existent pages,
-  // so we use GET and check response content/redirects carefully
-  const stillNeeds = needsDetection.filter(r => !r.booking_platform);
-  if (stillNeeds.length > 0 && (Date.now() - startTime) < TIME_BUDGET_MS) {
-    console.log(`🔗 URL-checking ${stillNeeds.length} remaining restaurants...`);
-    await runWithConcurrency(stillNeeds, 10, async (r) => {
-      if ((Date.now() - startTime) >= TIME_BUDGET_MS) return;
-      if (r.booking_platform) return;
-      
-      // Build multiple slug variations for better matching
-      const baseName = (r.name || '').toLowerCase()
-        .replace(/['\u2019\u2018\u201C\u201D"]/g, '').replace(/&/g, 'and')
-        .replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-')
-        .replace(/-+/g, '-').replace(/^-|-$/g, '');
-      if (!baseName || baseName.length < 3) return;
-      
-      // Also try without "the-" prefix and common suffixes
-      const noThe = baseName.replace(/^the-/, '');
-      const noSuffix = baseName.replace(/-(restaurant|ristorante|nyc|ny|new-york|bar-and-grill|bar-and-restaurant|steakhouse|trattoria|pizzeria|cafe|bistro|brasserie|kitchen)$/, '');
-      const slugs = [...new Set([baseName, noThe, noSuffix].filter(s => s.length >= 3))];
-
-      // Try OpenTable — use GET with redirect:manual
-      // OT returns 302 to the real page if slug is close, or 302 to search if not found
-      for (const slug of slugs) {
-        if (r.booking_platform) break;
-        if ((Date.now() - startTime) >= TIME_BUDGET_MS) break;
-        
-        const otVariants = [
-          `https://www.opentable.com/r/${slug}-new-york`,
-          `https://www.opentable.com/r/${slug}`,
-          `https://www.opentable.com/r/${slug}-new-york-2`
-        ];
-        
-        for (const url of otVariants) {
-          if (r.booking_platform) break;
-          if ((Date.now() - startTime) >= TIME_BUDGET_MS) break;
-          try {
-            const controller = new AbortController();
-            const t = setTimeout(() => controller.abort(), 2500);
-            const resp = await fetch(url, { 
-              method: 'GET', signal: controller.signal, redirect: 'manual',
-              headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' }
-            });
-            clearTimeout(t);
-            
-            const status = resp.status;
-            const location = resp.headers.get('location') || '';
-            
-            // 200 on OpenTable = page exists (their server-rendered pages return 200)
-            // But we need to verify it's not a generic "not found" page
-            if (status === 200) {
-              // Read a small chunk to verify it's a real restaurant page
-              const text = await resp.text();
-              // If the page contains the restaurant name or "Make a reservation", it's real
-              const nameWords = (r.name || '').toLowerCase().split(/\s+/).filter(w => w.length > 3);
-              const textLower = text.toLowerCase();
-              const hasName = nameWords.some(w => textLower.includes(w));
-              const hasReserve = textLower.includes('make a reservation') || textLower.includes('find a table') || textLower.includes('book a table');
-              if (hasName || hasReserve) {
-                r.booking_platform = 'opentable'; r.booking_url = url; detected++;
-                console.log(`  \u2713 OT verified: ${r.name} \u2192 ${url}`);
-                break;
-              }
-            } else if (status === 301 || status === 302) {
-              // Redirect — if it goes to another /r/ page, that's the real URL
-              if (location.includes('/r/') && !location.includes('/s?') && !location.includes('/search') && !location.includes('/metro/')) {
-                const realUrl = location.startsWith('http') ? location : 'https://www.opentable.com' + location;
-                r.booking_platform = 'opentable'; r.booking_url = realUrl; detected++;
-                console.log(`  \u2713 OT redirect: ${r.name} \u2192 ${realUrl}`);
-                break;
-              }
-            }
-            // Consume any remaining body
-            try { if (status !== 200) await resp.text(); } catch(e) {}
-          } catch (e) { /* timeout */ }
-        }
-      }
-
-      // Try Resy if OpenTable didn't match
-      if (!r.booking_platform && (Date.now() - startTime) < TIME_BUDGET_MS) {
-        for (const slug of slugs) {
-          if (r.booking_platform) break;
-          if ((Date.now() - startTime) >= TIME_BUDGET_MS) break;
-          
-          const resyVariants = [
-            `https://resy.com/cities/ny/${slug}`,
-            `https://resy.com/cities/new-york-ny/venues/${slug}`
-          ];
-          
-          for (const url of resyVariants) {
-            if (r.booking_platform) break;
-            if ((Date.now() - startTime) >= TIME_BUDGET_MS) break;
-            try {
-              const controller = new AbortController();
-              const t = setTimeout(() => controller.abort(), 2500);
-              const resp = await fetch(url, { 
-                method: 'GET', signal: controller.signal, redirect: 'manual',
-                headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' }
-              });
-              clearTimeout(t);
-              
-              const status = resp.status;
-              const location = resp.headers.get('location') || '';
-              
-              if (status === 200) {
-                const text = await resp.text();
-                const textLower = text.toLowerCase();
-                const nameWords = (r.name || '').toLowerCase().split(/\s+/).filter(w => w.length > 3);
-                const hasName = nameWords.some(w => textLower.includes(w));
-                const hasReserve = textLower.includes('book now') || textLower.includes('reserve') || textLower.includes('notify me');
-                // Also check it's NOT a search/404 page
-                const isSearchPage = textLower.includes('no results found') || textLower.includes('search results');
-                if ((hasName || hasReserve) && !isSearchPage) {
-                  r.booking_platform = 'resy'; r.booking_url = url; detected++;
-                  console.log(`  \u2713 Resy verified: ${r.name} \u2192 ${url}`);
-                  break;
-                }
-              } else if (status === 301 || status === 302) {
-                if (location.includes('/cities/') && !location.includes('?query') && !location.endsWith('/ny') && !location.endsWith('/ny/')) {
-                  const realUrl = location.startsWith('http') ? location : 'https://resy.com' + location;
-                  r.booking_platform = 'resy'; r.booking_url = realUrl; detected++;
-                  console.log(`  \u2713 Resy redirect: ${r.name} \u2192 ${realUrl}`);
-                  break;
-                }
-              }
-              try { if (status !== 200) await resp.text(); } catch(e) {}
-            } catch (e) { /* timeout */ }
-          }
-        }
-      }
-    });
-  }
-
-  console.log(`\u2705 Booking detection: ${detected}/${needsDetection.length} matched to Resy/OpenTable/Tock (${Date.now() - startTime}ms)`);
-
-  // Cache all results (including misses) to avoid re-fetching
-  for (const r of needsDetection) {
-    if (r.place_id) {
-      bookingCache.set(r.place_id, {
-        platform: r.booking_platform || null,
-        url: r.booking_url || null,
-        timestamp: Date.now()
-      });
+  // Pass 2: Check if websiteUri already IS a booking platform URL
+  for (const r of restaurants) {
+    if (r.booking_platform) continue;
+    if (!r.websiteUri) continue;
+    const w = (r.websiteUri || '').toLowerCase();
+    if (w.includes('resy.com/cities/')) {
+      r.booking_platform = 'resy';
+      r.booking_url = r.websiteUri;
+    } else if (w.includes('opentable.com/r/') || w.includes('opentable.com/restaurant/')) {
+      r.booking_platform = 'opentable';
+      r.booking_url = r.websiteUri;
+    } else if ((w.includes('exploretock.com/') || w.includes('tock.com/')) && w.split('/').length > 3) {
+      r.booking_platform = 'tock';
+      r.booking_url = r.websiteUri;
     }
   }
-  // Keep cache size reasonable
-  if (bookingCache.size > 500) {
-    const entries = Array.from(bookingCache.entries()).sort((a,b) => a[1].timestamp - b[1].timestamp);
-    for (let i = 0; i < 100; i++) bookingCache.delete(entries[i][0]);
-  }
+
+  const matched = restaurants.filter(r => r.booking_platform).length;
+  console.log(`✅ Booking: ${matched}/${restaurants.length} matched (instant lookup)`);
 }
 
 // ---- Michelin ----
@@ -508,8 +255,8 @@ function filterRestaurantsByTier(candidates, qualityMode) {
 }
 
 // =========================================================================
-// LAYER 2: New API Nearby Search \u2014 5 radius rings (was 7)
-// Dropped 500m and 6000m \u2014 500m overlaps with legacy grid center,
+// LAYER 2: New API Nearby Search — 5 radius rings (was 7)
+// Dropped 500m and 6000m — 500m overlaps with legacy grid center,
 // 6000m overlaps heavily with 8000m
 // =========================================================================
 async function newApiNearbyRings(lat, lng, KEY) {
@@ -546,7 +293,7 @@ async function newApiNearbyRings(lat, lng, KEY) {
 }
 
 // =========================================================================
-// LAYER 3: Text Search by cuisine \u2014 12 queries (was 18)
+// LAYER 3: Text Search by cuisine — 12 queries (was 18)
 // Dropped: pizza, brunch, ramen, vietnamese, greek, steakhouse
 // (these overlap heavily with italian, american, japanese, etc.)
 // =========================================================================
@@ -602,13 +349,13 @@ function convertPrice(str) {
 }
 
 // =========================================================================
-// Legacy grid \u2014 2 rings instead of 3 (~25 points instead of ~37)
-// No pagination \u2014 just page 1 (20 results per point)
+// Legacy grid — 2 rings instead of 3 (~25 points instead of ~37)
+// No pagination — just page 1 (20 results per point)
 // The new API layers now cover what pages 2-3 used to catch
 // =========================================================================
 function buildGrid(cLat, cLng) {
   const sp = 0.75 / 69;
-  const rings = 2;  // was 3
+  const rings = 2;
   const pts = [];
   for (let dy = -rings; dy <= rings; dy++)
     for (let dx = -rings; dx <= rings; dx++) {
@@ -753,8 +500,7 @@ exports.handler = async (event) => {
 
     const [legacyFlat, nearbyResults, textResults] = await Promise.all([
 
-      // LAYER 1: Legacy grid \u2014 NO PAGINATION (just page 1 = 20 results per point)
-      // This alone saves 4-8 seconds because we skip the 2s waits for page tokens
+      // LAYER 1: Legacy grid — NO PAGINATION (just page 1 = 20 results per point)
       (async () => {
         const start = Date.now();
         const grid = buildGrid(gLat, gLng);
@@ -833,8 +579,6 @@ exports.handler = async (event) => {
       /\bpub\b$/i, /\btavern\b$/i
     ];
 
-    // Extra check: names that are ONLY "bar" or "lounge" (no restaurant/food words)
-    // e.g. "The Dead Rabbit" won't match, but gets caught by type=bar
     const RESTAURANT_WORDS = /restaurant|grill|kitchen|bistro|trattoria|osteria|ristorante|brasserie|steakhouse|sushi|ramen|taqueria|pizzeria|diner|eatery|cuisine|bbq|barbecue|seafood|noodle|dumpling|dim sum|omakase|izakaya|cantina/i;
 
     // Merge & deduplicate
@@ -847,27 +591,23 @@ exports.handler = async (event) => {
 
     console.log(`📊 MERGE: Legacy=${legacyN} + Nearby=+${nearbyN} + Text=+${textN} = ${all.length}`);
 
-    // Filter out non-restaurants (delis, chains, ice cream, coffee, bars, venues, etc.)
+    // Filter out non-restaurants
     const beforeExclude = all.length;
     const cleaned = all.filter(p => {
       const pTypes = (p.types || []).map(t => t.toLowerCase());
       const pName = (p.name || '');
-      // Exclude by type (but only if it doesn't ALSO have 'restaurant' type)
       const hasRestaurantType = pTypes.some(t => t.includes('restaurant'));
       const hasExcludedType = pTypes.some(t => EXCLUDED_TYPES.includes(t));
       if (hasExcludedType && !hasRestaurantType) {
-        // Last chance: if name has restaurant words, keep it (e.g. "Ane Bar & Restaurant")
         if (!RESTAURANT_WORDS.test(pName)) return false;
       }
-      // Exclude by name pattern
       if (EXCLUDED_NAME_PATTERNS.some(rx => rx.test(pName))) return false;
-      // If type is bar and name has NO food/restaurant words, exclude
       if (pTypes.includes('bar') && !hasRestaurantType && !RESTAURANT_WORDS.test(pName)) return false;
       return true;
     });
     if (cleaned.length < beforeExclude) console.log(`🧹 Excluded ${beforeExclude - cleaned.length} non-restaurants (chains/delis/coffee/bars/venues)`);
 
-    // Post-filter by cuisine type if cuisine is selected
+    // Post-filter by cuisine type
     let cuisineFiltered = cleaned;
     if (cuisineStr) {
       const allowedTypes = CUISINE_TYPE_MAP[cuisineStr.toLowerCase()] || [];
@@ -887,15 +627,12 @@ exports.handler = async (event) => {
     const withDist = cuisineFiltered.map(p => {
       const pLat = p.geometry?.location?.lat, pLng = p.geometry?.location?.lng;
       const d = (pLat != null && pLng != null) ? haversineMiles(gLat, gLng, pLat, pLng) : 999;
-      // Auto-detect booking platform from website URL
       let bp = p.booking_platform || null;
       let bu = p.booking_url || null;
-      // Check booking lookup table first
       if (!bp) {
         const bookingInfo = getBookingInfo(p.name);
         if (bookingInfo) { bp = bookingInfo.platform; bu = bookingInfo.url; }
       }
-      // Then check websiteUri
       if (!bp && p.websiteUri) {
         const w = (p.websiteUri || '').toLowerCase();
         if (w.includes('resy.com/cities/')) { bp = 'resy'; bu = p.websiteUri; }
@@ -920,7 +657,7 @@ exports.handler = async (event) => {
     const michelin = await resolveMichelinPlaces(KEY);
     attachMichelinBadges(within, michelin);
 
-    // Attach Bib Gourmand booking data to existing Google results
+    // Attach Bib Gourmand booking data
     const bibAll = getBibGourmandPlaces();
     const bibByName = new Map();
     for (const b of bibAll) { if (b?.name) bibByName.set(normalizeName(b.name), b); }
@@ -933,9 +670,7 @@ exports.handler = async (event) => {
       }
     }
 
-    // INJECT Michelin restaurants that weren't in Google results
-    // This ensures they appear in 4.7+, 4.5+, etc. modes
-    // When cuisine filter is active, only inject matching restaurants
+    // INJECT Michelin restaurants not in Google results
     const existingIds = new Set(within.map(r => r.place_id).filter(Boolean));
     const existingNames = new Set(within.map(r => normalizeName(r.name)).filter(Boolean));
     let injected = 0;
@@ -943,13 +678,12 @@ exports.handler = async (event) => {
       if (!m?.lat || !m?.lng) continue;
       if (m.place_id && existingIds.has(m.place_id)) continue;
       if (m.name && existingNames.has(normalizeName(m.name))) continue;
-      // Cuisine filter: skip if cuisine doesn't match
       if (cuisineStr && m.cuisine) {
         const mc = m.cuisine.toLowerCase();
         if (!mc.includes(cuisineStr.toLowerCase())) continue;
       }
       const d = haversineMiles(gLat, gLng, m.lat, m.lng);
-      if (d > 7.0) continue; // same radius as normal results
+      if (d > 7.0) continue;
       within.push({
         place_id: m.place_id, name: m.name,
         vicinity: m.address || '', formatted_address: m.address || '',
@@ -968,13 +702,12 @@ exports.handler = async (event) => {
     }
     if (injected) console.log(`\u2705 Injected ${injected} Michelin restaurants not in Google results`);
 
-    // INJECT Bib Gourmand restaurants that weren't in Google results
+    // INJECT Bib Gourmand restaurants not in Google results
     const bibPlaces = getBibGourmandPlaces();
     let bibInjected = 0;
     for (const b of bibPlaces) {
       if (!b?.lat || !b?.lng) continue;
       if (b.name && existingNames.has(normalizeName(b.name))) continue;
-      // Cuisine filter: skip if cuisine doesn't match
       if (cuisineStr && b.cuisine) {
         const bc = b.cuisine.toLowerCase();
         if (!bc.includes(cuisineStr.toLowerCase())) continue;
@@ -1000,18 +733,15 @@ exports.handler = async (event) => {
     if (bibInjected) console.log(`\u2705 Injected ${bibInjected} Bib Gourmand restaurants not in Google results`);
 
     // TAG + INJECT Chase Sapphire restaurants
-    // First, build a set of Chase restaurant names for quick lookup
     const chaseNameSet = new Set();
     for (const c of CHASE_SAPPHIRE_BASE) {
       if (c?.name) chaseNameSet.add(normalizeName(c.name));
     }
-    // Tag any existing restaurants that are Chase partners
     for (const r of within) {
       if (r?.name && chaseNameSet.has(normalizeName(r.name))) {
         r.chase_sapphire = true;
       }
     }
-    // Inject Chase restaurants not already in results
     let chaseInjected = 0;
     for (const c of CHASE_SAPPHIRE_BASE) {
       if (!c?.lat || !c?.lng) continue;
@@ -1046,7 +776,7 @@ exports.handler = async (event) => {
     timings.filtering_ms = Date.now() - fStart;
 
     // DETECT BOOKING PLATFORMS for visible restaurants only
-    // Fetches restaurant websites and scans for Resy/OpenTable/Tock links
+    // Now uses fast lookup instead of slow website crawling
     const detectStart = Date.now();
     const visibleRestaurants = [...elite, ...moreOptions];
     await detectBookingPlatforms(visibleRestaurants, KEY);
