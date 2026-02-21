@@ -859,16 +859,8 @@ function renderCard(r) {
       bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#555;font-size:13px;font-weight:600">🔖 Book through Website</a>`;
     }
   } else {
-    // No verified booking link — generate smart Resy + OpenTable links, Google fallback
-    const cleanName = (r.name || '').toLowerCase().replace(/[''\u2019]/g, '').replace(/&/g, 'and').replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
-    const resyUrl = `https://resy.com/cities/ny/${cleanName}`;
-    const otUrl = `https://www.opentable.com/r/${cleanName}-new-york`;
-    bookingHtml = `
-      <div style="display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px 0">
-        <a href="${resyUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:#fce4ec;border-radius:6px;text-decoration:none;color:#c2185b;font-size:12px;font-weight:600">Resy</a>
-        <a href="${otUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:#ffebee;border-radius:6px;text-decoration:none;color:#da3743;font-size:12px;font-weight:600">OpenTable</a>
-        <a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:#f3f4f6;border-radius:6px;text-decoration:none;color:#666;font-size:12px;font-weight:600">Google</a>
-      </div>`;
+    // No booking data — use Google Maps with place_id (has Reserve button built in)
+    bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#1a73e8;font-size:13px;font-weight:600">🔖 Reserve on Google</a>`;
   }
 
   return `
