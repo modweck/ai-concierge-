@@ -8,8 +8,8 @@
     "lng": -73.9817,
     "price_level": 4,
     "cuisine": "French, Seafood",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/le-bernardin-new-york"
+    "booking_platform": "resy",
+    "booking_url": "https://resy.com/cities/ny/le-bernardin"
   },
   {
     "name": "Eleven Madison Park",
@@ -32,8 +32,8 @@
     "lng": -73.983,
     "price_level": 4,
     "cuisine": "Japanese, Sushi",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/masa-new-york"
+    "booking_platform": "tock",
+    "booking_url": "https://www.exploretock.com/masa"
   },
   {
     "name": "Per Se",
@@ -44,8 +44,8 @@
     "lng": -73.9829,
     "price_level": 4,
     "cuisine": "French, American",
-    "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/per-se-new-york"
+    "booking_platform": "tock",
+    "booking_url": "https://www.exploretock.com/perse"
   },
   {
     "name": "Chef's Table at Brooklyn Fare",
@@ -456,7 +456,7 @@
     "booking_url": "https://resy.com/cities/ny/oiji-mi"
   },
   {
-    "name": "Rezdôra",
+    "name": "Rezd\u00f4ra",
     "distinction": "recommended",
     "stars": null,
     "address": "27 E 20th St, New York, NY 10003",
