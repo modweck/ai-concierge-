@@ -1,215 +1,697 @@
-function stableResponse(payload, statusCode = 200) {
-  return {
-    statusCode,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  };
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Concierge</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:system-ui,sans-serif;background:#f5f5f5;padding:20px}
+    .container{max-width:900px;margin:0 auto}
+    .card{background:white;padding:30px;border-radius:16px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+    h1{font-size:36px;margin-bottom:8px}
+    .subtitle{color:#666;font-size:18px}
+    label{display:block;font-weight:600;margin-bottom:10px;color:#333;font-size:15px}
+    input,select{width:100%;padding:14px;border:2px solid #e0e0e0;border-radius:10px;font-size:16px}
+    input:focus,select:focus{outline:none;border-color:#000}
+    .btn{width:100%;padding:18px;background:#000;color:white;border:none;border-radius:12px;font-size:18px;font-weight:700;cursor:pointer;margin-top:10px}
+    .btn:hover{background:#333}
+    .btn:disabled{background:#ccc;cursor:not-allowed}
+    .restaurant{background:white;padding:28px;border-radius:16px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:all 0.2s}
+    .restaurant:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.12)}
+    .restaurant h3{margin:0 0 6px 0;font-size:24px}
+    .cuisine{color:#999;font-size:15px;margin-bottom:16px}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0;align-items:center}
+    .badge{padding:8px 14px;border-radius:20px;font-size:14px;font-weight:600;border:2px solid #e0e0e0;background:#fafafa}
+    .badge.distance{background:#e0f2fe;border-color:#7dd3fc;color:#075985}
+    .hidden{display:none}
+    .back-btn{padding:12px 24px;border:2px solid #ddd;border-radius:10px;background:white;cursor:pointer;font-weight:600;margin-bottom:24px;font-size:16px}
+    .toggle-group{display:flex;gap:12px;margin-top:10px}
+    .toggle-btn{flex:1;padding:14px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-size:15px;font-weight:600;color:#333}
+    .toggle-btn.active{background:#000;color:white;border-color:#000}
+    .toggle-btn:hover{border-color:#000;background:#f5f5f5}
+    .toggle-btn:hover.active{background:#000}
+    .sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:16px;background:#f9fafb;border-radius:12px}
+    .section-divider{padding:12px 16px;margin:24px 0 16px 0;background:#f3f4f6;border-radius:10px;font-size:14px;font-weight:600;color:#6b7280;border-left:4px solid #d1d5db}
+    .chatbot-btn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:#000;color:white;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:all 0.2s}
+    .chatbot-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,0.4)}
+    .pac-container{z-index:10000!important;font-family:system-ui,sans-serif}
+    @media(max-width:768px){.toggle-group{flex-direction:column}}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>🍽️ AI Concierge</h1>
+      <p class="subtitle">Find restaurants you can actually get into</p>
+    </div>
+
+    <div id="search" class="card">
+      <div style="margin-bottom:20px">
+        <label>📍 Your Location</label>
+        <div style="display:flex;gap:10px">
+          <input type="text" id="addressInput" placeholder="Enter address" value="New York, NY" style="flex:1">
+          <button onclick="useCurrentLocation()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">📍 Use My Location</button>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label>🕐 Time</label>
+        <select id="timewindow">
+          <option value="breakfast">Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="prime" selected>Dinner</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label>👥 Party Size</label>
+        <input type="number" id="party" value="2" min="1" max="20">
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label>🚗 Transportation</label>
+        <div class="toggle-group">
+          <button class="toggle-btn active" onclick="setTransport(event,'walk')">🚶 Walk</button>
+          <button class="toggle-btn" onclick="setTransport(event,'drive')">🚗 Drive</button>
+          <button class="toggle-btn" onclick="setTransport(event,'transit')">🚇 Transit</button>
+          <button class="toggle-btn" onclick="setTransport(event,'radius')">📍 Radius</button>
+        </div>
+      </div>
+
+      <div id="walkDistance" style="margin-bottom:20px">
+        <label>🚶 Max Walk</label>
+        <select id="walkTime">
+          <option value="10">10 min</option>
+          <option value="15">15 min</option>
+          <option value="20" selected>20 min</option>
+          <option value="30">30 min</option>
+        </select>
+      </div>
+
+      <div id="driveDistance" style="margin-bottom:20px;display:none">
+        <label>🚗 Max Drive</label>
+        <select id="driveTime">
+          <option value="10">10 min</option>
+          <option value="15" selected>15 min</option>
+          <option value="20">20 min</option>
+          <option value="30">30 min</option>
+        </select>
+      </div>
+
+      <div id="transitDistance" style="margin-bottom:20px;display:none">
+        <label>🚇 Max Transit</label>
+        <select id="transitTime">
+          <option value="15">15 min</option>
+          <option value="20" selected>20 min</option>
+          <option value="30">30 min</option>
+          <option value="45">45 min</option>
+        </select>
+      </div>
+
+      <div id="radiusDistance" style="margin-bottom:20px;display:none">
+        <label>📍 Radius</label>
+        <select id="radiusMiles">
+          <option value="1">1 mile</option>
+          <option value="2">2 miles</option>
+          <option value="3" selected>3 miles</option>
+          <option value="5">5 miles</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label>⭐ Quality</label>
+        <select id="quality">
+          <option value="any" selected>Any Quality</option>
+          <option value="michelin">Michelin Stars</option>
+          <option value="bib_gourmand">Bib Gourmand</option>
+          <option value="recommended_44">Recommended (4.4+)</option>
+          <option value="elite_45">Elite (4.5+)</option>
+          <option value="strict_elite_47">Strict Elite (4.7+)</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label>🍕 Cuisine</label>
+        <select id="cuisine">
+          <option value="any">Any</option>
+          <option value="american">American</option>
+          <option value="barbecue">Barbecue</option>
+          <option value="chinese">Chinese</option>
+          <option value="french">French</option>
+          <option value="greek">Greek</option>
+          <option value="indian">Indian</option>
+          <option value="italian">Italian</option>
+          <option value="japanese">Japanese</option>
+          <option value="korean">Korean</option>
+          <option value="mediterranean">Mediterranean</option>
+          <option value="mexican">Mexican</option>
+          <option value="seafood">Seafood</option>
+          <option value="spanish">Spanish</option>
+          <option value="steakhouse">Steakhouse</option>
+          <option value="sushi">Sushi</option>
+          <option value="thai">Thai</option>
+          <option value="vietnamese">Vietnamese</option>
+        </select>
+      </div>
+
+      <button class="btn" onclick="search()">🔍 Find Restaurants</button>
+    </div>
+
+    <div id="results" class="hidden">
+      <button class="back-btn" onclick="back()">← Back</button>
+      <div id="warnings"></div>
+
+      <div class="sort-bar">
+        <label style="margin:0;font-weight:600">📊 Sort:</label>
+        <select id="sortBy" onchange="sortResults()">
+          <option value="distance">Distance</option>
+          <option value="rating">Rating</option>
+          <option value="price">Price</option>
+        </select>
+      </div>
+
+      <div id="list"></div>
+    </div>
+
+    <button class="chatbot-btn" onclick="alert('Chat coming soon!')">💬</button>
+  </div>
+
+<script>
+let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false };
+let allRestaurants = [];
+let isSearching = false;
+let searchAbortController = null;
+
+function michelinRank(r) {
+  if (!r.michelin) return 0;
+  const d = r.michelin.distinction || '';
+  const s = r.michelin.stars || 0;
+  if (s >= 1) return 100 + s;
+  if (d === 'bib_gourmand' || d === 'bib') return 50;
+  if (d === 'recommended') return 25;
+  return 10;
 }
 
-function haversineMiles(lat1, lon1, lat2, lon2) {
-  const R = 3958.8; // miles
-  const toRad = (x) => (x * Math.PI) / 180;
-
-  const dLat = toRad(lat2 - lat1);
-  const dLon = toRad(lon2 - lon1);
-
-  const a =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos(toRad(lat1)) *
-      Math.cos(toRad(lat2)) *
-      Math.sin(dLon / 2) ** 2;
-
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
+function hasPrice(r) {
+  return r.price_level != null && r.price_level !== undefined && r.price_level > 0;
 }
 
-async function geocodeAddress(address, apiKey) {
-  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
-    address
-  )}&key=${apiKey}`;
-
-  const r = await fetch(url);
-  const j = await r.json();
-
-  if (j.status !== "OK" || !j.results?.[0]) {
-    return {
-      error: `Geocode failed: ${j.status}${
-        j.error_message ? " - " + j.error_message : ""
-      }`,
-    };
+function useCurrentLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        document.getElementById('addressInput').value = `${position.coords.latitude},${position.coords.longitude}`;
+      },
+      () => alert('Could not get location')
+    );
   }
-
-  return {
-    origin: j.results[0].geometry.location,
-    confirmedAddress: j.results[0].formatted_address,
-  };
 }
 
-async function findPlaceByText(query, apiKey) {
-  const url =
-    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json` +
-    `?input=${encodeURIComponent(query)}` +
-    `&inputtype=textquery` +
-    `&fields=place_id,formatted_address,geometry,rating,user_ratings_total,price_level,name` +
-    `&key=${apiKey}`;
+function setTransport(evt, mode) {
+  state.transport = mode;
+  const parentDiv = evt.target.parentElement;
+  parentDiv.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  evt.target.classList.add('active');
 
-  const r = await fetch(url);
-  const j = await r.json();
-
-  if (j.status !== "OK" || !j.candidates?.[0]) {
-    console.log("[FindPlace] status:", j.status, "query:", query);
-    return null;
-  }
-
-  return j.candidates[0];
+  document.getElementById('walkDistance').style.display = mode === 'walk' ? 'block' : 'none';
+  document.getElementById('driveDistance').style.display = mode === 'drive' ? 'block' : 'none';
+  document.getElementById('transitDistance').style.display = mode === 'transit' ? 'block' : 'none';
+  document.getElementById('radiusDistance').style.display = mode === 'radius' ? 'block' : 'none';
 }
 
-async function mapWithConcurrency(items, limit, fn) {
-  const results = new Array(items.length);
-  let idx = 0;
+function filterByQuality(restaurants) {
+  const q = state.qualityFilter;
+  if (q === 'any') return restaurants;
+  if (q === 'michelin') return restaurants;
+  if (q === 'bib_gourmand') return restaurants;
 
-  async function worker() {
-    while (idx < items.length) {
-      const i = idx++;
-      try {
-        results[i] = await fn(items[i], i);
-      } catch {
-        results[i] = null;
-      }
-    }
-  }
+  return restaurants.filter(r => {
+    if (r.michelin) return true;
+    const rating = Number(r.googleRating || 0);
 
-  const workers = Array.from({ length: Math.min(limit, items.length) }, worker);
+    if (q === 'strict_elite_47') return rating >= 4.7;
+    if (q === 'elite_45') return rating >= 4.5;
+    if (q === 'recommended_44') return rating >= 4.4;
 
-  await Promise.all(workers);
-  return results;
+    return true;
+  });
 }
 
-//
-// 🔥 LOAD MICHELIN LIST
-//
+async function search() {
+  if (isSearching) return;
 
-let MICHELIN_LIST = [];
-let MICHELIN_LOAD_ERROR = null;
+  if (searchAbortController) searchAbortController.abort();
+  isSearching = true;
+  searchAbortController = new AbortController();
 
-try {
-  MICHELIN_LIST = require("./michelin_nyc.json");
+  const searchBtn = document.querySelector('.btn');
+  searchBtn.disabled = true;
+  searchBtn.style.opacity = '0.5';
+  searchBtn.textContent = '🔍 Searching...';
 
-  if (!Array.isArray(MICHELIN_LIST)) {
-    MICHELIN_LOAD_ERROR = "michelin_nyc.json did not export an array";
-    MICHELIN_LIST = [];
-  }
-} catch (e) {
-  MICHELIN_LOAD_ERROR = `Failed to require michelin_nyc.json: ${e.message}`;
-  console.log("[Michelin]", MICHELIN_LOAD_ERROR);
-  MICHELIN_LIST = [];
-}
+  const location = document.getElementById('addressInput').value;
+  const cuisine = document.getElementById('cuisine').value;
+  state.qualityFilter = document.getElementById('quality').value;
 
-//
-// 🚀 HANDLER
-//
+  const openNow = false;
 
-exports.handler = async (event) => {
+  let maxWalkMinutes = null, maxDriveMinutes = null, maxTransitMinutes = null;
+  if (state.transport === 'walk') maxWalkMinutes = parseInt(document.getElementById('walkTime').value, 10);
+  else if (state.transport === 'drive') maxDriveMinutes = parseInt(document.getElementById('driveTime').value, 10);
+  else if (state.transport === 'transit') maxTransitMinutes = parseInt(document.getElementById('transitTime').value, 10);
+
+  document.getElementById('search').classList.add('hidden');
+  document.getElementById('results').classList.remove('hidden');
+
+  document.getElementById('warnings').innerHTML = '';
+  document.getElementById('list').innerHTML =
+    '<div style="text-align:center;padding:40px">🔍 Finding candidates...</div>';
+
   try {
-    if (event.httpMethod !== "POST") {
-      return stableResponse({ error: "Method not allowed" }, 405);
+    if (state.qualityFilter === 'michelin') {
+      document.getElementById('sortBy').value = 'distance';
+      document.getElementById('list').innerHTML =
+        '<div style="text-align:center;padding:40px">🏅 Loading Michelin (15 mile radius)...</div>';
+
+      const resp = await fetch('/.netlify/functions/search-michelin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ location, radiusMiles: 15 }),
+        signal: searchAbortController.signal
+      });
+
+      if (!resp.ok) {
+        const txt = await resp.text();
+        throw new Error(`search-michelin failed: ${resp.status} ${txt}`);
+      }
+
+      const data = await resp.json();
+
+      if (data?.error) {
+        document.getElementById('warnings').innerHTML = `
+          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
+            ❌ ${data.error}
+          </div>
+        `;
+        document.getElementById('list').innerHTML =
+          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
+        return;
+      }
+
+      allRestaurants = Array.isArray(data.michelin) ? data.michelin.map(r => ({
+        ...r,
+        walkMinutes: r.walkMinEstimate,
+        driveMinutes: r.driveMinEstimate,
+        transitMinutes: r.transitMinEstimate
+      })) : [];
+
+      document.getElementById('warnings').innerHTML = `
+        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
+          📍 ${data.confirmedAddress || location}
+        </div>
+        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
+          ✓ Showing <span id="resultCount">0</span> Michelin restaurants within 15 miles (sorted by distance)
+        </div>
+      `;
+
+      sortResults();
+      return;
     }
 
-    const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-    if (!apiKey) {
-      return stableResponse(
-        { error: "GOOGLE_PLACES_API_KEY not configured" },
-        500
-      );
+    if (state.qualityFilter === 'bib_gourmand') {
+      document.getElementById('sortBy').value = 'distance';
+      document.getElementById('list').innerHTML =
+        '<div style="text-align:center;padding:40px">🍽️ Loading Bib Gourmand (15 mile radius)...</div>';
+
+      const resp = await fetch('/.netlify/functions/search-candidates', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ location, quality: 'bib_gourmand' }),
+        signal: searchAbortController.signal
+      });
+
+      const data = await resp.json();
+
+      if (data?.error) {
+        document.getElementById('warnings').innerHTML = `
+          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
+            ❌ ${data.error}
+          </div>
+        `;
+        document.getElementById('list').innerHTML =
+          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
+        return;
+      }
+
+      allRestaurants = Array.isArray(data.elite) ? data.elite.map(r => ({
+        ...r,
+        walkMinutes: r.walkMinEstimate,
+        driveMinutes: r.driveMinEstimate,
+        transitMinutes: r.transitMinEstimate
+      })) : [];
+
+      document.getElementById('warnings').innerHTML = `
+        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
+          📍 ${data.confirmedAddress || location}
+        </div>
+        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
+          ✓ Showing <span id="resultCount">0</span> Bib Gourmand restaurants within 15 miles (sorted by distance)
+        </div>
+      `;
+
+      sortResults();
+      return;
     }
 
-    const body = JSON.parse(event.body || "{}");
-    const location = String(body.location || "").trim();
-    const radiusMiles = Number.isFinite(Number(body.radiusMiles))
-      ? Number(body.radiusMiles)
-      : 15;
+    const step1Response = await fetch('/.netlify/functions/search-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        location,
+        cuisine: cuisine === 'any' ? undefined : cuisine,
+        openNow,
+        quality: state.qualityFilter
+      }),
+      signal: searchAbortController.signal
+    });
 
-    if (!location) {
-      return stableResponse({ error: "Missing location", michelin: [] }, 400);
+    const step1Data = await step1Response.json();
+
+    if (step1Data?.error) {
+      document.getElementById('warnings').innerHTML = `
+        <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
+          ❌ ${step1Data.error}
+        </div>
+      `;
+      document.getElementById('list').innerHTML =
+        `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
+      return;
     }
 
-    const geo = await geocodeAddress(location, apiKey);
-    if (geo.error) {
-      return stableResponse({ error: geo.error, michelin: [] }, 400);
+    const eliteRestaurants = Array.isArray(step1Data.elite) ? step1Data.elite : [];
+    const moreOptionsRestaurants = Array.isArray(step1Data.moreOptions) ? step1Data.moreOptions : [];
+
+    allRestaurants = [...eliteRestaurants, ...moreOptionsRestaurants].map(c => ({
+      ...c,
+      walkMinutes: c.walkMinutes ?? c.walkMinEstimate ?? null,
+      driveMinutes: c.driveMinutes ?? c.driveMinEstimate ?? null,
+      transitMinutes: c.transitMinutes ?? c.transitMinEstimate ?? null
+    }));
+
+    document.getElementById('warnings').innerHTML = `
+      <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
+        📍 ${step1Data.confirmedAddress || location}
+      </div>
+      <div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e;font-weight:700">
+        ⏱️ Found ${allRestaurants.length} candidates. Getting precise times...
+      </div>
+      <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
+        ✓ Showing <span id="resultCount">0</span> restaurants
+      </div>
+    `;
+
+    sortResults();
+
+    let enrichLimit = 200;
+    if (state.transport === 'walk') {
+      if (maxWalkMinutes >= 30) enrichLimit = 250;
+      else if (maxWalkMinutes >= 20) enrichLimit = 200;
+      else enrichLimit = 150;
+    } else if (state.transport === 'drive') {
+      enrichLimit = 200;
+    } else if (state.transport === 'transit') {
+      enrichLimit = 200;
     }
 
-    const { origin, confirmedAddress } = geo;
+    const originalCandidates = [...allRestaurants];
 
-    if (!MICHELIN_LIST.length) {
-      return stableResponse(
-        {
-          error: "Michelin list empty or failed to load",
-          debug: {
-            loadError: MICHELIN_LOAD_ERROR,
-            loadedCount: MICHELIN_LIST.length,
-          },
-          michelin: [],
-        },
-        500
-      );
+    const toEnrich = [...originalCandidates]
+      .sort((a, b) => {
+        const da = (a.distanceMiles ?? 999999);
+        const db = (b.distanceMiles ?? 999999);
+        if (da !== db) return da - db;
+
+        const wa = (a.walkMinEstimate ?? 999999);
+        const wb = (b.walkMinEstimate ?? 999999);
+        if (wa !== wb) return wa - wb;
+
+        return String(a.name || '').localeCompare(String(b.name || ''));
+      })
+      .slice(0, enrichLimit);
+
+    const step2Response = await fetch('/.netlify/functions/enrich-times', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        candidates: toEnrich,
+        userLocation: step1Data.userLocation,
+        transportMode: state.transport,
+        targetMinResults: 20,
+        cuisineFilter: cuisine === 'any' ? null : cuisine,
+        walkTimeLimit: maxWalkMinutes
+      }),
+      signal: searchAbortController.signal
+    });
+
+    if (!step2Response.ok) {
+      const errTxt = await step2Response.text();
+      throw new Error(`enrich-times failed: ${step2Response.status} ${errTxt}`);
     }
 
-    const resolved = await mapWithConcurrency(MICHELIN_LIST, 5, async (m) => {
-      const name = m?.name ? String(m.name).trim() : "";
-      if (!name) return null;
+    const step2Data = await step2Response.json();
+    const enriched = Array.isArray(step2Data.enrichedCandidates) ? step2Data.enrichedCandidates : [];
+    const enrichedById = new Map(enriched.map(r => [r.place_id, r]));
 
-      const query = `${name}, New York, NY`;
-      const place = await findPlaceByText(query, apiKey);
-      if (!place?.geometry?.location) return null;
-
-      const lat = place.geometry.location.lat;
-      const lng = place.geometry.location.lng;
-
-      const distanceMiles =
-        Math.round(haversineMiles(origin.lat, origin.lng, lat, lng) * 10) / 10;
-
-      if (distanceMiles > radiusMiles) return null;
+    allRestaurants = originalCandidates.map(r => {
+      const e = enrichedById.get(r.place_id);
+      if (!e) return r;
 
       return {
-        place_id: place.place_id || null,
-        name: place.name || name,
-        formatted_address: place.formatted_address || "",
-        geometry: { location: { lat, lng } },
-
-        googleRating: place.rating || 0,
-        googleReviewCount: place.user_ratings_total || 0,
-        price_level: place.price_level ?? null,
-
-        distanceMiles,
-
-        michelin: {
-          distinction: m.distinction || "star",
-          stars: Number(m.stars || 0),
-        },
+        ...r,
+        ...e,
+        walkMinutes: e.walkMinutes ?? e.walkMinEstimate ?? r.walkMinutes ?? r.walkMinEstimate ?? null,
+        driveMinutes: e.driveMinutes ?? e.driveMinEstimate ?? r.driveMinutes ?? r.driveMinEstimate ?? null,
+        transitMinutes: e.transitMinutes ?? e.transitMinEstimate ?? r.transitMinutes ?? r.transitMinEstimate ?? null
       };
     });
 
-    const michelin = resolved
-      .filter(Boolean)
-      .sort(
-        (a, b) => (a.distanceMiles ?? 999999) - (b.distanceMiles ?? 999999)
-      );
+    let realTimeFiltered = allRestaurants;
+    if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
+    else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
+    else if (state.transport === 'transit' && maxTransitMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
+    allRestaurants = realTimeFiltered;
 
-    return stableResponse({
-      michelin,
-      confirmedAddress,
-      userLocation: origin,
-      stats: {
-        requestedRadiusMiles: radiusMiles,
-        listCount: MICHELIN_LIST.length,
-        returnedCount: michelin.length,
-      },
-    });
-  } catch (e) {
-    console.log("search-michelin error:", e);
-    return stableResponse(
-      { error: e.message || "Unknown error", michelin: [] },
-      500
-    );
+    document.getElementById('warnings').innerHTML = `
+      <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
+        📍 ${step1Data.confirmedAddress || location}
+      </div>
+      <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
+        ✓ Showing <span id="resultCount">0</span> restaurants
+      </div>
+    `;
+
+    sortResults();
+
+  } catch (error) {
+    console.error('Search error:', error);
+    if (error.name === 'AbortError') return;
+
+    const errorMsg = error.message ? `😔 ${error.message}` : '😔 Search failed';
+
+    document.getElementById('warnings').innerHTML = `
+      <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
+        ${errorMsg}
+      </div>
+    `;
+    document.getElementById('list').innerHTML = `<div style="text-align:center;padding:40px">${errorMsg}</div>`;
+  } finally {
+    isSearching = false;
+    const searchBtn = document.querySelector('.btn');
+    searchBtn.disabled = false;
+    searchBtn.style.opacity = '1';
+    searchBtn.textContent = '🔍 Find Restaurants';
   }
-};
+}
+
+function sortResults() {
+  let filtered = filterByQuality(allRestaurants);
+  const sortBy = document.getElementById('sortBy').value;
+
+  if (sortBy === 'price') {
+    // Price sort: $ first → $$$$ last → N/A at very bottom
+    const priced = filtered.filter(r => hasPrice(r));
+    const noPrice = filtered.filter(r => !hasPrice(r));
+
+    // Sort priced: lowest first, michelin rank as tiebreaker within same price
+    priced.sort((a, b) => {
+      if (a.price_level !== b.price_level) return a.price_level - b.price_level;
+      const ma = michelinRank(a), mb = michelinRank(b);
+      if (ma !== mb) return mb - ma;
+      return (b.googleRating || 0) - (a.googleRating || 0);
+    });
+
+    // Sort N/A by michelin rank then rating
+    noPrice.sort((a, b) => {
+      const ma = michelinRank(a), mb = michelinRank(b);
+      if (ma !== mb) return mb - ma;
+      return (b.googleRating || 0) - (a.googleRating || 0);
+    });
+
+    displayResults(priced, noPrice);
+  } else {
+    let sorted = [...filtered];
+
+    if (sortBy === 'rating') {
+      sorted.sort((a, b) => {
+        const ma = michelinRank(a), mb = michelinRank(b);
+        if (ma !== mb) return mb - ma;
+        return (b.googleRating || 0) - (a.googleRating || 0);
+      });
+    } else if (sortBy === 'distance') {
+      sorted.sort((a, b) => {
+        const da = a.distanceMiles ?? 999999;
+        const db = b.distanceMiles ?? 999999;
+        if (da !== db) return da - db;
+        const ma = michelinRank(a), mb = michelinRank(b);
+        if (ma !== mb) return mb - ma;
+        if ((b.googleRating || 0) !== (a.googleRating || 0)) return (b.googleRating || 0) - (a.googleRating || 0);
+        return String(a.name || '').localeCompare(String(b.name || ''));
+      });
+    }
+
+    displayResults(sorted, null);
+  }
+}
+
+function renderCard(r) {
+  let distanceHtml = '';
+  if (r.walkMinutes != null) distanceHtml += `<span class="badge distance">🚶 ${r.walkMinutes} min</span>`;
+  if (r.driveMinutes != null) distanceHtml += `<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
+  if (r.transitMinutes != null) distanceHtml += `<span class="badge distance">🚇 ${r.transitMinutes} min</span>`;
+  if (r.distanceMiles != null) distanceHtml += `<span class="badge distance">📍 ${r.distanceMiles} mi</span>`;
+
+  let michelinHtml = '';
+  if (r.michelin) {
+    const stars = r.michelin.stars || 0;
+    const distinction = r.michelin.distinction || '';
+    if (stars === 3) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐⭐ Michelin Three Stars</span>`;
+    else if (stars === 2) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐ Michelin Two Stars</span>`;
+    else if (stars === 1) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin One Star</span>`;
+    else if (distinction === 'bib_gourmand' || distinction === 'bib') michelinHtml = `<span class="badge" style="background:#e65100;color:white;border-color:#e65100">🍽️ Bib Gourmand</span>`;
+    else if (distinction === 'recommended') michelinHtml = `<span class="badge" style="background:#9c27b0;color:white;border-color:#9c27b0">✨ Michelin Recommended</span>`;
+    else michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">Michelin Selected</span>`;
+  }
+
+  const rating = (r.googleRating || 0);
+  const reviews = (r.googleReviewCount || 0);
+
+  const ratingHtml = r.michelin
+    ? ''
+    : (r.googleRating != null && r.googleRating !== 0)
+      ? `<span class="badge">⭐ ${Number(rating).toFixed(1)} (${reviews})</span>`
+      : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
+
+  const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
+
+  const mapsUrl = r.place_id
+    ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
+    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || 'New York, NY'))}`;
+
+  const reserveUrl = `https://www.google.com/search?q=${encodeURIComponent((r.name || '') + ' reservations ' + (r.vicinity || r.formatted_address || 'New York, NY'))}`;
+
+  let bookingHtml = '';
+  if (r.booking_url && r.booking_platform) {
+    const platformName = r.booking_platform === 'opentable' ? 'OpenTable'
+      : r.booking_platform === 'resy' ? 'Resy'
+      : r.booking_platform === 'tock' ? 'Tock' : 'Reserve';
+    const platformColor = r.booking_platform === 'opentable' ? '#da3743'
+      : r.booking_platform === 'resy' ? '#c2185b'
+      : r.booking_platform === 'tock' ? '#1a73e8' : '#333';
+    bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:${platformColor};font-size:13px;font-weight:600">🔖 Book with ${platformName}</a>`;
+  } else {
+    bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#666;font-size:13px;font-weight:600">🔖 Book with Google</a>`;
+  }
+
+  return `
+    <div class="restaurant">
+      <h3>${r.name || 'Unknown'}</h3>
+      <div class="cuisine">${r.vicinity || r.formatted_address || ''}</div>
+      ${bookingHtml}
+      <div class="badges">
+        ${michelinHtml}
+        ${ratingHtml}
+        ${priceHtml}
+        ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
+        ${distanceHtml}
+        <button onclick="window.open('${mapsUrl}','_blank')"
+          style="margin-left:auto;padding:8px 16px;background:#4285f4;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px">
+          📍 Maps
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function displayResults(restaurants, noPriceRestaurants) {
+  const totalCount = restaurants.length + (noPriceRestaurants ? noPriceRestaurants.length : 0);
+  const countEl = document.getElementById('resultCount');
+  if (countEl) countEl.textContent = String(totalCount);
+
+  if (!totalCount) {
+    document.getElementById('list').innerHTML =
+      '<div style="text-align:center;padding:40px">No restaurants found</div>';
+    return;
+  }
+
+  let html = restaurants.map(r => renderCard(r)).join('');
+
+  // When sorting by price, show N/A restaurants at the bottom with a divider
+  if (noPriceRestaurants && noPriceRestaurants.length > 0) {
+    html += `<div class="section-divider">💰 Price not available (${noPriceRestaurants.length})</div>`;
+    html += noPriceRestaurants.map(r => renderCard(r)).join('');
+  }
+
+  document.getElementById('list').innerHTML = html;
+}
+
+function back() {
+  document.getElementById('search').classList.remove('hidden');
+  document.getElementById('results').classList.add('hidden');
+}
+
+async function initAutocomplete() {
+  try {
+    const resp = await fetch('/.netlify/functions/get-maps-key');
+    const data = await resp.json();
+    if (!data.key) return;
+
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${data.key}&libraries=places&callback=setupAutocomplete`;
+    script.async = true;
+    document.head.appendChild(script);
+  } catch (err) {
+    console.log('Autocomplete init failed:', err);
+  }
+}
+
+function setupAutocomplete() {
+  const input = document.getElementById('addressInput');
+  const autocomplete = new google.maps.places.Autocomplete(input, {
+    types: ['address'],
+    componentRestrictions: { country: 'us' }
+  });
+
+  autocomplete.addListener('place_changed', () => {
+    const place = autocomplete.getPlace();
+    if (place && place.formatted_address) {
+      input.value = place.formatted_address;
+    }
+  });
+}
+
+initAutocomplete();
+</script>
+</body>
+</html>
