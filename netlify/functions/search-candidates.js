@@ -93,6 +93,7 @@ function attachMichelinBadges(candidates, michelinResolved) {
       c.michelin = { stars: m.stars || 0, distinction: m.distinction || 'star' };
       c.booking_platform = m.booking_platform || null;
       c.booking_url = m.booking_url || null;
+      c.chase_sapphire = m.chase_sapphire || false;
       matched++;
     }
   }
@@ -312,7 +313,7 @@ exports.handler = async (event) => {
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: { stars: r.stars||0, distinction: r.distinction||'star' },
-          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null };
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null, chase_sapphire: r.chase_sapphire || false };
       }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, michelinMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
@@ -331,7 +332,7 @@ exports.handler = async (event) => {
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: r.cuisine || null,
-          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null };
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null, chase_sapphire: r.chase_sapphire || false };
       }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, bibGourmandMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
@@ -506,6 +507,7 @@ exports.handler = async (event) => {
         c.michelin = { stars: 0, distinction: 'bib_gourmand' };
         c.booking_platform = b.booking_platform || null;
         c.booking_url = b.booking_url || null;
+        c.chase_sapphire = b.chase_sapphire || false;
       }
     }
 
@@ -538,6 +540,7 @@ exports.handler = async (event) => {
         cuisine: m.cuisine || null,
         booking_platform: m.booking_platform || null,
         booking_url: m.booking_url || null,
+        chase_sapphire: m.chase_sapphire || false,
         _source: 'michelin_inject'
       });
       injected++;
@@ -568,6 +571,7 @@ exports.handler = async (event) => {
         michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: b.cuisine || null,
         booking_platform: b.booking_platform || null,
         booking_url: b.booking_url || null,
+        chase_sapphire: b.chase_sapphire || false,
         _source: 'bib_inject'
       });
       existingNames.add(normalizeName(b.name));
