@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8" />
@@ -300,12 +300,21 @@ async function search() {
         return;
       }
 
-      allRestaurants = Array.isArray(data.michelin) ? data.michelin.map(r => ({
-        ...r,
-        walkMinutes: r.walkMinEstimate,
-        driveMinutes: r.driveMinEstimate,
-        transitMinutes: r.transitMinEstimate
-      })) : [];
+      allRestaurants = Array.isArray(data.michelin) ? data.michelin.map(r => {
+        // Calculate walk/drive/transit from distanceMiles if backend didn't provide them
+        const d = r.distanceMiles ?? null;
+        const walk = r.walkMinEstimate ?? r.walkMinutes ?? (d != null ? Math.round(d * 20) : null);
+        const drive = r.driveMinEstimate ?? r.driveMinutes ?? (d != null ? Math.round(d * 4) : null);
+        const transit = r.transitMinEstimate ?? r.transitMinutes ?? (d != null ? Math.round(d * 6) : null);
+        return {
+          ...r,
+          walkMinutes: walk,
+          driveMinutes: drive,
+          transitMinutes: transit,
+          booking_platform: r.booking_platform || null,
+          booking_url: r.booking_url || null
+        };
+      }) : [];
 
       document.getElementById('warnings').innerHTML = `
         <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
@@ -599,7 +608,7 @@ function renderCard(r) {
     ? `https://www.google.com/maps/search/?api=1&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || 'New York, NY'))}`;
 
-  const reserveUrl = `https://www.google.com/search?q=${encodeURIComponent((r.name || '') + ' reservations ' + (r.vicinity || r.formatted_address || 'New York, NY'))}`;
+  const reserveUrl = `https://www.google.com/search?q=${encodeURIComponent((r.name || '') + ' NYC reservations')}`;
 
   let bookingHtml = '';
   if (r.booking_url && r.booking_platform) {
@@ -611,7 +620,7 @@ function renderCard(r) {
       : r.booking_platform === 'tock' ? '#1a73e8' : '#333';
     bookingHtml = `<a href="${r.booking_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:${platformColor};font-size:13px;font-weight:600">🔖 Book with ${platformName}</a>`;
   } else {
-    bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#666;font-size:13px;font-weight:600">🔖 Book with Google</a>`;
+    bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#666;font-size:13px;font-weight:600">🔖 Find Reservations</a>`;
   }
 
   return `
