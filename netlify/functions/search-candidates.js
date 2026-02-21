@@ -19,6 +19,12 @@ try {
   console.log(`\u2705 Bib Gourmand base: ${BIB_GOURMAND_BASE.length} entries`);
 } catch (err) { console.warn('\u274c Bib Gourmand base missing:', err.message); }
 
+let CHASE_SAPPHIRE_BASE = [];
+try {
+  CHASE_SAPPHIRE_BASE = JSON.parse(fs.readFileSync(path.join(__dirname, 'chase_sapphire_nyc.json'), 'utf8'));
+  console.log(`\u2705 Chase Sapphire base: ${CHASE_SAPPHIRE_BASE.length} entries`);
+} catch (err) { console.warn('\u274c Chase Sapphire base missing:', err.message); }
+
 let MICHELIN_RESOLVED = null;
 let MICHELIN_RESOLVED_AT = 0;
 const MICHELIN_RESOLVE_TTL_MS = 24 * 60 * 60 * 1000;
@@ -578,6 +584,36 @@ exports.handler = async (event) => {
       bibInjected++;
     }
     if (bibInjected) console.log(`\u2705 Injected ${bibInjected} Bib Gourmand restaurants not in Google results`);
+
+    // INJECT Chase Sapphire restaurants that weren't in Google results or Michelin/Bib
+    let chaseInjected = 0;
+    for (const c of CHASE_SAPPHIRE_BASE) {
+      if (!c?.lat || !c?.lng) continue;
+      if (c.name && existingNames.has(normalizeName(c.name))) continue;
+      if (cuisineStr && c.cuisine) {
+        const cc = c.cuisine.toLowerCase();
+        if (!cc.includes(cuisineStr.toLowerCase())) continue;
+      }
+      const d = haversineMiles(gLat, gLng, c.lat, c.lng);
+      if (d > 15.0) continue; // wider radius for Chase (includes Jersey City)
+      within.push({
+        place_id: null, name: c.name,
+        vicinity: c.address || '', formatted_address: c.address || '',
+        price_level: c.price_level || null, opening_hours: null,
+        geometry: { location: { lat: c.lat, lng: c.lng } },
+        types: [], googleRating: c.googleRating || 0, googleReviewCount: c.googleReviewCount || 0,
+        distanceMiles: Math.round(d * 10) / 10,
+        walkMinEstimate: Math.round(d * 20), driveMinEstimate: Math.round(d * 4), transitMinEstimate: Math.round(d * 6),
+        michelin: null, cuisine: c.cuisine || null,
+        booking_platform: c.booking_platform || null,
+        booking_url: c.booking_url || null,
+        chase_sapphire: true,
+        _source: 'chase_inject'
+      });
+      existingNames.add(normalizeName(c.name));
+      chaseInjected++;
+    }
+    if (chaseInjected) console.log(`\u2705 Injected ${chaseInjected} Chase Sapphire restaurants not in other results`);
 
     const fStart = Date.now();
     const { elite, moreOptions, excluded } = filterRestaurantsByTier(within, qualityMode);
