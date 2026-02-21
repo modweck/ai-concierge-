@@ -9,7 +9,7 @@
     "address": "63 Clinton St, New York, NY 10002",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/sal-tangs"
+    "booking_url": "https://resy.com/cities/ny/sal-tangs"
   },
   {
     "name": "La Dong",
@@ -45,7 +45,7 @@
     "address": "290 Hudson St, New York, NY 10013",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/cardamom"
+    "booking_url": "https://resy.com/cities/ny/cardamom"
   },
   {
     "name": "Ruffian",
@@ -57,7 +57,7 @@
     "address": "125 E 7th St, New York, NY 10009",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/ruffian"
+    "booking_url": "https://resy.com/cities/ny/ruffian"
   },
   {
     "name": "Bohemian Spirit",
@@ -69,7 +69,7 @@
     "address": "27-08 23rd Ave, Astoria, NY 11105",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/bohemian-spirit"
+    "booking_url": "https://resy.com/cities/ny/bohemian-spirit"
   },
   {
     "name": "B\u00e1nh Anh Em",
@@ -93,7 +93,7 @@
     "address": "52 W 14th St, New York, NY 10011",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/ishq"
+    "booking_url": "https://resy.com/cities/ny/ishq"
   },
   {
     "name": "Yellow Rose",
@@ -105,7 +105,7 @@
     "address": "102 Ave B, New York, NY 10009",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/yellow-rose"
+    "booking_url": "https://resy.com/cities/ny/yellow-rose"
   },
   {
     "name": "SaRanRom Thai",
@@ -117,7 +117,7 @@
     "address": "169 Bedford Ave, Brooklyn, NY 11211",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/saranrom-thai"
+    "booking_url": "https://resy.com/cities/ny/saranrom-thai"
   },
   {
     "name": "Gordo's Cantina",
@@ -129,7 +129,7 @@
     "address": "131 N 7th St, Brooklyn, NY 11249",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/gordos-cantina"
+    "booking_url": "https://resy.com/cities/ny/gordos-cantina"
   },
   {
     "name": "Hupo",
@@ -141,7 +141,7 @@
     "address": "120 1st Ave, New York, NY 10009",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/hupo"
+    "booking_url": "https://resy.com/cities/ny/hupo"
   },
   {
     "name": "Rolo's",
@@ -153,7 +153,7 @@
     "address": "212 E Houston St, New York, NY 10002",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/rolos"
+    "booking_url": "https://resy.com/cities/ny/rolos"
   },
   {
     "name": "Hometown Bar B Que New York",
@@ -177,7 +177,7 @@
     "address": "33-13 Broadway, Astoria, NY 11106",
     "price_level": 1,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/bayon"
+    "booking_url": "https://resy.com/cities/ny/bayon"
   },
   {
     "name": "CheLi",
@@ -189,7 +189,7 @@
     "address": "176 Mott St, New York, NY 10013",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/cheli"
+    "booking_url": "https://resy.com/cities/ny/cheli"
   },
   {
     "name": "Cho Dang Gol",
@@ -201,7 +201,7 @@
     "address": "55 W 35th St, New York, NY 10001",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/cho-dang-gol"
+    "booking_url": "https://resy.com/cities/ny/cho-dang-gol"
   },
   {
     "name": "Laliko",
@@ -213,7 +213,7 @@
     "address": "1703 Sheepshead Bay Rd, Brooklyn, NY 11235",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/laliko"
+    "booking_url": "https://resy.com/cities/ny/laliko"
   },
   {
     "name": "Pierozek",
@@ -225,7 +225,7 @@
     "address": "166 Bedford Ave, Brooklyn, NY 11211",
     "price_level": 1,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/pierozek"
+    "booking_url": "https://resy.com/cities/ny/pierozek"
   },
   {
     "name": "Caleta 111 Cevicheria",
@@ -273,7 +273,7 @@
     "address": "184 DeKalb Ave, Brooklyn, NY 11205",
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/miss-ada"
+    "booking_url": "https://resy.com/cities/ny/miss-ada"
   },
   {
     "name": "Oso",
@@ -285,7 +285,7 @@
     "address": "636 Sackett St, Brooklyn, NY 11217",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/oso"
+    "booking_url": "https://resy.com/cities/ny/oso"
   },
   {
     "name": "Thai Diner",
@@ -297,7 +297,7 @@
     "address": "186 Mott St, New York, NY 10012",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/thai-diner"
+    "booking_url": "https://resy.com/cities/ny/thai-diner"
   },
   {
     "name": "Chavela's",
@@ -321,7 +321,7 @@
     "address": "376 Classon Ave, Brooklyn, NY 11238",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/speedy-romeo"
+    "booking_url": "https://resy.com/cities/ny/speedy-romeo"
   },
   {
     "name": "Katz's",
@@ -345,7 +345,7 @@
     "address": "175 E 2nd St, New York, NY 10009",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/untable"
+    "booking_url": "https://resy.com/cities/ny/untable"
   },
   {
     "name": "Little Alley",
@@ -357,7 +357,7 @@
     "address": "115 E 27th St, New York, NY 10016",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/little-alley"
+    "booking_url": "https://resy.com/cities/ny/little-alley"
   },
   {
     "name": "Pinch Chinese",
@@ -369,7 +369,7 @@
     "address": "177 Prince St, New York, NY 10012",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/pinch-chinese"
+    "booking_url": "https://resy.com/cities/ny/pinch-chinese"
   },
   {
     "name": "Caf\u00e9 Mars",
@@ -381,7 +381,7 @@
     "address": "218 Court St, Brooklyn, NY 11201",
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/cafe-mars"
+    "booking_url": "https://resy.com/cities/ny/cafe-mars"
   },
   {
     "name": "Dhamaka",
@@ -393,7 +393,7 @@
     "address": "119 Delancey St, New York, NY 10002",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/dhamaka"
+    "booking_url": "https://resy.com/cities/ny/dhamaka"
   },
   {
     "name": "Tha Phraya",
@@ -417,7 +417,7 @@
     "address": "33 Carmine St, New York, NY 10014",
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/nami-nori"
+    "booking_url": "https://resy.com/cities/ny/nami-nori"
   },
   {
     "name": "Sagara",
@@ -429,7 +429,7 @@
     "address": "86 1st Ave, New York, NY 10009",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/sagara"
+    "booking_url": "https://resy.com/cities/ny/sagara"
   },
   {
     "name": "Shalom Japan",
@@ -441,7 +441,7 @@
     "address": "310 S 4th St, Brooklyn, NY 11211",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/shalom-japan"
+    "booking_url": "https://resy.com/cities/ny/shalom-japan"
   },
   {
     "name": "HanGawi",
@@ -465,7 +465,7 @@
     "address": "178 1st Ave, New York, NY 10009",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/tolo"
+    "booking_url": "https://resy.com/cities/ny/tolo"
   },
   {
     "name": "Little Myanmar",
@@ -501,7 +501,7 @@
     "address": "13 W 36th St, New York, NY 10018",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/tonchin"
+    "booking_url": "https://resy.com/cities/ny/tonchin"
   },
   {
     "name": "Russ & Daughters Cafe",
@@ -513,7 +513,7 @@
     "address": "127 Orchard St, New York, NY 10002",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/russ-and-daughters-cafe"
+    "booking_url": "https://resy.com/cities/ny/russ-and-daughters-cafe"
   },
   {
     "name": "Una Pizza Napoletana",
@@ -525,7 +525,7 @@
     "address": "175 Orchard St, New York, NY 10002",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/una-pizza-napoletana"
+    "booking_url": "https://resy.com/cities/ny/una-pizza-napoletana"
   },
   {
     "name": "Dim Sum Go Go",
@@ -549,7 +549,7 @@
     "address": "88 University Pl, New York, NY 10003",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/pranakhon"
+    "booking_url": "https://resy.com/cities/ny/pranakhon"
   },
   {
     "name": "Agi's Counter",
@@ -561,7 +561,7 @@
     "address": "818 Classon Ave, Brooklyn, NY 11238",
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/agis-counter"
+    "booking_url": "https://resy.com/cities/ny/agis-counter"
   },
   {
     "name": "Jiang Nan",
@@ -585,7 +585,7 @@
     "address": "8 W 36th St, New York, NY 10018",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/8282"
+    "booking_url": "https://resy.com/cities/ny/8282"
   },
   {
     "name": "Alley 41",
@@ -609,7 +609,7 @@
     "address": "552 Vanderbilt Ave, Brooklyn, NY 11238",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/alta-calidad"
+    "booking_url": "https://resy.com/cities/ny/alta-calidad"
   },
   {
     "name": "Atla",
@@ -621,7 +621,7 @@
     "address": "372 Lafayette St, New York, NY 10012",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/atla"
+    "booking_url": "https://resy.com/cities/ny/atla"
   },
   {
     "name": "Bonnie's",
@@ -633,7 +633,7 @@
     "address": "398 S 2nd St, Brooklyn, NY 11211",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/bonnies"
+    "booking_url": "https://resy.com/cities/ny/bonnies"
   },
   {
     "name": "Boro6 Wine Bar",
@@ -657,7 +657,7 @@
     "address": "547 Vanderbilt Ave, Brooklyn, NY 11238",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/bungalow"
+    "booking_url": "https://resy.com/cities/ny/bungalow"
   },
   {
     "name": "Burrata",
@@ -681,7 +681,7 @@
     "address": "123 E 1st St, New York, NY 10009",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/c-as-in-charlie"
+    "booking_url": "https://resy.com/cities/ny/c-as-in-charlie"
   },
   {
     "name": "Cervo's",
@@ -693,7 +693,7 @@
     "address": "43 Canal St, New York, NY 10002",
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/cervos"
+    "booking_url": "https://resy.com/cities/ny/cervos"
   },
   {
     "name": "Chalong",
@@ -741,7 +741,7 @@
     "address": "5 W 31st St, New York, NY 10001",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/coqodaq"
+    "booking_url": "https://resy.com/cities/ny/coqodaq"
   },
   {
     "name": "Covacha",
@@ -753,7 +753,7 @@
     "address": "180 S 4th St, Brooklyn, NY 11211",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/covacha"
+    "booking_url": "https://resy.com/cities/ny/covacha"
   },
   {
     "name": "Enoteca Maria",
@@ -777,7 +777,7 @@
     "address": "112 Harrison Pl, Brooklyn, NY 11237",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/falansai"
+    "booking_url": "https://resy.com/cities/ny/falansai"
   },
   {
     "name": "Haenyeo",
@@ -789,7 +789,7 @@
     "address": "239 5th Ave, Brooklyn, NY 11215",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/haenyeo"
+    "booking_url": "https://resy.com/cities/ny/haenyeo"
   },
   {
     "name": "LORE",
@@ -801,7 +801,7 @@
     "address": "566 Vanderbilt Ave, Brooklyn, NY 11238",
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/lore"
+    "booking_url": "https://resy.com/cities/ny/lore"
   },
   {
     "name": "Lungi",
@@ -813,7 +813,7 @@
     "address": "30 St Marks Pl, New York, NY 10003",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/lungi"
+    "booking_url": "https://resy.com/cities/ny/lungi"
   },
   {
     "name": "M\u00e1L\u00e0 Project",
@@ -825,7 +825,7 @@
     "address": "122 1st Ave, New York, NY 10009",
     "price_level": 1,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/mala-project"
+    "booking_url": "https://resy.com/cities/ny/mala-project"
   },
   {
     "name": "Momofuku Noodle Bar",
@@ -837,7 +837,7 @@
     "address": "171 1st Ave, New York, NY 10003",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/momofuku-noodle-bar"
+    "booking_url": "https://resy.com/cities/ny/momofuku-noodle-bar"
   },
   {
     "name": "Noreetuh",
@@ -849,7 +849,7 @@
     "address": "128 1st Ave, New York, NY 10009",
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/noreetuh"
+    "booking_url": "https://resy.com/cities/ny/noreetuh"
   },
   {
     "name": "Olmo",
@@ -861,7 +861,7 @@
     "address": "157 Adelphi St, Brooklyn, NY 11205",
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/olmo"
+    "booking_url": "https://resy.com/cities/ny/olmo"
   },
   {
     "name": "Peppercorn Station",
@@ -885,7 +885,7 @@
     "address": "251 Grand St, Brooklyn, NY 11211",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/potluck-club"
+    "booking_url": "https://resy.com/cities/ny/potluck-club"
   },
   {
     "name": "Roberta's",
@@ -897,7 +897,7 @@
     "address": "261 Moore St, Brooklyn, NY 11206",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/robertas"
+    "booking_url": "https://resy.com/cities/ny/robertas"
   },
   {
     "name": "Runner Up",
@@ -909,7 +909,7 @@
     "address": "46 Graham Ave, Brooklyn, NY 11206",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/runner-up"
+    "booking_url": "https://resy.com/cities/ny/runner-up"
   },
   {
     "name": "Yemenat",
@@ -933,7 +933,7 @@
     "address": "159 Graham Ave, Brooklyn, NY 11206",
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/win-son"
+    "booking_url": "https://resy.com/cities/ny/win-son"
   },
   {
     "name": "Zaab Zaab",
@@ -957,7 +957,7 @@
     "address": "135 1st Ave, New York, NY 10003",
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/cecily"
+    "booking_url": "https://resy.com/cities/ny/cecily"
   },
   {
     "name": "Soba Totto",
@@ -981,7 +981,7 @@
     "address": "128 Greenpoint Ave, Brooklyn, NY 11222",
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/oxomoco"
+    "booking_url": "https://resy.com/cities/ny/oxomoco"
   },
   {
     "name": "Ugly Baby",
