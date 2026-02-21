@@ -368,7 +368,7 @@ exports.handler = async (event) => {
     const KEY = process.env.GOOGLE_PLACES_API_KEY;
     if (!KEY) return stableResponse([], [], {}, 'API key not configured');
 
-    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v11';
+    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v12';
     const cached = getFromCache(cacheKey);
     if (cached) { timings.total_ms = Date.now()-t0; return stableResponse(cached.elite, cached.moreOptions, { ...cached.stats, cached: true, performance: { ...timings, cache_hit: true } }); }
 
@@ -615,7 +615,7 @@ exports.handler = async (event) => {
       // Check booking lookup table first (most reliable)
       if (!bp) {
         const bookingInfo = getBookingInfo(p.name);
-        if (bookingInfo) { bp = bookingInfo.platform; bu = bookingInfo.url; }
+        if (bookingInfo) { bp = bookingInfo.platform; bu = bookingInfo.url; console.log(`📖 Lookup match: ${p.name} → ${bp}`); }
       }
       // Fallback: check if websiteUri itself is a booking platform
       if (!bp && p.websiteUri) {
