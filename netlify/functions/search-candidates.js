@@ -38,21 +38,44 @@ try {
 } catch (err) { console.warn('\u274c Deposit lookup missing:', err.message); }
 
 let BOOKING_LOOKUP = {};
+let BOOKING_KEYS = []; // pre-sorted keys for fuzzy matching
 try {
   BOOKING_LOOKUP = JSON.parse(fs.readFileSync(path.join(__dirname, 'booking_lookup.json'), 'utf8'));
-  console.log(`\u2705 Booking lookup: ${Object.keys(BOOKING_LOOKUP).length} entries`);
+  BOOKING_KEYS = Object.keys(BOOKING_LOOKUP);
+  console.log(`\u2705 Booking lookup: ${BOOKING_KEYS.length} entries`);
 } catch (err) { console.warn('\u274c Booking lookup missing:', err.message); }
+
+function normalizeForBooking(name) {
+  return (name || '').toLowerCase().trim()
+    .replace(/\s*[-–—]\s*(midtown|downtown|uptown|east village|west village|tribeca|soho|noho|brooklyn|queens|fidi|financial district|nomad|lincoln square|nyc|new york|manhattan|ny|east|west|north|south).*$/i, '')
+    .replace(/\s+(restaurant|ristorante|nyc|ny|new york|bar & restaurant|bar and restaurant|bar & grill|bar and grill|steakhouse|trattoria|pizzeria|cafe|café|bistro|brasserie|kitchen|dining|room)$/i, '')
+    .replace(/^the\s+/, '')
+    .trim();
+}
 
 function getBookingInfo(name) {
   if (!name) return null;
   const key = name.toLowerCase().trim();
+  
+  // 1. Exact match
   if (BOOKING_LOOKUP[key]) return BOOKING_LOOKUP[key];
-  // Try without "the " prefix
+  
+  // 2. Without "the" prefix
   const noThe = key.replace(/^the\s+/, '');
   if (BOOKING_LOOKUP[noThe]) return BOOKING_LOOKUP[noThe];
-  // Try without trailing location info like "- Midtown" or "- East Village"
-  const noSuffix = key.replace(/\s*[-–]\s*(midtown|downtown|uptown|east village|west village|tribeca|soho|noho|brooklyn|queens|fidi|financial district|nomad|lincoln square|nyc).*$/i, '').trim();
-  if (noSuffix !== key && BOOKING_LOOKUP[noSuffix]) return BOOKING_LOOKUP[noSuffix];
+  
+  // 3. Normalized (strip suffixes like "Restaurant", "NYC", location info)
+  const norm = normalizeForBooking(name);
+  if (norm && BOOKING_LOOKUP[norm]) return BOOKING_LOOKUP[norm];
+  
+  // 4. Check if any lookup key is contained in the Google name, or vice versa
+  for (const lk of BOOKING_KEYS) {
+    if (lk.length < 4) continue; // skip very short keys to avoid false matches
+    if (key.includes(lk) || lk.includes(key)) return BOOKING_LOOKUP[lk];
+    // Also try normalized versions
+    if (norm && norm.length >= 4 && (norm.includes(lk) || lk.includes(norm))) return BOOKING_LOOKUP[lk];
+  }
+  
   return null;
 }
 
