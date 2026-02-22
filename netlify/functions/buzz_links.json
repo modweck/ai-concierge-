@@ -2048,5 +2048,635 @@
         "url": "https://www.theinfatuation.com/new-york/reviews/soba-totto"
       }
     ]
+  },
+  "Phoenix Palace": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/phoenix-palace"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/phoenix-palace"
+      }
+    ]
+  },
+  "Gjelina": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/gjelina"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/gjelina"
+      }
+    ]
+  },
+  "Altro Paradiso": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/altro-paradiso"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/altro-paradiso"
+      }
+    ]
+  },
+  "Sunn's": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/sunns"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/sunns"
+      }
+    ]
+  },
+  "Parcelle Chinatown": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/parcelle-chinatown"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/parcelle-chinatown"
+      }
+    ]
+  },
+  "Scarr's Pizza": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/scarrs-pizza"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/scarrs-pizza"
+      }
+    ]
+  },
+  "Kabawa": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/kabawa"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/kabawa"
+      }
+    ]
+  },
+  "San Sabino": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/san-sabino"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/san-sabino"
+      }
+    ]
+  },
+  "Manhatta": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/manhatta"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/manhatta"
+      }
+    ]
+  },
+  "Fairfax": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/fairfax"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/fairfax"
+      }
+    ]
+  },
+  "Demo": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/demo"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/demo"
+      }
+    ]
+  },
+  "Muku": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/muku"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/muku"
+      }
+    ]
+  },
+  "Jeffrey's Grocery": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/jeffreys-grocery"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/jeffreys-grocery"
+      }
+    ]
+  },
+  "Sappeisan": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/sappeisan"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/sappeisan"
+      }
+    ]
+  },
+  "Joseph Leonard": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/joseph-leonard"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/joseph-leonard"
+      }
+    ]
+  },
+  "Hawksmoor NYC": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/hawksmoor-nyc"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/hawksmoor-nyc"
+      }
+    ]
+  },
+  "Parcelle Greenwich Village": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/parcelle-greenwich-village"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/parcelle-greenwich-village"
+      }
+    ]
+  },
+  "Mitsuru": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/mitsuru"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/mitsuru"
+      }
+    ]
+  },
+  "Sailor": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/sailor"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/sailor"
+      }
+    ]
+  },
+  "Bar Kabawa": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/bar-kabawa"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/bar-kabawa"
+      }
+    ]
+  },
+  "Moody Tongue Sushi": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/moody-tongue-sushi"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/moody-tongue-sushi"
+      }
+    ]
+  },
+  "The Golden Swan": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/the-golden-swan"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/the-golden-swan"
+      }
+    ]
+  },
+  "Le B.": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/le-b"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/le-b"
+      }
+    ]
+  },
+  "Blu on the Hudson": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/blu-on-the-hudson"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/blu-on-the-hudson"
+      }
+    ]
+  },
+  "Strange Delight": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/strange-delight"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/strange-delight"
+      }
+    ]
+  },
+  "Brass": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/brass"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/brass"
+      }
+    ]
+  },
+  "Chez Fifi": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/chez-fifi"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/chez-fifi"
+      }
+    ]
+  },
+  "Bar Miller": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/bar-miller"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/bar-miller"
+      }
+    ]
+  },
+  "Aska": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/aska"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/aska"
+      }
+    ]
+  },
+  "Di An Di": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/di-an-di"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/di-an-di"
+      }
+    ]
+  },
+  "The Tavern at Gramercy Tavern": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/the-tavern-at-gramercy-tavern"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/the-tavern-at-gramercy-tavern"
+      }
+    ]
+  },
+  "Union Square Cafe": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/union-square-cafe"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/union-square-cafe"
+      }
+    ]
+  },
+  "The Dining Room at Gramercy Tavern": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/the-dining-room-at-gramercy-tavern"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/the-dining-room-at-gramercy-tavern"
+      }
+    ]
+  },
+  "The Bar Room at the Modern": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/the-bar-room-at-the-modern"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/the-bar-room-at-the-modern"
+      }
+    ]
+  },
+  "Noz Market": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/noz-market"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/noz-market"
+      }
+    ]
+  },
+  "Pig and Khao": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/pig-and-khao"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/pig-and-khao"
+      }
+    ]
+  },
+  "Maddy Rose": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/maddy-rose"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/maddy-rose"
+      }
+    ]
+  },
+  "Felina Steak": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/felina-steak"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/felina-steak"
+      }
+    ]
+  },
+  "Drift Restaurant & Bar": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/drift-restaurant-and-bar"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/drift-restaurant-and-bar"
+      }
+    ]
+  },
+  "Meximodo": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/meximodo"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/meximodo"
+      }
+    ]
+  },
+  "Razza": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/razza"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/razza"
+      }
+    ]
+  },
+  "Hawksmoor": {
+    "tier": "chase",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/hawksmoor"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/hawksmoor"
+      }
+    ]
   }
 }
