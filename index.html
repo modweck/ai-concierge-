@@ -226,7 +226,7 @@
 
       <div class="sort-bar">
         <label style="margin:0;font-weight:600">📊 Sort:</label>
-        <select id="sortBy" onchange="sortResults()" autocomplete="off">
+        <select id="sortBy" onchange="state.sortBy=this.value; sortResults();" autocomplete="off">
           <option value="rating" selected>Rating</option>
           <option value="distance">Distance</option>
           <option value="price">Price</option>
@@ -240,7 +240,7 @@
   </div>
 
 <script>
-let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any' };
+let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating' };
 let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
@@ -410,7 +410,7 @@ async function search() {
   try {
     // Chase Sapphire Reserve mode — ALWAYS takes priority when selected
     if (state.rewardsFilter === 'chase') {
-      document.getElementById('sortBy').value = 'rating';
+      state.sortBy = 'rating';
       document.getElementById('list').innerHTML =
         '<div style="text-align:center;padding:40px">💳 Loading Chase Sapphire Reserve restaurants (15 mile radius)...</div>';
 
@@ -456,7 +456,7 @@ async function search() {
 
     // Rakuten mode — dedicated 15 mile radius search
     if (state.rewardsFilter === 'rakuten') {
-      document.getElementById('sortBy').value = 'rating';
+      state.sortBy = 'rating';
       document.getElementById('list').innerHTML =
         '<div style="text-align:center;padding:40px">🛍️ Loading Rakuten restaurants (15 mile radius)...</div>';
 
@@ -501,7 +501,7 @@ async function search() {
     }
 
     if (state.qualityFilter === 'michelin') {
-      document.getElementById('sortBy').value = 'rating';
+      state.sortBy = 'rating';
       document.getElementById('list').innerHTML =
         '<div style="text-align:center;padding:40px">🏅 Loading Michelin (15 mile radius)...</div>';
 
@@ -559,7 +559,7 @@ async function search() {
     }
 
     if (state.qualityFilter === 'bib_gourmand') {
-      document.getElementById('sortBy').value = 'rating';
+      state.sortBy = 'rating';
       document.getElementById('list').innerHTML =
         '<div style="text-align:center;padding:40px">🍽️ Loading Bib Gourmand (15 mile radius)...</div>';
 
@@ -650,7 +650,7 @@ async function search() {
       </div>
     `;
 
-    document.getElementById('sortBy').value = 'rating';
+    state.sortBy = 'rating';
     sortResults();
 
     let enrichLimit = 200;
@@ -733,7 +733,7 @@ async function search() {
       </div>
     `;
 
-    document.getElementById('sortBy').value = 'rating';
+    state.sortBy = 'rating';
     sortResults();
 
   } catch (error) {
@@ -760,9 +760,9 @@ async function search() {
 function sortResults() {
   let filtered = filterByQuality(allRestaurants);
 
-  // Force dropdown to match - prevents browser form restore from overriding
-  const sortEl = document.getElementById('sortBy');
-  const sortBy = sortEl.value || 'rating';
+  const sortBy = state.sortBy || 'rating';
+  // Sync dropdown to match state
+  document.getElementById('sortBy').value = sortBy;
 
   if (sortBy === 'price') {
     const priced = filtered.filter(r => hasPrice(r));
@@ -1002,17 +1002,6 @@ initAutocomplete();
   const dd = String(today.getDate()).padStart(2, '0');
   document.getElementById('dateInput').value = `${yyyy}-${mm}-${dd}`;
   document.getElementById('dateInput').min = `${yyyy}-${mm}-${dd}`;
-})();
-</script>
-<script>
-// Force rating as default sort - runs immediately, on DOMContentLoaded, AND after delay to beat browser form restore
-(function() {
-  function forceRating() { var s = document.getElementById('sortBy'); if (s) s.value = 'rating'; }
-  forceRating();
-  document.addEventListener('DOMContentLoaded', forceRating);
-  setTimeout(forceRating, 0);
-  setTimeout(forceRating, 100);
-  setTimeout(forceRating, 500);
 })();
 </script>
 </body>
