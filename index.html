@@ -226,7 +226,7 @@
 
       <div class="sort-bar">
         <label style="margin:0;font-weight:600">📊 Sort:</label>
-        <select id="sortBy" onchange="sortResults()">
+        <select id="sortBy" onchange="sortResults()" autocomplete="off">
           <option value="rating" selected>Rating</option>
           <option value="distance">Distance</option>
           <option value="price">Price</option>
@@ -760,7 +760,9 @@ async function search() {
 function sortResults() {
   let filtered = filterByQuality(allRestaurants);
 
-  const sortBy = document.getElementById('sortBy').value || 'rating';
+  // Force dropdown to match - prevents browser form restore from overriding
+  const sortEl = document.getElementById('sortBy');
+  const sortBy = sortEl.value || 'rating';
 
   if (sortBy === 'price') {
     const priced = filtered.filter(r => hasPrice(r));
@@ -1002,6 +1004,16 @@ initAutocomplete();
   document.getElementById('dateInput').min = `${yyyy}-${mm}-${dd}`;
 })();
 </script>
-<script>document.addEventListener('DOMContentLoaded', function() { document.getElementById('sortBy').value = 'rating'; });</script>
+<script>
+// Force rating as default sort - runs immediately, on DOMContentLoaded, AND after delay to beat browser form restore
+(function() {
+  function forceRating() { var s = document.getElementById('sortBy'); if (s) s.value = 'rating'; }
+  forceRating();
+  document.addEventListener('DOMContentLoaded', forceRating);
+  setTimeout(forceRating, 0);
+  setTimeout(forceRating, 100);
+  setTimeout(forceRating, 500);
+})();
+</script>
 </body>
 </html>
