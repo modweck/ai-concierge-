@@ -3498,5 +3498,177 @@
   "tournesol": {
     "platform": "opentable",
     "url": "https://www.opentable.com/r/tournesol-new-york"
+  },
+  "le botaniste 43rd & 3rd": {
+    "platform": "website",
+    "url": "https://www.lebotaniste.us/"
+  },
+  "le botaniste": {
+    "platform": "website",
+    "url": "https://www.lebotaniste.us/"
+  },
+  "cafe fiorello": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/cafe-fiorello-new-york"
+  },
+  "ammos estiatorio": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/ammos-estiatorio-new-york"
+  },
+  "ginger sapori & salute": {
+    "platform": "website",
+    "url": "https://www.gingersaporiesalute.com/"
+  },
+  "bengal tiger": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/new-york-ny/venues/bengal-tiger-indian-food"
+  },
+  "francesco": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/francesco-new-york"
+  },
+  "asset": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/new-york-ny/venues/asset"
+  },
+  "flute - midtown": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/flute-midtown-new-york"
+  },
+  "flute midtown": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/flute-midtown-new-york"
+  },
+  "la boite en bois": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/la-boite-en-bois-new-york"
+  },
+  "madera": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/madera-new-york"
+  },
+  "off city": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/off-city-new-york"
+  },
+  "the reading room": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/the-reading-room-new-york"
+  },
+  "beija flor": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/new-york-ny/venues/beija-flor"
+  },
+  "pizzarte": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/pizzarte-new-york"
+  },
+  "loi estiatorio": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/loi-estiatorio"
+  },
+  "nari": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/new-york-ny/venues/nari"
+  },
+  "astro restaurant": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/astro-restaurant-new-york"
+  },
+  "honeybrains": {
+    "platform": "website",
+    "url": "https://www.honeybrains.com/"
+  },
+  "the beast next door": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/the-beast-next-door-new-york"
+  },
+  "delbianco italian restaurant": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/delbianco-italian-restaurant-new-york"
+  },
+  "delbianco": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/delbianco-italian-restaurant-new-york"
+  },
+  "wagamama - midtown": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/wagamama-midtown-new-york"
+  },
+  "wagamama": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/wagamama-midtown-new-york"
+  },
+  "chano's cantina": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/chanos-cantina-new-york"
+  },
+  "chanos cantina": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/chanos-cantina-new-york"
+  },
+  "la piazza new york": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/la-piazza-new-york"
+  },
+  "la piazza": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/la-piazza-new-york"
+  },
+  "taim mediterranean kitchen": {
+    "platform": "website",
+    "url": "https://www.taimfalafel.com/"
+  },
+  "taim": {
+    "platform": "website",
+    "url": "https://www.taimfalafel.com/"
+  },
+  "the comfort diner": {
+    "platform": "website",
+    "url": "https://www.comfortdinernyc.com/"
+  },
+  "un plaza grill": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/un-plaza-grill-new-york"
+  },
+  "pascalou": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/pascalou-new-york"
+  },
+  "white olive": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/white-olive-new-york"
+  },
+  "arcadia bar and kitchen": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/arcadia-bar-and-kitchen-new-york"
+  },
+  "sushi ann": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/sushi-ann-new-york"
+  },
+  "shinjuku ramen": {
+    "platform": "website",
+    "url": "https://www.shinjukuramen.com/"
+  },
+  "tam mai thai": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/tam-mai-thai-new-york"
+  },
+  "sweet chick": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/new-york-ny/venues/sweet-chick-les"
+  },
+  "brooklyn diner": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/brooklyn-diner-new-york"
+  },
+  "wagamama midtown": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/wagamama-midtown-new-york"
+  },
+  "trattoria dellarte": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/trattoria-dellarte-new-york"
   }
 }
