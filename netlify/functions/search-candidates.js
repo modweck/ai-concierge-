@@ -108,9 +108,6 @@ async function runWithConcurrency(items, limit, worker) {
   return results;
 }
 
-// =========================================================================
-// FAST BOOKING DETECTION — lookup-only, no website crawling
-// =========================================================================
 async function detectBookingPlatforms(restaurants, KEY) {
   // Pass 1: Check booking lookup table (instant, no API calls)
   for (const r of restaurants) {
@@ -139,11 +136,43 @@ async function detectBookingPlatforms(restaurants, KEY) {
     }
   }
 
+  // Pass 3: Crawl restaurant websites for booking links (max 10, only unmatched)
+  const unmatched = restaurants.filter(r => !r.booking_platform && r.websiteUri);
+  const toCrawl = unmatched.slice(0, 10);
+  if (toCrawl.length > 0) {
+    console.log(`🔍 Crawling ${toCrawl.length} restaurant websites for booking links...`);
+    await runWithConcurrency(toCrawl, 5, async (r) => {
+      try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 3000);
+        const resp = await fetch(r.websiteUri, {
+          signal: controller.signal,
+          headers: { 'User-Agent': 'Mozilla/5.0' },
+          redirect: 'follow'
+        });
+        clearTimeout(timeout);
+        if (!resp.ok) return;
+        const html = await resp.text();
+        const lower = html.toLowerCase();
+        if (lower.includes('resy.com/cities/')) {
+          const m = html.match(/https?:\/\/resy\.com\/cities\/[a-z-]+\/[a-z0-9-]+/i);
+          if (m) { r.booking_platform = 'resy'; r.booking_url = m[0]; }
+        } else if (lower.includes('opentable.com/r/') || lower.includes('opentable.com/restref/')) {
+          const m = html.match(/https?:\/\/(?:www\.)?opentable\.com\/r(?:estref)?\/[a-z0-9-]+/i);
+          if (m) { r.booking_platform = 'opentable'; r.booking_url = m[0]; }
+        } else if (lower.includes('exploretock.com/') || lower.includes('tock.com/')) {
+          const m = html.match(/https?:\/\/(?:www\.)?exploretock\.com\/[a-z0-9-]+/i);
+          if (m) { r.booking_platform = 'tock'; r.booking_url = m[0]; }
+        }
+      } catch (e) { /* timeout or fetch error — skip */ }
+    });
+  }
+
   const matched = restaurants.filter(r => r.booking_platform).length;
-  console.log(`✅ Booking: ${matched}/${restaurants.length} matched (instant lookup)`);
+  const crawlMatched = toCrawl.filter(r => r.booking_platform).length;
+  console.log(`✅ Booking: ${matched}/${restaurants.length} matched (lookup: ${matched - crawlMatched}, crawl: ${crawlMatched})`);
 }
 
-// ---- Michelin ----
 async function resolveMichelinPlaces(GOOGLE_API_KEY) {
   if (!GOOGLE_API_KEY) return [];
   if (MICHELIN_RESOLVED && (Date.now() - MICHELIN_RESOLVED_AT) < MICHELIN_RESOLVE_TTL_MS) return MICHELIN_RESOLVED;
@@ -169,8 +198,6 @@ async function resolveMichelinPlaces(GOOGLE_API_KEY) {
   return MICHELIN_RESOLVED;
 }
 
-// Bib Gourmand uses PRE-RESOLVED coordinates baked into the JSON file
-// No Google API calls needed — works instantly within Netlify free tier timeout
 function getBibGourmandPlaces() {
   if (!BIB_GOURMAND_BASE?.length) return [];
   return BIB_GOURMAND_BASE.filter(b => b.lat != null && b.lng != null);
@@ -193,7 +220,6 @@ function attachMichelinBadges(candidates, michelinResolved) {
   console.log(`\u2705 Michelin badges: ${matched}`);
 }
 
-// ---- Cache ----
 const resultCache = new Map();
 const CACHE_TTL_MS = 10 * 60 * 1000;
 function getCacheKey(loc, q, c, o) { return `${loc}_${q}_${String(c||'any').toLowerCase().trim()}_${o?'open':'any'}`; }
@@ -215,7 +241,6 @@ function normalizeQualityMode(q) {
   return 'any';
 }
 
-// ---- Filter with low-review protection ----
 function filterRestaurantsByTier(candidates, qualityMode) {
   const elite = [], moreOptions = [], excluded = [];
   let eliteMin = 4.5, moreMin = 4.4, strict47 = false;
@@ -252,10 +277,6 @@ function filterRestaurantsByTier(candidates, qualityMode) {
   return { elite, moreOptions, excluded };
 }
 
-// =========================================================================
-// LAYER 2: New API Nearby Search — 5 radius rings
-// =========================================================================
-// =========================================================================
 async function newApiNearbyRings(lat, lng, KEY) {
   const rings = [1000, 2000, 3500, 5500, 8000];
   const fieldMask = 'places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.priceLevel,places.currentOpeningHours,places.types,places.websiteUri';
@@ -289,10 +310,6 @@ async function newApiNearbyRings(lat, lng, KEY) {
   return all;
 }
 
-// =========================================================================
-// LAYER 3: Text Search by cuisine — 12 queries
-// =========================================================================
-// =========================================================================
 async function newApiTextByCuisine(lat, lng, userCuisine, KEY) {
   let queries;
   if (userCuisine) {
@@ -344,10 +361,6 @@ function convertPrice(str) {
   return { PRICE_LEVEL_FREE: 0, PRICE_LEVEL_INEXPENSIVE: 1, PRICE_LEVEL_MODERATE: 2, PRICE_LEVEL_EXPENSIVE: 3, PRICE_LEVEL_VERY_EXPENSIVE: 4 }[str] ?? null;
 }
 
-// =========================================================================
-// Legacy grid — 2 rings, no pagination
-// No pagination — just page 1 (20 results per point)
-// =========================================================================
 function buildGrid(cLat, cLng) {
   const sp = 0.75 / 69;
   const rings = 2;
@@ -361,9 +374,6 @@ function buildGrid(cLat, cLng) {
   return pts;
 }
 
-// =========================================================================
-// MAIN HANDLER
-// =========================================================================
 exports.handler = async (event) => {
   const stableResponse = (elite=[], more=[], stats={}, error=null) => {
     // Enrich all results with deposit info
