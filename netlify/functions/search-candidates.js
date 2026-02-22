@@ -658,6 +658,15 @@ exports.handler = async (event) => {
       }
     }
 
+    // Exclude cheap ($) spots — price_level 1 is fast food / takeout tier
+    const beforePrice = cuisineFiltered.length;
+    cuisineFiltered = cuisineFiltered.filter(p => {
+      const pl = p.price_level ?? p.priceLevel ?? null;
+      if (pl === 1) return false;
+      return true;
+    });
+    if (cuisineFiltered.length < beforePrice) console.log(`💰 Price filter: removed ${beforePrice - cuisineFiltered.length} cheap ($) spots`);
+
     // Distance
     const withDist = cuisineFiltered.map(p => {
       const pLat = p.geometry?.location?.lat, pLng = p.geometry?.location?.lng;
