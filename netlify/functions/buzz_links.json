@@ -4973,5 +4973,225 @@
         "url": "https://www.theinfatuation.com/new-york/reviews/blue-hill-at-stone-barns"
       }
     ]
+  },
+  "Hutong New York": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/hutong-nyc",
+        "title": "Hutong NYC Review - The Infatuation"
+      }
+    ]
+  },
+  "Serendipity 3": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/serendipity-3-times-square",
+        "title": "Serendipity 3 Times Square Review - The Infatuation"
+      }
+    ]
+  },
+  "Serendipity 3 Times Square": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/serendipity-3-times-square",
+        "title": "Serendipity 3 Times Square Review - The Infatuation"
+      }
+    ]
+  },
+  "Pastrami Queen": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/pastrami-queen",
+        "title": "Pastrami Queen Review - The Infatuation"
+      }
+    ]
+  },
+  "Maison Pickle": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/maison-pickle",
+        "title": "Maison Pickle Review - The Infatuation"
+      }
+    ]
+  },
+  "Lexington Candy Shop": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/lexington-candy-shop",
+        "title": "Lexington Candy Shop Review - The Infatuation"
+      }
+    ]
+  },
+  "Pera Mediterranean Brasserie": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/pera-mediterranean-brasserie",
+        "title": "Pera Mediterranean Brasserie Review - The Infatuation"
+      }
+    ]
+  },
+  "Crave Fishbar UWS": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/crave-fishbar-upper-west-side",
+        "title": "Crave Fishbar UWS Review - The Infatuation"
+      }
+    ]
+  },
+  "Momoya Upper West": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/momoya-soho",
+        "title": "Momoya Review - The Infatuation"
+      }
+    ]
+  },
+  "Cafe Fiorello": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/cafe-fiorello",
+        "title": "Cafe Fiorello Review - The Infatuation"
+      }
+    ]
+  },
+  "Loi Estiatorio": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/guides/greek-restaurants-nyc",
+        "title": "Best Greek Restaurants NYC - The Infatuation"
+      }
+    ]
+  },
+  "Ovelia Psistaria Bar": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/guides/greek-restaurants-nyc",
+        "title": "Best Greek Restaurants NYC - The Infatuation"
+      }
+    ]
+  },
+  "Boqueria UES": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/boqueria",
+        "title": "Boqueria Review - The Infatuation"
+      }
+    ]
+  },
+  "Socarrat East": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/socarrat-paella-bar",
+        "title": "Socarrat Paella Bar Review - The Infatuation"
+      }
+    ]
+  },
+  "Westville": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/westville",
+        "title": "Westville Review - The Infatuation"
+      }
+    ]
+  },
+  "Westville Hell's Kitchen": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/westville",
+        "title": "Westville Review - The Infatuation"
+      }
+    ]
+  },
+  "Westville UWS": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/westville",
+        "title": "Westville Review - The Infatuation"
+      }
+    ]
+  },
+  "Westville LIC": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/westville",
+        "title": "Westville Review - The Infatuation"
+      }
+    ]
+  },
+  "Han Dynasty UWS": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/han-dynasty-UWS",
+        "title": "Han Dynasty UWS Review - The Infatuation"
+      }
+    ]
+  },
+  "Han Dynasty LIC": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/han-dynasty-east-village",
+        "title": "Han Dynasty Review - The Infatuation"
+      }
+    ]
+  },
+  "Taim Mediterranean Kitchen": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/taim",
+        "title": "Taim Falafel Review - The Infatuation"
+      }
+    ]
+  },
+  "David Burke Tavern": {
+    "type": "popular",
+    "links": [
+      {
+        "source": "infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/david-burke-tavern",
+        "title": "David Burke Tavern Review - The Infatuation"
+      }
+    ]
   }
 }
