@@ -760,7 +760,7 @@ async function search() {
 function sortResults() {
   let filtered = filterByQuality(allRestaurants);
 
-  const sortBy = document.getElementById('sortBy').value;
+  const sortBy = document.getElementById('sortBy').value || 'rating';
 
   if (sortBy === 'price') {
     const priced = filtered.filter(r => hasPrice(r));
@@ -1002,5 +1002,6 @@ initAutocomplete();
   document.getElementById('dateInput').min = `${yyyy}-${mm}-${dd}`;
 })();
 </script>
+<script>document.addEventListener('DOMContentLoaded', function() { document.getElementById('sortBy').value = 'rating'; });</script>
 </body>
 </html>
