@@ -2021,7 +2021,7 @@
   },
   "has snack bar": {
     "platform": "resy",
-    "url": "https://resy.com/cities/ny/has-snack-bar-new-york"
+    "url": "https://resy.com/cities/ny/has-snack-bar"
   },
   "ace's": {
     "platform": "resy",
@@ -2191,18 +2191,6 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/legacy-records-new-york"
   },
-  "the spotted pig": {
-    "platform": "resy",
-    "url": "https://resy.com/cities/ny/the-spotted-pig-new-york"
-  },
-  "momofuku ssam bar": {
-    "platform": "resy",
-    "url": "https://resy.com/cities/ny/momofuku-ssam-bar-new-york"
-  },
-  "ssam bar": {
-    "platform": "resy",
-    "url": "https://resy.com/cities/ny/momofuku-ssam-bar-new-york"
-  },
   "cafe altro paradiso": {
     "platform": "resy",
     "url": "https://resy.com/cities/ny/cafe-altro-paradiso-new-york"
@@ -2234,18 +2222,6 @@
   "sylvias": {
     "platform": "resy",
     "url": "https://resy.com/cities/ny/sylvias-new-york"
-  },
-  "the breslin": {
-    "platform": "resy",
-    "url": "https://resy.com/cities/ny/the-breslin-new-york"
-  },
-  "the clocktower": {
-    "platform": "resy",
-    "url": "https://resy.com/cities/ny/the-clocktower-new-york"
-  },
-  "the nomad": {
-    "platform": "resy",
-    "url": "https://resy.com/cities/ny/the-nomad-new-york"
   },
   "emmett's on grove": {
     "platform": "resy",
@@ -2469,7 +2445,7 @@
   },
   "del friscos": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/del-friscos-double-eagle-steakhouse-new-york"
+    "url": "https://www.opentable.com/r/del-friscos-double-eagle-steakhouse-new-york-city"
   },
   "olio e più": {
     "platform": "opentable",
@@ -3295,10 +3271,6 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/tetsu"
   },
-  "nix": {
-    "platform": "resy",
-    "url": "https://resy.com/cities/ny/nix"
-  },
   "her name is han": {
     "platform": "resy",
     "url": "https://resy.com/cities/ny/her-name-is-han"
@@ -3354,10 +3326,6 @@
   "noz kitchen": {
     "platform": "tock",
     "url": "https://www.exploretock.com/nozkitchen"
-  },
-  "del posto": {
-    "platform": "opentable",
-    "url": "https://www.opentable.com/r/del-posto-new-york"
   },
   "sant ambroeus": {
     "platform": "opentable",
@@ -3471,10 +3439,6 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/the-penrose"
   },
-  "candle 79": {
-    "platform": "opentable",
-    "url": "https://www.opentable.com/r/candle-79-new-york"
-  },
   "leonti": {
     "platform": "resy",
     "url": "https://resy.com/cities/ny/leonti"
@@ -3565,7 +3529,7 @@
   },
   "loi estiatorio": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/loi-estiatorio"
+    "url": "https://www.opentable.com/r/loi-estiatorio-new-york"
   },
   "nari": {
     "platform": "resy",
@@ -3670,5 +3634,45 @@
   "trattoria dellarte": {
     "platform": "opentable",
     "url": "https://www.opentable.com/r/trattoria-dellarte-new-york"
+  },
+  "boqueria ues": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/new-york-ny/venues/boqueria-ues"
+  },
+  "david burke tavern": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/david-burke-tavern-new-york"
+  },
+  "hutong new york": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/new-york-ny/venues/hutong"
+  },
+  "momoya upper west": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/momoya-upper-west-new-york"
+  },
+  "ovelia psistaria bar": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/ovelia-psistaria-bar-astoria"
+  },
+  "serendipity 3": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/new-york-ny/venues/serendipity-3"
+  },
+  "serendipity 3 times square": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/new-york-ny/venues/serendipity-3-times-square"
+  },
+  "socarrat east": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/socarrat-east-new-york"
+  },
+  "pig and khao - uws": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/pig-and-khao-uws-new-york"
+  },
+  "rezdôra": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/new-york-ny/venues/rezdora"
   }
 }
