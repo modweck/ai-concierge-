@@ -433,7 +433,7 @@ exports.handler = async (event) => {
           michelin: { stars: r.stars||0, distinction: r.distinction||'star' },
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
-      }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
+      }).filter(r => r.distanceMiles <= 15).sort((a,b) => (b.michelin?.stars || 0) - (a.michelin?.stars || 0) || (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, michelinMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
@@ -453,7 +453,7 @@ exports.handler = async (event) => {
           michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: r.cuisine || null,
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
-      }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
+      }).filter(r => r.distanceMiles <= 15).sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, bibGourmandMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
@@ -472,7 +472,7 @@ exports.handler = async (event) => {
           michelin: null, cuisine: r.cuisine || null,
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: true };
-      }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
+      }).filter(r => r.distanceMiles <= 15).sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, chaseSapphireMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
@@ -491,7 +491,7 @@ exports.handler = async (event) => {
           michelin: null, cuisine: r.cuisine || null,
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           rakuten: true };
-      }).filter(r => r.distanceMiles <= 15).sort((a,b) => a.distanceMiles - b.distanceMiles);
+      }).filter(r => r.distanceMiles <= 15).sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, rakutenMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
