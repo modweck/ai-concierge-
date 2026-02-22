@@ -549,31 +549,48 @@ exports.handler = async (event) => {
     };
 
     // Types to EXCLUDE — not real sit-down restaurants
-    const EXCLUDED_TYPES = [
+    const HARD_JUNK_TYPES = [
       'ice_cream_shop', 'coffee_shop', 'cafe', 'bakery', 'sandwich_shop',
       'bagel_shop', 'donut_shop', 'juice_shop', 'smoothie_shop',
+      'dessert_shop', 'dessert_restaurant', 'pizza_takeout',
       'food_court', 'fast_food_restaurant', 'convenience_store',
-      'grocery_store', 'supermarket', 'liquor_store', 'bar', 'night_club',
+      'grocery_store', 'supermarket', 'liquor_store', 'night_club',
       'meal_delivery', 'meal_takeaway',
       'shopping_mall', 'department_store', 'tourist_attraction',
       'amusement_park', 'museum', 'park', 'stadium', 'movie_theater',
       'observation_deck', 'visitor_center', 'event_venue', 'market',
-      'clothing_store', 'shoe_store', 'electronics_store'
+      'clothing_store', 'shoe_store', 'electronics_store',
+      'deli', 'food_stand', 'kiosk'
     ];
 
-    // Name patterns to EXCLUDE — chains, delis, coffee, ice cream, non-restaurants
+    const ALWAYS_JUNK_TYPES = [
+      'ice_cream_shop', 'coffee_shop', 'bakery', 'bagel_shop', 'donut_shop',
+      'juice_shop', 'smoothie_shop', 'dessert_shop', 'food_court',
+      'convenience_store', 'grocery_store', 'supermarket', 'liquor_store',
+      'shopping_mall', 'department_store', 'clothing_store', 'shoe_store',
+      'electronics_store', 'museum', 'amusement_park', 'stadium',
+      'movie_theater', 'observation_deck', 'visitor_center', 'night_club'
+    ];
+
     const EXCLUDED_NAME_PATTERNS = [
       /\bstarbucks\b/i, /\bdunkin\b/i, /\bmcdonald/i, /\bsubway\b/i,
       /\bchipotle\b/i, /\bshake shack\b/i, /\bsweetgreen\b/i,
       /\bpanera\b/i, /\bpret a manger\b/i, /\bchick-fil-a\b/i,
       /\bwendy'?s\b/i, /\bburger king\b/i, /\btaco bell\b/i,
       /\bpopeyes\b/i, /\bfive guys\b/i, /\bpapa john/i, /\bdomino/i,
+      /\bpizza hut\b/i, /\blittle caesars\b/i, /\bjack in the box\b/i,
+      /\bkfc\b/i, /\barby'?s\b/i, /\bsonic drive/i, /\bwhataburger\b/i,
       /\bdeli\b/i, /\bbodega\b/i, /\bice cream\b/i, /\bgelato\b/i,
-      /\bfrozen yogurt\b/i, /\bjuice\b/i, /\bsmoothie\b/i,
-      /\bboba\b/i, /\bbubble tea\b/i, /\bcoffee\b/i, /\bespresso\b/i,
+      /\bfrozen yogurt\b/i, /\bfroyo\b/i, /\bjuice\b/i, /\bsmoothie\b/i,
+      /\bboba\b/i, /\bbubble tea\b/i, /\btea shop\b/i,
+      /\bcoffee\b/i, /\bespresso\b/i, /\bcafé\b(?!\s*(otro|spaghetti|mars|zaffri|mado|rue))/i,
       /\bbakery\b/i, /\bdonut\b/i, /\bdoughnut\b/i, /\bbagel\b/i,
-      /\bcreperie\b/i, /\bfood truck\b/i, /\bfood cart\b/i,
-      /\bpizza hut\b/i, /\blittle caesars\b/i,
+      /\bcake shop\b/i, /\bcupcake\b/i, /\bpastry\b/i, /\bdessert\b/i,
+      /\bcreperie\b/i, /\bpatisserie\b/i,
+      /\bfood truck\b/i, /\bfood cart\b/i, /\bfood stand\b/i,
+      /\bhalal cart\b/i, /\bkiosk\b/i,
+      /\bgrill & deli\b/i, /\bgrill and deli\b/i,
+      /\bpizza by the slice\b/i, /\b\$1 pizza\b/i, /\bdollar pizza\b/i,
       /\bwestfield\b/i, /\bobservatory\b/i, /\bpier \d+\b/i,
       /\bworld trade center\b/i, /\btimes square\b/i,
       /\bjazz club\b/i, /\bcomedy club\b/i, /\bkaraoke\b/i,
@@ -584,7 +601,7 @@ exports.handler = async (event) => {
       /\bpub\b$/i, /\btavern\b$/i
     ];
 
-    const RESTAURANT_WORDS = /restaurant|grill|kitchen|bistro|trattoria|osteria|ristorante|brasserie|steakhouse|sushi|ramen|taqueria|pizzeria|diner|eatery|cuisine|bbq|barbecue|seafood|noodle|dumpling|dim sum|omakase|izakaya|cantina/i;
+    const RESTAURANT_WORDS = /restaurant|grill|kitchen|bistro|trattoria|osteria|ristorante|brasserie|steakhouse|sushi|ramen|taqueria|pizzeria|diner|eatery|cuisine|bbq|barbecue|seafood|noodle|dumpling|dim sum|omakase|izakaya|cantina|chophouse|taverna/i;
 
     // Merge & deduplicate
     const seen = new Set(), all = [];
@@ -602,12 +619,25 @@ exports.handler = async (event) => {
       const pTypes = (p.types || []).map(t => t.toLowerCase());
       const pName = (p.name || '');
       const hasRestaurantType = pTypes.some(t => t.includes('restaurant'));
-      const hasExcludedType = pTypes.some(t => EXCLUDED_TYPES.includes(t));
-      if (hasExcludedType && !hasRestaurantType) {
-        if (!RESTAURANT_WORDS.test(pName)) return false;
-      }
+
+      // HARD KILL: these types are NEVER restaurants, even if Google also tags them "restaurant"
+      if (pTypes.some(t => ALWAYS_JUNK_TYPES.includes(t))) return false;
+
+      // SOFT KILL: these types get removed unless they also have restaurant type AND restaurant name
+      const hasJunkType = pTypes.some(t => HARD_JUNK_TYPES.includes(t));
+      if (hasJunkType && !hasRestaurantType) return false;
+      if (hasJunkType && hasRestaurantType && !RESTAURANT_WORDS.test(pName)) return false;
+
+      // Name-based exclusions — always applied
       if (EXCLUDED_NAME_PATTERNS.some(rx => rx.test(pName))) return false;
+
+      // Bars without restaurant type or restaurant-like name
       if (pTypes.includes('bar') && !hasRestaurantType && !RESTAURANT_WORDS.test(pName)) return false;
+
+      // Fast food with restaurant type still gets cut unless it has a restaurant name
+      if (pTypes.includes('fast_food_restaurant') && !RESTAURANT_WORDS.test(pName)) return false;
+      if (pTypes.includes('hamburger_restaurant') && !RESTAURANT_WORDS.test(pName)) return false;
+
       return true;
     });
     if (cleaned.length < beforeExclude) console.log(`🧹 Excluded ${beforeExclude - cleaned.length} non-restaurants (chains/delis/coffee/bars/venues)`);
