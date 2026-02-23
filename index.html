@@ -368,6 +368,8 @@ const JUNK_TYPES = new Set([
 ]);
 const JUNK_NAME_PATTERNS = /\b(food\s*truck|hot\s*dog\s*cart|deli\s*&?\s*grocery|bodega|convenience|7[- ]?eleven|dollar\s*(tree|general)|rite\s*aid|cvs|walgreens|duane\s*reade|subway|mcdonald'?s|burger\s*king|wendy'?s|taco\s*bell|kfc|popeyes|chick-?fil-?a|dunkin'?|domino'?s|papa\s*john'?s|little\s*caesars|five\s*guys|chipotle|panda\s*express|wingstop|sonic|arby'?s|jack\s*in\s*the\s*box|white\s*castle|checkers|rally'?s|church'?s\s*chicken|del\s*taco|dairy\s*queen|baskin|cold\s*stone|auntie\s*anne|cinnabon|jamba|smoothie\s*king|starbucks|tim\s*hortons|panera)\b/i;
 
+const POPULAR_SET = new Set(Object.keys(BUZZ_LINKS).map(n => n.toLowerCase()));
+
 function isJunkPlace(r) {
   // Never filter out curated restaurants (Michelin, Bib, Chase, Rakuten, Popular)
   if (r.michelin || r.bib_gourmand || r.chase_sapphire || r.rakuten) return false;
