@@ -1,4 +1,19 @@
 {
+  "8282": {
+    "tier": "bib",
+    "links": [
+      {
+        "source": "Eater",
+        "label": "Eater",
+        "url": "https://ny.eater.com/venue/8282"
+      },
+      {
+        "source": "Infatuation",
+        "label": "Infatuation",
+        "url": "https://www.theinfatuation.com/new-york/reviews/8282"
+      }
+    ]
+  },
   "Le Bernardin": {
     "tier": "michelin",
     "links": [
@@ -45,7 +60,7 @@
       {
         "source": "Eater",
         "label": "Eater",
-        "url": "https://ny.eater.com/venue/masa-20"
+        "url": "https://ny.eater.com/venue/masa"
       },
       {
         "source": "Infatuation",
@@ -200,7 +215,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/kochi"
+        "url": "https://www.theinfatuation.com/new-york/reviews/kochi-nyc"
       }
     ]
   },
@@ -300,7 +315,7 @@
       {
         "source": "Eater",
         "label": "Eater",
-        "url": "https://ny.eater.com/venue/cote-3"
+        "url": "https://ny.eater.com/venue/cote"
       },
       {
         "source": "Infatuation",
@@ -1554,21 +1569,6 @@
       }
     ]
   },
-  "8282": {
-    "tier": "bib",
-    "links": [
-      {
-        "source": "Eater",
-        "label": "Eater",
-        "url": "https://ny.eater.com/venue/8282"
-      },
-      {
-        "source": "Infatuation",
-        "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/8282"
-      }
-    ]
-  },
   "Alley 41": {
     "tier": "bib",
     "links": [
@@ -1655,7 +1655,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/bungalow"
+        "url": "https://www.theinfatuation.com/new-york/reviews/bungalow-nyc"
       }
     ]
   },
@@ -2060,7 +2060,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/phoenix-palace"
+        "url": "https://www.theinfatuation.com/new-york/reviews/phoenix-palace-nyc"
       }
     ]
   },
@@ -2075,7 +2075,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/gjelina"
+        "url": "https://www.theinfatuation.com/new-york/reviews/gjelina-new-york"
       }
     ]
   },
@@ -2675,7 +2675,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/hawksmoor"
+        "url": "https://www.theinfatuation.com/new-york/reviews/hawksmoor-nyc"
       }
     ]
   },
@@ -2735,7 +2735,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/babbo"
+        "url": "https://www.theinfatuation.com/new-york/reviews/babbo-nyc"
       }
     ]
   },
@@ -2780,7 +2780,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/the-polo-bar"
+        "url": "https://www.theinfatuation.com/new-york/reviews/the-polo-bar-nyc"
       }
     ]
   },
@@ -2825,7 +2825,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/blue-hill"
+        "url": "https://www.theinfatuation.com/new-york/reviews/blue-hill-new-york"
       }
     ]
   },
@@ -2855,7 +2855,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/torrisi"
+        "url": "https://www.theinfatuation.com/new-york/reviews/torrisi-bar-and-restaurant"
       }
     ]
   },
@@ -2945,7 +2945,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/dante"
+        "url": "https://www.theinfatuation.com/new-york/reviews/dante-nyc"
       }
     ]
   },
@@ -3260,7 +3260,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/indian-accent"
+        "url": "https://www.theinfatuation.com/new-york/reviews/indian-accent-nyc"
       }
     ]
   },
@@ -4325,7 +4325,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/laser-wolf"
+        "url": "https://www.theinfatuation.com/new-york/reviews/laser-wolf-nyc"
       }
     ]
   },
@@ -4835,7 +4835,7 @@
       {
         "source": "Infatuation",
         "label": "Infatuation",
-        "url": "https://www.theinfatuation.com/new-york/reviews/sant-ambroeus"
+        "url": "https://www.theinfatuation.com/new-york/reviews/sant-ambroeus-soho"
       }
     ]
   },
