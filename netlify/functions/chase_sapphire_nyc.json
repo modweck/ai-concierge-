@@ -10,14 +10,14 @@
     "chase_sapphire": true,
     "distinction": "chase_sapphire",
     "stars": 0,
-    "googleRating": 4.0,
+    "googleRating": 4,
     "googleReviewCount": 320,
     "price_level": null,
     "deposit_type": "none"
   },
   {
     "name": "Gjelina",
-    "cuisine": "Mediterranean",
+    "cuisine": "American/Mediterranean",
     "address": "East Village, New York, NY",
     "lat": 40.7264,
     "lng": -73.9878,
@@ -49,7 +49,7 @@
   },
   {
     "name": "Sunn's",
-    "cuisine": "Korean",
+    "cuisine": "American",
     "address": "Chinatown, New York, NY",
     "lat": 40.7155,
     "lng": -73.9985,
@@ -65,7 +65,7 @@
   },
   {
     "name": "Parcelle Chinatown",
-    "cuisine": "Wine Bar",
+    "cuisine": "French",
     "address": "Chinatown, New York, NY",
     "lat": 40.716,
     "lng": -73.998,
@@ -81,7 +81,7 @@
   },
   {
     "name": "Scarr's Pizza",
-    "cuisine": "Pizzeria",
+    "cuisine": "Italian/Pizza",
     "address": "22 Orchard St, New York, NY 10002",
     "lat": 40.7154,
     "lng": -73.991,
@@ -97,7 +97,7 @@
   },
   {
     "name": "Kabawa",
-    "cuisine": "Caribbean",
+    "cuisine": "West African",
     "address": "East Village, New York, NY",
     "lat": 40.7262,
     "lng": -73.9862,
@@ -161,7 +161,7 @@
   },
   {
     "name": "Demo",
-    "cuisine": "European",
+    "cuisine": "Greek",
     "address": "West Village, New York, NY",
     "lat": 40.7341,
     "lng": -74.003,
@@ -257,7 +257,7 @@
   },
   {
     "name": "Parcelle Greenwich Village",
-    "cuisine": "Wine Bar",
+    "cuisine": "French",
     "address": "Greenwich Village, New York, NY",
     "lat": 40.7335,
     "lng": -73.999,
@@ -289,7 +289,7 @@
   },
   {
     "name": "Sailor",
-    "cuisine": "Bistro",
+    "cuisine": "Seafood",
     "address": "Fort Greene, Brooklyn, NY",
     "lat": 40.688,
     "lng": -73.9768,
@@ -305,7 +305,7 @@
   },
   {
     "name": "Bar Kabawa",
-    "cuisine": "Caribbean",
+    "cuisine": "West African",
     "address": "East Village, New York, NY",
     "lat": 40.7265,
     "lng": -73.986,
@@ -321,7 +321,7 @@
   },
   {
     "name": "Moody Tongue Sushi",
-    "cuisine": "Sushi",
+    "cuisine": "Japanese/Sushi",
     "address": "West Village, New York, NY",
     "lat": 40.734,
     "lng": -74.0035,
@@ -337,7 +337,7 @@
   },
   {
     "name": "The Golden Swan",
-    "cuisine": "French",
+    "cuisine": "American",
     "address": "West Village, New York, NY",
     "lat": 40.7339,
     "lng": -74.0032,
@@ -385,7 +385,7 @@
   },
   {
     "name": "Blu on the Hudson",
-    "cuisine": "American",
+    "cuisine": "Italian",
     "address": "Jersey City, NJ",
     "lat": 40.7178,
     "lng": -74.034,
@@ -401,7 +401,7 @@
   },
   {
     "name": "Strange Delight",
-    "cuisine": "Seafood",
+    "cuisine": "American",
     "address": "Fort Greene, Brooklyn, NY",
     "lat": 40.6875,
     "lng": -73.978,
@@ -417,7 +417,7 @@
   },
   {
     "name": "Brass",
-    "cuisine": "European",
+    "cuisine": "French",
     "address": "Midtown, New York, NY",
     "lat": 40.7555,
     "lng": -73.978,
@@ -449,7 +449,7 @@
   },
   {
     "name": "Bar Miller",
-    "cuisine": "Sushi",
+    "cuisine": "American",
     "address": "East Village, New York, NY",
     "lat": 40.727,
     "lng": -73.985,
@@ -561,7 +561,7 @@
   },
   {
     "name": "Maddy Rose",
-    "cuisine": "American",
+    "cuisine": "Italian",
     "address": "Jersey City, NJ",
     "lat": 40.7157,
     "lng": -74.035,
@@ -593,7 +593,7 @@
   },
   {
     "name": "Drift Restaurant & Bar",
-    "cuisine": "American",
+    "cuisine": "American/Seafood",
     "address": "Weehawken, NJ",
     "lat": 40.769,
     "lng": -74.019,
@@ -625,7 +625,7 @@
   },
   {
     "name": "Razza",
-    "cuisine": "Pizzeria",
+    "cuisine": "Italian/Pizza",
     "address": "275 Grove St, Jersey City, NJ 07302",
     "lat": 40.7194,
     "lng": -74.043,
@@ -689,7 +689,7 @@
   },
   {
     "name": "Sushi Noz",
-    "cuisine": "Japanese, Sushi",
+    "cuisine": "Japanese/Sushi",
     "address": "181 E 78th St, New York, NY 10075",
     "lat": 40.7746,
     "lng": -73.9568,
@@ -705,7 +705,7 @@
   },
   {
     "name": "The Modern",
-    "cuisine": "American, French",
+    "cuisine": "French/American",
     "address": "9 W 53rd St, New York, NY 10019",
     "lat": 40.7614,
     "lng": -73.9776,
@@ -769,7 +769,7 @@
   },
   {
     "name": "Tolo",
-    "cuisine": "Chinese",
+    "cuisine": "Italian",
     "address": "178 1st Ave, New York, NY 10009",
     "lat": 40.729,
     "lng": -73.9858,
@@ -785,7 +785,7 @@
   },
   {
     "name": "Una Pizza Napoletana",
-    "cuisine": "Pizza",
+    "cuisine": "Italian/Pizza",
     "address": "175 Orchard St, New York, NY 10002",
     "lat": 40.7262,
     "lng": -73.9866,
@@ -801,7 +801,7 @@
   },
   {
     "name": "Momofuku Noodle Bar",
-    "cuisine": "Asian",
+    "cuisine": "Japanese/Asian",
     "address": "171 1st Ave, New York, NY 10003",
     "lat": 40.7293,
     "lng": -73.9843,
@@ -817,7 +817,7 @@
   },
   {
     "name": "Potluck Club",
-    "cuisine": "Korean",
+    "cuisine": "American",
     "address": "251 Grand St, Brooklyn, NY 11211",
     "lat": 40.7116,
     "lng": -73.9564,

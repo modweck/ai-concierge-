@@ -1425,7 +1425,8 @@
     "googleReviewCount": 3075,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/pranakhon"
+    "booking_url": "https://resy.com/cities/ny/pranakhon",
+    "cuisine": "Thai"
   },
   {
     "place_id": "ChIJvaEY_-JYwokRfMz4scJkI9k",
@@ -1449,7 +1450,8 @@
     "googleReviewCount": 2910,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/la-dong"
+    "booking_url": "https://resy.com/cities/ny/la-dong",
+    "cuisine": "Vietnamese"
   },
   {
     "place_id": "ChIJlYuHaAtZwokRTrF1jKtMdvg",
@@ -1833,7 +1835,8 @@
     "googleReviewCount": 1236,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/tha-phraya"
+    "booking_url": "https://resy.com/cities/ny/tha-phraya",
+    "cuisine": "Thai"
   },
   {
     "place_id": "ChIJUU0Hd95fwokR3tAJqfPpDvs",
@@ -1881,7 +1884,8 @@
     "googleReviewCount": 1093,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/pierozek"
+    "booking_url": "https://resy.com/cities/ny/pierozek",
+    "cuisine": "Polish"
   },
   {
     "place_id": "ChIJWQ-ytU1bwokRM10czlaEt_U",
@@ -3141,7 +3145,8 @@
     "googleReviewCount": 99,
     "price_level": null,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/olmo"
+    "booking_url": "https://resy.com/cities/ny/olmo",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJ1zvd-Rb1wokRsqp15PrRonI",
@@ -3645,7 +3650,8 @@
     "googleReviewCount": 5081,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/fish-cheeks"
+    "booking_url": "https://resy.com/cities/ny/fish-cheeks",
+    "cuisine": "Thai/Seafood"
   },
   {
     "place_id": "ChIJafcWm6FZwokRAD6WiHiQdpE",
@@ -4425,7 +4431,8 @@
     "googleReviewCount": 1115,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/4-charles-prime-rib-new-york"
+    "booking_url": "https://resy.com/cities/ny/4-charles-prime-rib-new-york",
+    "cuisine": "Steakhouse"
   },
   {
     "place_id": "ChIJBbVRTDFewokRHA1cZIFNYgA",
@@ -4845,7 +4852,8 @@
     "googleReviewCount": 634,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/agis-counter"
+    "booking_url": "https://resy.com/cities/ny/agis-counter",
+    "cuisine": "Hungarian"
   },
   {
     "place_id": "ChIJf_dNGb9hwokRWhT4pBPwpqA",
@@ -4953,7 +4961,8 @@
     "googleReviewCount": 570,
     "price_level": null,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/lore"
+    "booking_url": "https://resy.com/cities/ny/lore",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJi7zDhGVZwokRwoHkVROLwlk",
@@ -6357,7 +6366,8 @@
     "googleReviewCount": 128,
     "price_level": null,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/nerina"
+    "booking_url": "https://resy.com/cities/ny/nerina",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJLyz7QslbwokR4jTpEOikzVw",
@@ -6753,7 +6763,8 @@
     "googleReviewCount": 9548,
     "price_level": 4,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/keens-steakhouse"
+    "booking_url": "https://resy.com/cities/ny/keens-steakhouse",
+    "cuisine": "Steakhouse"
   },
   {
     "place_id": "ChIJ58OtM8pZwokRbd6DT6gcVys",
@@ -6765,7 +6776,8 @@
     "googleReviewCount": 9474,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/la-grande-boucherie-nyc-new-york"
+    "booking_url": "https://www.opentable.com/r/la-grande-boucherie-nyc-new-york",
+    "cuisine": "French"
   },
   {
     "place_id": "ChIJFQ55zVdYwokRUyAEIvUGfHw",
@@ -6789,7 +6801,8 @@
     "googleReviewCount": 8056,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/tonys-di-napoli-midtown-new-york"
+    "booking_url": "https://www.opentable.com/r/tonys-di-napoli-midtown-new-york",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJuW43oZNZwokRdE5tLzpuykE",
@@ -6813,7 +6826,8 @@
     "googleReviewCount": 7597,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/veselka"
+    "booking_url": "https://resy.com/cities/ny/veselka",
+    "cuisine": "Ukrainian"
   },
   {
     "place_id": "ChIJJ3_FgYRXwokR6dKWDxTVhXE",
@@ -6849,7 +6863,8 @@
     "googleReviewCount": 6672,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/rubirosa"
+    "booking_url": "https://resy.com/cities/ny/rubirosa",
+    "cuisine": "Italian/Pizza"
   },
   {
     "place_id": "ChIJOxerSlJYwokRPmpdLA4CpWI",
@@ -6909,7 +6924,8 @@
     "googleReviewCount": 4805,
     "price_level": 4,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/gramercy-tavern"
+    "booking_url": "https://resy.com/cities/ny/gramercy-tavern",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJQ1R3hKNZwokRQM4wbIrc00o",
@@ -6969,7 +6985,8 @@
     "googleReviewCount": 3558,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/russ-and-daughters-cafe"
+    "booking_url": "https://resy.com/cities/ny/russ-and-daughters-cafe",
+    "cuisine": "Jewish Deli"
   },
   {
     "place_id": "ChIJY6CJiVlZwokRUuEZJOmVFY8",
@@ -7017,7 +7034,8 @@
     "googleReviewCount": 3315,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/cafe-mogador"
+    "booking_url": "https://resy.com/cities/ny/cafe-mogador",
+    "cuisine": "Moroccan"
   },
   {
     "place_id": "ChIJ6ffdpJNZwokRmcafdROM5q0",
@@ -7053,7 +7071,8 @@
     "googleReviewCount": 3143,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/jeju-noodle-bar"
+    "booking_url": "https://resy.com/cities/ny/jeju-noodle-bar",
+    "cuisine": "Korean"
   },
   {
     "place_id": "ChIJ9-ey3ehYwokRWPZl-y_GRBk",
@@ -7065,7 +7084,8 @@
     "googleReviewCount": 3143,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/tonys-di-napoli-midtown-new-york"
+    "booking_url": "https://www.opentable.com/r/tonys-di-napoli-midtown-new-york",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJpzhgZ_ZbwokRZfnZ0DQkpVg",
@@ -7113,7 +7133,8 @@
     "googleReviewCount": 3039,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/pastis"
+    "booking_url": "https://resy.com/cities/ny/pastis",
+    "cuisine": "French"
   },
   {
     "place_id": "ChIJU0c2Y6lZwokRKlyc_R8HN88",
@@ -7125,7 +7146,8 @@
     "googleReviewCount": 3015,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/cho-dang-gol-new-york"
+    "booking_url": "https://www.opentable.com/r/cho-dang-gol-new-york",
+    "cuisine": "Korean"
   },
   {
     "place_id": "ChIJt8W7n79ZwokRsyXs3QDbE3o",
@@ -7137,7 +7159,8 @@
     "googleReviewCount": 3009,
     "price_level": 3,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/scarpetta-new-york"
+    "booking_url": "https://www.opentable.com/r/scarpetta-new-york",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJMW-gxPtYwokRzDlnsRgq9rA",
@@ -7149,7 +7172,8 @@
     "googleReviewCount": 2702,
     "price_level": 4,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/the-modern"
+    "booking_url": "https://resy.com/cities/ny/the-modern",
+    "cuisine": "French/American"
   },
   {
     "place_id": "ChIJK_nYHfBYwokR03Tv5S3dW1s",
@@ -7197,7 +7221,8 @@
     "googleReviewCount": 2496,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/lartusi"
+    "booking_url": "https://resy.com/cities/ny/lartusi",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJ09ZGju5YwokRXOcNC23JRwk",
@@ -7209,7 +7234,8 @@
     "googleReviewCount": 2471,
     "price_level": 4,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/daniel"
+    "booking_url": "https://resy.com/cities/ny/daniel",
+    "cuisine": "French"
   },
   {
     "place_id": "ChIJowhlWYxZwokRgrvA8f_x8Es",
@@ -7269,7 +7295,8 @@
     "googleReviewCount": 2333,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/union-square-cafe"
+    "booking_url": "https://resy.com/cities/ny/union-square-cafe",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJZdSBiO9YwokRWADMuEN-b64",
@@ -7293,7 +7320,8 @@
     "googleReviewCount": 2264,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/new-york-ny/venues/boqueria-ues"
+    "booking_url": "https://resy.com/cities/new-york-ny/venues/boqueria-ues",
+    "cuisine": "Spanish"
   },
   {
     "place_id": "ChIJuaRLn7lZwokR7kkNlu67yY0",
@@ -7329,7 +7357,8 @@
     "googleReviewCount": 2169,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/jajaja-mexicana-west-village-new-york"
+    "booking_url": "https://www.opentable.com/r/jajaja-mexicana-west-village-new-york",
+    "cuisine": "Mexican/Vegan"
   },
   {
     "place_id": "ChIJ2WLOZg5gwokR-ZgAQ3W-sEQ",
@@ -7401,7 +7430,8 @@
     "googleReviewCount": 2026,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/ci-siamo"
+    "booking_url": "https://resy.com/cities/ny/ci-siamo",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJN3_05ZZhwokREYnnAOsOKhs",
@@ -7425,7 +7455,8 @@
     "googleReviewCount": 2000,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/maison-premiere-new-york"
+    "booking_url": "https://resy.com/cities/ny/maison-premiere-new-york",
+    "cuisine": "Seafood/French"
   },
   {
     "place_id": "ChIJl8zvTF1fwokRGKyptukvIhE",
@@ -7557,7 +7588,8 @@
     "googleReviewCount": 1703,
     "price_level": 3,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/don-angie-new-york"
+    "booking_url": "https://www.opentable.com/r/don-angie-new-york",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJgWYylZ1ZwokRN-LB26sUqDw",
@@ -7581,7 +7613,8 @@
     "googleReviewCount": 1678,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/miss-ada"
+    "booking_url": "https://resy.com/cities/ny/miss-ada",
+    "cuisine": "Mediterranean"
   },
   {
     "place_id": "ChIJuc8AM0BZwokRtpm2S66ltsE",
@@ -7593,7 +7626,8 @@
     "googleReviewCount": 1675,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/paulie-gees"
+    "booking_url": "https://resy.com/cities/ny/paulie-gees",
+    "cuisine": "Italian/Pizza"
   },
   {
     "place_id": "ChIJpYNIR_1YwokRNMXI4Qk1lwQ",
@@ -7617,7 +7651,8 @@
     "googleReviewCount": 1618,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/carmines-44th-street-nyc-new-york"
+    "booking_url": "https://www.opentable.com/r/carmines-44th-street-nyc-new-york",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJc3Sn6BNewokR_RkenZvQhlM",
@@ -7629,7 +7664,8 @@
     "googleReviewCount": 1580,
     "price_level": 3,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/st-anselm-brooklyn"
+    "booking_url": "https://www.opentable.com/r/st-anselm-brooklyn",
+    "cuisine": "Steakhouse/American"
   },
   {
     "place_id": "ChIJi0UhO4f0wokR_jzG9KlaPQA",
@@ -7917,7 +7953,8 @@
     "googleReviewCount": 1170,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/le-crocodile-new-york"
+    "booking_url": "https://resy.com/cities/ny/le-crocodile-new-york",
+    "cuisine": "French"
   },
   {
     "place_id": "ChIJXbvPKe9YwokRroLArCwh2LY",
@@ -7941,7 +7978,8 @@
     "googleReviewCount": 1157,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/loring-place"
+    "booking_url": "https://resy.com/cities/ny/loring-place",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJITJWhz1ewokRvVykfe9maHg",
@@ -8037,7 +8075,8 @@
     "googleReviewCount": 1088,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/the-four-horsemen"
+    "booking_url": "https://resy.com/cities/ny/the-four-horsemen",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJwXUoA99bwokRU2bF-gdB25I",
@@ -8277,7 +8316,8 @@
     "googleReviewCount": 955,
     "price_level": 4,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/jungsik"
+    "booking_url": "https://resy.com/cities/ny/jungsik",
+    "cuisine": "Korean"
   },
   {
     "place_id": "ChIJb--3XWhXwokREUQIQCKxiQg",
@@ -8445,7 +8485,8 @@
     "googleReviewCount": 858,
     "price_level": null,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/torrisi"
+    "booking_url": "https://resy.com/cities/ny/torrisi",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJxbNEDQP2wokRIF9aZH8v7sw",
@@ -8553,7 +8594,8 @@
     "googleReviewCount": 811,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/riverpark"
+    "booking_url": "https://resy.com/cities/ny/riverpark",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJmQ7DvBFgwokRBNJbyDc81oI",
@@ -8853,7 +8895,8 @@
     "googleReviewCount": 645,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/haenyeo"
+    "booking_url": "https://resy.com/cities/ny/haenyeo",
+    "cuisine": "Korean"
   },
   {
     "place_id": "ChIJa3sSBx1fwokRHQWvzKjqkOU",
@@ -9069,7 +9112,8 @@
     "googleReviewCount": 572,
     "price_level": 4,
     "booking_platform": "tock",
-    "booking_url": "https://www.exploretock.com/aska"
+    "booking_url": "https://www.exploretock.com/aska",
+    "cuisine": "Scandinavian"
   },
   {
     "place_id": "ChIJX3m3RoJfwokRKHEFUN8sMQI",
@@ -9309,7 +9353,8 @@
     "googleReviewCount": 478,
     "price_level": null,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/ishq"
+    "booking_url": "https://resy.com/cities/ny/ishq",
+    "cuisine": "Indian"
   },
   {
     "place_id": "ChIJZXYSkrlbwokRpzfP73Xu0Bw",
@@ -9681,7 +9726,8 @@
     "googleReviewCount": 404,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/harts"
+    "booking_url": "https://resy.com/cities/ny/harts",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJs7mMBNhbwokRryRN1bPerR4",
@@ -10521,7 +10567,8 @@
     "googleReviewCount": 168,
     "price_level": null,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/cafe-mars-brooklyn"
+    "booking_url": "https://www.opentable.com/r/cafe-mars-brooklyn",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJoZT8P45bwokRknEjp8rGjSo",
@@ -11085,7 +11132,8 @@
     "googleReviewCount": 5784,
     "price_level": 4,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/del-friscos-double-eagle-steakhouse-new-york-city"
+    "booking_url": "https://www.opentable.com/r/del-friscos-double-eagle-steakhouse-new-york-city",
+    "cuisine": "Steakhouse"
   },
   {
     "place_id": "ChIJQ3Jl76hZwokRnS1-MQHYhZE",
@@ -11265,7 +11313,8 @@
     "googleReviewCount": 3592,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/dhamaka"
+    "booking_url": "https://resy.com/cities/ny/dhamaka",
+    "cuisine": "Indian"
   },
   {
     "place_id": "ChIJrapahYZYwokRdCivYmoCbJ8",
@@ -11277,7 +11326,8 @@
     "googleReviewCount": 3588,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/maison-pickle"
+    "booking_url": "https://resy.com/cities/ny/maison-pickle",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJu4DTYeRYwokRHjDHAffrjeY",
@@ -11361,7 +11411,8 @@
     "googleReviewCount": 3331,
     "price_level": 4,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/quality-meats-new-york"
+    "booking_url": "https://www.opentable.com/r/quality-meats-new-york",
+    "cuisine": "Steakhouse"
   },
   {
     "place_id": "ChIJFSRtpLFQwokROP1exas0wNM",
@@ -11373,7 +11424,8 @@
     "googleReviewCount": 3214,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/razza"
+    "booking_url": "https://resy.com/cities/ny/razza",
+    "cuisine": "Italian/Pizza"
   },
   {
     "place_id": "ChIJucFsVwFZwokRDgJNUSyXpQE",
@@ -11397,7 +11449,8 @@
     "googleReviewCount": 3149,
     "price_level": 3,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/cookshop-new-york"
+    "booking_url": "https://www.opentable.com/r/cookshop-new-york",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJwy8lmxZawokRtWUTg5wuv6I",
@@ -11409,7 +11462,8 @@
     "googleReviewCount": 3142,
     "price_level": 4,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/delmonicos-new-york"
+    "booking_url": "https://www.opentable.com/r/delmonicos-new-york",
+    "cuisine": "Steakhouse"
   },
   {
     "place_id": "ChIJfSp0FS1fwokR8PYGmnV6vYs",
@@ -11433,7 +11487,8 @@
     "googleReviewCount": 3070,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/chavelas"
+    "booking_url": "https://resy.com/cities/ny/chavelas",
+    "cuisine": "Mexican"
   },
   {
     "place_id": "ChIJK48-E51ZwokRvAA-v6fx9y0",
@@ -11445,7 +11500,8 @@
     "googleReviewCount": 3008,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/cafe-mogador"
+    "booking_url": "https://resy.com/cities/ny/cafe-mogador",
+    "cuisine": "Moroccan"
   },
   {
     "place_id": "ChIJj_rijkZZwokRpTRkbMwBRXk",
@@ -11469,7 +11525,8 @@
     "googleReviewCount": 2986,
     "price_level": 4,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/marea-new-york"
+    "booking_url": "https://www.opentable.com/r/marea-new-york",
+    "cuisine": "Italian/Seafood"
   },
   {
     "place_id": "ChIJv4bbdSNZwokRCgKfDGF8az8",
@@ -11481,7 +11538,8 @@
     "googleReviewCount": 2986,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/casa-enrique"
+    "booking_url": "https://resy.com/cities/ny/casa-enrique",
+    "cuisine": "Mexican"
   },
   {
     "place_id": "ChIJyzOz40tFwokRl2WhNTSgazw",
@@ -11517,7 +11575,8 @@
     "googleReviewCount": 2743,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/minetta-tavern"
+    "booking_url": "https://resy.com/cities/ny/minetta-tavern",
+    "cuisine": "French/American"
   },
   {
     "place_id": "ChIJKRVIbKhZwokRBg-yFy8VlKA",
@@ -11601,7 +11660,8 @@
     "googleReviewCount": 2504,
     "price_level": 4,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/sparks-steak-house-new-york"
+    "booking_url": "https://www.opentable.com/r/sparks-steak-house-new-york",
+    "cuisine": "Steakhouse"
   },
   {
     "place_id": "ChIJSRT5b9ZbwokRYilWRG4jYaY",
@@ -11649,7 +11709,8 @@
     "googleReviewCount": 2395,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/upland"
+    "booking_url": "https://resy.com/cities/ny/upland",
+    "cuisine": "American/Italian"
   },
   {
     "place_id": "ChIJvVBJx45ZwokROqLKcQlndPM",
@@ -11697,7 +11758,8 @@
     "googleReviewCount": 2356,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/oxomoco"
+    "booking_url": "https://resy.com/cities/ny/oxomoco",
+    "cuisine": "Mexican"
   },
   {
     "place_id": "ChIJbRaexvlYwokRYc5RgUjlsIY",
@@ -11829,7 +11891,8 @@
     "googleReviewCount": 2056,
     "price_level": 4,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/le-coucou"
+    "booking_url": "https://resy.com/cities/ny/le-coucou",
+    "cuisine": "French"
   },
   {
     "place_id": "ChIJp3PsL_ZYwokRZYqs_40RJF4",
@@ -11841,7 +11904,8 @@
     "googleReviewCount": 2054,
     "price_level": 4,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/per-se"
+    "booking_url": "https://resy.com/cities/ny/per-se",
+    "cuisine": "French/American"
   },
   {
     "place_id": "ChIJS-u0mB9awokRZ7H0sa9Oy-U",
@@ -11853,7 +11917,8 @@
     "googleReviewCount": 2042,
     "price_level": 3,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/the-odeon-new-york"
+    "booking_url": "https://www.opentable.com/r/the-odeon-new-york",
+    "cuisine": "French/American"
   },
   {
     "place_id": "ChIJ0yKXaB9awokR6WFqdEE9aBY",
@@ -11997,7 +12062,8 @@
     "googleReviewCount": 1775,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/crown-shy"
+    "booking_url": "https://resy.com/cities/ny/crown-shy",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJoSqkgRZawokR_ZAqr3pOMO8",
@@ -12009,7 +12075,8 @@
     "googleReviewCount": 1756,
     "price_level": 3,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/harrys-new-york"
+    "booking_url": "https://www.opentable.com/r/harrys-new-york",
+    "cuisine": "Steakhouse/American"
   },
   {
     "place_id": "ChIJ2yTMoxb2wokRixfwCY3ltok",
@@ -12309,7 +12376,8 @@
     "googleReviewCount": 1443,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/win-son-new-york"
+    "booking_url": "https://resy.com/cities/ny/win-son-new-york",
+    "cuisine": "Taiwanese"
   },
   {
     "place_id": "ChIJWx0TrzhfwokRjlhD_Yop39c",
@@ -12393,7 +12461,8 @@
     "googleReviewCount": 1393,
     "price_level": 3,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/little-owl-new-york"
+    "booking_url": "https://www.opentable.com/r/little-owl-new-york",
+    "cuisine": "American/Mediterranean"
   },
   {
     "place_id": "ChIJn7k4jxlZwokRhDkNH9383-o",
@@ -12441,7 +12510,8 @@
     "googleReviewCount": 1351,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/atoboy"
+    "booking_url": "https://resy.com/cities/ny/atoboy",
+    "cuisine": "Korean"
   },
   {
     "place_id": "ChIJ43rlGLlfwokRkwb5mrdsl00",
@@ -12477,7 +12547,8 @@
     "googleReviewCount": 1350,
     "price_level": 4,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/jean-georges"
+    "booking_url": "https://resy.com/cities/ny/jean-georges",
+    "cuisine": "French/American"
   },
   {
     "place_id": "ChIJd9qVa5VbwokRJ7q_7M3XbIQ",
@@ -12525,7 +12596,8 @@
     "googleReviewCount": 1281,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/bamontes"
+    "booking_url": "https://resy.com/cities/ny/bamontes",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJp0brU1BZwokRLE5ICSVdVQI",
@@ -12873,7 +12945,8 @@
     "googleReviewCount": 1097,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/claro-new-york"
+    "booking_url": "https://resy.com/cities/ny/claro-new-york",
+    "cuisine": "Mexican"
   },
   {
     "place_id": "ChIJwRJFh-xZwokRPUKz_quhEX4",
@@ -13269,7 +13342,8 @@
     "googleReviewCount": 984,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/hearth-new-york"
+    "booking_url": "https://www.opentable.com/r/hearth-new-york",
+    "cuisine": "Italian/American"
   },
   {
     "place_id": "ChIJjcAJd-tZwokRJ0GkkJ2Urp0",
@@ -13281,7 +13355,8 @@
     "googleReviewCount": 984,
     "price_level": 4,
     "booking_platform": "tock",
-    "booking_url": "https://www.exploretock.com/le-pavillon"
+    "booking_url": "https://www.exploretock.com/le-pavillon",
+    "cuisine": "French"
   },
   {
     "place_id": "ChIJ__9jOCxewokRe9jj4SfO4NE",
@@ -13629,7 +13704,8 @@
     "googleReviewCount": 860,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/alta-calidad"
+    "booking_url": "https://resy.com/cities/ny/alta-calidad",
+    "cuisine": "Mexican"
   },
   {
     "place_id": "ChIJs50sSzRZwokRovm03SrTL2g",
@@ -13713,7 +13789,8 @@
     "googleReviewCount": 831,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/oso"
+    "booking_url": "https://resy.com/cities/ny/oso",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJS0-CIGZfwokRgs6ADyiQEKE",
@@ -14217,7 +14294,8 @@
     "googleReviewCount": 645,
     "price_level": null,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/kisa"
+    "booking_url": "https://resy.com/cities/ny/kisa",
+    "cuisine": "Japanese"
   },
   {
     "place_id": "ChIJZXs66hBawokRizEXnDJplPw",
@@ -14277,7 +14355,8 @@
     "googleReviewCount": 624,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/antons-new-york"
+    "booking_url": "https://www.opentable.com/r/antons-new-york",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJs_09yZ73wokRD-K3t2y0nH8",
@@ -14397,7 +14476,8 @@
     "googleReviewCount": 586,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/cervos"
+    "booking_url": "https://resy.com/cities/ny/cervos",
+    "cuisine": "Mediterranean/Seafood"
   },
   {
     "place_id": "ChIJ0XYPcvNbwokRPHXjN0VHMe4",
@@ -15057,7 +15137,8 @@
     "googleReviewCount": 455,
     "price_level": null,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/place-des-fetes-new-york"
+    "booking_url": "https://resy.com/cities/ny/place-des-fetes-new-york",
+    "cuisine": "French"
   },
   {
     "place_id": "ChIJd-u9A9pbwokRLN0L2FXFWwk",
@@ -15189,7 +15270,8 @@
     "googleReviewCount": 414,
     "price_level": null,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/the-mermaid-inn-new-york"
+    "booking_url": "https://www.opentable.com/r/the-mermaid-inn-new-york",
+    "cuisine": "Seafood"
   },
   {
     "place_id": "ChIJK_bsPtVEwokRS5TBFDxTCgo",
@@ -15669,7 +15751,8 @@
     "googleReviewCount": 289,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/strange-delight"
+    "booking_url": "https://resy.com/cities/ny/strange-delight",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJQZt_1gVbwokRKko609WRbAA",
@@ -15777,7 +15860,8 @@
     "googleReviewCount": 262,
     "price_level": 3,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/le-veau-dor-new-york"
+    "booking_url": "https://www.opentable.com/r/le-veau-dor-new-york",
+    "cuisine": "French"
   },
   {
     "place_id": "ChIJPyZGhz1dwokRlSIds1zjzGQ",
@@ -15945,7 +16029,8 @@
     "googleReviewCount": 224,
     "price_level": null,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/the-golden-swan"
+    "booking_url": "https://resy.com/cities/ny/the-golden-swan",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJE8S6Z45XwokRkxQEoGkgrTA",
@@ -17025,7 +17110,8 @@
     "googleReviewCount": 6190,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/the-smith-nomad-new-york"
+    "booking_url": "https://www.opentable.com/r/the-smith-nomad-new-york",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJzd_ZRgJZwokRnzXTa1YVpko",
@@ -17037,7 +17123,8 @@
     "googleReviewCount": 5675,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/the-smith-nomad-new-york"
+    "booking_url": "https://www.opentable.com/r/the-smith-nomad-new-york",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJsZiFN1dYwokRtB35FstjkA4",
@@ -17061,7 +17148,8 @@
     "googleReviewCount": 5392,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/the-smith-nomad-new-york"
+    "booking_url": "https://www.opentable.com/r/the-smith-nomad-new-york",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJvfVwDFJYwokRtWobbwOMEVM",
@@ -17109,7 +17197,8 @@
     "googleReviewCount": 4552,
     "price_level": 4,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/smith-and-wollensky-new-york"
+    "booking_url": "https://www.opentable.com/r/smith-and-wollensky-new-york",
+    "cuisine": "Steakhouse"
   },
   {
     "place_id": "ChIJUQz7Iq9ZwokR9GUmlcrIeGs",
@@ -17133,7 +17222,8 @@
     "googleReviewCount": 4389,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/beauty-and-essex"
+    "booking_url": "https://resy.com/cities/ny/beauty-and-essex",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJA4i114hZwokRaqeyrmI80x0",
@@ -17145,7 +17235,8 @@
     "googleReviewCount": 4283,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/jacks-wife-freda"
+    "booking_url": "https://resy.com/cities/ny/jacks-wife-freda",
+    "cuisine": "Mediterranean"
   },
   {
     "place_id": "ChIJEwHZcZNZwokR810IgyQhoZM",
@@ -17157,7 +17248,8 @@
     "googleReviewCount": 4226,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/buvette-new-york"
+    "booking_url": "https://resy.com/cities/ny/buvette-new-york",
+    "cuisine": "French"
   },
   {
     "place_id": "ChIJHyYvn5_2wokRKyOPOJ53zWQ",
@@ -17277,7 +17369,8 @@
     "googleReviewCount": 3206,
     "price_level": 4,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/eleven-madison-park"
+    "booking_url": "https://resy.com/cities/ny/eleven-madison-park",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJr7FOf5NZwokRu3CDYtzVmuQ",
@@ -17289,7 +17382,8 @@
     "googleReviewCount": 3182,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/via-carota"
+    "booking_url": "https://resy.com/cities/ny/via-carota",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJvYavzZ5ZwokRBQj3hhDtpfk",
@@ -17361,7 +17455,8 @@
     "googleReviewCount": 2890,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/miznon-new-york"
+    "booking_url": "https://resy.com/cities/ny/miznon-new-york",
+    "cuisine": "Israeli"
   },
   {
     "place_id": "ChIJC6xz-lZYwokRd5Gv26A3RMA",
@@ -17385,7 +17480,8 @@
     "googleReviewCount": 2854,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/the-smith-nomad-new-york"
+    "booking_url": "https://www.opentable.com/r/the-smith-nomad-new-york",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJsTgQqfBYwokRU3iwRQ4U0Hc",
@@ -17397,7 +17493,8 @@
     "googleReviewCount": 2825,
     "price_level": 4,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/quality-italian-new-york"
+    "booking_url": "https://www.opentable.com/r/quality-italian-new-york",
+    "cuisine": "Italian/Steakhouse"
   },
   {
     "place_id": "ChIJv6T1lNH3wokRQJ-xkR6VXwo",
@@ -17421,7 +17518,8 @@
     "googleReviewCount": 2710,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/thai-diner"
+    "booking_url": "https://resy.com/cities/ny/thai-diner",
+    "cuisine": "Thai"
   },
   {
     "place_id": "ChIJ1-mW-LhbwokR7Ryv5ha-gzc",
@@ -17433,7 +17531,8 @@
     "googleReviewCount": 2661,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/golden-diner"
+    "booking_url": "https://resy.com/cities/ny/golden-diner",
+    "cuisine": "American/Asian"
   },
   {
     "place_id": "ChIJPX5iCfpYwokRACnACAf2pJw",
@@ -17589,7 +17688,8 @@
     "googleReviewCount": 2316,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/freemans"
+    "booking_url": "https://resy.com/cities/ny/freemans",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJs4mykPVYwokRfQShiIGQbqE",
@@ -17601,7 +17701,8 @@
     "googleReviewCount": 2307,
     "price_level": 3,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/cafe-fiorello-new-york"
+    "booking_url": "https://www.opentable.com/r/cafe-fiorello-new-york",
+    "cuisine": "Italian"
   },
   {
     "place_id": "ChIJTWkuhfVZwokRS_go-fdp7Vs",
@@ -17637,7 +17738,8 @@
     "googleReviewCount": 2228,
     "price_level": null,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/double-chicken-please"
+    "booking_url": "https://resy.com/cities/ny/double-chicken-please",
+    "cuisine": "American/Bar"
   },
   {
     "place_id": "ChIJv_vCZ6JZwokR_2lI72wJsl0",
@@ -17745,7 +17847,8 @@
     "googleReviewCount": 2099,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/robertas-new-york"
+    "booking_url": "https://resy.com/cities/ny/robertas-new-york",
+    "cuisine": "Italian/Pizza"
   },
   {
     "place_id": "ChIJN3sfZuj2wokRaBUsPZcZGgM",
@@ -17781,7 +17884,8 @@
     "googleReviewCount": 2024,
     "price_level": null,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/bungalow"
+    "booking_url": "https://resy.com/cities/ny/bungalow",
+    "cuisine": "Indian"
   },
   {
     "place_id": "ChIJa_XMY1NXwokR31BbU3f9xs0",
@@ -17829,7 +17933,8 @@
     "googleReviewCount": 1946,
     "price_level": 4,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/nobu-downtown-new-york"
+    "booking_url": "https://www.opentable.com/r/nobu-downtown-new-york",
+    "cuisine": "Japanese"
   },
   {
     "place_id": "ChIJDd3F0b1ZwokRhggZGhI4Ygg",
@@ -17997,7 +18102,8 @@
     "googleReviewCount": 1762,
     "price_level": 4,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/hawksmoor-nyc-new-york"
+    "booking_url": "https://www.opentable.com/r/hawksmoor-nyc-new-york",
+    "cuisine": "Steakhouse"
   },
   {
     "place_id": "ChIJXQP8fYpYwokRgkepJvnLNlc",
@@ -18081,7 +18187,8 @@
     "googleReviewCount": 1645,
     "price_level": 4,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/wolfgangs-steakhouse-park-avenue-new-york"
+    "booking_url": "https://www.opentable.com/r/wolfgangs-steakhouse-park-avenue-new-york",
+    "cuisine": "Steakhouse"
   },
   {
     "place_id": "ChIJpROekqpfwokRxzDFY0gQKP8",
@@ -18465,7 +18572,8 @@
     "googleReviewCount": 1356,
     "price_level": 2,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/cafe-cluny-new-york"
+    "booking_url": "https://www.opentable.com/r/cafe-cluny-new-york",
+    "cuisine": "French/American"
   },
   {
     "place_id": "ChIJ1QtpBVJYwokRUPSabwKYsyA",
@@ -18489,7 +18597,8 @@
     "googleReviewCount": 1335,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/raouls-new-york"
+    "booking_url": "https://resy.com/cities/ny/raouls-new-york",
+    "cuisine": "French"
   },
   {
     "place_id": "ChIJNSnLdvRhwokRU94Wp_zxdo0",
@@ -18621,7 +18730,8 @@
     "googleReviewCount": 1265,
     "price_level": 3,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/frenchette-new-york"
+    "booking_url": "https://www.opentable.com/r/frenchette-new-york",
+    "cuisine": "French"
   },
   {
     "place_id": "ChIJv_qhX4FfwokRbj4vrWL1QKQ",
@@ -18849,7 +18959,8 @@
     "googleReviewCount": 1111,
     "price_level": 4,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/the-polo-bar"
+    "booking_url": "https://resy.com/cities/ny/the-polo-bar",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJI8QZECNZwokRJ6nKtIJ_gCw",
@@ -18933,7 +19044,8 @@
     "googleReviewCount": 1063,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/sofreh"
+    "booking_url": "https://resy.com/cities/ny/sofreh",
+    "cuisine": "Persian"
   },
   {
     "place_id": "ChIJ50n4UohYwokRLrnKpXxjuFE",
@@ -19785,7 +19897,8 @@
     "googleReviewCount": 692,
     "price_level": 2,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/francie"
+    "booking_url": "https://resy.com/cities/ny/francie",
+    "cuisine": "French/American"
   },
   {
     "place_id": "ChIJ3_aKBdlbwokRB4MzhiifcfE",
@@ -20265,7 +20378,8 @@
     "googleReviewCount": 509,
     "price_level": 3,
     "booking_platform": "resy",
-    "booking_url": "https://resy.com/cities/ny/legacy-records-new-york"
+    "booking_url": "https://resy.com/cities/ny/legacy-records-new-york",
+    "cuisine": "American"
   },
   {
     "place_id": "ChIJb0s7dEdbwokRHtqhmaTCy2I",
@@ -20673,7 +20787,8 @@
     "googleReviewCount": 394,
     "price_level": null,
     "booking_platform": "opentable",
-    "booking_url": "https://www.opentable.com/r/sailor-new-york"
+    "booking_url": "https://www.opentable.com/r/sailor-new-york",
+    "cuisine": "Seafood"
   },
   {
     "place_id": "ChIJ18arQwBbwokRzYO8n-65f_s",
@@ -21033,7 +21148,8 @@
     "googleReviewCount": 320,
     "price_level": null,
     "booking_platform": null,
-    "booking_url": null
+    "booking_url": null,
+    "cuisine": "Vietnamese"
   },
   {
     "place_id": "ChIJ54zLWD9ZwokRLdNZWiRRqaE",

@@ -540,7 +540,7 @@
     "booking_platform": "walkin",
     "booking_url": "",
     "rakuten": true,
-    "googleRating": 4.0,
+    "googleRating": 4,
     "googleReviewCount": 300,
     "price_level": null,
     "deposit_type": "none"
@@ -1446,7 +1446,7 @@
     "cuisine": "Health Food",
     "address": "372 6th Ave, New York, NY 10011",
     "lat": 40.731,
-    "lng": -74.0,
+    "lng": -74,
     "booking_platform": "website",
     "booking_url": "https://www.honeybrains.com/",
     "rakuten": true,
@@ -2269,7 +2269,7 @@
   },
   {
     "name": "Momoya Upper West",
-    "cuisine": "Japanese",
+    "cuisine": "Japanese/Sushi",
     "address": "Upper West Side, New York, NY",
     "lat": 40.784,
     "lng": -73.976,
@@ -2493,7 +2493,7 @@
   },
   {
     "name": "Pastrami Queen",
-    "cuisine": "Deli",
+    "cuisine": "Jewish Deli",
     "address": "1125 Lexington Ave, New York, NY 10075",
     "lat": 40.775,
     "lng": -73.961,
@@ -2507,7 +2507,7 @@
   },
   {
     "name": "Pera Mediterranean Brasserie",
-    "cuisine": "Mediterranean",
+    "cuisine": "Mediterranean/Turkish",
     "address": "303 Madison Ave, New York, NY 10017",
     "lat": 40.753,
     "lng": -73.978,
@@ -2885,7 +2885,7 @@
   },
   {
     "name": "Serendipity 3",
-    "cuisine": "American",
+    "cuisine": "American/Dessert",
     "address": "225 E 60th St, New York, NY 10022",
     "lat": 40.763,
     "lng": -73.965,
@@ -2899,7 +2899,7 @@
   },
   {
     "name": "Serendipity 3 Times Square",
-    "cuisine": "American",
+    "cuisine": "American/Dessert",
     "address": "Times Square, New York, NY",
     "lat": 40.758,
     "lng": -73.985,
@@ -3291,7 +3291,7 @@
   },
   {
     "name": "Taim Mediterranean Kitchen",
-    "cuisine": "Mediterranean",
+    "cuisine": "Mediterranean/Israeli",
     "address": "222 Waverly Pl, New York, NY 10014",
     "lat": 40.734,
     "lng": -74.003,

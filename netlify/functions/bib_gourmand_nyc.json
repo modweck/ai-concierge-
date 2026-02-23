@@ -1,7 +1,7 @@
 [
   {
     "name": "Sal Tang's",
-    "cuisine": "Chinese Contemporary",
+    "cuisine": "Korean",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.728,
@@ -61,7 +61,7 @@
   },
   {
     "name": "Ruffian",
-    "cuisine": "Contemporary",
+    "cuisine": "American",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7286,
@@ -76,7 +76,7 @@
   },
   {
     "name": "Bohemian Spirit",
-    "cuisine": "Czech",
+    "cuisine": "Czech/European",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7605,
@@ -256,7 +256,7 @@
   },
   {
     "name": "Laliko",
-    "cuisine": "Central Asian",
+    "cuisine": "Georgian",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.5776,
@@ -286,7 +286,7 @@
   },
   {
     "name": "Caleta 111 Cevicheria",
-    "cuisine": "Peruvian",
+    "cuisine": "Peruvian/Seafood",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7525,
@@ -331,7 +331,7 @@
   },
   {
     "name": "Miss Ada",
-    "cuisine": "Israeli",
+    "cuisine": "Mediterranean",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.6882,
@@ -346,7 +346,7 @@
   },
   {
     "name": "Oso",
-    "cuisine": "Mexican",
+    "cuisine": "Italian",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7032,
@@ -391,7 +391,7 @@
   },
   {
     "name": "Speedy Romeo",
-    "cuisine": "Pizza",
+    "cuisine": "Italian/Pizza",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.6788,
@@ -406,7 +406,7 @@
   },
   {
     "name": "Katz's",
-    "cuisine": "Deli",
+    "cuisine": "Jewish Deli",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7223,
@@ -421,7 +421,7 @@
   },
   {
     "name": "Untable",
-    "cuisine": "Thai",
+    "cuisine": "Mexican",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.719,
@@ -466,7 +466,7 @@
   },
   {
     "name": "Café Mars",
-    "cuisine": "Contemporary",
+    "cuisine": "Italian",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.6788,
@@ -496,7 +496,7 @@
   },
   {
     "name": "Tha Phraya",
-    "cuisine": "Thai Contemporary",
+    "cuisine": "Thai",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7138,
@@ -526,7 +526,7 @@
   },
   {
     "name": "Sagara",
-    "cuisine": "Sri Lankan",
+    "cuisine": "Indonesian",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7275,
@@ -541,7 +541,7 @@
   },
   {
     "name": "Shalom Japan",
-    "cuisine": "Fusion",
+    "cuisine": "Japanese/Jewish",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7118,
@@ -556,7 +556,7 @@
   },
   {
     "name": "HanGawi",
-    "cuisine": "Korean",
+    "cuisine": "Korean/Vegetarian",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7478,
@@ -571,7 +571,7 @@
   },
   {
     "name": "Tolo",
-    "cuisine": "Chinese",
+    "cuisine": "Italian",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.729,
@@ -616,7 +616,7 @@
   },
   {
     "name": "Tonchin",
-    "cuisine": "Japanese",
+    "cuisine": "Japanese/Ramen",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7556,
@@ -631,7 +631,7 @@
   },
   {
     "name": "Russ & Daughters Cafe",
-    "cuisine": "American",
+    "cuisine": "Jewish Deli",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7228,
@@ -646,7 +646,7 @@
   },
   {
     "name": "Una Pizza Napoletana",
-    "cuisine": "Pizza",
+    "cuisine": "Italian/Pizza",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7262,
@@ -691,7 +691,7 @@
   },
   {
     "name": "Agi's Counter",
-    "cuisine": "Creative",
+    "cuisine": "Hungarian",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.6779,
@@ -781,7 +781,7 @@
   },
   {
     "name": "Bonnie's",
-    "cuisine": "Cantonese",
+    "cuisine": "Chinese/Cantonese",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.712,
@@ -796,7 +796,7 @@
   },
   {
     "name": "Boro6 Wine Bar",
-    "cuisine": "Contemporary",
+    "cuisine": "American",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7556,
@@ -826,7 +826,7 @@
   },
   {
     "name": "Burrata",
-    "cuisine": "Italian-American",
+    "cuisine": "Italian",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.743,
@@ -841,7 +841,7 @@
   },
   {
     "name": "C as in Charlie",
-    "cuisine": "Fusion",
+    "cuisine": "Mediterranean",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7193,
@@ -856,7 +856,7 @@
   },
   {
     "name": "Cervo's",
-    "cuisine": "Spanish",
+    "cuisine": "Mediterranean/Seafood",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7189,
@@ -916,7 +916,7 @@
   },
   {
     "name": "Coqodaq",
-    "cuisine": "Korean",
+    "cuisine": "Korean/Fried Chicken",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7467,
@@ -991,7 +991,7 @@
   },
   {
     "name": "LORE",
-    "cuisine": "Contemporary",
+    "cuisine": "American",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.682,
@@ -1006,7 +1006,7 @@
   },
   {
     "name": "Lungi",
-    "cuisine": "Sri Lankan",
+    "cuisine": "Indian",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7292,
@@ -1036,7 +1036,7 @@
   },
   {
     "name": "Momofuku Noodle Bar",
-    "cuisine": "Asian",
+    "cuisine": "Japanese/Asian",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7293,
@@ -1051,7 +1051,7 @@
   },
   {
     "name": "Noreetuh",
-    "cuisine": "Asian",
+    "cuisine": "Hawaiian/American",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7267,
@@ -1066,7 +1066,7 @@
   },
   {
     "name": "Olmo",
-    "cuisine": "Contemporary",
+    "cuisine": "Italian",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.6917,
@@ -1096,7 +1096,7 @@
   },
   {
     "name": "Potluck Club",
-    "cuisine": "Korean",
+    "cuisine": "American",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7116,
@@ -1111,7 +1111,7 @@
   },
   {
     "name": "Roberta's",
-    "cuisine": "Pizza",
+    "cuisine": "Italian/Pizza",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.705,
@@ -1126,7 +1126,7 @@
   },
   {
     "name": "Runner Up",
-    "cuisine": "Contemporary",
+    "cuisine": "American",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7082,
@@ -1141,7 +1141,7 @@
   },
   {
     "name": "Yemenat",
-    "cuisine": "Middle Eastern",
+    "cuisine": "Yemeni",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.706,
@@ -1171,7 +1171,7 @@
   },
   {
     "name": "Zaab Zaab",
-    "cuisine": "Isan",
+    "cuisine": "Thai",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7122,
@@ -1186,7 +1186,7 @@
   },
   {
     "name": "Cecily",
-    "cuisine": "Contemporary",
+    "cuisine": "American",
     "distinction": "bib_gourmand",
     "stars": 0,
     "lat": 40.7266,
