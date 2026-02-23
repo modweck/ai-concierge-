@@ -689,17 +689,18 @@ exports.handler = async (event) => {
     });
     if (cleaned.length < beforeExclude) console.log(`\ud83e\uddf9 Excluded ${beforeExclude - cleaned.length} non-restaurants (chains/delis/coffee/bars/venues)`);
 
-    // Post-filter by cuisine type
+    // Cuisine filter: only filter nearby-ring results (Layer 2)
+    // Layer 1 (keyword) and Layer 3 (text) already searched by cuisine
     let cuisineFiltered = cleaned;
     if (cuisineStr) {
       const allowedTypes = CUISINE_TYPE_MAP[cuisineStr.toLowerCase()] || [];
       if (allowedTypes.length > 0) {
         const beforeCount = cuisineFiltered.length;
         cuisineFiltered = cuisineFiltered.filter(p => {
+          if (p._source === 'legacy' || p._source === 'new_text') return true;
           const pTypes = (p.types || []).map(t => t.toLowerCase());
           const matches = allowedTypes.some(at => pTypes.includes(at));
           const nameMatch = (p.name || '').toLowerCase().includes(cuisineStr.toLowerCase());
-          // Also check cuisine lookup for Google results
           const lookupMatch = cuisineLookupMatches(p.name, cuisineStr);
           return matches || nameMatch || lookupMatch;
         });
