@@ -771,6 +771,8 @@ function sortResults() {
       if (a.price_level !== b.price_level) return a.price_level - b.price_level;
       const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
       if (ra !== rb) return rb - ra;
+      const ma = michelinRank(a), mb = michelinRank(b);
+      if (ma !== mb) return mb - ma;
       return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
     });
 
@@ -788,6 +790,8 @@ function sortResults() {
       sorted.sort((a, b) => {
         const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
         if (ra !== rb) return rb - ra;
+        const ma = michelinRank(a), mb = michelinRank(b);
+        if (ma !== mb) return mb - ma;
         return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
       });
     } else if (sortBy === 'distance') {
@@ -797,6 +801,8 @@ function sortResults() {
         if (da !== db) return da - db;
         const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
         if (ra !== rb) return rb - ra;
+        const ma = michelinRank(a), mb = michelinRank(b);
+        if (ma !== mb) return mb - ma;
         if ((b.googleReviewCount || 0) !== (a.googleReviewCount || 0)) return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
         return String(a.name || '').localeCompare(String(b.name || ''));
       });
@@ -857,9 +863,7 @@ function renderCard(r) {
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' restaurant New York, NY')}`;
 
-  const ratingHtml = r.michelin
-    ? ''
-    : (r.googleRating != null && r.googleRating !== 0)
+  const ratingHtml = (r.googleRating != null && r.googleRating !== 0)
       ? `<a href="${reviewsUrl}" target="_blank" rel="noopener" style="padding:8px 14px;border-radius:20px;font-size:14px;font-weight:600;border:2px solid #e0e0e0;background:#fafafa;text-decoration:none;color:inherit;cursor:pointer;display:inline-flex;align-items:center">⭐ ${Number(rating).toFixed(1)} (${reviews})</a>`
       : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
 
