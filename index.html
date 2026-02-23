@@ -453,7 +453,7 @@ async function search() {
       const resp = await fetch('/.netlify/functions/search-candidates', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ location, quality: 'chase_sapphire' }),
+        body: JSON.stringify({ location, quality: 'chase_sapphire', cuisine: cuisine === 'any' ? undefined : cuisine }),
         signal: searchAbortController.signal
       });
 
@@ -499,7 +499,7 @@ async function search() {
       const resp = await fetch('/.netlify/functions/search-candidates', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ location, quality: 'rakuten' }),
+        body: JSON.stringify({ location, quality: 'rakuten', cuisine: cuisine === 'any' ? undefined : cuisine }),
         signal: searchAbortController.signal
       });
 
@@ -602,7 +602,7 @@ async function search() {
       const resp = await fetch('/.netlify/functions/search-candidates', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ location, quality: 'bib_gourmand' }),
+        body: JSON.stringify({ location, quality: 'bib_gourmand', cuisine: cuisine === 'any' ? undefined : cuisine }),
         signal: searchAbortController.signal
       });
 
