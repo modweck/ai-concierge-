@@ -31,6 +31,12 @@ try {
   console.log(`\u2705 Rakuten base: ${RAKUTEN_BASE.length} entries`);
 } catch (err) { console.warn('\u274c Rakuten base missing:', err.message); }
 
+let POPULAR_BASE = [];
+try {
+  POPULAR_BASE = JSON.parse(fs.readFileSync(path.join(__dirname, 'popular_nyc.json'), 'utf8'));
+  console.log(`\u2705 Popular base: ${POPULAR_BASE.length} entries`);
+} catch (err) { console.warn('\u26a0\ufe0f Popular base missing:', err.message); }
+
 let DEPOSIT_LOOKUP = {};
 try {
   DEPOSIT_LOOKUP = JSON.parse(fs.readFileSync(path.join(__dirname, 'deposit_lookup.json'), 'utf8'));
@@ -201,6 +207,11 @@ async function resolveMichelinPlaces(GOOGLE_API_KEY) {
 function getBibGourmandPlaces() {
   if (!BIB_GOURMAND_BASE?.length) return [];
   return BIB_GOURMAND_BASE.filter(b => b.lat != null && b.lng != null);
+}
+
+function getPopularPlaces() {
+  if (!POPULAR_BASE?.length) return [];
+  return POPULAR_BASE.filter(p => p.lat != null && p.lng != null);
 }
 
 function attachMichelinBadges(candidates, michelinResolved) {
@@ -775,6 +786,38 @@ exports.handler = async (event) => {
       bibInjected++;
     }
     if (bibInjected) console.log(`\u2705 Injected ${bibInjected} Bib Gourmand restaurants not in Google results`);
+
+    // INJECT Popular 4.4+ restaurants not in Google results
+    const popularPlaces = getPopularPlaces();
+    let popularInjected = 0;
+    for (const p of popularPlaces) {
+      if (!p?.lat || !p?.lng) continue;
+      if (p.place_id && existingIds.has(p.place_id)) continue;
+      if (p.name && existingNames.has(normalizeName(p.name))) continue;
+      if (cuisineStr && p.cuisine) {
+        const pc = p.cuisine.toLowerCase();
+        if (!pc.includes(cuisineStr.toLowerCase())) continue;
+      }
+      const d = haversineMiles(gLat, gLng, p.lat, p.lng);
+      if (d > 7.0) continue;
+      within.push({
+        place_id: p.place_id || null, name: p.name,
+        vicinity: p.address || '', formatted_address: p.address || '',
+        price_level: p.price_level || null, opening_hours: null,
+        geometry: { location: { lat: p.lat, lng: p.lng } },
+        types: [], googleRating: p.googleRating || 0, googleReviewCount: p.googleReviewCount || 0,
+        distanceMiles: Math.round(d * 10) / 10,
+        walkMinEstimate: Math.round(d * 20), driveMinEstimate: Math.round(d * 4), transitMinEstimate: Math.round(d * 6),
+        michelin: null, cuisine: p.cuisine || null,
+        booking_platform: p.booking_platform || null,
+        booking_url: p.booking_url || null,
+        _source: 'popular_inject'
+      });
+      if (p.place_id) existingIds.add(p.place_id);
+      existingNames.add(normalizeName(p.name));
+      popularInjected++;
+    }
+    if (popularInjected) console.log(`\u2705 Injected ${popularInjected} popular 4.4+ restaurants not in other results`);
 
     // TAG + INJECT Chase Sapphire restaurants
     const chaseNameSet = new Set();
