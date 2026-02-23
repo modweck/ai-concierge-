@@ -127,7 +127,6 @@
         <div class="toggle-group">
           <button class="toggle-btn active" onclick="setTransport(event,'walk')">🚶 Walk</button>
           <button class="toggle-btn" onclick="setTransport(event,'drive')">🚗 Drive</button>
-          <button class="toggle-btn" onclick="setTransport(event,'transit')">🚇 Transit</button>
           <button class="toggle-btn" onclick="setTransport(event,'radius')">📍 Radius</button>
         </div>
       </div>
@@ -152,15 +151,7 @@
         </select>
       </div>
 
-      <div id="transitDistance" style="margin-bottom:20px;display:none">
-        <label>🚇 Max Transit</label>
-        <select id="transitTime">
-          <option value="15">15 min</option>
-          <option value="20" selected>20 min</option>
-          <option value="30">30 min</option>
-          <option value="45">45 min</option>
-        </select>
-      </div>
+
 
       <div id="radiusDistance" style="margin-bottom:20px;display:none">
         <label>📍 Radius</label>
@@ -175,12 +166,10 @@
       <div style="margin-bottom:20px">
         <label>⭐ Quality</label>
         <select id="quality">
-          <option value="any" selected>Any Quality</option>
+          <option value="any" selected>All Rated 4.4+</option>
           <option value="michelin">Michelin Stars</option>
           <option value="bib_gourmand">Bib Gourmand</option>
-          <option value="recommended_44">Recommended (4.4+)</option>
-          <option value="elite_45">Elite (4.5+)</option>
-          <option value="strict_elite_47">Strict Elite (4.7+)</option>
+          <option value="strict_elite_47">Top Rated (4.7+)</option>
         </select>
       </div>
 
@@ -329,6 +318,14 @@ function michelinRank(r) {
   return 10;
 }
 
+function isBroadCitySearch(location) {
+  if (!location) return false;
+  const loc = location.toLowerCase().trim().replace(/[,\.]/g, '').replace(/\s+/g, ' ');
+  const broadTerms = ['new york ny', 'new york new york', 'nyc', 'manhattan ny', 'manhattan new york', 'brooklyn ny', 'brooklyn new york', 'queens ny', 'queens new york', 'bronx ny', 'bronx new york', 'new york city'];
+  return broadTerms.some(t => loc === t || loc.startsWith(t + ' '));
+}
+
+
 function hasPrice(r) {
   return r.price_level != null && r.price_level !== undefined && r.price_level > 0;
 }
@@ -356,9 +353,46 @@ function setTransport(evt, mode) {
   document.getElementById('radiusDistance').style.display = mode === 'radius' ? 'block' : 'none';
 }
 
+// --- Junk filter: remove non-restaurant places ---
+const JUNK_TYPES = new Set([
+  'convenience_store','grocery_or_supermarket','supermarket','gas_station',
+  'drugstore','pharmacy','liquor_store','department_store','clothing_store',
+  'hardware_store','laundry','car_wash','car_repair','storage',
+  'lodging','hotel','movie_theater','bowling_alley','gym',
+  'beauty_salon','hair_care','spa','funeral_home','church',
+  'mosque','synagogue','school','university','hospital',
+  'dentist','doctor','veterinary_care','real_estate_agency',
+  'insurance_agency','bank','atm','post_office','courthouse',
+  'local_government_office','police','fire_station'
+]);
+const JUNK_NAME_PATTERNS = /\b(food\s*truck|hot\s*dog\s*cart|deli\s*&?\s*grocery|bodega|convenience|7[- ]?eleven|dollar\s*(tree|general)|rite\s*aid|cvs|walgreens|duane\s*reade|subway|mcdonald'?s|burger\s*king|wendy'?s|taco\s*bell|kfc|popeyes|chick-?fil-?a|dunkin'?|domino'?s|papa\s*john'?s|little\s*caesars|five\s*guys|chipotle|panda\s*express|wingstop|sonic|arby'?s|jack\s*in\s*the\s*box|white\s*castle|checkers|rally'?s|church'?s\s*chicken|del\s*taco|dairy\s*queen|baskin|cold\s*stone|auntie\s*anne|cinnabon|jamba|smoothie\s*king|starbucks|tim\s*hortons|panera)\b/i;
+
+function isJunkPlace(r) {
+  // Never filter out curated restaurants (Michelin, Bib, Chase, Rakuten, Popular)
+  if (r.michelin || r.bib_gourmand || r.chase_sapphire || r.rakuten) return false;
+  const name = (r.name || '').toLowerCase();
+  if (POPULAR_SET && POPULAR_SET.has && POPULAR_SET.has(name)) return false;
+  if (BUZZ_LINKS && BUZZ_LINKS[r.name]) return false;
+
+  // Check Google place types
+  const types = r.types || [];
+  if (types.some(t => JUNK_TYPES.has(t))) return true;
+
+  // Check name patterns
+  if (JUNK_NAME_PATTERNS.test(r.name || '')) return true;
+
+  // Filter places with very few reviews (likely not real restaurants)
+  const reviews = Number(r.googleReviewCount || r.reviewCount || 0);
+  if (reviews > 0 && reviews < 25) return true;
+
+  return false;
+}
+
 function filterByQuality(restaurants) {
   const q = state.qualityFilter;
-  let filtered = restaurants;
+
+  // Always remove junk places first
+  let filtered = restaurants.filter(r => !isJunkPlace(r));
 
   if (q === 'any') { /* keep all */ }
   else if (q === 'michelin' || q === 'bib_gourmand') { /* already filtered by search */ }
@@ -716,10 +750,10 @@ async function search() {
     });
 
     let realTimeFiltered = allRestaurants;
-    if (state.rewardsFilter === 'any') {
+    const userLocation = document.getElementById('addressInput').value;
+    if (state.rewardsFilter === 'any' && !isBroadCitySearch(userLocation)) {
       if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
       else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
-      else if (state.transport === 'transit' && maxTransitMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
     }
     allRestaurants = realTimeFiltered;
 
@@ -769,15 +803,17 @@ function sortResults() {
 
     priced.sort((a, b) => {
       if (a.price_level !== b.price_level) return a.price_level - b.price_level;
+      const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+      if (ra !== rb) return rb - ra;
       const ma = michelinRank(a), mb = michelinRank(b);
       if (ma !== mb) return mb - ma;
-      return (b.googleRating || 0) - (a.googleRating || 0);
+      return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
     });
 
     noPrice.sort((a, b) => {
-      const ma = michelinRank(a), mb = michelinRank(b);
-      if (ma !== mb) return mb - ma;
-      return (b.googleRating || 0) - (a.googleRating || 0);
+      const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+      if (ra !== rb) return rb - ra;
+      return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
     });
 
     displayResults(priced, noPrice);
@@ -786,18 +822,22 @@ function sortResults() {
 
     if (sortBy === 'rating') {
       sorted.sort((a, b) => {
+        const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+        if (ra !== rb) return rb - ra;
         const ma = michelinRank(a), mb = michelinRank(b);
         if (ma !== mb) return mb - ma;
-        return (b.googleRating || 0) - (a.googleRating || 0);
+        return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
       });
     } else if (sortBy === 'distance') {
       sorted.sort((a, b) => {
         const da = a.distanceMiles ?? 999999;
         const db = b.distanceMiles ?? 999999;
         if (da !== db) return da - db;
+        const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+        if (ra !== rb) return rb - ra;
         const ma = michelinRank(a), mb = michelinRank(b);
         if (ma !== mb) return mb - ma;
-        if ((b.googleRating || 0) !== (a.googleRating || 0)) return (b.googleRating || 0) - (a.googleRating || 0);
+        if ((b.googleReviewCount || 0) !== (a.googleReviewCount || 0)) return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
         return String(a.name || '').localeCompare(String(b.name || ''));
       });
     }
@@ -835,7 +875,6 @@ function renderCard(r) {
   let distanceHtml = '';
   if (r.walkMinutes != null) distanceHtml += `<span class="badge distance">🚶 ${r.walkMinutes} min</span>`;
   if (r.driveMinutes != null) distanceHtml += `<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
-  if (r.transitMinutes != null) distanceHtml += `<span class="badge distance">🚇 ${r.transitMinutes} min</span>`;
   if (r.distanceMiles != null) distanceHtml += `<span class="badge distance">📍 ${r.distanceMiles} mi</span>`;
 
   let michelinHtml = '';
@@ -857,16 +896,14 @@ function renderCard(r) {
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' restaurant New York, NY')}`;
 
-  const ratingHtml = r.michelin
-    ? ''
-    : (r.googleRating != null && r.googleRating !== 0)
+  const ratingHtml = (r.googleRating != null && r.googleRating !== 0)
       ? `<a href="${reviewsUrl}" target="_blank" rel="noopener" style="padding:8px 14px;border-radius:20px;font-size:14px;font-weight:600;border:2px solid #e0e0e0;background:#fafafa;text-decoration:none;color:inherit;cursor:pointer;display:inline-flex;align-items:center">⭐ ${Number(rating).toFixed(1)} (${reviews})</a>`
       : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
 
   const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
 
   const chaseHtml = (state.rewardsFilter === 'chase' && isChaseRestaurant(r.name)) ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
-const rakutenHtml = (state.rewardsFilter === 'rakuten' || isRakutenRestaurant(r.name)) ? `<a href="https://www.rakuten.com/dining"...
+  const rakutenHtml = (state.rewardsFilter === 'rakuten' || isRakutenRestaurant(r.name)) ? `<a href="https://www.rakuten.com/dining" target="_blank" rel="noopener" class="badge" style="background:#bf0000;color:white;border-color:#bf0000;font-size:12px;text-decoration:none;cursor:pointer">🛍️ Rakuten</a>` : '';
 
   // Deposit warning - prominent standalone line
   let depositHtml = '';
