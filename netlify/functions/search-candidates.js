@@ -51,6 +51,41 @@ try {
   console.log(`\u2705 Booking lookup: ${BOOKING_KEYS.length} entries`);
 } catch (err) { console.warn('\u274c Booking lookup missing:', err.message); }
 
+let CUISINE_LOOKUP = {};
+try {
+  CUISINE_LOOKUP = JSON.parse(fs.readFileSync(path.join(__dirname, 'cuisine_lookup.json'), 'utf8'));
+  console.log(`\u2705 Cuisine lookup: ${Object.keys(CUISINE_LOOKUP).length} entries`);
+} catch (err) { console.warn('\u26a0\ufe0f Cuisine lookup missing:', err.message); }
+
+const CUISINE_FILTER_MAP = {
+  'american':       ['American', 'Soul Food', 'Hawaiian', 'Tex-Mex'],
+  'barbecue':       ['Barbecue'],
+  'chinese':        ['Chinese', 'Cantonese', 'Taiwanese'],
+  'french':         ['French'],
+  'greek':          ['Greek'],
+  'indian':         ['Indian'],
+  'italian':        ['Italian', 'Pizza'],
+  'japanese':       ['Japanese', 'Sushi', 'Ramen'],
+  'korean':         ['Korean'],
+  'mediterranean':  ['Mediterranean', 'Turkish', 'Israeli', 'Middle Eastern', 'Lebanese', 'Moroccan', 'Persian'],
+  'mexican':        ['Mexican', 'Latin'],
+  'seafood':        ['Seafood'],
+  'spanish':        ['Spanish'],
+  'steakhouse':     ['Steakhouse'],
+  'sushi':          ['Sushi'],
+  'thai':           ['Thai'],
+  'vietnamese':     ['Vietnamese']
+};
+
+function cuisineLookupMatches(name, userCuisine) {
+  if (!userCuisine || !name) return true;
+  const c = CUISINE_LOOKUP[name];
+  if (!c) return false;
+  const allowed = CUISINE_FILTER_MAP[userCuisine.toLowerCase()] || [];
+  if (allowed.length === 0) return false;
+  return c.split('/').some(p => allowed.some(a => p.trim().toLowerCase().includes(a.toLowerCase())));
+}
+
 function normalizeForBooking(name) {
   return (name || '').toLowerCase().trim()
     .replace(/\s*[-\u2013\u2014]\s*(midtown|downtown|uptown|east village|west village|tribeca|soho|noho|brooklyn|queens|fidi|financial district|nomad|lincoln square|nyc|new york|manhattan|ny).*$/i, '')
@@ -146,7 +181,7 @@ async function detectBookingPlatforms(restaurants, KEY) {
   const unmatched = restaurants.filter(r => !r.booking_platform && r.websiteUri);
   const toCrawl = unmatched.slice(0, 10);
   if (toCrawl.length > 0) {
-    console.log(`🔍 Crawling ${toCrawl.length} restaurant websites for booking links...`);
+    console.log(`\ud83d\udd0d Crawling ${toCrawl.length} restaurant websites for booking links...`);
     await runWithConcurrency(toCrawl, 5, async (r) => {
       try {
         const controller = new AbortController();
@@ -176,7 +211,7 @@ async function detectBookingPlatforms(restaurants, KEY) {
 
   const matched = restaurants.filter(r => r.booking_platform).length;
   const crawlMatched = toCrawl.filter(r => r.booking_platform).length;
-  console.log(`✅ Booking: ${matched}/${restaurants.length} matched (lookup: ${matched - crawlMatched}, crawl: ${crawlMatched})`);
+  console.log(`\u2705 Booking: ${matched}/${restaurants.length} matched (lookup: ${matched - crawlMatched}, crawl: ${crawlMatched})`);
 }
 
 async function resolveMichelinPlaces(GOOGLE_API_KEY) {
@@ -442,6 +477,7 @@ exports.handler = async (event) => {
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: { stars: r.stars||0, distinction: r.distinction||'star' },
+          cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
       }).filter(r => r.distanceMiles <= 15).sort((a,b) => (b.michelin?.stars || 0) - (a.michelin?.stars || 0) || (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
@@ -454,14 +490,14 @@ exports.handler = async (event) => {
     // Bib Gourmand mode — 15 mile radius (pre-resolved, no API calls needed)
     if (qualityMode === 'bib_gourmand') {
       const bibPlaces = getBibGourmandPlaces();
-      console.log(`🍽️ Bib Gourmand: ${bibPlaces.length} pre-resolved entries`);
+      console.log(`\ud83c\udf7d\ufe0f Bib Gourmand: ${bibPlaces.length} pre-resolved entries`);
       const within = bibPlaces.map(r => {
         const d = haversineMiles(gLat, gLng, r.lat, r.lng);
         return { place_id: r.place_id, name: r.name, vicinity: r.address||'', formatted_address: r.address||'',
           price_level: r.price_level || null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
-          michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: r.cuisine || null,
+          michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
       }).filter(r => r.distanceMiles <= 15).sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
@@ -473,14 +509,14 @@ exports.handler = async (event) => {
 
     // Chase Sapphire Reserve mode — 15 mile radius from chase_sapphire_nyc.json
     if (qualityMode === 'chase_sapphire') {
-      console.log(`💳 Chase Sapphire: ${CHASE_SAPPHIRE_BASE.length} entries`);
+      console.log(`\ud83d\udcb3 Chase Sapphire: ${CHASE_SAPPHIRE_BASE.length} entries`);
       const within = CHASE_SAPPHIRE_BASE.filter(r => r.lat != null && r.lng != null).map(r => {
         const d = haversineMiles(gLat, gLng, r.lat, r.lng);
         return { place_id: r.place_id || null, name: r.name, vicinity: r.address||'', formatted_address: r.address||'',
           price_level: r.price_level || null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
           googleRating: r.googleRating || 0, googleReviewCount: r.googleReviewCount || 0,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
-          michelin: null, cuisine: r.cuisine || null,
+          michelin: null, cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: true };
       }).filter(r => r.distanceMiles <= 15).sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
@@ -499,7 +535,7 @@ exports.handler = async (event) => {
           price_level: r.price_level || null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
           googleRating: r.googleRating || 0, googleReviewCount: r.googleReviewCount || 0,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
-          michelin: null, cuisine: r.cuisine || null,
+          michelin: null, cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           rakuten: true };
       }).filter(r => r.distanceMiles <= 15).sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
@@ -594,7 +630,7 @@ exports.handler = async (event) => {
       /\bdeli\b/i, /\bbodega\b/i, /\bice cream\b/i, /\bgelato\b/i,
       /\bfrozen yogurt\b/i, /\bfroyo\b/i, /\bjuice\b/i, /\bsmoothie\b/i,
       /\bboba\b/i, /\bbubble tea\b/i, /\btea shop\b/i,
-      /\bcoffee\b/i, /\bespresso\b/i, /\bcafé\b(?!\s*(otro|spaghetti|mars|zaffri|mado|rue))/i,
+      /\bcoffee\b/i, /\bespresso\b/i, /\bcaf\u00e9\b(?!\s*(otro|spaghetti|mars|zaffri|mado|rue))/i,
       /\bbakery\b/i, /\bdonut\b/i, /\bdoughnut\b/i, /\bbagel\b/i,
       /\bcake shop\b/i, /\bcupcake\b/i, /\bpastry\b/i, /\bdessert\b/i,
       /\bcreperie\b/i, /\bpatisserie\b/i,
@@ -622,7 +658,7 @@ exports.handler = async (event) => {
     for (const p of nearbyResults) { if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); nearbyN++; } }
     for (const p of textResults) { if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); textN++; } }
 
-    console.log(`📊 MERGE: Legacy=${legacyN} + Nearby=+${nearbyN} + Text=+${textN} = ${all.length}`);
+    console.log(`\ud83d\udcca MERGE: Legacy=${legacyN} + Nearby=+${nearbyN} + Text=+${textN} = ${all.length}`);
 
     // Filter out non-restaurants
     const beforeExclude = all.length;
@@ -651,7 +687,7 @@ exports.handler = async (event) => {
 
       return true;
     });
-    if (cleaned.length < beforeExclude) console.log(`🧹 Excluded ${beforeExclude - cleaned.length} non-restaurants (chains/delis/coffee/bars/venues)`);
+    if (cleaned.length < beforeExclude) console.log(`\ud83e\uddf9 Excluded ${beforeExclude - cleaned.length} non-restaurants (chains/delis/coffee/bars/venues)`);
 
     // Post-filter by cuisine type
     let cuisineFiltered = cleaned;
@@ -663,9 +699,11 @@ exports.handler = async (event) => {
           const pTypes = (p.types || []).map(t => t.toLowerCase());
           const matches = allowedTypes.some(at => pTypes.includes(at));
           const nameMatch = (p.name || '').toLowerCase().includes(cuisineStr.toLowerCase());
-          return matches || nameMatch;
+          // Also check cuisine lookup for Google results
+          const lookupMatch = cuisineLookupMatches(p.name, cuisineStr);
+          return matches || nameMatch || lookupMatch;
         });
-        console.log(`🍕 Cuisine filter "${cuisineStr}": ${beforeCount} → ${cuisineFiltered.length} (removed ${beforeCount - cuisineFiltered.length})`);
+        console.log(`\ud83c\udf55 Cuisine filter "${cuisineStr}": ${beforeCount} \u2192 ${cuisineFiltered.length} (removed ${beforeCount - cuisineFiltered.length})`);
       }
     }
 
@@ -676,7 +714,7 @@ exports.handler = async (event) => {
       if (pl === 1) return false;
       return true;
     });
-    if (cuisineFiltered.length < beforePrice) console.log(`💰 Price filter: removed ${beforePrice - cuisineFiltered.length} cheap ($) spots`);
+    if (cuisineFiltered.length < beforePrice) console.log(`\ud83d\udcb0 Price filter: removed ${beforePrice - cuisineFiltered.length} cheap ($) spots`);
 
     // Distance
     const withDist = cuisineFiltered.map(p => {
@@ -702,6 +740,7 @@ exports.handler = async (event) => {
         distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
         booking_platform: bp, booking_url: bu,
         websiteUri: p.websiteUri || null,
+        cuisine: CUISINE_LOOKUP[p.name] || p.cuisine || null,
         _source: p._source || 'legacy'
       };
     });
@@ -733,10 +772,7 @@ exports.handler = async (event) => {
       if (!m?.lat || !m?.lng) continue;
       if (m.place_id && existingIds.has(m.place_id)) continue;
       if (m.name && existingNames.has(normalizeName(m.name))) continue;
-      if (cuisineStr && m.cuisine) {
-        const mc = m.cuisine.toLowerCase();
-        if (!mc.includes(cuisineStr.toLowerCase())) continue;
-      }
+      if (cuisineStr && !cuisineLookupMatches(m.name, cuisineStr)) continue;
       const d = haversineMiles(gLat, gLng, m.lat, m.lng);
       if (d > 7.0) continue;
       within.push({
@@ -748,7 +784,7 @@ exports.handler = async (event) => {
         distanceMiles: Math.round(d * 10) / 10,
         walkMinEstimate: Math.round(d * 20), driveMinEstimate: Math.round(d * 4), transitMinEstimate: Math.round(d * 6),
         michelin: { stars: m.stars || 0, distinction: m.distinction || 'star' },
-        cuisine: m.cuisine || null,
+        cuisine: CUISINE_LOOKUP[m.name] || m.cuisine || null,
         booking_platform: m.booking_platform || null,
         booking_url: m.booking_url || null,
         _source: 'michelin_inject'
@@ -763,10 +799,7 @@ exports.handler = async (event) => {
     for (const b of bibPlaces) {
       if (!b?.lat || !b?.lng) continue;
       if (b.name && existingNames.has(normalizeName(b.name))) continue;
-      if (cuisineStr && b.cuisine) {
-        const bc = b.cuisine.toLowerCase();
-        if (!bc.includes(cuisineStr.toLowerCase())) continue;
-      }
+      if (cuisineStr && !cuisineLookupMatches(b.name, cuisineStr)) continue;
       const d = haversineMiles(gLat, gLng, b.lat, b.lng);
       if (d > 7.0) continue;
       within.push({
@@ -777,7 +810,7 @@ exports.handler = async (event) => {
         types: [], googleRating: 0, googleReviewCount: 0,
         distanceMiles: Math.round(d * 10) / 10,
         walkMinEstimate: Math.round(d * 20), driveMinEstimate: Math.round(d * 4), transitMinEstimate: Math.round(d * 6),
-        michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: b.cuisine || null,
+        michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: CUISINE_LOOKUP[b.name] || b.cuisine || null,
         booking_platform: b.booking_platform || null,
         booking_url: b.booking_url || null,
         _source: 'bib_inject'
@@ -794,10 +827,7 @@ exports.handler = async (event) => {
       if (!p?.lat || !p?.lng) continue;
       if (p.place_id && existingIds.has(p.place_id)) continue;
       if (p.name && existingNames.has(normalizeName(p.name))) continue;
-      if (cuisineStr && p.cuisine) {
-        const pc = p.cuisine.toLowerCase();
-        if (!pc.includes(cuisineStr.toLowerCase())) continue;
-      }
+      if (cuisineStr && !cuisineLookupMatches(p.name, cuisineStr)) continue;
       const d = haversineMiles(gLat, gLng, p.lat, p.lng);
       if (d > 7.0) continue;
       within.push({
@@ -808,7 +838,7 @@ exports.handler = async (event) => {
         types: [], googleRating: p.googleRating || 0, googleReviewCount: p.googleReviewCount || 0,
         distanceMiles: Math.round(d * 10) / 10,
         walkMinEstimate: Math.round(d * 20), driveMinEstimate: Math.round(d * 4), transitMinEstimate: Math.round(d * 6),
-        michelin: null, cuisine: p.cuisine || null,
+        michelin: null, cuisine: CUISINE_LOOKUP[p.name] || p.cuisine || null,
         booking_platform: p.booking_platform || null,
         booking_url: p.booking_url || null,
         _source: 'popular_inject'
@@ -833,10 +863,7 @@ exports.handler = async (event) => {
     for (const c of CHASE_SAPPHIRE_BASE) {
       if (!c?.lat || !c?.lng) continue;
       if (c.name && existingNames.has(normalizeName(c.name))) continue;
-      if (cuisineStr && c.cuisine) {
-        const cc = c.cuisine.toLowerCase();
-        if (!cc.includes(cuisineStr.toLowerCase())) continue;
-      }
+      if (cuisineStr && !cuisineLookupMatches(c.name, cuisineStr)) continue;
       const d = haversineMiles(gLat, gLng, c.lat, c.lng);
       if (d > 15.0) continue;
       within.push({
@@ -847,7 +874,7 @@ exports.handler = async (event) => {
         types: [], googleRating: c.googleRating || 0, googleReviewCount: c.googleReviewCount || 0,
         distanceMiles: Math.round(d * 10) / 10,
         walkMinEstimate: Math.round(d * 20), driveMinEstimate: Math.round(d * 4), transitMinEstimate: Math.round(d * 6),
-        michelin: null, cuisine: c.cuisine || null,
+        michelin: null, cuisine: CUISINE_LOOKUP[c.name] || c.cuisine || null,
         booking_platform: c.booking_platform || null,
         booking_url: c.booking_url || null,
         chase_sapphire: true,
