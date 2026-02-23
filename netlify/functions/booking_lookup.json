@@ -1,627 +1,631 @@
 {
+  "8282": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/8282"
+  },
   "nobu downtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/nobu-downtown-new-york"
+    "url": "https://www.opentable.com/nobu-downtown"
   },
   "nobu fifty seven": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/nobu-fifty-seven-new-york"
+    "url": "https://www.opentable.com/nobu-fifty-seven"
   },
   "nobu fifty-seven": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/nobu-fifty-seven-new-york"
+    "url": "https://www.opentable.com/nobu-fifty-seven"
   },
   "nobu": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/nobu-downtown-new-york"
+    "url": "https://www.opentable.com/nobu-downtown"
   },
   "the odeon": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-odeon-new-york"
+    "url": "https://www.opentable.com/the-odeon"
   },
   "brooklyn chop house": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/brooklyn-chop-house-downtown-new-york"
+    "url": "https://www.opentable.com/brooklyn-chop-house-downtown"
   },
   "brooklyn chop house - downtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/brooklyn-chop-house-downtown-new-york"
+    "url": "https://www.opentable.com/brooklyn-chop-house-downtown"
   },
   "tiny's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/tinys-new-york"
+    "url": "https://www.opentable.com/tinys"
   },
   "peking duck house": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/peking-duck-house-new-york"
+    "url": "https://www.opentable.com/peking-duck-house"
   },
   "fogo de chão": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/fogo-de-chao-new-york-world-trade-center"
+    "url": "https://www.opentable.com/fogo-de-chao-world-trade-center"
   },
   "fogo de chao": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/fogo-de-chao-new-york-world-trade-center"
+    "url": "https://www.opentable.com/fogo-de-chao-world-trade-center"
   },
   "serafina tribeca": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/serafina-tribeca-new-york"
+    "url": "https://www.opentable.com/serafina-tribeca"
   },
   "serafina osteria": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/serafina-osteria-new-york"
+    "url": "https://www.opentable.com/serafina-osteria"
   },
   "filé gumbo bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/file-gumbo-bar-new-york"
+    "url": "https://www.opentable.com/file-gumbo-bar"
   },
   "file gumbo bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/file-gumbo-bar-new-york"
+    "url": "https://www.opentable.com/file-gumbo-bar"
   },
   "antica ancora": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/antica-ancora-new-york"
+    "url": "https://www.opentable.com/antica-ancora"
   },
   "frenchette": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/frenchette-new-york"
+    "url": "https://www.opentable.com/frenchette"
   },
   "soothr": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/soothr-new-york"
+    "url": "https://www.opentable.com/soothr"
   },
   "san sabino": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/san-sabino-new-york"
+    "url": "https://www.opentable.com/san-sabino"
   },
   "estela": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/estela-new-york"
+    "url": "https://www.opentable.com/estela"
   },
   "momofuku noodle bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/momofuku-noodle-bar-east-village-new-york"
+    "url": "https://www.opentable.com/momofuku-noodle-bar-east-village"
   },
   "raf's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/rafs-new-york"
+    "url": "https://www.opentable.com/rafs"
   },
   "rafs": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/rafs-new-york"
+    "url": "https://www.opentable.com/rafs"
   },
   "casa mono": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/casa-mono-new-york"
+    "url": "https://www.opentable.com/casa-mono"
   },
   "le rock": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/le-rock-new-york"
+    "url": "https://www.opentable.com/le-rock"
   },
   "la grande boucherie": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/la-grande-boucherie-nyc-new-york"
+    "url": "https://www.opentable.com/la-grande-boucherie-nyc"
   },
   "la grande boucherie nyc": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/la-grande-boucherie-nyc-new-york"
+    "url": "https://www.opentable.com/la-grande-boucherie-nyc"
   },
   "gallaghers steakhouse": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/gallaghers-steakhouse-manhattan-new-york"
+    "url": "https://www.opentable.com/gallaghers-steakhouse-manhattan"
   },
   "gallaghers": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/gallaghers-steakhouse-manhattan-new-york"
+    "url": "https://www.opentable.com/gallaghers-steakhouse-manhattan"
   },
   "bad roman": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/bad-roman-new-york"
+    "url": "https://www.opentable.com/bad-roman"
   },
   "carmine's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/carmines-44th-street-nyc-new-york"
+    "url": "https://www.opentable.com/carmines-44th-street-nyc"
   },
   "carmine's - 44th street": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/carmines-44th-street-nyc-new-york"
+    "url": "https://www.opentable.com/carmines-44th-street-nyc"
   },
   "the palm court": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-palm-court-at-the-plaza-hotel-new-york"
+    "url": "https://www.opentable.com/the-palm-court-at-the-plaza-hotel"
   },
   "markjoseph steakhouse": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/markjoseph-steakhouse-new-york"
+    "url": "https://www.opentable.com/markjoseph-steakhouse"
   },
   "temple court": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/temple-court-new-york"
+    "url": "https://www.opentable.com/temple-court"
   },
   "craft": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/craft-new-york"
+    "url": "https://www.opentable.com/craft"
   },
   "strip house": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/strip-house-speakeasy-new-york"
+    "url": "https://www.opentable.com/strip-house-speakeasy"
   },
   "the smith": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-smith-nomad-new-york"
+    "url": "https://www.opentable.com/the-smith-nomad"
   },
   "the smith midtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-smith-midtown-new-york"
+    "url": "https://www.opentable.com/the-smith-midtown"
   },
   "the smith east village": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-smith-east-village-new-york"
+    "url": "https://www.opentable.com/the-smith-east-village"
   },
   "the smith lincoln square": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-smith-lincoln-square-new-york"
+    "url": "https://www.opentable.com/the-smith-lincoln-square"
   },
   "caviar russe": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/caviar-russe-new-york"
+    "url": "https://www.opentable.com/caviar-russe"
   },
   "grand brasserie": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/grand-brasserie-new-york"
+    "url": "https://www.opentable.com/grand-brasserie"
   },
   "oceans": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/oceans-new-york"
+    "url": "https://www.opentable.com/oceans"
   },
   "victor's cafe": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/victors-cafe-new-york"
+    "url": "https://www.opentable.com/victors-cafe"
   },
   "chez josephine": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/chez-josephine-new-york"
+    "url": "https://www.opentable.com/chez-josephine"
   },
   "tarallucci e vino": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/tarallucci-e-vino-new-york"
+    "url": "https://www.opentable.com/tarallucci-e-vino"
   },
   "abc cocina": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/abc-cocina-new-york"
+    "url": "https://www.opentable.com/abc-cocina"
   },
   "le veau d'or": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/le-veau-dor-new-york"
+    "url": "https://www.opentable.com/le-veau-dor"
   },
   "odo": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/odo-new-york"
+    "url": "https://www.opentable.com/odo"
   },
   "sushi noz": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sushi-noz-new-york"
+    "url": "https://www.opentable.com/sushi-noz"
   },
   "scarr's pizza": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/scarrs-pizza-new-york"
+    "url": "https://www.opentable.com/scarrs-pizza"
   },
   "lady mendl's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/lady-mendls-new-york"
+    "url": "https://www.opentable.com/lady-mendls"
   },
   "westville": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/westville-new-york"
+    "url": "https://www.opentable.com/westville"
   },
   "joe allen": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/joe-allen-new-york"
+    "url": "https://www.opentable.com/joe-allen"
   },
   "recreation bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/recreation-bar-new-york"
+    "url": "https://www.opentable.com/recreation-bar"
   },
   "warren street bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/warren-street-bar-and-restaurant-new-york"
+    "url": "https://www.opentable.com/warren-street-bar-and-restaurant"
   },
   "jajaja mexicana": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/jajaja-mexicana-west-village-new-york"
+    "url": "https://www.opentable.com/jajaja-mexicana-west-village"
   },
   "tony's di napoli": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/tonys-di-napoli-midtown-new-york"
+    "url": "https://www.opentable.com/tonys-di-napoli-midtown"
   },
   "don angie": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/don-angie-new-york"
+    "url": "https://www.opentable.com/don-angie"
   },
   "wild cherry": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/wild-cherry-new-york"
+    "url": "https://www.opentable.com/wild-cherry"
   },
   "ma-dé": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/ma-de-new-york"
+    "url": "https://www.opentable.com/ma-de"
   },
   "ma-de": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/ma-de-new-york"
+    "url": "https://www.opentable.com/ma-de"
   },
   "smith & wollensky": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/smith-and-wollensky-new-york"
+    "url": "https://www.opentable.com/smith-and-wollensky"
   },
   "smith and wollensky": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/smith-and-wollensky-new-york"
+    "url": "https://www.opentable.com/smith-and-wollensky"
   },
   "del frisco's double eagle steakhouse": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/del-friscos-double-eagle-steakhouse-new-york-city"
+    "url": "https://www.opentable.com/del-friscos-double-eagle-steakhouse-city"
   },
   "del frisco's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/del-friscos-double-eagle-steakhouse-new-york-city"
+    "url": "https://www.opentable.com/del-friscos-double-eagle-steakhouse-city"
   },
   "quality italian": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/quality-italian-new-york"
+    "url": "https://www.opentable.com/quality-italian"
   },
   "quality meats": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/quality-meats-new-york"
+    "url": "https://www.opentable.com/quality-meats"
   },
   "quality bistro": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/quality-bistro-new-york"
+    "url": "https://www.opentable.com/quality-bistro"
   },
   "trattoria dell'arte": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/trattoria-dellarte-new-york"
+    "url": "https://www.opentable.com/trattoria-dellarte"
   },
   "ocean prime": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/ocean-prime-new-york"
+    "url": "https://www.opentable.com/ocean-prime"
   },
   "estiatorio milos": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/estiatorio-milos-midtown-new-york"
+    "url": "https://www.opentable.com/estiatorio-milos-midtown"
   },
   "le rivage": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/le-rivage-new-york"
+    "url": "https://www.opentable.com/le-rivage"
   },
   "bond 45": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/bond-45-new-york"
+    "url": "https://www.opentable.com/bond-45"
   },
   "orso": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/orso-new-york"
+    "url": "https://www.opentable.com/orso"
   },
   "lattanzi": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/lattanzi-new-york"
+    "url": "https://www.opentable.com/lattanzi"
   },
   "the hunt and fish club": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-hunt-and-fish-club-new-york"
+    "url": "https://www.opentable.com/the-hunt-and-fish-club"
   },
   "benihana": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/benihana-new-york"
+    "url": "https://www.opentable.com/benihana"
   },
   "osteria al doge": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/osteria-al-doge-new-york"
+    "url": "https://www.opentable.com/osteria-al-doge"
   },
   "langan's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/langans-new-york"
+    "url": "https://www.opentable.com/langans"
   },
   "calle dao": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/calle-dao-new-york"
+    "url": "https://www.opentable.com/calle-dao"
   },
   "fasano": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/fasano-new-york"
+    "url": "https://www.opentable.com/fasano"
   },
   "club a steakhouse": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/club-a-steakhouse-new-york"
+    "url": "https://www.opentable.com/club-a-steakhouse"
   },
   "brasserie cognac": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/brasserie-cognac-midtown-east-new-york"
+    "url": "https://www.opentable.com/brasserie-cognac-midtown-east"
   },
   "the lobster club": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-lobster-club-new-york"
+    "url": "https://www.opentable.com/the-lobster-club"
   },
   "aretsky's patroon": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/aretskys-patroon-new-york"
+    "url": "https://www.opentable.com/aretskys-patroon"
   },
   "park ave kitchen": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/park-ave-kitchen-new-york"
+    "url": "https://www.opentable.com/park-ave-kitchen"
   },
   "il corso": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/il-corso-new-york"
+    "url": "https://www.opentable.com/il-corso"
   },
   "souvlaki gr": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/souvlaki-gr-midtown-new-york"
+    "url": "https://www.opentable.com/souvlaki-gr-midtown"
   },
   "the parlour room": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-parlour-room-new-york"
+    "url": "https://www.opentable.com/the-parlour-room"
   },
   "nami nori": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/nami-nori-new-york"
+    "url": "https://www.opentable.com/nami-nori"
   },
   "cafe cluny": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cafe-cluny-new-york"
+    "url": "https://www.opentable.com/cafe-cluny"
   },
   "palma": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/palma-new-york"
+    "url": "https://www.opentable.com/palma"
   },
   "anton's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/antons-new-york"
+    "url": "https://www.opentable.com/antons"
   },
   "la marchande": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/la-marchande-new-york"
+    "url": "https://www.opentable.com/la-marchande"
   },
   "golden steer": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/golden-steer-at-one-fifth-new-york"
+    "url": "https://www.opentable.com/golden-steer-at-one-fifth"
   },
   "blue ribbon sushi": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/blue-ribbon-sushi-new-york"
+    "url": "https://www.opentable.com/blue-ribbon-sushi"
   },
   "indian accent": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/indian-accent-new-york"
+    "url": "https://www.opentable.com/indian-accent"
   },
   "musaafer": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/musaafer-new-york"
+    "url": "https://www.opentable.com/musaafer"
   },
   "grand central oyster bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/grand-central-oyster-bar-restaurant-new-york"
+    "url": "https://www.opentable.com/grand-central-oyster-bar-restaurant"
   },
   "tao uptown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/tao-uptown-new-york"
+    "url": "https://www.opentable.com/tao-uptown"
   },
   "tao downtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/tao-downtown-new-york"
+    "url": "https://www.opentable.com/tao-downtown"
   },
   "stk steakhouse": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/stk-steakhouse-midtown-nyc-new-york"
+    "url": "https://www.opentable.com/stk-steakhouse-midtown-nyc"
   },
   "stk": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/stk-steakhouse-midtown-nyc-new-york"
+    "url": "https://www.opentable.com/stk-steakhouse-midtown-nyc"
   },
   "mastro's steakhouse": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/mastros-steakhouse-new-york-city"
+    "url": "https://www.opentable.com/mastros-steakhouse-city"
   },
   "mastro's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/mastros-steakhouse-new-york-city"
+    "url": "https://www.opentable.com/mastros-steakhouse-city"
   },
   "ruth's chris steak house": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/ruths-chris-steak-house-new-york-city"
+    "url": "https://www.opentable.com/ruths-chris-steak-house-city"
   },
   "ruth's chris": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/ruths-chris-steak-house-new-york-city"
+    "url": "https://www.opentable.com/ruths-chris-steak-house-city"
   },
   "morton's the steakhouse": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/mortons-the-steakhouse-new-york-midtown"
+    "url": "https://www.opentable.com/mortons-the-steakhouse-midtown"
   },
   "morton's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/mortons-the-steakhouse-new-york-midtown"
+    "url": "https://www.opentable.com/mortons-the-steakhouse-midtown"
   },
   "the capital grille": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-capital-grille-new-york-chrysler-center"
+    "url": "https://www.opentable.com/the-capital-grille-chrysler-center"
   },
   "capital grille": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-capital-grille-new-york-chrysler-center"
+    "url": "https://www.opentable.com/the-capital-grille-chrysler-center"
   },
   "sparks steak house": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sparks-steak-house-new-york"
+    "url": "https://www.opentable.com/sparks-steak-house"
   },
   "sparks": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sparks-steak-house-new-york"
+    "url": "https://www.opentable.com/sparks-steak-house"
   },
   "wolfgang's steakhouse": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/wolfgangs-steakhouse-park-avenue-new-york"
+    "url": "https://www.opentable.com/wolfgangs-steakhouse-park-avenue"
   },
   "benjamin steakhouse": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/benjamin-steakhouse-new-york"
+    "url": "https://www.opentable.com/benjamin-steakhouse"
   },
   "empire steak house": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/empire-steak-house-new-york"
+    "url": "https://www.opentable.com/empire-steak-house"
   },
   "old homestead steakhouse": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/old-homestead-steakhouse-new-york"
+    "url": "https://www.opentable.com/old-homestead-steakhouse"
   },
   "il mulino": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/il-mulino-new-york-new-york"
+    "url": "https://www.opentable.com/il-mulino"
   },
   "il mulino prime": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/il-mulino-prime-new-york"
+    "url": "https://www.opentable.com/il-mulino-prime"
   },
   "il buco alimentari": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/il-buco-alimentari-and-vineria-new-york"
+    "url": "https://www.opentable.com/il-buco-alimentari-and-vineria"
   },
   "maialino mare": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/maialino-mare-new-york"
+    "url": "https://www.opentable.com/maialino-mare"
   },
   "barbetta": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/barbetta-new-york"
+    "url": "https://www.opentable.com/barbetta"
   },
   "le bernardin": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/le-bernardin-new-york"
+    "url": "https://www.opentable.com/le-bernardin"
   },
   "cafe boulud": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cafe-boulud-new-york"
+    "url": "https://www.opentable.com/cafe-boulud"
   },
   "café boulud": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cafe-boulud-new-york"
+    "url": "https://www.opentable.com/cafe-boulud"
   },
   "gabriel kreuther": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/gabriel-kreuther-new-york"
+    "url": "https://www.opentable.com/gabriel-kreuther"
   },
   "ai fiori": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/ai-fiori-new-york"
+    "url": "https://www.opentable.com/ai-fiori"
   },
   "the grill": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-grill-new-york"
+    "url": "https://www.opentable.com/the-grill"
   },
   "the pool": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-pool-new-york"
+    "url": "https://www.opentable.com/the-pool"
   },
   "aquavit": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/aquavit-new-york"
+    "url": "https://www.opentable.com/aquavit"
   },
   "lupa": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/lupa-new-york"
+    "url": "https://www.opentable.com/lupa"
   },
   "babbo": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/babbo-new-york"
+    "url": "https://www.opentable.com/babbo"
   },
   "marea": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/marea-new-york"
+    "url": "https://www.opentable.com/marea"
   },
   "scarpetta": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/scarpetta-new-york"
+    "url": "https://www.opentable.com/scarpetta"
   },
   "lincoln ristorante": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/lincoln-ristorante-new-york"
+    "url": "https://www.opentable.com/lincoln-ristorante"
   },
   "hakkasan": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/hakkasan-new-york"
+    "url": "https://www.opentable.com/hakkasan"
   },
   "philippe chow": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/philippe-by-philippe-chow-new-york"
+    "url": "https://www.opentable.com/philippe-by-philippe-chow"
   },
   "mr chow": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/mr-chow-new-york"
+    "url": "https://www.opentable.com/mr-chow"
   },
   "buddakan": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/buddakan-new-york"
+    "url": "https://www.opentable.com/buddakan"
   },
   "sushi on me": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sushi-on-me-new-york"
+    "url": "https://www.opentable.com/sushi-on-me"
   },
   "the river cafe": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-river-cafe-brooklyn"
+    "url": "https://www.opentable.com/the-river-cafe-brooklyn"
   },
   "the river café": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-river-cafe-brooklyn"
+    "url": "https://www.opentable.com/the-river-cafe-brooklyn"
   },
   "gage & tollner": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/gage-and-tollner-brooklyn"
+    "url": "https://www.opentable.com/gage-and-tollner-brooklyn"
   },
   "gage and tollner": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/gage-and-tollner-brooklyn"
+    "url": "https://www.opentable.com/gage-and-tollner-brooklyn"
   },
   "cafe mars": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cafe-mars-brooklyn"
+    "url": "https://www.opentable.com/cafe-mars-brooklyn"
   },
   "café mars": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cafe-mars-brooklyn"
+    "url": "https://www.opentable.com/cafe-mars-brooklyn"
   },
   "clover hill": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/clover-hill-brooklyn"
+    "url": "https://www.opentable.com/clover-hill-brooklyn"
   },
   "as you are": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/as-you-are-brooklyn-restaurant-brooklyn"
+    "url": "https://www.opentable.com/as-you-are-brooklyn-restaurant-brooklyn"
   },
   "michael's of brooklyn": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/michaels-of-brooklyn-brooklyn"
+    "url": "https://www.opentable.com/michaels-of-brooklyn-brooklyn"
   },
   "frankies spuntino": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/frankies-457-spuntino-brooklyn"
+    "url": "https://www.opentable.com/frankies-457-spuntino-brooklyn"
   },
   "blend on the water": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/blend-on-the-water-long-island-city"
+    "url": "https://www.opentable.com/blend-on-the-water-long-island-city"
   },
   "maiella": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/maiella-long-island-city"
+    "url": "https://www.opentable.com/maiella-long-island-city"
   },
   "park rose nyc": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/park-rose-nyc-new-york"
+    "url": "https://www.opentable.com/park-rose-nyc"
   },
   "saar indian bistro": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/saar-indian-bistro-new-york"
+    "url": "https://www.opentable.com/saar-indian-bistro"
   },
   "peter luger": {
     "platform": "resy",
@@ -1365,411 +1369,411 @@
   },
   "warren street bar and restaurant": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/warren-street-bar-and-restaurant-new-york"
+    "url": "https://www.opentable.com/warren-street-bar-and-restaurant"
   },
   "eataly downtown nyc - vino": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/eataly-downtown-nyc-vino-new-york"
+    "url": "https://www.opentable.com/eataly-downtown-nyc-vino"
   },
   "eataly nyc downtown - la pizza & la pasta": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/eataly-nyc-downtown-la-pizza-and-la-pasta-new-york"
+    "url": "https://www.opentable.com/eataly-nyc-downtown-la-pizza-and-la-pasta"
   },
   "eataly soho - il ristorante": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/eataly-soho-il-ristorante-new-york"
+    "url": "https://www.opentable.com/eataly-soho-il-ristorante"
   },
   "locanda verde tribeca": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/locanda-verde-tribeca-new-york"
+    "url": "https://www.opentable.com/locanda-verde-tribeca"
   },
   "tamarind - tribeca": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/tamarind-tribeca"
+    "url": "https://www.opentable.com/tamarind-tribeca"
   },
   "tamarind": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/tamarind-tribeca"
+    "url": "https://www.opentable.com/tamarind-tribeca"
   },
   "trattoria zero otto nove - flatiron": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/trattoria-zero-otto-nove-flatiron-new-york"
+    "url": "https://www.opentable.com/trattoria-zero-otto-nove-flatiron"
   },
   "chambers": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/chambers-new-york"
+    "url": "https://www.opentable.com/chambers"
   },
   "bar primi bowery": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/bar-primi-bowery-new-york"
+    "url": "https://www.opentable.com/bar-primi-bowery"
   },
   "bar primi": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/bar-primi-bowery-new-york"
+    "url": "https://www.opentable.com/bar-primi-bowery"
   },
   "san carlo osteria piemonte": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/san-carlo-osteria-piemonte-new-york"
+    "url": "https://www.opentable.com/san-carlo-osteria-piemonte"
   },
   "pera soho": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/pera-soho-new-york"
+    "url": "https://www.opentable.com/pera-soho"
   },
   "da nico restaurant": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/da-nico-restaurant-manhattan-new-york"
+    "url": "https://www.opentable.com/da-nico-restaurant-manhattan"
   },
   "da nico": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/da-nico-restaurant-manhattan-new-york"
+    "url": "https://www.opentable.com/da-nico-restaurant-manhattan"
   },
   "sofia's of little italy": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sofias-of-little-italy-new-york"
+    "url": "https://www.opentable.com/sofias-of-little-italy"
   },
   "il mulino prime - soho": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/il-mulino-prime-soho-new-york"
+    "url": "https://www.opentable.com/il-mulino-prime-soho"
   },
   "lucky's soho": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/luckys-soho-new-york"
+    "url": "https://www.opentable.com/luckys-soho"
   },
   "zutto tribeca": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/zutto-tribeca-new-york"
+    "url": "https://www.opentable.com/zutto-tribeca"
   },
   "da gennaro": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/da-gennaro-new-york"
+    "url": "https://www.opentable.com/da-gennaro"
   },
   "buona notte": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/buona-notte-new-york"
+    "url": "https://www.opentable.com/buona-notte"
   },
   "seamore's brookfield place": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/seamores-brookfield-place-new-york"
+    "url": "https://www.opentable.com/seamores-brookfield-place"
   },
   "lindens": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/lindens-new-york"
+    "url": "https://www.opentable.com/lindens"
   },
   "malibu farm - new york": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/malibu-farm-new-york"
+    "url": "https://www.opentable.com/malibu-farm"
   },
   "local 92 - soho": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/local-92-soho-new-york"
+    "url": "https://www.opentable.com/local-92-soho"
   },
   "bacàn": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/bacan-new-york"
+    "url": "https://www.opentable.com/bacan"
   },
   "abc kitchens - dumbo": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/abc-kitchens-dumbo-new-york"
+    "url": "https://www.opentable.com/abc-kitchens-dumbo"
   },
   "olio e più - bryant park": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/olio-e-piu-bryant-park-new-york"
+    "url": "https://www.opentable.com/olio-e-piu-bryant-park"
   },
   "the parliament new york": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-parliament-new-york"
+    "url": "https://www.opentable.com/the-parliament"
   },
   "antique garage soho": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/antique-garage-soho-new-york"
+    "url": "https://www.opentable.com/antique-garage-soho"
   },
   "fairfax": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/fairfax-new-york"
+    "url": "https://www.opentable.com/fairfax"
   },
   "jeffrey's grocery": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/jeffreys-grocery-new-york"
+    "url": "https://www.opentable.com/jeffreys-grocery"
   },
   "ilili midtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/ilili-midtown-new-york"
+    "url": "https://www.opentable.com/ilili-midtown"
   },
   "ilili": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/ilili-midtown-new-york"
+    "url": "https://www.opentable.com/ilili-midtown"
   },
   "westville ues": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/westville-ues-new-york"
+    "url": "https://www.opentable.com/westville-ues"
   },
   "sushi lab rooftop": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sushi-lab-rooftop-new-york"
+    "url": "https://www.opentable.com/sushi-lab-rooftop"
   },
   "godunk thai street food": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/godunk-thai-street-food-new-york"
+    "url": "https://www.opentable.com/godunk-thai-street-food"
   },
   "sailor": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sailor-new-york"
+    "url": "https://www.opentable.com/sailor"
   },
   "bar contra": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/bar-contra-new-york"
+    "url": "https://www.opentable.com/bar-contra"
   },
   "kissaki - bowery": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/kissaki-bowery-new-york"
+    "url": "https://www.opentable.com/kissaki-bowery"
   },
   "kissaki": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/kissaki-bowery-new-york"
+    "url": "https://www.opentable.com/kissaki-bowery"
   },
   "buddakan ny": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/buddakan-ny-new-york"
+    "url": "https://www.opentable.com/buddakan-ny"
   },
   "gjelina - new york": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/gjelina-new-york"
+    "url": "https://www.opentable.com/gjelina"
   },
   "gjelina": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/gjelina-new-york"
+    "url": "https://www.opentable.com/gjelina"
   },
   "bondst": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/bondst-new-york"
+    "url": "https://www.opentable.com/bondst"
   },
   "cathédrale": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cathedrale-new-york"
+    "url": "https://www.opentable.com/cathedrale"
   },
   "cathedrale": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cathedrale-new-york"
+    "url": "https://www.opentable.com/cathedrale"
   },
   "papillon bistro and bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/papillon-bistro-and-bar-new-york"
+    "url": "https://www.opentable.com/papillon-bistro-and-bar"
   },
   "musaafer - new york": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/musaafer-new-york-new-york-city"
+    "url": "https://www.opentable.com/musaafer-city"
   },
   "momofuku noodle bar - uptown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/momofuku-noodle-bar-uptown-new-york"
+    "url": "https://www.opentable.com/momofuku-noodle-bar-uptown"
   },
   "oceans - new york": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/oceans-new-york"
+    "url": "https://www.opentable.com/oceans"
   },
   "cecconi's dumbo": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cecconis-dumbo-new-york"
+    "url": "https://www.opentable.com/cecconis-dumbo"
   },
   "cecconis dumbo": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cecconis-dumbo-new-york"
+    "url": "https://www.opentable.com/cecconis-dumbo"
   },
   "hawksmoor nyc": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/hawksmoor-nyc-new-york"
+    "url": "https://www.opentable.com/hawksmoor-nyc"
   },
   "hawksmoor": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/hawksmoor-nyc-new-york"
+    "url": "https://www.opentable.com/hawksmoor-nyc"
   },
   "zou zou's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/zou-zous-new-york"
+    "url": "https://www.opentable.com/zou-zous"
   },
   "zou zous": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/zou-zous-new-york"
+    "url": "https://www.opentable.com/zou-zous"
   },
   "tao downtown - new york": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/tao-downtown-new-york"
+    "url": "https://www.opentable.com/tao-downtown"
   },
   "gigino trattoria": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/gigino-trattoria-new-york"
+    "url": "https://www.opentable.com/gigino-trattoria"
   },
   "one dine": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/one-dine-at-one-world-observatory-new-york"
+    "url": "https://www.opentable.com/one-dine-at-one-world-observatory"
   },
   "metropolis by marcus samuelsson": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/metropolis-by-marcus-samuelsson-new-york"
+    "url": "https://www.opentable.com/metropolis-by-marcus-samuelsson"
   },
   "gran morsi": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/gran-morsi-new-york"
+    "url": "https://www.opentable.com/gran-morsi"
   },
   "industry kitchen": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/industry-kitchen-new-york"
+    "url": "https://www.opentable.com/industry-kitchen"
   },
   "casa d'angelo new york": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/casa-dangelo-nyc-new-york"
+    "url": "https://www.opentable.com/casa-dangelo-nyc"
   },
   "casa dangelo": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/casa-dangelo-nyc-new-york"
+    "url": "https://www.opentable.com/casa-dangelo-nyc"
   },
   "osteria barocca": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/osteria-barocca-new-york"
+    "url": "https://www.opentable.com/osteria-barocca"
   },
   "one if by land two if by sea": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/one-if-by-land-two-if-by-sea-new-york"
+    "url": "https://www.opentable.com/one-if-by-land-two-if-by-sea"
   },
   "one if by land": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/one-if-by-land-two-if-by-sea-new-york"
+    "url": "https://www.opentable.com/one-if-by-land-two-if-by-sea"
   },
   "sushi on me - bk": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sushi-on-me-bk-new-york"
+    "url": "https://www.opentable.com/sushi-on-me-bk"
   },
   "the champagne & caviar bar at rh guesthouse": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-champagne-and-caviar-bar-at-rh-guesthouse-new-york-1"
+    "url": "https://www.opentable.com/the-champagne-and-caviar-bar-at-rh-guesthouse-1"
   },
   "kaizen flushing": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/kaizen-flushing-new-york"
+    "url": "https://www.opentable.com/kaizen-flushing"
   },
   "two twenty one restaurant": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/two-twenty-one-restaurant-new-york"
+    "url": "https://www.opentable.com/two-twenty-one-restaurant"
   },
   "bar miller": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/bar-miller-new-york"
+    "url": "https://www.opentable.com/bar-miller"
   },
   "lady mendls": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/lady-mendls-new-york"
+    "url": "https://www.opentable.com/lady-mendls"
   },
   "grand salon & bar at baccarat hotel": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/grand-salon-and-bar-at-baccarat-hotel-new-york"
+    "url": "https://www.opentable.com/grand-salon-and-bar-at-baccarat-hotel"
   },
   "baccarat hotel": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/grand-salon-and-bar-at-baccarat-hotel-new-york"
+    "url": "https://www.opentable.com/grand-salon-and-bar-at-baccarat-hotel"
   },
   "phd terrace": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/phd-terrace-dream-midtown-new-york"
+    "url": "https://www.opentable.com/phd-terrace-dream-midtown"
   },
   "the crosby bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-crosby-bar-new-york"
+    "url": "https://www.opentable.com/the-crosby-bar"
   },
   "yakiniku toraji": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/yakiniku-toraji-new-york"
+    "url": "https://www.opentable.com/yakiniku-toraji"
   },
   "sake no hana": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sake-no-hana-new-york"
+    "url": "https://www.opentable.com/sake-no-hana"
   },
   "il fiorista": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/il-fiorista-new-york"
+    "url": "https://www.opentable.com/il-fiorista"
   },
   "nubeluz": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/nubeluz-new-york"
+    "url": "https://www.opentable.com/nubeluz"
   },
   "the ivory peacock": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-ivory-peacock-new-york"
+    "url": "https://www.opentable.com/the-ivory-peacock"
   },
   "aquarelle": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/aquarelle-new-york"
+    "url": "https://www.opentable.com/aquarelle"
   },
   "the highlight room ny": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-highlight-room-ny-new-york"
+    "url": "https://www.opentable.com/the-highlight-room-ny"
   },
   "jaba": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/jaba-new-york"
+    "url": "https://www.opentable.com/jaba"
   },
   "mike's bistro": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/mikes-bistro-new-york"
+    "url": "https://www.opentable.com/mikes-bistro"
   },
   "la masseria": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/la-masseria-new-york"
+    "url": "https://www.opentable.com/la-masseria"
   },
   "wooga nyc": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/wooga-nyc-new-york"
+    "url": "https://www.opentable.com/wooga-nyc"
   },
   "gaonnuri": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/gaonnuri-new-york"
+    "url": "https://www.opentable.com/gaonnuri"
   },
   "strip house speakeasy": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/strip-house-speakeasy-new-york"
+    "url": "https://www.opentable.com/strip-house-speakeasy"
   },
   "reyna": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/reyna-new-york"
+    "url": "https://www.opentable.com/reyna"
   },
   "casa carmen tribeca": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/casa-carmen-tribeca-new-york"
+    "url": "https://www.opentable.com/casa-carmen-tribeca"
   },
   "mira": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/mira-new-york"
+    "url": "https://www.opentable.com/mira"
   },
   "andrew steak": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/andrew-steak-new-york"
+    "url": "https://www.opentable.com/andrew-steak"
   },
   "dejavu supper club": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/dejavu-supper-club-and-lounge-new-york"
+    "url": "https://www.opentable.com/dejavu-supper-club-and-lounge"
   },
   "ascent lounge": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/ascent-lounge-new-york"
+    "url": "https://www.opentable.com/ascent-lounge"
   },
   "landmark cevicheria": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/landmark-cevicheria-new-york"
+    "url": "https://www.opentable.com/landmark-cevicheria"
   },
   "villaggio ristorante": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/villaggio-ristorante-new-york"
+    "url": "https://www.opentable.com/villaggio-ristorante"
   },
   "the parlour brooklyn high low": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-parlour-brooklyn-high-low-new-york"
+    "url": "https://www.opentable.com/the-parlour-brooklyn-high-low"
   },
   "cafe zaffri": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cafe-zaffri-new-york"
+    "url": "https://www.opentable.com/cafe-zaffri"
   },
   "lounge on pearl": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/lounge-on-pearl-new-york"
+    "url": "https://www.opentable.com/lounge-on-pearl"
   },
   "cove": {
     "platform": "resy",
@@ -2261,243 +2265,243 @@
   },
   "fogo de chão - brooklyn": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/fogo-de-chao-brooklyn"
+    "url": "https://www.opentable.com/fogo-de-chao-brooklyn"
   },
   "botte brooklyn": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/botte-brooklyn-new-york"
+    "url": "https://www.opentable.com/botte-brooklyn"
   },
   "the simpson restaurant & bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-simpson-restaurant-and-bar-new-york"
+    "url": "https://www.opentable.com/the-simpson-restaurant-and-bar"
   },
   "the simpson restaurant": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-simpson-restaurant-and-bar-new-york"
+    "url": "https://www.opentable.com/the-simpson-restaurant-and-bar"
   },
   "henry's end": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/henrys-end-new-york"
+    "url": "https://www.opentable.com/henrys-end"
   },
   "jules": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/jules-brooklyn-new-york"
+    "url": "https://www.opentable.com/jules-brooklyn"
   },
   "khaosan": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/khaosan-new-york"
+    "url": "https://www.opentable.com/khaosan"
   },
   "potluck club": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/potluck-club-new-york"
+    "url": "https://www.opentable.com/potluck-club"
   },
   "mango bay": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/mango-bay-new-york"
+    "url": "https://www.opentable.com/mango-bay"
   },
   "parcelle chinatown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/parcelle-chinatown-new-york"
+    "url": "https://www.opentable.com/parcelle-chinatown"
   },
   "emporio": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/emporio-new-york"
+    "url": "https://www.opentable.com/emporio"
   },
   "phoenix palace": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/phoenix-palace-new-york"
+    "url": "https://www.opentable.com/phoenix-palace"
   },
   "palm street": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/palm-street-new-york"
+    "url": "https://www.opentable.com/palm-street"
   },
   "sunken harbor club": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sunken-harbor-club-new-york"
+    "url": "https://www.opentable.com/sunken-harbor-club"
   },
   "fraunces tavern": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/fraunces-tavern-restaurant-new-york"
+    "url": "https://www.opentable.com/fraunces-tavern-restaurant"
   },
   "d garden": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/d-garden-caribbean-bar-and-grill-new-york"
+    "url": "https://www.opentable.com/d-garden-caribbean-bar-and-grill"
   },
   "the good fork": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-good-fork-new-york"
+    "url": "https://www.opentable.com/the-good-fork"
   },
   "fort defiance": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/fort-defiance-new-york"
+    "url": "https://www.opentable.com/fort-defiance"
   },
   "aura cocina": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/aura-cocina-new-york"
+    "url": "https://www.opentable.com/aura-cocina"
   },
   "mymoon restaurant": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/mymoon-restaurant-new-york"
+    "url": "https://www.opentable.com/mymoon-restaurant"
   },
   "mymoon": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/mymoon-restaurant-new-york"
+    "url": "https://www.opentable.com/mymoon-restaurant"
   },
   "casa ora": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/casa-ora-new-york"
+    "url": "https://www.opentable.com/casa-ora"
   },
   "be pasta": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/be-pasta-new-york"
+    "url": "https://www.opentable.com/be-pasta"
   },
   "saucey pizza bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/saucey-pizza-bar-new-york"
+    "url": "https://www.opentable.com/saucey-pizza-bar"
   },
   "nobu - new york": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/nobu-new-york"
+    "url": "https://www.opentable.com/nobu"
   },
   "altro paradiso": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/altro-paradiso-new-york"
+    "url": "https://www.opentable.com/altro-paradiso"
   },
   "kaizen": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/kaizen-flushing-new-york"
+    "url": "https://www.opentable.com/kaizen-flushing"
   },
   "aura thai": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/aura-thai-new-york"
+    "url": "https://www.opentable.com/aura-thai"
   },
   "taverna kyclades": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/taverna-kyclades-new-york"
+    "url": "https://www.opentable.com/taverna-kyclades"
   },
   "christos steakhouse": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/christos-steakhouse-new-york"
+    "url": "https://www.opentable.com/christos-steakhouse"
   },
   "agnanti meze": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/agnanti-meze-new-york"
+    "url": "https://www.opentable.com/agnanti-meze"
   },
   "il poeta": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/il-poeta-new-york"
+    "url": "https://www.opentable.com/il-poeta"
   },
   "mp taverna": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/mp-taverna-new-york"
+    "url": "https://www.opentable.com/mp-taverna"
   },
   "bahari estiatorio": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/bahari-estiatorio-new-york"
+    "url": "https://www.opentable.com/bahari-estiatorio"
   },
   "the smith - midtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-smith-midtown-new-york"
+    "url": "https://www.opentable.com/the-smith-midtown"
   },
   "the smith - nomad": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-smith-nomad-new-york"
+    "url": "https://www.opentable.com/the-smith-nomad"
   },
   "carmine's - upper west side": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/carmines-upper-west-side-new-york"
+    "url": "https://www.opentable.com/carmines-upper-west-side"
   },
   "fig & olive": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/fig-and-olive-fifth-avenue-new-york"
+    "url": "https://www.opentable.com/fig-and-olive-fifth-avenue"
   },
   "fig and olive": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/fig-and-olive-fifth-avenue-new-york"
+    "url": "https://www.opentable.com/fig-and-olive-fifth-avenue"
   },
   "lavo italian restaurant": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/lavo-italian-restaurant-new-york"
+    "url": "https://www.opentable.com/lavo-italian-restaurant"
   },
   "catch - nyc": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/catch-nyc"
+    "url": "https://www.opentable.com/catch-nyc"
   },
   "stk - nyc midtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/stk-nyc-midtown"
+    "url": "https://www.opentable.com/stk-nyc-midtown"
   },
   "stk midtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/stk-nyc-midtown"
+    "url": "https://www.opentable.com/stk-nyc-midtown"
   },
   "stk - nyc downtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/stk-nyc-downtown"
+    "url": "https://www.opentable.com/stk-nyc-downtown"
   },
   "beauty & essex- new york": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/beauty-and-essex-new-york"
+    "url": "https://www.opentable.com/beauty-and-essex"
   },
   "lupa osteria romana": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/lupa-osteria-romana-new-york"
+    "url": "https://www.opentable.com/lupa-osteria-romana"
   },
   "del friscos": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/del-friscos-double-eagle-steakhouse-new-york-city"
+    "url": "https://www.opentable.com/del-friscos-double-eagle-steakhouse-city"
   },
   "olio e più": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/olio-e-piu-new-york"
+    "url": "https://www.opentable.com/olio-e-piu"
   },
   "olio e piu": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/olio-e-piu-new-york"
+    "url": "https://www.opentable.com/olio-e-piu"
   },
   "da andrea": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/da-andrea-new-york"
+    "url": "https://www.opentable.com/da-andrea"
   },
   "the leopard at des artistes": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-leopard-at-des-artistes-new-york"
+    "url": "https://www.opentable.com/the-leopard-at-des-artistes"
   },
   "cote nyc": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cote-korean-steakhouse-new-york"
+    "url": "https://www.opentable.com/cote-korean-steakhouse"
   },
   "strip house - greenwich village": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/strip-house-greenwich-village-new-york"
+    "url": "https://www.opentable.com/strip-house-greenwich-village"
   },
   "waverly inn": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/waverly-inn-new-york"
+    "url": "https://www.opentable.com/waverly-inn"
   },
   "the waverly inn": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/waverly-inn-new-york"
+    "url": "https://www.opentable.com/waverly-inn"
   },
   "number 28 pizzeria": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/number-28-pizzeria-new-york"
+    "url": "https://www.opentable.com/number-28-pizzeria"
   },
   "john's of 12th street": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/johns-of-12th-street-new-york"
+    "url": "https://www.opentable.com/johns-of-12th-street"
   },
   "hearth": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/hearth-new-york"
+    "url": "https://www.opentable.com/hearth"
   },
   "the simone": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-simone-new-york"
+    "url": "https://www.opentable.com/the-simone"
   },
   "casa lever": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/casa-lever-new-york"
+    "url": "https://www.opentable.com/casa-lever"
   },
   "15 east": {
     "platform": "resy",
@@ -2526,10 +2530,6 @@
   "oxalis": {
     "platform": "resy",
     "url": "https://resy.com/cities/ny/oxalis"
-  },
-  "8282": {
-    "platform": "resy",
-    "url": "https://resy.com/cities/ny/8282"
   },
   "agi's counter": {
     "platform": "resy",
@@ -2601,7 +2601,7 @@
   },
   "cho dang gol": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cho-dang-gol-new-york"
+    "url": "https://www.opentable.com/cho-dang-gol"
   },
   "chuan tian xia": {
     "platform": "resy",
@@ -2609,7 +2609,7 @@
   },
   "chutney masala": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/chutney-masala-new-york"
+    "url": "https://www.opentable.com/chutney-masala"
   },
   "coqodaq": {
     "platform": "resy",
@@ -2621,11 +2621,11 @@
   },
   "dim sum go go": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/dim-sum-go-go-new-york"
+    "url": "https://www.opentable.com/dim-sum-go-go"
   },
   "enoteca maria": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/enoteca-maria-staten-island"
+    "url": "https://www.opentable.com/enoteca-maria-staten-island"
   },
   "gordo's cantina": {
     "platform": "resy",
@@ -2637,7 +2637,7 @@
   },
   "hangawi": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/hangawi-new-york"
+    "url": "https://www.opentable.com/hangawi"
   },
   "hometown bar b que": {
     "platform": "resy",
@@ -2761,7 +2761,7 @@
   },
   "soba totto": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/soba-totto-new-york"
+    "url": "https://www.opentable.com/soba-totto"
   },
   "speedy romeo": {
     "platform": "resy",
@@ -2813,7 +2813,7 @@
   },
   "blu on the hudson": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/blu-on-the-hudson-new-york"
+    "url": "https://www.opentable.com/blu-on-the-hudson"
   },
   "chez fifi": {
     "platform": "resy",
@@ -2829,15 +2829,15 @@
   },
   "drift restaurant & bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/drift-restaurant-and-bar-new-york"
+    "url": "https://www.opentable.com/drift-restaurant-and-bar"
   },
   "drift restaurant and bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/drift-restaurant-and-bar-new-york"
+    "url": "https://www.opentable.com/drift-restaurant-and-bar"
   },
   "felina steak": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/felina-steak-new-york"
+    "url": "https://www.opentable.com/felina-steak"
   },
   "joseph leonard": {
     "platform": "resy",
@@ -2877,7 +2877,7 @@
   },
   "parcelle greenwich village": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/parcelle-greenwich-village-new-york"
+    "url": "https://www.opentable.com/parcelle-greenwich-village"
   },
   "razza": {
     "platform": "resy",
@@ -2909,259 +2909,259 @@
   },
   "rao's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/raos-new-york"
+    "url": "https://www.opentable.com/raos"
   },
   "patsy's italian restaurant": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/patsys-italian-restaurant-new-york"
+    "url": "https://www.opentable.com/patsys-italian-restaurant"
   },
   "il cortile": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/il-cortile-new-york"
+    "url": "https://www.opentable.com/il-cortile"
   },
   "piccola cucina osteria": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/piccola-cucina-osteria-new-york"
+    "url": "https://www.opentable.com/piccola-cucina-osteria"
   },
   "basta pasta": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/basta-pasta-new-york"
+    "url": "https://www.opentable.com/basta-pasta"
   },
   "becco": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/becco-new-york"
+    "url": "https://www.opentable.com/becco"
   },
   "il gattopardo": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/il-gattopardo-new-york"
+    "url": "https://www.opentable.com/il-gattopardo"
   },
   "limoncello": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/limoncello-new-york"
+    "url": "https://www.opentable.com/limoncello"
   },
   "malatesta trattoria": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/malatesta-trattoria-new-york"
+    "url": "https://www.opentable.com/malatesta-trattoria"
   },
   "scalini fedeli": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/scalini-fedeli-new-york"
+    "url": "https://www.opentable.com/scalini-fedeli"
   },
   "the palm": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-palm-new-york"
+    "url": "https://www.opentable.com/the-palm"
   },
   "porter house bar and grill": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/porter-house-bar-and-grill-new-york"
+    "url": "https://www.opentable.com/porter-house-bar-and-grill"
   },
   "blt steak": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/blt-steak-new-york"
+    "url": "https://www.opentable.com/blt-steak"
   },
   "blt prime": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/blt-prime-new-york"
+    "url": "https://www.opentable.com/blt-prime"
   },
   "bowery meat company": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/bowery-meat-company-new-york"
+    "url": "https://www.opentable.com/bowery-meat-company"
   },
   "the beef club": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-beef-club-new-york"
+    "url": "https://www.opentable.com/the-beef-club"
   },
   "costata": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/costata-new-york"
+    "url": "https://www.opentable.com/costata"
   },
   "st. anselm": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/st-anselm-brooklyn"
+    "url": "https://www.opentable.com/st-anselm-brooklyn"
   },
   "boucherie west village": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/boucherie-west-village-new-york"
+    "url": "https://www.opentable.com/boucherie-west-village"
   },
   "boucherie union square": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/boucherie-union-square-new-york"
+    "url": "https://www.opentable.com/boucherie-union-square"
   },
   "cafe luxembourg": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cafe-luxembourg-new-york"
+    "url": "https://www.opentable.com/cafe-luxembourg"
   },
   "benoit": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/benoit-new-york"
+    "url": "https://www.opentable.com/benoit"
   },
   "le grainne cafe": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/le-grainne-cafe-new-york"
+    "url": "https://www.opentable.com/le-grainne-cafe"
   },
   "chez napoleon": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/chez-napoleon-new-york"
+    "url": "https://www.opentable.com/chez-napoleon"
   },
   "the sea fire grill": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-sea-fire-grill-new-york"
+    "url": "https://www.opentable.com/the-sea-fire-grill"
   },
   "atlantic grill": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/atlantic-grill-new-york"
+    "url": "https://www.opentable.com/atlantic-grill"
   },
   "crave fishbar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/crave-fishbar-new-york"
+    "url": "https://www.opentable.com/crave-fishbar"
   },
   "lure fishbar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/lure-fishbar-new-york"
+    "url": "https://www.opentable.com/lure-fishbar"
   },
   "flex mussels": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/flex-mussels-new-york"
+    "url": "https://www.opentable.com/flex-mussels"
   },
   "ed's lobster bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/eds-lobster-bar-new-york"
+    "url": "https://www.opentable.com/eds-lobster-bar"
   },
   "megu": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/megu-new-york"
+    "url": "https://www.opentable.com/megu"
   },
   "morimoto": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/morimoto-new-york"
+    "url": "https://www.opentable.com/morimoto"
   },
   "zuma": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/zuma-new-york"
+    "url": "https://www.opentable.com/zuma"
   },
   "mifune": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/mifune-new-york"
+    "url": "https://www.opentable.com/mifune"
   },
   "ippudo": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/ippudo-new-york"
+    "url": "https://www.opentable.com/ippudo"
   },
   "nobu next door": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/nobu-next-door-new-york"
+    "url": "https://www.opentable.com/nobu-next-door"
   },
   "market table": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/market-table-new-york"
+    "url": "https://www.opentable.com/market-table"
   },
   "little owl": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/little-owl-new-york"
+    "url": "https://www.opentable.com/little-owl"
   },
   "red cat": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/red-cat-new-york"
+    "url": "https://www.opentable.com/red-cat"
   },
   "tavern on the green": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/tavern-on-the-green-new-york"
+    "url": "https://www.opentable.com/tavern-on-the-green"
   },
   "sarabeth's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sarabeths-central-park-south-new-york"
+    "url": "https://www.opentable.com/sarabeths-central-park-south"
   },
   "michael's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/michaels-new-york-new-york"
+    "url": "https://www.opentable.com/michaels"
   },
   "the lambs club": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-lambs-club-new-york"
+    "url": "https://www.opentable.com/the-lambs-club"
   },
   "tribeca grill": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/tribeca-grill-new-york"
+    "url": "https://www.opentable.com/tribeca-grill"
   },
   "nobu hotel restaurant": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/nobu-hotel-restaurant-new-york"
+    "url": "https://www.opentable.com/nobu-hotel-restaurant"
   },
   "rosa mexicano": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/rosa-mexicano-new-york"
+    "url": "https://www.opentable.com/rosa-mexicano"
   },
   "dos caminos": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/dos-caminos-park-avenue-new-york"
+    "url": "https://www.opentable.com/dos-caminos-park-avenue"
   },
   "toloache": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/toloache-new-york"
+    "url": "https://www.opentable.com/toloache"
   },
   "fonda": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/fonda-new-york"
+    "url": "https://www.opentable.com/fonda"
   },
   "vatan": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/vatan-new-york"
+    "url": "https://www.opentable.com/vatan"
   },
   "dhaba": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/dhaba-new-york"
+    "url": "https://www.opentable.com/dhaba"
   },
   "avra madison estiatorio": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/avra-madison-estiatorio-new-york"
+    "url": "https://www.opentable.com/avra-madison-estiatorio"
   },
   "kyma": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/kyma-new-york"
+    "url": "https://www.opentable.com/kyma"
   },
   "amali": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/amali-new-york"
+    "url": "https://www.opentable.com/amali"
   },
   "nerai": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/nerai-new-york"
+    "url": "https://www.opentable.com/nerai"
   },
   "bubby's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/bubbys-new-york"
+    "url": "https://www.opentable.com/bubbys"
   },
   "cookshop": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cookshop-new-york"
+    "url": "https://www.opentable.com/cookshop"
   },
   "the smith - east village": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-smith-east-village-new-york"
+    "url": "https://www.opentable.com/the-smith-east-village"
   },
   "extra virgin": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/extra-virgin-new-york"
+    "url": "https://www.opentable.com/extra-virgin"
   },
   "the mermaid inn": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-mermaid-inn-new-york"
+    "url": "https://www.opentable.com/the-mermaid-inn"
   },
   "bar pitti": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/bar-pitti-new-york"
+    "url": "https://www.opentable.com/bar-pitti"
   },
   "clement": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/clement-new-york"
+    "url": "https://www.opentable.com/clement"
   },
   "majorelle": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/majorelle-new-york"
+    "url": "https://www.opentable.com/majorelle"
   },
   "le jardinier": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/le-jardinier-new-york"
+    "url": "https://www.opentable.com/le-jardinier"
   },
   "double chicken please": {
     "platform": "resy",
@@ -3329,47 +3329,47 @@
   },
   "sant ambroeus": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sant-ambroeus-new-york"
+    "url": "https://www.opentable.com/sant-ambroeus"
   },
   "cipriani downtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cipriani-downtown-new-york"
+    "url": "https://www.opentable.com/cipriani-downtown"
   },
   "harry's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/harrys-new-york"
+    "url": "https://www.opentable.com/harrys"
   },
   "delmonico's": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/delmonicos-new-york"
+    "url": "https://www.opentable.com/delmonicos"
   },
   "cacio e pepe": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cacio-e-pepe-new-york"
+    "url": "https://www.opentable.com/cacio-e-pepe"
   },
   "cacio e vino": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cacio-e-vino-new-york"
+    "url": "https://www.opentable.com/cacio-e-vino"
   },
   "macao trading company": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/macao-trading-co-new-york"
+    "url": "https://www.opentable.com/macao-trading-co"
   },
   "kang ho dong baekjeong": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/kang-ho-dong-baekjeong-new-york"
+    "url": "https://www.opentable.com/kang-ho-dong-baekjeong"
   },
   "samwon garden": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/samwon-garden-new-york"
+    "url": "https://www.opentable.com/samwon-garden"
   },
   "jongro bbq": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/jongro-bbq-new-york"
+    "url": "https://www.opentable.com/jongro-bbq"
   },
   "miss korea": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/miss-korea-new-york"
+    "url": "https://www.opentable.com/miss-korea"
   },
   "zz's clam bar": {
     "platform": "resy",
@@ -3433,7 +3433,7 @@
   },
   "café sabarsky": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cafe-sabarsky-new-york"
+    "url": "https://www.opentable.com/cafe-sabarsky"
   },
   "the penrose": {
     "platform": "resy",
@@ -3457,11 +3457,11 @@
   },
   "vesta trattoria": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/vesta-trattoria-new-york"
+    "url": "https://www.opentable.com/vesta-trattoria"
   },
   "tournesol": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/tournesol-new-york"
+    "url": "https://www.opentable.com/tournesol"
   },
   "le botaniste 43rd & 3rd": {
     "platform": "website",
@@ -3473,11 +3473,11 @@
   },
   "cafe fiorello": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/cafe-fiorello-new-york"
+    "url": "https://www.opentable.com/cafe-fiorello"
   },
   "ammos estiatorio": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/ammos-estiatorio-new-york"
+    "url": "https://www.opentable.com/ammos-estiatorio"
   },
   "ginger sapori & salute": {
     "platform": "website",
@@ -3489,7 +3489,7 @@
   },
   "francesco": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/francesco-new-york"
+    "url": "https://www.opentable.com/francesco"
   },
   "asset": {
     "platform": "resy",
@@ -3497,27 +3497,27 @@
   },
   "flute - midtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/flute-midtown-new-york"
+    "url": "https://www.opentable.com/flute-midtown"
   },
   "flute midtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/flute-midtown-new-york"
+    "url": "https://www.opentable.com/flute-midtown"
   },
   "la boite en bois": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/la-boite-en-bois-new-york"
+    "url": "https://www.opentable.com/la-boite-en-bois"
   },
   "madera": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/madera-new-york"
+    "url": "https://www.opentable.com/madera"
   },
   "off city": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/off-city-new-york"
+    "url": "https://www.opentable.com/off-city"
   },
   "the reading room": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-reading-room-new-york"
+    "url": "https://www.opentable.com/the-reading-room"
   },
   "beija flor": {
     "platform": "resy",
@@ -3525,11 +3525,11 @@
   },
   "pizzarte": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/pizzarte-new-york"
+    "url": "https://www.opentable.com/pizzarte"
   },
   "loi estiatorio": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/loi-estiatorio-new-york"
+    "url": "https://www.opentable.com/loi-estiatorio"
   },
   "nari": {
     "platform": "resy",
@@ -3537,7 +3537,7 @@
   },
   "astro restaurant": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/astro-restaurant-new-york"
+    "url": "https://www.opentable.com/astro-restaurant"
   },
   "honeybrains": {
     "platform": "website",
@@ -3545,39 +3545,39 @@
   },
   "the beast next door": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/the-beast-next-door-new-york"
+    "url": "https://www.opentable.com/the-beast-next-door"
   },
   "delbianco italian restaurant": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/delbianco-italian-restaurant-new-york"
+    "url": "https://www.opentable.com/delbianco-italian-restaurant"
   },
   "delbianco": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/delbianco-italian-restaurant-new-york"
+    "url": "https://www.opentable.com/delbianco-italian-restaurant"
   },
   "wagamama - midtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/wagamama-midtown-new-york"
+    "url": "https://www.opentable.com/wagamama-midtown"
   },
   "wagamama": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/wagamama-midtown-new-york"
+    "url": "https://www.opentable.com/wagamama-midtown"
   },
   "chano's cantina": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/chanos-cantina-new-york"
+    "url": "https://www.opentable.com/chanos-cantina"
   },
   "chanos cantina": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/chanos-cantina-new-york"
+    "url": "https://www.opentable.com/chanos-cantina"
   },
   "la piazza new york": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/la-piazza-new-york"
+    "url": "https://www.opentable.com/la-piazza"
   },
   "la piazza": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/la-piazza-new-york"
+    "url": "https://www.opentable.com/la-piazza"
   },
   "taim mediterranean kitchen": {
     "platform": "website",
@@ -3593,23 +3593,23 @@
   },
   "un plaza grill": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/un-plaza-grill-new-york"
+    "url": "https://www.opentable.com/un-plaza-grill"
   },
   "pascalou": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/pascalou-new-york"
+    "url": "https://www.opentable.com/pascalou"
   },
   "white olive": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/white-olive-new-york"
+    "url": "https://www.opentable.com/white-olive"
   },
   "arcadia bar and kitchen": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/arcadia-bar-and-kitchen-new-york"
+    "url": "https://www.opentable.com/arcadia-bar-and-kitchen"
   },
   "sushi ann": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/sushi-ann-new-york"
+    "url": "https://www.opentable.com/sushi-ann"
   },
   "shinjuku ramen": {
     "platform": "website",
@@ -3617,7 +3617,7 @@
   },
   "tam mai thai": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/tam-mai-thai-new-york"
+    "url": "https://www.opentable.com/tam-mai-thai"
   },
   "sweet chick": {
     "platform": "resy",
@@ -3625,15 +3625,15 @@
   },
   "brooklyn diner": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/brooklyn-diner-new-york"
+    "url": "https://www.opentable.com/brooklyn-diner"
   },
   "wagamama midtown": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/wagamama-midtown-new-york"
+    "url": "https://www.opentable.com/wagamama-midtown"
   },
   "trattoria dellarte": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/trattoria-dellarte-new-york"
+    "url": "https://www.opentable.com/trattoria-dellarte"
   },
   "boqueria ues": {
     "platform": "resy",
@@ -3641,7 +3641,7 @@
   },
   "david burke tavern": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/david-burke-tavern-new-york"
+    "url": "https://www.opentable.com/david-burke-tavern"
   },
   "hutong new york": {
     "platform": "resy",
@@ -3649,11 +3649,11 @@
   },
   "momoya upper west": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/momoya-upper-west-new-york"
+    "url": "https://www.opentable.com/momoya-upper-west"
   },
   "ovelia psistaria bar": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/ovelia-psistaria-bar-astoria"
+    "url": "https://www.opentable.com/ovelia-psistaria-bar-astoria"
   },
   "serendipity 3": {
     "platform": "resy",
@@ -3665,11 +3665,11 @@
   },
   "socarrat east": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/socarrat-east-new-york"
+    "url": "https://www.opentable.com/socarrat-east"
   },
   "pig and khao - uws": {
     "platform": "opentable",
-    "url": "https://www.opentable.com/r/pig-and-khao-uws-new-york"
+    "url": "https://www.opentable.com/pig-and-khao-uws"
   },
   "rezdôra": {
     "platform": "resy",
