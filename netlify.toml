@@ -9,7 +9,9 @@
     "netlify/functions/chase_sapphire_nyc.json",
     "netlify/functions/rakuten_nyc.json",
     "netlify/functions/booking_lookup.json",
-    "netlify/functions/deposit_lookup.json"
+    "netlify/functions/deposit_lookup.json",
+    "netlify/functions/popular_nyc.json",
+    "netlify/functions/buzz_links.json"
   ]
 
 [[redirects]]
