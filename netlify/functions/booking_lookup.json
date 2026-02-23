@@ -5715,10 +5715,6 @@
     "platform": "opentable",
     "url": "https://www.opentable.com/r/jack-jones-gastropub-queens"
   },
-  "mayahuel": {
-    "platform": "opentable",
-    "url": "https://www.opentable.com/r/maya-mezcal-new-york"
-  },
   "mariella": {
     "platform": "opentable",
     "url": "https://www.opentable.com/r/mariella-brooklyn"
@@ -6450,14 +6446,6 @@
   "kafana": {
     "platform": "opentable",
     "url": "https://www.opentable.com/r/kafana"
-  },
-  "moca asian": {
-    "platform": "opentable",
-    "url": "https://www.opentable.com/r/moca-asian-bistro-hewlett1"
-  },
-  "moca asian bistro": {
-    "platform": "opentable",
-    "url": "https://www.opentable.com/r/moca-asian-bistro-hewlett1"
   },
   "mangoseed": {
     "platform": "opentable",
