@@ -769,15 +769,15 @@ function sortResults() {
 
     priced.sort((a, b) => {
       if (a.price_level !== b.price_level) return a.price_level - b.price_level;
-      const ma = michelinRank(a), mb = michelinRank(b);
-      if (ma !== mb) return mb - ma;
-      return (b.googleRating || 0) - (a.googleRating || 0);
+      const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+      if (ra !== rb) return rb - ra;
+      return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
     });
 
     noPrice.sort((a, b) => {
-      const ma = michelinRank(a), mb = michelinRank(b);
-      if (ma !== mb) return mb - ma;
-      return (b.googleRating || 0) - (a.googleRating || 0);
+      const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+      if (ra !== rb) return rb - ra;
+      return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
     });
 
     displayResults(priced, noPrice);
@@ -786,18 +786,18 @@ function sortResults() {
 
     if (sortBy === 'rating') {
       sorted.sort((a, b) => {
-        const ma = michelinRank(a), mb = michelinRank(b);
-        if (ma !== mb) return mb - ma;
-        return (b.googleRating || 0) - (a.googleRating || 0);
+        const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+        if (ra !== rb) return rb - ra;
+        return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
       });
     } else if (sortBy === 'distance') {
       sorted.sort((a, b) => {
         const da = a.distanceMiles ?? 999999;
         const db = b.distanceMiles ?? 999999;
         if (da !== db) return da - db;
-        const ma = michelinRank(a), mb = michelinRank(b);
-        if (ma !== mb) return mb - ma;
-        if ((b.googleRating || 0) !== (a.googleRating || 0)) return (b.googleRating || 0) - (a.googleRating || 0);
+        const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+        if (ra !== rb) return rb - ra;
+        if ((b.googleReviewCount || 0) !== (a.googleReviewCount || 0)) return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
         return String(a.name || '').localeCompare(String(b.name || ''));
       });
     }
