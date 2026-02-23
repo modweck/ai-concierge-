@@ -80,9 +80,9 @@ const CUISINE_FILTER_MAP = {
 function cuisineLookupMatches(name, userCuisine) {
   if (!userCuisine || !name) return true;
   const c = CUISINE_LOOKUP[name];
-  if (!c) return false;
+  if (!c) return true; // not in lookup — don't block, let Google types decide
   const allowed = CUISINE_FILTER_MAP[userCuisine.toLowerCase()] || [];
-  if (allowed.length === 0) return false;
+  if (allowed.length === 0) return true;
   return c.split('/').some(p => allowed.some(a => p.trim().toLowerCase().includes(a.toLowerCase())));
 }
 
@@ -467,8 +467,9 @@ exports.handler = async (event) => {
       if (c?.name) chaseNameLookup.add(normalizeName(c.name));
     }
 
-    // Michelin mode (unchanged)
+    // Michelin mode — with cuisine filter support
     if (qualityMode === 'michelin') {
+      const cuisineFilter = (cuisine && String(cuisine).toLowerCase().trim() !== 'any') ? cuisine : null;
       const resolved = await resolveMichelinPlaces(KEY);
       const within = resolved.filter(r => r?.lat != null && r?.lng != null).map(r => {
         const d = haversineMiles(gLat, gLng, r.lat, r.lng);
@@ -480,7 +481,9 @@ exports.handler = async (event) => {
           cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
-      }).filter(r => r.distanceMiles <= 15).sort((a,b) => (b.michelin?.stars || 0) - (a.michelin?.stars || 0) || (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
+      }).filter(r => r.distanceMiles <= 15)
+        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter))
+        .sort((a,b) => (b.michelin?.stars || 0) - (a.michelin?.stars || 0) || (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, michelinMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
@@ -489,6 +492,7 @@ exports.handler = async (event) => {
 
     // Bib Gourmand mode — 15 mile radius (pre-resolved, no API calls needed)
     if (qualityMode === 'bib_gourmand') {
+      const cuisineFilter = (cuisine && String(cuisine).toLowerCase().trim() !== 'any') ? cuisine : null;
       const bibPlaces = getBibGourmandPlaces();
       console.log(`\ud83c\udf7d\ufe0f Bib Gourmand: ${bibPlaces.length} pre-resolved entries`);
       const within = bibPlaces.map(r => {
@@ -500,7 +504,9 @@ exports.handler = async (event) => {
           michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
-      }).filter(r => r.distanceMiles <= 15).sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
+      }).filter(r => r.distanceMiles <= 15)
+        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter))
+        .sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, bibGourmandMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
