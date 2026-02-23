@@ -318,6 +318,14 @@ function michelinRank(r) {
   return 10;
 }
 
+function isBroadCitySearch(location) {
+  if (!location) return false;
+  const loc = location.toLowerCase().trim().replace(/[,\.]/g, '').replace(/\s+/g, ' ');
+  const broadTerms = ['new york ny', 'new york new york', 'nyc', 'manhattan ny', 'manhattan new york', 'brooklyn ny', 'brooklyn new york', 'queens ny', 'queens new york', 'bronx ny', 'bronx new york', 'new york city'];
+  return broadTerms.some(t => loc === t || loc.startsWith(t + ' '));
+}
+
+
 function hasPrice(r) {
   return r.price_level != null && r.price_level !== undefined && r.price_level > 0;
 }
@@ -705,10 +713,10 @@ async function search() {
     });
 
     let realTimeFiltered = allRestaurants;
-    if (state.rewardsFilter === 'any') {
+    const userLocation = document.getElementById('addressInput').value;
+    if (state.rewardsFilter === 'any' && !isBroadCitySearch(userLocation)) {
       if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
       else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
-      else if (state.transport === 'transit' && maxTransitMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
     }
     allRestaurants = realTimeFiltered;
 
