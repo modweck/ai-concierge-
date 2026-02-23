@@ -31,7 +31,7 @@ const SEARCH_TIMEOUT = 10000;
 const VERIFY_TIMEOUT = 8000;
 
 // ─── LOAD DATA ───
-let report, indexHtml, buzzLinks;
+let report, indexHtml, buzzLinks, buzzJsonPath, hasBuzzJson = false;
 
 try {
   report = JSON.parse(fs.readFileSync(path.join(dir, 'broken_links_report.json'), 'utf8'));
@@ -41,14 +41,32 @@ try {
   process.exit(1);
 }
 
+// Load buzz_links.json (primary source of truth)
+buzzJsonPath = path.join(dir, 'buzz_links.json');
+try {
+  buzzLinks = JSON.parse(fs.readFileSync(buzzJsonPath, 'utf8'));
+  hasBuzzJson = true;
+  console.log(`✅ Loaded buzz_links.json: ${Object.keys(buzzLinks).length} entries`);
+} catch (e) {
+  console.log(`⚠️  No buzz_links.json found, will try index.html`);
+}
+
+// Also load index.html (has embedded copy of BUZZ_LINKS)
 try {
   indexHtml = fs.readFileSync(path.join(dir, 'index.html'), 'utf8');
-  const m = indexHtml.match(/const BUZZ_LINKS = ({.*?});/s);
-  buzzLinks = m ? JSON.parse(m[1]) : {};
-  console.log(`✅ Loaded BUZZ_LINKS: ${Object.keys(buzzLinks).length} entries`);
+  if (!hasBuzzJson) {
+    const m = indexHtml.match(/const BUZZ_LINKS = ({.*?});/s);
+    buzzLinks = m ? JSON.parse(m[1]) : {};
+    console.log(`✅ Loaded BUZZ_LINKS from index.html: ${Object.keys(buzzLinks).length} entries`);
+  } else {
+    console.log(`✅ Loaded index.html (will update embedded BUZZ_LINKS too)`);
+  }
 } catch (e) {
-  console.error('❌ Missing index.html');
-  process.exit(1);
+  if (!hasBuzzJson) {
+    console.error('❌ Missing both buzz_links.json and index.html');
+    process.exit(1);
+  }
+  console.log(`⚠️  No index.html found, will only update buzz_links.json`);
 }
 
 // ─── EXTRACT BROKEN BUZZ LINKS ───
@@ -298,15 +316,29 @@ async function main() {
   console.log('SAVING');
   console.log('═'.repeat(60));
 
-  // Backup
-  fs.copyFileSync(path.join(dir, 'index.html'), path.join(dir, 'index.backup.html'));
-  console.log('📦 Backup saved: index.backup.html');
+  // Backup originals
+  if (hasBuzzJson) {
+    fs.copyFileSync(buzzJsonPath, path.join(dir, 'buzz_links.backup.json'));
+    console.log('📦 Backup saved: buzz_links.backup.json');
+  }
+  if (indexHtml) {
+    fs.copyFileSync(path.join(dir, 'index.html'), path.join(dir, 'index.backup.html'));
+    console.log('📦 Backup saved: index.backup.html');
+  }
 
-  // Update index.html
-  const newBuzzStr = `const BUZZ_LINKS = ${JSON.stringify(buzzLinks, null, 2)};`;
-  const updatedHtml = indexHtml.replace(/const BUZZ_LINKS = {.*?};/s, newBuzzStr);
-  fs.writeFileSync(path.join(dir, 'index.html'), updatedHtml);
-  console.log('✅ index.html updated');
+  // Save updated buzz_links.json
+  if (hasBuzzJson) {
+    fs.writeFileSync(buzzJsonPath, JSON.stringify(buzzLinks, null, 2));
+    console.log('✅ buzz_links.json updated');
+  }
+
+  // Save updated index.html (update the embedded BUZZ_LINKS)
+  if (indexHtml) {
+    const newBuzzStr = `const BUZZ_LINKS = ${JSON.stringify(buzzLinks, null, 2)};`;
+    const updatedHtml = indexHtml.replace(/const BUZZ_LINKS = {.*?};/s, newBuzzStr);
+    fs.writeFileSync(path.join(dir, 'index.html'), updatedHtml);
+    console.log('✅ index.html updated');
+  }
 
   // Save report
   fs.writeFileSync(path.join(dir, 'buzz_fix_report.json'), JSON.stringify(fixReport, null, 2));
