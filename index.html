@@ -908,11 +908,11 @@ function renderCard(r) {
   const chaseHtml = (state.rewardsFilter === 'chase' && isChaseRestaurant(r.name)) ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
   const rakutenHtml = (state.rewardsFilter === 'rakuten' || isRakutenRestaurant(r.name)) ? `<a href="https://www.rakuten.com/dining" target="_blank" rel="noopener" class="badge" style="background:#bf0000;color:white;border-color:#bf0000;font-size:12px;text-decoration:none;cursor:pointer">🛍️ Rakuten</a>` : '';
 
-  // Deposit warning - prominent standalone line
+  // Deposit badge - small inline in badges row
   let depositHtml = '';
   const needsDeposit = r.deposit_type === 'deposit' || r.deposit_type === 'prepay' || r.deposit_type === 'cc_hold' || isDepositRestaurant(r.name);
   if (needsDeposit) {
-    depositHtml = `<div style="margin:6px 0;padding:6px 10px;background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;color:#991b1b;font-size:13px;font-weight:600">⚠️ Requires Deposit or Prepay</div>`;
+    depositHtml = `<span class="badge" style="background:#fef2f2;border:1px solid #fca5a5;color:#991b1b">💳 Prepay required</span>`;
   }
 
   const mapsUrl = r.place_id
@@ -956,11 +956,11 @@ function renderCard(r) {
       <h3>${r.name || 'Unknown'}</h3>
       <div class="cuisine">${(CUISINE_LOOKUP[r.name] || r.cuisine || "") ? (CUISINE_LOOKUP[r.name] || r.cuisine) + " · " : ""}${r.vicinity || r.formatted_address || ''}</div>
       ${bookingHtml}
-      ${depositHtml}
       <div class="badges">
         ${michelinHtml}
         ${ratingHtml}
         ${priceHtml}
+        ${depositHtml}
         ${chaseHtml}
         ${rakutenHtml}
         ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
