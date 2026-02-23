@@ -59,8 +59,8 @@ function normalize(name) {
     .normalize('NFD')                 // decompose accented chars (ë -> e + combining diaeresis)
     .replace(/[\u0300-\u036f]/g, '') // strip combining diacritical marks
     .toLowerCase()
-    .replace(/[''`]/g, '')           // curly/straight apostrophes
-    .replace(/[^a-z0-9\s]/g, ' ')   // strip punctuation
+    .replace(/['\u2018\u2019`]/g, '') // all apostrophe variants (straight, curly left/right, backtick)
+    .replace(/[^a-z0-9\s]/g, ' ')   // strip remaining punctuation
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -199,11 +199,6 @@ for (const entry of newLinks) {
 
   // Only flag if we have at least one reason
   if (reasons.length > 0) {
-    // But if the ONLY issue is a non-NYC city but it's actually hewlett (edge case),
-    // skip hewlett if names match well
-    if (reasons.length === 1 && nonNycCity === 'hewlett' && nameMatches) {
-      continue;
-    }
     falsePositives.push({ name, url, pageName: decodeHtml(pageName), reasons });
     falsePositiveUrls.add(url);
   }
