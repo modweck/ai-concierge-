@@ -1835,7 +1835,7 @@
   },
   {
     "name": "Le Botaniste",
-    "cuisine": "Vegetarian",
+    "cuisine": "Vegan",
     "address": "New York, NY",
     "lat": 40.75,
     "lng": -73.98,
@@ -2003,7 +2003,7 @@
   },
   {
     "name": "LUNAR",
-    "cuisine": "Asian",
+    "cuisine": "Chinese",
     "address": "New York, NY",
     "lat": 40.75,
     "lng": -73.98,
@@ -2843,7 +2843,7 @@
   },
   {
     "name": "Sea Salt NYC",
-    "cuisine": "Seafood",
+    "cuisine": "Mediterranean",
     "address": "New York, NY",
     "lat": 40.75,
     "lng": -73.98,
