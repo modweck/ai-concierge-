@@ -452,7 +452,16 @@ async function search() {
     // Determine which backend mode to use
     // Priority: quality filter (michelin/bib/4.7+/any) determines the search pool
     // Rewards filter (chase/rakuten) narrows results AFTER the search
+    // BUT if rewards is selected with quality=any, we need to fetch the rewards dataset
     let backendQuality = state.qualityFilter;
+
+    // When rewards filter is active AND quality is a general mode,
+    // fetch the rewards dataset so we have all partner restaurants
+    if (state.rewardsFilter === 'chase' && (backendQuality === 'any' || backendQuality === 'strict_elite_47' || backendQuality === 'elite_45' || backendQuality === 'recommended_44')) {
+      backendQuality = 'chase_sapphire';
+    } else if (state.rewardsFilter === 'rakuten' && (backendQuality === 'any' || backendQuality === 'strict_elite_47' || backendQuality === 'elite_45' || backendQuality === 'recommended_44')) {
+      backendQuality = 'rakuten';
+    }
 
     // Build loading message
     const filterParts = [];
