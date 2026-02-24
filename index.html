@@ -736,51 +736,53 @@ async function search() {
 }
 
 // Helper: determine New & Rising tier for a restaurant
-function risingTier(r) {
+function isNewAndRising(r) {
   const rating = Number(r.googleRating || 0);
   const reviews = Number(r.googleReviewCount || r.user_ratings_total || 0);
-  if (reviews > 1000 || reviews < 20) return 0; // too established or too little data
-  // Tier A: very promising — high rating, low reviews
-  if (rating >= 4.6 && reviews <= 120) return 2;
-  // Tier B: rising — solid rating, moderate reviews
-  if (rating >= 4.4 && reviews <= 200) return 1;
-  return 0;
+  return rating >= 4.7 && reviews >= 30 && reviews <= 120;
 }
 
 function sortResults() {
   let filtered = filterByQuality(allRestaurants);
 
-  // NEW & RISING MODE
+  // NEW & RISING MODE — filter to only show qualifying restaurants
   if (state.viewMode === 'new_rising') {
-    const tierA = filtered.filter(r => risingTier(r) === 2);
-    const tierB = filtered.filter(r => risingTier(r) === 1);
-    const rest  = filtered.filter(r => risingTier(r) === 0);
+    const rising = filtered.filter(r => isNewAndRising(r));
 
-    const risingSort = (a, b) => {
-      // Higher rating first
-      const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
-      if (ra !== rb) return rb - ra;
-      // Then closer distance
-      const da = a.distanceMiles ?? 999999;
-      const db = b.distanceMiles ?? 999999;
-      if (da !== db) return da - db;
-      return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
-    };
-
-    tierA.sort(risingSort);
-    tierB.sort(risingSort);
-    rest.sort(risingSort);
-
-    const sorted = [...tierA, ...tierB, ...rest];
-
-    // Update count badge
-    const risingCount = tierA.length + tierB.length;
     const countBadge = document.getElementById('resultCountBadge');
     if (countBadge) {
-      countBadge.innerHTML = `✓ Showing <span id="resultCount">${sorted.length}</span> restaurants — <strong>🔥 ${risingCount} New & Rising</strong>`;
+      countBadge.innerHTML = `✓ Showing <span id="resultCount">${rising.length}</span> 🔥 New & Rising restaurants`;
     }
 
-    displayResults(sorted, null);
+    if (!rising.length) {
+      document.getElementById('list').innerHTML =
+        '<div style="text-align:center;padding:40px;font-size:16px;font-weight:600">' +
+        '😔 No New & Rising restaurants found with current filters' +
+        '<div style="margin-top:12px;font-size:14px;font-weight:400">💡 Try: expand your search area or change cuisine</div></div>';
+      return;
+    }
+
+    // Use normal sort order (rating/distance/price) — badge is just a highlight
+    const sortBy = state.sortBy || 'rating';
+    document.getElementById('sortBy').value = sortBy;
+
+    if (sortBy === 'distance') {
+      rising.sort((a, b) => {
+        const da = a.distanceMiles ?? 999999, db = b.distanceMiles ?? 999999;
+        if (da !== db) return da - db;
+        return (b.googleRating || 0) - (a.googleRating || 0);
+      });
+    } else {
+      rising.sort((a, b) => {
+        const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+        if (ra !== rb) return rb - ra;
+        const da = a.distanceMiles ?? 999999, db = b.distanceMiles ?? 999999;
+        if (da !== db) return da - db;
+        return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
+      });
+    }
+
+    displayResults(rising, null);
     return;
   }
 
@@ -901,8 +903,7 @@ function renderCard(r) {
   const rakutenHtml = (state.rewardsFilter === 'rakuten' || isRakutenRestaurant(r.name)) ? `<a href="https://www.rakuten.com/dining" target="_blank" rel="noopener" class="badge" style="background:#bf0000;color:white;border-color:#bf0000;font-size:12px;text-decoration:none;cursor:pointer">🛍️ Rakuten</a>` : '';
 
   // New & Rising badge
-  const tier = risingTier(r);
-  const risingHtml = tier > 0 ? `<span class="rising-badge" title="Highly rated with lower review count — likely newer or gaining traction">🔥 ${tier === 2 ? 'New & Rising' : 'Rising'}</span>` : '';
+  const risingHtml = isNewAndRising(r) ? `<span class="rising-badge" title="Highly rated places with fewer reviews — often newer or gaining strong momentum.">🔥 New & Rising</span>` : '';
 
   // Deposit badge - small inline in badges row
   let depositHtml = '';
