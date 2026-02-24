@@ -236,6 +236,31 @@ let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
 
+function expandDistance(transport, minutes) {
+  if (transport === 'walk') {
+    const sel = document.getElementById('maxWalk');
+    // Add the option if it doesn't exist
+    let found = false;
+    for (const opt of sel.options) { if (Number(opt.value) === minutes) { found = true; break; } }
+    if (!found) { const opt = document.createElement('option'); opt.value = minutes; opt.textContent = minutes + ' min'; sel.appendChild(opt); }
+    sel.value = String(minutes);
+  } else if (transport === 'drive') {
+    const sel = document.getElementById('maxDrive');
+    let found = false;
+    for (const opt of sel.options) { if (Number(opt.value) === minutes) { found = true; break; } }
+    if (!found) { const opt = document.createElement('option'); opt.value = minutes; opt.textContent = minutes + ' min'; sel.appendChild(opt); }
+    sel.value = String(minutes);
+  } else if (transport === 'transit') {
+    const sel = document.getElementById('maxTransit');
+    let found = false;
+    for (const opt of sel.options) { if (Number(opt.value) === minutes) { found = true; break; } }
+    if (!found) { const opt = document.createElement('option'); opt.value = minutes; opt.textContent = minutes + ' min'; sel.appendChild(opt); }
+    sel.value = String(minutes);
+  }
+  // Re-run search with expanded distance
+  document.getElementById('searchBtn').click();
+}
+
 function setRewards(mode) {
   state.rewardsFilter = mode;
   if (allRestaurants.length > 0) sortResults();
@@ -538,16 +563,15 @@ async function search() {
       allRestaurants = allRestaurants.filter(r => isNewAndRising(r));
     }
 
-    // CLIENT-SIDE TIME FILTER — only for general search, not curated lists
+    // CLIENT-SIDE TIME FILTER — applies to ALL modes (no silent overrides)
     const isCuratedMode = (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten' || state.qualityFilter === 'new_rising');
-    if (!isCuratedMode) {
-      if (state.transport === 'walk' && maxWalkMinutes) {
-        allRestaurants = allRestaurants.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
-      } else if (state.transport === 'drive' && maxDriveMinutes) {
-        allRestaurants = allRestaurants.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
-      } else if (state.transport === 'transit' && maxTransitMinutes) {
-        allRestaurants = allRestaurants.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
-      }
+    const preFilterCount = allRestaurants.length;
+    if (state.transport === 'walk' && maxWalkMinutes) {
+      allRestaurants = allRestaurants.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
+    } else if (state.transport === 'drive' && maxDriveMinutes) {
+      allRestaurants = allRestaurants.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
+    } else if (state.transport === 'transit' && maxTransitMinutes) {
+      allRestaurants = allRestaurants.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
     }
 
     // Curated modes sort by distance (closest first)
@@ -732,7 +756,7 @@ async function search() {
 function isNewAndRising(r) {
   const rating = Number(r.googleRating || 0);
   const reviews = Number(r.googleReviewCount || r.user_ratings_total || 0);
-  if (!(rating >= 4.8 && reviews >= 30 && reviews <= 80)) return false;
+  if (!(rating >= 4.8 && reviews >= 40 && reviews <= 130)) return false;
 
   // Exclude generic/casual place types from the premium badge
   const name = (r.name || '').toLowerCase();
@@ -958,20 +982,40 @@ function displayResults(restaurants, noPriceRestaurants) {
   if (countEl) countEl.textContent = String(totalCount);
 
   if (!totalCount) {
-    // Build smart suggestions based on active filters
+    const transport = state.transport;
+    const currentTime = transport === 'walk' ? Number(document.getElementById('maxWalk')?.value || 0)
+      : transport === 'drive' ? Number(document.getElementById('maxDrive')?.value || 0)
+      : Number(document.getElementById('maxTransit')?.value || 0);
+
+    // Build expand buttons
+    const expandSteps = transport === 'walk' ? [30, 45, 60] : [30, 45, 60];
+    const futureSteps = expandSteps.filter(t => t > currentTime);
+    const transportEmoji = transport === 'walk' ? '🚶' : transport === 'drive' ? '🚗' : '🚇';
+    const transportLabel = transport === 'walk' ? 'walk' : transport === 'drive' ? 'drive' : 'transit';
+
+    let expandHtml = '';
+    if (futureSteps.length) {
+      expandHtml = '<div style="margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">' +
+        futureSteps.map(t =>
+          `<button onclick="expandDistance('${transport}', ${t})" style="padding:10px 20px;border-radius:20px;border:2px solid #3b82f6;background:white;color:#3b82f6;font-weight:700;font-size:14px;cursor:pointer">` +
+          `${transportEmoji} Expand to ${t} min ${transportLabel}</button>`
+        ).join('') + '</div>';
+    }
+
+    // Build other suggestions
     const suggestions = [];
     if (state.qualityFilter !== 'any') suggestions.push('try a different quality filter');
     if (state.rewardsFilter !== 'any') suggestions.push('remove the rewards filter');
     if (document.getElementById('cuisine').value !== 'any') suggestions.push('try "Any" cuisine');
-    if (state.transport === 'walk') suggestions.push('increase walk time or switch to drive');
 
     const suggestHtml = suggestions.length
-      ? '<div style="margin-top:12px;font-size:14px;font-weight:400">💡 Try: ' + suggestions.join(', ') + '</div>'
+      ? '<div style="margin-top:12px;font-size:14px;font-weight:400;color:#666">💡 Or: ' + suggestions.join(', ') + '</div>'
       : '';
 
     document.getElementById('list').innerHTML =
       '<div style="text-align:center;padding:40px;font-size:16px;font-weight:600">' +
-      '😔 No restaurants match all your filters' + suggestHtml + '</div>';
+      `😔 No results within ${currentTime} min ${transportLabel}` +
+      expandHtml + suggestHtml + '</div>';
     return;
   }
 
