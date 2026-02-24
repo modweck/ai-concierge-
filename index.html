@@ -777,39 +777,55 @@ async function search() {
 }
 
 // Helper: determine New & Rising tier for a restaurant
+// PRIORITY: Uses review velocity (growth over time) when available
+// FALLBACK: Static rating + review band for restaurants without velocity data
 function isNewAndRising(r) {
   const rating = Number(r.googleRating || 0);
   const reviews = Number(r.googleReviewCount || r.user_ratings_total || 0);
-  if (!(rating >= 4.8 && reviews >= 40 && reviews <= 130)) return false;
-
   const name = (r.name || '');
   const nameLower = name.toLowerCase();
+
+  // ── UNIVERSAL EXCLUSIONS (apply to both velocity and fallback) ──
 
   // Exclude NJ restaurants
   const addr = (r.formatted_address || r.vicinity || '').toLowerCase();
   if (addr.includes(', nj') || addr.includes('new jersey')) return false;
 
-  // Manual blocklist — not a fit for New & Rising
+  // Manual blocklist
   const risingBlocklist = ['four season joyful', 'rocco\'s italian sausages', 'er hou roast chicken'];
   if (risingBlocklist.some(b => nameLower.includes(b))) return false;
 
-  // Exclude obvious non-restaurants, fast-casual, and generic spots
+  // Exclude non-restaurants, fast-casual, generic spots
   const junkForBadge = /\b(bagel|deli|donut|ice\s*cream|frozen\s*yogurt|juice|smoothie|bubble\s*tea|boba|fried\s*chicken|poke|acai|halal\s*(cart|guys|food)|gyro|falafel|buffet|wok|chop\s*suey|nail|spa|grocery|market|mart|laundro|cleaners|barber|cheese\s*steak|cheesesteak|roast\s*chicken|wing|sub\s*shop)\b/i;
   if (junkForBadge.test(name)) return false;
 
-  // Exclude generic names that signal casual/chain spots
   const genericNames = /\b(sausage|hot\s*dog|taco\s*truck|food\s*cart|express|kitchen\s*\d|grill\s*house)\b/i;
   if (genericNames.test(name)) return false;
 
   // Exclude second locations / branches
   if (/\s+(2|3|ii|iii|iv|#\d)\s*$/i.test(name)) return false;
 
-  // Exclude if Google types indicate non-restaurant
+  // Exclude non-restaurant Google types
   const types = r.types || [];
   if (types.includes('meal_delivery') || types.includes('meal_takeaway') || types.includes('bakery') || types.includes('cafe')) return false;
 
+  // ── VELOCITY CHECK (preferred — real momentum data) ──
+  if (r.velocity && r.velocity.growth30 != null && r.velocity.daysTracked >= 7) {
+    // VELOCITY RULE: rating >= 4.6 AND review_growth_30_days >= 25
+    if (rating >= 4.6 && r.velocity.growth30 >= 25) {
+      r._risingReason = 'velocity';
+      r._velocityGrowth30 = r.velocity.growth30;
+      return true;
+    }
+    // Even with velocity data, if they don't meet the threshold, they're not rising
+    return false;
+  }
+
+  // ── STATIC FALLBACK (for restaurants without velocity data yet) ──
+  // Uses the original proxy: high rating + low review count = probably new
+  if (!(rating >= 4.8 && reviews >= 40 && reviews <= 130)) return false;
+
   // QUALITY SIGNAL: must have a real booking platform OR editorial recognition
-  // Removed the cuisine+4.9 loophole — too many generic spots were slipping through
   const hasBooking = r.booking_platform && ['resy','opentable','tock'].includes(r.booking_platform);
   const hasBuzz = !!(getBuzzLinks(name)?.links?.length);
   const isMichelin = !!r.michelin;
@@ -817,6 +833,7 @@ function isNewAndRising(r) {
 
   if (!hasBooking && !hasBuzz && !isMichelin && !isPopular) return false;
 
+  r._risingReason = 'static_proxy';
   return true;
 }
 
@@ -940,7 +957,15 @@ function renderCard(r) {
   const rakutenHtml = (state.rewardsFilter === 'rakuten' || isRakutenRestaurant(r.name)) ? `<a href="https://www.rakuten.com/dining" target="_blank" rel="noopener" class="badge" style="background:#bf0000;color:white;border-color:#bf0000;font-size:12px;text-decoration:none;cursor:pointer">🛍️ Rakuten</a>` : '';
 
   // New & Rising badge
-  const risingHtml = isNewAndRising(r) ? `<span class="rising-badge" title="Highly rated places with fewer reviews — often newer or gaining strong momentum.">🔥 New & Rising</span>` : '';
+  const risingCheck = isNewAndRising(r);
+  let risingHtml = '';
+  if (risingCheck) {
+    if (r._risingReason === 'velocity' && r._velocityGrowth30) {
+      risingHtml = `<span class="rising-badge" title="Gaining +${r._velocityGrowth30} reviews/month — real momentum detected">🔥 Rising +${r._velocityGrowth30}/mo</span>`;
+    } else {
+      risingHtml = `<span class="rising-badge" title="Highly rated with few reviews — likely new and gaining momentum">🔥 New & Rising</span>`;
+    }
+  }
 
   // Deposit badge - small inline in badges row
   let depositHtml = '';
