@@ -54,6 +54,7 @@
         <div style="display:flex;gap:10px">
           <input type="text" id="addressInput" placeholder="Enter address" value="New York, NY" style="flex:1">
           <button onclick="useCurrentLocation()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">📍 Use My Location</button>
+          <button onclick="searchAllNYC()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">🗽 All NYC</button>
         </div>
       </div>
 
@@ -129,7 +130,6 @@
           <button class="toggle-btn active" onclick="setTransport(event,'walk')">🚶 Walk</button>
           <button class="toggle-btn" onclick="setTransport(event,'drive')">🚗 Drive</button>
           <button class="toggle-btn" onclick="setTransport(event,'radius')">📍 Radius</button>
-          <button class="toggle-btn" onclick="setTransport(event,'all_nyc')">🗽 All NYC</button>
         </div>
       </div>
 
@@ -236,6 +236,20 @@ let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewa
 let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
+
+function searchAllNYC() {
+  document.getElementById('addressInput').value = 'New York, NY';
+  state.transport = 'all_nyc';
+  // Visually deactivate transport buttons since All NYC overrides distance
+  document.querySelectorAll('.toggle-group .toggle-btn').forEach(b => b.classList.remove('active'));
+  // Hide all distance selectors
+  document.getElementById('walkDistance').style.display = 'none';
+  document.getElementById('driveDistance').style.display = 'none';
+  if (document.getElementById('transitDistance')) document.getElementById('transitDistance').style.display = 'none';
+  document.getElementById('radiusDistance').style.display = 'none';
+  // Run the search
+  document.getElementById('searchBtn').click();
+}
 
 function expandDistance(transport, minutes) {
   if (transport === 'walk') {
