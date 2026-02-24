@@ -472,6 +472,12 @@ async function search() {
 
   const openNow = false;
 
+  // AUTO-DETECT: If user has a broad city address (default "New York, NY" or similar),
+  // automatically treat as All NYC so curated filters (Michelin, Chase, etc.) show everything
+  if (isBroadCitySearch(location) && state.transport !== 'all_nyc') {
+    state.transport = 'all_nyc';
+  }
+
   let maxWalkMinutes = null, maxDriveMinutes = null, maxTransitMinutes = null;
   if (state.transport === 'walk') maxWalkMinutes = parseInt(document.getElementById('walkTime').value, 10);
   else if (state.transport === 'drive') maxDriveMinutes = parseInt(document.getElementById('driveTime').value, 10);
@@ -525,7 +531,8 @@ async function search() {
       body: JSON.stringify({
         location,
         quality: backendQuality,
-        cuisine: cuisine === 'any' ? undefined : cuisine
+        cuisine: cuisine === 'any' ? undefined : cuisine,
+        broadCity: isBroadCitySearch(location)
       }),
       signal: searchAbortController.signal
     });
