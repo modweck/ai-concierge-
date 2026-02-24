@@ -444,214 +444,129 @@ async function search() {
     '<div style="text-align:center;padding:40px">🔍 Finding candidates...</div>';
 
   try {
-    // Chase Sapphire Reserve mode — ALWAYS takes priority when selected
-    if (state.rewardsFilter === 'chase') {
-      state.sortBy = 'rating';
-      document.getElementById('list').innerHTML =
-        '<div style="text-align:center;padding:40px">💳 Loading Chase Sapphire Reserve restaurants (15 mile radius)...</div>';
+    // =========================================================================
+    // UNIFIED SEARCH — quality filter determines the backend query,
+    // rewards filter is applied as client-side overlay on top
+    // =========================================================================
 
-      const resp = await fetch('/.netlify/functions/search-candidates', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ location, quality: 'chase_sapphire', cuisine: cuisine === 'any' ? undefined : cuisine }),
-        signal: searchAbortController.signal
-      });
+    // Determine which backend mode to use
+    // Priority: quality filter (michelin/bib/4.7+/any) determines the search pool
+    // Rewards filter (chase/rakuten) narrows results AFTER the search
+    let backendQuality = state.qualityFilter;
 
-      const data = await resp.json();
+    // Build loading message
+    const filterParts = [];
+    if (backendQuality === 'michelin') filterParts.push('Michelin');
+    else if (backendQuality === 'bib_gourmand') filterParts.push('Bib Gourmand');
+    else if (backendQuality === 'strict_elite_47') filterParts.push('4.7+');
+    if (state.rewardsFilter === 'chase') filterParts.push('Chase Sapphire');
+    if (state.rewardsFilter === 'rakuten') filterParts.push('Rakuten');
+    const loadingLabel = filterParts.length ? filterParts.join(' + ') : '';
 
-      if (data?.error) {
-        document.getElementById('warnings').innerHTML = `
-          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-            ❌ ${data.error}
-          </div>
-        `;
-        document.getElementById('list').innerHTML =
-          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
-        return;
-      }
+    state.sortBy = 'rating';
+    document.getElementById('list').innerHTML =
+      `<div style="text-align:center;padding:40px">🔍 Loading ${loadingLabel || 'restaurants'}...</div>`;
 
-      allRestaurants = Array.isArray(data.elite) ? data.elite.map(r => ({
-        ...r,
-        walkMinutes: r.walkMinEstimate,
-        driveMinutes: r.driveMinEstimate,
-        transitMinutes: r.transitMinEstimate
-      })) : [];
-
-      document.getElementById('warnings').innerHTML = `
-        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-          📍 ${data.confirmedAddress || location}
-        </div>
-        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-          ✓ Showing <span id="resultCount">0</span> Chase Sapphire Reserve restaurants within 15 miles
-        </div>
-      `;
-
-      sortResults();
-      return;
-    }
-
-    // Rakuten mode — dedicated 15 mile radius search
-    if (state.rewardsFilter === 'rakuten') {
-      state.sortBy = 'rating';
-      document.getElementById('list').innerHTML =
-        '<div style="text-align:center;padding:40px">🛍️ Loading Rakuten restaurants (15 mile radius)...</div>';
-
-      const resp = await fetch('/.netlify/functions/search-candidates', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ location, quality: 'rakuten', cuisine: cuisine === 'any' ? undefined : cuisine }),
-        signal: searchAbortController.signal
-      });
-
-      const data = await resp.json();
-
-      if (data?.error) {
-        document.getElementById('warnings').innerHTML = `
-          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-            ❌ ${data.error}
-          </div>
-        `;
-        document.getElementById('list').innerHTML =
-          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
-        return;
-      }
-
-      allRestaurants = Array.isArray(data.elite) ? data.elite.map(r => ({
-        ...r,
-        walkMinutes: r.walkMinEstimate,
-        driveMinutes: r.driveMinEstimate,
-        transitMinutes: r.transitMinEstimate
-      })) : [];
-
-      document.getElementById('warnings').innerHTML = `
-        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-          📍 ${data.confirmedAddress || location}
-        </div>
-        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-          ✓ Showing <span id="resultCount">0</span> Rakuten restaurants within 15 miles
-        </div>
-      `;
-
-      sortResults();
-      return;
-    }
-
-    if (state.qualityFilter === 'michelin') {
-      state.sortBy = 'rating';
-      document.getElementById('list').innerHTML =
-        '<div style="text-align:center;padding:40px">🏅 Loading Michelin (15 mile radius)...</div>';
-
-      const resp = await fetch('/.netlify/functions/search-candidates', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ location, quality: 'michelin', cuisine: cuisine === 'any' ? undefined : cuisine }),
-        signal: searchAbortController.signal
-      });
-
-      if (!resp.ok) {
-        const txt = await resp.text();
-        throw new Error(`search-michelin failed: ${resp.status} ${txt}`);
-      }
-
-      const data = await resp.json();
-
-      if (data?.error) {
-        document.getElementById('warnings').innerHTML = `
-          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-            ❌ ${data.error}
-          </div>
-        `;
-        document.getElementById('list').innerHTML =
-          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
-        return;
-      }
-
-      allRestaurants = Array.isArray(data.elite) ? data.elite.map(r => {
-        const d = r.distanceMiles ?? null;
-        const walk = r.walkMinEstimate ?? r.walkMinutes ?? (d != null ? Math.round(d * 20) : null);
-        const drive = r.driveMinEstimate ?? r.driveMinutes ?? (d != null ? Math.round(d * 4) : null);
-        const transit = r.transitMinEstimate ?? r.transitMinutes ?? (d != null ? Math.round(d * 6) : null);
-        return {
-          ...r,
-          walkMinutes: walk,
-          driveMinutes: drive,
-          transitMinutes: transit,
-          booking_platform: r.booking_platform || null,
-          booking_url: r.booking_url || null
-        };
-      }) : [];
-
-      document.getElementById('warnings').innerHTML = `
-        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-          📍 ${data.confirmedAddress || location}
-        </div>
-        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-          ✓ Showing <span id="resultCount">0</span> Michelin restaurants within 15 miles (sorted by rating)
-        </div>
-      `;
-
-      sortResults();
-      return;
-    }
-
-    if (state.qualityFilter === 'bib_gourmand') {
-      state.sortBy = 'rating';
-      document.getElementById('list').innerHTML =
-        '<div style="text-align:center;padding:40px">🍽️ Loading Bib Gourmand (15 mile radius)...</div>';
-
-      const resp = await fetch('/.netlify/functions/search-candidates', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ location, quality: 'bib_gourmand', cuisine: cuisine === 'any' ? undefined : cuisine }),
-        signal: searchAbortController.signal
-      });
-
-      const data = await resp.json();
-
-      if (data?.error) {
-        document.getElementById('warnings').innerHTML = `
-          <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
-            ❌ ${data.error}
-          </div>
-        `;
-        document.getElementById('list').innerHTML =
-          `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
-        return;
-      }
-
-      allRestaurants = Array.isArray(data.elite) ? data.elite.map(r => ({
-        ...r,
-        walkMinutes: r.walkMinEstimate,
-        driveMinutes: r.driveMinEstimate,
-        transitMinutes: r.transitMinEstimate
-      })) : [];
-
-      document.getElementById('warnings').innerHTML = `
-        <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
-          📍 ${data.confirmedAddress || location}
-        </div>
-        <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
-          ✓ Showing <span id="resultCount">0</span> Bib Gourmand restaurants within 15 miles (sorted by rating)
-        </div>
-      `;
-
-      sortResults();
-      return;
-    }
-
-    const step1Response = await fetch('/.netlify/functions/search-candidates', {
+    const resp = await fetch('/.netlify/functions/search-candidates', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         location,
-        cuisine: cuisine === 'any' ? undefined : cuisine,
-        openNow,
-        quality: state.qualityFilter
+        quality: backendQuality,
+        cuisine: cuisine === 'any' ? undefined : cuisine
       }),
       signal: searchAbortController.signal
     });
 
-    const step1Data = await step1Response.json();
+    const data = await resp.json();
+
+    if (data?.error) {
+      document.getElementById('warnings').innerHTML = `
+        <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
+          ❌ ${data.error}
+        </div>
+      `;
+      document.getElementById('list').innerHTML =
+        `<div style="text-align:center;padding:40px">No results (see error above)</div>`;
+      return;
+    }
+
+    // Combine elite + moreOptions from backend
+    let results = [];
+    if (Array.isArray(data.elite)) results.push(...data.elite);
+    if (Array.isArray(data.moreOptions)) results.push(...data.moreOptions);
+
+    // Normalize time fields
+    allRestaurants = results.map(r => {
+      const d = r.distanceMiles ?? null;
+      return {
+        ...r,
+        walkMinutes: r.walkMinEstimate ?? r.walkMinutes ?? (d != null ? Math.round(d * 20) : null),
+        driveMinutes: r.driveMinEstimate ?? r.driveMinutes ?? (d != null ? Math.round(d * 4) : null),
+        transitMinutes: r.transitMinEstimate ?? r.transitMinutes ?? (d != null ? Math.round(d * 6) : null),
+        booking_platform: r.booking_platform || null,
+        booking_url: r.booking_url || null
+      };
+    });
+
+    // CLIENT-SIDE REWARDS FILTER — narrow results to Chase/Rakuten partners
+    if (state.rewardsFilter === 'chase') {
+      allRestaurants = allRestaurants.filter(r =>
+        r.chase_sapphire === true || isChaseRestaurant(r.name)
+      );
+    } else if (state.rewardsFilter === 'rakuten') {
+      allRestaurants = allRestaurants.filter(r =>
+        r.rakuten === true || isRakutenRestaurant(r.name)
+      );
+    }
+
+    // CLIENT-SIDE TIME FILTER — only for general search, not curated lists
+    const isCuratedMode = (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten');
+    if (!isCuratedMode) {
+      if (state.transport === 'walk' && maxWalkMinutes) {
+        allRestaurants = allRestaurants.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
+      } else if (state.transport === 'drive' && maxDriveMinutes) {
+        allRestaurants = allRestaurants.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
+      } else if (state.transport === 'transit' && maxTransitMinutes) {
+        allRestaurants = allRestaurants.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
+      }
+    }
+
+    // Chase & Rakuten sort by distance (closest first), everything else sorts by rating
+    if (state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten') {
+      state.sortBy = 'distance';
+    }
+
+    // Build filter description for the header
+    const activeFilters = [];
+    if (backendQuality === 'michelin') activeFilters.push('⭐ Michelin');
+    else if (backendQuality === 'bib_gourmand') activeFilters.push('🍽️ Bib Gourmand');
+    else if (backendQuality === 'strict_elite_47') activeFilters.push('⭐ 4.7+');
+    if (state.rewardsFilter === 'chase') activeFilters.push('💳 Chase Sapphire');
+    if (state.rewardsFilter === 'rakuten') activeFilters.push('🛍️ Rakuten');
+    if (cuisine !== 'any') activeFilters.push('🍕 ' + cuisine.charAt(0).toUpperCase() + cuisine.slice(1));
+    if (state.transport === 'walk' && maxWalkMinutes) activeFilters.push('🚶 ' + maxWalkMinutes + ' min walk');
+    else if (state.transport === 'drive' && maxDriveMinutes) activeFilters.push('🚗 ' + maxDriveMinutes + ' min drive');
+
+    const filterLabel = activeFilters.length ? ' (' + activeFilters.join(' + ') + ')' : '';
+
+    document.getElementById('warnings').innerHTML = `
+      <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
+        📍 ${data.confirmedAddress || location}
+      </div>
+      <div id="resultCountBadge" style="background:#d1fae5;border:2px solid #6ee7b7;padding:12px;border-radius:8px;margin-bottom:16px;color:#065f46;font-weight:800">
+        ✓ Showing <span id="resultCount">0</span> restaurants${filterLabel}
+      </div>
+    `;
+
+    // If special mode (michelin/bib) or rewards filter active — done, show results
+    if (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter !== 'any') {
+      sortResults();
+      return;
+    }
+
+    // General mode — reuse the data we already fetched (no second API call)
+    const step1Data = data;
 
     if (step1Data?.error) {
       document.getElementById('warnings').innerHTML = `
@@ -754,9 +669,10 @@ async function search() {
 
     let realTimeFiltered = allRestaurants;
     const userLocation = document.getElementById('addressInput').value;
-    if (state.rewardsFilter === 'any' && !isBroadCitySearch(userLocation)) {
+    if (!isBroadCitySearch(userLocation)) {
       if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
       else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
+      else if (state.transport === 'transit' && maxTransitMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
     }
     allRestaurants = realTimeFiltered;
 
@@ -981,8 +897,20 @@ function displayResults(restaurants, noPriceRestaurants) {
   if (countEl) countEl.textContent = String(totalCount);
 
   if (!totalCount) {
+    // Build smart suggestions based on active filters
+    const suggestions = [];
+    if (state.qualityFilter !== 'any') suggestions.push('try a different quality filter');
+    if (state.rewardsFilter !== 'any') suggestions.push('remove the rewards filter');
+    if (document.getElementById('cuisine').value !== 'any') suggestions.push('try "Any" cuisine');
+    if (state.transport === 'walk') suggestions.push('increase walk time or switch to drive');
+
+    const suggestHtml = suggestions.length
+      ? '<div style="margin-top:12px;font-size:14px;font-weight:400">💡 Try: ' + suggestions.join(', ') + '</div>'
+      : '';
+
     document.getElementById('list').innerHTML =
-      '<div style="text-align:center;padding:40px">No restaurants found</div>';
+      '<div style="text-align:center;padding:40px;font-size:16px;font-weight:600">' +
+      '😔 No restaurants match all your filters' + suggestHtml + '</div>';
     return;
   }
 
