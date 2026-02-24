@@ -778,9 +778,21 @@ function isNewAndRising(r) {
   const name = (r.name || '');
   const nameLower = name.toLowerCase();
 
-  // Exclude obvious non-restaurants and fast-casual chains
-  const junkForBadge = /\b(bagel|deli|donut|ice\s*cream|frozen\s*yogurt|juice|smoothie|bubble\s*tea|boba|fried\s*chicken|poke|acai|halal\s*(cart|guys|food)|gyro|falafel|buffet|wok|chop\s*suey|nail|spa|grocery|market|mart|laundro|cleaners|barber)\b/i;
+  // Exclude NJ restaurants
+  const addr = (r.formatted_address || r.vicinity || '').toLowerCase();
+  if (addr.includes(', nj') || addr.includes('new jersey')) return false;
+
+  // Manual blocklist — not a fit for New & Rising
+  const risingBlocklist = ['four season joyful', 'rocco\'s italian sausages', 'er hou roast chicken'];
+  if (risingBlocklist.some(b => nameLower.includes(b))) return false;
+
+  // Exclude obvious non-restaurants, fast-casual, and generic spots
+  const junkForBadge = /\b(bagel|deli|donut|ice\s*cream|frozen\s*yogurt|juice|smoothie|bubble\s*tea|boba|fried\s*chicken|poke|acai|halal\s*(cart|guys|food)|gyro|falafel|buffet|wok|chop\s*suey|nail|spa|grocery|market|mart|laundro|cleaners|barber|cheese\s*steak|cheesesteak|roast\s*chicken|wing|sub\s*shop)\b/i;
   if (junkForBadge.test(name)) return false;
+
+  // Exclude generic names that signal casual/chain spots
+  const genericNames = /\b(sausage|hot\s*dog|taco\s*truck|food\s*cart|express|kitchen\s*\d|grill\s*house)\b/i;
+  if (genericNames.test(name)) return false;
 
   // Exclude second locations / branches
   if (/\s+(2|3|ii|iii|iv|#\d)\s*$/i.test(name)) return false;
@@ -789,14 +801,14 @@ function isNewAndRising(r) {
   const types = r.types || [];
   if (types.includes('meal_delivery') || types.includes('meal_takeaway') || types.includes('bakery') || types.includes('cafe')) return false;
 
-  // Must have at least one quality signal beyond just a Google rating
+  // QUALITY SIGNAL: must have a real booking platform OR editorial recognition
+  // Removed the cuisine+4.9 loophole — too many generic spots were slipping through
   const hasBooking = r.booking_platform && ['resy','opentable','tock'].includes(r.booking_platform);
   const hasBuzz = !!(getBuzzLinks(name)?.links?.length);
   const isMichelin = !!r.michelin;
   const isPopular = POPULAR_SET && POPULAR_SET.has && POPULAR_SET.has(nameLower);
-  const hasCuisineAndElite = !!(CUISINE_LOOKUP && CUISINE_LOOKUP[name]) && rating >= 4.9;
 
-  if (!hasBooking && !hasBuzz && !isMichelin && !isPopular && !hasCuisineAndElite) return false;
+  if (!hasBooking && !hasBuzz && !isMichelin && !isPopular) return false;
 
   return true;
 }
