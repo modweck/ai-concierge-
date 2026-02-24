@@ -77,6 +77,8 @@ const CUISINE_FILTER_MAP = {
   'vietnamese':     ['Vietnamese']
 };
 
+// STRICT cuisine matching — no more "unknown passes through" behavior
+// 3rd param fallbackCuisine = the restaurant's own r.cuisine field
 function cuisineLookupMatches(name, userCuisine, fallbackCuisine) {
   if (!userCuisine || !name) return true;
   const allowed = CUISINE_FILTER_MAP[userCuisine.toLowerCase()] || [];
@@ -720,7 +722,7 @@ exports.handler = async (event) => {
       if (allowedTypes.length > 0) {
         const beforeCount = cuisineFiltered.length;
         cuisineFiltered = cuisineFiltered.filter(p => {
-          // Check our cuisine lookup first (most accurate)
+          // Check our cuisine lookup + fallback cuisine (strict)
           const lookupResult = cuisineLookupMatches(p.name, cuisineStr, p.cuisine);
           if (lookupResult) return true;   // matched via lookup or fallback cuisine
           // Not matched — fall back to Google types and name
