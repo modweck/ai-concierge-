@@ -758,14 +758,28 @@ function isNewAndRising(r) {
   const reviews = Number(r.googleReviewCount || r.user_ratings_total || 0);
   if (!(rating >= 4.8 && reviews >= 40 && reviews <= 130)) return false;
 
-  // Exclude generic/casual place types from the premium badge
-  const name = (r.name || '').toLowerCase();
-  const junkForBadge = /\b(pizza|pizzeria|bagel|deli|grill|diner|bakery|cafe|café|coffee|donut|ice\s*cream|frozen\s*yogurt|juice|smoothie|bubble\s*tea|boba|wing|fried\s*chicken|sub|sandwich|wrap|salad|poke|acai|halal\s*(cart|guys|food)|gyro|falafel|taco|burrito|buffet|chinese\s*food|wok|chop\s*suey|nail|spa|grocery|market|mart|laundro|cleaners|barber)\b/i;
-  if (junkForBadge.test(r.name || '')) return false;
+  const name = (r.name || '');
+  const nameLower = name.toLowerCase();
 
-  // Also exclude if Google types indicate casual/fast food
+  // Exclude obvious non-restaurants and fast-casual chains
+  const junkForBadge = /\b(bagel|deli|donut|ice\s*cream|frozen\s*yogurt|juice|smoothie|bubble\s*tea|boba|fried\s*chicken|poke|acai|halal\s*(cart|guys|food)|gyro|falafel|buffet|wok|chop\s*suey|nail|spa|grocery|market|mart|laundro|cleaners|barber)\b/i;
+  if (junkForBadge.test(name)) return false;
+
+  // Exclude second locations / branches
+  if (/\s+(2|3|ii|iii|iv|#\d)\s*$/i.test(name)) return false;
+
+  // Exclude if Google types indicate non-restaurant
   const types = r.types || [];
   if (types.includes('meal_delivery') || types.includes('meal_takeaway') || types.includes('bakery') || types.includes('cafe')) return false;
+
+  // Must have at least one quality signal beyond just a Google rating
+  const hasBooking = r.booking_platform && ['resy','opentable','tock'].includes(r.booking_platform);
+  const hasBuzz = !!(getBuzzLinks(name)?.links?.length);
+  const isMichelin = !!r.michelin;
+  const isPopular = POPULAR_SET && POPULAR_SET.has && POPULAR_SET.has(nameLower);
+  const hasCuisine = !!(CUISINE_LOOKUP && CUISINE_LOOKUP[name]);
+
+  if (!hasBooking && !hasBuzz && !isMichelin && !isPopular && !hasCuisine) return false;
 
   return true;
 }
@@ -966,9 +980,7 @@ function renderCard(r) {
         const highEngagement = rating >= 4.7 && reviews >= 200;
         const showInsta = hasMichelin || hasRising || hasBuzz || highEngagement;
         if (!showInsta) return '';
-        const addr = r.vicinity || r.formatted_address || '';
-        const hood = addr.split(',').length > 1 ? addr.split(',')[0].replace(/[0-9]/g,'').trim() : '';
-        const query = name + (hood ? ' ' + hood : '') + ' NYC restaurant';
+        const query = name + ' NYC restaurant';
         const instaUrl = 'https://www.instagram.com/explore/search/keyword/?q=' + encodeURIComponent(query);
         return '<a href="' + instaUrl + '" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:5px;margin:4px 0 2px 0;text-decoration:none;color:#c13584;font-size:12px;font-weight:600;opacity:0.75" title="Search Instagram for ' + name.replace(/"/g,'') + '">📸 See on Instagram</a>';
       })()}
