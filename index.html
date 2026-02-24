@@ -31,7 +31,12 @@
     .toggle-btn.active{background:#000;color:white;border-color:#000}
     .toggle-btn:hover{border-color:#000;background:#f5f5f5}
     .toggle-btn:hover.active{background:#000}
-    .sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:16px;background:#f9fafb;border-radius:12px}
+    .sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:12px;padding:16px;background:#f9fafb;border-radius:12px}
+    .mode-bar{display:flex;gap:8px;margin-bottom:20px;padding:0 4px;flex-wrap:wrap}
+    .mode-btn{padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #e0e0e0;background:white;color:#666;cursor:pointer;transition:all 0.2s}
+    .mode-btn:hover{border-color:#999;color:#333}
+    .mode-btn.active{background:#000;color:white;border-color:#000}
+    .rising-badge{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,#f97316,#ef4444);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;border:none}
     .section-divider{padding:12px 16px;margin:24px 0 16px 0;background:#f3f4f6;border-radius:10px;font-size:14px;font-weight:600;color:#6b7280;border-left:4px solid #d1d5db}
     .chatbot-btn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:#000;color:white;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:all 0.2s}
     .chatbot-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,0.4)}
@@ -222,6 +227,11 @@
         </select>
       </div>
 
+      <div class="mode-bar">
+        <button class="mode-btn active" onclick="setMode('top_rated')" id="mode_top_rated">🏆 Top Rated</button>
+        <button class="mode-btn" onclick="setMode('new_rising')" id="mode_new_rising">🔥 New & Rising</button>
+      </div>
+
       <div id="list"></div>
     </div>
 
@@ -229,10 +239,18 @@
   </div>
 
 <script>
-let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating' };
+let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating', viewMode: 'top_rated' };
 let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
+
+function setMode(mode) {
+  state.viewMode = mode;
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('mode_' + mode);
+  if (btn) btn.classList.add('active');
+  if (allRestaurants.length > 0) sortResults();
+}
 
 function setRewards(mode) {
   state.rewardsFilter = mode;
@@ -452,7 +470,6 @@ async function search() {
     // Determine which backend mode to use
     // Priority: quality filter (michelin/bib/4.7+/any) determines the search pool
     // Rewards filter (chase/rakuten) narrows results AFTER the search
-    // BUT if rewards is selected with quality=any, we need to fetch the rewards dataset
     let backendQuality = state.qualityFilter;
 
     // When rewards filter is active AND quality is a general mode,
@@ -718,8 +735,54 @@ async function search() {
   }
 }
 
+// Helper: determine New & Rising tier for a restaurant
+function risingTier(r) {
+  const rating = Number(r.googleRating || 0);
+  const reviews = Number(r.googleReviewCount || r.user_ratings_total || 0);
+  if (reviews > 1000 || reviews < 20) return 0; // too established or too little data
+  // Tier A: very promising — high rating, low reviews
+  if (rating >= 4.6 && reviews <= 120) return 2;
+  // Tier B: rising — solid rating, moderate reviews
+  if (rating >= 4.4 && reviews <= 200) return 1;
+  return 0;
+}
+
 function sortResults() {
   let filtered = filterByQuality(allRestaurants);
+
+  // NEW & RISING MODE
+  if (state.viewMode === 'new_rising') {
+    const tierA = filtered.filter(r => risingTier(r) === 2);
+    const tierB = filtered.filter(r => risingTier(r) === 1);
+    const rest  = filtered.filter(r => risingTier(r) === 0);
+
+    const risingSort = (a, b) => {
+      // Higher rating first
+      const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+      if (ra !== rb) return rb - ra;
+      // Then closer distance
+      const da = a.distanceMiles ?? 999999;
+      const db = b.distanceMiles ?? 999999;
+      if (da !== db) return da - db;
+      return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
+    };
+
+    tierA.sort(risingSort);
+    tierB.sort(risingSort);
+    rest.sort(risingSort);
+
+    const sorted = [...tierA, ...tierB, ...rest];
+
+    // Update count badge
+    const risingCount = tierA.length + tierB.length;
+    const countBadge = document.getElementById('resultCountBadge');
+    if (countBadge) {
+      countBadge.innerHTML = `✓ Showing <span id="resultCount">${sorted.length}</span> restaurants — <strong>🔥 ${risingCount} New & Rising</strong>`;
+    }
+
+    displayResults(sorted, null);
+    return;
+  }
 
   const sortBy = state.sortBy || 'rating';
   // Sync dropdown to match state
@@ -762,7 +825,6 @@ function sortResults() {
         const aHighRated = (a.googleRating || 0) >= 4.4 ? 1 : 0;
         const bHighRated = (b.googleRating || 0) >= 4.4 ? 1 : 0;
         if (aHighRated !== bHighRated) return bHighRated - aHighRated;
-        // Within the same tier, sort by distance
         const da = a.distanceMiles ?? 999999;
         const db = b.distanceMiles ?? 999999;
         if (da !== db) return da - db;
@@ -838,6 +900,10 @@ function renderCard(r) {
   const chaseHtml = (state.rewardsFilter === 'chase' && isChaseRestaurant(r.name)) ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
   const rakutenHtml = (state.rewardsFilter === 'rakuten' || isRakutenRestaurant(r.name)) ? `<a href="https://www.rakuten.com/dining" target="_blank" rel="noopener" class="badge" style="background:#bf0000;color:white;border-color:#bf0000;font-size:12px;text-decoration:none;cursor:pointer">🛍️ Rakuten</a>` : '';
 
+  // New & Rising badge
+  const tier = risingTier(r);
+  const risingHtml = tier > 0 ? `<span class="rising-badge" title="Highly rated with lower review count — likely newer or gaining traction">🔥 ${tier === 2 ? 'New & Rising' : 'Rising'}</span>` : '';
+
   // Deposit badge - small inline in badges row
   let depositHtml = '';
   const needsDeposit = r.deposit_type === 'deposit' || r.deposit_type === 'prepay' || r.deposit_type === 'cc_hold' || isDepositRestaurant(r.name);
@@ -888,6 +954,7 @@ function renderCard(r) {
       ${bookingHtml}
       <div class="badges">
         ${michelinHtml}
+        ${risingHtml}
         ${ratingHtml}
         ${priceHtml}
         ${depositHtml}
