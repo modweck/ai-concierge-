@@ -238,7 +238,6 @@ let isSearching = false;
 let searchAbortController = null;
 
 function searchAllNYC() {
-  document.getElementById('addressInput').value = 'New York, NY';
   state.transport = 'all_nyc';
   // Visually deactivate transport buttons since All NYC overrides distance
   document.querySelectorAll('.toggle-group .toggle-btn').forEach(b => b.classList.remove('active'));
@@ -247,7 +246,7 @@ function searchAllNYC() {
   document.getElementById('driveDistance').style.display = 'none';
   if (document.getElementById('transitDistance')) document.getElementById('transitDistance').style.display = 'none';
   document.getElementById('radiusDistance').style.display = 'none';
-  // Run the search
+  // Run the search (keeps whatever address is in the input)
   document.getElementById('searchBtn').click();
 }
 
