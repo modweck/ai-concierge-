@@ -57,6 +57,39 @@ try {
   console.log(`\u2705 Cuisine lookup: ${Object.keys(CUISINE_LOOKUP).length} entries`);
 } catch (err) { console.warn('\u26a0\ufe0f Cuisine lookup missing:', err.message); }
 
+// ── REVIEW VELOCITY DATA ──
+let REVIEW_SNAPSHOTS = {};
+try {
+  REVIEW_SNAPSHOTS = JSON.parse(fs.readFileSync(path.join(__dirname, 'review_snapshots.json'), 'utf8'));
+  const withVelocity = Object.values(REVIEW_SNAPSHOTS).filter(r => r.snapshots && r.snapshots.length >= 2).length;
+  console.log(`\u2705 Review snapshots: ${Object.keys(REVIEW_SNAPSHOTS).length} restaurants (${withVelocity} with velocity data)`);
+} catch (err) { console.warn('\u26a0\ufe0f Review snapshots missing:', err.message); }
+
+/**
+ * Calculate review velocity for a restaurant
+ * Returns object with growth stats or null if not enough data
+ */
+function getReviewVelocity(placeId) {
+  if (!placeId || !REVIEW_SNAPSHOTS[placeId]) return null;
+  const data = REVIEW_SNAPSHOTS[placeId];
+  if (!data.snapshots || data.snapshots.length < 2) return null;
+
+  const latest = data.snapshots[data.snapshots.length - 1];
+  const oldest = data.snapshots[0];
+  const daysBetween = Math.max(1, (new Date(latest.date) - new Date(oldest.date)) / 86400000);
+  const growth = latest.review_count - oldest.review_count;
+  const growthPer30 = Math.round((growth / daysBetween) * 30);
+
+  return {
+    growth30: growthPer30,
+    totalGrowth: growth,
+    daysTracked: Math.round(daysBetween),
+    latestCount: latest.review_count,
+    latestRating: latest.rating,
+    firstSeen: data.first_seen || oldest.date
+  };
+}
+
 const CUISINE_FILTER_MAP = {
   'american':       ['American', 'Soul Food', 'Hawaiian', 'Tex-Mex'],
   'barbecue':       ['Barbecue'],
@@ -77,8 +110,6 @@ const CUISINE_FILTER_MAP = {
   'vietnamese':     ['Vietnamese']
 };
 
-// STRICT cuisine matching — no more "unknown passes through" behavior
-// 3rd param fallbackCuisine = the restaurant's own r.cuisine field
 function cuisineLookupMatches(name, userCuisine, fallbackCuisine) {
   if (!userCuisine || !name) return true;
   const allowed = CUISINE_FILTER_MAP[userCuisine.toLowerCase()] || [];
@@ -193,7 +224,7 @@ async function detectBookingPlatforms(restaurants, KEY) {
 
   // Pass 3: Crawl restaurant websites for booking links (max 10, only unmatched)
   const unmatched = restaurants.filter(r => !r.booking_platform && r.websiteUri);
-  const toCrawl = unmatched.slice(0, 10);
+  const toCrawl = unmatched.slice(0, 30);
   if (toCrawl.length > 0) {
     console.log(`\ud83d\udd0d Crawling ${toCrawl.length} restaurant websites for booking links...`);
     await runWithConcurrency(toCrawl, 5, async (r) => {
@@ -722,7 +753,7 @@ exports.handler = async (event) => {
       if (allowedTypes.length > 0) {
         const beforeCount = cuisineFiltered.length;
         cuisineFiltered = cuisineFiltered.filter(p => {
-          // Check our cuisine lookup + fallback cuisine (strict)
+          // Check our cuisine lookup first (most accurate)
           const lookupResult = cuisineLookupMatches(p.name, cuisineStr, p.cuisine);
           if (lookupResult) return true;   // matched via lookup or fallback cuisine
           // Not matched — fall back to Google types and name
@@ -769,6 +800,7 @@ exports.handler = async (event) => {
         booking_platform: bp, booking_url: bu,
         websiteUri: p.websiteUri || null,
         cuisine: CUISINE_LOOKUP[p.name] || p.cuisine || null,
+        velocity: getReviewVelocity(p.place_id),
         _source: p._source || 'legacy'
       };
     });
