@@ -758,6 +758,11 @@ function sortResults() {
       });
     } else if (sortBy === 'distance') {
       sorted.sort((a, b) => {
+        // 4.4+ rated restaurants come first, then lower rated
+        const aHighRated = (a.googleRating || 0) >= 4.4 ? 1 : 0;
+        const bHighRated = (b.googleRating || 0) >= 4.4 ? 1 : 0;
+        if (aHighRated !== bHighRated) return bHighRated - aHighRated;
+        // Within the same tier, sort by distance
         const da = a.distanceMiles ?? 999999;
         const db = b.distanceMiles ?? 999999;
         if (da !== db) return da - db;
