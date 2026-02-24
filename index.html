@@ -539,7 +539,7 @@ async function search() {
     }
 
     // CLIENT-SIDE TIME FILTER — only for general search, not curated lists
-    const isCuratedMode = (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten' || state.qualityFilter === 'new_rising');
+    const isCuratedMode = (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten');
     if (!isCuratedMode) {
       if (state.transport === 'walk' && maxWalkMinutes) {
         allRestaurants = allRestaurants.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
@@ -580,6 +580,16 @@ async function search() {
 
     // If special mode (michelin/bib/new_rising) or rewards filter active — done, show results
     if (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter !== 'any' || state.qualityFilter === 'new_rising') {
+      // For New & Rising: enforce walk/drive time hard-filter (not curated, should respect distance)
+      if (state.qualityFilter === 'new_rising') {
+        if (state.transport === 'walk' && maxWalkMinutes) {
+          allRestaurants = allRestaurants.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
+        } else if (state.transport === 'drive' && maxDriveMinutes) {
+          allRestaurants = allRestaurants.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
+        } else if (state.transport === 'transit' && maxTransitMinutes) {
+          allRestaurants = allRestaurants.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
+        }
+      }
       sortResults();
       return;
     }
@@ -732,7 +742,7 @@ async function search() {
 function isNewAndRising(r) {
   const rating = Number(r.googleRating || 0);
   const reviews = Number(r.googleReviewCount || r.user_ratings_total || 0);
-  return rating >= 4.7 && reviews >= 30 && reviews <= 120;
+  return rating >= 4.8 && reviews >= 30 && reviews <= 80;
 }
 
 function sortResults() {
