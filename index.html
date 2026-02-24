@@ -129,6 +129,7 @@
           <button class="toggle-btn active" onclick="setTransport(event,'walk')">🚶 Walk</button>
           <button class="toggle-btn" onclick="setTransport(event,'drive')">🚗 Drive</button>
           <button class="toggle-btn" onclick="setTransport(event,'radius')">📍 Radius</button>
+          <button class="toggle-btn" onclick="setTransport(event,'all_nyc')">🗽 All NYC</button>
         </div>
       </div>
 
@@ -590,6 +591,7 @@ async function search() {
     if (cuisine !== 'any') activeFilters.push('🍕 ' + cuisine.charAt(0).toUpperCase() + cuisine.slice(1));
     if (state.transport === 'walk' && maxWalkMinutes) activeFilters.push('🚶 ' + maxWalkMinutes + ' min walk');
     else if (state.transport === 'drive' && maxDriveMinutes) activeFilters.push('🚗 ' + maxDriveMinutes + ' min drive');
+    else if (state.transport === 'all_nyc') activeFilters.push('🗽 All NYC');
 
     const filterLabel = activeFilters.length ? ' (' + activeFilters.join(' + ') + ')' : '';
 
@@ -656,6 +658,8 @@ async function search() {
       enrichLimit = 200;
     } else if (state.transport === 'transit') {
       enrichLimit = 200;
+    } else if (state.transport === 'all_nyc') {
+      enrichLimit = 300;
     }
 
     const originalCandidates = [...allRestaurants];
