@@ -921,6 +921,22 @@ function renderCard(r) {
         </button>
       </div>
       ${renderBuzz(r)}
+      ${(() => {
+        const name = r.name || '';
+        const rating = Number(r.googleRating || 0);
+        const reviews = Number(r.googleReviewCount || 0);
+        const hasMichelin = !!r.michelin;
+        const hasRising = isNewAndRising(r);
+        const hasBuzz = !!(getBuzzLinks(name)?.links?.length);
+        const highEngagement = rating >= 4.7 && reviews >= 200;
+        const showInsta = hasMichelin || hasRising || hasBuzz || highEngagement;
+        if (!showInsta) return '';
+        const addr = r.vicinity || r.formatted_address || '';
+        const hood = addr.split(',').length > 1 ? addr.split(',')[0].replace(/[0-9]/g,'').trim() : '';
+        const query = name + (hood ? ' ' + hood : '') + ' NYC restaurant';
+        const instaUrl = 'https://www.instagram.com/explore/search/keyword/?q=' + encodeURIComponent(query);
+        return '<a href="' + instaUrl + '" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:5px;margin:4px 0 2px 0;text-decoration:none;color:#c13584;font-size:12px;font-weight:600;opacity:0.75" title="Search Instagram for ' + name.replace(/"/g,'') + '">📸 See on Instagram</a>';
+      })()}
     </div>
   `;
 }
