@@ -794,9 +794,9 @@ function isNewAndRising(r) {
   const hasBuzz = !!(getBuzzLinks(name)?.links?.length);
   const isMichelin = !!r.michelin;
   const isPopular = POPULAR_SET && POPULAR_SET.has && POPULAR_SET.has(nameLower);
-  const hasCuisine = !!(CUISINE_LOOKUP && CUISINE_LOOKUP[name]);
+  const hasCuisineAndElite = !!(CUISINE_LOOKUP && CUISINE_LOOKUP[name]) && rating >= 4.9;
 
-  if (!hasBooking && !hasBuzz && !isMichelin && !isPopular && !hasCuisine) return false;
+  if (!hasBooking && !hasBuzz && !isMichelin && !isPopular && !hasCuisineAndElite) return false;
 
   return true;
 }
