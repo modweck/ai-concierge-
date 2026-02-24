@@ -171,6 +171,7 @@
           <option value="michelin">Michelin Stars</option>
           <option value="bib_gourmand">Bib Gourmand</option>
           <option value="strict_elite_47">Top Rated (4.7+)</option>
+          <option value="new_rising">🔥 New & Rising</option>
         </select>
       </div>
 
@@ -399,7 +400,7 @@ function filterByQuality(restaurants) {
   let filtered = restaurants.filter(r => !isJunkPlace(r));
 
   if (q === 'any') { /* keep all */ }
-  else if (q === 'michelin' || q === 'bib_gourmand') { /* already filtered by search */ }
+  else if (q === 'michelin' || q === 'bib_gourmand' || q === 'new_rising') { /* already filtered by search or client-side */ }
   else {
     filtered = filtered.filter(r => {
       if (r.michelin) return true;
@@ -457,17 +458,20 @@ async function search() {
 
     // When rewards filter is active AND quality is a general mode,
     // fetch the rewards dataset so we have all partner restaurants
-    if (state.rewardsFilter === 'chase' && (backendQuality === 'any' || backendQuality === 'strict_elite_47' || backendQuality === 'elite_45' || backendQuality === 'recommended_44')) {
+    if (state.rewardsFilter === 'chase' && (backendQuality === 'any' || backendQuality === 'strict_elite_47' || backendQuality === 'elite_45' || backendQuality === 'recommended_44' || backendQuality === 'new_rising')) {
       backendQuality = 'chase_sapphire';
-    } else if (state.rewardsFilter === 'rakuten' && (backendQuality === 'any' || backendQuality === 'strict_elite_47' || backendQuality === 'elite_45' || backendQuality === 'recommended_44')) {
+    } else if (state.rewardsFilter === 'rakuten' && (backendQuality === 'any' || backendQuality === 'strict_elite_47' || backendQuality === 'elite_45' || backendQuality === 'recommended_44' || backendQuality === 'new_rising')) {
       backendQuality = 'rakuten';
     }
+    // New & Rising uses general search, then filters client-side
+    if (backendQuality === 'new_rising') backendQuality = 'any';
 
     // Build loading message
     const filterParts = [];
     if (backendQuality === 'michelin') filterParts.push('Michelin');
     else if (backendQuality === 'bib_gourmand') filterParts.push('Bib Gourmand');
     else if (backendQuality === 'strict_elite_47') filterParts.push('4.7+');
+    if (state.qualityFilter === 'new_rising') filterParts.push('New & Rising');
     if (state.rewardsFilter === 'chase') filterParts.push('Chase Sapphire');
     if (state.rewardsFilter === 'rakuten') filterParts.push('Rakuten');
     const loadingLabel = filterParts.length ? filterParts.join(' + ') : '';
@@ -529,8 +533,13 @@ async function search() {
       );
     }
 
+    // CLIENT-SIDE NEW & RISING FILTER
+    if (state.qualityFilter === 'new_rising') {
+      allRestaurants = allRestaurants.filter(r => isNewAndRising(r));
+    }
+
     // CLIENT-SIDE TIME FILTER — only for general search, not curated lists
-    const isCuratedMode = (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten');
+    const isCuratedMode = (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten' || state.qualityFilter === 'new_rising');
     if (!isCuratedMode) {
       if (state.transport === 'walk' && maxWalkMinutes) {
         allRestaurants = allRestaurants.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
@@ -541,8 +550,8 @@ async function search() {
       }
     }
 
-    // Chase & Rakuten sort by distance (closest first), everything else sorts by rating
-    if (state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten') {
+    // Curated modes sort by distance (closest first)
+    if (isCuratedMode) {
       state.sortBy = 'distance';
     }
 
@@ -551,6 +560,7 @@ async function search() {
     if (backendQuality === 'michelin') activeFilters.push('⭐ Michelin');
     else if (backendQuality === 'bib_gourmand') activeFilters.push('🍽️ Bib Gourmand');
     else if (backendQuality === 'strict_elite_47') activeFilters.push('⭐ 4.7+');
+    if (state.qualityFilter === 'new_rising') activeFilters.push('🔥 New & Rising');
     if (state.rewardsFilter === 'chase') activeFilters.push('💳 Chase Sapphire');
     if (state.rewardsFilter === 'rakuten') activeFilters.push('🛍️ Rakuten');
     if (cuisine !== 'any') activeFilters.push('🍕 ' + cuisine.charAt(0).toUpperCase() + cuisine.slice(1));
@@ -568,8 +578,8 @@ async function search() {
       </div>
     `;
 
-    // If special mode (michelin/bib) or rewards filter active — done, show results
-    if (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter !== 'any') {
+    // If special mode (michelin/bib/new_rising) or rewards filter active — done, show results
+    if (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter !== 'any' || state.qualityFilter === 'new_rising') {
       sortResults();
       return;
     }
