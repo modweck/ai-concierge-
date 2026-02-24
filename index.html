@@ -31,11 +31,7 @@
     .toggle-btn.active{background:#000;color:white;border-color:#000}
     .toggle-btn:hover{border-color:#000;background:#f5f5f5}
     .toggle-btn:hover.active{background:#000}
-    .sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:12px;padding:16px;background:#f9fafb;border-radius:12px}
-    .mode-bar{display:flex;gap:8px;margin-bottom:20px;padding:0 4px;flex-wrap:wrap}
-    .mode-btn{padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #e0e0e0;background:white;color:#666;cursor:pointer;transition:all 0.2s}
-    .mode-btn:hover{border-color:#999;color:#333}
-    .mode-btn.active{background:#000;color:white;border-color:#000}
+    .sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:16px;background:#f9fafb;border-radius:12px}
     .rising-badge{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,#f97316,#ef4444);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;border:none}
     .section-divider{padding:12px 16px;margin:24px 0 16px 0;background:#f3f4f6;border-radius:10px;font-size:14px;font-weight:600;color:#6b7280;border-left:4px solid #d1d5db}
     .chatbot-btn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:#000;color:white;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:all 0.2s}
@@ -227,11 +223,6 @@
         </select>
       </div>
 
-      <div class="mode-bar">
-        <button class="mode-btn active" onclick="setMode('top_rated')" id="mode_top_rated">🏆 Top Rated</button>
-        <button class="mode-btn" onclick="setMode('new_rising')" id="mode_new_rising">🔥 New & Rising</button>
-      </div>
-
       <div id="list"></div>
     </div>
 
@@ -239,18 +230,10 @@
   </div>
 
 <script>
-let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating', viewMode: 'top_rated' };
+let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating' };
 let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
-
-function setMode(mode) {
-  state.viewMode = mode;
-  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-  const btn = document.getElementById('mode_' + mode);
-  if (btn) btn.classList.add('active');
-  if (allRestaurants.length > 0) sortResults();
-}
 
 function setRewards(mode) {
   state.rewardsFilter = mode;
@@ -745,47 +728,6 @@ function isNewAndRising(r) {
 function sortResults() {
   let filtered = filterByQuality(allRestaurants);
 
-  // NEW & RISING MODE — filter to only show qualifying restaurants
-  if (state.viewMode === 'new_rising') {
-    const rising = filtered.filter(r => isNewAndRising(r));
-
-    const countBadge = document.getElementById('resultCountBadge');
-    if (countBadge) {
-      countBadge.innerHTML = `✓ Showing <span id="resultCount">${rising.length}</span> 🔥 New & Rising restaurants`;
-    }
-
-    if (!rising.length) {
-      document.getElementById('list').innerHTML =
-        '<div style="text-align:center;padding:40px;font-size:16px;font-weight:600">' +
-        '😔 No New & Rising restaurants found with current filters' +
-        '<div style="margin-top:12px;font-size:14px;font-weight:400">💡 Try: expand your search area or change cuisine</div></div>';
-      return;
-    }
-
-    // Use normal sort order (rating/distance/price) — badge is just a highlight
-    const sortBy = state.sortBy || 'rating';
-    document.getElementById('sortBy').value = sortBy;
-
-    if (sortBy === 'distance') {
-      rising.sort((a, b) => {
-        const da = a.distanceMiles ?? 999999, db = b.distanceMiles ?? 999999;
-        if (da !== db) return da - db;
-        return (b.googleRating || 0) - (a.googleRating || 0);
-      });
-    } else {
-      rising.sort((a, b) => {
-        const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
-        if (ra !== rb) return rb - ra;
-        const da = a.distanceMiles ?? 999999, db = b.distanceMiles ?? 999999;
-        if (da !== db) return da - db;
-        return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
-      });
-    }
-
-    displayResults(rising, null);
-    return;
-  }
-
   const sortBy = state.sortBy || 'rating';
   // Sync dropdown to match state
   document.getElementById('sortBy').value = sortBy;
@@ -956,13 +898,13 @@ function renderCard(r) {
       <div class="badges">
         ${michelinHtml}
         ${risingHtml}
-        ${ratingHtml}
-        ${priceHtml}
-        ${depositHtml}
         ${chaseHtml}
         ${rakutenHtml}
-        ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
+        ${ratingHtml}
+        ${priceHtml}
         ${distanceHtml}
+        ${depositHtml}
+        ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
         <button onclick="window.open('${mapsUrl}','_blank')"
           style="margin-left:auto;padding:8px 16px;background:#4285f4;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px">
           📍 Maps
