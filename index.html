@@ -539,7 +539,7 @@ async function search() {
     }
 
     // CLIENT-SIDE TIME FILTER — only for general search, not curated lists
-    const isCuratedMode = (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten');
+    const isCuratedMode = (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten' || state.qualityFilter === 'new_rising');
     if (!isCuratedMode) {
       if (state.transport === 'walk' && maxWalkMinutes) {
         allRestaurants = allRestaurants.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
@@ -580,16 +580,6 @@ async function search() {
 
     // If special mode (michelin/bib/new_rising) or rewards filter active — done, show results
     if (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter !== 'any' || state.qualityFilter === 'new_rising') {
-      // For New & Rising: enforce walk/drive time hard-filter (not curated, should respect distance)
-      if (state.qualityFilter === 'new_rising') {
-        if (state.transport === 'walk' && maxWalkMinutes) {
-          allRestaurants = allRestaurants.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
-        } else if (state.transport === 'drive' && maxDriveMinutes) {
-          allRestaurants = allRestaurants.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
-        } else if (state.transport === 'transit' && maxTransitMinutes) {
-          allRestaurants = allRestaurants.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
-        }
-      }
       sortResults();
       return;
     }
@@ -742,7 +732,18 @@ async function search() {
 function isNewAndRising(r) {
   const rating = Number(r.googleRating || 0);
   const reviews = Number(r.googleReviewCount || r.user_ratings_total || 0);
-  return rating >= 4.8 && reviews >= 30 && reviews <= 80;
+  if (!(rating >= 4.8 && reviews >= 30 && reviews <= 80)) return false;
+
+  // Exclude generic/casual place types from the premium badge
+  const name = (r.name || '').toLowerCase();
+  const junkForBadge = /\b(pizza|pizzeria|bagel|deli|grill|diner|bakery|cafe|café|coffee|donut|ice\s*cream|frozen\s*yogurt|juice|smoothie|bubble\s*tea|boba|wing|fried\s*chicken|sub|sandwich|wrap|salad|poke|acai|halal\s*(cart|guys|food)|gyro|falafel|taco|burrito|buffet|chinese\s*food|wok|chop\s*suey|nail|spa|grocery|market|mart|laundro|cleaners|barber)\b/i;
+  if (junkForBadge.test(r.name || '')) return false;
+
+  // Also exclude if Google types indicate casual/fast food
+  const types = r.types || [];
+  if (types.includes('meal_delivery') || types.includes('meal_takeaway') || types.includes('bakery') || types.includes('cafe')) return false;
+
+  return true;
 }
 
 function sortResults() {
