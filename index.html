@@ -33,6 +33,13 @@
     .toggle-btn:hover.active{background:#000}
     .sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:16px;background:#f9fafb;border-radius:12px}
     .rising-badge{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,#f97316,#ef4444);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;border:none}
+    .likelihood-badge{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:5px 12px;border-radius:12px;border:none;cursor:help;position:relative}
+    .likelihood-high{background:#dcfce7;color:#166534;border:1px solid #86efac}
+    .likelihood-medium{background:#fef9c3;color:#854d0e;border:1px solid #fde047}
+    .likelihood-low{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+    .likelihood-very-low{background:#991b1b;color:white}
+    .likelihood-tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#1f2937;color:white;padding:10px 14px;border-radius:10px;font-size:12px;font-weight:400;white-space:nowrap;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,0.2);max-width:280px;white-space:normal;line-height:1.4}
+    .likelihood-badge:hover .likelihood-tooltip{display:block}
     .section-divider{padding:12px 16px;margin:24px 0 16px 0;background:#f3f4f6;border-radius:10px;font-size:14px;font-weight:600;color:#6b7280;border-left:4px solid #d1d5db}
     .chatbot-btn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:#000;color:white;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:all 0.2s}
     .chatbot-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,0.4)}
@@ -222,6 +229,7 @@
           <option value="rating" selected>Rating</option>
           <option value="distance">Distance</option>
           <option value="price">Price</option>
+          <option value="likelihood">Likelihood</option>
         </select>
       </div>
 
@@ -236,6 +244,7 @@ let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewa
 let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
+let likelihoodModifiers = { time: {}, party: {} };
 
 function searchAllNYC() {
   state.transport = 'all_nyc';
@@ -538,6 +547,11 @@ async function search() {
     });
 
     const data = await resp.json();
+
+    // Store likelihood modifiers for time/party adjustments
+    if (data.likelihood_modifiers) {
+      likelihoodModifiers = data.likelihood_modifiers;
+    }
 
     if (data?.error) {
       document.getElementById('warnings').innerHTML = `
@@ -891,10 +905,119 @@ function sortResults() {
         if ((b.googleReviewCount || 0) !== (a.googleReviewCount || 0)) return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
         return String(a.name || '').localeCompare(String(b.name || ''));
       });
+    } else if (sortBy === 'likelihood') {
+      // Sort by easiest to book first (lowest demand score)
+      sorted.sort((a, b) => {
+        const la = computeAdjustedLikelihood(a);
+        const lb = computeAdjustedLikelihood(b);
+        const sa = la ? la.score : 50; // default to medium if no data
+        const sb = lb ? lb.score : 50;
+        if (sa !== sb) return sa - sb; // lower score = easier = first
+        const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+        return rb - ra; // tie-break by rating
+      });
     }
 
     displayResults(sorted, null);
   }
+}
+
+// ════════════════════════════════════════════════════════════════
+// RESERVATION LIKELIHOOD — Time-adjusted scoring with badges
+// ════════════════════════════════════════════════════════════════
+
+function getTimeSlot(hourStr) {
+  const hour = parseFloat(hourStr);
+  if (hour < 12) return 'early_lunch';
+  if (hour < 14) return 'lunch';
+  if (hour < 17) return 'afternoon';
+  if (hour < 18.5) return 'early_dinner';
+  if (hour < 20.5) return 'prime_dinner';
+  if (hour < 22) return 'late_dinner';
+  return 'late_night';
+}
+
+function getDayType(dateStr) {
+  if (!dateStr) return 'moderate';
+  const date = new Date(dateStr + 'T12:00:00');
+  const day = date.getDay(); // 0=Sun, 1=Mon...6=Sat
+  if (day === 5 || day === 6) return 'peak';       // Fri, Sat
+  if (day === 0 || day === 3 || day === 4) return 'moderate'; // Sun, Wed, Thu
+  return 'easy';                                     // Mon, Tue
+}
+
+function computeAdjustedLikelihood(r) {
+  const base = r.likelihood;
+  if (!base || base.demand_score == null) return null;
+
+  let demandScore = base.demand_score;
+
+  // Get user's selected date/time
+  const dateVal = document.getElementById('dateInput')?.value || '';
+  const startTimeVal = document.getElementById('startTime')?.value || '18:00';
+  const partySize = parseInt(document.getElementById('party')?.value || '2', 10);
+
+  // Time modifier
+  const dayType = getDayType(dateVal);
+  const timeSlot = getTimeSlot(startTimeVal);
+  const timeMods = likelihoodModifiers.time || {};
+  const timeMod = (timeMods[dayType] && timeMods[dayType][timeSlot]) || 1.0;
+
+  // Party size modifier
+  const partyMods = likelihoodModifiers.party || {};
+  const partyClamped = Math.min(10, Math.max(1, partySize));
+  const partyMod = partyMods[String(partyClamped)] || 1.0;
+
+  // Michelin boost (if we know from frontend data)
+  const michelinBoost = r.michelin ? 10 : 0;
+
+  // Apply modifiers
+  demandScore = Math.round((demandScore + michelinBoost) * timeMod * partyMod);
+  demandScore = Math.max(0, Math.min(100, demandScore));
+
+  // Determine tier
+  let tier, label, emoji, cssClass;
+  if (demandScore >= 70) { tier = 'very_low'; label = 'Very Hard'; emoji = '🔴'; cssClass = 'likelihood-very-low'; }
+  else if (demandScore >= 55) { tier = 'low'; label = 'Hard'; emoji = '🟠'; cssClass = 'likelihood-low'; }
+  else if (demandScore >= 35) { tier = 'medium'; label = 'Moderate'; emoji = '🟡'; cssClass = 'likelihood-medium'; }
+  else if (demandScore >= 15) { tier = 'high'; label = 'Good Chance'; emoji = '🟢'; cssClass = 'likelihood-high'; }
+  else { tier = 'very_high'; label = 'Easy'; emoji = '🟢'; cssClass = 'likelihood-high'; }
+
+  // Build tooltip reasons
+  const reasons = [...(base.reasons || [])];
+
+  // Add time-specific reason
+  if (dayType === 'peak' && timeSlot === 'prime_dinner') reasons.unshift('Peak time: Fri/Sat 7-8:30pm');
+  else if (dayType === 'peak') reasons.unshift('Weekend evening');
+  else if (dayType === 'easy') reasons.unshift('Easier on Mon/Tue');
+  else if (timeSlot === 'afternoon') reasons.unshift('Off-peak afternoon slot');
+  else if (timeSlot === 'late_night') reasons.unshift('Late night — usually easier');
+
+  // Party size reason
+  if (partySize >= 6) reasons.push(`Large party (${partySize}) — harder to seat`);
+  else if (partySize === 1) reasons.push('Solo dining — easiest to seat');
+
+  return {
+    score: demandScore,
+    tier, label, emoji, cssClass,
+    reasons: reasons.slice(0, 5),
+    hasData: true
+  };
+}
+
+function renderLikelihoodBadge(r) {
+  const result = computeAdjustedLikelihood(r);
+  if (!result || !result.hasData) return '';
+
+  const reasonsHtml = result.reasons.map(r => `• ${r}`).join('<br>');
+  const tooltipHtml = reasonsHtml
+    ? `<div class="likelihood-tooltip">${reasonsHtml}</div>`
+    : '';
+
+  return `<span class="likelihood-badge ${result.cssClass}">
+    ${result.emoji} ${result.label}
+    ${tooltipHtml}
+  </span>`;
 }
 
 function renderBuzz(r) {
@@ -974,6 +1097,9 @@ function renderCard(r) {
     depositHtml = `<span class="badge" style="background:#fef2f2;border:1px solid #fca5a5;color:#991b1b">💳 Prepay required</span>`;
   }
 
+  // Reservation likelihood badge
+  const likelihoodHtml = renderLikelihoodBadge(r);
+
   const mapsUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || r.vicinity || r.address || 'New York, NY'))}`;
@@ -1017,6 +1143,7 @@ function renderCard(r) {
       ${bookingHtml}
       <div class="badges">
         ${michelinHtml}
+        ${likelihoodHtml}
         ${risingHtml}
         ${chaseHtml}
         ${rakutenHtml}
