@@ -1,50 +1,72 @@
-// Netlify function: get-availability.js
-// Serves the availability_data.json file to the frontend
+// Netlify function: get-availability.js (DEBUG VERSION)
 const fs = require('fs');
 const path = require('path');
 
 exports.handler = async function(event, context) {
+  const debug = {
+    __dirname: __dirname,
+    cwd: process.cwd(),
+    dirFiles: [],
+    triedPaths: [],
+    foundAt: null
+  };
+
   try {
-    const dataPath = path.join(__dirname, 'availability_data.json');
-    
-    if (!fs.existsSync(dataPath)) {
-      return {
-        statusCode: 200,
-        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-        body: '{}'
-      };
+    // List files in __dirname
+    try {
+      debug.dirFiles = fs.readdirSync(__dirname).slice(0, 30);
+    } catch(e) {
+      debug.dirFiles = ['ERROR reading dir: ' + e.message];
     }
 
-    const raw = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-    
-    // Transform: { "Restaurant Name": { tier, total_slots, prime_slots, ... } }
-    // Frontend just needs: { "Restaurant Name": { tier, slots, primeSlots } }
-    const slim = {};
-    for (const [name, data] of Object.entries(raw)) {
-      if (data.tier) {
-        slim[name] = {
-          tier: data.tier,
-          slots: data.total_slots || 0,
-          primeSlots: data.prime_slots || 0
-        };
+    // Try multiple possible paths
+    const possiblePaths = [
+      path.join(__dirname, 'availability_data.json'),
+      path.resolve(__dirname, 'availability_data.json'),
+      path.join(process.cwd(), 'netlify', 'functions', 'availability_data.json'),
+      '/var/task/netlify/functions/availability_data.json',
+      '/var/task/availability_data.json'
+    ];
+
+    let rawData = null;
+
+    for (const p of possiblePaths) {
+      debug.triedPaths.push(p);
+      if (fs.existsSync(p)) {
+        debug.foundAt = p;
+        rawData = fs.readFileSync(p, 'utf8');
+        break;
       }
     }
 
+    if (!rawData) {
+      return {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        body: JSON.stringify({ debug })
+      };
+    }
+
+    const full = JSON.parse(rawData);
+    const slim = {};
+    for (const [name, info] of Object.entries(full)) {
+      slim[name] = {
+        tier: info.availability_tier || 'unknown',
+        slots: info.available_slots || 0,
+        primeSlots: info.prime_time_slots || 0
+      };
+    }
+
     return {
       statusCode: 200,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Cache-Control': 'public, max-age=300' // cache 5 min
-      },
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=300' },
       body: JSON.stringify(slim)
     };
   } catch(e) {
-    console.error('Error loading availability:', e);
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-      body: '{}'
+      body: JSON.stringify({ debug, error: e.message })
     };
   }
 };
