@@ -90,6 +90,29 @@ function getReviewVelocity(placeId) {
   };
 }
 
+// ── RESERVATION LIKELIHOOD DATA ──
+let LIKELIHOOD_DATA = {};
+let LIKELIHOOD_TIME_MODS = {};
+let LIKELIHOOD_PARTY_MODS = {};
+try {
+  LIKELIHOOD_DATA = JSON.parse(fs.readFileSync(path.join(__dirname, 'reservation_likelihood.json'), 'utf8'));
+  LIKELIHOOD_TIME_MODS = LIKELIHOOD_DATA._time_modifiers || {};
+  LIKELIHOOD_PARTY_MODS = LIKELIHOOD_DATA._party_size_modifiers || {};
+  const count = Object.keys(LIKELIHOOD_DATA).filter(k => !k.startsWith('_')).length;
+  console.log(`\u2705 Reservation likelihood: ${count} restaurants profiled`);
+} catch (err) { console.warn('\u26a0\ufe0f Reservation likelihood missing:', err.message); }
+
+/**
+ * Get reservation likelihood for a restaurant
+ * Returns the pre-computed profile or null
+ */
+function getReservationLikelihood(placeId) {
+  if (!placeId || !LIKELIHOOD_DATA[placeId]) return null;
+  const data = LIKELIHOOD_DATA[placeId];
+  if (!data.demand_score && data.demand_score !== 0) return null;
+  return data;
+}
+
 const CUISINE_FILTER_MAP = {
   'american':       ['American', 'Soul Food', 'Hawaiian', 'Tex-Mex'],
   'barbecue':       ['Barbecue'],
@@ -474,7 +497,7 @@ exports.handler = async (event) => {
     }));
     return {
       statusCode: 200, headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ elite: enrichDeposit(elite), moreOptions: enrichDeposit(more), confirmedAddress: stats.confirmedAddress||null, userLocation: stats.userLocation||null, stats, error })
+      body: JSON.stringify({ elite: enrichDeposit(elite), moreOptions: enrichDeposit(more), confirmedAddress: stats.confirmedAddress||null, userLocation: stats.userLocation||null, stats, error, likelihood_modifiers: { time: LIKELIHOOD_TIME_MODS, party: LIKELIHOOD_PARTY_MODS } })
     };
   };
 
@@ -801,6 +824,7 @@ exports.handler = async (event) => {
         websiteUri: p.websiteUri || null,
         cuisine: CUISINE_LOOKUP[p.name] || p.cuisine || null,
         velocity: getReviewVelocity(p.place_id),
+        likelihood: getReservationLikelihood(p.place_id),
         _source: p._source || 'legacy'
       };
     });
