@@ -11,7 +11,8 @@
     "netlify/functions/booking_lookup.json",
     "netlify/functions/deposit_lookup.json",
     "netlify/functions/popular_nyc.json",
-    "netlify/functions/buzz_links.json"
+    "netlify/functions/buzz_links.json",
+    "netlify/functions/availability_data.json"
   ]
 
 [[redirects]]
