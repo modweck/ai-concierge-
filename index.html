@@ -33,6 +33,16 @@
     .toggle-btn:hover.active{background:#000}
     .sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:16px;background:#f9fafb;border-radius:12px}
     .rising-badge{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,#f97316,#ef4444);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;border:none}
+    .avail-chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0 4px 0}
+    .avail-chip{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid #e0e0e0;background:#fafafa;color:#555;transition:all .15s;user-select:none}
+    .avail-chip:hover{opacity:0.85}
+    .avail-chip.active[data-tier="hard"]{background:#fef2f2;border-color:#f87171;color:#b91c1c}
+    .avail-chip.active[data-tier="medium"]{background:#fefce8;border-color:#facc15;color:#a16207}
+    .avail-chip.active[data-tier="easy"]{background:#f0fdf4;border-color:#4ade80;color:#15803d}
+    .avail-badge{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;border:none}
+    .avail-badge.hard{background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5}
+    .avail-badge.medium{background:#fefce8;color:#a16207;border:1px solid #fde68a}
+    .avail-badge.easy{background:#f0fdf4;color:#15803d;border:1px solid #86efac}
     .section-divider{padding:12px 16px;margin:24px 0 16px 0;background:#f3f4f6;border-radius:10px;font-size:14px;font-weight:600;color:#6b7280;border-left:4px solid #d1d5db}
     .chatbot-btn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:#000;color:white;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:all 0.2s}
     .chatbot-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,0.4)}
@@ -53,8 +63,8 @@
         <label>📍 Your Location</label>
         <div style="display:flex;gap:10px">
           <input type="text" id="addressInput" placeholder="Enter address" value="New York, NY" style="flex:1">
-          <button id="btnMyLocation" class="toggle-btn" onclick="useCurrentLocation()" style="padding:14px 20px">📍 Use My Location</button>
-          <button id="btnAllNYC" class="toggle-btn" onclick="searchAllNYC()" style="padding:14px 20px">🗽 All NYC</button>
+          <button onclick="useCurrentLocation()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">📍 Use My Location</button>
+          <button onclick="searchAllNYC()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">🗽 All NYC</button>
         </div>
       </div>
 
@@ -62,11 +72,60 @@
         <label>📅 Date & Time</label>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <input type="date" id="dateInput" style="flex:1;min-width:140px">
-        </div>
-        <div class="toggle-group" style="margin-top:10px">
-          <button class="toggle-btn" onclick="setTimeSlot(event,'early')" id="btnEarly">🌅 Early 5-6:30</button>
-          <button class="toggle-btn" onclick="setTimeSlot(event,'prime')" id="btnPrime">🔥 Prime 6:30-8:30</button>
-          <button class="toggle-btn" onclick="setTimeSlot(event,'late')" id="btnLate">🌙 Late 8:30-10</button>
+          <div style="display:flex;gap:6px;align-items:center;flex:1;min-width:200px">
+            <select id="startTime" style="flex:1">
+              <option value="11:00">11:00 AM</option>
+              <option value="11:30">11:30 AM</option>
+              <option value="12:00">12:00 PM</option>
+              <option value="12:30">12:30 PM</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="13:30">1:30 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="14:30">2:30 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="15:30">3:30 PM</option>
+              <option value="16:00">4:00 PM</option>
+              <option value="16:30">4:30 PM</option>
+              <option value="17:00">5:00 PM</option>
+              <option value="17:30">5:30 PM</option>
+              <option value="18:00" selected>6:00 PM</option>
+              <option value="18:30">6:30 PM</option>
+              <option value="19:00">7:00 PM</option>
+              <option value="19:30">7:30 PM</option>
+              <option value="20:00">8:00 PM</option>
+              <option value="20:30">8:30 PM</option>
+              <option value="21:00">9:00 PM</option>
+              <option value="21:30">9:30 PM</option>
+              <option value="22:00">10:00 PM</option>
+            </select>
+            <span style="font-weight:600;color:#666">to</span>
+            <select id="endTime" style="flex:1">
+              <option value="12:00">12:00 PM</option>
+              <option value="12:30">12:30 PM</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="13:30">1:30 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="14:30">2:30 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="15:30">3:30 PM</option>
+              <option value="16:00">4:00 PM</option>
+              <option value="16:30">4:30 PM</option>
+              <option value="17:00">5:00 PM</option>
+              <option value="17:30">5:30 PM</option>
+              <option value="18:00">6:00 PM</option>
+              <option value="18:30">6:30 PM</option>
+              <option value="19:00">7:00 PM</option>
+              <option value="19:30">7:30 PM</option>
+              <option value="20:00">8:00 PM</option>
+              <option value="20:30" selected>8:30 PM</option>
+              <option value="21:00">9:00 PM</option>
+              <option value="21:30">9:30 PM</option>
+              <option value="22:00">10:00 PM</option>
+              <option value="22:30">10:30 PM</option>
+              <option value="23:00">11:00 PM</option>
+              <option value="23:30">11:30 PM</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -78,7 +137,7 @@
       <div style="margin-bottom:20px">
         <label>🚗 Transportation</label>
         <div class="toggle-group">
-          <button class="toggle-btn" onclick="setTransport(event,'walk')">🚶 Walk</button>
+          <button class="toggle-btn active" onclick="setTransport(event,'walk')">🚶 Walk</button>
           <button class="toggle-btn" onclick="setTransport(event,'drive')">🚗 Drive</button>
           <button class="toggle-btn" onclick="setTransport(event,'radius')">📍 Radius</button>
         </div>
@@ -176,6 +235,13 @@
         </select>
       </div>
 
+      <div class="avail-chips" id="availChips">
+        <label style="margin:0;font-weight:600;font-size:13px">📅 Availability:</label>
+        <span class="avail-chip active" data-tier="hard" onclick="toggleAvailChip(this)">🔴 Hard to Book</span>
+        <span class="avail-chip active" data-tier="medium" onclick="toggleAvailChip(this)">🟡 Medium</span>
+        <span class="avail-chip active" data-tier="easy" onclick="toggleAvailChip(this)">🟢 Easy to Book</span>
+      </div>
+
       <div id="list"></div>
     </div>
 
@@ -183,103 +249,69 @@
   </div>
 
 <script>
-let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating', timeSlot: 'prime' };
-
-// ═══ AVAILABILITY DATA (loaded from daily checker) ═══
-let AVAILABILITY_DATA = {};
-let availabilityLoaded = false;
-
-(async function loadAvailability() {
-  try {
-    const resp = await fetch('/availability_data.json?v=' + Date.now());
-    if (resp.ok) {
-      AVAILABILITY_DATA = await resp.json();
-      availabilityLoaded = true;
-      console.log('✅ Availability data loaded:', Object.keys(AVAILABILITY_DATA).length, 'restaurants');
-    }
-  } catch(e) { console.log('ℹ️ No availability data yet — run availability-checker.js first'); }
-})();
-
-function getAvailability(name) {
-  if (!availabilityLoaded || !name) return null;
-  const key = name.toLowerCase().trim();
-  return AVAILABILITY_DATA[key] || null;
-}
-
-function renderAvailabilityBadge(r) {
-  if (!availabilityLoaded) return '';
-  const avail = getAvailability(r.name);
-  if (!avail || avail.availability_tier === 'unknown') return '';
-
-  // Use the check_history to determine pattern (if multiple days exist)
-  const history = avail.check_history || [];
-  let tier = avail.availability_tier;
-
-  // If we have multiple days of history, use the pattern
-  if (history.length >= 2) {
-    const soldOutDays = history.filter(h => h.tier === 'sold_out').length;
-    const nearlyFullDays = history.filter(h => h.tier === 'nearly_full').length;
-    const hardDays = soldOutDays + nearlyFullDays;
-    const ratio = hardDays / history.length;
-    if (ratio >= 0.7) tier = 'sold_out';
-    else if (ratio >= 0.4) tier = 'nearly_full';
-    else if (ratio >= 0.2) tier = 'limited';
-    else tier = 'available';
-  }
-
-  // Check the specific time window the user selected
-  const selectedSlot = state.timeSlot || 'prime';
-  const windowData = avail.time_windows?.[selectedSlot];
-  let windowNote = '';
-  if (windowData) {
-    if (windowData.count === 0 && tier !== 'sold_out') {
-      // Restaurant has slots, but not in user's selected window
-      windowNote = ' · Your window is sold out';
-    }
-  }
-
-  let emoji, badgeText, badgeStyle;
-  switch (tier) {
-    case 'sold_out':
-      emoji = '🔴'; badgeText = 'Very Hard to Book';
-      badgeStyle = 'background:#fef2f2;border:1px solid #fca5a5;color:#991b1b'; break;
-    case 'nearly_full':
-      emoji = '🟠'; badgeText = 'Hard to Book';
-      badgeStyle = 'background:#fff7ed;border:1px solid #fdba74;color:#9a3412'; break;
-    case 'limited':
-      emoji = '🟡'; badgeText = 'Moderate — Book Ahead';
-      badgeStyle = 'background:#fefce8;border:1px solid #fde047;color:#854d0e'; break;
-    case 'moderate':
-      emoji = '🔵'; badgeText = 'Usually Available';
-      badgeStyle = 'background:#eff6ff;border:1px solid #93c5fd;color:#1e40af'; break;
-    case 'available':
-      emoji = '🟢'; badgeText = 'Easy to Book';
-      badgeStyle = 'background:#f0fdf4;border:1px solid #86efac;color:#166534'; break;
-    default: return '';
-  }
-
-  // Add prime time note if prime slots were 0 but other slots existed
-  let primeNote = '';
-  if (avail.prime_slots === 0 && avail.total_slots > 0 && !windowNote) {
-    primeNote = ' · Prime time fills fast';
-  }
-
-  return `<span class="badge" style="${badgeStyle};font-weight:600">${emoji} ${badgeText}${windowNote}${primeNote}</span>`;
-}
+let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating', availFilter: { hard: true, medium: true, easy: true } };
 let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
 
+// --- Availability data (from availability-checker.js output) ---
+// Maps restaurant name → { tier: 'sold_out'|'nearly_full'|'limited'|'moderate'|'available', slots, primeSlots }
+let AVAILABILITY_DATA = {};
+
+// Try to load availability data from Netlify function
+(async function loadAvailability() {
+  try {
+    const resp = await fetch('/.netlify/functions/get-availability');
+    if (resp.ok) {
+      AVAILABILITY_DATA = await resp.json();
+      console.log('Loaded availability for', Object.keys(AVAILABILITY_DATA).length, 'restaurants');
+    }
+  } catch(e) { console.log('Availability data not available yet'); }
+})();
+
+// Map 5 checker tiers → 3 user-facing tiers
+function getAvailTier(name) {
+  const d = AVAILABILITY_DATA[name];
+  if (!d) return null; // unknown — no data
+  const t = d.tier;
+  if (t === 'sold_out' || t === 'nearly_full') return 'hard';
+  if (t === 'limited' || t === 'moderate') return 'medium';
+  if (t === 'available') return 'easy';
+  return null;
+}
+
+function getAvailLabel(tier) {
+  if (tier === 'hard') return { emoji: '🔴', text: 'Hard to Book', cls: 'hard' };
+  if (tier === 'medium') return { emoji: '🟡', text: 'Medium', cls: 'medium' };
+  if (tier === 'easy') return { emoji: '🟢', text: 'Easy to Book', cls: 'easy' };
+  return null;
+}
+
+function toggleAvailChip(el) {
+  const tier = el.dataset.tier;
+  el.classList.toggle('active');
+  state.availFilter[tier] = el.classList.contains('active');
+  sortResults();
+}
+
+function filterByAvailability(restaurants) {
+  // If all chips are active (or all off), show everything
+  const { hard, medium, easy } = state.availFilter;
+  const allOn = hard && medium && easy;
+  const allOff = !hard && !medium && !easy;
+  if (allOn || allOff) return restaurants;
+
+  return restaurants.filter(r => {
+    const tier = getAvailTier(r.name);
+    if (!tier) return true; // no data = always show
+    return state.availFilter[tier];
+  });
+}
+
 function searchAllNYC() {
   state.transport = 'all_nyc';
-  // Highlight All NYC button, deactivate My Location
-  document.getElementById('btnAllNYC').classList.add('active');
-  document.getElementById('btnMyLocation').classList.remove('active');
   // Visually deactivate transport buttons since All NYC overrides distance
-  document.querySelectorAll('.toggle-group .toggle-btn').forEach(b => {
-    if (b.id === 'btnAllNYC') return; // keep All NYC active
-    if (b.id === 'btnMyLocation') return;
-  });
+  document.querySelectorAll('.toggle-group .toggle-btn').forEach(b => b.classList.remove('active'));
   // Hide all distance selectors
   document.getElementById('walkDistance').style.display = 'none';
   document.getElementById('driveDistance').style.display = 'none';
@@ -413,8 +445,6 @@ function hasPrice(r) {
 
 function useCurrentLocation() {
   if (navigator.geolocation) {
-    document.getElementById('btnMyLocation').classList.add('active');
-    document.getElementById('btnAllNYC').classList.remove('active');
     navigator.geolocation.getCurrentPosition(
       position => {
         document.getElementById('addressInput').value = `${position.coords.latitude},${position.coords.longitude}`;
@@ -429,21 +459,11 @@ function setTransport(evt, mode) {
   const parentDiv = evt.target.parentElement;
   parentDiv.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
   evt.target.classList.add('active');
-  // Deactivate All NYC / My Location when picking transport
-  document.getElementById('btnAllNYC').classList.remove('active');
-  document.getElementById('btnMyLocation').classList.remove('active');
 
   document.getElementById('walkDistance').style.display = mode === 'walk' ? 'block' : 'none';
   document.getElementById('driveDistance').style.display = mode === 'drive' ? 'block' : 'none';
   document.getElementById('transitDistance').style.display = mode === 'transit' ? 'block' : 'none';
   document.getElementById('radiusDistance').style.display = mode === 'radius' ? 'block' : 'none';
-}
-
-function setTimeSlot(evt, slot) {
-  state.timeSlot = slot;
-  const parentDiv = evt.target.parentElement;
-  parentDiv.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-  evt.target.classList.add('active');
 }
 
 // --- Junk filter: remove non-restaurant places ---
@@ -873,6 +893,7 @@ function isNewAndRising(r) {
 
 function sortResults() {
   let filtered = filterByQuality(allRestaurants);
+  filtered = filterByAvailability(filtered);
 
   const sortBy = state.sortBy || 'rating';
   // Sync dropdown to match state
@@ -987,9 +1008,6 @@ function renderCard(r) {
 
   const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
 
-  const INKIND_SET = new Set(["sarabeth's","bareburger","jacobs pickles","jacob's pickles","mission ceviche","prince street pizza","tarallucci e vino","the mermaid inn","mermaid inn","zaytinya","dead rabbit","the dead rabbit","oceana","gramercy tavern","american cut","llama inn","saraghina","charlie bird","the clam","marea","brasserie cognac","le bernardin","rosa mexicano","serafina","serafina tribeca","serafina osteria","botte","botte brooklyn","ursula","ursula brooklyn","little owl","the little owl"]);
-  const isInKind = (name) => name && INKIND_SET.has(name.toLowerCase().trim());
-  const inkindHtml = isInKind(r.name) ? `<a href="https://app.inkind.com/offer/YOUR_REFERRAL_CODE" target="_blank" rel="noopener" class="badge" style="background:#00C853;color:white;border-color:#00C853;font-size:12px;text-decoration:none;cursor:pointer">💰 Save 20%% with inKind</a>` : '';
   const chaseHtml = (state.rewardsFilter === 'chase' && isChaseRestaurant(r.name)) ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
   const rakutenHtml = (state.rewardsFilter === 'rakuten' || isRakutenRestaurant(r.name)) ? `<a href="https://www.rakuten.com/dining" target="_blank" rel="noopener" class="badge" style="background:#bf0000;color:white;border-color:#bf0000;font-size:12px;text-decoration:none;cursor:pointer">🛍️ Rakuten</a>` : '';
 
@@ -1001,6 +1019,14 @@ function renderCard(r) {
   const needsDeposit = r.deposit_type === 'deposit' || r.deposit_type === 'prepay' || r.deposit_type === 'cc_hold' || isDepositRestaurant(r.name);
   if (needsDeposit) {
     depositHtml = `<span class="badge" style="background:#fef2f2;border:1px solid #fca5a5;color:#991b1b">💳 Prepay required</span>`;
+  }
+
+  // Availability badge
+  let availHtml = '';
+  const availTier = getAvailTier(r.name);
+  if (availTier) {
+    const lbl = getAvailLabel(availTier);
+    availHtml = `<span class="avail-badge ${lbl.cls}">${lbl.emoji} ${lbl.text}</span>`;
   }
 
   const mapsUrl = r.place_id
@@ -1045,16 +1071,15 @@ function renderCard(r) {
       <div class="cuisine">${(CUISINE_LOOKUP[r.name] || r.cuisine || "") ? (CUISINE_LOOKUP[r.name] || r.cuisine) + " · " : ""}${r.vicinity || r.formatted_address || ''}</div>
       ${bookingHtml}
       <div class="badges">
-        ${renderAvailabilityBadge(r)}
         ${michelinHtml}
         ${risingHtml}
         ${chaseHtml}
         ${rakutenHtml}
-        ${inkindHtml}
         ${ratingHtml}
         ${priceHtml}
         ${distanceHtml}
         ${depositHtml}
+        ${availHtml}
         ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
         <button onclick="window.open('${mapsUrl}','_blank')"
           style="margin-left:auto;padding:8px 16px;background:#4285f4;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px">
