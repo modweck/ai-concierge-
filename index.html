@@ -271,7 +271,7 @@ let AVAILABILITY_DATA = {};
 
 // Map 5 checker tiers → 3 user-facing tiers
 function getAvailTier(name) {
-  const d = AVAILABILITY_DATA[name];
+  const d = AVAILABILITY_DATA[name.toLowerCase()];
   if (!d) return null; // unknown — no data
   const t = d.tier;
   if (t === 'sold_out' || t === 'nearly_full') return 'hard';
