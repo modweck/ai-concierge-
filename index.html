@@ -987,6 +987,9 @@ function renderCard(r) {
 
   const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
 
+  const INKIND_SET = new Set(["sarabeth's","bareburger","jacobs pickles","jacob's pickles","mission ceviche","prince street pizza","tarallucci e vino","the mermaid inn","mermaid inn","zaytinya","dead rabbit","the dead rabbit","oceana","gramercy tavern","american cut","llama inn","saraghina","charlie bird","the clam","marea","brasserie cognac","le bernardin","rosa mexicano","serafina","serafina tribeca","serafina osteria","botte","botte brooklyn","ursula","ursula brooklyn","little owl","the little owl"]);
+  const isInKind = (name) => name && INKIND_SET.has(name.toLowerCase().trim());
+  const inkindHtml = isInKind(r.name) ? `<a href="https://app.inkind.com/offer/YOUR_REFERRAL_CODE" target="_blank" rel="noopener" class="badge" style="background:#00C853;color:white;border-color:#00C853;font-size:12px;text-decoration:none;cursor:pointer">💰 Save 20%% with inKind</a>` : '';
   const chaseHtml = (state.rewardsFilter === 'chase' && isChaseRestaurant(r.name)) ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
   const rakutenHtml = (state.rewardsFilter === 'rakuten' || isRakutenRestaurant(r.name)) ? `<a href="https://www.rakuten.com/dining" target="_blank" rel="noopener" class="badge" style="background:#bf0000;color:white;border-color:#bf0000;font-size:12px;text-decoration:none;cursor:pointer">🛍️ Rakuten</a>` : '';
 
@@ -1047,6 +1050,7 @@ function renderCard(r) {
         ${risingHtml}
         ${chaseHtml}
         ${rakutenHtml}
+        ${inkindHtml}
         ${ratingHtml}
         ${priceHtml}
         ${distanceHtml}
