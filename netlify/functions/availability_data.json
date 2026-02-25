@@ -1,0 +1,1142 @@
+{
+  "8282": {
+    "name": "8282",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/8282",
+    "slug": "8282",
+    "total_slots": 15,
+    "dinner_slots": 15,
+    "prime_slots": 13,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 15,
+        "dinner_slots": 15,
+        "prime_slots": 13,
+        "tier": "available"
+      }
+    ]
+  },
+  "peter luger": {
+    "name": "peter luger",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/peter-luger-steak-house",
+    "slug": "peter-luger-steak-house",
+    "total_slots": 12,
+    "dinner_slots": 1,
+    "prime_slots": 0,
+    "availability_tier": "nearly_full",
+    "availability_demand_points": 22,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 12,
+        "dinner_slots": 1,
+        "prime_slots": 0,
+        "tier": "nearly_full"
+      }
+    ]
+  },
+  "tatiana": {
+    "name": "tatiana",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/tatiana",
+    "slug": "tatiana",
+    "total_slots": 0,
+    "dinner_slots": 0,
+    "prime_slots": 0,
+    "availability_tier": "sold_out",
+    "availability_demand_points": 30,
+    "is_available": false,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 0,
+        "dinner_slots": 0,
+        "prime_slots": 0,
+        "tier": "sold_out"
+      }
+    ]
+  },
+  "saga": {
+    "name": "saga",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/saga-new-york",
+    "slug": "saga-new-york",
+    "total_slots": 33,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 33,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
+      }
+    ]
+  },
+  "catch": {
+    "name": "catch",
+    "platform": "resy",
+    "url": "https://resy.com/cities/new-york-ny/venues/catch-nyc",
+    "slug": "catch-nyc",
+    "total_slots": 0,
+    "dinner_slots": 0,
+    "prime_slots": 0,
+    "availability_tier": "sold_out",
+    "availability_demand_points": 30,
+    "is_available": false,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 0,
+        "dinner_slots": 0,
+        "prime_slots": 0,
+        "tier": "sold_out"
+      }
+    ]
+  },
+  "eleven madison park": {
+    "name": "eleven madison park",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/eleven-madison-park",
+    "slug": "eleven-madison-park",
+    "total_slots": 4,
+    "dinner_slots": 4,
+    "prime_slots": 4,
+    "availability_tier": "moderate",
+    "availability_demand_points": 6,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 4,
+        "dinner_slots": 4,
+        "prime_slots": 4,
+        "tier": "moderate"
+      }
+    ]
+  },
+  "cosme": {
+    "name": "cosme",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/cosme",
+    "slug": "cosme",
+    "total_slots": 76,
+    "dinner_slots": 76,
+    "prime_slots": 56,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 76,
+        "dinner_slots": 76,
+        "prime_slots": 56,
+        "tier": "available"
+      }
+    ]
+  },
+  "atla": {
+    "name": "atla",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/atla",
+    "slug": "atla",
+    "total_slots": 33,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 33,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
+      }
+    ]
+  },
+  "dhamaka": {
+    "name": "dhamaka",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/dhamaka",
+    "slug": "dhamaka",
+    "total_slots": 6,
+    "dinner_slots": 6,
+    "prime_slots": 3,
+    "availability_tier": "moderate",
+    "availability_demand_points": 6,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 6,
+        "dinner_slots": 6,
+        "prime_slots": 3,
+        "tier": "moderate"
+      }
+    ]
+  },
+  "semma": {
+    "name": "semma",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/semma",
+    "slug": "semma",
+    "total_slots": 0,
+    "dinner_slots": 0,
+    "prime_slots": 0,
+    "availability_tier": "sold_out",
+    "availability_demand_points": 30,
+    "is_available": false,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 0,
+        "dinner_slots": 0,
+        "prime_slots": 0,
+        "tier": "sold_out"
+      }
+    ]
+  },
+  "adda": {
+    "name": "adda",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/adda",
+    "slug": "adda",
+    "total_slots": 2,
+    "dinner_slots": 2,
+    "prime_slots": 2,
+    "availability_tier": "moderate",
+    "availability_demand_points": 6,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 2,
+        "dinner_slots": 2,
+        "prime_slots": 2,
+        "tier": "moderate"
+      }
+    ]
+  },
+  "alta calidad": {
+    "name": "alta calidad",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/alta-calidad",
+    "slug": "alta-calidad",
+    "total_slots": 68,
+    "dinner_slots": 30,
+    "prime_slots": 22,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 68,
+        "dinner_slots": 30,
+        "prime_slots": 22,
+        "tier": "available"
+      }
+    ]
+  },
+  "bonnie's": {
+    "name": "bonnie's",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/bonnies",
+    "slug": "bonnies",
+    "total_slots": 16,
+    "dinner_slots": 16,
+    "prime_slots": 13,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 16,
+        "dinner_slots": 16,
+        "prime_slots": 13,
+        "tier": "available"
+      }
+    ]
+  },
+  "the four horsemen": {
+    "name": "the four horsemen",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/the-four-horsemen",
+    "slug": "the-four-horsemen",
+    "total_slots": 0,
+    "dinner_slots": 0,
+    "prime_slots": 0,
+    "availability_tier": "sold_out",
+    "availability_demand_points": 30,
+    "is_available": false,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 0,
+        "dinner_slots": 0,
+        "prime_slots": 0,
+        "tier": "sold_out"
+      }
+    ]
+  },
+  "i cavallini": {
+    "name": "i cavallini",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/i-cavallini",
+    "slug": "i-cavallini",
+    "total_slots": 0,
+    "dinner_slots": 0,
+    "prime_slots": 0,
+    "availability_tier": "sold_out",
+    "availability_demand_points": 30,
+    "is_available": false,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 0,
+        "dinner_slots": 0,
+        "prime_slots": 0,
+        "tier": "sold_out"
+      }
+    ]
+  },
+  "francie": {
+    "name": "francie",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/francie",
+    "slug": "francie",
+    "total_slots": 27,
+    "dinner_slots": 27,
+    "prime_slots": 23,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 27,
+        "dinner_slots": 27,
+        "prime_slots": 23,
+        "tier": "available"
+      }
+    ]
+  },
+  "shalom japan": {
+    "name": "shalom japan",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/shalom-japan",
+    "slug": "shalom-japan",
+    "total_slots": 40,
+    "dinner_slots": 40,
+    "prime_slots": 32,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 40,
+        "dinner_slots": 40,
+        "prime_slots": 32,
+        "tier": "available"
+      }
+    ]
+  },
+  "celestine": {
+    "name": "celestine",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/celestine",
+    "slug": "celestine",
+    "total_slots": 33,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 33,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
+      }
+    ]
+  },
+  "il buco": {
+    "name": "il buco",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/il-buco",
+    "slug": "il-buco",
+    "total_slots": 23,
+    "dinner_slots": 8,
+    "prime_slots": 3,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 23,
+        "dinner_slots": 8,
+        "prime_slots": 3,
+        "tier": "available"
+      }
+    ]
+  },
+  "bongkoch": {
+    "name": "bongkoch",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/bongkoch",
+    "slug": "bongkoch",
+    "total_slots": 33,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 33,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
+      }
+    ]
+  },
+  "kochi": {
+    "name": "kochi",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/kochi",
+    "slug": "kochi",
+    "total_slots": 33,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 33,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
+      }
+    ]
+  },
+  "gupshup": {
+    "name": "gupshup",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/gupshup",
+    "slug": "gupshup",
+    "total_slots": 7,
+    "dinner_slots": 7,
+    "prime_slots": 4,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 7,
+        "dinner_slots": 7,
+        "prime_slots": 4,
+        "tier": "available"
+      }
+    ]
+  },
+  "bungalow": {
+    "name": "bungalow",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/bungalow",
+    "slug": "bungalow",
+    "total_slots": 33,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 33,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
+      }
+    ]
+  },
+  "junoon": {
+    "name": "junoon",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/junoon",
+    "slug": "junoon",
+    "total_slots": 36,
+    "dinner_slots": 36,
+    "prime_slots": 32,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 36,
+        "dinner_slots": 36,
+        "prime_slots": 32,
+        "tier": "available"
+      }
+    ]
+  },
+  "commerce": {
+    "name": "commerce",
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/commerce",
+    "slug": "commerce",
+    "total_slots": 33,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "checked_date": "2026-02-26",
+    "checked_party_size": 2,
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "total_slots": 33,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
+      }
+    ]
+  },
+  "nobu downtown": {
+    "name": "nobu downtown",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/nobu-downtown",
+    "slug": "nobu-downtown",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "nobu fifty seven": {
+    "name": "nobu fifty seven",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/nobu-fifty-seven",
+    "slug": "nobu-fifty-seven",
+    "restaurant_id": "4524",
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "avail_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "the odeon": {
+    "name": "the odeon",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/the-odeon",
+    "slug": "the-odeon",
+    "restaurant_id": "2221",
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "avail_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "brooklyn chop house": {
+    "name": "brooklyn chop house",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/brooklyn-chop-house-downtown",
+    "slug": "brooklyn-chop-house-downtown",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "tiny's": {
+    "name": "tiny's",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/tinys",
+    "slug": "tinys",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "peking duck house": {
+    "name": "peking duck house",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/peking-duck-house",
+    "slug": "peking-duck-house",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "fogo de chão": {
+    "name": "fogo de chão",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/fogo-de-chao-world-trade-center",
+    "slug": "fogo-de-chao-world-trade-center",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "serafina tribeca": {
+    "name": "serafina tribeca",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/serafina-tribeca",
+    "slug": "serafina-tribeca",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "serafina osteria": {
+    "name": "serafina osteria",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/serafina-osteria",
+    "slug": "serafina-osteria",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "filé gumbo bar": {
+    "name": "filé gumbo bar",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/file-gumbo-bar",
+    "slug": "file-gumbo-bar",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "antica ancora": {
+    "name": "antica ancora",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/antica-ancora",
+    "slug": "antica-ancora",
+    "restaurant_id": "116047",
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "avail_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "frenchette": {
+    "name": "frenchette",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/frenchette",
+    "slug": "frenchette",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "soothr": {
+    "name": "soothr",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/soothr",
+    "slug": "soothr",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "san sabino": {
+    "name": "san sabino",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/san-sabino",
+    "slug": "san-sabino",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "estela": {
+    "name": "estela",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/estela",
+    "slug": "estela",
+    "restaurant_id": "212488",
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "avail_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "momofuku noodle bar": {
+    "name": "momofuku noodle bar",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/momofuku-noodle-bar-east-village",
+    "slug": "momofuku-noodle-bar-east-village",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "raf's": {
+    "name": "raf's",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/rafs",
+    "slug": "rafs",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "casa mono": {
+    "name": "casa mono",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/casa-mono",
+    "slug": "casa-mono",
+    "restaurant_id": "0",
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "avail_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "le rock": {
+    "name": "le rock",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/le-rock",
+    "slug": "le-rock",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "la grande boucherie": {
+    "name": "la grande boucherie",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/la-grande-boucherie-nyc",
+    "slug": "la-grande-boucherie-nyc",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "gallaghers steakhouse": {
+    "name": "gallaghers steakhouse",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/gallaghers-steakhouse-manhattan",
+    "slug": "gallaghers-steakhouse-manhattan",
+    "restaurant_id": "104182",
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "avail_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "bad roman": {
+    "name": "bad roman",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/bad-roman",
+    "slug": "bad-roman",
+    "restaurant_id": null,
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "page_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "carmine's": {
+    "name": "carmine's",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/carmines-44th-street-nyc",
+    "slug": "carmines-44th-street-nyc",
+    "restaurant_id": "2295",
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "avail_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "the palm court": {
+    "name": "the palm court",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/the-palm-court-at-the-plaza-hotel",
+    "slug": "the-palm-court-at-the-plaza-hotel",
+    "restaurant_id": "42739",
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "avail_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "markjoseph steakhouse": {
+    "name": "markjoseph steakhouse",
+    "platform": "opentable",
+    "url": "https://www.opentable.com/markjoseph-steakhouse",
+    "slug": "markjoseph-steakhouse",
+    "restaurant_id": "0",
+    "fill_rate": null,
+    "availability_tier": "unknown",
+    "raw_error": "avail_http_404",
+    "last_checked": "2026-02-25",
+    "check_history": [
+      {
+        "date": "2026-02-25",
+        "checked_for": "2026-02-26",
+        "party_size": 2,
+        "tier": "unknown"
+      }
+    ]
+  },
+  "_meta": {
+    "last_run": "2026-02-25",
+    "checked_date": "2026-02-26",
+    "party_size": 2,
+    "resy": {
+      "checked": 25,
+      "success": 25,
+      "failed": 0
+    },
+    "opentable": {
+      "checked": 25,
+      "success": 0,
+      "failed": 25
+    }
+  }
+}
