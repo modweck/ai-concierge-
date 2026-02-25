@@ -7,3 +7,4 @@ merge_verified_links.js
 verified_booking_links.json
 search-candidates.pre_popular.js
 netlify/functions/availability-checker.js
+google-grid-search.js
