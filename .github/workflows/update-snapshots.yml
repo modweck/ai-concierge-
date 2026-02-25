@@ -1,0 +1,41 @@
+name: Update Review Snapshots & Likelihood
+
+# Runs every Monday at 6 AM EST (11 AM UTC)
+on:
+  schedule:
+    - cron: '0 11 * * 1'
+  workflow_dispatch:  # Also lets you run it manually from GitHub
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run snapshot collector
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+        run: node netlify/functions/snapshot-collector.js
+
+      - name: Run availability checker
+        run: node netlify/functions/availability-checker.js
+
+      - name: Run likelihood collector
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          YELP_API_KEY: ${{ secrets.YELP_API_KEY }}
+        run: node netlify/functions/likelihood-collector.js
+
+      - name: Commit and push updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add netlify/functions/review_snapshots.json netlify/functions/reservation_likelihood.json netlify/functions/availability_data.json
+          git diff --cached --quiet || git commit -m "Auto-update snapshots + availability + likelihood $(date +%Y-%m-%d)"
+          git push
