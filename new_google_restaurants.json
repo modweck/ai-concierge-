@@ -1,0 +1,1233 @@
+[
+  {
+    "name": "The River Café",
+    "place_id": "ChIJ2QZOdTpawokRU_eN_EPJaX8",
+    "rating": 4.4,
+    "user_ratings_total": 2477,
+    "price_level": 4,
+    "vicinity": "1 Water Street, Brooklyn",
+    "lat": 40.70383419999999,
+    "lng": -73.9947936,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "The Seaport",
+    "place_id": "ChIJ48y8-TxawokROJTPwB3cxz8",
+    "rating": 4.5,
+    "user_ratings_total": 2356,
+    "price_level": 2,
+    "vicinity": "19 Fulton Street, New York",
+    "lat": 40.70647830000001,
+    "lng": -74.0032751,
+    "types": [
+      "art_gallery",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Delmonico's",
+    "place_id": "ChIJwy8lmxZawokRtWUTg5wuv6I",
+    "rating": 4.5,
+    "user_ratings_total": 3146,
+    "price_level": 4,
+    "vicinity": "56 Beaver Street, New York",
+    "lat": 40.7050268,
+    "lng": -74.0102557,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Harry's",
+    "place_id": "ChIJoSqkgRZawokR_ZAqr3pOMO8",
+    "rating": 4.5,
+    "user_ratings_total": 1759,
+    "price_level": 3,
+    "vicinity": "1 Hanover Square, New York",
+    "lat": 40.7046763,
+    "lng": -74.0097371,
+    "types": [
+      "restaurant",
+      "bar",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Trinity Place restaurant and bar",
+    "place_id": "ChIJ4_AAQhdawokRzbYlVLyzKlk",
+    "rating": 4.4,
+    "user_ratings_total": 1538,
+    "price_level": 2,
+    "vicinity": "115 Broadway, New York",
+    "lat": 40.708882,
+    "lng": -74.01143259999999,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "The Capital Grille",
+    "place_id": "ChIJTXb6QRdawokRPZZKPYmvWcU",
+    "rating": 4.6,
+    "user_ratings_total": 1401,
+    "price_level": 4,
+    "vicinity": "120 Broadway, New York",
+    "lat": 40.707847,
+    "lng": -74.010226,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "The Odeon",
+    "place_id": "ChIJS-u0mB9awokRZ7H0sa9Oy-U",
+    "rating": 4.5,
+    "user_ratings_total": 2044,
+    "price_level": 3,
+    "vicinity": "145 West Broadway, New York",
+    "lat": 40.71697899999999,
+    "lng": -74.007834,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Forgione",
+    "place_id": "ChIJhSLc_R5awokReYEI4dyODxA",
+    "rating": 4.6,
+    "user_ratings_total": 756,
+    "price_level": 3,
+    "vicinity": "30 Hudson Street, New York",
+    "lat": 40.7166614,
+    "lng": -74.0089507,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Locanda Verde Tribeca",
+    "place_id": "ChIJTWkuhfVZwokRS_go-fdp7Vs",
+    "rating": 4.4,
+    "user_ratings_total": 2296,
+    "price_level": 3,
+    "vicinity": "377 Greenwich Street, New York",
+    "lat": 40.71984009999999,
+    "lng": -74.00993439999999,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Scalini Fedeli",
+    "place_id": "ChIJRY0QrR9awokRtnCdmU4ijlM",
+    "rating": 4.8,
+    "user_ratings_total": 520,
+    "price_level": 3,
+    "vicinity": "165 Duane Street, New York",
+    "lat": 40.71750249999999,
+    "lng": -74.0094518,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Tajin",
+    "place_id": "ChIJH4yL3hBawokR8siBXvZFWYM",
+    "rating": 4.4,
+    "user_ratings_total": 760,
+    "price_level": 2,
+    "vicinity": "85 Greenwich Street, New York",
+    "lat": 40.7077343,
+    "lng": -74.01355199999999,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Bubby's",
+    "place_id": "ChIJETquaPVZwokRVYYGSKrg4E0",
+    "rating": 4.4,
+    "user_ratings_total": 8331,
+    "price_level": 2,
+    "vicinity": "120 Hudson Street, New York",
+    "lat": 40.719819,
+    "lng": -74.0083829,
+    "types": [
+      "bakery",
+      "bar",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Whiskey Tavern",
+    "place_id": "ChIJPezLOSdawokROjWJSsqLdZg",
+    "rating": 4.6,
+    "user_ratings_total": 2195,
+    "price_level": 1,
+    "vicinity": "79 Baxter Street A, New York",
+    "lat": 40.716478,
+    "lng": -73.999749,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Macao Trading Company",
+    "place_id": "ChIJA9S9jIpZwokRZTF0bHWwXYU",
+    "rating": 4.5,
+    "user_ratings_total": 1379,
+    "price_level": 3,
+    "vicinity": "311 Church Street, New York",
+    "lat": 40.71963359999999,
+    "lng": -74.0039218,
+    "types": [
+      "bar",
+      "night_club",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Squire's Diner",
+    "place_id": "ChIJ0elz1zxawokRQe4gdAJwHWI",
+    "rating": 4.4,
+    "user_ratings_total": 1045,
+    "price_level": 1,
+    "vicinity": "80 Beekman Street #1, New York",
+    "lat": 40.7088676,
+    "lng": -74.0039463,
+    "types": [
+      "meal_takeaway",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "MarkJoseph Steakhouse",
+    "place_id": "ChIJEx7kTCNawokRCpJ7Z5FMIHA",
+    "rating": 4.5,
+    "user_ratings_total": 751,
+    "price_level": 3,
+    "vicinity": "261 Water Street, New York",
+    "lat": 40.70837,
+    "lng": -74.00152,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "The Dead Rabbit",
+    "place_id": "ChIJIRiJaRRawokR2KyQ984qa-o",
+    "rating": 4.7,
+    "user_ratings_total": 8228,
+    "price_level": 2,
+    "vicinity": "30 Water Street, New York",
+    "lat": 40.70326850000001,
+    "lng": -74.0110218,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Zutto Japanese American Pub",
+    "place_id": "ChIJ7-SBzh9awokRKB5djQIBiC0",
+    "rating": 4.4,
+    "user_ratings_total": 980,
+    "price_level": 2,
+    "vicinity": "77 Hudson Street, New York",
+    "lat": 40.71843620000001,
+    "lng": -74.0090421,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Takahachi",
+    "place_id": "ChIJaVgbdR9awokRqxIwG9AywT4",
+    "rating": 4.5,
+    "user_ratings_total": 595,
+    "price_level": 2,
+    "vicinity": "145 Duane Street, New York",
+    "lat": 40.716584,
+    "lng": -74.00792150000001,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Jungsik",
+    "place_id": "ChIJpSTN0R9awokRI29rK_SfbeA",
+    "rating": 4.6,
+    "user_ratings_total": 955,
+    "price_level": 4,
+    "vicinity": "2 Harrison Street, New York",
+    "lat": 40.7188267,
+    "lng": -74.00907509999999,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Gigino Trattoria",
+    "place_id": "ChIJOYhlWR5awokROi9Hpwx0iQI",
+    "rating": 4.4,
+    "user_ratings_total": 601,
+    "price_level": 2,
+    "vicinity": "323 Greenwich Street, New York",
+    "lat": 40.71726470000001,
+    "lng": -74.0104673,
+    "types": [
+      "cafe",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "American Cut",
+    "place_id": "ChIJv-a4KB5awokR6TLKvHwGqQE",
+    "rating": 4.5,
+    "user_ratings_total": 1006,
+    "price_level": 4,
+    "vicinity": "363 Greenwich Street, New York",
+    "lat": 40.7191028,
+    "lng": -74.0100227,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Blue Spoon Coffee Company",
+    "place_id": "ChIJF3MI6RdawokR5BXbtvyVSa4",
+    "rating": 4.5,
+    "user_ratings_total": 305,
+    "price_level": 1,
+    "vicinity": "90 William Street, New York",
+    "lat": 40.7082534,
+    "lng": -74.0076333,
+    "types": [
+      "cafe",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Jiannetto's Pizza Truck",
+    "place_id": "ChIJlcA3GBZawokR-MjBJ7qdcYM",
+    "rating": 4.7,
+    "user_ratings_total": 24,
+    "vicinity": "100 Old Slip, New York",
+    "lat": 40.7034947,
+    "lng": -74.00813509999999,
+    "types": [
+      "meal_takeaway",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Juliana’s",
+    "place_id": "ChIJAQr5tjBawokRBBESUv8Tw5I",
+    "rating": 4.6,
+    "user_ratings_total": 6680,
+    "price_level": 2,
+    "vicinity": "19 Old Fulton Street, Brooklyn",
+    "lat": 40.7027467,
+    "lng": -73.9934349,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Balthazar",
+    "place_id": "ChIJt7fMLIlZwokRCRtM9bNDg78",
+    "rating": 4.4,
+    "user_ratings_total": 7592,
+    "price_level": 3,
+    "vicinity": "80 Spring Street, New York",
+    "lat": 40.72266799999999,
+    "lng": -73.99822979999999,
+    "types": [
+      "bakery",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Beauty & Essex",
+    "place_id": "ChIJJWCTb4FZwokRLe7HgJSuHFI",
+    "rating": 4.4,
+    "user_ratings_total": 4390,
+    "price_level": 3,
+    "vicinity": "146 Essex Street, New York",
+    "lat": 40.7204282,
+    "lng": -73.9868606,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Tacombi",
+    "place_id": "ChIJdfD8moVZwokRO6vxjXAtoWs",
+    "rating": 4.4,
+    "user_ratings_total": 2421,
+    "price_level": 2,
+    "vicinity": "267 Elizabeth Street, New York",
+    "lat": 40.72402290000001,
+    "lng": -73.9938545,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Boqueria Soho",
+    "place_id": "ChIJA914R4xZwokRzfeGqRbXLd4",
+    "rating": 4.6,
+    "user_ratings_total": 3390,
+    "price_level": 2,
+    "vicinity": "171 Spring Street, New York",
+    "lat": 40.7249228,
+    "lng": -74.00215539999999,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "The Bowery Hotel",
+    "place_id": "ChIJqzkICohZwokR456MkSkZnLU",
+    "rating": 4.5,
+    "user_ratings_total": 1657,
+    "price_level": 3,
+    "vicinity": "335 Bowery, New York",
+    "lat": 40.7260114,
+    "lng": -73.9916125,
+    "types": [
+      "night_club",
+      "lodging",
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Zest Sushi",
+    "place_id": "ChIJCyayOIdZwokR2GhEvmhn3ss",
+    "rating": 4.6,
+    "user_ratings_total": 717,
+    "price_level": 2,
+    "vicinity": "249 Broome Street, New York",
+    "lat": 40.71791899999999,
+    "lng": -73.98987389999999,
+    "types": [
+      "meal_takeaway",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Clinton St. Baking Company",
+    "place_id": "ChIJ4Q2rG4JZwokR8TVjhflNfMk",
+    "rating": 4.4,
+    "user_ratings_total": 6372,
+    "price_level": 2,
+    "vicinity": "4 Clinton Street, New York",
+    "lat": 40.721264,
+    "lng": -73.9838497,
+    "types": [
+      "bakery",
+      "meal_takeaway",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Café Habana",
+    "place_id": "ChIJPQOh8YVZwokRE2WsbZI4tOk",
+    "rating": 4.6,
+    "user_ratings_total": 4595,
+    "price_level": 2,
+    "vicinity": "17 Prince Street, New York",
+    "lat": 40.72292780000001,
+    "lng": -73.9941778,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Lure Fishbar",
+    "place_id": "ChIJgS2D-o5ZwokRgS5knl8ipzI",
+    "rating": 4.4,
+    "user_ratings_total": 2158,
+    "price_level": 3,
+    "vicinity": "142 Mercer Street, New York",
+    "lat": 40.724703,
+    "lng": -73.9983278,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Russ & Daughters",
+    "place_id": "ChIJ7VEEjYNZwokRS0bdsXA3uyg",
+    "rating": 4.6,
+    "user_ratings_total": 4556,
+    "price_level": 2,
+    "vicinity": "179 East Houston Street, New York",
+    "lat": 40.7225803,
+    "lng": -73.9883134,
+    "types": [
+      "grocery_or_supermarket",
+      "bakery",
+      "meal_takeaway",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Ferrara Bakery & Cafe",
+    "place_id": "ChIJTy8URohZwokRB9YYYDHYBKM",
+    "rating": 4.4,
+    "user_ratings_total": 7442,
+    "price_level": 2,
+    "vicinity": "195 Grand Street, New York",
+    "lat": 40.71907789999999,
+    "lng": -73.9970913,
+    "types": [
+      "bakery",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Rubirosa",
+    "place_id": "ChIJs8MdNo9ZwokRTPUHiArLC-o",
+    "rating": 4.6,
+    "user_ratings_total": 6674,
+    "price_level": 2,
+    "vicinity": "235 Mulberry Street, New York",
+    "lat": 40.7227383,
+    "lng": -73.99613470000001,
+    "types": [
+      "meal_takeaway",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Eileen's Special Cheesecake",
+    "place_id": "ChIJaeOQ3IhZwokRgxPZEE3noAM",
+    "rating": 4.6,
+    "user_ratings_total": 3135,
+    "price_level": 1,
+    "vicinity": "17 Cleveland Place, New York",
+    "lat": 40.721568,
+    "lng": -73.99725819999999,
+    "types": [
+      "bakery",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Il Buco Alimentari & Vineria",
+    "place_id": "ChIJYUQdLoVZwokRBjKzg6PAaa8",
+    "rating": 4.5,
+    "user_ratings_total": 1075,
+    "price_level": 3,
+    "vicinity": "53 Great Jones Street, New York",
+    "lat": 40.7264539,
+    "lng": -73.992549,
+    "types": [
+      "bakery",
+      "bar",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Essex",
+    "place_id": "ChIJ7fydz4BZwokRDDwDLrzF5ts",
+    "rating": 4.8,
+    "user_ratings_total": 8636,
+    "price_level": 2,
+    "vicinity": "124 Rivington Street, New York",
+    "lat": 40.719819,
+    "lng": -73.9870967,
+    "types": [
+      "night_club",
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Wolfgang's Steakhouse",
+    "place_id": "ChIJ7cmhqPVZwokRcWzLzM5e-5A",
+    "rating": 4.4,
+    "user_ratings_total": 1647,
+    "price_level": 4,
+    "vicinity": "409 Greenwich Street, New York",
+    "lat": 40.721252,
+    "lng": -74.00966439999999,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "il Buco",
+    "place_id": "ChIJrbkQPIVZwokRLZABuyqHmoc",
+    "rating": 4.4,
+    "user_ratings_total": 1132,
+    "price_level": 3,
+    "vicinity": "47 Bond Street, New York",
+    "lat": 40.72583089999999,
+    "lng": -73.9929975,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Blue Ribbon Brasserie",
+    "place_id": "ChIJQSjQsI1ZwokRu19O824YdH4",
+    "rating": 4.6,
+    "user_ratings_total": 981,
+    "price_level": 2,
+    "vicinity": "97 Sullivan Street, New York",
+    "lat": 40.7254995,
+    "lng": -74.00306270000002,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "The Ten Bells",
+    "place_id": "ChIJPeCaOIdZwokRXr36ali2z_k",
+    "rating": 4.4,
+    "user_ratings_total": 835,
+    "price_level": 2,
+    "vicinity": "247 Broome Street, New York",
+    "lat": 40.7178285,
+    "lng": -73.9898524,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "The Grey Dog",
+    "place_id": "ChIJrSCNRY9ZwokR19ew1tY5KAw",
+    "rating": 4.4,
+    "user_ratings_total": 1949,
+    "price_level": 2,
+    "vicinity": "244 Mulberry Street, New York",
+    "lat": 40.7229542,
+    "lng": -73.9956958,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Verlaine",
+    "place_id": "ChIJAzc6R4FZwokRMn58slNezoQ",
+    "rating": 4.4,
+    "user_ratings_total": 1130,
+    "price_level": 2,
+    "vicinity": "110 Rivington Street, New York",
+    "lat": 40.720079,
+    "lng": -73.987785,
+    "types": [
+      "bar",
+      "night_club",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Shuka",
+    "place_id": "ChIJ3dbcl41ZwokRouIrXtQ5erk",
+    "rating": 4.6,
+    "user_ratings_total": 3768,
+    "price_level": 2,
+    "vicinity": "38 MacDougal Street, New York",
+    "lat": 40.7270639,
+    "lng": -74.0027877,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Momofuku Ko",
+    "place_id": "ChIJkXQ3_INZwokRcJD47PFAGvQ",
+    "rating": 4.6,
+    "user_ratings_total": 809,
+    "price_level": 4,
+    "vicinity": "8 Extra Place, New York",
+    "lat": 40.7249493,
+    "lng": -73.9916093,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Essex Market",
+    "place_id": "ChIJ7fydz4BZwokRl6FuOJM5QPU",
+    "rating": 4.5,
+    "user_ratings_total": 6846,
+    "vicinity": "88 Essex Street, New York",
+    "lat": 40.7180004,
+    "lng": -73.98819,
+    "types": [
+      "tourist_attraction",
+      "grocery_or_supermarket",
+      "restaurant",
+      "food",
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Artichoke Basille's Pizza",
+    "place_id": "ChIJ10EpKJJZwokRUjIWaunOQbI",
+    "rating": 4.4,
+    "user_ratings_total": 2032,
+    "price_level": 2,
+    "vicinity": "111 MacDougal Street, New York",
+    "lat": 40.73,
+    "lng": -74.00072779999999,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "IPPUDO NY",
+    "place_id": "ChIJWUOc55tZwokR9q_g5l051rk",
+    "rating": 4.4,
+    "user_ratings_total": 5436,
+    "price_level": 2,
+    "vicinity": "65 4th Avenue, New York",
+    "lat": 40.730948,
+    "lng": -73.990287,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Spot Dessert Bar East Village",
+    "place_id": "ChIJ0QCeh5tZwokRh9J_3uvSPjU",
+    "rating": 4.5,
+    "user_ratings_total": 3137,
+    "price_level": 2,
+    "vicinity": "13 Saint Marks Place, New York",
+    "lat": 40.7293975,
+    "lng": -73.988927,
+    "types": [
+      "bakery",
+      "cafe",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "The Smith",
+    "place_id": "ChIJcXq9AZxZwokRZ56WZuGnZkg",
+    "rating": 4.4,
+    "user_ratings_total": 2856,
+    "price_level": 2,
+    "vicinity": "55 3rd Avenue, New York",
+    "lat": 40.7310104,
+    "lng": -73.98858129999999,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Mermaid Oyster Bar",
+    "place_id": "ChIJUw68EZJZwokRE9JElRWVp6c",
+    "rating": 4.6,
+    "user_ratings_total": 1149,
+    "price_level": 2,
+    "vicinity": "89 MacDougal Street, New York",
+    "lat": 40.72904359999999,
+    "lng": -74.001539,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Palma",
+    "place_id": "ChIJw_xat5NZwokRpW-BtDpdsPs",
+    "rating": 4.6,
+    "user_ratings_total": 1142,
+    "price_level": 3,
+    "vicinity": "28 Cornelia Street, New York",
+    "lat": 40.73120109999999,
+    "lng": -74.0023412,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Amorino Gelato - New York Greenwich Village",
+    "place_id": "ChIJ97ib6JlZwokRrnjNNMNpeZ4",
+    "rating": 4.5,
+    "user_ratings_total": 1830,
+    "price_level": 2,
+    "vicinity": "60 University Place, New York",
+    "lat": 40.732917,
+    "lng": -73.993894,
+    "types": [
+      "cafe",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Little Owl",
+    "place_id": "ChIJTX6hP5NZwokR93muGu7l4X0",
+    "rating": 4.5,
+    "user_ratings_total": 1396,
+    "price_level": 3,
+    "vicinity": "90 Bedford Street, New York",
+    "lat": 40.7323754,
+    "lng": -74.0052681,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "John's of Bleecker Street",
+    "place_id": "ChIJuW43oZNZwokRdE5tLzpuykE",
+    "rating": 4.6,
+    "user_ratings_total": 8034,
+    "price_level": 2,
+    "vicinity": "278 Bleecker Street, New York",
+    "lat": 40.7316187,
+    "lng": -74.00344679999999,
+    "types": [
+      "meal_takeaway",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Momofuku Noodle Bar",
+    "place_id": "ChIJkXQ3_INZwokRE74ZvG46Jjc",
+    "rating": 4.5,
+    "user_ratings_total": 5281,
+    "price_level": 2,
+    "vicinity": "171 1st Avenue, New York",
+    "lat": 40.7292083,
+    "lng": -73.98441500000001,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Joe's Pizza",
+    "place_id": "ChIJ8Q2WSpJZwokRQz-bYYgEskM",
+    "rating": 4.5,
+    "user_ratings_total": 10133,
+    "price_level": 1,
+    "vicinity": "7 Carmine Street, New York",
+    "lat": 40.7306597,
+    "lng": -74.0021707,
+    "types": [
+      "meal_takeaway",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Blind Tiger",
+    "place_id": "ChIJWW4LoZNZwokRFOD1017tTZc",
+    "rating": 4.5,
+    "user_ratings_total": 2042,
+    "price_level": 2,
+    "vicinity": "281 Bleecker Street, New York",
+    "lat": 40.7318858,
+    "lng": -74.0032253,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Family Meal at Blue Hill",
+    "place_id": "ChIJi9BURJFZwokRDcqvIgxdXds",
+    "rating": 4.6,
+    "user_ratings_total": 1330,
+    "price_level": 4,
+    "vicinity": "75 Washington Place, New York",
+    "lat": 40.7320465,
+    "lng": -73.9996685,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Mamoun's Falafel",
+    "place_id": "ChIJr4J2gZFZwokRjJ6TX4aRu7g",
+    "rating": 4.5,
+    "user_ratings_total": 3275,
+    "price_level": 1,
+    "vicinity": "119 MacDougal Street, New York",
+    "lat": 40.7302174,
+    "lng": -74.0004276,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Buvette",
+    "place_id": "ChIJEwHZcZNZwokR810IgyQhoZM",
+    "rating": 4.4,
+    "user_ratings_total": 4227,
+    "price_level": 3,
+    "vicinity": "42 Grove Street, New York",
+    "lat": 40.7326259,
+    "lng": -74.00432839999999,
+    "types": [
+      "bar",
+      "cafe",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Swift Hibernian Lounge",
+    "place_id": "ChIJeRqd0JpZwokRG4UKjO1bU4I",
+    "rating": 4.5,
+    "user_ratings_total": 1021,
+    "price_level": 2,
+    "vicinity": "34 East 4th Street, New York",
+    "lat": 40.72722419999999,
+    "lng": -73.9923192,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  }
+]

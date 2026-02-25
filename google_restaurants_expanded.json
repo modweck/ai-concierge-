@@ -1,0 +1,4868 @@
+[
+  {
+    "name": "La Sova",
+    "address": "1301 E 13th St, Brooklyn, NY 11230, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Kam Rai Thai",
+    "address": "43-11 28th Ave, Astoria, NY 11103, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "KPOT Korean BBQ & Hot Pot",
+    "address": "310 W 38th St, New York, NY 10018, USA",
+    "cuisine": "Korean"
+  },
+  {
+    "name": "Cap’t Loui - 32nd st, NY",
+    "address": "34 W 32nd St, New York, NY 10001, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Sozai Japanese Restaurant (Izakaya Ramen)",
+    "address": "19 W 45th St, New York, NY 10036, USA",
+    "cuisine": "Japanese"
+  },
+  {
+    "name": "Gulp",
+    "address": "42-45 27th St, Long Island City, NY 11101, USA",
+    "cuisine": "Taiwanese"
+  },
+  {
+    "name": "Jerk House Caribbean Restaurant",
+    "address": "503 W 57th St, New York, NY 10019, USA",
+    "cuisine": "Caribbean"
+  },
+  {
+    "name": "Shang Gong Chu 尚宫厨",
+    "address": "319 Warren St, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Glatt A La Carte",
+    "address": "5123 18th Ave, Brooklyn, NY 11204, USA",
+    "cuisine": "Steakhouse"
+  },
+  {
+    "name": "1123 Broadway, New York, NY 10010, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "1407 Broadway, New York, NY 10018, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "El Gallo Taqueria",
+    "address": "64 Prospect St, Brooklyn, NY 11201, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "25 River Drive South, Jersey City",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Red Onion Indian Lunch Brunch Dinner",
+    "address": "277 E 10th St, New York, NY 10009, USA",
+    "cuisine": "Indian"
+  },
+  {
+    "name": "Holy Schnitzel",
+    "address": "262 Kingston Ave, Brooklyn, NY 11213, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Upside Pizza",
+    "address": "2878 Broadway, New York, NY 10025, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "BunNan",
+    "address": "1248 Flatbush Ave, Brooklyn, NY 11226, USA",
+    "cuisine": "Caribbean"
+  },
+  {
+    "name": "the AM-THAI Williamsburg",
+    "address": "225 S 1st St, Brooklyn, NY 11211, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "Vegan Grill",
+    "address": "1726 2nd Ave, New York, NY 10128, USA",
+    "cuisine": "Vegan"
+  },
+  {
+    "name": "Yezo Thai Isankaya",
+    "address": "301 E 49th St, New York, NY 10017, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "295 Park Ave S, New York, NY 10010, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "MeatUp Mediterranean Restaurant",
+    "address": "22 Old Fulton St, Brooklyn, NY 11201, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Cap't Loui Seafood boil",
+    "address": "43-10 Queens Blvd, Sunnyside, NY 11104, USA",
+    "cuisine": "Seafood"
+  },
+  {
+    "name": "Pita Point",
+    "address": "508 Marion St, Brooklyn, NY 11233, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mommy's Cocktail Bar",
+    "address": "323 Graham Ave, Brooklyn, NY 11211, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Mavi Halal Cafe",
+    "address": "95 Stuyvesant Pl, Staten Island, NY 10301, USA",
+    "cuisine": "Mediterranean"
+  },
+  {
+    "name": "Taste of Gyro | Astoria",
+    "address": "20-48 42nd St, Astoria, NY 11105, USA",
+    "cuisine": "Greek"
+  },
+  {
+    "name": "Secchu Yokota 折衷よこ田",
+    "address": "199 E 3rd St, New York, NY 10009, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Scale Fish Market",
+    "address": "45 Coles St, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Rudraks",
+    "address": "706 Amsterdam Ave, New York, NY 10025, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Don Udon",
+    "address": "634 Park Pl, Brooklyn, NY 11238, USA",
+    "cuisine": "Japanese"
+  },
+  {
+    "name": "Konoha Yakitori Ramen and Sushi House",
+    "address": "847B Union St, Brooklyn, NY 11215, USA",
+    "cuisine": "Japanese"
+  },
+  {
+    "name": "2701 Broadway, New York, NY 10025, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Antilles Cafe",
+    "address": "1170 Nostrand Ave, Brooklyn, NY 11225, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mustard Indian Eatery",
+    "address": "2113 Frederick Douglass Blvd, New York, NY 10026, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Island Central",
+    "address": "329 Central Ave, Jersey City, NJ 07307, USA",
+    "cuisine": "Filipino"
+  },
+  {
+    "name": "Bakers Cafe LIC",
+    "address": "34-06 9th St, Astoria, NY 11106, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Electric Beets",
+    "address": "158 7th Ave Suite B, Brooklyn, NY 11215, USA",
+    "cuisine": "Vegan"
+  },
+  {
+    "name": "Rose's R&R Bar",
+    "address": "457 Graham Ave, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Best Biryani & More... (Only take-out and delivery)",
+    "address": "515 Newark Ave, Jersey City, NJ 07306, USA",
+    "cuisine": "Indian"
+  },
+  {
+    "name": "Chopt Creative Salad Co.",
+    "address": "332 1st Ave, New York, NY 10009, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Fish Grill - Brooklyn",
+    "address": "1267 Coney Island Ave, Brooklyn, NY 11230, USA",
+    "cuisine": "Seafood"
+  },
+  {
+    "name": "yakitame bento & katsu",
+    "address": "501 Central Ave, Jersey City, NJ 07307, USA",
+    "cuisine": "Japanese"
+  },
+  {
+    "name": "16 Hudson Pl, Hoboken, NJ 07030, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Flat Out Burger",
+    "address": "199 Malcolm X Blvd, Brooklyn, NY 11221, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "The Golden Grillers - Halal",
+    "address": "4213 Church Ave, Brooklyn, NY 11203, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Yubi's 78 Restaurant",
+    "address": "578 Newark Ave, Jersey City, NJ 07306, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Eggs Up",
+    "address": "270 Johnston Ave, Jersey City, NJ 07304, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mexique Cafe",
+    "address": "655 6th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": "French"
+  },
+  {
+    "name": "Taikun Sushi",
+    "address": "79 Delancey St, New York, NY 10002, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mariscos El Submarino",
+    "address": "507 Myrtle Ave, Brooklyn, NY 11205, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Kairibbean Island Mix",
+    "address": "393 New Lots Ave, Brooklyn, NY 11207, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Hungarian Kosher Cuisine",
+    "address": "5009 16th Ave, Brooklyn, NY 11204, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "AJA sushi",
+    "address": "10-46 Jackson Ave, Long Island City, NY 11101, USA",
+    "cuisine": "Asian"
+  },
+  {
+    "name": "Zara Terrace Mediterranean Restaurant",
+    "address": "862 2nd Ave, New York, NY 10017, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "EL BURRITO LOCO",
+    "address": "6 Sutter Ave, Brooklyn, NY 11212, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Nago Cafe",
+    "address": "416A Jersey St, Staten Island, NY 10301, USA",
+    "cuisine": "Japanese/Sushi"
+  },
+  {
+    "name": "Maya Mexican Grill",
+    "address": "64 Fulton St, New York, NY 10038, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "El Novillo 2",
+    "address": "10-69 Wyckoff Ave, Flushing, NY 11385, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bergen Hall",
+    "address": "58 Maple St, Jersey City, NJ 07304, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Cornbread Brooklyn",
+    "address": "409 Eastern Pkwy, Brooklyn, NY 11216, USA",
+    "cuisine": "Soul Food"
+  },
+  {
+    "name": "Kin ramen",
+    "address": "129 W 56th St, New York, NY 10019, USA",
+    "cuisine": "Japanese/Ramen"
+  },
+  {
+    "name": "Patiala Indian Grill & Bar",
+    "address": "240 W 35th St, New York, NY 10001, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "6324 Fort Hamilton Pkwy, Brooklyn, NY 11219, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Hey Thai",
+    "address": "127 John St, New York, NY 10038, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "LOS TACOS No.1",
+    "address": "136 Church St, New York, NY 10007, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Mum Feteer فطير",
+    "address": "25-48 Steinway St, Astoria, NY 11103, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Best Sichuan",
+    "address": "7 E 47th St, New York, NY 10017, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Ahgassi Korean Barbecue",
+    "address": "1 E 32nd St, New York, NY 10016, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Pasta de Pasta",
+    "address": "165 1st Ave, New York, NY 10003, USA",
+    "cuisine": "Italian"
+  },
+  {
+    "name": "Mojitos",
+    "address": "81-01 Northern Blvd, Jackson Heights, NY 11372, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Tenichi Ramen",
+    "address": "382 7th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": "Japanese/Ramen"
+  },
+  {
+    "name": "Anixi Mediterranean Vegan Restaurant",
+    "address": "290 8th Ave, New York, NY 10001, USA",
+    "cuisine": "Vegan"
+  },
+  {
+    "name": "Çka Ka Qëllue",
+    "address": "118 E 31st St, New York, NY 10016, USA",
+    "cuisine": "Mediterranean"
+  },
+  {
+    "name": "DAO Dim Sum & Chinese Cuisine",
+    "address": "177 Madison Ave, New York, NY 10016, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Maison Close Restaurant",
+    "address": "15 Watts St, New York, NY 10013, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "One More Charm Thai Restaurant",
+    "address": "236 7th Ave # 6, Brooklyn, NY 11215, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "66 Madison Ave Store B, New York, NY 10016, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Balaji Bhavan pure vegetarian South Indian restaurant",
+    "address": "249 Central Ave, Jersey City, NJ 07307, USA",
+    "cuisine": "Vegetarian"
+  },
+  {
+    "name": "New Ipoh Kitchen Asian Cuisine",
+    "address": "6415 20th Ave, Brooklyn, NY 11204, USA",
+    "cuisine": "Malaysian"
+  },
+  {
+    "name": "NSV Kitchen by Next Stop Vegan",
+    "address": "88 Livingston St, Brooklyn, NY 11201, USA",
+    "cuisine": "Vegan"
+  },
+  {
+    "name": "Chu Ros Thai NYC",
+    "address": "Chu Ros Thai Restaurant, 1590 Lexington Ave, New York, NY 10029, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "TIPSY SHANGHAI 蘇杭餐厅",
+    "address": "104 2nd Ave, New York, NY 10003, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Tiny Cupboard Comedy Club & Board Game Bar",
+    "address": "10 Cooper St, Brooklyn, NY 11207, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Hot Stix Hot Pot & BBQ",
+    "address": "815 54th St, Brooklyn, NY 11220, USA",
+    "cuisine": "Barbecue"
+  },
+  {
+    "name": "Tony Dragon's Grille",
+    "address": "Madison Ave &, E 62nd St, New York, NY 10065, USA",
+    "cuisine": "Greek"
+  },
+  {
+    "name": "4 Pembroke Pl, Edgewater, NJ 07020, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Halal Bros Grill Utica",
+    "address": "286 Utica Ave, Brooklyn, NY 11213, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "ISKCON New York City - Hare Krishna Center",
+    "address": "305 Schermerhorn St, Brooklyn, NY 11217, USA",
+    "cuisine": "Vegetarian"
+  },
+  {
+    "name": "208 Columbia Street, Brooklyn",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Susuru Ramen",
+    "address": "33-19 36th Ave, Long Island City, NY 11106, USA",
+    "cuisine": "Japanese/Ramen"
+  },
+  {
+    "name": "Gurumé",
+    "address": "313 W 46th St, New York, NY 10036, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Table 40",
+    "address": "4001 13th Ave, Brooklyn, NY 11218, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "The Hotel Chelsea",
+    "address": "222 W 23rd St, New York, NY 10011, USA",
+    "cuisine": "Spanish"
+  },
+  {
+    "name": "Chinta Thai",
+    "address": "157 Franklin St, Brooklyn, NY 11222, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "Omars Mediterranean Cuisine",
+    "address": "15 Ann St, New York, NY 10038, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Yi Poh Kitchen Asian Cuisine",
+    "address": "6415 11th Ave, Brooklyn, NY 11219, USA",
+    "cuisine": "Malaysian"
+  },
+  {
+    "name": "Dunya Kabab House",
+    "address": "696 Coney Island Ave, Brooklyn, NY 11218, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Shaw-nae’s House",
+    "address": "379 Van Duzer St, Staten Island, NY 10304, USA",
+    "cuisine": "Soul Food"
+  },
+  {
+    "name": "Zhangliang Spicy Hot Pot",
+    "address": "185 Newark Ave, Jersey City, NJ 07302, USA",
+    "cuisine": "Chinese"
+  },
+  {
+    "name": "International Burgers",
+    "address": "311 E 45th St, New York, NY 10017, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Hartley's",
+    "address": "14 Putnam Ave, Brooklyn, NY 11238, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Veloce Specialty Sandwiches",
+    "address": "457 Baldwin Ave, Jersey City, NJ 07306, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Carnitas Ramirez",
+    "address": "210 E 3rd St, New York, NY 10009, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Dog Day Afternoon",
+    "address": "Prospect Park W, Brooklyn, NY 11215, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Rosa’s Steakhouse",
+    "address": "567 Wilson Ave, Brooklyn, NY 11207, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Tacos del Barrio",
+    "address": "71 Nassau St, New York, NY 10038, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "20 Maiden Ln, New York, NY 10038, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Mama Lee - Williamsburg",
+    "address": "66 Grand St, Brooklyn, NY 11249, USA",
+    "cuisine": "Taiwanese"
+  },
+  {
+    "name": "Tiptara : Thai Food",
+    "address": "213 E Broadway, New York, NY 10002, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "Cinco de Mayo",
+    "address": "407 45th St, Brooklyn, NY 11220, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Pesce lulu Seafood Kitchen NYC",
+    "address": "157 E 53rd St, New York, NY 10022, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "227 Prospect Park W, Brooklyn, NY 11215, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Sen Saigon",
+    "address": "150 E Broadway, New York, NY 10002, USA",
+    "cuisine": "Vegan"
+  },
+  {
+    "name": "Halal Munchies",
+    "address": "1810 3rd Ave, New York, NY 10029, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "789 Franklin Ave #8, Brooklyn, NY 11238, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Dar525",
+    "address": "231 Malcolm X Blvd, Brooklyn, NY 11221, USA",
+    "cuisine": "Mediterranean"
+  },
+  {
+    "name": "The Shell Seafood Kitchen & Bar",
+    "address": "635 Amsterdam Ave, New York, NY 10025, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "American Best Wings & Pizza",
+    "address": "888 Utica Ave, Brooklyn, NY 11203, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Jaew Thai Cuisine",
+    "address": "416 Church Ave, Brooklyn, NY 11218, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "Campos Grill",
+    "address": "256 Marcus Garvey Blvd, Brooklyn, NY 11221, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Lululala",
+    "address": "139 Hester St, New York, NY 10002, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Crunchy's",
+    "address": "1468 Coney Island Ave, Brooklyn, NY 11230, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Dar Lbahja",
+    "address": "47-12 30th Ave., Astoria, NY 11103, USA",
+    "cuisine": "Moroccan"
+  },
+  {
+    "name": "Greenfelds",
+    "address": "128 Lee Ave, Brooklyn, NY 11211, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Boni and Mott",
+    "address": "238 Mott St, New York, NY 10012, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Musha Sushi",
+    "address": "863 Sterling Pl, Brooklyn, NY 11216, USA",
+    "cuisine": "Japanese"
+  },
+  {
+    "name": "1637 Broadway, Brooklyn, NY 11207, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Pearl Street Restaurant",
+    "address": "147 Front St, Brooklyn, NY 11201, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "CAFE SAKHLI",
+    "address": "6321 20th Ave, Brooklyn, NY 11204, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Don Goyo Tacos Mexicanos",
+    "address": "601 Palisade Ave, Jersey City, NJ 07307, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Rogers Burgers",
+    "address": "801 Rogers Ave, Brooklyn, NY 11226, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Sushi Ta'eem Boro Park",
+    "address": "4708 13th Ave, Brooklyn, NY 11219, USA",
+    "cuisine": "Japanese/Sushi"
+  },
+  {
+    "name": "One World Pizza",
+    "address": "49 Baldwin Ave, Jersey City, NJ 07304, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "Fyahbun Creative",
+    "address": "325 E 48th St, New York, NY 10017, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Four Season Joyful",
+    "address": "55 Driggs Ave, Brooklyn, NY 11222, USA",
+    "cuisine": "Asian"
+  },
+  {
+    "name": "La Donna Re's",
+    "address": "325 Lewis Ave, Brooklyn, NY 11221, USA",
+    "cuisine": "Soul Food"
+  },
+  {
+    "name": "Mama's Noodle House",
+    "address": "1782 Bay Ridge Ave, Brooklyn, NY 11204, USA",
+    "cuisine": "Asian"
+  },
+  {
+    "name": "The Pizzeria on Pine",
+    "address": "196 Pine St, Jersey City, NJ 07304, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "Milly’s Neighborhood Bar",
+    "address": "397 Greene Ave, Brooklyn, NY 11216, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "MexSalvador Fast Food",
+    "address": "722 5th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Che • Malcolm X",
+    "address": "302 Malcolm X Blvd, Brooklyn, NY 11233, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "308 Ditmas Ave Suite 1, Brooklyn, NY 11218, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "La Esquina Criolla 2",
+    "address": "49-11 69th St, Queens, NY 11377, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Empyrean Bistro & Bar",
+    "address": "800 Jackson Street, Entrance from 8th St Patio Indian Restaurant & Bar Park at:, We will validate it for free after Dine-In, 701 Harrison St R1, Hoboken, NJ 07030, USA",
+    "cuisine": "Indian"
+  },
+  {
+    "name": "Norimen",
+    "address": "24 Elizabeth St, New York, NY 10013, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Zilus Essen",
+    "address": "3715 13th Ave, Brooklyn, NY 11218, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Yuzu Sushi Japanese Cuisine",
+    "address": "64-60 Dry Harbor Rd, Middle Village, NY 11379, USA",
+    "cuisine": "Japanese"
+  },
+  {
+    "name": "Cucina Modern Kitchen",
+    "address": "4420 18th Ave, Brooklyn, NY 11204, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Chayse The Flavas",
+    "address": "508 E 94th St, Brooklyn, NY 11212, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "EMA Restaurant Bar",
+    "address": "67-03 Woodside Ave, Woodside, NY 11377, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Places Bar and Grill",
+    "address": "91 Hegeman Ave, Brooklyn, NY 11212, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Pier 17",
+    "address": "89 South St, New York, NY 10038, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mamasita Bar & Grill",
+    "address": "818 10th Ave, New York, NY 10019, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Marseille",
+    "address": "630 9th Ave, New York, NY 10036, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Citizens Of Chelsea, A Breakfast Restaurant & Cafe",
+    "address": "401 W 25th St, New York, NY 10001, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "15 The Promenade, Edgewater, NJ 07020, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "L’industrie Pizzeria West Village",
+    "address": "104 Christopher St, New York, NY 10014, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "Cafe d’Alsace",
+    "address": "1703 2nd Ave, New York, NY 10128, USA",
+    "cuisine": "French"
+  },
+  {
+    "name": "Nan Xiang Xiao Long Bao",
+    "address": "24 W 33rd St, New York, NY 10001, USA",
+    "cuisine": "Asian"
+  },
+  {
+    "name": "First Floor, 14 Christopher St, New York, NY 10014, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Dim Sum Sam",
+    "address": "28 E 23rd St, New York, NY 10010, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Noche de margaritas",
+    "address": "31-31 Steinway St, Astoria, NY 11103, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Taqueria Ramirez",
+    "address": "94 Franklin St, Brooklyn, NY 11222, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Pier 57",
+    "address": "25 11th Ave, New York, NY 10011, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bombay Chowk",
+    "address": "1378 1st Avenue, Bet 73 &, E 74th St, New York, NY 10021, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "TØRST",
+    "address": "615 Manhattan Ave, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Inca Paisa Restaurant Astoria",
+    "address": "21-19 Broadway, Astoria, NY 11106, USA",
+    "cuisine": "Peruvian"
+  },
+  {
+    "name": "Muse Thai",
+    "address": "689 Washington Ave, Brooklyn, NY 11238, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "Acadia",
+    "address": "101 W 57th St, New York, NY 10019, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Buena Vista Restaurant & Bar",
+    "address": "536 9th Ave, New York, NY 10018, USA",
+    "cuisine": "Seafood"
+  },
+  {
+    "name": "Lucky Rabbit Noodles",
+    "address": "151 Front St, Brooklyn, NY 11201, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Munchies",
+    "address": "848 Nostrand Ave, Brooklyn, NY 11225, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "ZOI MEDITERRANEAN NOMAD",
+    "address": "19 W 31st St, New York, NY 10001, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Witch Topokki | All You Can Eat Korean Restaurant",
+    "address": "330 7th Ave, New York, NY 10001, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Sushi & Co",
+    "address": "980 6th Ave, New York, NY 10018, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "47-02 30th Ave., Astoria, NY 11103, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Dips",
+    "address": "5315 13th Ave, Brooklyn, NY 11219, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "LunÀtico",
+    "address": "486 Halsey St, Brooklyn, NY 11233, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Ix Restaurant",
+    "address": "43 Lincoln Rd, Brooklyn, NY 11225, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bukhara Grill : Indian Spice Rave & Catering NYC (By Raja Jhanjee)",
+    "address": "120 E 39th St, New York, NY 10016, USA",
+    "cuisine": "Indian"
+  },
+  {
+    "name": "Yum Cha Chinese Kitchen & Bar 姑苏里",
+    "address": "228 Thompson St, New York, NY 10012, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Dave's Hot Chicken",
+    "address": "1498 3rd Ave, New York, NY 10028, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "HAAM Caribbean Plant Cuisine",
+    "address": "234 Union Ave, Brooklyn, NY 11211, USA",
+    "cuisine": "Vegan"
+  },
+  {
+    "name": "Sathi",
+    "address": "216 3rd Ave, New York, NY 10003, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Buntopia",
+    "address": "994 Broadway, Brooklyn, NY 11221, USA",
+    "cuisine": "Asian"
+  },
+  {
+    "name": "Grandpa Thai",
+    "address": "51 E 8th St, New York, NY 10003, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Korai Kitchen (NO DINE-IN WITHOUT RESERVATIONS!)",
+    "address": "576 Summit Ave, Jersey City, NJ 07306, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Dun Huang Noodles",
+    "address": "180 River Dr, Jersey City, NJ 07310, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Grimm Artisanal Ales",
+    "address": "990 Metropolitan Ave, Brooklyn, NY 11211, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "Fabrika",
+    "address": "80-24 Northern Blvd, Jackson Heights, NY 11372, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bonchon New York - 1st Ave",
+    "address": "367 1st Ave, New York, NY 10010, USA",
+    "cuisine": "Korean"
+  },
+  {
+    "name": "The Wall Street Hotel",
+    "address": "88 Wall St, New York, NY 10005, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "122 Smith Street, Brooklyn",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Le Gratin",
+    "address": "5 Beekman St, New York, NY 10038, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "214a Prospect Park W, Brooklyn, NY 11215, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Slappin Chick - Astoria",
+    "address": "25-21 Steinway St, Long Island City, NY 11103, USA",
+    "cuisine": "Soul Food"
+  },
+  {
+    "name": "Mordi’s Sandwich Shop",
+    "address": "320 Communipaw Ave, Jersey City, NJ 07304, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "TV Eye",
+    "address": "16-47 Weirfield St, Ridgewood, NY 11385, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Fevy's",
+    "address": "74-02 Grand Ave Unit D, Queens, NY 11373, USA",
+    "cuisine": "Korean"
+  },
+  {
+    "name": "34 St Marks Pl #12, New York, NY 10003, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Yakar Kosher Steakhouse",
+    "address": "1385 Coney Island Ave, Brooklyn, NY 11230, USA",
+    "cuisine": "Steakhouse"
+  },
+  {
+    "name": "All Night Skate",
+    "address": "54 Rockaway Ave, Brooklyn, NY 11233, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mosaic",
+    "address": "25-19 24th Ave, Astoria, NY 11102, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Marcela Cocina Mexicana",
+    "address": "7121 Fort Hamilton Pkwy, Brooklyn, NY 11228, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Someday Bar NYC",
+    "address": "364 Atlantic Ave, Brooklyn, NY 11217, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "1307 Avenue J, Brooklyn, NY 11230, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "62 Secret kitchen 中餐厅·私房菜",
+    "address": "62 Morris St, Jersey City, NJ 07302, USA",
+    "cuisine": "Chinese"
+  },
+  {
+    "name": "Hi Sunny Restaurant Salad&Dimsum 花园轻食",
+    "address": "342 7th Ave, New York, NY 10001, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Taqueria El Torito",
+    "address": "32 Varet St, Brooklyn, NY 11206, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Tasca NYC",
+    "address": "505 Columbus Ave, New York, NY 10024, USA",
+    "cuisine": "Caribbean"
+  },
+  {
+    "name": "Oncheon NYC",
+    "address": "312 5th Ave, New York, NY 10001, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "173 7th Ave S, New York, NY 10014, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "South of the Clouds 云之南 Jersey City",
+    "address": "313 Grove St, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Water & Wheat Upper East",
+    "address": "1379 3rd Ave, New York, NY 10075, USA",
+    "cuisine": "Italian"
+  },
+  {
+    "name": "Alfalfa",
+    "address": "1110 Washington St, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Sound + Fury Brewery and Kitchen",
+    "address": "141 Lawrence St, Brooklyn, NY 11201, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mazza & More",
+    "address": "412 Avenue M, Brooklyn, NY 11230, USA",
+    "cuisine": "Japanese/Sushi"
+  },
+  {
+    "name": "Thai Tree NYC",
+    "address": "36-17 Greenpoint Ave, Long Island City, NY 11101, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "Din's Kitchen",
+    "address": "5210 7th Ave, Brooklyn, NY 11220, USA",
+    "cuisine": "Chinese"
+  },
+  {
+    "name": "House of Glatt",
+    "address": "385 Kingston Ave, Brooklyn, NY 11225, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "gtk",
+    "address": "58 Maple St, Jersey City, NJ 07304, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Holic Thai Bistro",
+    "address": "592 Nostrand Ave, Brooklyn, NY 11216, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "Orchidea",
+    "address": "4815 12th Ave, Brooklyn, NY 11219, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "95 Delancey St First Floor, New York, NY 10002, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Urban Tomato",
+    "address": "276 Old River Rd, Edgewater, NJ 07020, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "Venti Italian Specialties",
+    "address": "203 Academy St, Jersey City, NJ 07306, USA",
+    "cuisine": "Italian"
+  },
+  {
+    "name": "Diamond Lil",
+    "address": "179 Nassau Ave, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Cross Road BK",
+    "address": "752 Coney Island Ave, Brooklyn, NY 11218, USA",
+    "cuisine": "Caribbean"
+  },
+  {
+    "name": "Taqueria El Chato",
+    "address": "620 Manhattan Ave, Brooklyn, NY 11222, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Pho Table - Dyker Heights",
+    "address": "6821 Fort Hamilton Pkwy, Brooklyn, NY 11219, USA",
+    "cuisine": "Vietnamese"
+  },
+  {
+    "name": "7th Street Burger DUMBO",
+    "address": "17 Old Fulton St, Brooklyn, NY 10038, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Diamond Slice",
+    "address": "70 Diamond St, Brooklyn, NY 11222, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "Perch",
+    "address": "1693 Lexington Ave, New York, NY 10029, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Sylla",
+    "address": "1664 Park Ave, New York, NY 10035, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Jerusalem Falafel House",
+    "address": "1026 Nostrand Ave, Brooklyn, NY 11225, USA",
+    "cuisine": "Middle Eastern"
+  },
+  {
+    "name": "La Cocina de Mama",
+    "address": "154 E 109th St, New York, NY 10029, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Retail #1, 235 Grand St, Jersey City, NJ 07302, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Minnows Bar",
+    "address": "167 Nassau Ave, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Raíces Argentinas",
+    "address": "667 5th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Playa Bowls",
+    "address": "82 7th Ave, Brooklyn, NY 11217, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "132 W 27th Street, Rear Floor 1, New York, NY 10001, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Smash House Brooklyn",
+    "address": "1387 Coney Island Ave, Brooklyn, NY 11230, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "The Bobbed Bandit",
+    "address": "429 Rogers Ave, Brooklyn, NY 11225, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Dalgoona Bowl",
+    "address": "272 Old River Rd, Edgewater, NJ 07020, USA",
+    "cuisine": "Korean"
+  },
+  {
+    "name": "Lutali (Kosher)",
+    "address": "1111 Avenue K, Brooklyn, NY 11230, USA",
+    "cuisine": "Japanese/Sushi"
+  },
+  {
+    "name": "BRBQ",
+    "address": "532 Summit Ave, Jersey City, NJ 07306, USA",
+    "cuisine": "Korean"
+  },
+  {
+    "name": "Busy Bee Organics",
+    "address": "451 Palisade Ave, Jersey City, NJ 07307, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Tia Eli's Restaurant",
+    "address": "5 E 31st St, Brooklyn, NY 11226, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Thai Tai Eatery",
+    "address": "59-61 69th St, Maspeth, NY 11378, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "El Mariachi Mexican Cuisine 🇲🇽",
+    "address": "218 W 116th St, New York, NY 10026, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Caviar By DNHG",
+    "address": "232 Old River Rd, Edgewater, NJ 07020, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Clayton Road, Brooklyn",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Flaum's Appetizers",
+    "address": "40 Lee Ave, Brooklyn, NY 11211, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "218 Columbia Street, Brooklyn",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Taqueria Talavera",
+    "address": "1611 Bay Ridge Pkwy, Brooklyn, NY 11204, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "WARUDE",
+    "address": "847 Sterling Pl, Brooklyn, NY 11216, USA",
+    "cuisine": "Japanese"
+  },
+  {
+    "name": "Sixteenth Ave. Glatt",
+    "address": "4809 16th Ave, Brooklyn, NY 11204, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Thai Sidewalk",
+    "address": "Jay Street, Front St and, Brooklyn, NY 11201, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "Sophistian Pizzeria Restaurant",
+    "address": "18-01 26th Rd, Queens, NY 11102, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "Po Boy Riche",
+    "address": "89 Monitor St Retail 1, Jersey City, NJ 07304, USA",
+    "cuisine": "Seafood"
+  },
+  {
+    "name": "4902 Church Ave Bldg 4, Brooklyn, NY 11203, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "141 Bridge Park Drive, Brooklyn",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "NY SMASH",
+    "address": "1360 Coney Island Ave, Brooklyn, NY 11230, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Gallagher’s Steakhouse NYC",
+    "address": "228 W 52nd St, New York, NY 10019, USA",
+    "cuisine": "Steakhouse"
+  },
+  {
+    "name": "Rudy's Bar & Grill",
+    "address": "627 9th Ave, New York, NY 10036, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "O'Hara's Restaurant and Pub",
+    "address": "120 Cedar St, New York, NY 10006, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "17 Prince Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "ICHIRAN Ramen NY Times Square",
+    "address": "152 W 49th St, New York, NY 10020, USA",
+    "cuisine": "Japanese/Ramen"
+  },
+  {
+    "name": "171 Spring Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Kesté Pizza e Vino",
+    "address": "77 Fulton St, New York, NY 10038, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "53 West 19th Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "40 Broad Street 2nd Floor, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "23 W 32nd St 3rd floor, New York, NY 10001, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Bodhi Kosher Vegetarian Restaurant",
+    "address": "77 Mulberry St, New York, NY 10013, USA",
+    "cuisine": "Vegetarian"
+  },
+  {
+    "name": "Pollo Campero",
+    "address": "4518 5th Ave, Brooklyn, NY 11220, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Villa Brazil Café Grill",
+    "address": "43-16 34th Ave, Astoria, NY 11101, USA",
+    "cuisine": "Brazilian"
+  },
+  {
+    "name": "The Landmark Tavern",
+    "address": "626 11th Ave, New York, NY 10036, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "All'Antico Vinaio",
+    "address": "729 8th Ave, New York, NY 10036, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Balzem",
+    "address": "202 Mott St, New York, NY 10012, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Rio Bonito Grill",
+    "address": "33-01 36th Ave, Astoria, NY 11106, USA",
+    "cuisine": "Steakhouse"
+  },
+  {
+    "name": "I Love Paraguay Restaurant",
+    "address": "43-16 Greenpoint Ave, Sunnyside, NY 11104, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Jiangnan NJC",
+    "address": "97 Montgomery St, Jersey City, NJ 07302, USA",
+    "cuisine": "Chinese"
+  },
+  {
+    "name": "Norma Hell's Kitchen",
+    "address": "801 9th Ave, New York, NY 10019, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "WÜRSTBAR",
+    "address": "516 Jersey Ave, Jersey City, NJ 07302, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Milkflower",
+    "address": "34-12 31st Ave, Astoria, NY 11106, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "89 MacDougal Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Tabare Williamsburg",
+    "address": "221 S 1st St, Brooklyn, NY 11211, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Pizza Time",
+    "address": "1324 Avenue J, Brooklyn, NY 11230, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "Syndicated Bar Theater Kitchen",
+    "address": "40 Bogart St, Brooklyn, NY 11206, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Niko's Souvlaki",
+    "address": "19-33 Ditmars Blvd, Astoria, NY 11105, USA",
+    "cuisine": "Greek"
+  },
+  {
+    "name": "Dim Sum Palace",
+    "address": "123 William St, New York, NY 10038, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Werkstatt",
+    "address": "509 Coney Island Ave, Brooklyn, NY 11218, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "195 Avenue A, New York, NY 10009, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Earl's Beer and Cheese",
+    "address": "1259 Park Ave, New York, NY 10029, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Zutto Japanese Ramen Sushi Bar",
+    "address": "384 Broome St, New York, NY 10013, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Lowery Bar & Kitchen",
+    "address": "43-02 43rd Ave, Sunnyside, NY 11104, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Gulp - Jersey City",
+    "address": "110 1st St, Jersey City, NJ 07302, USA",
+    "cuisine": "Taiwanese"
+  },
+  {
+    "name": "The Yale Club",
+    "address": "50 Vanderbilt Ave, New York, NY 10017, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Archer",
+    "address": "176 Newark Ave, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Asea Fusion 嵐山料理",
+    "address": "4120 8th Ave, Brooklyn, NY 11232, USA",
+    "cuisine": "Asian"
+  },
+  {
+    "name": "30 Hudson Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "176 Perry Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Le Tout Va Bien - French Restaurant",
+    "address": "311 W 51st St, New York, NY 10019, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Salvaje Social Club NYC",
+    "address": "79-11 Northern Blvd, Queens, NY 11372, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "249 Broome Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Sushi & Co",
+    "address": "67 Nassau St, New York, NY 10038, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "dawa's",
+    "address": "51-18 Skillman Ave, Woodside, NY 11377, USA",
+    "cuisine": "Asian"
+  },
+  {
+    "name": "Nan Xiang Express",
+    "address": "148 Lawrence St, Brooklyn, NY 11201, USA",
+    "cuisine": "Chinese"
+  },
+  {
+    "name": "Terre| Pasta & Natural wine",
+    "address": "341 5th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": "Italian"
+  },
+  {
+    "name": "Fatima's Grill",
+    "address": "964 Coney Island Ave, Brooklyn, NY 11230, USA",
+    "cuisine": "Mediterranean"
+  },
+  {
+    "name": "Matsuri",
+    "address": "39-56 61st St, Woodside, NY 11377, USA",
+    "cuisine": "Japanese/Sushi"
+  },
+  {
+    "name": "Bantry Bay Publick House",
+    "address": "33-01 Greenpoint Ave, Long Island City, NY 11101, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Le Parisien Bistrot",
+    "address": "163 E 33rd St, New York, NY 10016, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Semkeh",
+    "address": "53 Morgan Ave Rear, Brooklyn, NY 11237, USA",
+    "cuisine": "Lebanese"
+  },
+  {
+    "name": "Munch Street Food",
+    "address": "1376 Coney Island Ave, Brooklyn, NY 11230, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "YOGI by Barnjoo",
+    "address": "816 6th Ave, New York, NY 10001, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "84-05 Queens Blvd #1C, Elmhurst, NY 11373, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Court Street",
+    "address": "61 6th St, Hoboken, NJ 07030, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Mictlan México and Spanish cuisine",
+    "address": "17 Orchard St, New York, NY 10002, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Haile",
+    "address": "182 Avenue B #1, New York, NY 10009, USA",
+    "cuisine": "Ethiopian"
+  },
+  {
+    "name": "LOLITA",
+    "address": "45 W 45th St, New York, NY 10036, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Zona Sur Bar Bistro",
+    "address": "4314 4th Ave, Brooklyn, NY 11220, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Samurai Papa",
+    "address": "594 Lafayette Ave, Brooklyn, NY 11216, USA",
+    "cuisine": "Japanese/Ramen"
+  },
+  {
+    "name": "INDN Small Plates & Cocktails",
+    "address": "30 W 30th St, New York, NY 10001, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Fresco's Cantina",
+    "address": "12-14 31st Ave, Astoria, NY 11106, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Fong On",
+    "address": "81 Division St, New York, NY 10002, USA",
+    "cuisine": "Korean"
+  },
+  {
+    "name": "Butcher Block",
+    "address": "43-46 41st St, Sunnyside, NY 11104, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Colina Cuervo",
+    "address": "759 Nostrand Ave, Brooklyn, NY 11216, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Cafe Paris",
+    "address": "4424 16th Ave, Brooklyn, NY 11204, USA",
+    "cuisine": "Vegetarian"
+  },
+  {
+    "name": "Kyuramen - Upper West Side",
+    "address": "2787 Broadway, New York, NY 10025, USA",
+    "cuisine": "Japanese/Ramen"
+  },
+  {
+    "name": "Fluffies Hot Chicken - LES",
+    "address": "47 Clinton St, New York, NY 10002, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "90 Livingston Street, Brooklyn",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Finnegan's Pub",
+    "address": "734 Willow Ave, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "BK Pizza",
+    "address": "456 Sutter Ave, Brooklyn, NY 11212, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "Smør",
+    "address": "441 E 12th St, New York, NY 10009, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Trans-Pecos",
+    "address": "9-15 Wyckoff Ave, Ridgewood, NY 11385, USA",
+    "cuisine": "Vietnamese"
+  },
+  {
+    "name": "Tozton",
+    "address": "42-13 Broadway, Queens, NY 11103, USA",
+    "cuisine": "Peruvian"
+  },
+  {
+    "name": "Almah Cafe",
+    "address": "87 Utica Ave, Brooklyn, NY 11213, USA",
+    "cuisine": "Mediterranean"
+  },
+  {
+    "name": "Malone's Irish Bar & Restaurant",
+    "address": "692 3rd Ave, New York, NY 10017, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Thai Nara",
+    "address": "64-02 35th Ave, Woodside, NY 11377, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "Café Au Lee",
+    "address": "193 Lee Ave, Brooklyn, NY 11211, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "211 W Broadway, New York, NY 10013, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Karazishi Botan",
+    "address": "255 Smith St, Brooklyn, NY 11231, USA",
+    "cuisine": "Japanese/Ramen"
+  },
+  {
+    "name": "Ital Fusion",
+    "address": "2085 Nostrand Ave, Brooklyn, NY 11210, USA",
+    "cuisine": "Vegetarian"
+  },
+  {
+    "name": "Holy Pita",
+    "address": "10 Clermont Ave, Brooklyn, NY 11205, USA",
+    "cuisine": "Mediterranean"
+  },
+  {
+    "name": "Holy Burger Astoria",
+    "address": "23-14 36th Ave, Astoria, NY 11106, USA",
+    "cuisine": "Vegan"
+  },
+  {
+    "name": "Gowanus Gardens",
+    "address": "256 4th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Casa Cipriani New York",
+    "address": "10 South St, New York, NY 10004, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Tara Kitchen Tribeca",
+    "address": "253 Church St, New York, NY 10013, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Armondo's Italian Resturant",
+    "address": "73-16 Northern Blvd, Jackson Heights, NY 11372, USA",
+    "cuisine": "Italian"
+  },
+  {
+    "name": "Nûrish",
+    "address": "346 Communipaw Ave, Jersey City, NJ 07304, USA",
+    "cuisine": "Vegan"
+  },
+  {
+    "name": "Crystal Lake Brooklyn",
+    "address": "647 Grand St, Brooklyn, NY 11211, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Westwood Bar",
+    "address": "1715 Foster Ave, Brooklyn, NY 11230, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Sushi of Miso",
+    "address": "10-46 Jackson Ave, Long Island City, NY 11101, USA",
+    "cuisine": "Japanese"
+  },
+  {
+    "name": "Silver Rice",
+    "address": "575A Flatbush Ave, Brooklyn, NY 11225, USA",
+    "cuisine": "Japanese/Sushi"
+  },
+  {
+    "name": "Talay",
+    "address": "154 Stuyvesant Pl, Staten Island, NY 10301, USA",
+    "cuisine": "Thai"
+  },
+  {
+    "name": "Yeh’s Bao",
+    "address": "38 Rector St, New York, NY 10006, USA",
+    "cuisine": "Asian"
+  },
+  {
+    "name": "Radio Star",
+    "address": "13 Greenpoint Ave, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "My Sushi",
+    "address": "79-20 Eliot Ave, Middle Village, NY 11379, USA",
+    "cuisine": "Japanese"
+  },
+  {
+    "name": "21-03 Broadway, Astoria, NY 11106, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Sunrise Karahi House",
+    "address": "73-10 Northern Blvd, Jackson Heights, NY 11372, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Tiger Box",
+    "address": "169 Park Ave, Brooklyn, NY 11205, USA",
+    "cuisine": "Korean"
+  },
+  {
+    "name": "Battle Hill Tavern",
+    "address": "686 6th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "NEW YORK BEST HALAL FOOD",
+    "address": "95 Wall St, New York, NY 10005, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "86, The Promenade in the City Place Mall next to Greek Taverna, Edgewater, NJ 07020, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Uni Thai Bistro",
+    "address": "265 E 7th St, Brooklyn, NY 11218, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "KOREATGO",
+    "address": "225 Pearl St, New York, NY 10038, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Ban Ban Shop",
+    "address": "2911 Broadway, New York, NY 10025, USA",
+    "cuisine": "Asian"
+  },
+  {
+    "name": "Utica Takeout",
+    "address": "1140 Utica Ave, Brooklyn, NY 11203, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Roxy JC",
+    "address": "66 Monitor St, Jersey City, NJ 07304, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "El Huasteco Authentic Mexican Restaurant",
+    "address": "347 Empire Blvd, Brooklyn, NY 11225, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Wadadli",
+    "address": "419 Putnam Ave, Brooklyn, NY 11216, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Rosticeria Y Tortilleria Lupita",
+    "address": "1907 Lexington Ave, New York, NY 10035, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "Taqueria Allende",
+    "address": "2100 Frederick Douglass Blvd, New York, NY 10026, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Banh Mi Cart",
+    "address": "10 Hanover Square, New York, NY 10004, USA",
+    "cuisine": "Vietnamese"
+  },
+  {
+    "name": "Twin Grills",
+    "address": "865 Hancock St, Brooklyn, NY 11233, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Diva Royale Drag Queen Show NYC",
+    "address": "621 W 46th St, New York, NY 10036, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Rebecca's Edgewater-Mediterranean cuisine",
+    "address": "236 Old River Rd, Edgewater, NJ 07020, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "212 Prospect Park W, Brooklyn, NY 11215, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "YOYO CHICKEN ( Flatbush Ave )",
+    "address": "1300 Flatbush Ave, Brooklyn, NY 11210, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Weissabi Sushi 🇯🇵",
+    "address": "6011 20th Ave, Brooklyn, NY 11204, USA",
+    "cuisine": "Japanese"
+  },
+  {
+    "name": "Frita Batidos Brooklyn",
+    "address": "334 Kent Ave, Brooklyn, NY 11249, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Hello Bar Bk",
+    "address": "1110 Nostrand Ave, Brooklyn, NY 11225, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "He Yi Xiaochi",
+    "address": "5301 8th Ave, Brooklyn, NY 11220, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "SPICES & SLICES",
+    "address": "158 Utica Ave, Brooklyn, NY 11213, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Tres Banderas Restaurant",
+    "address": "1021 Church Ave, Brooklyn, NY 11218, USA",
+    "cuisine": "Mexican"
+  },
+  {
+    "name": "62-05 30th Ave., Woodside, NY 11377, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Ichiran",
+    "address": "132 W 31st St, New York, NY 10001, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Ricardo Steakhouse",
+    "address": "2145 2nd Ave, New York, NY 10029, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Yard House",
+    "address": "575 7th Ave, New York, NY 10018, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mom's Kitchen and Bar",
+    "address": "701 9th Ave, New York, NY 10019, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Lobster Place",
+    "address": "75 9th Ave, New York, NY 10011, USA",
+    "cuisine": "Seafood"
+  },
+  {
+    "name": "Yemen Café & Restaurant",
+    "address": "176 Atlantic Ave, Brooklyn, NY 11201, USA",
+    "cuisine": "Mediterranean"
+  },
+  {
+    "name": "Gyu-Kaku Japanese BBQ",
+    "address": "805 3rd Ave #2, New York, NY 10022, USA",
+    "cuisine": "Japanese"
+  },
+  {
+    "name": "Boqueria W40th",
+    "address": "260 W 40th St, New York, NY 10018, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "John Brown BBQ",
+    "address": "27-20 40th Ave, Astoria, NY 11101, USA",
+    "cuisine": "Barbecue"
+  },
+  {
+    "name": "Planta Queen",
+    "address": "15 W 27th St, New York, NY 10001, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "99 Favor Taste",
+    "address": "732 61st St, Brooklyn, NY 11220, USA",
+    "cuisine": "Asian"
+  },
+  {
+    "name": "Dim Sum Sam",
+    "address": "240 W 40th St, New York, NY 10018, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Kuu",
+    "address": "20 John St, New York, NY 10038, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "30 Hudson Yards 101st floor, New York, NY 10001, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Mom's Kitchen & Bar",
+    "address": "33-01 31st Ave, Astoria, NY 11106, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "IBN Hamido Seafood",
+    "address": "31-29 Ditmars Blvd, Astoria, NY 11105, USA",
+    "cuisine": "Seafood"
+  },
+  {
+    "name": "19 Fulton Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "35 Broadway, Brooklyn, NY 11249, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "281 Bleecker Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "1803 NYC",
+    "address": "82 Reade St, New York, NY 10007, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Renato's Pizza Masters",
+    "address": "278 Central Ave, Jersey City, NJ 07307, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Kyuramen - Union Square",
+    "address": "210 E 14th St, New York, NY 10003, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Cuts & Slices",
+    "address": "93 Howard Ave, Brooklyn, NY 11233, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Lido Harlem Restaurant",
+    "address": "2168 Frederick Douglass Blvd, New York, NY 10026, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Olympia Steakhouse",
+    "address": "1419 Coney Island Ave, Brooklyn, NY 11230, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Holy Burger LES",
+    "address": "34 Canal St, New York, NY 10002, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "David's Brisket House",
+    "address": "533 Nostrand Ave, Brooklyn, NY 11216, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Empyrean Indian Kitchen & Bar",
+    "address": "20 Hudson Pl, Hoboken, NJ 07030, USA",
+    "cuisine": "Indian"
+  },
+  {
+    "name": "BK JANI",
+    "address": "679 Grand St, Brooklyn, NY 11211, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Dear Irving on Hudson Rooftop Bar",
+    "address": "310 W 40th St, New York, NY 10018, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "90 The Promenade, Edgewater, NJ 07020, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "32-02 30th Ave., Astoria, NY 11102, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Bobwhite Counter",
+    "address": "94 Loisaida Ave, New York, NY 10009, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Okonomi",
+    "address": "150 Ainslie St, Brooklyn, NY 11211, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Ayat East Village",
+    "address": "107 Loisaida Ave, New York, NY 10009, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Anthony & Son Panini Shoppe",
+    "address": "433 Graham Ave, Brooklyn, NY 11211, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Oceanic Boil - Jackson Heights",
+    "address": "84-20 37th Ave, Jackson Heights, NY 11372, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bonchon Willoughby St",
+    "address": "68 Willoughby St, Brooklyn, NY 11201, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Graziella's of Brooklyn Wood Burning Pizza",
+    "address": "232 Vanderbilt Ave, Brooklyn, NY 11205, USA",
+    "cuisine": "Italian"
+  },
+  {
+    "name": "St. Mazie Bar & Supper Club",
+    "address": "345 Grand St, Brooklyn, NY 11211, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "33-19 Broadway, Astoria, NY 11106, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "HinoMaru Ramen",
+    "address": "33-18 Ditmars Blvd, Astoria, NY 11105, USA",
+    "cuisine": "Japanese/Ramen"
+  },
+  {
+    "name": "Namkeen",
+    "address": "338 Bedford Ave, Brooklyn, NY 11249, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Hop Shoppe",
+    "address": "372 Van Duzer St, Staten Island, NY 10304, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Cellar 335",
+    "address": "335 Newark Ave, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Lucia Pizza Of SoHo",
+    "address": "375 Canal St, New York, NY 10013, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bonafini Italian Restaurant",
+    "address": "663 Flatbush Ave, Brooklyn, NY 11225, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Flor de Mayo",
+    "address": "484 Amsterdam Ave, New York, NY 10024, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Hutton Restaurant and Bar",
+    "address": "225 Hutton St, Jersey City, NJ 07307, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Siena Pizza",
+    "address": "14 Rector St, New York, NY 10006, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "Siena Cafe • Italian • Brunch • Dinner • Lunch",
+    "address": "1580 3rd Ave, New York, NY 10128, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "34 East 4th Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Terraza 7",
+    "address": "40-19 Gleane St, Elmhurst, NY 11373, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Sweetwater",
+    "address": "105 N 6th St, Brooklyn, NY 11211, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "37-15 Broadway, Astoria, NY 11103, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Ashford & Simpson's Sugar Bar",
+    "address": "254 W 72nd St, New York, NY 10023, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Pet Shop",
+    "address": "193 Newark Ave, Jersey City, NJ 07302, USA",
+    "cuisine": "Vegetarian"
+  },
+  {
+    "name": "Vietnaam",
+    "address": "1700 2nd Ave, New York, NY 10128, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Connolly's Corner",
+    "address": "71-15 Grand Ave, Maspeth, NY 11378, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Walker's",
+    "address": "16 N Moore St, New York, NY 10013, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Mark Hotel",
+    "address": "25 E 77th St, New York, NY 10075, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "230 Brunswick St #1518, Jersey City, NJ 07302, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Lola's Tapas Bar",
+    "address": "153 14th St, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Okiboru House of Tsukemen",
+    "address": "117 Orchard St, New York, NY 10002, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "908 Washington St A, Hoboken, NJ 07030, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Noribar – 13th Ave",
+    "address": "5401 13th Ave, Brooklyn, NY 11219, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Make My Fish",
+    "address": "120 W 116th St, New York, NY 10026, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Danny & Coop’s Cheesesteaks",
+    "address": "151 Avenue A, New York, NY 10009, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Nandoo's",
+    "address": "16 Liberty Ave, Jersey City, NJ 07306, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "A, 200 Grand St, Hoboken, NJ 07030, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Leo’s Restaurant & Sports Bar",
+    "address": "84-19 Roosevelt Ave, Jackson Heights, NY 11372, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Sushi Spot",
+    "address": "426 Kingston Ave, Brooklyn, NY 11225, USA",
+    "cuisine": "Japanese/Sushi"
+  },
+  {
+    "name": "Ginger and Lemongrass",
+    "address": "153 Rivington St, New York, NY 10002, USA",
+    "cuisine": "Vietnamese"
+  },
+  {
+    "name": "Kaoru",
+    "address": "306 E 46th St, New York, NY 10017, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mozzarella Kosher",
+    "address": "264 Lee Ave, Brooklyn, NY 11206, USA",
+    "cuisine": "Italian/Pizza"
+  },
+  {
+    "name": "La Sirène Soho",
+    "address": "558 Broome St, New York, NY 10013, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Caridad China",
+    "address": "108 Graham Ave, Brooklyn, NY 11206, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Schilling Restaurant & Bar",
+    "address": "109 Washington St, New York, NY 10006, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "404 Henry Street, Brooklyn",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "112 Smith Street, Brooklyn",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Genesis House",
+    "address": "40A 10th Ave, New York, NY 10014, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Izakaya Fuku",
+    "address": "71-28 Roosevelt Ave, Jackson Heights, NY 11372, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Rosie Pizza Bar",
+    "address": "128 Central Ave, Brooklyn, NY 11221, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Guacuco Bed-Stuy",
+    "address": "360 Throop Ave, Brooklyn, NY 11221, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Cafe Dolma",
+    "address": "270 Grand St, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Amélie Upper West Side Bistro & Wine Bar",
+    "address": "566 Amsterdam Ave, New York, NY 10024, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Brew Inn",
+    "address": "924 Manhattan Ave, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Hibino LIC",
+    "address": "10-70 Jackson Ave, Long Island City, NY 11101, USA",
+    "cuisine": "Japanese"
+  },
+  {
+    "name": "85 Orchard Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Halal Bros Grill Church Ave",
+    "address": "2215 Church Ave, Brooklyn, NY 11226, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "921 Broadway, Brooklyn, NY 11206, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "41-19 30th Ave., Astoria, NY 11103, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Lugo Lounge & Restaurant",
+    "address": "10-89 Cypress Ave, Ridgewood, NY 11385, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "44 Richmond Ter, Staten Island, NY 10301, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Kyuramen - Long Island City",
+    "address": "27-17 42nd Rd, Queens, NY 11101, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Elias Corner",
+    "address": "24-02 31st St, Astoria, NY 11102, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Korali Estiatorio",
+    "address": "1662 3rd Ave, New York, NY 10128, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Grand Street Pizza",
+    "address": "384 Grand St, New York, NY 10002, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Giuseppina's",
+    "address": "691 6th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "El Santo",
+    "address": "1053 Flushing Ave, Brooklyn, NY 11237, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Couleur Café",
+    "address": "435 7th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Brooklyn Tree",
+    "address": "188 Montrose Ave, Brooklyn, NY 11206, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Brooklyn DOP",
+    "address": "237 5th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Ashoka Grill",
+    "address": "1436 Flatbush Ave, Brooklyn, NY 11210, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Ida's Nearabout",
+    "address": "43-13 Queens Blvd, Sunnyside, NY 11104, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Kung Fu Pho",
+    "address": "257 Grand St, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "89 South St Pier 16, New York, NY 10038, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Juici Patties",
+    "address": "1293 Fulton St, Brooklyn, NY 11216, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "99Rogers",
+    "address": "99 Rogers Ave, Brooklyn, NY 11216, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "1316 Avenue M, Brooklyn, NY 11230, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Pronto Astoria Restaurant & Pizzeria",
+    "address": "45-19 28th Ave, Astoria, NY 11103, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Marty's",
+    "address": "488 Central Ave, Jersey City, NJ 07307, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Noribar – 16th Ave",
+    "address": "4120 16th Ave, Brooklyn, NY 11204, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Paola's",
+    "address": "1302 Madison Ave, New York, NY 10128, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "127 Columbia Street, Brooklyn",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "DK PubLIC",
+    "address": "38-40 29th St, Long Island City, NY 11101, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Tommaso",
+    "address": "6916 18th Ave, Brooklyn, NY 11204, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Caravaggio",
+    "address": "23 E 74th St, New York, NY 10021, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Rocco's Italian Sausages & Cheese Steaks",
+    "address": "50-10 Northern Blvd, Long Island City, NY 11101, USA",
+    "cuisine": "American"
+  },
+  {
+    "name": "Cassidy's Ale House",
+    "address": "75-02 31st Ave, East Elmhurst, NY 11370, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bread N Wine",
+    "address": "1417 Lexington Ave, New York, NY 10128, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "El Tepeyac Taqueria",
+    "address": "1505 Lexington Ave, New York, NY 10029, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Itto Sushi JC",
+    "address": "239 Barrow St, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Cafe Alula",
+    "address": "252 Franklin St, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "4 Main St Rasco's, Edgewater, NJ 07020, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Pradyumna Cafe",
+    "address": "640 Newark Ave, Jersey City, NJ 07306, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Tataki Japanese Restaurant",
+    "address": "3 Lispenard St, New York, NY 10013, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Truth Restaurant Astoria",
+    "address": "27-35 21st St, Astoria, NY 11102, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Sanger Hall",
+    "address": "48-20 Skillman Ave, Sunnyside, NY 11104, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Plaka",
+    "address": "75-61 31st Ave, East Elmhurst, NY 11370, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Come Prima",
+    "address": "903 Madison Ave, New York, NY 10021, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "200 Liberty St Suite 106-A, New York, NY 10281, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "1272 Broadway, Brooklyn, NY 11221, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Della Valle",
+    "address": "1238 Prospect Ave, Brooklyn, NY 11218, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Shashlik Uz N1",
+    "address": "115 Ditmas Ave, Brooklyn, NY 11218, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "La Taq",
+    "address": "70 7th Ave, Brooklyn, NY 11217, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Blue Anchor",
+    "address": "166 River Dr, Jersey City, NJ 07310, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Jane Doe",
+    "address": "333 Newark Ave, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Da Raffaele",
+    "address": "883 1st Ave, New York, NY 10022, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Ateaz Cafe",
+    "address": "71 Greenwich St, New York, NY 10006, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Fulgurances",
+    "address": "132 Franklin St, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Chocolate Connects Inc",
+    "address": "611 Flatbush Ave, Brooklyn, NY 11225, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "100 Town Square Place, Jersey City",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Hunan Tapas",
+    "address": "41-07 Crescent St, Long Island City, NY 11101, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Lucky Vegetarian",
+    "address": "5101 8th Ave, Brooklyn, NY 11220, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Los Burritos Juarez",
+    "address": "354 Myrtle Ave, Brooklyn, NY 11205, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Saigon Bistro",
+    "address": "303 Pacific Ave, Jersey City, NJ 07304, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "El Manjar Dominicano",
+    "address": "141 India St, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Martha's",
+    "address": "25 12th St, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Woodside Pizzeria",
+    "address": "44-06 60th St, Woodside, NY 11377, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Halal-N-Out",
+    "address": "1457 Flatbush Ave, Brooklyn, NY 11210, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "37 Navy Pier Ct, Staten Island, NY 10304, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Chickn Rotonda",
+    "address": "64-58 Dry Harbor Rd, Middle Village, NY 11379, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Cafe on rumba",
+    "address": "564 Newark Ave, Jersey City, NJ 07306, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "TsuKuShi",
+    "address": "357 E 50th St, New York, NY 10022, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Flatbush Thai Corp",
+    "address": "561 Flatbush Ave, Brooklyn, NY 11225, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bad Luck Bar",
+    "address": "492 Nostrand Ave, Brooklyn, NY 11216, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Steel Mill",
+    "address": "1363 Bushwick Ave, Brooklyn, NY 11207, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "414 Grand St Suite 1, Jersey City, NJ 07302, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "806 54th St unit b, Brooklyn, NY 11220, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Montauk Club",
+    "address": "25 8th Ave, Brooklyn, NY 11217, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Sonbul - Korean Cafe and Kitchen",
+    "address": "356 Throop Ave, Brooklyn, NY 11221, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mariachi Mexican Cantina",
+    "address": "10 Minthorne St, Staten Island, NY 10301, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Lieberman Luncheonette",
+    "address": "4801 16th Ave, Brooklyn, NY 11204, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Fulton Fish Co.",
+    "address": "96 South St, New York, NY 10038, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mi Mariachi Restaurant",
+    "address": "6 Jordan Ave, Jersey City, NJ 07306, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mando",
+    "address": "30-30 Thomson Ave, Long Island City, NY 11101, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "El Delicioso Mexican Cocina",
+    "address": "200 New York Ave, Union City, NJ 07087, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Village Saloon",
+    "address": "82-11 Eliot Ave, Middle Village, NY 11379, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Horseshoe Kitchen & Bar",
+    "address": "837 Jersey Ave, Jersey City, NJ 07310, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "J&J Pizza🍕",
+    "address": "620 Caton Ave, Brooklyn, NY 11218, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "50 West St Office C8, New York, NY 10006, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Legends Sports Bar",
+    "address": "71-04 35th Ave, Jackson Heights, NY 11372, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "248 Prospect Park W, Brooklyn, NY 11215, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Famous Joe Pizzeria",
+    "address": "486 Dekalb Ave, Brooklyn, NY 11205, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "6213 Fort Hamilton Pkwy, Brooklyn, NY 11219, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "53-17 Broadway, Woodside, NY 11377, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Little River",
+    "address": "440 E 29th St, New York, NY 10016, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "2077 Broadway, New York, NY 10023, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Afghan Boys",
+    "address": "75 street and, 31st Ave, East Elmhurst, NY 11370, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "KARLSBALLS",
+    "address": "332 Riverside Dr, New York, NY 10025, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Border Town",
+    "address": "189 Nassau Ave, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mi Armadillo Mexican Taqueria",
+    "address": "12 Cebra Ave, Staten Island, NY 10301, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "403 Comfort Road, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Pasha Newa Fusion and Grill",
+    "address": "67-17 Woodside Ave, Woodside, NY 11377, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "MAGUEY RESTAURANT",
+    "address": "6602 14th Ave, Brooklyn, NY 11219, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "1501 Broadway, New York, NY 10036, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Deccan Spice",
+    "address": "771 Newark Ave, Jersey City, NJ 07306, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Empanada Mama Hell’s Kitchen",
+    "address": "765 9th Ave, Manhattan, NY 10019, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Pio Pio 8",
+    "address": "604 10th Ave, New York, NY 10036, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Connolly's",
+    "address": "121 W 45th St, New York, NY 10036, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "653 11th Ave 16th Floor, New York, NY 10036, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "88 Liberty View Dr., Jersey City, NJ 07302, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "2651 Broadway, New York, NY 10025, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Sinigual",
+    "address": "640 3rd Ave, Manhattan, NY 10017, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Blue Dog Cookhouse & Bar",
+    "address": "308 W 50th St, New York, NY 10019, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Kiki's",
+    "address": "130 Division St, New York, NY 10002, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "378 Park Ave S, New York, NY 10010, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Little Ruby's SoHo",
+    "address": "219 Mulberry St, New York, NY 10012, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Miriam Restaurant",
+    "address": "79 5th Ave, Brooklyn, NY 11217, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Kimpton Hotel Eventi",
+    "address": "851 6th Ave, New York, NY 10001, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "El Chivito D'Oro",
+    "address": "84-02 37th Ave, Jackson Heights, NY 11372, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "111 MacDougal Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "479 Washington Boulevard, Jersey City",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Sami's Kabab House",
+    "address": "35-57 Crescent St, Astoria, NY 11106, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "90 University Place, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Añejo",
+    "address": "668 10th Ave, New York, NY 10036, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Old Town Bar",
+    "address": "45 E 18th St, New York, NY 10003, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "80 Clark Street, Brooklyn",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Boeuf & Bun",
+    "address": "271 Kingston Ave, Brooklyn, NY 11213, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Ayada",
+    "address": "77-08 Woodside Ave, Elmhurst, NY 11373, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Lighthorse Tavern",
+    "address": "199 Washington St, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Good Eats",
+    "address": "69-32 Grand Ave, Maspeth, NY 11378, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Wythe Hotel",
+    "address": "80 Wythe Ave, Brooklyn, NY 11249, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Barney Greengrass",
+    "address": "541 Amsterdam Ave, New York, NY 10024, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Buddy's JC",
+    "address": "247 Washington St, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Aurora Brooklyn",
+    "address": "70 Grand St, Brooklyn, NY 11249, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "115 Broadway, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "DJONDJON",
+    "address": "1206 Nostrand Ave, Brooklyn, NY 11225, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Ramen DANBO Park Slope",
+    "address": "52 7th Ave, Brooklyn, NY 11217, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "146 Broadway, Brooklyn, NY 11211, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Mathews Food and Drink",
+    "address": "351 Grove St, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Mis Tierras Colombianas",
+    "address": "54-08 Roosevelt Ave, Woodside, NY 11377, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "44 & X Hell's Kitchen",
+    "address": "622 10th Ave, New York, NY 10036, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Two Hands",
+    "address": "251 Church St, New York, NY 10013, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "LaoJie",
+    "address": "811 53rd St, Brooklyn, NY 11220, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Elysian Cafe",
+    "address": "1001 Washington St, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "1155 Broadway, New York, NY 10001, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "33-01 Broadway, Astoria, NY 11106, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Little Ruby's Murray Hill",
+    "address": "442 3rd Ave, New York, NY 10016, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Patrizia's",
+    "address": "69-35 Grand Ave, Maspeth, NY 11378, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Brightside Tavern",
+    "address": "141 Bright St, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Grill On Lee",
+    "address": "868 Bedford Ave, Brooklyn, NY 11205, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Drunken Munkey - UES",
+    "address": "338 E 92nd St, New York, NY 10128, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Putnam's Pub & Cooker",
+    "address": "419 Myrtle Ave, Brooklyn, NY 11205, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Little Mo",
+    "address": "1158 Myrtle Ave, Brooklyn, NY 11221, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Da Nonna Rosa Restaurant & Pizzeria",
+    "address": "140 7th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bajeko Sekuwa",
+    "address": "43-16 Queens Blvd, Sunnyside, NY 11104, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Emir Palace",
+    "address": "4210 18th Ave, Brooklyn, NY 11218, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Shashlik House",
+    "address": "1273 Coney Island Ave, Brooklyn, NY 11230, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Toad Style",
+    "address": "93 Ralph Ave, Brooklyn, NY 11221, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Momo Crave",
+    "address": "38-07 69th St, Woodside, NY 11377, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Takumen",
+    "address": "5-50 50th Ave, Long Island City, NY 11101, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Black Horse Pub",
+    "address": "568 5th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Porto Leggero",
+    "address": "185 Hudson St, Jersey City, NJ 07311, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "2745 Broadway, New York, NY 10025, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Pizza Boy II",
+    "address": "58-19 Woodside Ave, Woodside, NY 11377, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Sean Og's Irish Pub",
+    "address": "60-02 Woodside Ave, Woodside, NY 11377, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Dear Maud",
+    "address": "205 1st St, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Cpt. Dan's Good Time Tavern",
+    "address": "497 Greene Ave, Brooklyn, NY 11216, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "85 Greenwich Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Margherita's",
+    "address": "740 Washington St, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Barbès",
+    "address": "1300 Park Ave, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Keg & Lantern Greenpoint",
+    "address": "97 Nassau Ave, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bridie's Grill Room",
+    "address": "64-54 Dry Harbor Rd, Middle Village, NY 11379, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Palermo",
+    "address": "23-92 21st St, Astoria, NY 11105, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Dram Shop Bar",
+    "address": "339 9th St, Brooklyn, NY 11215, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Golden Thai",
+    "address": "469 Irving Ave, Brooklyn, NY 11237, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Effy's Cafe",
+    "address": "104 W 96th St, New York, NY 10025, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "329 Henry Street, Brooklyn",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Northern Soul",
+    "address": "700 1st St, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Nana Ramen",
+    "address": "330 Malcolm X Blvd, Brooklyn, NY 11233, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "160 Pearl Street #1, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "53 Broadway, Brooklyn, NY 11249, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Wingbar",
+    "address": "275 Smith St, Brooklyn, NY 11231, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Laly's Restaurant",
+    "address": "75-19 Roosevelt Ave, Jackson Heights, NY 11372, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "2896 Broadway, New York, NY 10025, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Juban Japanese Izakaya",
+    "address": "207 10th Ave, New York, NY 10011, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "145 Borinquen Pl, Brooklyn, NY 11211, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Asia Glatt Kosher",
+    "address": "4813 New Utrecht Ave, Brooklyn, NY 11219, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "344 West 11th Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Los tres Chiflados",
+    "address": "1046 Flatbush Ave, Brooklyn, NY 11226, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Nonna Dora's 2nd Avenue",
+    "address": "606 2nd Ave, New York, NY 10016, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Shokudo",
+    "address": "61 14th St, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Shanghai Zhen Gong Fu",
+    "address": "86-16 Queens Blvd, Elmhurst, NY 11373, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "304 East 6th Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "TOKUYAMATCHA & ONIGIRAZU BAR- E 6th St.",
+    "address": "627 E 6th St, New York, NY 10009, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "1915 Lanzhou Hand Pulled Noodles",
+    "address": "207 E 26th St, New York, NY 10016, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Wonder Park Slope",
+    "address": "493 5th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Chrissy’s Pizza",
+    "address": "142 Nassau Ave, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "MaliNee Thai",
+    "address": "2028 2nd Ave, New York, NY 10029, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Tosti",
+    "address": "1024 Washington St, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Nara Sushi/Kumo",
+    "address": "76 Pearl St, New York, NY 10004, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "COMPTON'S",
+    "address": "30-02 14th St, Astoria, NY 11102, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "136 Division Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "La Bohème Restaurant",
+    "address": "233 Clinton St, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Taku Sando",
+    "address": "29 Greenpoint Ave, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Cliff",
+    "address": "38 Congress St, Jersey City, NJ 07307, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "L&B Spumoni Gardens",
+    "address": "46 Old Fulton St, Brooklyn, NY 11201, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Willie McBride’s",
+    "address": "616 Grand St, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Yuan",
+    "address": "537 Washington Blvd, Jersey City, NJ 07310, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Forno Siciliano",
+    "address": "43-19 Ditmars Blvd, Astoria, NY 11105, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Kabayan Authentic Filipino Cuisine",
+    "address": "49-12 Queens Blvd, Woodside, NY 11377, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Vera's",
+    "address": "424 Sutter Ave, Brooklyn, NY 11212, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "11 The Promenade, Edgewater, NJ 07020, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "460 Greenwich Street, New York",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Pelicana Chicken",
+    "address": "941 Manhattan Ave, Brooklyn, NY 11222, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Hardee Chinese & American Cusine",
+    "address": "771 Saratoga Ave, Brooklyn, NY 11212, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "El Vaquerito",
+    "address": "54-11 Northern Blvd, Woodside, NY 11377, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bushwick Burger Co.",
+    "address": "354 Cornelia St, Brooklyn, NY 11237, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "2642 Broadway, New York, NY 10025, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "31-15 30th Ave., Astoria, NY 11102, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "8 on Eighth Bar and Billiards",
+    "address": "4008-4010 8th Ave, Brooklyn, NY 11232, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "The Corner Pho",
+    "address": "189 Erie St, Jersey City, NJ 07302, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "SOBOKU",
+    "address": "276 Smith St, Brooklyn, NY 11231, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Saba Live Poultry",
+    "address": "1227 Rockaway Ave, Brooklyn, NY 11236, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Simone's",
+    "address": "846 Clarkson Ave, Brooklyn, NY 11203, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Abuela Antonia",
+    "address": "225 Rockaway Ave, Brooklyn, NY 11233, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "405 Central Prk W, New York, NY 10025, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "J's Kitchen New York",
+    "address": "261 1st Ave, New York, NY 10003, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "3007 Fort Hamilton Pkwy, Brooklyn, NY 11218, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Le Fleur Rouge | Creative Chinese-French Dining in Park Slope",
+    "address": "392 5th Ave, Brooklyn, NY 11215, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Hudson Table Hoboken",
+    "address": "1403 Clinton St, Hoboken, NJ 07030, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Ros Niyom Thai Restaurant",
+    "address": "10-91 Jackson Ave, Queens, NY 11101, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bartolino's - Fine Italian Cuisine",
+    "address": "29-11 21st Ave, Astoria, NY 11105, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Casa Tua New York",
+    "address": "20 E 76th St, New York, NY 10021, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Simple Peruvian - Sunnyside",
+    "address": "45-06 Greenpoint Ave, Sunnyside, NY 11104, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "584 Broadway #586, Brooklyn, NY 11206, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "1895 Eastern Pkwy, Brooklyn, NY 11233, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Springbone Kitchen",
+    "address": "74 Pearl St, New York, NY 10004, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "PRIME TIME",
+    "address": "5023 13th Ave, Brooklyn, NY 11219, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "60-64 Sip Ave Store 2B, Jersey City, NJ 07306, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "El Bochito",
+    "address": "3082 Fulton St, Brooklyn, NY 11208, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "AB Fish Market & Food",
+    "address": "1878 3rd Ave, New York, NY 10029, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Rob's of Brooklyn – Sunset Park",
+    "address": "4201 7th Ave, Brooklyn, NY 11232, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "El Caminante Mexican Tacos",
+    "address": "894 Dekalb Ave, Brooklyn, NY 11221, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bar Pleiades",
+    "address": "20 E 76th St, New York, NY 10021, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Pana's Kitchen",
+    "address": "3518 Church Ave, Brooklyn, NY 11203, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Patsy’s Pizzeria 55 Water Street",
+    "address": "55 Water St, New York, NY 10041, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "170 Central Prk W, New York, NY 10024, USA",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "Woodzzy Bar & Restaurant",
+    "address": "1133 Clarkson Ave, Brooklyn, NY 11212, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Buffalo Wild Wings GO",
+    "address": "1623 Flatbush Ave, Brooklyn, NY 11210, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Abe Sushi",
+    "address": "7910A 13th Ave, Brooklyn, NY 11228, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Rosa’s Pizza",
+    "address": "1289 Madison Ave, New York, NY 10128, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "PIZZA 21st",
+    "address": "31-06 21st St, Astoria, NY 11106, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "El Quinto Patio",
+    "address": "976 McDonald Ave, Brooklyn, NY 11230, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Bella Blue",
+    "address": "32-35 48th Ave, Long Island City, NY 11101, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "Chimi Monumental",
+    "address": "3007 Fulton St, Brooklyn, NY 11208, USA",
+    "cuisine": ""
+  },
+  {
+    "name": "159 Bridge Park Drive, Brooklyn Heights",
+    "address": "",
+    "cuisine": ""
+  },
+  {
+    "name": "The River Café",
+    "place_id": "ChIJ2QZOdTpawokRU_eN_EPJaX8",
+    "rating": 4.4,
+    "user_ratings_total": 2477,
+    "price_level": 4,
+    "vicinity": "1 Water Street, Brooklyn",
+    "lat": 40.70383419999999,
+    "lng": -73.9947936,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "The Seaport",
+    "place_id": "ChIJ48y8-TxawokROJTPwB3cxz8",
+    "rating": 4.5,
+    "user_ratings_total": 2356,
+    "price_level": 2,
+    "vicinity": "19 Fulton Street, New York",
+    "lat": 40.70647830000001,
+    "lng": -74.0032751,
+    "types": [
+      "art_gallery",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Delmonico's",
+    "place_id": "ChIJwy8lmxZawokRtWUTg5wuv6I",
+    "rating": 4.5,
+    "user_ratings_total": 3146,
+    "price_level": 4,
+    "vicinity": "56 Beaver Street, New York",
+    "lat": 40.7050268,
+    "lng": -74.0102557,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Harry's",
+    "place_id": "ChIJoSqkgRZawokR_ZAqr3pOMO8",
+    "rating": 4.5,
+    "user_ratings_total": 1759,
+    "price_level": 3,
+    "vicinity": "1 Hanover Square, New York",
+    "lat": 40.7046763,
+    "lng": -74.0097371,
+    "types": [
+      "restaurant",
+      "bar",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Trinity Place restaurant and bar",
+    "place_id": "ChIJ4_AAQhdawokRzbYlVLyzKlk",
+    "rating": 4.4,
+    "user_ratings_total": 1538,
+    "price_level": 2,
+    "vicinity": "115 Broadway, New York",
+    "lat": 40.708882,
+    "lng": -74.01143259999999,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "The Capital Grille",
+    "place_id": "ChIJTXb6QRdawokRPZZKPYmvWcU",
+    "rating": 4.6,
+    "user_ratings_total": 1401,
+    "price_level": 4,
+    "vicinity": "120 Broadway, New York",
+    "lat": 40.707847,
+    "lng": -74.010226,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "The Odeon",
+    "place_id": "ChIJS-u0mB9awokRZ7H0sa9Oy-U",
+    "rating": 4.5,
+    "user_ratings_total": 2044,
+    "price_level": 3,
+    "vicinity": "145 West Broadway, New York",
+    "lat": 40.71697899999999,
+    "lng": -74.007834,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Forgione",
+    "place_id": "ChIJhSLc_R5awokReYEI4dyODxA",
+    "rating": 4.6,
+    "user_ratings_total": 756,
+    "price_level": 3,
+    "vicinity": "30 Hudson Street, New York",
+    "lat": 40.7166614,
+    "lng": -74.0089507,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Locanda Verde Tribeca",
+    "place_id": "ChIJTWkuhfVZwokRS_go-fdp7Vs",
+    "rating": 4.4,
+    "user_ratings_total": 2296,
+    "price_level": 3,
+    "vicinity": "377 Greenwich Street, New York",
+    "lat": 40.71984009999999,
+    "lng": -74.00993439999999,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Scalini Fedeli",
+    "place_id": "ChIJRY0QrR9awokRtnCdmU4ijlM",
+    "rating": 4.8,
+    "user_ratings_total": 520,
+    "price_level": 3,
+    "vicinity": "165 Duane Street, New York",
+    "lat": 40.71750249999999,
+    "lng": -74.0094518,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Tajin",
+    "place_id": "ChIJH4yL3hBawokR8siBXvZFWYM",
+    "rating": 4.4,
+    "user_ratings_total": 760,
+    "price_level": 2,
+    "vicinity": "85 Greenwich Street, New York",
+    "lat": 40.7077343,
+    "lng": -74.01355199999999,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Bubby's",
+    "place_id": "ChIJETquaPVZwokRVYYGSKrg4E0",
+    "rating": 4.4,
+    "user_ratings_total": 8331,
+    "price_level": 2,
+    "vicinity": "120 Hudson Street, New York",
+    "lat": 40.719819,
+    "lng": -74.0083829,
+    "types": [
+      "bakery",
+      "bar",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Whiskey Tavern",
+    "place_id": "ChIJPezLOSdawokROjWJSsqLdZg",
+    "rating": 4.6,
+    "user_ratings_total": 2195,
+    "price_level": 1,
+    "vicinity": "79 Baxter Street A, New York",
+    "lat": 40.716478,
+    "lng": -73.999749,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Macao Trading Company",
+    "place_id": "ChIJA9S9jIpZwokRZTF0bHWwXYU",
+    "rating": 4.5,
+    "user_ratings_total": 1379,
+    "price_level": 3,
+    "vicinity": "311 Church Street, New York",
+    "lat": 40.71963359999999,
+    "lng": -74.0039218,
+    "types": [
+      "bar",
+      "night_club",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Squire's Diner",
+    "place_id": "ChIJ0elz1zxawokRQe4gdAJwHWI",
+    "rating": 4.4,
+    "user_ratings_total": 1045,
+    "price_level": 1,
+    "vicinity": "80 Beekman Street #1, New York",
+    "lat": 40.7088676,
+    "lng": -74.0039463,
+    "types": [
+      "meal_takeaway",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "MarkJoseph Steakhouse",
+    "place_id": "ChIJEx7kTCNawokRCpJ7Z5FMIHA",
+    "rating": 4.5,
+    "user_ratings_total": 751,
+    "price_level": 3,
+    "vicinity": "261 Water Street, New York",
+    "lat": 40.70837,
+    "lng": -74.00152,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "The Dead Rabbit",
+    "place_id": "ChIJIRiJaRRawokR2KyQ984qa-o",
+    "rating": 4.7,
+    "user_ratings_total": 8228,
+    "price_level": 2,
+    "vicinity": "30 Water Street, New York",
+    "lat": 40.70326850000001,
+    "lng": -74.0110218,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Zutto Japanese American Pub",
+    "place_id": "ChIJ7-SBzh9awokRKB5djQIBiC0",
+    "rating": 4.4,
+    "user_ratings_total": 980,
+    "price_level": 2,
+    "vicinity": "77 Hudson Street, New York",
+    "lat": 40.71843620000001,
+    "lng": -74.0090421,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Takahachi",
+    "place_id": "ChIJaVgbdR9awokRqxIwG9AywT4",
+    "rating": 4.5,
+    "user_ratings_total": 595,
+    "price_level": 2,
+    "vicinity": "145 Duane Street, New York",
+    "lat": 40.716584,
+    "lng": -74.00792150000001,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Jungsik",
+    "place_id": "ChIJpSTN0R9awokRI29rK_SfbeA",
+    "rating": 4.6,
+    "user_ratings_total": 955,
+    "price_level": 4,
+    "vicinity": "2 Harrison Street, New York",
+    "lat": 40.7188267,
+    "lng": -74.00907509999999,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Gigino Trattoria",
+    "place_id": "ChIJOYhlWR5awokROi9Hpwx0iQI",
+    "rating": 4.4,
+    "user_ratings_total": 601,
+    "price_level": 2,
+    "vicinity": "323 Greenwich Street, New York",
+    "lat": 40.71726470000001,
+    "lng": -74.0104673,
+    "types": [
+      "cafe",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "American Cut",
+    "place_id": "ChIJv-a4KB5awokR6TLKvHwGqQE",
+    "rating": 4.5,
+    "user_ratings_total": 1006,
+    "price_level": 4,
+    "vicinity": "363 Greenwich Street, New York",
+    "lat": 40.7191028,
+    "lng": -74.0100227,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Blue Spoon Coffee Company",
+    "place_id": "ChIJF3MI6RdawokR5BXbtvyVSa4",
+    "rating": 4.5,
+    "user_ratings_total": 305,
+    "price_level": 1,
+    "vicinity": "90 William Street, New York",
+    "lat": 40.7082534,
+    "lng": -74.0076333,
+    "types": [
+      "cafe",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Jiannetto's Pizza Truck",
+    "place_id": "ChIJlcA3GBZawokR-MjBJ7qdcYM",
+    "rating": 4.7,
+    "user_ratings_total": 24,
+    "vicinity": "100 Old Slip, New York",
+    "lat": 40.7034947,
+    "lng": -74.00813509999999,
+    "types": [
+      "meal_takeaway",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Juliana’s",
+    "place_id": "ChIJAQr5tjBawokRBBESUv8Tw5I",
+    "rating": 4.6,
+    "user_ratings_total": 6680,
+    "price_level": 2,
+    "vicinity": "19 Old Fulton Street, Brooklyn",
+    "lat": 40.7027467,
+    "lng": -73.9934349,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Financial District"
+  },
+  {
+    "name": "Balthazar",
+    "place_id": "ChIJt7fMLIlZwokRCRtM9bNDg78",
+    "rating": 4.4,
+    "user_ratings_total": 7592,
+    "price_level": 3,
+    "vicinity": "80 Spring Street, New York",
+    "lat": 40.72266799999999,
+    "lng": -73.99822979999999,
+    "types": [
+      "bakery",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Beauty & Essex",
+    "place_id": "ChIJJWCTb4FZwokRLe7HgJSuHFI",
+    "rating": 4.4,
+    "user_ratings_total": 4390,
+    "price_level": 3,
+    "vicinity": "146 Essex Street, New York",
+    "lat": 40.7204282,
+    "lng": -73.9868606,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Tacombi",
+    "place_id": "ChIJdfD8moVZwokRO6vxjXAtoWs",
+    "rating": 4.4,
+    "user_ratings_total": 2421,
+    "price_level": 2,
+    "vicinity": "267 Elizabeth Street, New York",
+    "lat": 40.72402290000001,
+    "lng": -73.9938545,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Boqueria Soho",
+    "place_id": "ChIJA914R4xZwokRzfeGqRbXLd4",
+    "rating": 4.6,
+    "user_ratings_total": 3390,
+    "price_level": 2,
+    "vicinity": "171 Spring Street, New York",
+    "lat": 40.7249228,
+    "lng": -74.00215539999999,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "The Bowery Hotel",
+    "place_id": "ChIJqzkICohZwokR456MkSkZnLU",
+    "rating": 4.5,
+    "user_ratings_total": 1657,
+    "price_level": 3,
+    "vicinity": "335 Bowery, New York",
+    "lat": 40.7260114,
+    "lng": -73.9916125,
+    "types": [
+      "night_club",
+      "lodging",
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Zest Sushi",
+    "place_id": "ChIJCyayOIdZwokR2GhEvmhn3ss",
+    "rating": 4.6,
+    "user_ratings_total": 717,
+    "price_level": 2,
+    "vicinity": "249 Broome Street, New York",
+    "lat": 40.71791899999999,
+    "lng": -73.98987389999999,
+    "types": [
+      "meal_takeaway",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Clinton St. Baking Company",
+    "place_id": "ChIJ4Q2rG4JZwokR8TVjhflNfMk",
+    "rating": 4.4,
+    "user_ratings_total": 6372,
+    "price_level": 2,
+    "vicinity": "4 Clinton Street, New York",
+    "lat": 40.721264,
+    "lng": -73.9838497,
+    "types": [
+      "bakery",
+      "meal_takeaway",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Café Habana",
+    "place_id": "ChIJPQOh8YVZwokRE2WsbZI4tOk",
+    "rating": 4.6,
+    "user_ratings_total": 4595,
+    "price_level": 2,
+    "vicinity": "17 Prince Street, New York",
+    "lat": 40.72292780000001,
+    "lng": -73.9941778,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Lure Fishbar",
+    "place_id": "ChIJgS2D-o5ZwokRgS5knl8ipzI",
+    "rating": 4.4,
+    "user_ratings_total": 2158,
+    "price_level": 3,
+    "vicinity": "142 Mercer Street, New York",
+    "lat": 40.724703,
+    "lng": -73.9983278,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Russ & Daughters",
+    "place_id": "ChIJ7VEEjYNZwokRS0bdsXA3uyg",
+    "rating": 4.6,
+    "user_ratings_total": 4556,
+    "price_level": 2,
+    "vicinity": "179 East Houston Street, New York",
+    "lat": 40.7225803,
+    "lng": -73.9883134,
+    "types": [
+      "grocery_or_supermarket",
+      "bakery",
+      "meal_takeaway",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Ferrara Bakery & Cafe",
+    "place_id": "ChIJTy8URohZwokRB9YYYDHYBKM",
+    "rating": 4.4,
+    "user_ratings_total": 7442,
+    "price_level": 2,
+    "vicinity": "195 Grand Street, New York",
+    "lat": 40.71907789999999,
+    "lng": -73.9970913,
+    "types": [
+      "bakery",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Rubirosa",
+    "place_id": "ChIJs8MdNo9ZwokRTPUHiArLC-o",
+    "rating": 4.6,
+    "user_ratings_total": 6674,
+    "price_level": 2,
+    "vicinity": "235 Mulberry Street, New York",
+    "lat": 40.7227383,
+    "lng": -73.99613470000001,
+    "types": [
+      "meal_takeaway",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Eileen's Special Cheesecake",
+    "place_id": "ChIJaeOQ3IhZwokRgxPZEE3noAM",
+    "rating": 4.6,
+    "user_ratings_total": 3135,
+    "price_level": 1,
+    "vicinity": "17 Cleveland Place, New York",
+    "lat": 40.721568,
+    "lng": -73.99725819999999,
+    "types": [
+      "bakery",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Il Buco Alimentari & Vineria",
+    "place_id": "ChIJYUQdLoVZwokRBjKzg6PAaa8",
+    "rating": 4.5,
+    "user_ratings_total": 1075,
+    "price_level": 3,
+    "vicinity": "53 Great Jones Street, New York",
+    "lat": 40.7264539,
+    "lng": -73.992549,
+    "types": [
+      "bakery",
+      "bar",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Essex",
+    "place_id": "ChIJ7fydz4BZwokRDDwDLrzF5ts",
+    "rating": 4.8,
+    "user_ratings_total": 8636,
+    "price_level": 2,
+    "vicinity": "124 Rivington Street, New York",
+    "lat": 40.719819,
+    "lng": -73.9870967,
+    "types": [
+      "night_club",
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Wolfgang's Steakhouse",
+    "place_id": "ChIJ7cmhqPVZwokRcWzLzM5e-5A",
+    "rating": 4.4,
+    "user_ratings_total": 1647,
+    "price_level": 4,
+    "vicinity": "409 Greenwich Street, New York",
+    "lat": 40.721252,
+    "lng": -74.00966439999999,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "il Buco",
+    "place_id": "ChIJrbkQPIVZwokRLZABuyqHmoc",
+    "rating": 4.4,
+    "user_ratings_total": 1132,
+    "price_level": 3,
+    "vicinity": "47 Bond Street, New York",
+    "lat": 40.72583089999999,
+    "lng": -73.9929975,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Blue Ribbon Brasserie",
+    "place_id": "ChIJQSjQsI1ZwokRu19O824YdH4",
+    "rating": 4.6,
+    "user_ratings_total": 981,
+    "price_level": 2,
+    "vicinity": "97 Sullivan Street, New York",
+    "lat": 40.7254995,
+    "lng": -74.00306270000002,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "The Ten Bells",
+    "place_id": "ChIJPeCaOIdZwokRXr36ali2z_k",
+    "rating": 4.4,
+    "user_ratings_total": 835,
+    "price_level": 2,
+    "vicinity": "247 Broome Street, New York",
+    "lat": 40.7178285,
+    "lng": -73.9898524,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "The Grey Dog",
+    "place_id": "ChIJrSCNRY9ZwokR19ew1tY5KAw",
+    "rating": 4.4,
+    "user_ratings_total": 1949,
+    "price_level": 2,
+    "vicinity": "244 Mulberry Street, New York",
+    "lat": 40.7229542,
+    "lng": -73.9956958,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Verlaine",
+    "place_id": "ChIJAzc6R4FZwokRMn58slNezoQ",
+    "rating": 4.4,
+    "user_ratings_total": 1130,
+    "price_level": 2,
+    "vicinity": "110 Rivington Street, New York",
+    "lat": 40.720079,
+    "lng": -73.987785,
+    "types": [
+      "bar",
+      "night_club",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Shuka",
+    "place_id": "ChIJ3dbcl41ZwokRouIrXtQ5erk",
+    "rating": 4.6,
+    "user_ratings_total": 3768,
+    "price_level": 2,
+    "vicinity": "38 MacDougal Street, New York",
+    "lat": 40.7270639,
+    "lng": -74.0027877,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Momofuku Ko",
+    "place_id": "ChIJkXQ3_INZwokRcJD47PFAGvQ",
+    "rating": 4.6,
+    "user_ratings_total": 809,
+    "price_level": 4,
+    "vicinity": "8 Extra Place, New York",
+    "lat": 40.7249493,
+    "lng": -73.9916093,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Essex Market",
+    "place_id": "ChIJ7fydz4BZwokRl6FuOJM5QPU",
+    "rating": 4.5,
+    "user_ratings_total": 6846,
+    "vicinity": "88 Essex Street, New York",
+    "lat": 40.7180004,
+    "lng": -73.98819,
+    "types": [
+      "tourist_attraction",
+      "grocery_or_supermarket",
+      "restaurant",
+      "food",
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "Chinatown/LES"
+  },
+  {
+    "name": "Artichoke Basille's Pizza",
+    "place_id": "ChIJ10EpKJJZwokRUjIWaunOQbI",
+    "rating": 4.4,
+    "user_ratings_total": 2032,
+    "price_level": 2,
+    "vicinity": "111 MacDougal Street, New York",
+    "lat": 40.73,
+    "lng": -74.00072779999999,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "IPPUDO NY",
+    "place_id": "ChIJWUOc55tZwokR9q_g5l051rk",
+    "rating": 4.4,
+    "user_ratings_total": 5436,
+    "price_level": 2,
+    "vicinity": "65 4th Avenue, New York",
+    "lat": 40.730948,
+    "lng": -73.990287,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Spot Dessert Bar East Village",
+    "place_id": "ChIJ0QCeh5tZwokRh9J_3uvSPjU",
+    "rating": 4.5,
+    "user_ratings_total": 3137,
+    "price_level": 2,
+    "vicinity": "13 Saint Marks Place, New York",
+    "lat": 40.7293975,
+    "lng": -73.988927,
+    "types": [
+      "bakery",
+      "cafe",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "The Smith",
+    "place_id": "ChIJcXq9AZxZwokRZ56WZuGnZkg",
+    "rating": 4.4,
+    "user_ratings_total": 2856,
+    "price_level": 2,
+    "vicinity": "55 3rd Avenue, New York",
+    "lat": 40.7310104,
+    "lng": -73.98858129999999,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Mermaid Oyster Bar",
+    "place_id": "ChIJUw68EZJZwokRE9JElRWVp6c",
+    "rating": 4.6,
+    "user_ratings_total": 1149,
+    "price_level": 2,
+    "vicinity": "89 MacDougal Street, New York",
+    "lat": 40.72904359999999,
+    "lng": -74.001539,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Palma",
+    "place_id": "ChIJw_xat5NZwokRpW-BtDpdsPs",
+    "rating": 4.6,
+    "user_ratings_total": 1142,
+    "price_level": 3,
+    "vicinity": "28 Cornelia Street, New York",
+    "lat": 40.73120109999999,
+    "lng": -74.0023412,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Amorino Gelato - New York Greenwich Village",
+    "place_id": "ChIJ97ib6JlZwokRrnjNNMNpeZ4",
+    "rating": 4.5,
+    "user_ratings_total": 1830,
+    "price_level": 2,
+    "vicinity": "60 University Place, New York",
+    "lat": 40.732917,
+    "lng": -73.993894,
+    "types": [
+      "cafe",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Little Owl",
+    "place_id": "ChIJTX6hP5NZwokR93muGu7l4X0",
+    "rating": 4.5,
+    "user_ratings_total": 1396,
+    "price_level": 3,
+    "vicinity": "90 Bedford Street, New York",
+    "lat": 40.7323754,
+    "lng": -74.0052681,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "John's of Bleecker Street",
+    "place_id": "ChIJuW43oZNZwokRdE5tLzpuykE",
+    "rating": 4.6,
+    "user_ratings_total": 8034,
+    "price_level": 2,
+    "vicinity": "278 Bleecker Street, New York",
+    "lat": 40.7316187,
+    "lng": -74.00344679999999,
+    "types": [
+      "meal_takeaway",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Momofuku Noodle Bar",
+    "place_id": "ChIJkXQ3_INZwokRE74ZvG46Jjc",
+    "rating": 4.5,
+    "user_ratings_total": 5281,
+    "price_level": 2,
+    "vicinity": "171 1st Avenue, New York",
+    "lat": 40.7292083,
+    "lng": -73.98441500000001,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Joe's Pizza",
+    "place_id": "ChIJ8Q2WSpJZwokRQz-bYYgEskM",
+    "rating": 4.5,
+    "user_ratings_total": 10133,
+    "price_level": 1,
+    "vicinity": "7 Carmine Street, New York",
+    "lat": 40.7306597,
+    "lng": -74.0021707,
+    "types": [
+      "meal_takeaway",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Blind Tiger",
+    "place_id": "ChIJWW4LoZNZwokRFOD1017tTZc",
+    "rating": 4.5,
+    "user_ratings_total": 2042,
+    "price_level": 2,
+    "vicinity": "281 Bleecker Street, New York",
+    "lat": 40.7318858,
+    "lng": -74.0032253,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Family Meal at Blue Hill",
+    "place_id": "ChIJi9BURJFZwokRDcqvIgxdXds",
+    "rating": 4.6,
+    "user_ratings_total": 1330,
+    "price_level": 4,
+    "vicinity": "75 Washington Place, New York",
+    "lat": 40.7320465,
+    "lng": -73.9996685,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Mamoun's Falafel",
+    "place_id": "ChIJr4J2gZFZwokRjJ6TX4aRu7g",
+    "rating": 4.5,
+    "user_ratings_total": 3275,
+    "price_level": 1,
+    "vicinity": "119 MacDougal Street, New York",
+    "lat": 40.7302174,
+    "lng": -74.0004276,
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Buvette",
+    "place_id": "ChIJEwHZcZNZwokR810IgyQhoZM",
+    "rating": 4.4,
+    "user_ratings_total": 4227,
+    "price_level": 3,
+    "vicinity": "42 Grove Street, New York",
+    "lat": 40.7326259,
+    "lng": -74.00432839999999,
+    "types": [
+      "bar",
+      "cafe",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  },
+  {
+    "name": "Swift Hibernian Lounge",
+    "place_id": "ChIJeRqd0JpZwokRG4UKjO1bU4I",
+    "rating": 4.5,
+    "user_ratings_total": 1021,
+    "price_level": 2,
+    "vicinity": "34 East 4th Street, New York",
+    "lat": 40.72722419999999,
+    "lng": -73.9923192,
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "source": "grid_search",
+    "grid_zone": "SoHo/NoLita"
+  }
+]

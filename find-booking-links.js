@@ -1,0 +1,17 @@
+const fs=require('fs'),path=require('path');
+const BF=path.join(__dirname,'netlify/functions/booking_lookup.json');
+const GF=path.join(__dirname,'google_restaurants.json');
+const RESY_KEY='VbWk7s3L4KiK5fzlO7JD3Q5EYolJI7n5';
+const RESY_TOK='eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzU5MTI5MDQsInVpZCI6NjM5ODUyMDYsImd0IjoiY29uc3VtZXIiLCJncyI6W10sImV4dHJhIjp7Imd1ZXN0X2lkIjoxOTE0MTU2MTd9fQ.AbLsC4mROj3TN9otRtBL7UikUVDg4zBJInRJ_gHWiQ6hzuW7eY0zvPLeUhJyW2bokab4DO0jZXxeobiW2ANUCzI0AT8jENhBeyTE1HSUVcmH3ICRj3NIpbfNTGtFuhHgB_jjOe09EYoAc1sao3BDBgCiR1fNTXjlTmd4HYTkazZRH288';
+const RH={'Authorization':`ResyAPI api_key="${RESY_KEY}"`,'X-Resy-Auth-Token':RESY_TOK,'X-Resy-Universal-Auth':RESY_TOK,'Content-Type':'application/json','User-Agent':'Mozilla/5.0','Origin':'https://resy.com','Referer':'https://resy.com/','Accept':'application/json'};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+let BL=JSON.parse(fs.readFileSync(BF,'utf8'));
+let GL=JSON.parse(fs.readFileSync(GF,'utf8'));
+function cn(n){return n.toLowerCase().replace(/\(.*\)/g,'').replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim()}
+function has(n){const c=cn(n);for(const k of Object.keys(BL)){if(cn(k)===c){const u=BL[k].url||'';if(u.includes('resy.com')||u.includes('opentable.com'))return true}}return false}
+function ms(a,b){const ca=cn(a),cb=cn(b);if(ca===cb)return 1;if(ca.includes(cb)||cb.includes(ca))return .9;const sw=['the','and','of','at','in','on','by','a','an','bar','restaurant','cafe','grill','kitchen'];const wa=ca.split(' ').filter(w=>w.length>1&&!sw.includes(w));const wb=cb.split(' ').filter(w=>w.length>1&&!sw.includes(w));if(!wa.length||!wb.length)return 0;const ma=wa.filter(w=>wb.includes(w));const mb=wb.filter(w=>wa.includes(w));return Math.min(ma.length/wa.length,mb.length/wb.length)}
+const NYC=['new york','brooklyn','queens','bronx','long island city','astoria','jersey city','hoboken','staten island'];
+function isNYC(l){if(!l)return false;return NYC.some(c=>l.toLowerCase().includes(c))}
+async function searchResy(name){try{const r=await fetch('https://api.resy.com/3/venuesearch/search',{method:'POST',headers:RH,body:JSON.stringify({query:cn(name),geo:{latitude:40.7128,longitude:-74.006},types:['venue'],per_page:5})});if(!r.ok)return null;const d=await r.json();const hits=d?.search?.hits||[];if(!hits.length)return null;let best=null,bs=0;for(const h of hits){if(!isNYC(h.locality||h.location?.name||''))continue;const s=ms(name,h.name||'');if(s>bs){bs=s;best={name:h.name,slug:h.url_slug,score:s}}}if(best&&bs>=.75)return{name:best.name,slug:best.slug,url:`https://resy.com/cities/ny/${best.slug}`,score:bs};return null}catch(e){return null}}
+async function main(){console.log(`\n🔍 RESY LINK FINDER (${GL.length} restaurants)\n`);let rf=0,sk=0,nf=0;const ne={};for(let i=0;i<GL.length;i++){const{name}=GL[i];if(!name||name.length<3||/^\d/.test(name)){sk++;continue}if(has(name)){sk++;continue}process.stdout.write(`[${i+1}/${GL.length}] ${name}...`);const rr=await searchResy(name);if(rr){console.log(` ✅ ${rr.name} (${rr.slug})`);ne[name.toLowerCase().trim()]={platform:'resy',url:rr.url};rf++}else{console.log(` ❌`);nf++}await sleep(1000)}console.log(`\n${'═'.repeat(40)}\n✅ Resy: ${rf} | ❌ Not found: ${nf} | ⏭️ Skip: ${sk} | 🆕 New: ${Object.keys(ne).length}`);if(Object.keys(ne).length>0){const m={...BL,...ne};fs.writeFileSync(BF,JSON.stringify(m,null,2));console.log(`💾 booking_lookup.json: ${Object.keys(BL).length} → ${Object.keys(m).length}`);}console.log('Done!\n')}
+main();

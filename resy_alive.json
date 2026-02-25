@@ -1,0 +1,567 @@
+[
+  {
+    "key": "peter luger steak house",
+    "url": "https://resy.com/cities/ny/peter-luger-steak-house",
+    "resyName": "Peter Luger Steak House"
+  },
+  {
+    "key": "catch nyc",
+    "url": "https://resy.com/cities/new-york-ny/venues/catch-nyc",
+    "resyName": "Catch New York"
+  },
+  {
+    "key": "bonnies",
+    "url": "https://resy.com/cities/ny/bonnies",
+    "resyName": "Bonnie's"
+  },
+  {
+    "key": "keens",
+    "url": "https://resy.com/cities/ny/keens-steakhouse",
+    "resyName": "Keens Steakhouse"
+  },
+  {
+    "key": "la tete d'or",
+    "url": "https://resy.com/cities/ny/la-tete-dor",
+    "resyName": "La Tête d’Or by Daniel"
+  },
+  {
+    "key": "lysee",
+    "url": "https://resy.com/cities/ny/lysee",
+    "resyName": "Lysée"
+  },
+  {
+    "key": "al di la",
+    "url": "https://resy.com/cities/ny/al-di-la-trattoria",
+    "resyName": "al di là Trattoria"
+  },
+  {
+    "key": "swoonys",
+    "url": "https://resy.com/cities/ny/swoonys",
+    "resyName": "Swoony's"
+  },
+  {
+    "key": "jean georges",
+    "url": "https://resy.com/cities/ny/jean-georges",
+    "resyName": "Jean-Georges"
+  },
+  {
+    "key": "sadelles",
+    "url": "https://resy.com/cities/ny/sadelles",
+    "resyName": "Sadelle's"
+  },
+  {
+    "key": "lords",
+    "url": "https://resy.com/cities/ny/lords",
+    "resyName": "Lord's"
+  },
+  {
+    "key": "harts",
+    "url": "https://resy.com/cities/ny/harts",
+    "resyName": "Hart’s"
+  },
+  {
+    "key": "nom wah",
+    "url": "https://resy.com/cities/ny/nom-wah-tea-parlor",
+    "resyName": "Nom Wah Tea Parlor"
+  },
+  {
+    "key": "empellon",
+    "url": "https://resy.com/cities/ny/empellon",
+    "resyName": "Empellón"
+  },
+  {
+    "key": "has snack bar",
+    "url": "https://resy.com/cities/ny/has-snack-bar",
+    "resyName": "Ha's Snack Bar"
+  },
+  {
+    "key": "agis counter",
+    "url": "https://resy.com/cities/ny/agis-counter",
+    "resyName": "Agi's Counter"
+  },
+  {
+    "key": "cervos",
+    "url": "https://resy.com/cities/ny/cervos",
+    "resyName": "Cervo’s"
+  },
+  {
+    "key": "chavelas",
+    "url": "https://resy.com/cities/ny/chavelas",
+    "resyName": "Chavela's"
+  },
+  {
+    "key": "málà project",
+    "url": "https://resy.com/cities/ny/mala-project",
+    "resyName": "MáLà Project 53rd St"
+  },
+  {
+    "key": "russ and daughters cafe",
+    "url": "https://resy.com/cities/ny/russ-and-daughters-cafe",
+    "resyName": "Russ & Daughters Cafe"
+  },
+  {
+    "key": "the dining room at gramercy tavern",
+    "url": "https://resy.com/cities/ny/gramercy-tavern",
+    "resyName": "The Tavern at Gramercy Tavern"
+  },
+  {
+    "key": "the tavern at gramercy tavern",
+    "url": "https://resy.com/cities/ny/gramercy-tavern",
+    "resyName": "The Tavern at Gramercy Tavern"
+  },
+  {
+    "key": "rezdôra",
+    "url": "https://resy.com/cities/new-york-ny/venues/rezdora",
+    "resyName": "Rezdôra"
+  },
+  {
+    "key": "glin thai bistro",
+    "url": "https://resy.com/cities/ny/glin-thai-bistro",
+    "resyName": "Glin Thai Bistro"
+  },
+  {
+    "key": "korkscrew bistro",
+    "url": "https://resy.com/cities/ny/korkscrew-bistro",
+    "resyName": "Korkscrew Bistro"
+  },
+  {
+    "key": "raval steakhouse",
+    "url": "https://resy.com/cities/ny/raval-steakhouse",
+    "resyName": "Raval Steakhouse"
+  },
+  {
+    "key": "bua thai ramen & robata grill",
+    "url": "https://resy.com/cities/ny/bua-thai-ramen-and-robata-grill",
+    "resyName": "Bua Thai Ramen & Robata Grill"
+  },
+  {
+    "key": "the horny ram",
+    "url": "https://resy.com/cities/ny/the-horny-ram",
+    "resyName": "The Horny Ram"
+  },
+  {
+    "key": "barnea bistro",
+    "url": "https://resy.com/cities/ny/barnea-bistro",
+    "resyName": "Barnea Bistro"
+  },
+  {
+    "key": "the good good",
+    "url": "https://resy.com/cities/ny/the-good-good",
+    "resyName": "The Good Good"
+  },
+  {
+    "key": "fortuna nyc",
+    "url": "https://resy.com/cities/ny/fortuna-nyc",
+    "resyName": "Fortuna NYC"
+  },
+  {
+    "key": "the dead rabbit",
+    "url": "https://resy.com/cities/ny/the-dead-rabbit",
+    "resyName": "The Dead Rabbit New York City"
+  },
+  {
+    "key": "haswell green's",
+    "url": "https://resy.com/cities/ny/haswell-greens",
+    "resyName": "Haswell Green's"
+  },
+  {
+    "key": "isabelle's osteria",
+    "url": "https://resy.com/cities/ny/isabelles-osteria",
+    "resyName": "Isabelle's Osteria"
+  },
+  {
+    "key": "suram sushi & ramen",
+    "url": "https://resy.com/cities/ny/suram-sushi-and-ramen",
+    "resyName": "Suram Sushi & Ramen"
+  },
+  {
+    "key": "tabaré bushwick",
+    "url": "https://resy.com/cities/ny/tabare-bushwick",
+    "resyName": "Tabare Bushwick"
+  },
+  {
+    "key": "frankie's restaurant arthur avenue",
+    "url": "https://resy.com/cities/ny/frankies-restaurant-arthur-avenue",
+    "resyName": "Frankie's Restaurant Arthur Avenue"
+  },
+  {
+    "key": "friedman's",
+    "url": "https://resy.com/cities/ny/friedmans",
+    "resyName": "Friedman's"
+  },
+  {
+    "key": "sushi w - ues",
+    "url": "https://resy.com/cities/ny/sushi-w-ues",
+    "resyName": "Sushi W - UES"
+  },
+  {
+    "key": "the common park slope",
+    "url": "https://resy.com/cities/ny/the-common-park-slope",
+    "resyName": "The Common - Park Slope"
+  },
+  {
+    "key": "el pingüino",
+    "url": "https://resy.com/cities/ny/el-pinguino",
+    "resyName": "El Pingüino"
+  },
+  {
+    "key": "sahara's turkish cuisine",
+    "url": "https://resy.com/cities/ny/saharas-turkish-cuisine",
+    "resyName": "Sahara's Turkish Cuisine"
+  },
+  {
+    "key": "pescada new york",
+    "url": "https://resy.com/cities/ny/pescada-new-york",
+    "resyName": "Pescada New York"
+  },
+  {
+    "key": "gitano nyc",
+    "url": "https://resy.com/cities/ny/gitano-nyc",
+    "resyName": "GITANO NYC"
+  },
+  {
+    "key": "east harlem bottling co.",
+    "url": "https://resy.com/cities/ny/east-harlem-bottling-co",
+    "resyName": "East Harlem Bottling Co."
+  },
+  {
+    "key": "tsion cafe",
+    "url": "https://resy.com/cities/ny/tsion-cafe",
+    "resyName": "Tsion Cafe"
+  },
+  {
+    "key": "roman's",
+    "url": "https://resy.com/cities/ny/romans",
+    "resyName": "Roman's"
+  },
+  {
+    "key": "macosa trattoria",
+    "url": "https://resy.com/cities/ny/macosa-trattoria",
+    "resyName": "Macosa Trattoria"
+  },
+  {
+    "key": "the mary lane",
+    "url": "https://resy.com/cities/ny/the-mary-lane",
+    "resyName": "The Mary Lane"
+  },
+  {
+    "key": "bar bête",
+    "url": "https://resy.com/cities/ny/bar-bete",
+    "resyName": "Bar Bête"
+  },
+  {
+    "key": "for all things good bed-stuy",
+    "url": "https://resy.com/cities/ny/for-all-things-good-bed-stuy",
+    "resyName": "For All Things Good - Bed Stuy"
+  },
+  {
+    "key": "briscola trattoria",
+    "url": "https://resy.com/cities/ny/briscola-trattoria",
+    "resyName": "Briscola Trattoria"
+  },
+  {
+    "key": "the wolfe",
+    "url": "https://resy.com/cities/ny/the-wolfe",
+    "resyName": "The Wolfe"
+  },
+  {
+    "key": "the cabinet mezcal bar",
+    "url": "https://resy.com/cities/ny/the-cabinet-mezcal-bar",
+    "resyName": "The Cabinet Mezcal Bar"
+  },
+  {
+    "key": "sushi w - east village",
+    "url": "https://resy.com/cities/ny/sushi-w-east-village",
+    "resyName": "Sushi W - East Village"
+  },
+  {
+    "key": "city tavern & table",
+    "url": "https://resy.com/cities/ny/city-tavern-and-table",
+    "resyName": "City Tavern & Table"
+  },
+  {
+    "key": "jacob's pickles",
+    "url": "https://resy.com/cities/ny/jacobs-pickles",
+    "resyName": "Jacob's Pickles"
+  },
+  {
+    "key": "au za'atar - midtown east",
+    "url": "https://resy.com/cities/ny/au-zaatar-midtown-east",
+    "resyName": "Au Za’atar Midtown East - 58th Street"
+  },
+  {
+    "key": "heidelberg restaurant",
+    "url": "https://resy.com/cities/ny/heidelberg-restaurant",
+    "resyName": "Heidelberg Restaurant"
+  },
+  {
+    "key": "the bonnie",
+    "url": "https://resy.com/cities/ny/the-bonnie",
+    "resyName": "The Bonnie"
+  },
+  {
+    "key": "the edge harlem",
+    "url": "https://resy.com/cities/ny/the-edge-harlem",
+    "resyName": "The Edge Harlem"
+  },
+  {
+    "key": "the queensboro",
+    "url": "https://resy.com/cities/ny/the-queensboro",
+    "resyName": "The Queensboro"
+  },
+  {
+    "key": "the naked pig",
+    "url": "https://resy.com/cities/ny/the-naked-pig",
+    "resyName": "The Naked Pig"
+  },
+  {
+    "key": "red sorghum 夜宴",
+    "url": "https://resy.com/cities/ny/red-sorghum",
+    "resyName": "Red Sorghum 夜宴"
+  },
+  {
+    "key": "lokal mediterranean kitchen",
+    "url": "https://resy.com/cities/ny/lokal-mediterranean-kitchen",
+    "resyName": "Lokal Mediterranean Kitchen"
+  },
+  {
+    "key": "giovanni's brooklyn eats",
+    "url": "https://resy.com/cities/ny/giovannis-brooklyn-eats",
+    "resyName": "Giovanni’s Brooklyn Eats"
+  },
+  {
+    "key": "greenpoint fish & lobster co.",
+    "url": "https://resy.com/cities/ny/greenpoint-fish-and-lobster-co",
+    "resyName": "Greenpoint Fish & Lobster Co."
+  },
+  {
+    "key": "queen’s room",
+    "url": "https://resy.com/cities/ny/queens-room",
+    "resyName": "Queen's Room"
+  },
+  {
+    "key": "trad room",
+    "url": "https://resy.com/cities/ny/trad-room",
+    "resyName": "Trad Room"
+  },
+  {
+    "key": "locanda vini & olii",
+    "url": "https://resy.com/cities/ny/locanda-vini-and-olii",
+    "resyName": "Locanda Vini & Olii"
+  },
+  {
+    "key": "the clam",
+    "url": "https://resy.com/cities/ny/the-clam",
+    "resyName": "The Clam"
+  },
+  {
+    "key": "tía pol",
+    "url": "https://resy.com/cities/ny/tia-pol",
+    "resyName": "Tía Pol"
+  },
+  {
+    "key": "hav & mar",
+    "url": "https://resy.com/cities/ny/hav-and-mar",
+    "resyName": "Hav & Mar"
+  },
+  {
+    "key": "beefbar new york",
+    "url": "https://resy.com/cities/ny/beefbar-new-york",
+    "resyName": "Beefbar New York"
+  },
+  {
+    "key": "el parador cafe",
+    "url": "https://resy.com/cities/ny/el-parador-cafe",
+    "resyName": "El Parador Cafe"
+  },
+  {
+    "key": "velvet room",
+    "url": "https://resy.com/cities/ny/velvet-room",
+    "resyName": "Velvet Room"
+  },
+  {
+    "key": "l'antagoniste",
+    "url": "https://resy.com/cities/ny/lantagoniste",
+    "resyName": "L'Antagoniste"
+  },
+  {
+    "key": "café maud",
+    "url": "https://resy.com/cities/ny/cafe-maud",
+    "resyName": "Café Maud - East Village"
+  },
+  {
+    "key": "albert’s bar",
+    "url": "https://resy.com/cities/ny/alberts-bar",
+    "resyName": "Albert's Bar"
+  },
+  {
+    "key": "gertrude’s",
+    "url": "https://resy.com/cities/ny/gertrudes",
+    "resyName": "gertrude's"
+  },
+  {
+    "key": "panzón",
+    "url": "https://resy.com/cities/ny/panzon",
+    "resyName": "Panzón"
+  },
+  {
+    "key": "the fly",
+    "url": "https://resy.com/cities/ny/the-fly",
+    "resyName": "The Fly"
+  },
+  {
+    "key": "a10 kitchen",
+    "url": "https://resy.com/cities/ny/a10-kitchen",
+    "resyName": "A10 Kitchen"
+  },
+  {
+    "key": "the snail",
+    "url": "https://resy.com/cities/ny/the-snail",
+    "resyName": "The Snail"
+  },
+  {
+    "key": "playa betty’s",
+    "url": "https://resy.com/cities/ny/playa-bettys",
+    "resyName": "Playa Betty's"
+  },
+  {
+    "key": "adrienne's pizzabar",
+    "url": "https://resy.com/cities/ny/adriennes-pizzabar",
+    "resyName": "Adrienne's Pizzabar"
+  },
+  {
+    "key": "blue willow 夜来湘",
+    "url": "https://resy.com/cities/ny/blue-willow",
+    "resyName": "Blue Willow 夜来湘"
+  },
+  {
+    "key": "london lennie's",
+    "url": "https://resy.com/cities/ny/london-lennies",
+    "resyName": "London Lennie's"
+  },
+  {
+    "key": "12 chairs café",
+    "url": "https://resy.com/cities/ny/12-chairs-cafe",
+    "resyName": "12 Chairs Cafe Brooklyn"
+  },
+  {
+    "key": "oliver's astoria",
+    "url": "https://resy.com/cities/ny/olivers-astoria",
+    "resyName": "Oliver's Astoria"
+  },
+  {
+    "key": "hi-collar",
+    "url": "https://resy.com/cities/ny/hi-collar",
+    "resyName": "Hi-Collar"
+  },
+  {
+    "key": "banc cafe",
+    "url": "https://resy.com/cities/ny/banc-cafe",
+    "resyName": "Banc Cafe"
+  },
+  {
+    "key": "walter's",
+    "url": "https://resy.com/cities/ny/walters",
+    "resyName": "Walter's"
+  },
+  {
+    "key": "café henri",
+    "url": "https://resy.com/cities/ny/cafe-henri",
+    "resyName": "Cafe Henri"
+  },
+  {
+    "key": "the tyger",
+    "url": "https://resy.com/cities/ny/the-tyger",
+    "resyName": "The Tyger"
+  },
+  {
+    "key": "mémé mediterranean",
+    "url": "https://resy.com/cities/ny/meme-mediterranean",
+    "resyName": "Mémé Mediterranean"
+  },
+  {
+    "key": "café paulette",
+    "url": "https://resy.com/cities/ny/cafe-paulette",
+    "resyName": "Cafe Paulette"
+  },
+  {
+    "key": "rosemary's east",
+    "url": "https://resy.com/cities/ny/rosemarys-east",
+    "resyName": "Rosemary's East"
+  },
+  {
+    "key": "les enfants de bohème",
+    "url": "https://resy.com/cities/ny/les-enfants-de-boheme",
+    "resyName": "Les Enfants de Boheme"
+  },
+  {
+    "key": "ammazzacaffè",
+    "url": "https://resy.com/cities/ny/ammazzacaffe",
+    "resyName": "Ammazzacaffè"
+  },
+  {
+    "key": "onieal's",
+    "url": "https://resy.com/cities/ny/onieals",
+    "resyName": "Onieal's"
+  },
+  {
+    "key": "the tang",
+    "url": "https://resy.com/cities/ny/the-tang",
+    "resyName": "The Tang"
+  },
+  {
+    "key": "nightly's",
+    "url": "https://resy.com/cities/ny/nightlys",
+    "resyName": "Nightly's"
+  },
+  {
+    "key": "the residence of mr. moto",
+    "url": "https://resy.com/cities/ny/the-residence-of-mr-moto",
+    "resyName": "The Residence of Mr. Moto"
+  },
+  {
+    "key": "b'artusi",
+    "url": "https://resy.com/cities/ny/bartusi",
+    "resyName": "B'artusi"
+  },
+  {
+    "key": "hoexter's",
+    "url": "https://resy.com/cities/ny/hoexters",
+    "resyName": "Hoexters"
+  },
+  {
+    "key": "the lonesome club",
+    "url": "https://resy.com/cities/ny/the-lonesome-club",
+    "resyName": "The Lonesome Club"
+  },
+  {
+    "key": "omakase osukaa",
+    "url": "https://resy.com/cities/new-york-ny/venues/omakase-osukaa",
+    "resyName": "Omakase Osukaa LIC"
+  },
+  {
+    "key": "au cheval nyc",
+    "url": "https://resy.com/cities/new-york-ny/venues/au-cheval-nyc",
+    "resyName": "Au Cheval - NYC"
+  },
+  {
+    "key": "konban nyc",
+    "url": "https://resy.com/cities/new-york-ny/venues/konban",
+    "resyName": "Konban"
+  },
+  {
+    "key": "tara rose| nyc",
+    "url": "https://resy.com/cities/new-york-ny/venues/tara-rose",
+    "resyName": "Tara Rose"
+  },
+  {
+    "key": "sushi akira ues",
+    "url": "https://resy.com/cities/new-york-ny/venues/sushi-akira",
+    "resyName": "Sushi Akira"
+  },
+  {
+    "key": "red onion indian lunch brunch dinner",
+    "url": "https://resy.com/cities/ny/red-onion",
+    "resyName": "Red Onion"
+  }
+]
