@@ -7002,5 +7002,665 @@
   "red onion indian lunch brunch dinner": {
     "platform": "resy",
     "url": "https://resy.com/cities/ny/red-onion"
+  },
+  "taikun sushi": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/taikun-sushi"
+  },
+  "zara terrace mediterranean restaurant": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/zara-terrace-mediterranean-cuisine"
+  },
+  "hey thai": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/hey-thai"
+  },
+  "ahgassi korean barbecue": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/Ahgassi-Korean-Barbecue-NYC"
+  },
+  "anixi mediterranean vegan restaurant": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/anixi"
+  },
+  "maison close restaurant": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/maison-close"
+  },
+  "nsv kitchen by next stop vegan": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/next-stop-vegan"
+  },
+  "gurumé": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/gurume"
+  },
+  "dar525": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/dar525-greenpoint"
+  },
+  "boni and mott": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/boni-and-mott"
+  },
+  "pearl street restaurant": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/pearl-street-supper-club"
+  },
+  "one world pizza": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/one-world-pizza"
+  },
+  "la donna re's": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/donna-ny"
+  },
+  "norimen": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/norimen"
+  },
+  "marseille": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/marseille"
+  },
+  "citizens of chelsea, a breakfast restaurant & cafe": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/citizens-of-chelsea"
+  },
+  "acadia": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/acadia"
+  },
+  "witch topokki | all you can eat korean restaurant": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/witch-topokki"
+  },
+  "bukhara grill : indian spice rave & catering nyc (by raja jhanjee)": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/bukhara-grill-indian-spice-rave-nyc"
+  },
+  "haam caribbean plant cuisine": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/75431"
+  },
+  "korai kitchen (no dine-in without reservations!)": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/korai-kitchen"
+  },
+  "le gratin": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/le-gratin"
+  },
+  "tasca nyc": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/tasca"
+  },
+  "oncheon nyc": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/oncheon-nyc"
+  },
+  "sound + fury brewery and kitchen": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/Sound-and-Fury-Brewery-and-Kitchen"
+  },
+  "smash house brooklyn": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/house-brooklyn"
+  },
+  "brbq": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/brbq"
+  },
+  "kesté pizza e vino": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/keste-pizza-and-vino"
+  },
+  "balzem": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/balzem"
+  },
+  "le tout va bien - french restaurant": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/le-tout-va-bien"
+  },
+  "yogi by barnjoo": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/yogi-by-barnjoo"
+  },
+  "court street": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/court-street-restaurant-and-bar"
+  },
+  "indn small plates & cocktails": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/indn-small-plates-and-cocktails"
+  },
+  "kyuramen - upper west side": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/canto-upper-west-side"
+  },
+  "casa cipriani new york": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/casa-d-angelo-nyc"
+  },
+  "tara kitchen tribeca": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/tara-kitchen-tribeca"
+  },
+  "the roxy jc": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/the-roxy"
+  },
+  "diva royale drag queen show nyc": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/queen"
+  },
+  "boqueria w40th": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/boqueria-w40th-st"
+  },
+  "planta queen": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/planta-queen-nomad"
+  },
+  "kuu": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/kuun"
+  },
+  "dear irving on hudson rooftop bar": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/dear-irving-on-hudson"
+  },
+  "okonomi": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/okonomi-brooklyn"
+  },
+  "graziella's of brooklyn wood burning pizza": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/graziellas-restaurant-and-wood-burning-pizza"
+  },
+  "st. mazie bar & supper club": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/st-mazie"
+  },
+  "bonafini italian restaurant": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/3982"
+  },
+  "sweetwater": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/sweetwater-restaurant"
+  },
+  "lola's tapas bar": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/lolas-ny"
+  },
+  "la sirène soho": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/la-sirene-soho"
+  },
+  "schilling restaurant & bar": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/schilling"
+  },
+  "genesis house": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/genesis-house-restaurant"
+  },
+  "kyuramen - long island city": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/tacombi-lic"
+  },
+  "martha's": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/marthas-nj"
+  },
+  "mariachi mexican cantina": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/mariachi-mexican-cantina"
+  },
+  "ayada": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/ayada-thai-chelsea"
+  },
+  "two hands": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/two-hands-tribeca"
+  },
+  "the drunken munkey - ues": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/drunken-munkey"
+  },
+  "takumen": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/takumen"
+  },
+  "dear maud": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/dear-maud"
+  },
+  "palermo": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/palermo-gramercy"
+  },
+  "nonna dora's 2nd avenue": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/nonna-doras"
+  },
+  "yuan": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/hwa-yuan-szechuan"
+  },
+  "le fleur rouge | creative chinese-french dining in park slope": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/le-fleur-rouge"
+  },
+  "casa tua new york": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/casa-d-angelo-nyc"
+  },
+  "bella blue": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/bella-blu"
+  },
+  "forgione": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/marc-forgione"
+  },
+  "squire's diner": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/diner"
+  },
+  "zutto japanese american pub": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/zutto-japanese-american-bar-tribeca"
+  },
+  "boqueria soho": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/boqueria-soho"
+  },
+  "russ & daughters": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/russ-and-daughters-cafe"
+  },
+  "il buco alimentari & vineria": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/il-buco-alimentari"
+  },
+  "essex": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/essex"
+  },
+  "the ten bells": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/the-ten-bells"
+  },
+  "essex market": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/essex"
+  },
+  "the smith": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/the-smith-nomad"
+  },
+  "family meal at blue hill": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/family-meal-at-blue-hill"
+  },
+  "boqueria flatiron": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/boqueria-flatiron"
+  },
+  "zizi": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/zizi"
+  },
+  "l'artusi": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/lartusi-ny"
+  },
+  "morandi": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/morandi"
+  },
+  "perry st": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/perry-st"
+  },
+  "motorino pizza": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/motorino"
+  },
+  "supper": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/supper"
+  },
+  "mayamezcal": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/mayamezcal"
+  },
+  "ilili nomad": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/ilili-nomad"
+  },
+  "vallata": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/vallata-ny"
+  },
+  "craft new york": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/craft-new-york"
+  },
+  "ayza wine & chocolate bar": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/ayza-wine-and-chocolate-bar"
+  },
+  "franchia vegan café": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/franchia"
+  },
+  "urban vegan kitchen": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/urban-vegan-kitchen"
+  },
+  "havana central times square": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/havana-central-times-square"
+  },
+  "ellen's stardust diner": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/diner"
+  },
+  "lips drag queen show palace restaurant & bar": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/queen"
+  },
+  "victor's cafe cuban restaurant": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/victors-cafe"
+  },
+  "fresco by scotto": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/fresco-by-scotto"
+  },
+  "café boulud at maison barnes": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/cafe-boulud-at-maison-barnes"
+  },
+  "the penrose bar": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/penrose"
+  },
+  "bella blu": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/bella-blu"
+  },
+  "kashkaval garden": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/kashkaval-garden"
+  },
+  "guantanamera": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/guantanamera"
+  },
+  "peacefood - upper west side": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/canto-upper-west-side"
+  },
+  "salumeria rosi": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/salumeria-rosi-east-village"
+  },
+  "tessa": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/tessa"
+  },
+  "mile end deli": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/mile-end-delicatessen"
+  },
+  "henry public": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/henry-public"
+  },
+  "chez moi": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/chez-moi"
+  },
+  "dellarocco's brick oven pizza": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/basil-brick-oven-pizza"
+  },
+  "traif": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/traif"
+  },
+  "allswell": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/allswell"
+  },
+  "mable's smokehouse & banquet hall": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/marbles-smokehouse"
+  },
+  "samurai mama": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/samurai-mama"
+  },
+  "mesa coyoacan": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/mesa-coyoacan"
+  },
+  "karczma": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/karczma-polish-restaurant"
+  },
+  "xixa": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/xixa"
+  },
+  "vinnie's pizzeria": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/vinnies-pizzeria"
+  },
+  "bonnie's grill": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/bonnies"
+  },
+  "born": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/el-born"
+  },
+  "gen": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/gen-japanese-restaurant"
+  },
+  "marco polo": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/marco-polo-ristorante"
+  },
+  "red hook lobster pound": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/red-hook-lobster-pound"
+  },
+  "deniz": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/deniz-turkish-mediterranean"
+  },
+  "sicily's best": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/sicily"
+  },
+  "tanoreen": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/tanoreen"
+  },
+  "gino's": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/ginos-restaurant"
+  },
+  "cebu": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/cebu-bistro"
+  },
+  "the brooklyn firefly": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/the-brooklyn-firefly"
+  },
+  "sarava - the modern bistro": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/the-modern"
+  },
+  "ends meat": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/meat"
+  },
+  "irish haven": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/haven"
+  },
+  "vesta trattoria & wine bar": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/vesta"
+  },
+  "basil brick oven pizza": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/basil-brick-oven-pizza"
+  },
+  "ovelia": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/ovelia"
+  },
+  "favela grill steakhouse": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/favela-grill"
+  },
+  "jackson hole diner": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/diner"
+  },
+  "court square diner": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/diner"
+  },
+  "jora": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/jora"
+  },
+  "veranda": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/veranda-restaurant"
+  },
+  "jimmy's trattoria": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/jimmy"
+  },
+  "la sova": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/sova-2-vinohrady"
+  },
+  "kam rai thai": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/kam-rai-thai-astoria"
+  },
+  "kpot korean bbq & hot pot": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/kpot-korean-bbq-and-hot-pot-staten-island"
+  },
+  "sozai japanese restaurant (izakaya ramen)": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/sozai-japanese-izakaya-ramen-new-york"
+  },
+  "el gallo taqueria": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/el-gallo-taqueria-miami"
+  },
+  "upside pizza": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/rustic-pizza-and-pasteria-staten-island"
+  },
+  "yezo thai isankaya": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/yezo-thai-isankaya-new-york"
+  },
+  "fish grill - brooklyn": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/islands-fish-grill-indialantic"
+  },
+  "mexique cafe": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/bistro-mexique-san-miguel-de-allende"
+  },
+  "bergen hall": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/clinton-hall-new-york-2"
+  },
+  "patiala indian grill & bar": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/patiala-new-york"
+  },
+  "dao dim sum & chinese cuisine": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/dao-dim-sum-and-chinese-cuisine-new-york"
+  },
+  "tipsy shanghai 蘇杭餐厅": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/tipsy-shanghai-new-york-3"
+  },
+  "the hotel chelsea": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/teruko-the-hotel-chelsea-new-york"
+  },
+  "cinco de mayo": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/cinco-de-mayo-bayside"
+  },
+  "crunchy's": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/crunchys-east-lansing"
+  },
+  "dar lbahja": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/dar-lbahja-queens-county"
+  },
+  "rogers burgers": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/the-block-rogers"
+  },
+  "pier 17": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/industry-kitchen-new-york"
+  },
+  "mamasita bar & grill": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/mamasita-bar-and-grill"
+  },
+  "nan xiang xiao long bao": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/nan-xiang-xiao-long-bao-parent-new-york"
+  },
+  "dim sum sam": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/dim-sum-bloom-new-york"
+  },
+  "bombay chowk": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/bombay-chowk-new-york"
+  },
+  "inca paisa restaurant astoria": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/inca-paisa-astoria"
+  },
+  "muse thai": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/muse-thai-kings-county"
+  },
+  "buena vista restaurant & bar": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/buena-vista-bar"
+  },
+  "zoi mediterranean nomad": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/zoi-mediterranean-nomad-new-york"
   }
 }
