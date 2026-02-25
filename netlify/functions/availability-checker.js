@@ -23,7 +23,7 @@
  * HOW IT WORKS:
  *   Resy: Calls their public API endpoint (same one their website uses)
  *   OpenTable: Calls their public availability endpoint
- *   Both: No login, no API key, no auth needed — public-facing endpoints
+ *   Both: Uses authenticated API endpoints (Resy requires auth token)
  */
 
 const fs = require('fs');
@@ -91,10 +91,13 @@ async function checkResyAvailability(name, url, date, partySize) {
     const findUrl = `https://api.resy.com/3/venue?url_slug=${slug}&location=ny`;
     const findResp = await fetch(findUrl, {
       headers: {
-        'Authorization': 'ResyAPI api_key="VbWk7s3L4KiK5fhVUFDGRKqBj7olCY4C"',
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+        'Authorization': 'ResyAPI api_key="VbWk7s3L4KiK5fzlO7JD3Q5EYolJI7n5"',
+        'X-Resy-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzU5MTI5MDQsInVpZCI6NjM5ODUyMDYsImd0IjoiY29uc3VtZXIiLCJncyI6W10sImV4dHJhIjp7Imd1ZXN0X2lkIjoxOTE0MTU2MTd9fQ.AbLsC4mROj3TN9otRtBL7UikUVDg4zBJInRJ_gHWiQ6hzuW7eY0zvPLeUhJyW2bokab4DO0jZXxeobiW2ANUCzI0AT8jENhBeyTE1HSUVcmH3ICRj3NIpbfNTGtFuhHgB_jjOe09EYoAc1sao3BDBgCiR1fNTXjlTmd4HYTkazZRH288',
+        'X-Resy-Universal-Auth': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzU5MTI5MDQsInVpZCI6NjM5ODUyMDYsImd0IjoiY29uc3VtZXIiLCJncyI6W10sImV4dHJhIjp7Imd1ZXN0X2lkIjoxOTE0MTU2MTd9fQ.AbLsC4mROj3TN9otRtBL7UikUVDg4zBJInRJ_gHWiQ6hzuW7eY0zvPLeUhJyW2bokab4DO0jZXxeobiW2ANUCzI0AT8jENhBeyTE1HSUVcmH3ICRj3NIpbfNTGtFuhHgB_jjOe09EYoAc1sao3BDBgCiR1fNTXjlTmd4HYTkazZRH288',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36',
         'Origin': 'https://resy.com',
-        'Referer': 'https://resy.com/'
+        'Referer': 'https://resy.com/',
+        'Accept': 'application/json, text/plain, */*'
       }
     });
 
@@ -111,10 +114,13 @@ async function checkResyAvailability(name, url, date, partySize) {
     const availUrl = `https://api.resy.com/4/find?lat=40.7128&long=-74.006&day=${date}&party_size=${partySize}&venue_id=${venueId}`;
     const availResp = await fetch(availUrl, {
       headers: {
-        'Authorization': 'ResyAPI api_key="VbWk7s3L4KiK5fhVUFDGRKqBj7olCY4C"',
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+        'Authorization': 'ResyAPI api_key="VbWk7s3L4KiK5fzlO7JD3Q5EYolJI7n5"',
+        'X-Resy-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzU5MTI5MDQsInVpZCI6NjM5ODUyMDYsImd0IjoiY29uc3VtZXIiLCJncyI6W10sImV4dHJhIjp7Imd1ZXN0X2lkIjoxOTE0MTU2MTd9fQ.AbLsC4mROj3TN9otRtBL7UikUVDg4zBJInRJ_gHWiQ6hzuW7eY0zvPLeUhJyW2bokab4DO0jZXxeobiW2ANUCzI0AT8jENhBeyTE1HSUVcmH3ICRj3NIpbfNTGtFuhHgB_jjOe09EYoAc1sao3BDBgCiR1fNTXjlTmd4HYTkazZRH288',
+        'X-Resy-Universal-Auth': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzU5MTI5MDQsInVpZCI6NjM5ODUyMDYsImd0IjoiY29uc3VtZXIiLCJncyI6W10sImV4dHJhIjp7Imd1ZXN0X2lkIjoxOTE0MTU2MTd9fQ.AbLsC4mROj3TN9otRtBL7UikUVDg4zBJInRJ_gHWiQ6hzuW7eY0zvPLeUhJyW2bokab4DO0jZXxeobiW2ANUCzI0AT8jENhBeyTE1HSUVcmH3ICRj3NIpbfNTGtFuhHgB_jjOe09EYoAc1sao3BDBgCiR1fNTXjlTmd4HYTkazZRH288',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36',
         'Origin': 'https://resy.com',
-        'Referer': 'https://resy.com/'
+        'Referer': 'https://resy.com/',
+        'Accept': 'application/json, text/plain, */*'
       }
     });
 
@@ -160,10 +166,13 @@ async function checkResyBySlug(slug, date, partySize) {
     const url = `https://api.resy.com/4/find?lat=40.7128&long=-74.006&day=${date}&party_size=${partySize}&slug=${slug}&location=ny`;
     const resp = await fetch(url, {
       headers: {
-        'Authorization': 'ResyAPI api_key="VbWk7s3L4KiK5fhVUFDGRKqBj7olCY4C"',
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+        'Authorization': 'ResyAPI api_key="VbWk7s3L4KiK5fzlO7JD3Q5EYolJI7n5"',
+        'X-Resy-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzU5MTI5MDQsInVpZCI6NjM5ODUyMDYsImd0IjoiY29uc3VtZXIiLCJncyI6W10sImV4dHJhIjp7Imd1ZXN0X2lkIjoxOTE0MTU2MTd9fQ.AbLsC4mROj3TN9otRtBL7UikUVDg4zBJInRJ_gHWiQ6hzuW7eY0zvPLeUhJyW2bokab4DO0jZXxeobiW2ANUCzI0AT8jENhBeyTE1HSUVcmH3ICRj3NIpbfNTGtFuhHgB_jjOe09EYoAc1sao3BDBgCiR1fNTXjlTmd4HYTkazZRH288',
+        'X-Resy-Universal-Auth': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzU5MTI5MDQsInVpZCI6NjM5ODUyMDYsImd0IjoiY29uc3VtZXIiLCJncyI6W10sImV4dHJhIjp7Imd1ZXN0X2lkIjoxOTE0MTU2MTd9fQ.AbLsC4mROj3TN9otRtBL7UikUVDg4zBJInRJ_gHWiQ6hzuW7eY0zvPLeUhJyW2bokab4DO0jZXxeobiW2ANUCzI0AT8jENhBeyTE1HSUVcmH3ICRj3NIpbfNTGtFuhHgB_jjOe09EYoAc1sao3BDBgCiR1fNTXjlTmd4HYTkazZRH288',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36',
         'Origin': 'https://resy.com',
-        'Referer': 'https://resy.com/'
+        'Referer': 'https://resy.com/',
+        'Accept': 'application/json, text/plain, */*'
       }
     });
 
