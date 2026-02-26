@@ -33,8 +33,8 @@
     "googleRating": 4.9,
     "googleReviewCount": 8564,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/mitr-thai-restaurant-new-york",
     "cuisine": "Thai"
   },
   {
@@ -59,8 +59,8 @@
     "googleRating": 4.9,
     "googleReviewCount": 4939,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/valla-table-new-york",
     "cuisine": "Thai"
   },
   {
@@ -85,8 +85,8 @@
     "googleRating": 4.9,
     "googleReviewCount": 4807,
     "price_level": 4,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/osteria-la-baia-new-york",
     "cuisine": "Italian"
   },
   {
@@ -176,8 +176,8 @@
     "googleRating": 4.9,
     "googleReviewCount": 3273,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/aragvi-new-york"
   },
   {
     "place_id": "ChIJR_kDyaZhwokR7UgQE1Hfup4",
@@ -277,8 +277,8 @@
     "googleRating": 4.9,
     "googleReviewCount": 1992,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/kjun-new-york",
     "cuisine": "Korean"
   },
   {
@@ -302,8 +302,8 @@
     "googleRating": 4.9,
     "googleReviewCount": 1875,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/saperavi-new-york",
     "cuisine": "American"
   },
   {
@@ -645,8 +645,8 @@
     "googleRating": 4.9,
     "googleReviewCount": 303,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/go-chin-khao-man-gai-new-york",
     "cuisine": "Thai"
   },
   {
@@ -872,8 +872,8 @@
     "googleRating": 4.9,
     "googleReviewCount": 150,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/wayne-and-sons-new-york",
     "cuisine": "American"
   },
   {
@@ -1210,8 +1210,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 9706,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/bua-thai-ramen-and-robata-grill-new-york",
     "cuisine": "Thai"
   },
   {
@@ -1249,8 +1249,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 7408,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/up-thai-new-york",
     "cuisine": "Thai"
   },
   {
@@ -1288,8 +1288,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 6424,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/la-pecora-bianca-bryant-park-new-york",
     "cuisine": "Italian"
   },
   {
@@ -1327,8 +1327,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 5207,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/la-pecora-bianca-soho-new-york",
     "cuisine": "Italian"
   },
   {
@@ -1340,8 +1340,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 4596,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/xiang-hotpot-brooklyn",
     "cuisine": "Asian"
   },
   {
@@ -1366,8 +1366,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 4362,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/lumlum-new-york",
     "cuisine": "Thai"
   },
   {
@@ -1430,8 +1430,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 3440,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/osteria-nonnino-new-york",
     "cuisine": "Italian"
   },
   {
@@ -1455,8 +1455,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 3252,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/shukette-new-york",
     "cuisine": "Middle Eastern"
   },
   {
@@ -1468,8 +1468,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 3146,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/ez-paella-and-tapas-new-york",
     "cuisine": "Spanish"
   },
   {
@@ -1519,8 +1519,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 3024,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-horny-ram-new-york",
     "cuisine": "American"
   },
   {
@@ -1545,8 +1545,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 2679,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/la-pecora-bianca-uws-new-york",
     "cuisine": "Italian"
   },
   {
@@ -1571,8 +1571,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 2408,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/la-pecora-bianca-ues-new-york",
     "cuisine": "Italian"
   },
   {
@@ -1661,8 +1661,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 1830,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/malii-gramercy-new-york",
     "cuisine": "Thai"
   },
   {
@@ -1699,8 +1699,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 1758,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/avoca-new-york"
   },
   {
     "place_id": "ChIJJa93rKRZwokRPoOmc_ta6DU",
@@ -1750,8 +1750,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 1640,
     "price_level": 4,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/barnea-bistro-new-york",
     "cuisine": "French"
   },
   {
@@ -1789,8 +1789,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 1542,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/lucciola-new-york",
     "cuisine": "Italian"
   },
   {
@@ -1918,8 +1918,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 1268,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/charles-pan-fried-chicken-new-york",
     "cuisine": "Soul Food"
   },
   {
@@ -1931,8 +1931,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 1250,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/red-chilli",
     "cuisine": "Vegetarian"
   },
   {
@@ -1983,8 +1983,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 1102,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/london-and-martin-co-new-york"
   },
   {
     "place_id": "ChIJl-l0rSdZwokReqiZ7S2yx0A",
@@ -2072,8 +2072,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 1034,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/recette",
     "cuisine": "French"
   },
   {
@@ -2085,8 +2085,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 1025,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/bangkok-2-thai-new-york",
     "cuisine": "Thai"
   },
   {
@@ -2098,8 +2098,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 1005,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/susukino-ramen-new-york",
     "cuisine": "Japanese/Ramen"
   },
   {
@@ -2175,8 +2175,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 890,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/thai-food-near-me-new-york",
     "cuisine": "Thai"
   },
   {
@@ -2239,8 +2239,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 757,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/casa-tuya-new-york",
     "cuisine": "Peruvian"
   },
   {
@@ -2265,8 +2265,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 728,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/wildflower-new-york"
   },
   {
     "place_id": "ChIJAa_myv1hwokRc-3UCg8kGCk",
@@ -2520,8 +2520,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 462,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/breeze",
     "cuisine": "Chinese"
   },
   {
@@ -2647,8 +2647,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 391,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-cactus-shop-new-york",
     "cuisine": "Mexican"
   },
   {
@@ -2673,8 +2673,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 363,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-good-good-new-york"
   },
   {
     "place_id": "ChIJBT5GEyNFwokROjngL3wkVEk",
@@ -2815,8 +2815,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 318,
     "price_level": 4,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/ren-new-york"
   },
   {
     "place_id": "ChIJcUH6w1JfwokRvTfUfgVU2rs",
@@ -2940,8 +2940,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 223,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/casa-louie-new-york",
     "cuisine": "Italian"
   },
   {
@@ -2966,8 +2966,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 211,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/bombay-grill-house-new-york",
     "cuisine": "Indian"
   },
   {
@@ -3154,8 +3154,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 151,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/fito-new-york"
   },
   {
     "place_id": "ChIJi-99IIVbwokR8Y_QFg2cyXo",
@@ -3191,8 +3191,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 148,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/tsumo-uws-new-york",
     "cuisine": "Japanese/Sushi"
   },
   {
@@ -3429,8 +3429,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 77,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/sushi-lin-upper-west-side-new-york",
     "cuisine": "Japanese"
   },
   {
@@ -3542,8 +3542,8 @@
     "googleRating": 4.8,
     "googleReviewCount": 56,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/kansha-new-york"
   },
   {
     "place_id": "ChIJGapLNftdwokRjEIZQt7zTCg",
@@ -3755,8 +3755,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 8220,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-dead-rabbit-new-york"
   },
   {
     "place_id": "ChIJNcZg81VYwokRIcQV-JL4Ewc",
@@ -3779,8 +3779,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 7481,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/thai-villa-new-york",
     "cuisine": "Thai"
   },
   {
@@ -3817,8 +3817,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 5925,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/thep-thai-restaurant-new-york",
     "cuisine": "Thai"
   },
   {
@@ -3932,8 +3932,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 4214,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/amor-loco-new-york",
     "cuisine": "Mexican"
   },
   {
@@ -3945,8 +3945,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 4181,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/loulou-new-york",
     "cuisine": "French"
   },
   {
@@ -3958,8 +3958,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 3793,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/sala-thai-new-york",
     "cuisine": "Thai"
   },
   {
@@ -3971,8 +3971,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 3613,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/la-pecora-bianca-midtown-new-york",
     "cuisine": "Italian"
   },
   {
@@ -3996,8 +3996,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 3029,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/kazunori-the-original-hand-roll-bar-new-york",
     "cuisine": "Japanese/Sushi"
   },
   {
@@ -4022,8 +4022,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 2957,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/le-monde-new-york",
     "cuisine": "French"
   },
   {
@@ -4035,8 +4035,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 2917,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/aqua-boil-new-york",
     "cuisine": "Seafood"
   },
   {
@@ -4073,8 +4073,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 2539,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/chi-restaurant-and-bar-new-york",
     "cuisine": "Chinese"
   },
   {
@@ -4099,8 +4099,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 2498,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/lucky-cat-new-york",
     "cuisine": "Japanese/Ramen"
   },
   {
@@ -4151,8 +4151,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 2094,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/mezcali-new-york",
     "cuisine": "Mexican"
   },
   {
@@ -4241,8 +4241,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 1796,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/lulu-mediterranean-grill-edgewater",
     "cuisine": "Mediterranean"
   },
   {
@@ -4254,8 +4254,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 1745,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/zoi-mediterranean-ues-new-york",
     "cuisine": "Mediterranean"
   },
   {
@@ -4329,8 +4329,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 1574,
     "price_level": 4,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/tudor-city-steakhouse-new-york",
     "cuisine": "Steakhouse"
   },
   {
@@ -4380,8 +4380,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 1553,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/kick-axe-throwing-brooklyn"
   },
   {
     "place_id": "ChIJYVvVYJ5hwokR-KpQ6FHfdG4",
@@ -4418,8 +4418,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 1523,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/leitao-new-york"
   },
   {
     "place_id": "ChIJM1oV8w32wokR9gt0ynHqypM",
@@ -4609,8 +4609,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 1219,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/lunar-new-york",
     "cuisine": "Chinese"
   },
   {
@@ -4648,8 +4648,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 1157,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-brick",
     "cuisine": "Italian/Pizza"
   },
   {
@@ -4661,8 +4661,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 1146,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/tara-rose-new-york",
     "cuisine": "American"
   },
   {
@@ -4700,8 +4700,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 1105,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/marani-restaurant"
   },
   {
     "place_id": "ChIJnb52TRRfwokRZXdUdKAr16I",
@@ -4749,8 +4749,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 1065,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/sukh-new-york",
     "cuisine": "Thai"
   },
   {
@@ -4927,8 +4927,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 828,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/anassa-taverna-astoria",
     "cuisine": "Greek"
   },
   {
@@ -4992,8 +4992,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 729,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/cucina-alba-new-york",
     "cuisine": "Italian"
   },
   {
@@ -5156,8 +5156,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 628,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/naks-new-york",
     "cuisine": "Filipino"
   },
   {
@@ -5169,8 +5169,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 590,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/tsumo-omakase-new-york",
     "cuisine": "Japanese/Sushi"
   },
   {
@@ -5257,8 +5257,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 553,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/acre",
     "cuisine": "Japanese"
   },
   {
@@ -5283,8 +5283,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 540,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/madre"
   },
   {
     "place_id": "ChIJn8RTCHZfwokRgsRAnQD-mv4",
@@ -5320,8 +5320,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 530,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/sojourn-social-new-york"
   },
   {
     "place_id": "ChIJUXP-XQBZwokRHIm84yxcFWE",
@@ -5332,8 +5332,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 528,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/wonderpho-new-york",
     "cuisine": "Vietnamese"
   },
   {
@@ -5406,8 +5406,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 498,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/sixty-three-clinton-new-york",
     "cuisine": "American"
   },
   {
@@ -5419,8 +5419,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 488,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/kazunori-the-original-hand-roll-bar-new-york",
     "cuisine": "Japanese/Sushi"
   },
   {
@@ -5445,8 +5445,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 479,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/sam-sunny-new-york",
     "cuisine": "Korean"
   },
   {
@@ -5723,8 +5723,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 390,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/yongchuan-new-york",
     "cuisine": "Chinese"
   },
   {
@@ -5837,8 +5837,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 330,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/osteria-accademia-new-york",
     "cuisine": "Italian"
   },
   {
@@ -5850,8 +5850,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 327,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/arepa-lady-astoria"
   },
   {
     "place_id": "ChIJZ4ItFoVbwokRHlQHjgwVqsk",
@@ -5991,8 +5991,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 294,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/cocina-consuelo-new-york",
     "cuisine": "Mexican"
   },
   {
@@ -6103,8 +6103,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 249,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/chez-messy-new-york"
   },
   {
     "place_id": "ChIJR-zfafZbwokR3jOrzYj-8gU",
@@ -6482,8 +6482,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 183,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/soledad-new-york",
     "cuisine": "Mexican"
   },
   {
@@ -6545,8 +6545,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 160,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/napolis-new-york",
     "cuisine": "Italian"
   },
   {
@@ -6669,8 +6669,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 133,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/il-monello",
     "cuisine": "Italian"
   },
   {
@@ -6895,8 +6895,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 103,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/resident-new-york"
   },
   {
     "place_id": "ChIJt_G1aDNfwokRwr6E98C0dNw",
@@ -7033,8 +7033,8 @@
     "googleRating": 4.7,
     "googleReviewCount": 74,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/half-moon"
   },
   {
     "place_id": "ChIJu5_ySQBRwokRKsqneWCEWls",
@@ -7324,8 +7324,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 3845,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/mission-ceviche-upper-east-side-new-york",
     "cuisine": "Peruvian"
   },
   {
@@ -7350,8 +7350,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 3600,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/broadstone-bar-and-kitchen-new-york",
     "cuisine": "American"
   },
   {
@@ -7493,8 +7493,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 3085,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/pure-thai-cookhouse-new-york",
     "cuisine": "Thai"
   },
   {
@@ -7597,8 +7597,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 2606,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/chama-mama-new-york"
   },
   {
     "place_id": "ChIJxwoiopRZwokRttz8Wb0-BLU",
@@ -7648,8 +7648,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 2454,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/toro-loco-new-york",
     "cuisine": "Mexican"
   },
   {
@@ -7674,8 +7674,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 2347,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/capizzi-new-york",
     "cuisine": "Italian/Pizza"
   },
   {
@@ -7700,8 +7700,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 2273,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/piccola-cucina-uptown-new-york",
     "cuisine": "Italian"
   },
   {
@@ -7815,8 +7815,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 2071,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/charles-pan-fried-chicken-new-york",
     "cuisine": "Soul Food"
   },
   {
@@ -7880,8 +7880,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 1967,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/noi-due-cafe-new-york",
     "cuisine": "Italian"
   },
   {
@@ -7983,8 +7983,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 1746,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/skinos-new-york",
     "cuisine": "Greek"
   },
   {
@@ -8318,8 +8318,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 1190,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/cull-and-pistol",
     "cuisine": "Seafood"
   },
   {
@@ -8369,8 +8369,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 1172,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/manolo-tapas-new-york",
     "cuisine": "Spanish"
   },
   {
@@ -8471,8 +8471,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 1125,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/surfish-bistro",
     "cuisine": "Peruvian"
   },
   {
@@ -8586,8 +8586,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 1060,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/fiaschetteria-pistoia-new-york",
     "cuisine": "Italian"
   },
   {
@@ -8599,8 +8599,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 1059,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/osteria-brooklyn",
     "cuisine": "Italian"
   },
   {
@@ -8612,8 +8612,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 1052,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/elea-new-york",
     "cuisine": "Greek"
   },
   {
@@ -8625,8 +8625,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 1043,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/la-contenta-les-new-york",
     "cuisine": "Mexican"
   },
   {
@@ -8687,8 +8687,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 992,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/gitano-nyc-new-york",
     "cuisine": "Mexican"
   },
   {
@@ -8700,8 +8700,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 987,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/chama-mama-new-york"
   },
   {
     "place_id": "ChIJj7qkYaZbwokRl_xvjObTmHw",
@@ -8751,8 +8751,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 959,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/bono-trattoria-new-york",
     "cuisine": "Italian"
   },
   {
@@ -8855,8 +8855,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 895,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/refried-beans-new-york",
     "cuisine": "Mexican"
   },
   {
@@ -8956,8 +8956,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 856,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/east-harlem-bottling-co-new-york",
     "cuisine": "American"
   },
   {
@@ -9032,8 +9032,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 813,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/hyderabadi-zaiqa-new-york",
     "cuisine": "Indian"
   },
   {
@@ -9198,8 +9198,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 734,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/palo-santo",
     "cuisine": "Caribbean"
   },
   {
@@ -9224,8 +9224,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 722,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/aita",
     "cuisine": "Italian"
   },
   {
@@ -9341,8 +9341,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 670,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/naked-dog",
     "cuisine": "Italian"
   },
   {
@@ -9558,8 +9558,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 579,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/tsion-cafe-new-york",
     "cuisine": "Ethiopian"
   },
   {
@@ -9649,8 +9649,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 555,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/chama-mama-new-york"
   },
   {
     "place_id": "ChIJ6V1F-3ZZwokRzgGGwicZh88",
@@ -9777,8 +9777,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 497,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/chez-nick-new-york",
     "cuisine": "American"
   },
   {
@@ -9917,8 +9917,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 469,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/odd-sister-new-york",
     "cuisine": "American"
   },
   {
@@ -9930,8 +9930,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 468,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/malka-new-york"
   },
   {
     "place_id": "ChIJF__hBepYwokRAhJBfNLHBMQ",
@@ -10080,8 +10080,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 444,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/chick-chick-new-york"
   },
   {
     "place_id": "ChIJNdM9hyRcwokRxZn8q3VeNNI",
@@ -10143,8 +10143,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 430,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/mikado-new-york",
     "cuisine": "Japanese/Sushi"
   },
   {
@@ -10156,8 +10156,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 429,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/carla-new-york",
     "cuisine": "American"
   },
   {
@@ -10169,8 +10169,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 428,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-mary-lane-new-york",
     "cuisine": "American"
   },
   {
@@ -10182,8 +10182,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 422,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/thirteen-water-new-york",
     "cuisine": "Japanese/Sushi"
   },
   {
@@ -10272,8 +10272,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 401,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/may-kaidee-new-york",
     "cuisine": "Thai"
   },
   {
@@ -10374,8 +10374,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 370,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/chef-katsu-brooklyn",
     "cuisine": "Japanese"
   },
   {
@@ -10399,8 +10399,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 363,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/bombay-grill-house-new-york",
     "cuisine": "Indian"
   },
   {
@@ -10412,8 +10412,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 361,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/chef-huang-new-york",
     "cuisine": "Chinese"
   },
   {
@@ -10438,8 +10438,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 351,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/lelabar-new-york"
   },
   {
     "place_id": "ChIJ2Yv-OE1ZwokRskhcMIqAVmY",
@@ -10515,8 +10515,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 335,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/lalibela-ethiopian-restaurant",
     "cuisine": "Ethiopian"
   },
   {
@@ -10541,8 +10541,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 331,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/betty-new-york",
     "cuisine": "American"
   },
   {
@@ -10554,8 +10554,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 324,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/otb"
   },
   {
     "place_id": "ChIJD8jwdlJbwokRZ3kKHF-TeP8",
@@ -10693,8 +10693,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 261,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/bixi-new-york",
     "cuisine": "Asian"
   },
   {
@@ -10744,8 +10744,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 245,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/budda-kitchen-and-bar-new-york"
   },
   {
     "place_id": "ChIJz715GvtbwokRaRU8hEYRXto",
@@ -10781,8 +10781,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 236,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/ikyu-new-york",
     "cuisine": "Japanese/Sushi"
   },
   {
@@ -10933,8 +10933,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 214,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/horns-hook-tavern-new-york"
   },
   {
     "place_id": "ChIJMVIviv5ZwokRZOz215uVhGo",
@@ -10970,8 +10970,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 208,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/toriya-new-york"
   },
   {
     "place_id": "ChIJV09-awBZwokROld1G3kx0e4",
@@ -10994,8 +10994,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 206,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-wolfe-new-york",
     "cuisine": "American"
   },
   {
@@ -11155,8 +11155,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 162,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/nobody-told-me-new-york"
   },
   {
     "place_id": "ChIJRRlpP_dbwokRLHC4YttUCMg",
@@ -11228,8 +11228,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 145,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-swan"
   },
   {
     "place_id": "ChIJce0NdYf3wokR1D8bIrOgeVQ",
@@ -11253,8 +11253,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 141,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/tulum-brooklyn",
     "cuisine": "Mexican"
   },
   {
@@ -11536,8 +11536,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 69,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/temakase-east-village-new-york",
     "cuisine": "Japanese/Sushi"
   },
   {
@@ -11585,8 +11585,8 @@
     "googleRating": 4.6,
     "googleReviewCount": 60,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/city-tavern-and-table-new-york"
   },
   {
     "place_id": "ChIJ48_NI41bwokRwrpArqdLvo8",
@@ -11990,8 +11990,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 3422,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/izakaya-mew-new-york"
   },
   {
     "place_id": "ChIJo8ujsPBYwokRbJ1cEtujTcc",
@@ -12028,8 +12028,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 3178,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/momosan-ramen-and-sake-new-york",
     "cuisine": "Japanese/Ramen"
   },
   {
@@ -12268,8 +12268,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 2499,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/uncle-lou-new-york"
   },
   {
     "place_id": "ChIJV6G4us9fwokRy4GOF89i6nE",
@@ -12441,8 +12441,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 2218,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/harlem-public-new-york"
   },
   {
     "place_id": "ChIJ5YYLvYhYwokReZvaF93xmFw",
@@ -12453,8 +12453,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 2144,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/nice-matin-new-york"
   },
   {
     "place_id": "ChIJO9OzsCBewokRJPKp9E_zm4A",
@@ -12577,8 +12577,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1898,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/nonono-new-york"
   },
   {
     "place_id": "ChIJLe70p2X2wokReDA-X8LGqZE",
@@ -12589,8 +12589,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1897,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/fumo-harlem-new-york"
   },
   {
     "place_id": "ChIJFWvro7tYwokRhy_889mPgcg",
@@ -12601,8 +12601,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1890,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/heidelberg-restaurant-new-york"
   },
   {
     "place_id": "ChIJwWzuH4phwokR1-It_OVi__4",
@@ -12650,8 +12650,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1789,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/raku"
   },
   {
     "place_id": "ChIJ__9LNBZawokREnkOiVx7ydc",
@@ -12724,8 +12724,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1683,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/monkey-bar",
     "cuisine": "American"
   },
   {
@@ -12810,8 +12810,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1558,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/southern-spice"
   },
   {
     "place_id": "ChIJ4aiyUYf0wokRl3irR6IrNfM",
@@ -12872,8 +12872,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1505,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/pisticci-new-york"
   },
   {
     "place_id": "ChIJ2d54lnr2wokRK-62uG2nIx8",
@@ -12884,8 +12884,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1499,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-edge-harlem-new-york"
   },
   {
     "place_id": "ChIJv5HOUNpXwokREi_6ggNwc7M",
@@ -13006,8 +13006,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1434,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/sakagura"
   },
   {
     "place_id": "ChIJv9sG_FBawokRla6TIaJSNM4",
@@ -13093,8 +13093,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1381,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/raku"
   },
   {
     "place_id": "ChIJ2YwyMVhZwokRE47dTb7x1fo",
@@ -13180,8 +13180,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1336,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/hao-noodle-new-york",
     "cuisine": "Chinese"
   },
   {
@@ -13303,8 +13303,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1250,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/wokuni-new-york"
   },
   {
     "place_id": "ChIJFxsXmaD2wokRfqXPG2eCyDY",
@@ -13365,8 +13365,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1209,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/sabai-thai-new-york"
   },
   {
     "place_id": "ChIJSy8Bbl9ZwokR8QnOQHNn4hk",
@@ -13437,8 +13437,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1162,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/katana-kitten-new-york"
   },
   {
     "place_id": "ChIJHYhISIVbwokRNcIdAD0mKjQ",
@@ -13523,8 +13523,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1113,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-naked-pig-new-york"
   },
   {
     "place_id": "ChIJLRlg1pdZwokRMuGaEPFSbIE",
@@ -13535,8 +13535,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1099,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/mikado-new-york",
     "cuisine": "Japanese/Sushi"
   },
   {
@@ -13548,8 +13548,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1098,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/pepe-giallo-new-york"
   },
   {
     "place_id": "ChIJGVQqnFVawokRltzLtx5fMhM",
@@ -13647,8 +13647,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1083,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/avra-rockefeller-center-new-york"
   },
   {
     "place_id": "ChIJ2Tm9mPv2wokR9JNeQLcAfVA",
@@ -13745,8 +13745,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1057,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/lokal-mediterranean-kitchen-new-york"
   },
   {
     "place_id": "ChIJoUi9DBVXwokR8XGxo04mg4c",
@@ -13805,8 +13805,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1025,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/prohibition-new-york",
     "cuisine": "American"
   },
   {
@@ -13918,8 +13918,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 1000,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/malaparte-new-york"
   },
   {
     "place_id": "ChIJt5ZvbK9QwokRr6KHcRsaeOc",
@@ -14041,8 +14041,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 962,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/greenpoint-fish-and-lobster-co-new-york"
   },
   {
     "place_id": "ChIJBzYIOnZZwokRmW5jxY34G-Q",
@@ -14114,8 +14114,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 932,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/glasserie"
   },
   {
     "place_id": "ChIJObyMbYVYwokRalcz9VGxvZI",
@@ -14200,8 +14200,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 910,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/tacombi-new-york"
   },
   {
     "place_id": "ChIJ05LiYfZewokRIRuLbmFmXU4",
@@ -14225,8 +14225,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 902,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/saffron-indian-cuisine-new-york"
   },
   {
     "place_id": "ChIJXYOiRJRYwokRm1i3c9R6WDA",
@@ -14261,8 +14261,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 897,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/gnoccheria-east-village"
   },
   {
     "place_id": "ChIJs9RGG1JYwokRi3KuI3Lzr88",
@@ -14273,8 +14273,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 893,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-marshal-new-york",
     "cuisine": "American"
   },
   {
@@ -14347,8 +14347,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 856,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/leyla-new-york"
   },
   {
     "place_id": "ChIJmU4y-OFbwokRuuTUu-zsedc",
@@ -14371,8 +14371,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 851,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/carne-mare-new-york"
   },
   {
     "place_id": "ChIJBTuSXqhfwokRpjEVqzy1U6U",
@@ -14457,8 +14457,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 806,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/charoen-krung-thai-new-york"
   },
   {
     "place_id": "ChIJn9gJXgFbwokRzt5qlV7quqw",
@@ -14493,8 +14493,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 791,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/el-born"
   },
   {
     "place_id": "ChIJLeixHgZZwokRwv5jEjzFPW4",
@@ -14541,8 +14541,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 767,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/tuome"
   },
   {
     "place_id": "ChIJ5dQtsxBZwokRbBdZUxaHzFE",
@@ -14711,8 +14711,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 703,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-uptown-garrison-new-york"
   },
   {
     "place_id": "ChIJ-WurqYFZwokRb4iMLqcZotE",
@@ -14723,8 +14723,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 700,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/copinette-new-york",
     "cuisine": "American"
   },
   {
@@ -14785,8 +14785,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 686,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/konban-new-york",
     "cuisine": "Japanese"
   },
   {
@@ -14836,8 +14836,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 669,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/bangkok-supper-club-new-york"
   },
   {
     "place_id": "ChIJgUzPzehbwokRAkIhEIPwWDk",
@@ -14861,8 +14861,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 661,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/le-fanfare",
     "cuisine": "Italian"
   },
   {
@@ -14923,8 +14923,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 648,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/sapps-new-york"
   },
   {
     "place_id": "ChIJ3YtkUgBZwokRMd5buqhS9ps",
@@ -15046,8 +15046,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 611,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/pate-palo-bar-and-grill-new-york"
   },
   {
     "place_id": "ChIJTf8taJRdwokRq3Bm3GY9lK4",
@@ -15058,8 +15058,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 602,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/ursula-brooklyn"
   },
   {
     "place_id": "ChIJT2yDkblbwokRF8WHI6PUQ3M",
@@ -15143,8 +15143,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 583,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/hav-and-mar-new-york"
   },
   {
     "place_id": "ChIJb6ybqftZwokRyoA_nVzrJro",
@@ -15155,8 +15155,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 583,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/grill-point-new-york"
   },
   {
     "place_id": "ChIJKz8I-lpZwokRHwAtAIZu8Ng",
@@ -15167,8 +15167,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 582,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/beefbar-new-york"
   },
   {
     "place_id": "ChIJBV27hoNYwokR20JihLuQdUs",
@@ -15227,8 +15227,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 580,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/ondo-jersey-city"
   },
   {
     "place_id": "ChIJHVOB8iRZwokRFaWagG8Ti4U",
@@ -15264,8 +15264,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 569,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/dark-side-of-the-moo-new-york",
     "cuisine": "American"
   },
   {
@@ -15325,8 +15325,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 553,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/seppe-pizza-bar-new-york"
   },
   {
     "place_id": "ChIJsaCQ-vNZwokRZXMSyrbzfio",
@@ -15349,8 +15349,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 545,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/san-patricios-jersey-city"
   },
   {
     "place_id": "ChIJl0vNXIf0wokRAa4bYitALWU",
@@ -15373,8 +15373,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 536,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/clay-new-york"
   },
   {
     "place_id": "ChIJxeHdPCVdwokRe_xaKbxRZ7U",
@@ -15409,8 +15409,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 534,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/alison-new-york"
   },
   {
     "place_id": "ChIJmeM9TKRYwokRP8kkSingkIA",
@@ -15469,8 +15469,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 526,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-expat-new-york"
   },
   {
     "place_id": "ChIJM8cEj3NcwokR5_Ja7rhmjoY",
@@ -15517,8 +15517,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 520,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/max-soha-new-york"
   },
   {
     "place_id": "ChIJ__9CXiP2wokR6u-utxQilj4",
@@ -15529,8 +15529,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 519,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/nobody-told-me-new-york"
   },
   {
     "place_id": "ChIJVQw7S69ZwokRxkRkuFLa494",
@@ -15565,8 +15565,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 513,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/monk-mcginns-new-york"
   },
   {
     "place_id": "ChIJrcgBgP5bwokR1EhKSdZkck0",
@@ -15661,8 +15661,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 497,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/terravita-edgewater"
   },
   {
     "place_id": "ChIJuXwiAtlewokRcdTwW8_pqWQ",
@@ -15685,8 +15685,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 492,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/frida-midtown"
   },
   {
     "place_id": "ChIJieXewR5bwokRqDs_MCqYH9U",
@@ -15709,8 +15709,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 487,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/frena-new-york"
   },
   {
     "place_id": "ChIJLe-VB7hRwokR7j-a5SpEpDk",
@@ -15757,8 +15757,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 460,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/post-new-york"
   },
   {
     "place_id": "ChIJPSo-a8NbwokRnUAJgUsit2U",
@@ -15951,8 +15951,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 405,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/levant"
   },
   {
     "place_id": "ChIJHR4unh9ZwokRIljr044VTLs",
@@ -16012,8 +16012,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 370,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/greywind-new-york"
   },
   {
     "place_id": "ChIJ9aRJopRYwokRTTPRXTCYgLE",
@@ -16349,8 +16349,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 291,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/el-fish-marisqueria-new-york"
   },
   {
     "place_id": "ChIJf1muZCBfwokRWCCr6pTwI0c",
@@ -16385,8 +16385,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 289,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/a10-kitchen-new-york"
   },
   {
     "place_id": "ChIJSZ__agBbwokRFqNZkOBfbsk",
@@ -16579,8 +16579,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 249,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/motel-no-tell-new-york"
   },
   {
     "place_id": "ChIJa6Jo_GNfwokRzPfPDRWmV_0",
@@ -16640,8 +16640,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 230,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-snail"
   },
   {
     "place_id": "ChIJ9R7MRJhgwokRpXtyFZHVpSs",
@@ -16664,8 +16664,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 225,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/spicy-moon-chelsea-new-york"
   },
   {
     "place_id": "ChIJ4SXtUEZZwokRIUQDr5ttVdY",
@@ -16821,8 +16821,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 192,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/purple-waves-new-york"
   },
   {
     "place_id": "ChIJG3yUlsZZwokRsomm1rGnCN0",
@@ -17254,8 +17254,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 109,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/winnie-said-new-york"
   },
   {
     "place_id": "ChIJdcOYrDlRwokRSdpz9IGJ3y0",
@@ -17470,8 +17470,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 62,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/naya"
   },
   {
     "place_id": "ChIJoz45CJtZwokRPlW56VL5HyY",
@@ -17482,8 +17482,8 @@
     "googleRating": 4.5,
     "googleReviewCount": 60,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/kinn-new-york"
   },
   {
     "place_id": "ChIJx-Ybig5ZwokRgHIBe_kSB0Q",
@@ -17934,8 +17934,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 3741,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/coppelia-new-york"
   },
   {
     "place_id": "ChIJK5VpoYlYwokRzzsrtQ0hmOM",
@@ -18229,8 +18229,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 2558,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/rh-rooftop-restaurant-at-rh-new-york"
   },
   {
     "place_id": "ChIJNaoHnvdYwokRFxwsSD4urZg",
@@ -18400,8 +18400,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 2228,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/laut-new-york"
   },
   {
     "place_id": "ChIJ_yaCB6xbwokRzsbqAJUYxpY",
@@ -18412,8 +18412,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 2228,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/miriam"
   },
   {
     "place_id": "ChIJ-bh86yVgwokRntmyHyM6fkg",
@@ -18448,8 +18448,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 2178,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/valerie-new-york"
   },
   {
     "place_id": "ChIJ_U_NR69ZwokRkOaA92AjJ4U",
@@ -18509,8 +18509,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 2069,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/bcd-tofu-house-new-york"
   },
   {
     "place_id": "ChIJleDYVsZfwokRjnl3Ym7wXB0",
@@ -18595,8 +18595,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1925,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/blue-willow-new-york"
   },
   {
     "place_id": "ChIJd2UWxVlYwokRwL_sWzE0rVg",
@@ -18607,8 +18607,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1917,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/bocca-di-bacco"
   },
   {
     "place_id": "ChIJK-WbWIf0wokRWPsJsVTeOfQ",
@@ -18631,8 +18631,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1869,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/london-lennies"
   },
   {
     "place_id": "ChIJb85ryKFZwokRaCJqC07E0G0",
@@ -18643,8 +18643,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1836,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/friend-of-a-farmer"
   },
   {
     "place_id": "ChIJIQntspT8ZUARP3MLeK4a1vA",
@@ -18715,8 +18715,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1777,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/zaytinya-new-york"
   },
   {
     "place_id": "ChIJWQs914ZZwokRl55uI6owqC4",
@@ -18886,8 +18886,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1602,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/treadwell-park-battery-park-new-york"
   },
   {
     "place_id": "ChIJucbIy0JZwokRvgoW5tnNHM0",
@@ -19054,8 +19054,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1509,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/silvana-new-york"
   },
   {
     "place_id": "ChIJD07tCrBbwokRpbUUdyE2jo4",
@@ -19078,8 +19078,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1484,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/domodomo-jersey-city"
   },
   {
     "place_id": "ChIJSQbEt4D0wokR6799Mvi3vCM",
@@ -19126,8 +19126,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1406,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/tryon-public-house-new-york"
   },
   {
     "place_id": "ChIJifP5aLJQwokRFhnSpvrgCuQ",
@@ -19162,8 +19162,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1376,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/superfine"
   },
   {
     "place_id": "ChIJ92yHlTtfwokRbNk2Xo2iVQE",
@@ -19210,8 +19210,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1364,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/avra-48th-street-new-york"
   },
   {
     "place_id": "ChIJ_WPcdpVZwokR6vSItP7fDZo",
@@ -19369,8 +19369,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1273,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/chez-oskar"
   },
   {
     "place_id": "ChIJu7pIuopZwokRvIsndYhPg4U",
@@ -19406,8 +19406,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1246,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/charlies-bar-and-kitchen"
   },
   {
     "place_id": "ChIJyW-u9iZawokRY1sHXGzZHGI",
@@ -19418,8 +19418,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1234,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/chinese-tuxedo-new-york"
   },
   {
     "place_id": "ChIJK5v5ighZwokROtdIRyEVYSM",
@@ -19442,8 +19442,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1215,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/hi-collar-new-york"
   },
   {
     "place_id": "ChIJOb-eH4VYwokRkyzosmvD_sk",
@@ -19454,8 +19454,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1208,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/osteria-cotta-new-york"
   },
   {
     "place_id": "ChIJ-4hK8ghZwokRtP5wMYn7K8k",
@@ -19466,8 +19466,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1199,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/banc-cafe"
   },
   {
     "place_id": "ChIJNYJPTHf2wokRhjM4dcIZnE4",
@@ -19478,8 +19478,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1195,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/ponty-bistro"
   },
   {
     "place_id": "ChIJoRWJ3XlZwokRG88-orPcMUc",
@@ -19490,8 +19490,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1191,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/kafana"
   },
   {
     "place_id": "ChIJ41_o0CZewokRw7yWQrrOqg4",
@@ -19514,8 +19514,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1189,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/hudson-clearwater-new-york"
   },
   {
     "place_id": "ChIJ8ccnM7dbwokRy-pTMsdgvS4",
@@ -19538,8 +19538,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1165,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/mangoseed-restaurant"
   },
   {
     "place_id": "ChIJJ9B9DvRewokRtQELxkQn6xk",
@@ -19708,8 +19708,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1058,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/redfarm-new-york"
   },
   {
     "place_id": "ChIJpSkMPqH2wokRfy_b2yucueE",
@@ -19744,8 +19744,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1045,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/vinegar-hill-house"
   },
   {
     "place_id": "ChIJSVkYXIf0wokReeN2qJg8Nwc",
@@ -19804,8 +19804,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 1021,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-tyger-new-york"
   },
   {
     "place_id": "ChIJUxzecINcwokR6_N7t5fEWK8",
@@ -20069,8 +20069,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 913,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/treadwell-park-battery-park-new-york"
   },
   {
     "place_id": "ChIJtYP3M-5bwokR1kjvKE-55WU",
@@ -20105,8 +20105,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 896,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/adoro-lei-new-york"
   },
   {
     "place_id": "ChIJPfcKgMVfwokR1iMtONhsfKM",
@@ -20189,8 +20189,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 815,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-ellington-new-york"
   },
   {
     "place_id": "ChIJISpk1iv3wokRlsfurFN3K2o",
@@ -20213,8 +20213,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 813,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/fumo-upper-west-new-york"
   },
   {
     "place_id": "ChIJhWcKxB1fwokRmfnCcB6lB_s",
@@ -20237,8 +20237,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 812,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/tuk-tuk"
   },
   {
     "place_id": "ChIJeTwumh1fwokRHoQvBNtdkuU",
@@ -20321,8 +20321,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 771,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/grand-army"
   },
   {
     "place_id": "ChIJEc6ZPKH2wokRZyyIzHgixT4",
@@ -20333,8 +20333,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 769,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/saggio-new-york"
   },
   {
     "place_id": "ChIJ8eptJAP0wokRedQqUtMxdYM",
@@ -20345,8 +20345,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 765,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/locksmith-bar-new-york"
   },
   {
     "place_id": "ChIJH6P3kklbwokRis1YQwtwC20",
@@ -20501,8 +20501,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 703,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/grand-vin"
   },
   {
     "place_id": "ChIJTwH7JrNZwokRbyg6mhXQSOo",
@@ -20718,8 +20718,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 602,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/bk-backyard-bar-new-york"
   },
   {
     "place_id": "ChIJk-Oi2TNewokRRbD8TTDj7LQ",
@@ -20826,8 +20826,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 580,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/greenwich-street-tavern-new-york"
   },
   {
     "place_id": "ChIJKzUTqOL1wokRViLXq42Jf3k",
@@ -20886,8 +20886,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 559,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/onieals"
   },
   {
     "place_id": "ChIJz0Zr7uFbwokRUEaBTtosr24",
@@ -20970,8 +20970,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 540,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/medium-rare-new-york"
   },
   {
     "place_id": "ChIJLSZlpEFZwokRkatFFV8Mb3E",
@@ -20994,8 +20994,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 535,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/tra-di-noi"
   },
   {
     "place_id": "ChIJ1U-nemFbwokRLVb7ULwu3B0",
@@ -21187,8 +21187,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 446,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-corner-store"
   },
   {
     "place_id": "ChIJy6hGkMn2wokRxFD0vvgu79A",
@@ -21235,8 +21235,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 435,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/bella-union-new-york"
   },
   {
     "place_id": "ChIJRb4LvfZZwokRSd08dYOsBZo",
@@ -21331,8 +21331,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 418,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-franklin-new-york"
   },
   {
     "place_id": "ChIJvRLKpn9ZwokRH8DYHu32ofI",
@@ -21452,8 +21452,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 384,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/old-mates-pub-new-york"
   },
   {
     "place_id": "ChIJxzjQ3vJXwokRXJ3J9NHM3DE",
@@ -21500,8 +21500,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 379,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/home-kitchen-new-york"
   },
   {
     "place_id": "ChIJ67MPr4JbwokRkmqWUXvYyTY",
@@ -21632,8 +21632,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 354,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/rice-thief-new-york"
   },
   {
     "place_id": "ChIJO_DTSCpawokR8ueqrPAl8QI",
@@ -21644,8 +21644,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 353,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/eastwood-new-york"
   },
   {
     "place_id": "ChIJ6VWN995ewokRAfDJPIoOCBQ",
@@ -21704,8 +21704,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 343,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/fumo-kips-bay-new-york"
   },
   {
     "place_id": "ChIJn9skCvNZwokRk7K5S6cBxe0",
@@ -21728,8 +21728,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 336,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/botte-ues-new-york"
   },
   {
     "place_id": "ChIJxcr5A8r2wokR_ld67fvaFmY",
@@ -21764,8 +21764,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 330,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/just-pho-you-new-york"
   },
   {
     "place_id": "ChIJPynGWUFbwokRDyYQF6YjDiM",
@@ -21849,8 +21849,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 310,
     "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/nyy-steak-new-york"
   },
   {
     "place_id": "ChIJeUtEMI5fwokRv8fvy9iiEKE",
@@ -21897,8 +21897,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 294,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/anassa-taverna-downtown-new-york"
   },
   {
     "place_id": "ChIJN1M-dmVZwokRnicgNEGnFRY",
@@ -21921,8 +21921,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 287,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/friend-of-a-farmer"
   },
   {
     "place_id": "ChIJ5fHBdQ5fwokR5duKB248I-g",
@@ -22029,8 +22029,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 249,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/twin-tails-new-york"
   },
   {
     "place_id": "ChIJ5Vg2buxbwokR4lYR1LbF7S4",
@@ -22101,8 +22101,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 238,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/crane-club-restaurant-new-york"
   },
   {
     "place_id": "ChIJz646eYNdwokRyytoz6V_Omo",
@@ -22149,8 +22149,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 229,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/papa-san-new-york"
   },
   {
     "place_id": "ChIJ_-Z-CM5ZwokRg9_1Gc4DrwA",
@@ -22329,8 +22329,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 194,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/hoexters-new-york"
   },
   {
     "place_id": "ChIJ9VG9IbJbwokRI76S2r-HyLM",
@@ -22377,8 +22377,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 187,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/casa-tua"
   },
   {
     "place_id": "ChIJp9VPLxtfwokRyiyHFhvZm78",
@@ -22425,8 +22425,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 175,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/legacy-bar-and-grill-new-york"
   },
   {
     "place_id": "ChIJ7dh5LftbwokRe0liWS5qB4M",
@@ -22509,8 +22509,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 155,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/sushi-hayashi-new-york"
   },
   {
     "place_id": "ChIJMe-hWgBbwokR8Qw0BCLih3g",
@@ -22521,8 +22521,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 151,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/bar-oliver-new-york"
   },
   {
     "place_id": "ChIJWc2ADZBXwokRrWJTafhhMyE",
@@ -22629,8 +22629,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 128,
     "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/vin-sur-vingt-wine-bar-riverside-blvd-new-york"
   },
   {
     "place_id": "ChIJv2-Vu3pbwokRbOGRDR-pSRg",
@@ -22713,8 +22713,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 108,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/the-corner-store"
   },
   {
     "place_id": "ChIJ20jaom1fwokRPT_4UpjzUBk",
@@ -22773,8 +22773,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 92,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/united-kitchen"
   },
   {
     "place_id": "ChIJAfOugiJbwokR7oWJi7IHHVY",
@@ -22821,8 +22821,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 79,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/clara-new-york"
   },
   {
     "place_id": "ChIJvYLkMQBZwokRjnsMSRSlyKo",
@@ -22833,8 +22833,8 @@
     "googleRating": 4.4,
     "googleReviewCount": 78,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
+    "booking_platform": "opentable",
+    "booking_url": "https://www.opentable.com/r/stretch-pizza-new-york"
   },
   {
     "place_id": "ChIJ2duKoDldwokRohdv9rtecYc",
