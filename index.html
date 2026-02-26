@@ -249,10 +249,14 @@ function filterByAvailability(restaurants) {
   const { hard, medium, easy } = state.availFilter;
   const allOn = hard && medium && easy;
   const allOff = !hard && !medium && !easy;
-  if (allOn || allOff) return restaurants;
+  // All checked = show everything (no filter)
+  if (allOn) return restaurants;
+  // All unchecked = show everything too (treat as no filter)
+  if (allOff) return restaurants;
+  // Some checked = ONLY show restaurants we have data for that match
   return restaurants.filter(r => {
     const tier = getAvailTier(r.name);
-    if (!tier) return true;
+    if (!tier) return false; // no data = hide when filtering
     return state.availFilter[tier];
   });
 }
