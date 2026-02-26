@@ -1,25 +1,17 @@
-// Netlify function: get-availability.js (DEBUG VERSION)
+// Netlify function: get-availability.js
+// Serves overall tier + per-window tiers
+// Window thresholds: 0 = hard, 1-3 = medium, 4+ = easy
 const fs = require('fs');
 const path = require('path');
 
+function windowTier(count) {
+  if (count === 0) return 'hard';
+  if (count <= 3) return 'medium';
+  return 'easy';
+}
+
 exports.handler = async function(event, context) {
-  const debug = {
-    __dirname: __dirname,
-    cwd: process.cwd(),
-    dirFiles: [],
-    triedPaths: [],
-    foundAt: null
-  };
-
   try {
-    // List files in __dirname
-    try {
-      debug.dirFiles = fs.readdirSync(__dirname).slice(0, 30);
-    } catch(e) {
-      debug.dirFiles = ['ERROR reading dir: ' + e.message];
-    }
-
-    // Try multiple possible paths
     const possiblePaths = [
       path.join(__dirname, 'availability_data.json'),
       path.resolve(__dirname, 'availability_data.json'),
@@ -29,11 +21,8 @@ exports.handler = async function(event, context) {
     ];
 
     let rawData = null;
-
     for (const p of possiblePaths) {
-      debug.triedPaths.push(p);
       if (fs.existsSync(p)) {
-        debug.foundAt = p;
         rawData = fs.readFileSync(p, 'utf8');
         break;
       }
@@ -43,30 +32,44 @@ exports.handler = async function(event, context) {
       return {
         statusCode: 200,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-        body: JSON.stringify({ debug })
+        body: JSON.stringify({})
       };
     }
 
     const full = JSON.parse(rawData);
     const slim = {};
+
     for (const [name, info] of Object.entries(full)) {
+      const tier = info.availability_tier || 'unknown';
+      const tw = info.time_windows || {};
+      const windows = {};
+
+      for (const slot of ['early', 'prime', 'late']) {
+        if (tw[slot]) {
+          windows[slot] = windowTier(tw[slot].count || 0);
+        }
+      }
+
       slim[name] = {
-        tier: info.availability_tier || 'unknown',
-        slots: info.available_slots || 0,
-        primeSlots: info.prime_time_slots || 0
+        tier: tier,
+        windows: Object.keys(windows).length > 0 ? windows : null
       };
     }
 
     return {
       statusCode: 200,
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=300' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'public, max-age=300'
+      },
       body: JSON.stringify(slim)
     };
   } catch(e) {
     return {
-      statusCode: 200,
+      statusCode: 500,
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-      body: JSON.stringify({ debug, error: e.message })
+      body: JSON.stringify({ error: e.message })
     };
   }
 };
