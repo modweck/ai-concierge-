@@ -462,5 +462,29 @@
   "omakase room by shin": {
     "platform": "resy",
     "url": "https://resy.com/cities/ny/omakase-room-by-shin"
+  },
+  "mido - omakase room": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/mido-omakase-room"
+  },
+  "uka omakase": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/uka-omakase"
+  },
+  "one bite omakase": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/one-bite-omakase"
+  },
+  "nizuc": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/nizuc"
+  },
+  "joo ok": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/joo-ok"
+  },
+  "omakase osukaa midtown east": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/omakase-osukaa-midtown-east"
   }
 }

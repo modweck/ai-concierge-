@@ -1,1024 +1,79 @@
 {
-  "run_date": "2026-02-26T16:25:03.510Z",
+  "run_date": "2026-02-26T19:26:47.129Z",
   "summary": {
-    "total_discovered": 710,
-    "resy_found": 111,
-    "booking_added": 110,
-    "popular_added": 110,
-    "availability_added": 103
+    "total_discovered": 603,
+    "resy_found": 6,
+    "booking_added": 6,
+    "popular_added": 6,
+    "availability_added": 6
   },
   "resy_restaurants": [
     {
-      "name": "Boucherie West Village",
-      "rating": 4.8,
-      "reviews": 8922,
-      "resy_url": "https://resy.com/cities/ny/boucherie-west-village",
+      "name": "Mido - Omakase Room",
+      "rating": 5,
+      "reviews": 842,
+      "resy_url": "https://resy.com/cities/ny/mido-omakase-room",
       "available": true,
-      "prime_slots": 12,
-      "total_slots": 47
-    },
-    {
-      "name": "Empire Steak House Times Square",
-      "rating": 4.9,
-      "reviews": 6190,
-      "resy_url": "https://resy.com/cities/ny/empire-steak-house-times-square",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 45
-    },
-    {
-      "name": "OBAO",
-      "rating": 4.7,
-      "reviews": 8487,
-      "resy_url": "https://resy.com/cities/ny/obao",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 84
-    },
-    {
-      "name": "Boucherie Union Square",
-      "rating": 4.7,
-      "reviews": 4683,
-      "resy_url": "https://resy.com/cities/ny/boucherie-union-square",
-      "available": true,
-      "prime_slots": 24,
-      "total_slots": 74
-    },
-    {
-      "name": "Cantina Rooftop",
-      "rating": 4.4,
-      "reviews": 7481,
-      "resy_url": "https://resy.com/cities/ny/cantina-rooftop",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 23
-    },
-    {
-      "name": "Sylvia's Restaurant",
-      "rating": 4.3,
-      "reviews": 8774,
-      "resy_url": "https://resy.com/cities/ny/sylvias-restaurant",
-      "available": true,
-      "prime_slots": 24,
-      "total_slots": 84
-    },
-    {
-      "name": "Le Bernardin",
-      "rating": 4.6,
-      "reviews": 4716,
-      "resy_url": "https://resy.com/cities/ny/le-bernardin",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 3
-    },
-    {
-      "name": "Shukette",
-      "rating": 4.8,
-      "reviews": 3267,
-      "resy_url": "https://resy.com/cities/ny/shukette",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 4
-    },
-    {
-      "name": "Jongro BBQ",
-      "rating": 4.5,
-      "reviews": 5450,
-      "resy_url": "https://resy.com/cities/ny/jongro-bbq",
-      "available": false,
-      "prime_slots": 0,
-      "total_slots": 0
-    },
-    {
-      "name": "Pranakhon",
-      "rating": 4.8,
-      "reviews": 3077,
-      "resy_url": "https://resy.com/cities/ny/pranakhon",
-      "available": false,
-      "prime_slots": 0,
-      "total_slots": 0
-    },
-    {
-      "name": "The Horny Ram",
-      "rating": 4.8,
-      "reviews": 3026,
-      "resy_url": "https://resy.com/cities/ny/the-horny-ram",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 41
-    },
-    {
-      "name": "Hole In The Wall - Flatiron",
-      "rating": 4.7,
-      "reviews": 3477,
-      "resy_url": "https://resy.com/cities/ny/hole-in-the-wall-flatiron",
-      "available": true,
-      "prime_slots": 22,
-      "total_slots": 83
-    },
-    {
-      "name": "Mission Ceviche",
-      "rating": 4.6,
-      "reviews": 3851,
-      "resy_url": "https://resy.com/cities/ny/mission-ceviche",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 41
-    },
-    {
-      "name": "KJUN",
-      "rating": 4.9,
-      "reviews": 1994,
-      "resy_url": "https://resy.com/cities/ny/kjun",
-      "available": true,
-      "prime_slots": 9,
-      "total_slots": 41
-    },
-    {
-      "name": "Friedman's",
-      "rating": 4.4,
-      "reviews": 4396,
-      "resy_url": "https://resy.com/cities/ny/friedmans",
-      "available": false,
-      "prime_slots": 0,
-      "total_slots": 0
-    },
-    {
-      "name": "Junoon",
-      "rating": 4.4,
-      "reviews": 4355,
-      "resy_url": "https://resy.com/cities/ny/junoon",
-      "available": true,
-      "prime_slots": 20,
-      "total_slots": 48
-    },
-    {
-      "name": "Dhamaka",
-      "rating": 4.5,
-      "reviews": 3594,
-      "resy_url": "https://resy.com/cities/ny/dhamaka",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 2
-    },
-    {
-      "name": "Osteria Barocca",
-      "rating": 4.6,
-      "reviews": 2765,
-      "resy_url": "https://resy.com/cities/ny/osteria-barocca",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 48
-    },
-    {
-      "name": "Malii Gramercy",
-      "rating": 4.8,
-      "reviews": 1831,
-      "resy_url": "https://resy.com/cities/ny/malii-gramercy",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 41
-    },
-    {
-      "name": "Her Name is Han",
-      "rating": 4.5,
-      "reviews": 2736,
-      "resy_url": "https://resy.com/cities/ny/her-name-is-han",
-      "available": true,
-      "prime_slots": 0,
+      "prime_slots": 3,
       "total_slots": 7
     },
     {
-      "name": "GupShup",
-      "rating": 4.4,
-      "reviews": 3118,
-      "resy_url": "https://resy.com/cities/ny/gupshup",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 6
-    },
-    {
-      "name": "L'Adresse NoMad",
+      "name": "Uka Omakase",
       "rating": 4.8,
-      "reviews": 1525,
-      "resy_url": "https://resy.com/cities/ny/ladresse-nomad",
+      "reviews": 518,
+      "resy_url": "https://resy.com/cities/ny/uka-omakase",
       "available": true,
-      "prime_slots": 12,
-      "total_slots": 40
+      "prime_slots": 2,
+      "total_slots": 7
     },
     {
-      "name": "Ci Siamo",
-      "rating": 4.6,
-      "reviews": 2031,
-      "resy_url": "https://resy.com/cities/ny/ci-siamo",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 14
-    },
-    {
-      "name": "Cloves Indian Cuisine",
-      "rating": 4.8,
-      "reviews": 1471,
-      "resy_url": "https://resy.com/cities/ny/cloves-indian-cuisine",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 37
-    },
-    {
-      "name": "La Lanterna di Vittorio",
-      "rating": 4.5,
-      "reviews": 2349,
-      "resy_url": "https://resy.com/cities/ny/la-lanterna-di-vittorio",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 58
-    },
-    {
-      "name": "Bryant Park Grill",
-      "rating": 4.3,
-      "reviews": 3276,
-      "resy_url": "https://resy.com/cities/ny/bryant-park-grill",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 36
-    },
-    {
-      "name": "Genki Omakase",
-      "rating": 4.8,
-      "reviews": 1385,
-      "resy_url": "https://resy.com/cities/ny/genki-omakase",
-      "available": true,
-      "prime_slots": 5,
-      "total_slots": 11
-    },
-    {
-      "name": "Cosme",
-      "rating": 4.3,
-      "reviews": 3075,
-      "resy_url": "https://resy.com/cities/ny/cosme",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 23
-    },
-    {
-      "name": "RAS Plant Based",
-      "rating": 4.8,
-      "reviews": 1308,
-      "resy_url": "https://resy.com/cities/ny/ras-plant-based",
-      "available": true,
-      "prime_slots": 24,
-      "total_slots": 69
-    },
-    {
-      "name": "Le Coucou",
-      "rating": 4.5,
-      "reviews": 2059,
-      "resy_url": "https://resy.com/cities/ny/le-coucou",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 21
-    },
-    {
-      "name": "Rocco Steakhouse",
-      "rating": 4.7,
-      "reviews": 1488,
-      "resy_url": "https://resy.com/cities/ny/rocco-steakhouse",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 40
-    },
-    {
-      "name": "Negril Village",
-      "rating": 4.3,
-      "reviews": 2807,
-      "resy_url": "https://resy.com/cities/ny/negril-village",
-      "available": true,
-      "prime_slots": 11,
-      "total_slots": 28
-    },
-    {
-      "name": "Koon Taste of Siam",
-      "rating": 4.8,
-      "reviews": 1224,
-      "resy_url": "https://resy.com/cities/ny/koon-taste-of-siam",
-      "available": true,
-      "prime_slots": 24,
-      "total_slots": 67
-    },
-    {
-      "name": "Isabelle's Osteria",
-      "rating": 4.7,
-      "reviews": 1370,
-      "resy_url": "https://resy.com/cities/ny/isabelles-osteria",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 41
-    },
-    {
-      "name": "Spice Symphony Times Square",
-      "rating": 4.7,
-      "reviews": 1360,
-      "resy_url": "https://resy.com/cities/ny/spice-symphony-times-square",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 42
-    },
-    {
-      "name": "Ubani Midtown",
+      "name": "One Bite Omakase",
       "rating": 4.9,
-      "reviews": 978,
-      "resy_url": "https://resy.com/cities/ny/ubani-midtown",
+      "reviews": 209,
+      "resy_url": "https://resy.com/cities/ny/one-bite-omakase",
       "available": true,
-      "prime_slots": 12,
-      "total_slots": 46
+      "prime_slots": 3,
+      "total_slots": 7
     },
     {
-      "name": "Cuerno",
-      "rating": 4.9,
-      "reviews": 977,
-      "resy_url": "https://resy.com/cities/ny/cuerno",
-      "available": true,
-      "prime_slots": 8,
-      "total_slots": 36
-    },
-    {
-      "name": "Tamarind Tribeca",
-      "rating": 4.2,
-      "reviews": 2946,
-      "resy_url": "https://resy.com/cities/ny/tamarind-tribeca",
-      "available": true,
-      "prime_slots": 10,
-      "total_slots": 36
-    },
-    {
-      "name": "Shinzo Omakase",
-      "rating": 4.9,
-      "reviews": 938,
-      "resy_url": "https://resy.com/cities/ny/shinzo-omakase",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 2
-    },
-    {
-      "name": "The Dutch",
-      "rating": 4.3,
-      "reviews": 2402,
-      "resy_url": "https://resy.com/cities/ny/the-dutch",
-      "available": true,
-      "prime_slots": 6,
-      "total_slots": 18
-    },
-    {
-      "name": "Kellogg’s Diner",
-      "rating": 4,
-      "reviews": 4187,
-      "resy_url": "https://resy.com/cities/ny/kelloggs-diner",
-      "available": true,
-      "prime_slots": 13,
-      "total_slots": 35
-    },
-    {
-      "name": "London Lennie's",
-      "rating": 4.4,
-      "reviews": 1871,
-      "resy_url": "https://resy.com/cities/ny/london-lennies",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 22
-    },
-    {
-      "name": "Kausa",
-      "rating": 4.5,
-      "reviews": 1515,
-      "resy_url": "https://resy.com/cities/ny/kausa",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 55
-    },
-    {
-      "name": "Gabriel Kreuther",
+      "name": "Nizuc",
       "rating": 4.6,
-      "reviews": 1290,
-      "resy_url": "https://resy.com/cities/ny/gabriel-kreuther",
-      "available": true,
-      "prime_slots": 11,
-      "total_slots": 35
-    },
-    {
-      "name": "Daintree",
-      "rating": 4.7,
-      "reviews": 1092,
-      "resy_url": "https://resy.com/cities/ny/daintree",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 26
-    },
-    {
-      "name": "Uva",
-      "rating": 4.3,
-      "reviews": 2057,
-      "resy_url": "https://resy.com/cities/ny/uva",
-      "available": true,
-      "prime_slots": 9,
-      "total_slots": 33
-    },
-    {
-      "name": "Oiji Mi",
-      "rating": 4.6,
-      "reviews": 1208,
-      "resy_url": "https://resy.com/cities/ny/oiji-mi",
-      "available": false,
-      "prime_slots": 0,
-      "total_slots": 0
-    },
-    {
-      "name": "Thai Food Near Me",
-      "rating": 4.8,
-      "reviews": 892,
-      "resy_url": "https://resy.com/cities/ny/thai-food-near-me",
-      "available": true,
-      "prime_slots": 36,
-      "total_slots": 127
-    },
-    {
-      "name": "Hanoi House",
-      "rating": 4.5,
-      "reviews": 1326,
-      "resy_url": "https://resy.com/cities/ny/hanoi-house",
-      "available": true,
-      "prime_slots": 4,
-      "total_slots": 12
-    },
-    {
-      "name": "White Olive",
-      "rating": 4.7,
-      "reviews": 950,
-      "resy_url": "https://resy.com/cities/ny/white-olive",
-      "available": true,
-      "prime_slots": 24,
-      "total_slots": 88
-    },
-    {
-      "name": "Avra Rockefeller Center",
-      "rating": 4.6,
-      "reviews": 1085,
-      "resy_url": "https://resy.com/cities/ny/avra-rockefeller-center",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 39
-    },
-    {
-      "name": "ABA Turkish Restaurant",
-      "rating": 4.3,
-      "reviews": 1766,
-      "resy_url": "https://resy.com/cities/ny/aba-turkish-restaurant",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 42
-    },
-    {
-      "name": "Sahara's Turkish Cuisine",
-      "rating": 4.6,
-      "reviews": 1075,
-      "resy_url": "https://resy.com/cities/ny/saharas-turkish-cuisine",
+      "reviews": 293,
+      "resy_url": "https://resy.com/cities/ny/nizuc",
       "available": true,
       "prime_slots": 12,
       "total_slots": 47
     },
     {
-      "name": "Kellari Taverna",
-      "rating": 4.4,
-      "reviews": 1466,
-      "resy_url": "https://resy.com/cities/ny/kellari-taverna",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 46
-    },
-    {
-      "name": "Elea",
-      "rating": 4.6,
-      "reviews": 1057,
-      "resy_url": "https://resy.com/cities/ny/elea",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 34
-    },
-    {
-      "name": "Greenwood Park",
-      "rating": 4.4,
-      "reviews": 1387,
-      "resy_url": "https://resy.com/cities/ny/greenwood-park",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 39
-    },
-    {
-      "name": "Royal 35 Steakhouse",
-      "rating": 4.5,
-      "reviews": 1164,
-      "resy_url": "https://resy.com/cities/ny/royal-35-steakhouse",
-      "available": true,
-      "prime_slots": 24,
-      "total_slots": 72
-    },
-    {
-      "name": "Artesano",
-      "rating": 4.6,
-      "reviews": 958,
-      "resy_url": "https://resy.com/cities/ny/artesano",
-      "available": true,
-      "prime_slots": 11,
-      "total_slots": 35
-    },
-    {
-      "name": "Nerai",
-      "rating": 4.5,
-      "reviews": 1085,
-      "resy_url": "https://resy.com/cities/ny/nerai",
-      "available": true,
-      "prime_slots": 3,
-      "total_slots": 14
-    },
-    {
-      "name": "Skirt Steak",
-      "rating": 4.2,
-      "reviews": 1668,
-      "resy_url": "https://resy.com/cities/ny/skirt-steak",
-      "available": false,
-      "prime_slots": 0,
-      "total_slots": 0
-    },
-    {
-      "name": "Le Pavillon",
-      "rating": 4.5,
-      "reviews": 985,
-      "resy_url": "https://resy.com/cities/ny/le-pavillon",
-      "available": true,
-      "prime_slots": 10,
-      "total_slots": 30
-    },
-    {
-      "name": "Fushimi Bay Ridge",
-      "rating": 4.4,
-      "reviews": 1148,
-      "resy_url": "https://resy.com/cities/ny/fushimi-bay-ridge",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 42
-    },
-    {
-      "name": "Pylos",
-      "rating": 4.6,
-      "reviews": 835,
-      "resy_url": "https://resy.com/cities/ny/pylos",
-      "available": true,
-      "prime_slots": 4,
-      "total_slots": 27
-    },
-    {
-      "name": "Stone Street Tavern",
-      "rating": 4.3,
-      "reviews": 1287,
-      "resy_url": "https://resy.com/cities/ny/stone-street-tavern",
-      "available": false,
-      "prime_slots": 0,
-      "total_slots": 0
-    },
-    {
-      "name": "Bar Tabac",
-      "rating": 4.3,
-      "reviews": 1212,
-      "resy_url": "https://resy.com/cities/ny/bar-tabac",
-      "available": true,
-      "prime_slots": 24,
-      "total_slots": 80
-    },
-    {
-      "name": "Mino Brasserie",
+      "name": "Joo Ok",
       "rating": 4.7,
-      "reviews": 643,
-      "resy_url": "https://resy.com/cities/ny/mino-brasserie",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 13
-    },
-    {
-      "name": "Leyla",
-      "rating": 4.5,
-      "reviews": 857,
-      "resy_url": "https://resy.com/cities/ny/leyla",
-      "available": true,
-      "prime_slots": 3,
-      "total_slots": 16
-    },
-    {
-      "name": "Seoul BAP",
-      "rating": 4.8,
-      "reviews": 558,
-      "resy_url": "https://resy.com/cities/ny/seoul-bap",
-      "available": true,
-      "prime_slots": 24,
-      "total_slots": 46
-    },
-    {
-      "name": "Jams",
-      "rating": 4.2,
-      "reviews": 1316,
-      "resy_url": "https://resy.com/cities/ny/jams",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 51
-    },
-    {
-      "name": "Cafe du Soleil",
-      "rating": 4.3,
-      "reviews": 1080,
-      "resy_url": "https://resy.com/cities/ny/cafe-du-soleil",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 44
-    },
-    {
-      "name": "Basil Brick Oven Pizza",
-      "rating": 4.5,
-      "reviews": 776,
-      "resy_url": "https://resy.com/cities/ny/basil-brick-oven-pizza",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 23
-    },
-    {
-      "name": "Molyvos",
-      "rating": 4.4,
-      "reviews": 887,
-      "resy_url": "https://resy.com/cities/ny/molyvos",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 32
-    },
-    {
-      "name": "Cipriani Downtown",
-      "rating": 4.1,
-      "reviews": 1441,
-      "resy_url": "https://resy.com/cities/ny/cipriani-downtown",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 28
-    },
-    {
-      "name": "Diner",
-      "rating": 4.3,
-      "reviews": 1023,
-      "resy_url": "https://resy.com/cities/ny/diner",
+      "reviews": 173,
+      "resy_url": "https://resy.com/cities/ny/joo-ok",
       "available": true,
       "prime_slots": 1,
-      "total_slots": 25
+      "total_slots": 2
     },
     {
-      "name": "Morgan's Brooklyn Barbecue",
-      "rating": 4,
-      "reviews": 1686,
-      "resy_url": "https://resy.com/cities/ny/morgans-brooklyn-barbecue",
+      "name": "Omakase OSUKAA Midtown East",
+      "rating": 4.8,
+      "reviews": 99,
+      "resy_url": "https://resy.com/cities/ny/omakase-osukaa-midtown-east",
       "available": true,
       "prime_slots": 6,
-      "total_slots": 23
-    },
-    {
-      "name": "Agora Taverna",
-      "rating": 4.3,
-      "reviews": 966,
-      "resy_url": "https://resy.com/cities/ny/agora-taverna",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 40
-    },
-    {
-      "name": "Askili Orchard",
-      "rating": 4.8,
-      "reviews": 462,
-      "resy_url": "https://resy.com/cities/ny/askili-orchard",
-      "available": true,
-      "prime_slots": 11,
-      "total_slots": 41
-    },
-    {
-      "name": "Mido Omakase - West Village",
-      "rating": 4.9,
-      "reviews": 407,
-      "resy_url": "https://resy.com/cities/ny/mido-omakase-west-village",
-      "available": true,
-      "prime_slots": 4,
-      "total_slots": 8
-    },
-    {
-      "name": "Brindle Room",
-      "rating": 4.5,
-      "reviews": 682,
-      "resy_url": "https://resy.com/cities/ny/brindle-room",
-      "available": true,
-      "prime_slots": 16,
-      "total_slots": 92
-    },
-    {
-      "name": "Kyma Hudson Yards",
-      "rating": 4.4,
-      "reviews": 787,
-      "resy_url": "https://resy.com/cities/ny/kyma-hudson-yards",
-      "available": true,
-      "prime_slots": 11,
-      "total_slots": 27
-    },
-    {
-      "name": "LALIKO",
-      "rating": 4.8,
-      "reviews": 450,
-      "resy_url": "https://resy.com/cities/ny/laliko",
-      "available": true,
-      "prime_slots": 0,
       "total_slots": 21
-    },
-    {
-      "name": "Tsion Cafe",
-      "rating": 4.6,
-      "reviews": 581,
-      "resy_url": "https://resy.com/cities/ny/tsion-cafe",
-      "available": false,
-      "prime_slots": 0,
-      "total_slots": 0
-    },
-    {
-      "name": "Olle",
-      "rating": 4.5,
-      "reviews": 658,
-      "resy_url": "https://resy.com/cities/ny/olle",
-      "available": true,
-      "prime_slots": 2,
-      "total_slots": 15
-    },
-    {
-      "name": "Sixty Three Clinton",
-      "rating": 4.7,
-      "reviews": 499,
-      "resy_url": "https://resy.com/cities/ny/sixty-three-clinton",
-      "available": true,
-      "prime_slots": 2,
-      "total_slots": 3
-    },
-    {
-      "name": "Talia's Steakhouse and Bar",
-      "rating": 4.3,
-      "reviews": 874,
-      "resy_url": "https://resy.com/cities/ny/talias-steakhouse-and-bar",
-      "available": false,
-      "prime_slots": 0,
-      "total_slots": 0
-    },
-    {
-      "name": "NARO",
-      "rating": 4.5,
-      "reviews": 604,
-      "resy_url": "https://resy.com/cities/ny/naro",
-      "available": true,
-      "prime_slots": 18,
-      "total_slots": 49
-    },
-    {
-      "name": "Mudville",
-      "rating": 4.2,
-      "reviews": 919,
-      "resy_url": "https://resy.com/cities/ny/mudville",
-      "available": true,
-      "prime_slots": 36,
-      "total_slots": 144
-    },
-    {
-      "name": "Don Ceviche",
-      "rating": 4.7,
-      "reviews": 432,
-      "resy_url": "https://resy.com/cities/ny/don-ceviche",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 34
-    },
-    {
-      "name": "Turkish Cuisine",
-      "rating": 4.4,
-      "reviews": 633,
-      "resy_url": "https://resy.com/cities/ny/turkish-cuisine",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 45
-    },
-    {
-      "name": "Fuku Omakase",
-      "rating": 4.9,
-      "reviews": 323,
-      "resy_url": "https://resy.com/cities/ny/fuku-omakase",
-      "available": true,
-      "prime_slots": 1,
-      "total_slots": 2
-    },
-    {
-      "name": "Le Petit Village",
-      "rating": 4.7,
-      "reviews": 410,
-      "resy_url": "https://resy.com/cities/ny/le-petit-village",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 27
-    },
-    {
-      "name": "HYDERABADI ZAIQA",
-      "rating": 4.7,
-      "reviews": 398,
-      "resy_url": "https://resy.com/cities/ny/hyderabadi-zaiqa",
-      "available": true,
-      "prime_slots": 11,
-      "total_slots": 41
-    },
-    {
-      "name": "53",
-      "rating": 4.3,
-      "reviews": 668,
-      "resy_url": "https://resy.com/cities/ny/53",
-      "available": true,
-      "prime_slots": 5,
-      "total_slots": 21
-    },
-    {
-      "name": "Kazumi Omakase",
-      "rating": 4.9,
-      "reviews": 299,
-      "resy_url": "https://resy.com/cities/ny/kazumi-omakase",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 2
-    },
-    {
-      "name": "Frida Midtown",
-      "rating": 4.5,
-      "reviews": 492,
-      "resy_url": "https://resy.com/cities/ny/frida-midtown",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 37
-    },
-    {
-      "name": "Ly Ly Vietnam Cookhouse",
-      "rating": 4.8,
-      "reviews": 327,
-      "resy_url": "https://resy.com/cities/ny/ly-ly-vietnam-cookhouse",
-      "available": true,
-      "prime_slots": 0,
-      "total_slots": 19
-    },
-    {
-      "name": "Tatsuda Omakase",
-      "rating": 4.8,
-      "reviews": 291,
-      "resy_url": "https://resy.com/cities/ny/tatsuda-omakase",
-      "available": true,
-      "prime_slots": 5,
-      "total_slots": 10
-    },
-    {
-      "name": "Omakase Room by Mitsu",
-      "rating": 4.7,
-      "reviews": 314,
-      "resy_url": "https://resy.com/cities/ny/omakase-room-by-mitsu",
-      "available": true,
-      "prime_slots": 1,
-      "total_slots": 3
-    },
-    {
-      "name": "Omakase 33",
-      "rating": 4.8,
-      "reviews": 263,
-      "resy_url": "https://resy.com/cities/ny/omakase-33",
-      "available": true,
-      "prime_slots": 7,
-      "total_slots": 26
-    },
-    {
-      "name": "Bella Union",
-      "rating": 4.4,
-      "reviews": 435,
-      "resy_url": "https://resy.com/cities/ny/bella-union",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 43
-    },
-    {
-      "name": "Land of Plenty",
-      "rating": 4.2,
-      "reviews": 532,
-      "resy_url": "https://resy.com/cities/ny/land-of-plenty",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 37
-    },
-    {
-      "name": "Convivium Osteria",
-      "rating": 4.1,
-      "reviews": 603,
-      "resy_url": "https://resy.com/cities/ny/convivium-osteria",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 20
-    },
-    {
-      "name": "Koete Omakase",
-      "rating": 4.9,
-      "reviews": 178,
-      "resy_url": "https://resy.com/cities/ny/koete-omakase",
-      "available": true,
-      "prime_slots": 6,
-      "total_slots": 12
-    },
-    {
-      "name": "Gaia Restaurant",
-      "rating": 4.7,
-      "reviews": 199,
-      "resy_url": "https://resy.com/cities/ny/gaia-restaurant",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 36
-    },
-    {
-      "name": "Mrs. Georgia",
-      "rating": 4.7,
-      "reviews": 190,
-      "resy_url": "https://resy.com/cities/ny/mrs-georgia",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 42
-    },
-    {
-      "name": "Ubani Bistro",
-      "rating": 4.8,
-      "reviews": 155,
-      "resy_url": "https://resy.com/cities/ny/ubani-bistro",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 48
-    },
-    {
-      "name": "Papa San",
-      "rating": 4.4,
-      "reviews": 231,
-      "resy_url": "https://resy.com/cities/ny/papa-san",
-      "available": true,
-      "prime_slots": 21,
-      "total_slots": 46
-    },
-    {
-      "name": "Omakase Shihou (Shiro) - Midtown",
-      "rating": 4.7,
-      "reviews": 161,
-      "resy_url": "https://resy.com/cities/ny/omakase-shihou-shiro-midtown",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 22
-    },
-    {
-      "name": "Rocco Steakhouse",
-      "rating": 4.8,
-      "reviews": 104,
-      "resy_url": "https://resy.com/cities/ny/rocco-steakhouse",
-      "available": true,
-      "prime_slots": 12,
-      "total_slots": 40
-    },
-    {
-      "name": "Nuyores",
-      "rating": 4.5,
-      "reviews": 117,
-      "resy_url": "https://resy.com/cities/ny/nuyores",
-      "available": true,
-      "prime_slots": 3,
-      "total_slots": 13
-    },
-    {
-      "name": "Omakase Room by Shin",
-      "rating": 4.8,
-      "reviews": 81,
-      "resy_url": "https://resy.com/cities/ny/omakase-room-by-shin",
-      "available": true,
-      "prime_slots": 1,
-      "total_slots": 2
     }
   ],
   "candidates_without_resy": [
     {
       "name": "Mitr Thai Restaurant",
       "rating": 4.9,
-      "reviews": 8583,
+      "reviews": 8585,
       "address": "37 W 46th St, New York, NY 10036, USA"
     },
     {
       "name": "Ellen's Stardust Diner",
       "rating": 4.4,
-      "reviews": 23600,
+      "reviews": 23601,
       "address": "1650 Broadway, New York"
     },
     {
@@ -1030,13 +85,13 @@
     {
       "name": "OLIO E PIÙ",
       "rating": 4.7,
-      "reviews": 10169,
+      "reviews": 10173,
       "address": "3 Greenwich Ave, New York, NY 10014, USA"
     },
     {
       "name": "La Grande Boucherie",
       "rating": 4.6,
-      "reviews": 9502,
+      "reviews": 9504,
       "address": "145 W 53rd St, New York, NY 10019, USA"
     },
     {
@@ -1060,7 +115,7 @@
     {
       "name": "La Pecora Bianca NoMad",
       "rating": 4.7,
-      "reviews": 5566,
+      "reviews": 5567,
       "address": "1133 Broadway, New York, NY 10010, USA"
     },
     {
@@ -1072,7 +127,7 @@
     {
       "name": "Isla & Co. - Midtown",
       "rating": 4.8,
-      "reviews": 4428,
+      "reviews": 4429,
       "address": "25 W 38th St, New York, NY 10018, USA"
     },
     {
@@ -1080,12 +135,6 @@
       "rating": 4.6,
       "reviews": 6185,
       "address": "116 Lexington Ave, New York, NY 10016, USA"
-    },
-    {
-      "name": "Zia Maria Little Italy",
-      "rating": 4.6,
-      "reviews": 6046,
-      "address": "138 Mulberry St, New York, NY 10013, USA"
     },
     {
       "name": "Elephant Ear",
@@ -1140,12 +189,6 @@
       "rating": 4.2,
       "reviews": 8891,
       "address": "32 Spring Street, New York"
-    },
-    {
-      "name": "COTE Flatiron",
-      "rating": 4.6,
-      "reviews": 3964,
-      "address": "16 W 22nd St, New York, NY 10010, USA"
     },
     {
       "name": "Pine Restaurant",
@@ -1222,7 +265,7 @@
     {
       "name": "SAPERAVI",
       "rating": 4.9,
-      "reviews": 1898,
+      "reviews": 1899,
       "address": "245 E 14th St, New York, NY 10003, USA"
     },
     {
@@ -1264,7 +307,7 @@
     {
       "name": "Central Park Boathouse",
       "rating": 4.3,
-      "reviews": 4988,
+      "reviews": 4990,
       "address": "EAST 72ND ST +, Center Drive, New York"
     },
     {
@@ -1349,7 +392,7 @@
       "name": "Rosa Mexicano",
       "rating": 4.3,
       "reviews": 4235,
-      "address": "61 Columbus Avenue, New York"
+      "address": "44 West 63rd Street, New York"
     },
     {
       "name": "Jiang Nan NYC",
@@ -1402,7 +445,7 @@
     {
       "name": "Vatan",
       "rating": 4.5,
-      "reviews": 2708,
+      "reviews": 2709,
       "address": "409 3rd Ave, New York, NY 10016, USA"
     },
     {
@@ -1420,7 +463,7 @@
     {
       "name": "Samsaen Thai",
       "rating": 4.9,
-      "reviews": 1408,
+      "reviews": 1410,
       "address": "480 9th Ave, New York, NY 10018, USA"
     },
     {
@@ -1442,6 +485,12 @@
       "address": "89 Greenwich Street, New York"
     },
     {
+      "name": "Empire Steak House",
+      "rating": 4.6,
+      "reviews": 2187,
+      "address": "151 E 50th St, New York, NY 10022, USA"
+    },
+    {
       "name": "Little Collins",
       "rating": 4.5,
       "reviews": 2593,
@@ -1450,7 +499,7 @@
     {
       "name": "Grand Central Oyster Bar",
       "rating": 4.2,
-      "reviews": 4534,
+      "reviews": 4535,
       "address": "89 East 42nd Street, New York"
     },
     {
@@ -1530,6 +579,12 @@
       "rating": 4.3,
       "reviews": 3500,
       "address": "393 Lewis Avenue, Brooklyn"
+    },
+    {
+      "name": "ZOI MEDITERRANEAN UES",
+      "rating": 4.7,
+      "reviews": 1746,
+      "address": "1480 2nd Ave, New York, NY 10075, USA"
     },
     {
       "name": "Stout NYC",
@@ -1666,7 +721,7 @@
     {
       "name": "Taqueria by El Prieto NYC",
       "rating": 4.8,
-      "reviews": 1269,
+      "reviews": 1271,
       "address": "139 W 28th St, New York, NY 10001, USA"
     },
     {
@@ -1680,12 +735,6 @@
       "rating": 4.1,
       "reviews": 4243,
       "address": "80-26 Queens Boulevard, Elmhurst"
-    },
-    {
-      "name": "Don Angie",
-      "rating": 4.6,
-      "reviews": 1706,
-      "address": "103 Greenwich Ave, New York, NY 10014, USA"
     },
     {
       "name": "Dallas BBQ Washington Heights",
@@ -1768,7 +817,7 @@
     {
       "name": "Ear Inn",
       "rating": 4.6,
-      "reviews": 1520,
+      "reviews": 1521,
       "address": "326 Spring Street, New York"
     },
     {
@@ -1880,16 +929,16 @@
       "address": "2357 Arthur Avenue, The Bronx"
     },
     {
+      "name": "East Harbor Seafood Palace",
+      "rating": 4.3,
+      "reviews": 2138,
+      "address": "714 65th Street, Brooklyn"
+    },
+    {
       "name": "Ali Baba Mediterranean & turkish Cuisine",
       "rating": 4.7,
       "reviews": 1113,
       "address": "224 E 53rd St, New York, NY 10022, USA"
-    },
-    {
-      "name": "East Harbor Seafood Palace",
-      "rating": 4.3,
-      "reviews": 2137,
-      "address": "714 65th Street, Brooklyn"
     },
     {
       "name": "Juliette Restaurant",
@@ -1910,16 +959,16 @@
       "address": "136-28 39th Avenue, Flushing"
     },
     {
+      "name": "Hawksmoor NYC",
+      "rating": 4.4,
+      "reviews": 1764,
+      "address": "109 E 22nd St, New York, NY 10010, USA"
+    },
+    {
       "name": "Dun-Well Doughnuts",
       "rating": 4.6,
       "reviews": 1274,
       "address": "222 Montrose Avenue, Brooklyn"
-    },
-    {
-      "name": "Hawksmoor NYC",
-      "rating": 4.4,
-      "reviews": 1763,
-      "address": "109 E 22nd St, New York, NY 10010, USA"
     },
     {
       "name": "Jing Fong",
@@ -1982,12 +1031,6 @@
       "address": "2103 Starling Avenue, The Bronx"
     },
     {
-      "name": "Oyamel",
-      "rating": 4.8,
-      "reviews": 892,
-      "address": "505 W 30th St, New York, NY 10001, USA"
-    },
-    {
       "name": "The Wicked Monk",
       "rating": 4.5,
       "reviews": 1395,
@@ -2010,6 +1053,12 @@
       "rating": 4.1,
       "reviews": 2785,
       "address": "114 Kenmare Street, New York"
+    },
+    {
+      "name": "Casa Mono",
+      "rating": 4.3,
+      "reviews": 1868,
+      "address": "52 Irving Pl, New York, NY 10003, USA"
     },
     {
       "name": "Alligator Lounge",
@@ -2208,6 +1257,12 @@
       "rating": 4.5,
       "reviews": 1144,
       "address": "606 8th Ave, New York, NY 10018, USA"
+    },
+    {
+      "name": "Tengri Tagh Uyghur Cuisine",
+      "rating": 4.7,
+      "reviews": 847,
+      "address": "144 W 37th St, New York, NY 10018, USA"
     }
   ]
 }

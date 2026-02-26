@@ -2300,5 +2300,128 @@
     "error": null,
     "last_checked": "2026-02-26T16:25:03.499Z",
     "source_platform": "resy"
+  },
+  "mido - omakase room": {
+    "date": "2026-02-27",
+    "party_size": 2,
+    "total_slots": 7,
+    "is_available": true,
+    "early_slots": 0,
+    "prime_slots": 3,
+    "late_slots": 2,
+    "sample_times": [
+      "2026-02-27 17:00:00",
+      "2026-02-27 17:00:00",
+      "2026-02-27 18:30:00",
+      "2026-02-27 20:00:00",
+      "2026-02-27 20:00:00",
+      "2026-02-27 21:30:00",
+      "2026-02-27 21:30:00"
+    ],
+    "error": null,
+    "last_checked": "2026-02-26T19:26:47.118Z",
+    "source_platform": "resy"
+  },
+  "uka omakase": {
+    "date": "2026-02-27",
+    "party_size": 2,
+    "total_slots": 7,
+    "is_available": true,
+    "early_slots": 2,
+    "prime_slots": 2,
+    "late_slots": 1,
+    "sample_times": [
+      "2026-02-27 13:00:00",
+      "2026-02-27 14:30:00",
+      "2026-02-27 17:15:00",
+      "2026-02-27 17:30:00",
+      "2026-02-27 19:00:00",
+      "2026-02-27 19:45:00",
+      "2026-02-27 21:00:00"
+    ],
+    "error": null,
+    "last_checked": "2026-02-26T19:26:47.118Z",
+    "source_platform": "resy"
+  },
+  "one bite omakase": {
+    "date": "2026-02-27",
+    "party_size": 2,
+    "total_slots": 7,
+    "is_available": true,
+    "early_slots": 3,
+    "prime_slots": 3,
+    "late_slots": 0,
+    "sample_times": [
+      "2026-02-27 12:00:00",
+      "2026-02-27 13:00:00",
+      "2026-02-27 13:30:00",
+      "2026-02-27 17:00:00",
+      "2026-02-27 18:15:00",
+      "2026-02-27 19:30:00",
+      "2026-02-27 20:45:00"
+    ],
+    "error": null,
+    "last_checked": "2026-02-26T19:26:47.118Z",
+    "source_platform": "resy"
+  },
+  "nizuc": {
+    "date": "2026-02-27",
+    "party_size": 2,
+    "total_slots": 47,
+    "is_available": true,
+    "early_slots": 24,
+    "prime_slots": 12,
+    "late_slots": 7,
+    "sample_times": [
+      "2026-02-27 11:00:00",
+      "2026-02-27 11:15:00",
+      "2026-02-27 11:30:00",
+      "2026-02-27 11:45:00",
+      "2026-02-27 12:00:00",
+      "2026-02-27 12:15:00",
+      "2026-02-27 12:30:00",
+      "2026-02-27 12:45:00"
+    ],
+    "error": null,
+    "last_checked": "2026-02-26T19:26:47.118Z",
+    "source_platform": "resy"
+  },
+  "joo ok": {
+    "date": "2026-02-27",
+    "party_size": 2,
+    "total_slots": 2,
+    "is_available": true,
+    "early_slots": 0,
+    "prime_slots": 1,
+    "late_slots": 1,
+    "sample_times": [
+      "2026-02-27 20:45:00",
+      "2026-02-27 21:00:00"
+    ],
+    "error": null,
+    "last_checked": "2026-02-26T19:26:47.118Z",
+    "source_platform": "resy"
+  },
+  "omakase osukaa midtown east": {
+    "date": "2026-02-27",
+    "party_size": 2,
+    "total_slots": 21,
+    "is_available": true,
+    "early_slots": 11,
+    "prime_slots": 6,
+    "late_slots": 2,
+    "sample_times": [
+      "2026-02-27 12:00:00",
+      "2026-02-27 12:15:00",
+      "2026-02-27 12:30:00",
+      "2026-02-27 12:45:00",
+      "2026-02-27 13:00:00",
+      "2026-02-27 13:15:00",
+      "2026-02-27 13:30:00",
+      "2026-02-27 13:45:00"
+    ],
+    "error": null,
+    "last_checked": "2026-02-26T19:26:47.118Z",
+    "source_platform": "resy"
   }
 }

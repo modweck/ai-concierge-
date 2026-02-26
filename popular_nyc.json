@@ -1390,5 +1390,77 @@
     "price_level": null,
     "source": "expand_script",
     "added_date": "2026-02-26"
+  },
+  {
+    "name": "Mido - Omakase Room",
+    "place_id": "ChIJsxs1HB5ZwokRufNcB16P-7c",
+    "address": "221 S 1st St, Brooklyn, NY 11211, USA",
+    "lat": 40.713031,
+    "lng": -73.95900999999999,
+    "googleRating": 5,
+    "googleReviewCount": 842,
+    "price_level": null,
+    "source": "expand_script",
+    "added_date": "2026-02-26"
+  },
+  {
+    "name": "Uka Omakase",
+    "place_id": "ChIJldVrs9lZwokRfhzV-CTUW4w",
+    "address": "238 E 60th St, New York, NY 10022, USA",
+    "lat": 40.7614232,
+    "lng": -73.9647277,
+    "googleRating": 4.8,
+    "googleReviewCount": 518,
+    "price_level": null,
+    "source": "expand_script",
+    "added_date": "2026-02-26"
+  },
+  {
+    "name": "One Bite Omakase",
+    "place_id": "ChIJndAIDQBZwokRDL4Ik8dq7xI",
+    "address": "411b Amsterdam Ave, New York, NY 10024, USA",
+    "lat": 40.78348580000001,
+    "lng": -73.9777797,
+    "googleRating": 4.9,
+    "googleReviewCount": 209,
+    "price_level": null,
+    "source": "expand_script",
+    "added_date": "2026-02-26"
+  },
+  {
+    "name": "Nizuc",
+    "place_id": "ChIJdTl3DDJZwokRgmKkvuDO4Gg",
+    "address": "485 10th Ave, New York, NY 10018, USA",
+    "lat": 40.7567889,
+    "lng": -73.9979592,
+    "googleRating": 4.6,
+    "googleReviewCount": 293,
+    "price_level": null,
+    "source": "expand_script",
+    "added_date": "2026-02-26"
+  },
+  {
+    "name": "Joo Ok",
+    "place_id": "ChIJfXtCJgBZwokRt0ncRw3PEk4",
+    "address": "22 W 32nd St 16th flr, New York, NY 10001, USA",
+    "lat": 40.7475891,
+    "lng": -73.986913,
+    "googleRating": 4.7,
+    "googleReviewCount": 173,
+    "price_level": null,
+    "source": "expand_script",
+    "added_date": "2026-02-26"
+  },
+  {
+    "name": "Omakase OSUKAA Midtown East",
+    "place_id": "ChIJEbpIUohZwokRgEFAh0PRI6I",
+    "address": "373 Madison Ave, New York, NY 10017, USA",
+    "lat": 40.7551009,
+    "lng": -73.97737699999999,
+    "googleRating": 4.8,
+    "googleReviewCount": 99,
+    "price_level": null,
+    "source": "expand_script",
+    "added_date": "2026-02-26"
   }
 ]
