@@ -33,12 +33,9 @@
     .toggle-btn:hover.active{background:#000}
     .sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:16px;background:#f9fafb;border-radius:12px}
     .rising-badge{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,#f97316,#ef4444);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;border:none}
-    .avail-chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0 4px 0}
-    .avail-chip{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid #e0e0e0;background:#fafafa;color:#555;transition:all .15s;user-select:none}
-    .avail-chip:hover{opacity:0.85}
-    .avail-chip.active[data-tier="hard"]{background:#fef2f2;border-color:#f87171;color:#b91c1c}
-    .avail-chip.active[data-tier="medium"]{background:#fefce8;border-color:#facc15;color:#a16207}
-    .avail-chip.active[data-tier="easy"]{background:#f0fdf4;border-color:#4ade80;color:#15803d}
+    .avail-chips{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+    .avail-check{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:500;cursor:pointer;user-select:none}
+    .avail-check input[type="checkbox"]{width:18px;height:18px;cursor:pointer;accent-color:#333}
     .avail-badge{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;border:none}
     .avail-badge.hard{background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5}
     .avail-badge.medium{background:#fefce8;color:#a16207;border:1px solid #fde68a}
@@ -171,10 +168,10 @@
 
       <div style="margin-bottom:20px">
         <label>📅 Availability</label>
-        <div class="avail-chips" id="availChips" style="margin:0">
-          <span class="avail-chip active" data-tier="hard" onclick="toggleAvailChip(this)">🔴 Hard to Book</span>
-          <span class="avail-chip active" data-tier="medium" onclick="toggleAvailChip(this)">🟡 Medium</span>
-          <span class="avail-chip active" data-tier="easy" onclick="toggleAvailChip(this)">🟢 Easy to Book</span>
+        <div class="avail-chips">
+          <label class="avail-check"><input type="checkbox" checked onchange="toggleAvailCheck('hard', this.checked)"> 🔴 Hard to Book</label>
+          <label class="avail-check"><input type="checkbox" checked onchange="toggleAvailCheck('medium', this.checked)"> 🟡 Medium</label>
+          <label class="avail-check"><input type="checkbox" checked onchange="toggleAvailCheck('easy', this.checked)"> 🟢 Easy to Book</label>
         </div>
       </div>
 
@@ -243,10 +240,8 @@ function getAvailLabel(tier) {
   return null;
 }
 
-function toggleAvailChip(el) {
-  const tier = el.dataset.tier;
-  el.classList.toggle('active');
-  state.availFilter[tier] = el.classList.contains('active');
+function toggleAvailCheck(tier, checked) {
+  state.availFilter[tier] = checked;
   if (allRestaurants.length > 0) sortResults();
 }
 
