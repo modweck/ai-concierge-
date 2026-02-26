@@ -2,138 +2,192 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
   <title>SeatWize</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:system-ui,sans-serif;background:#f5f5f5;padding:20px}
-    .container{max-width:900px;margin:0 auto}
-    .card{background:white;padding:30px;border-radius:16px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-    h1{font-size:36px;margin-bottom:8px}
-    .subtitle{color:#666;font-size:18px}
-    label{display:block;font-weight:600;margin-bottom:10px;color:#333;font-size:15px}
-    input,select{width:100%;padding:14px;border:2px solid #e0e0e0;border-radius:10px;font-size:16px}
-    input:focus,select:focus{outline:none;border-color:#000}
-    .btn{width:100%;padding:18px;background:#000;color:white;border:none;border-radius:12px;font-size:18px;font-weight:700;cursor:pointer;margin-top:10px}
-    .btn:hover{background:#333}
-    .btn:disabled{background:#ccc;cursor:not-allowed}
-    .restaurant{background:white;padding:28px;border-radius:16px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:all 0.2s}
-    .restaurant:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.12)}
-    .restaurant h3{margin:0 0 6px 0;font-size:24px}
-    .cuisine{color:#999;font-size:15px;margin-bottom:16px}
-    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0;align-items:center}
-    .badge{padding:8px 14px;border-radius:20px;font-size:14px;font-weight:600;border:2px solid #e0e0e0;background:#fafafa}
-    .badge.distance{background:#e0f2fe;border-color:#7dd3fc;color:#075985}
-    .hidden{display:none}
-    .back-btn{padding:12px 24px;border:2px solid #ddd;border-radius:10px;background:white;cursor:pointer;font-weight:600;margin-bottom:24px;font-size:16px}
-    .toggle-group{display:flex;gap:12px;margin-top:10px}
-    .toggle-btn{flex:1;padding:14px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-size:15px;font-weight:600;color:#333}
-    .toggle-btn span{font-weight:400;font-size:13px;opacity:0.7}
-    .toggle-btn.active{background:#000;color:white;border-color:#000}
-    .toggle-btn:hover{border-color:#000;background:#f5f5f5}
-    .toggle-btn:hover.active{background:#000}
-    .sort-bar{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:16px;background:#f9fafb;border-radius:12px}
-    .rising-badge{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,#f97316,#ef4444);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;border:none}
-    .avail-chips{display:flex;flex-direction:column;gap:8px;margin-top:8px}
-    .avail-check{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:500;cursor:pointer;user-select:none}
-    .avail-check input[type="checkbox"]{width:18px;height:18px;cursor:pointer;accent-color:#333}
-    .avail-badge{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;border:none}
+    body{font-family:'DM Sans',-apple-system,sans-serif;background:#FAFAFA;padding:0;-webkit-font-smoothing:antialiased}
+    .container{max-width:520px;margin:0 auto;min-height:100vh;position:relative}
+
+    /* Header */
+    .header{background:linear-gradient(135deg,#FF5722 0%,#FF9800 100%);padding:24px 20px 20px;border-radius:0 0 24px 24px;position:relative;overflow:hidden}
+    .header::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.1)}
+    .header::after{content:'';position:absolute;bottom:-20px;left:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.08)}
+    .header h1{font-size:28px;font-weight:800;color:white;letter-spacing:-0.5px;position:relative;z-index:1}
+    .header .subtitle{font-size:14px;color:rgba(255,255,255,0.85);font-weight:500;margin-top:2px;position:relative;z-index:1}
+
+    /* Cards */
+    .section-card{background:white;border-radius:16px;padding:16px;margin:12px 16px;border:1px solid #f0f0f0}
+    .section-label{font-size:12px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:block}
+
+    /* Inputs */
+    input,select{width:100%;padding:12px 14px;border:2px solid #eee;border-radius:12px;font-size:15px;font-weight:500;font-family:'DM Sans',sans-serif;outline:none;transition:border 0.2s;background:white;-webkit-appearance:none;appearance:auto}
+    input:focus,select:focus{border-color:#FF5722}
+    input[type="number"]{width:60px;text-align:center;padding:10px 8px}
+
+    /* Chip buttons (for time, transport, quality, cuisine) */
+    .chip-group{display:flex;flex-wrap:wrap;gap:6px}
+    .chip{padding:8px 14px;border-radius:20px;border:2px solid #e8e8e8;background:white;cursor:pointer;font-size:13px;font-weight:500;color:#555;transition:all 0.15s;font-family:'DM Sans',sans-serif;line-height:1.2}
+    .chip.active{background:#FFF3E0;color:#E64A19;border-color:#FF5722;font-weight:700}
+    .chip:hover{border-color:#ccc}
+    .chip.active:hover{border-color:#FF5722}
+    .chip-sm{padding:7px 12px;border-radius:16px;font-size:12px}
+
+    /* Search button */
+    .search-btn{width:calc(100% - 32px);margin:8px 16px 16px;padding:16px;background:linear-gradient(135deg,#FF5722,#FF9800);color:white;border:none;border-radius:14px;font-size:17px;font-weight:800;cursor:pointer;letter-spacing:0.3px;box-shadow:0 4px 14px rgba(255,87,34,0.35);font-family:'DM Sans',sans-serif;transition:all 0.2s}
+    .search-btn:hover{box-shadow:0 6px 20px rgba(255,87,34,0.45);transform:translateY(-1px)}
+    .search-btn:disabled{opacity:0.6;cursor:wait;transform:none}
+    @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+    .search-btn.searching{background:linear-gradient(90deg,#FF5722,#FF9800,#FF5722);background-size:200% 100%;animation:shimmer 1.5s infinite}
+
+    /* Back button & sort bar */
+    .top-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+    .back-btn{padding:8px 16px;border:2px solid #eee;border-radius:10px;background:white;cursor:pointer;font-weight:700;font-size:14px;font-family:'DM Sans',sans-serif}
+    .sort-bar{display:flex;align-items:center;gap:6px}
+    .sort-bar label{font-size:12px;font-weight:600;color:#999;margin:0}
+    .sort-bar select{width:auto;padding:6px 10px;border:2px solid #eee;border-radius:8px;font-size:13px;font-weight:600}
+
+    /* Result count */
+    .result-banner{background:#E8F5E9;border:1px solid #A5D6A7;border-radius:10px;padding:10px 14px;margin:0 16px 12px;font-size:13px;font-weight:600;color:#2E7D32}
+    .location-banner{background:#e0f2fe;border:1px solid #7dd3fc;padding:10px 14px;border-radius:10px;margin:0 16px 8px;color:#075985;font-size:13px}
+
+    /* Restaurant cards */
+    .restaurant{background:white;padding:16px 18px;border-radius:16px;margin:0 16px 10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);border:1px solid #f0f0f0;transition:all 0.2s}
+    .restaurant h3{margin:0 0 3px 0;font-size:17px;font-weight:800;color:#1a1a1a;line-height:1.25}
+    .cuisine{color:#888;font-size:13px;margin-bottom:10px}
+    .badges{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;align-items:center}
+    .badge{padding:4px 8px;border-radius:6px;font-size:12px;font-weight:600;border:1px solid #e8e8e8;background:#f5f5f5;color:#333}
+    .badge.distance{background:#e0f2fe;border-color:#7dd3fc;color:#075985;font-size:11px}
+    .rising-badge{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,#f97316,#ef4444);color:white;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;border:none}
+    .avail-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;border:none}
     .avail-badge.hard{background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5}
     .avail-badge.medium{background:#fefce8;color:#a16207;border:1px solid #fde68a}
     .avail-badge.easy{background:#f0fdf4;color:#15803d;border:1px solid #86efac}
-    .section-divider{padding:12px 16px;margin:24px 0 16px 0;background:#f3f4f6;border-radius:10px;font-size:14px;font-weight:600;color:#6b7280;border-left:4px solid #d1d5db}
-    .chatbot-btn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:#000;color:white;border:none;font-size:28px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:all 0.2s}
-    .chatbot-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,0.4)}
-    .pac-container{z-index:10000!important;font-family:system-ui,sans-serif}
-    @media(max-width:768px){.toggle-group{flex-direction:column}}
+
+    /* Section divider */
+    .section-divider{padding:10px 14px;margin:16px 16px 10px;background:#f3f4f6;border-radius:10px;font-size:13px;font-weight:600;color:#6b7280;border-left:4px solid #d1d5db}
+
+    /* Availability filter chips */
+    .avail-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .avail-check{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:500;cursor:pointer;user-select:none}
+    .avail-check input[type="checkbox"]{width:16px;height:16px;cursor:pointer;accent-color:#FF5722}
+
+    /* Toggle group (old style compatibility) */
+    .toggle-group{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+    .toggle-btn{flex:1;min-width:80px;padding:10px 8px;border:2px solid #e8e8e8;border-radius:12px;background:white;cursor:pointer;font-size:13px;font-weight:600;color:#555;font-family:'DM Sans',sans-serif;text-align:center;transition:all 0.15s}
+    .toggle-btn.active{background:#FFF3E0;color:#E64A19;border-color:#FF5722;font-weight:700}
+    .toggle-btn:hover{border-color:#ccc}
+    .toggle-btn span{font-weight:400;font-size:11px;opacity:0.7}
+
+    /* Chat button */
+    .chatbot-btn{position:fixed;bottom:20px;right:20px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#FF5722,#FF9800);color:white;border:none;font-size:24px;cursor:pointer;box-shadow:0 4px 14px rgba(255,87,34,0.4);z-index:1000;transition:all 0.2s}
+    .chatbot-btn:hover{transform:scale(1.1)}
+
+    /* Animations */
+    @keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .restaurant{animation:slideUp 0.3s ease both}
+
+    /* Utility */
+    .hidden{display:none}
+    .pac-container{z-index:10000!important;font-family:'DM Sans',sans-serif}
+
+    /* Location row */
+    .location-row{display:flex;gap:8px}
+    .location-row input{flex:1}
+    .icon-btn{padding:12px;border:2px solid #eee;border-radius:12px;background:white;cursor:pointer;font-size:16px;flex-shrink:0}
+    .allnyc-btn{padding:10px 14px;border:2px solid #FF5722;border-radius:12px;background:#FFF3E0;cursor:pointer;font-size:12px;font-weight:700;color:#E64A19;white-space:nowrap;font-family:'DM Sans',sans-serif;flex-shrink:0}
+    .allnyc-btn:hover{background:#FFCCBC}
+
+    /* Date/party row */
+    .date-party-row{display:flex;gap:8px;margin-top:10px}
+    .date-party-row input[type="date"]{flex:1}
+    .party-box{display:flex;align-items:center;gap:6px;padding:10px 14px;border:2px solid #eee;border-radius:12px;background:white}
+    .party-box input{width:40px;border:none;font-size:15px;font-weight:600;text-align:center;outline:none;padding:0;font-family:'DM Sans',sans-serif}
+
+    /* Responsive desktop */
+    @media(min-width:520px){
+      body{padding:16px}
+      .container{border-radius:24px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);min-height:auto}
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <div class="card">
+    <!-- HEADER -->
+    <div class="header">
       <h1>🍽️ SeatWize</h1>
       <p class="subtitle">Find restaurants you can actually get into</p>
     </div>
 
-    <div id="search" class="card">
-      <div style="margin-bottom:20px">
-        <label>📍 Your Location</label>
-        <div style="display:flex;gap:10px">
-          <input type="text" id="addressInput" placeholder="Enter address" value="New York, NY" style="flex:1">
-          <button onclick="useCurrentLocation()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">📍 Use My Location</button>
-          <button onclick="searchAllNYC()" style="padding:14px 20px;border:2px solid #e0e0e0;border-radius:10px;background:white;cursor:pointer;font-weight:600">🗽 All NYC</button>
+    <!-- SEARCH FORM -->
+    <div id="search">
+
+      <!-- Location -->
+      <div class="section-card">
+        <span class="section-label">📍 Location</span>
+        <div class="location-row">
+          <input type="text" id="addressInput" placeholder="Enter address" value="New York, NY">
+          <button class="icon-btn" onclick="useCurrentLocation()">📍</button>
+          <button class="allnyc-btn" onclick="searchAllNYC()">🗽 All NYC</button>
         </div>
       </div>
 
-      <div style="margin-bottom:20px">
-        <label>📅 Date</label>
-        <input type="date" id="dateInput" style="margin-bottom:12px">
-        <label>🕐 Time Slot</label>
+      <!-- When -->
+      <div class="section-card">
+        <span class="section-label">🕐 When</span>
         <div class="toggle-group">
-          <button class="toggle-btn" onclick="setTimeSlot(event,'early')">🌅 Early<br><span style="font-size:11px;font-weight:400;color:#888">5pm – 6:30pm</span></button>
-          <button class="toggle-btn active" onclick="setTimeSlot(event,'prime')">🌆 Prime<br><span style="font-size:11px;font-weight:400;color:#888">6:30pm – 8:30pm</span></button>
-          <button class="toggle-btn" onclick="setTimeSlot(event,'late')">🌙 Late<br><span style="font-size:11px;font-weight:400;color:#888">8:30pm – 10pm</span></button>
+          <button class="toggle-btn" onclick="setTimeSlot(event,'early')">🌅 Early<br><span>5–6:30pm</span></button>
+          <button class="toggle-btn active" onclick="setTimeSlot(event,'prime')">🌆 Prime<br><span>6:30–8:30pm</span></button>
+          <button class="toggle-btn" onclick="setTimeSlot(event,'late')">🌙 Late<br><span>8:30–10pm</span></button>
+        </div>
+        <div class="date-party-row">
+          <input type="date" id="dateInput">
+          <div class="party-box">
+            <span style="font-size:14px">👥</span>
+            <input type="number" id="party" value="2" min="1" max="20">
+          </div>
         </div>
       </div>
 
-      <div style="margin-bottom:20px">
-        <label>👥 Party Size</label>
-        <input type="number" id="party" value="2" min="1" max="20">
-      </div>
-
-      <div style="margin-bottom:20px">
-        <label>🚗 Transportation</label>
+      <!-- How Far -->
+      <div class="section-card">
+        <span class="section-label">🚗 How Far</span>
         <div class="toggle-group">
           <button class="toggle-btn active" id="walkBtn" onclick="setTransport(event,'walk')">🚶 Walk <span id="walkLabel">20 min</span></button>
           <button class="toggle-btn" id="driveBtn" onclick="setTransport(event,'drive')">🚗 Drive <span id="driveLabel">15 min</span></button>
           <button class="toggle-btn" id="radiusBtn" onclick="setTransport(event,'radius')">📍 <span id="radiusLabel">3 mi</span></button>
         </div>
+        <div id="walkDistance" style="margin-top:10px">
+          <select id="walkTime" onchange="updateTransportLabels()">
+            <option value="10">10 min walk</option>
+            <option value="15">15 min walk</option>
+            <option value="20" selected>20 min walk</option>
+            <option value="30">30 min walk</option>
+          </select>
+        </div>
+        <div id="driveDistance" style="margin-top:10px;display:none">
+          <select id="driveTime" onchange="updateTransportLabels()">
+            <option value="10">10 min drive</option>
+            <option value="15" selected>15 min drive</option>
+            <option value="20">20 min drive</option>
+            <option value="30">30 min drive</option>
+          </select>
+        </div>
+        <div id="radiusDistance" style="margin-top:10px;display:none">
+          <select id="radiusMiles" onchange="updateTransportLabels()">
+            <option value="1">1 mile</option>
+            <option value="2">2 miles</option>
+            <option value="3" selected>3 miles</option>
+            <option value="5">5 miles</option>
+          </select>
+        </div>
       </div>
 
-      <div id="walkDistance" style="margin-bottom:20px">
-        <label>🚶 Max Walk</label>
-        <select id="walkTime" onchange="updateTransportLabels()">
-          <option value="10">10 min</option>
-          <option value="15">15 min</option>
-          <option value="20" selected>20 min</option>
-          <option value="30">30 min</option>
-        </select>
-      </div>
-
-      <div id="driveDistance" style="margin-bottom:20px;display:none">
-        <label>🚗 Max Drive</label>
-        <select id="driveTime" onchange="updateTransportLabels()">
-          <option value="10">10 min</option>
-          <option value="15" selected>15 min</option>
-          <option value="20">20 min</option>
-          <option value="30">30 min</option>
-        </select>
-      </div>
-
-      <div id="radiusDistance" style="margin-bottom:20px;display:none">
-        <label>📍 Radius</label>
-        <select id="radiusMiles" onchange="updateTransportLabels()">
-          <option value="1">1 mile</option>
-          <option value="2">2 miles</option>
-          <option value="3" selected>3 miles</option>
-          <option value="5">5 miles</option>
-        </select>
-      </div>
-
-      <div style="margin-bottom:20px">
-        <label>⭐ Quality</label>
-        <select id="quality">
-          <option value="any" selected>All Rated 4.4+</option>
-          <option value="michelin">Michelin Stars</option>
-          <option value="bib_gourmand">Bib Gourmand</option>
-          <option value="strict_elite_47">Top Rated (4.7+)</option>
-          <option value="new_rising">🔥 New & Rising</option>
-        </select>
-      </div>
-
-      <div style="margin-bottom:20px">
-        <label>🍕 Cuisine</label>
+      <!-- Cuisine -->
+      <div class="section-card">
+        <span class="section-label">🍕 Cuisine</span>
         <select id="cuisine">
           <option value="any">Any</option>
           <option value="american">American</option>
@@ -156,8 +210,17 @@
         </select>
       </div>
 
-      <div style="margin-bottom:20px">
-        <label>🎁 Book with Rewards</label>
+      <!-- Quality + Rewards -->
+      <div class="section-card">
+        <span class="section-label">⭐ Quality</span>
+        <select id="quality">
+          <option value="any" selected>All Rated 4.4+</option>
+          <option value="michelin">Michelin Stars</option>
+          <option value="bib_gourmand">Bib Gourmand</option>
+          <option value="strict_elite_47">Top Rated (4.7+)</option>
+          <option value="new_rising">🔥 New & Rising</option>
+        </select>
+        <span class="section-label" style="margin-top:12px">🎁 Book with Rewards</span>
         <select id="rewards" onchange="setRewards(this.value)">
           <option value="any">Any</option>
           <option value="chase">💳 Chase Sapphire Reserve</option>
@@ -165,8 +228,9 @@
         </select>
       </div>
 
-      <div style="margin-bottom:20px">
-        <label>📅 Availability</label>
+      <!-- Availability -->
+      <div class="section-card">
+        <span class="section-label">📅 Availability</span>
         <div class="avail-chips">
           <label class="avail-check"><input type="checkbox" checked onchange="toggleAvailCheck('hard', this.checked)"> 🔴 Hard to Book</label>
           <label class="avail-check"><input type="checkbox" checked onchange="toggleAvailCheck('medium', this.checked)"> 🟡 Medium</label>
@@ -174,23 +238,27 @@
         </div>
       </div>
 
-      <button class="btn" onclick="search()">🔍 Find Restaurants</button>
+      <!-- Search Button -->
+      <button class="search-btn" id="searchBtn" onclick="search()">🔍 Find Restaurants</button>
+      <div style="height:24px"></div>
     </div>
 
+    <!-- RESULTS -->
     <div id="results" class="hidden">
-      <button class="back-btn" onclick="back()">← Back</button>
-      <div id="warnings"></div>
-
-      <div class="sort-bar">
-        <label style="margin:0;font-weight:600">📊 Sort:</label>
-        <select id="sortBy" onchange="state.sortBy=this.value; sortResults();" autocomplete="off">
-          <option value="rating" selected>Rating</option>
-          <option value="distance">Distance</option>
-          <option value="price">Price</option>
-        </select>
+      <div class="top-bar">
+        <button class="back-btn" onclick="back()">← Back</button>
+        <div class="sort-bar">
+          <label>Sort:</label>
+          <select id="sortBy" onchange="state.sortBy=this.value; sortResults();" autocomplete="off">
+            <option value="rating" selected>Rating</option>
+            <option value="distance">Distance</option>
+            <option value="price">Price</option>
+          </select>
+        </div>
       </div>
-
+      <div id="warnings"></div>
       <div id="list"></div>
+      <div style="height:80px"></div>
     </div>
 
     <button class="chatbot-btn" onclick="alert('Chat coming soon!')">💬</button>
@@ -529,7 +597,7 @@ async function search() {
   isSearching = true;
   searchAbortController = new AbortController();
 
-  const searchBtn = document.querySelector('.btn');
+  const searchBtn = document.getElementById('searchBtn');
   searchBtn.disabled = true;
   searchBtn.style.opacity = '0.5';
   searchBtn.textContent = '🔍 Searching...';
@@ -609,7 +677,7 @@ async function search() {
 
     if (data?.error) {
       document.getElementById('warnings').innerHTML = `
-        <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
+        <div style="background:#fee2e2;border:1px solid #fca5a5;padding:10px 14px;border-radius:10px;margin:0 0 8px;color:#991b1b;font-weight:700;font-size:13px">
           ❌ ${data.error}
         </div>
       `;
@@ -695,7 +763,7 @@ async function search() {
     const filterLabel = activeFilters.length ? ' (' + activeFilters.join(' + ') + ')' : '';
 
     document.getElementById('warnings').innerHTML = `
-      <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
+      <div style="background:#e0f2fe;border:1px solid #7dd3fc;padding:10px 14px;border-radius:10px;margin:0 0 8px;color:#075985;font-size:13px">
         📍 ${data.confirmedAddress || location}
       </div>
       <div id="resultCountBadge">
@@ -714,7 +782,7 @@ async function search() {
 
     if (step1Data?.error) {
       document.getElementById('warnings').innerHTML = `
-        <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
+        <div style="background:#fee2e2;border:1px solid #fca5a5;padding:10px 14px;border-radius:10px;margin:0 0 8px;color:#991b1b;font-weight:700;font-size:13px">
           ❌ ${step1Data.error}
         </div>
       `;
@@ -744,10 +812,10 @@ async function search() {
     }));
 
     document.getElementById('warnings').innerHTML = `
-      <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
+      <div style="background:#e0f2fe;border:1px solid #7dd3fc;padding:10px 14px;border-radius:10px;margin:0 0 8px;color:#075985;font-size:13px">
         📍 ${step1Data.confirmedAddress || location}
       </div>
-      <div style="background:#fef3c7;border:2px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;color:#92400e;font-weight:700">
+      <div style="background:#fef3c7;border:1px solid #fcd34d;padding:10px 14px;border-radius:10px;margin:0 0 8px;color:#92400e;font-weight:600;font-size:13px">
         ⏱️ Loading restaurants...
       </div>
       <div id="resultCountBadge">
@@ -832,7 +900,7 @@ async function search() {
     allRestaurants = realTimeFiltered;
 
     document.getElementById('warnings').innerHTML = `
-      <div style="background:#e0f2fe;border:2px solid #7dd3fc;padding:12px;border-radius:8px;margin-bottom:16px;color:#075985">
+      <div style="background:#e0f2fe;border:1px solid #7dd3fc;padding:10px 14px;border-radius:10px;margin:0 0 8px;color:#075985;font-size:13px">
         📍 ${step1Data.confirmedAddress || location}
       </div>
       <div id="resultCountBadge">
@@ -850,14 +918,14 @@ async function search() {
     const errorMsg = error.message ? `😔 ${error.message}` : '😔 Search failed';
 
     document.getElementById('warnings').innerHTML = `
-      <div style="background:#fee2e2;border:2px solid #fca5a5;padding:12px;border-radius:8px;margin-bottom:16px;color:#991b1b;font-weight:800">
+      <div style="background:#fee2e2;border:1px solid #fca5a5;padding:10px 14px;border-radius:10px;margin:0 0 8px;color:#991b1b;font-weight:700;font-size:13px">
         ${errorMsg}
       </div>
     `;
     document.getElementById('list').innerHTML = `<div style="text-align:center;padding:40px">${errorMsg}</div>`;
   } finally {
     isSearching = false;
-    const searchBtn = document.querySelector('.btn');
+    const searchBtn = document.getElementById('searchBtn');
     searchBtn.disabled = false;
     searchBtn.style.opacity = '1';
     searchBtn.textContent = '🔍 Find Restaurants';
