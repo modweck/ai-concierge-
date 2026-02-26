@@ -229,12 +229,19 @@ function getAvailTier(name, placeId) {
     d = AVAILABILITY_DATA[n];
     if (!d) {
       for (const [key, val] of Object.entries(AVAILABILITY_DATA)) {
-        if (key.startsWith('pid:')) continue; // skip place_id keys
+        if (key.startsWith('pid:')) continue;
         if (n.includes(key) || key.includes(n)) { d = val; break; }
       }
     }
   }
   if (!d) return null;
+
+  // Use per-window tier if available for the selected time slot
+  if (d.windows && d.windows[state.timeSlot]) {
+    return d.windows[state.timeSlot]; // already 'hard', 'medium', or 'easy'
+  }
+
+  // Fall back to overall tier
   const t = d.tier;
   if (t === 'sold_out' || t === 'nearly_full') return 'hard';
   if (t === 'limited' || t === 'moderate') return 'medium';
@@ -275,6 +282,8 @@ function setTimeSlot(evt, slot) {
   const parentDiv = evt.target.closest('.toggle-group');
   parentDiv.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
   evt.target.closest('.toggle-btn').classList.add('active');
+  // Re-render so availability badges + filters update for the new time slot
+  if (allRestaurants.length > 0) sortResults();
 }
 
 function searchAllNYC() {
