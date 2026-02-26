@@ -1065,7 +1065,7 @@ function renderBuzz(r) {
 function renderCard(r) {
   // ── Cuisine subtitle ──
   const cuisineText = CUISINE_LOOKUP[r.name] || r.cuisine || '';
-  const addrText = r.vicinity || r.formatted_address || '';
+  const addrText = (r.vicinity || r.formatted_address || '').replace(/,?\s*USA$/i, '').replace(/,?\s*US$/i, '');
   let subtitleParts = [];
   if (cuisineText) subtitleParts.push(cuisineText);
   if (addrText) subtitleParts.push(addrText);
