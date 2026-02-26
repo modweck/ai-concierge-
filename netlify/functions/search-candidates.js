@@ -891,7 +891,7 @@ exports.handler = async (event) => {
         vicinity: b.address || '', formatted_address: b.address || '',
         price_level: b.price_level || null, opening_hours: null,
         geometry: { location: { lat: b.lat, lng: b.lng } },
-        types: [], googleRating: 0, googleReviewCount: 0,
+        types: [], googleRating: b.googleRating || 0, googleReviewCount: b.googleReviewCount || 0,
         distanceMiles: Math.round(d * 10) / 10,
         walkMinEstimate: Math.round(d * 20), driveMinEstimate: Math.round(d * 4), transitMinEstimate: Math.round(d * 6),
         michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: CUISINE_LOOKUP[b.name] || b.cuisine || null,
