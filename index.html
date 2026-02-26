@@ -69,63 +69,13 @@
       </div>
 
       <div style="margin-bottom:20px">
-        <label>📅 Date & Time</label>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <input type="date" id="dateInput" style="flex:1;min-width:140px">
-          <div style="display:flex;gap:6px;align-items:center;flex:1;min-width:200px">
-            <select id="startTime" style="flex:1">
-              <option value="11:00">11:00 AM</option>
-              <option value="11:30">11:30 AM</option>
-              <option value="12:00">12:00 PM</option>
-              <option value="12:30">12:30 PM</option>
-              <option value="13:00">1:00 PM</option>
-              <option value="13:30">1:30 PM</option>
-              <option value="14:00">2:00 PM</option>
-              <option value="14:30">2:30 PM</option>
-              <option value="15:00">3:00 PM</option>
-              <option value="15:30">3:30 PM</option>
-              <option value="16:00">4:00 PM</option>
-              <option value="16:30">4:30 PM</option>
-              <option value="17:00">5:00 PM</option>
-              <option value="17:30">5:30 PM</option>
-              <option value="18:00" selected>6:00 PM</option>
-              <option value="18:30">6:30 PM</option>
-              <option value="19:00">7:00 PM</option>
-              <option value="19:30">7:30 PM</option>
-              <option value="20:00">8:00 PM</option>
-              <option value="20:30">8:30 PM</option>
-              <option value="21:00">9:00 PM</option>
-              <option value="21:30">9:30 PM</option>
-              <option value="22:00">10:00 PM</option>
-            </select>
-            <span style="font-weight:600;color:#666">to</span>
-            <select id="endTime" style="flex:1">
-              <option value="12:00">12:00 PM</option>
-              <option value="12:30">12:30 PM</option>
-              <option value="13:00">1:00 PM</option>
-              <option value="13:30">1:30 PM</option>
-              <option value="14:00">2:00 PM</option>
-              <option value="14:30">2:30 PM</option>
-              <option value="15:00">3:00 PM</option>
-              <option value="15:30">3:30 PM</option>
-              <option value="16:00">4:00 PM</option>
-              <option value="16:30">4:30 PM</option>
-              <option value="17:00">5:00 PM</option>
-              <option value="17:30">5:30 PM</option>
-              <option value="18:00">6:00 PM</option>
-              <option value="18:30">6:30 PM</option>
-              <option value="19:00">7:00 PM</option>
-              <option value="19:30">7:30 PM</option>
-              <option value="20:00">8:00 PM</option>
-              <option value="20:30" selected>8:30 PM</option>
-              <option value="21:00">9:00 PM</option>
-              <option value="21:30">9:30 PM</option>
-              <option value="22:00">10:00 PM</option>
-              <option value="22:30">10:30 PM</option>
-              <option value="23:00">11:00 PM</option>
-              <option value="23:30">11:30 PM</option>
-            </select>
-          </div>
+        <label>📅 Date</label>
+        <input type="date" id="dateInput" style="margin-bottom:12px">
+        <label>🕐 Time Slot</label>
+        <div class="toggle-group">
+          <button class="toggle-btn" onclick="setTimeSlot(event,'early')">🌅 Early<br><span style="font-size:11px;font-weight:400;color:#888">5pm – 6:30pm</span></button>
+          <button class="toggle-btn active" onclick="setTimeSlot(event,'prime')">🌆 Prime<br><span style="font-size:11px;font-weight:400;color:#888">6:30pm – 8:30pm</span></button>
+          <button class="toggle-btn" onclick="setTimeSlot(event,'late')">🌙 Late<br><span style="font-size:11px;font-weight:400;color:#888">8:30pm – 10pm</span></button>
         </div>
       </div>
 
@@ -219,6 +169,15 @@
         </select>
       </div>
 
+      <div style="margin-bottom:20px">
+        <label>📅 Availability</label>
+        <div class="avail-chips" id="availChips" style="margin:0">
+          <span class="avail-chip active" data-tier="hard" onclick="toggleAvailChip(this)">🔴 Hard to Book</span>
+          <span class="avail-chip active" data-tier="medium" onclick="toggleAvailChip(this)">🟡 Medium</span>
+          <span class="avail-chip active" data-tier="easy" onclick="toggleAvailChip(this)">🟢 Easy to Book</span>
+        </div>
+      </div>
+
       <button class="btn" onclick="search()">🔍 Find Restaurants</button>
     </div>
 
@@ -235,13 +194,6 @@
         </select>
       </div>
 
-      <div class="avail-chips" id="availChips">
-        <label style="margin:0;font-weight:600;font-size:13px">📅 Availability:</label>
-        <span class="avail-chip active" data-tier="hard" onclick="toggleAvailChip(this)">🔴 Hard to Book</span>
-        <span class="avail-chip active" data-tier="medium" onclick="toggleAvailChip(this)">🟡 Medium</span>
-        <span class="avail-chip active" data-tier="easy" onclick="toggleAvailChip(this)">🟢 Easy to Book</span>
-      </div>
-
       <div id="list"></div>
     </div>
 
@@ -249,16 +201,14 @@
   </div>
 
 <script>
-let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating', availFilter: { hard: true, medium: true, easy: true } };
+let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating', availFilter: { hard: true, medium: true, easy: true }, timeSlot: 'prime' };
 let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
 
-// --- Availability data (from availability-checker.js output) ---
-// Maps restaurant name → { tier: 'sold_out'|'nearly_full'|'limited'|'moderate'|'available', slots, primeSlots }
+// --- Availability data ---
 let AVAILABILITY_DATA = {};
 
-// Try to load availability data from Netlify function
 (async function loadAvailability() {
   try {
     const resp = await fetch('/.netlify/functions/get-availability');
@@ -269,13 +219,10 @@ let AVAILABILITY_DATA = {};
   } catch(e) { console.log('Availability data not available yet'); }
 })();
 
-// Map 5 checker tiers → 3 user-facing tiers
 function getAvailTier(name) {
   if (!name) return null;
   const n = name.toLowerCase().trim();
-  // Try exact match first
   let d = AVAILABILITY_DATA[n];
-  // Try contains match (Google adds suffixes like "Steak House")
   if (!d) {
     for (const [key, val] of Object.entries(AVAILABILITY_DATA)) {
       if (n.includes(key) || key.includes(n)) { d = val; break; }
@@ -300,21 +247,26 @@ function toggleAvailChip(el) {
   const tier = el.dataset.tier;
   el.classList.toggle('active');
   state.availFilter[tier] = el.classList.contains('active');
-  sortResults();
+  if (allRestaurants.length > 0) sortResults();
 }
 
 function filterByAvailability(restaurants) {
-  // If all chips are active (or all off), show everything
   const { hard, medium, easy } = state.availFilter;
   const allOn = hard && medium && easy;
   const allOff = !hard && !medium && !easy;
   if (allOn || allOff) return restaurants;
-
   return restaurants.filter(r => {
     const tier = getAvailTier(r.name);
-    if (!tier) return true; // no data = always show
+    if (!tier) return true;
     return state.availFilter[tier];
   });
+}
+
+function setTimeSlot(evt, slot) {
+  state.timeSlot = slot;
+  const parentDiv = evt.target.closest('.toggle-group');
+  parentDiv.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  evt.target.closest('.toggle-btn').classList.add('active');
 }
 
 function searchAllNYC() {
@@ -324,7 +276,6 @@ function searchAllNYC() {
   // Hide all distance selectors
   document.getElementById('walkDistance').style.display = 'none';
   document.getElementById('driveDistance').style.display = 'none';
-  if (document.getElementById('transitDistance')) document.getElementById('transitDistance').style.display = 'none';
   document.getElementById('radiusDistance').style.display = 'none';
   // Run the search (keeps whatever address is in the input)
   document.getElementById('searchBtn').click();
@@ -471,7 +422,6 @@ function setTransport(evt, mode) {
 
   document.getElementById('walkDistance').style.display = mode === 'walk' ? 'block' : 'none';
   document.getElementById('driveDistance').style.display = mode === 'drive' ? 'block' : 'none';
-  document.getElementById('transitDistance').style.display = mode === 'transit' ? 'block' : 'none';
   document.getElementById('radiusDistance').style.display = mode === 'radius' ? 'block' : 'none';
 }
 
@@ -558,10 +508,9 @@ async function search() {
     state.transport = 'all_nyc';
   }
 
-  let maxWalkMinutes = null, maxDriveMinutes = null, maxTransitMinutes = null;
+  let maxWalkMinutes = null, maxDriveMinutes = null;
   if (state.transport === 'walk') maxWalkMinutes = parseInt(document.getElementById('walkTime').value, 10);
   else if (state.transport === 'drive') maxDriveMinutes = parseInt(document.getElementById('driveTime').value, 10);
-  else if (state.transport === 'transit') maxTransitMinutes = parseInt(document.getElementById('transitTime').value, 10);
 
   document.getElementById('search').classList.add('hidden');
   document.getElementById('results').classList.remove('hidden');
@@ -671,8 +620,6 @@ async function search() {
       allRestaurants = allRestaurants.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
     } else if (state.transport === 'drive' && maxDriveMinutes) {
       allRestaurants = allRestaurants.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
-    } else if (state.transport === 'transit' && maxTransitMinutes) {
-      allRestaurants = allRestaurants.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
     }
 
     // Curated modes sort by distance (closest first)
@@ -819,7 +766,6 @@ async function search() {
     if (!isBroadCitySearch(userLocation)) {
       if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
       else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
-      else if (state.transport === 'transit' && maxTransitMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.transitMinutes != null && r.transitMinutes <= maxTransitMinutes);
     }
     allRestaurants = realTimeFiltered;
 
