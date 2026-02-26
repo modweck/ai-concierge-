@@ -1,0 +1,466 @@
+{
+  "53": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/53"
+  },
+  "miss korea bbq": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/miss-korea-bbq"
+  },
+  "la pecora bianca bryant park": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/la-pecora-bianca-bryant-park"
+  },
+  "valla table": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/valla-table"
+  },
+  "osteria la baia": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/osteria-la-baia"
+  },
+  "lumlum": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/lumlum"
+  },
+  "amor loco": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/amor-loco"
+  },
+  "boucherie west village": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/boucherie-west-village"
+  },
+  "empire steak house times square": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/empire-steak-house-times-square"
+  },
+  "obao": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/obao"
+  },
+  "boucherie union square": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/boucherie-union-square"
+  },
+  "cantina rooftop": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/cantina-rooftop"
+  },
+  "sylvia's restaurant": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/sylvias-restaurant"
+  },
+  "le bernardin": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/le-bernardin"
+  },
+  "shukette": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/shukette"
+  },
+  "jongro bbq": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/jongro-bbq"
+  },
+  "pranakhon": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/pranakhon"
+  },
+  "the horny ram": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/the-horny-ram"
+  },
+  "hole in the wall - flatiron": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/hole-in-the-wall-flatiron"
+  },
+  "mission ceviche": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/mission-ceviche"
+  },
+  "kjun": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/kjun"
+  },
+  "friedman's": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/friedmans"
+  },
+  "junoon": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/junoon"
+  },
+  "dhamaka": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/dhamaka"
+  },
+  "osteria barocca": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/osteria-barocca"
+  },
+  "malii gramercy": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/malii-gramercy"
+  },
+  "her name is han": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/her-name-is-han"
+  },
+  "gupshup": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/gupshup"
+  },
+  "l'adresse nomad": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/ladresse-nomad"
+  },
+  "ci siamo": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/ci-siamo"
+  },
+  "cloves indian cuisine": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/cloves-indian-cuisine"
+  },
+  "la lanterna di vittorio": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/la-lanterna-di-vittorio"
+  },
+  "bryant park grill": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/bryant-park-grill"
+  },
+  "genki omakase": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/genki-omakase"
+  },
+  "cosme": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/cosme"
+  },
+  "ras plant based": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/ras-plant-based"
+  },
+  "le coucou": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/le-coucou"
+  },
+  "rocco steakhouse": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/rocco-steakhouse"
+  },
+  "negril village": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/negril-village"
+  },
+  "koon taste of siam": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/koon-taste-of-siam"
+  },
+  "isabelle's osteria": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/isabelles-osteria"
+  },
+  "spice symphony times square": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/spice-symphony-times-square"
+  },
+  "ubani midtown": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/ubani-midtown"
+  },
+  "cuerno": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/cuerno"
+  },
+  "tamarind tribeca": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/tamarind-tribeca"
+  },
+  "shinzo omakase": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/shinzo-omakase"
+  },
+  "the dutch": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/the-dutch"
+  },
+  "kellogg’s diner": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/kelloggs-diner"
+  },
+  "london lennie's": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/london-lennies"
+  },
+  "kausa": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/kausa"
+  },
+  "gabriel kreuther": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/gabriel-kreuther"
+  },
+  "daintree": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/daintree"
+  },
+  "uva": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/uva"
+  },
+  "oiji mi": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/oiji-mi"
+  },
+  "thai food near me": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/thai-food-near-me"
+  },
+  "hanoi house": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/hanoi-house"
+  },
+  "white olive": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/white-olive"
+  },
+  "avra rockefeller center": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/avra-rockefeller-center"
+  },
+  "aba turkish restaurant": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/aba-turkish-restaurant"
+  },
+  "sahara's turkish cuisine": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/saharas-turkish-cuisine"
+  },
+  "kellari taverna": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/kellari-taverna"
+  },
+  "elea": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/elea"
+  },
+  "greenwood park": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/greenwood-park"
+  },
+  "royal 35 steakhouse": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/royal-35-steakhouse"
+  },
+  "artesano": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/artesano"
+  },
+  "nerai": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/nerai"
+  },
+  "skirt steak": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/skirt-steak"
+  },
+  "le pavillon": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/le-pavillon"
+  },
+  "fushimi bay ridge": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/fushimi-bay-ridge"
+  },
+  "pylos": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/pylos"
+  },
+  "stone street tavern": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/stone-street-tavern"
+  },
+  "bar tabac": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/bar-tabac"
+  },
+  "mino brasserie": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/mino-brasserie"
+  },
+  "leyla": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/leyla"
+  },
+  "seoul bap": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/seoul-bap"
+  },
+  "jams": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/jams"
+  },
+  "cafe du soleil": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/cafe-du-soleil"
+  },
+  "basil brick oven pizza": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/basil-brick-oven-pizza"
+  },
+  "molyvos": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/molyvos"
+  },
+  "cipriani downtown": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/cipriani-downtown"
+  },
+  "diner": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/diner"
+  },
+  "morgan's brooklyn barbecue": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/morgans-brooklyn-barbecue"
+  },
+  "agora taverna": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/agora-taverna"
+  },
+  "askili orchard": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/askili-orchard"
+  },
+  "mido omakase - west village": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/mido-omakase-west-village"
+  },
+  "brindle room": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/brindle-room"
+  },
+  "kyma hudson yards": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/kyma-hudson-yards"
+  },
+  "laliko": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/laliko"
+  },
+  "tsion cafe": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/tsion-cafe"
+  },
+  "olle": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/olle"
+  },
+  "sixty three clinton": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/sixty-three-clinton"
+  },
+  "talia's steakhouse and bar": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/talias-steakhouse-and-bar"
+  },
+  "naro": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/naro"
+  },
+  "mudville": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/mudville"
+  },
+  "don ceviche": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/don-ceviche"
+  },
+  "turkish cuisine": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/turkish-cuisine"
+  },
+  "fuku omakase": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/fuku-omakase"
+  },
+  "le petit village": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/le-petit-village"
+  },
+  "hyderabadi zaiqa": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/hyderabadi-zaiqa"
+  },
+  "kazumi omakase": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/kazumi-omakase"
+  },
+  "frida midtown": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/frida-midtown"
+  },
+  "ly ly vietnam cookhouse": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/ly-ly-vietnam-cookhouse"
+  },
+  "tatsuda omakase": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/tatsuda-omakase"
+  },
+  "omakase room by mitsu": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/omakase-room-by-mitsu"
+  },
+  "omakase 33": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/omakase-33"
+  },
+  "bella union": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/bella-union"
+  },
+  "land of plenty": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/land-of-plenty"
+  },
+  "convivium osteria": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/convivium-osteria"
+  },
+  "koete omakase": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/koete-omakase"
+  },
+  "gaia restaurant": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/gaia-restaurant"
+  },
+  "mrs. georgia": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/mrs-georgia"
+  },
+  "ubani bistro": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/ubani-bistro"
+  },
+  "papa san": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/papa-san"
+  },
+  "omakase shihou (shiro) - midtown": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/omakase-shihou-shiro-midtown"
+  },
+  "nuyores": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/nuyores"
+  },
+  "omakase room by shin": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/omakase-room-by-shin"
+  }
+}
