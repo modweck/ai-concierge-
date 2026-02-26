@@ -11,14 +11,14 @@
     .container{max-width:520px;margin:0 auto;min-height:100vh;position:relative}
 
     /* Header */
-    .header{background:linear-gradient(135deg,#FF5722 0%,#FF9800 100%);padding:24px 20px 20px;border-radius:0 0 24px 24px;position:relative;overflow:hidden}
+    .header{background:linear-gradient(135deg,#FF5722 0%,#FF9800 100%);padding:18px 20px 16px;border-radius:0 0 24px 24px;position:relative;overflow:hidden}
     .header::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.1)}
     .header::after{content:'';position:absolute;bottom:-20px;left:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.08)}
     .header h1{font-size:28px;font-weight:800;color:white;letter-spacing:-0.5px;position:relative;z-index:1}
     .header .subtitle{font-size:14px;color:rgba(255,255,255,0.85);font-weight:500;margin-top:2px;position:relative;z-index:1}
 
     /* Cards */
-    .section-card{background:white;border-radius:16px;padding:16px;margin:12px 16px;border:1px solid #f0f0f0}
+    .section-card{background:white;border-radius:16px;padding:16px;margin:8px 16px;border:1px solid #f0f0f0}
     .section-label{font-size:12px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:block}
 
     /* Inputs */
@@ -75,7 +75,7 @@
 
     /* Toggle group (old style compatibility) */
     .toggle-group{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
-    .toggle-btn{flex:1;min-width:80px;padding:10px 8px;border:2px solid #e8e8e8;border-radius:12px;background:white;cursor:pointer;font-size:13px;font-weight:600;color:#555;font-family:'DM Sans',sans-serif;text-align:center;transition:all 0.15s}
+    .toggle-btn{flex:1;min-width:60px;padding:7px 6px;border:2px solid #e8e8e8;border-radius:10px;background:white;cursor:pointer;font-size:12px;font-weight:600;color:#555;font-family:'DM Sans',sans-serif;text-align:center;transition:all 0.15s}
     .toggle-btn.active{background:#FFF3E0;color:#E64A19;border-color:#FF5722;font-weight:700}
     .toggle-btn:hover{border-color:#ccc}
     .toggle-btn span{font-weight:400;font-size:11px;opacity:0.7}
@@ -135,16 +135,16 @@
       </div>
 
       <!-- When -->
-      <div class="section-card">
-        <span class="section-label">🕐 When</span>
+      <div class="section-card" style="padding:14px 16px">
+        <span class="section-label" style="margin-bottom:6px">🕐 When</span>
         <div class="toggle-group">
-          <button class="toggle-btn" onclick="setTimeSlot(event,'early')">🌅 Early<br><span>5–6:30pm</span></button>
-          <button class="toggle-btn active" onclick="setTimeSlot(event,'prime')">🌆 Prime<br><span>6:30–8:30pm</span></button>
-          <button class="toggle-btn" onclick="setTimeSlot(event,'late')">🌙 Late<br><span>8:30–10pm</span></button>
+          <button class="toggle-btn" style="padding:6px 6px;font-size:12px" onclick="setTimeSlot(event,'early')">🌅 Early<br><span style="font-size:11px">5–6:30</span></button>
+          <button class="toggle-btn active" style="padding:6px 6px;font-size:12px" onclick="setTimeSlot(event,'prime')">🌆 Prime<br><span style="font-size:11px">6:30–8:30</span></button>
+          <button class="toggle-btn" style="padding:6px 6px;font-size:12px" onclick="setTimeSlot(event,'late')">🌙 Late<br><span style="font-size:11px">8:30–10</span></button>
         </div>
-        <div class="date-party-row">
-          <input type="date" id="dateInput">
-          <div class="party-box">
+        <div class="date-party-row" style="margin-top:8px">
+          <input type="date" id="dateInput" style="padding:8px 12px;font-size:13px">
+          <div class="party-box" style="padding:8px 12px">
             <span style="font-size:14px">👥</span>
             <input type="number" id="party" value="2" min="1" max="20">
           </div>
@@ -152,31 +152,31 @@
       </div>
 
       <!-- How Far -->
-      <div class="section-card">
-        <span class="section-label">🚗 How Far</span>
-        <div class="toggle-group">
-          <button class="toggle-btn active" id="walkBtn" onclick="setTransport(event,'walk')">🚶 Walk <span id="walkLabel">20 min</span></button>
-          <button class="toggle-btn" id="driveBtn" onclick="setTransport(event,'drive')">🚗 Drive <span id="driveLabel">15 min</span></button>
+      <div class="section-card" style="padding:12px 14px">
+        <span class="section-label" style="margin-bottom:6px">🚗 How Far</span>
+        <div class="toggle-group" style="gap:6px">
+          <button class="toggle-btn active" id="walkBtn" onclick="setTransport(event,'walk')">🚶 <span id="walkLabel">20 min</span></button>
+          <button class="toggle-btn" id="driveBtn" onclick="setTransport(event,'drive')">🚗 <span id="driveLabel">15 min</span></button>
           <button class="toggle-btn" id="radiusBtn" onclick="setTransport(event,'radius')">📍 <span id="radiusLabel">3 mi</span></button>
         </div>
-        <div id="walkDistance" style="margin-top:10px">
-          <select id="walkTime" onchange="updateTransportLabels()">
+        <div id="walkDistance" style="margin-top:8px">
+          <select id="walkTime" onchange="updateTransportLabels()" style="padding:8px 12px;font-size:13px">
             <option value="10">10 min walk</option>
             <option value="15">15 min walk</option>
             <option value="20" selected>20 min walk</option>
             <option value="30">30 min walk</option>
           </select>
         </div>
-        <div id="driveDistance" style="margin-top:10px;display:none">
-          <select id="driveTime" onchange="updateTransportLabels()">
+        <div id="driveDistance" style="margin-top:8px;display:none">
+          <select id="driveTime" onchange="updateTransportLabels()" style="padding:8px 12px;font-size:13px">
             <option value="10">10 min drive</option>
             <option value="15" selected>15 min drive</option>
             <option value="20">20 min drive</option>
             <option value="30">30 min drive</option>
           </select>
         </div>
-        <div id="radiusDistance" style="margin-top:10px;display:none">
-          <select id="radiusMiles" onchange="updateTransportLabels()">
+        <div id="radiusDistance" style="margin-top:8px;display:none">
+          <select id="radiusMiles" onchange="updateTransportLabels()" style="padding:8px 12px;font-size:13px">
             <option value="1">1 mile</option>
             <option value="2">2 miles</option>
             <option value="3" selected>3 miles</option>
@@ -185,56 +185,61 @@
         </div>
       </div>
 
-      <!-- Cuisine -->
-      <div class="section-card">
-        <span class="section-label">🍕 Cuisine</span>
-        <select id="cuisine">
-          <option value="any">Any</option>
-          <option value="american">American</option>
-          <option value="barbecue">Barbecue</option>
-          <option value="chinese">Chinese</option>
-          <option value="french">French</option>
-          <option value="greek">Greek</option>
-          <option value="indian">Indian</option>
-          <option value="italian">Italian</option>
-          <option value="japanese">Japanese</option>
-          <option value="korean">Korean</option>
-          <option value="mediterranean">Mediterranean</option>
-          <option value="mexican">Mexican</option>
-          <option value="seafood">Seafood</option>
-          <option value="spanish">Spanish</option>
-          <option value="steakhouse">Steakhouse</option>
-          <option value="sushi">Sushi</option>
-          <option value="thai">Thai</option>
-          <option value="vietnamese">Vietnamese</option>
-        </select>
-      </div>
-
-      <!-- Quality + Rewards -->
-      <div class="section-card">
-        <span class="section-label">⭐ Quality</span>
-        <select id="quality">
-          <option value="any" selected>All Rated 4.4+</option>
-          <option value="michelin">Michelin Stars</option>
-          <option value="bib_gourmand">Bib Gourmand</option>
-          <option value="strict_elite_47">Top Rated (4.7+)</option>
-          <option value="new_rising">🔥 New & Rising</option>
-        </select>
-        <span class="section-label" style="margin-top:12px">🎁 Book with Rewards</span>
-        <select id="rewards" onchange="setRewards(this.value)">
-          <option value="any">Any</option>
-          <option value="chase">💳 Chase Sapphire Reserve</option>
-          <option value="rakuten">🛍️ Rakuten</option>
-        </select>
-      </div>
-
-      <!-- Availability -->
-      <div class="section-card">
-        <span class="section-label">📅 Availability</span>
-        <div class="avail-chips">
-          <label class="avail-check"><input type="checkbox" checked onchange="toggleAvailCheck('hard', this.checked)"> 🔴 Hard to Book</label>
-          <label class="avail-check"><input type="checkbox" checked onchange="toggleAvailCheck('medium', this.checked)"> 🟡 Medium</label>
-          <label class="avail-check"><input type="checkbox" checked onchange="toggleAvailCheck('easy', this.checked)"> 🟢 Easy to Book</label>
+      <!-- Filters -->
+      <div class="section-card" style="padding:12px 14px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div>
+            <span class="section-label" style="margin-bottom:4px;font-size:10px">🍕 Cuisine</span>
+            <select id="cuisine" style="padding:8px 10px;font-size:13px">
+              <option value="any">Any</option>
+              <option value="american">American</option>
+              <option value="barbecue">Barbecue</option>
+              <option value="chinese">Chinese</option>
+              <option value="french">French</option>
+              <option value="greek">Greek</option>
+              <option value="indian">Indian</option>
+              <option value="italian">Italian</option>
+              <option value="japanese">Japanese</option>
+              <option value="korean">Korean</option>
+              <option value="mediterranean">Mediterranean</option>
+              <option value="mexican">Mexican</option>
+              <option value="seafood">Seafood</option>
+              <option value="spanish">Spanish</option>
+              <option value="steakhouse">Steakhouse</option>
+              <option value="sushi">Sushi</option>
+              <option value="thai">Thai</option>
+              <option value="vietnamese">Vietnamese</option>
+            </select>
+          </div>
+          <div>
+            <span class="section-label" style="margin-bottom:4px;font-size:10px">⭐ Quality</span>
+            <select id="quality" style="padding:8px 10px;font-size:13px">
+              <option value="any" selected>All 4.4+</option>
+              <option value="michelin">Michelin Stars</option>
+              <option value="bib_gourmand">Bib Gourmand</option>
+              <option value="strict_elite_47">Top Rated 4.7+</option>
+              <option value="new_rising">🔥 New & Rising</option>
+            </select>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+          <div>
+            <span class="section-label" style="margin-bottom:4px;font-size:10px">🎁 Rewards</span>
+            <select id="rewards" onchange="setRewards(this.value)" style="padding:8px 10px;font-size:13px">
+              <option value="any">Any</option>
+              <option value="chase">💳 Chase Sapphire</option>
+              <option value="rakuten">🛍️ Rakuten</option>
+            </select>
+          </div>
+          <div>
+            <span class="section-label" style="margin-bottom:4px;font-size:10px">📅 Availability</span>
+            <select id="availFilter" onchange="setAvailFilter(this.value)" style="padding:8px 10px;font-size:13px">
+              <option value="all" selected>All</option>
+              <option value="easy">🟢 Easy</option>
+              <option value="medium">🟡 Medium+</option>
+              <option value="hard">🔴 Hard Only</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -331,6 +336,19 @@ function getAvailLabel(tier) {
   if (tier === 'medium') return { emoji: '🟡', text: 'Medium', cls: 'medium' };
   if (tier === 'easy') return { emoji: '🟢', text: 'Easy to Book', cls: 'easy' };
   return null;
+}
+
+function setAvailFilter(val) {
+  if (val === 'all') {
+    state.availFilter = { hard: true, medium: true, easy: true };
+  } else if (val === 'easy') {
+    state.availFilter = { hard: false, medium: false, easy: true };
+  } else if (val === 'medium') {
+    state.availFilter = { hard: false, medium: true, easy: true };
+  } else if (val === 'hard') {
+    state.availFilter = { hard: true, medium: false, easy: false };
+  }
+  if (allRestaurants.length > 0) sortResults();
 }
 
 function toggleAvailCheck(tier, checked) {
