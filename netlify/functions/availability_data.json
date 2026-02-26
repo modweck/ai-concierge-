@@ -2246,124 +2246,89 @@
     ]
   },
   "nobu downtown": {
-    "name": "nobu downtown",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 4,
+    "prime_slots": 4,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/nobu-downtown",
-    "slug": "nobu-downtown",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:11:31.328Z"
   },
   "nobu fifty seven": {
-    "name": "nobu fifty seven",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 4,
+    "prime_slots": 4,
+    "slots": [
+      "5:45 PM",
+      "6:00 PM",
+      "8:15 PM",
+      "10:00 PM"
+    ],
     "url": "https://www.opentable.com/nobu-fifty-seven",
-    "slug": "nobu-fifty-seven",
-    "restaurant_id": "4524",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:11:39.587Z"
   },
   "the odeon": {
-    "name": "the odeon",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 2,
+    "prime_slots": 2,
+    "slots": [
+      "4:30 PM",
+      "4:45 PM"
+    ],
     "url": "https://www.opentable.com/the-odeon",
-    "slug": "the-odeon",
-    "restaurant_id": "2221",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:12:02.167Z"
   },
   "brooklyn chop house": {
-    "name": "brooklyn chop house",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:00 PM",
+      "6:30 PM",
+      "7:00 PM",
+      "7:30 PM",
+      "8:00 PM"
+    ],
     "url": "https://www.opentable.com/brooklyn-chop-house-downtown",
-    "slug": "brooklyn-chop-house-downtown",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:12:14.989Z"
   },
   "tiny's": {
-    "name": "tiny's",
     "platform": "opentable",
+    "status": "sold_out",
+    "total_slots": 0,
+    "prime_slots": 0,
+    "slots": [],
     "url": "https://www.opentable.com/tinys",
-    "slug": "tinys",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:12:30.350Z"
   },
   "peking duck house": {
-    "name": "peking duck house",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/peking-duck-house",
-    "slug": "peking-duck-house",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:12:38.232Z"
   },
   "fogo de chão": {
     "name": "fogo de chão",
@@ -2385,364 +2350,257 @@
     ]
   },
   "serafina tribeca": {
-    "name": "serafina tribeca",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/serafina-tribeca",
-    "slug": "serafina-tribeca",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:12:45.930Z"
   },
   "serafina osteria": {
-    "name": "serafina osteria",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/serafina-osteria",
-    "slug": "serafina-osteria",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:12:53.574Z"
   },
   "filé gumbo bar": {
-    "name": "filé gumbo bar",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/file-gumbo-bar",
-    "slug": "file-gumbo-bar",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:13:02.532Z"
   },
   "antica ancora": {
-    "name": "antica ancora",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:15 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:45 PM"
+    ],
     "url": "https://www.opentable.com/antica-ancora",
-    "slug": "antica-ancora",
-    "restaurant_id": "116047",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:13:19.309Z"
   },
   "frenchette": {
-    "name": "frenchette",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 1,
+    "prime_slots": 1,
+    "slots": [
+      "9:45 PM"
+    ],
     "url": "https://www.opentable.com/frenchette",
-    "slug": "frenchette",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:13:29.634Z"
   },
   "soothr": {
-    "name": "soothr",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 2,
+    "prime_slots": 2,
+    "slots": [
+      "9:30 PM",
+      "10:00 PM"
+    ],
     "url": "https://www.opentable.com/soothr",
-    "slug": "soothr",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:13:37.924Z"
   },
   "san sabino": {
-    "name": "san sabino",
     "platform": "opentable",
+    "status": "sold_out",
+    "total_slots": 0,
+    "prime_slots": 0,
+    "slots": [],
     "url": "https://www.opentable.com/san-sabino",
-    "slug": "san-sabino",
-    "restaurant_id": null,
-    "curated_tier": "chase",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:13:46.851Z"
   },
   "estela": {
-    "name": "estela",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 4,
+    "prime_slots": 4,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "9:00 PM",
+      "9:15 PM"
+    ],
     "url": "https://www.opentable.com/estela",
-    "slug": "estela",
-    "restaurant_id": "212488",
-    "curated_tier": "michelin",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:13:54.898Z"
   },
   "momofuku noodle bar": {
-    "name": "momofuku noodle bar",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/momofuku-noodle-bar-east-village",
-    "slug": "momofuku-noodle-bar-east-village",
-    "restaurant_id": null,
-    "curated_tier": "bib_gourmand",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:14:02.576Z"
   },
   "raf's": {
-    "name": "raf's",
     "platform": "opentable",
+    "status": "sold_out",
+    "total_slots": 0,
+    "prime_slots": 0,
+    "slots": [],
     "url": "https://www.opentable.com/rafs",
-    "slug": "rafs",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:14:10.666Z"
   },
   "casa mono": {
-    "name": "casa mono",
     "platform": "opentable",
+    "status": "sold_out",
+    "total_slots": 0,
+    "prime_slots": 0,
+    "slots": [],
     "url": "https://www.opentable.com/casa-mono",
-    "slug": "casa-mono",
-    "restaurant_id": "0",
-    "curated_tier": "michelin",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:14:30.920Z"
   },
   "le rock": {
-    "name": "le rock",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/le-rock",
-    "slug": "le-rock",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:14:39.413Z"
   },
   "la grande boucherie": {
-    "name": "la grande boucherie",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/la-grande-boucherie-nyc",
-    "slug": "la-grande-boucherie-nyc",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:14:47.777Z"
   },
   "gallaghers steakhouse": {
-    "name": "gallaghers steakhouse",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 2,
+    "prime_slots": 2,
+    "slots": [
+      "5:30 PM",
+      "10:00 PM"
+    ],
     "url": "https://www.opentable.com/gallaghers-steakhouse-manhattan",
-    "slug": "gallaghers-steakhouse-manhattan",
-    "restaurant_id": "104182",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:15:04.485Z"
   },
   "bad roman": {
-    "name": "bad roman",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 2,
+    "prime_slots": 2,
+    "slots": [
+      "9:30 PM",
+      "9:45 PM"
+    ],
     "url": "https://www.opentable.com/bad-roman",
-    "slug": "bad-roman",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:15:21.625Z"
   },
   "carmine's": {
-    "name": "carmine's",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 2,
+    "prime_slots": 2,
+    "slots": [
+      "9:45 PM",
+      "10:00 PM"
+    ],
     "url": "https://www.opentable.com/carmines-44th-street-nyc",
-    "slug": "carmines-44th-street-nyc",
-    "restaurant_id": "2295",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:15:29.624Z"
   },
   "the palm court": {
-    "name": "the palm court",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/the-palm-court-at-the-plaza-hotel",
-    "slug": "the-palm-court-at-the-plaza-hotel",
-    "restaurant_id": "42739",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:15:44.877Z"
   },
   "markjoseph steakhouse": {
-    "name": "markjoseph steakhouse",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/markjoseph-steakhouse",
-    "slug": "markjoseph-steakhouse",
-    "restaurant_id": "0",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:15:52.355Z"
   },
   "_meta": {
     "last_run": "2026-02-25",
@@ -20176,84 +20034,50 @@
     ]
   },
   "caviar russe": {
-    "name": "caviar russe",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/caviar-russe",
-    "slug": "caviar-russe",
-    "restaurant_id": "6145",
-    "curated_tier": "michelin",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:16:57.606Z"
   },
   "odo": {
-    "name": "odo",
     "platform": "opentable",
+    "status": "sold_out",
+    "total_slots": 0,
+    "prime_slots": 0,
+    "slots": [],
     "url": "https://www.opentable.com/odo",
-    "slug": "odo",
-    "restaurant_id": null,
-    "curated_tier": "michelin",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:18:07.706Z"
   },
   "sushi noz": {
-    "name": "sushi noz",
     "platform": "opentable",
+    "status": "sold_out",
+    "total_slots": 0,
+    "prime_slots": 0,
+    "slots": [],
     "url": "https://www.opentable.com/sushi-noz",
-    "slug": "sushi-noz",
-    "restaurant_id": null,
-    "curated_tier": "michelin",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:18:16.232Z"
   },
   "don angie": {
-    "name": "don angie",
     "platform": "opentable",
+    "status": "sold_out",
+    "total_slots": 0,
+    "prime_slots": 0,
+    "slots": [],
     "url": "https://www.opentable.com/don-angie",
-    "slug": "don-angie",
-    "restaurant_id": null,
-    "curated_tier": "michelin",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:19:34.654Z"
   },
   "le bernardin": {
     "name": "le bernardin",
@@ -20348,24 +20172,18 @@
     ]
   },
   "nami nori": {
-    "name": "nami nori",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 3,
+    "prime_slots": 3,
+    "slots": [
+      "5:00 PM",
+      "5:30 PM",
+      "10:00 PM"
+    ],
     "url": "https://www.opentable.com/nami-nori",
-    "slug": "nami-nori",
-    "restaurant_id": null,
-    "curated_tier": "bib_gourmand",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:24:40.211Z"
   },
   "gage & tollner": {
     "name": "gage & tollner",
@@ -20624,24 +20442,19 @@
     ]
   },
   "scarr's pizza": {
-    "name": "scarr's pizza",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 4,
+    "prime_slots": 4,
+    "slots": [
+      "6:15 PM",
+      "6:30 PM",
+      "8:45 PM",
+      "9:00 PM"
+    ],
     "url": "https://www.opentable.com/scarrs-pizza",
-    "slug": "scarrs-pizza",
-    "restaurant_id": null,
-    "curated_tier": "chase",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:18:23.495Z"
   },
   "fairfax": {
     "name": "fairfax",
@@ -21028,84 +20841,68 @@
     ]
   },
   "westville": {
-    "name": "westville",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/westville",
-    "slug": "westville",
-    "restaurant_id": null,
-    "curated_tier": "rakuten",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:18:41.615Z"
   },
   "trattoria dell'arte": {
-    "name": "trattoria dell'arte",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/trattoria-dellarte",
-    "slug": "trattoria-dellarte",
-    "restaurant_id": "0",
-    "curated_tier": "rakuten",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:21:31.799Z"
   },
   "il corso": {
-    "name": "il corso",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/il-corso",
-    "slug": "il-corso",
-    "restaurant_id": "0",
-    "curated_tier": "rakuten",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:24:17.045Z"
   },
   "sparks steak house": {
-    "name": "sparks steak house",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/sparks-steak-house",
-    "slug": "sparks-steak-house",
-    "restaurant_id": "78106",
-    "curated_tier": "rakuten",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:27:48.714Z"
   },
   "blend on the water": {
     "name": "blend on the water",
@@ -21896,544 +21693,406 @@
     ]
   },
   "strip house": {
-    "name": "strip house",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 4,
+    "prime_slots": 4,
+    "slots": [
+      "6:15 PM",
+      "6:30 PM",
+      "8:45 PM",
+      "9:00 PM"
+    ],
     "url": "https://www.opentable.com/strip-house-speakeasy",
-    "slug": "strip-house-speakeasy",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:16:41.265Z"
   },
   "abc cocina": {
-    "name": "abc cocina",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "8:30 PM"
+    ],
     "url": "https://www.opentable.com/abc-cocina",
-    "slug": "abc-cocina",
-    "restaurant_id": "0",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:17:51.109Z"
   },
   "le veau d'or": {
-    "name": "le veau d'or",
     "platform": "opentable",
+    "status": "sold_out",
+    "total_slots": 0,
+    "prime_slots": 0,
+    "slots": [],
     "url": "https://www.opentable.com/le-veau-dor",
-    "slug": "le-veau-dor",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:17:59.269Z"
   },
   "joe allen": {
-    "name": "joe allen",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 4,
+    "prime_slots": 4,
+    "slots": [
+      "4:15 PM",
+      "4:30 PM",
+      "9:00 PM",
+      "9:15 PM"
+    ],
     "url": "https://www.opentable.com/joe-allen",
-    "slug": "joe-allen",
-    "restaurant_id": "0",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:18:51.182Z"
   },
   "jajaja mexicana": {
-    "name": "jajaja mexicana",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "5:00 PM",
+      "6:30 PM",
+      "7:00 PM",
+      "7:30 PM",
+      "8:00 PM"
+    ],
     "url": "https://www.opentable.com/jajaja-mexicana-west-village",
-    "slug": "jajaja-mexicana-west-village",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:19:17.386Z"
   },
   "tony's di napoli": {
-    "name": "tony's di napoli",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 3,
+    "prime_slots": 3,
+    "slots": [
+      "4:00 PM",
+      "7:45 PM",
+      "8:00 PM"
+    ],
     "url": "https://www.opentable.com/tonys-di-napoli-midtown",
-    "slug": "tonys-di-napoli-midtown",
-    "restaurant_id": "0",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:19:26.297Z"
   },
   "smith & wollensky": {
-    "name": "smith & wollensky",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 4,
+    "prime_slots": 4,
+    "slots": [
+      "6:00 PM",
+      "6:15 PM",
+      "9:00 PM",
+      "9:15 PM"
+    ],
     "url": "https://www.opentable.com/smith-and-wollensky",
-    "slug": "smith-and-wollensky",
-    "restaurant_id": "6648",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:20:11.282Z"
   },
   "del frisco's double eagle steakhouse": {
-    "name": "del frisco's double eagle steakhouse",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/del-friscos-double-eagle-steakhouse-city",
-    "slug": "del-friscos-double-eagle-steakhouse-city",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:20:32.537Z"
   },
   "quality italian": {
-    "name": "quality italian",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/quality-italian",
-    "slug": "quality-italian",
-    "restaurant_id": "110224",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:20:52.682Z"
   },
   "quality meats": {
-    "name": "quality meats",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 4,
+    "prime_slots": 4,
+    "slots": [
+      "6:00 PM",
+      "6:15 PM",
+      "7:30 PM",
+      "7:45 PM"
+    ],
     "url": "https://www.opentable.com/quality-meats",
-    "slug": "quality-meats",
-    "restaurant_id": "6438",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:21:02.364Z"
   },
   "ocean prime": {
-    "name": "ocean prime",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/ocean-prime",
-    "slug": "ocean-prime",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:21:40.421Z"
   },
   "estiatorio milos": {
-    "name": "estiatorio milos",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/estiatorio-milos-midtown",
-    "slug": "estiatorio-milos-midtown",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:21:51.320Z"
   },
   "fasano": {
-    "name": "fasano",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/fasano",
-    "slug": "fasano",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:23:28.029Z"
   },
   "the lobster club": {
-    "name": "the lobster club",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 4,
+    "prime_slots": 4,
+    "slots": [
+      "5:45 PM",
+      "6:00 PM",
+      "8:15 PM",
+      "8:30 PM"
+    ],
     "url": "https://www.opentable.com/the-lobster-club",
-    "slug": "the-lobster-club",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:23:54.110Z"
   },
   "cafe cluny": {
-    "name": "cafe cluny",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 2,
+    "prime_slots": 2,
+    "slots": [
+      "9:45 PM",
+      "10:00 PM"
+    ],
     "url": "https://www.opentable.com/cafe-cluny",
-    "slug": "cafe-cluny",
-    "restaurant_id": "0",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:24:49.165Z"
   },
   "palma": {
-    "name": "palma",
     "platform": "opentable",
+    "status": "sold_out",
+    "total_slots": 0,
+    "prime_slots": 0,
+    "slots": [],
     "url": "https://www.opentable.com/palma",
-    "slug": "palma",
-    "restaurant_id": "30196",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:24:57.732Z"
   },
   "anton's": {
-    "name": "anton's",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 4,
+    "prime_slots": 4,
+    "slots": [
+      "5:15 PM",
+      "5:30 PM",
+      "9:00 PM",
+      "9:15 PM"
+    ],
     "url": "https://www.opentable.com/antons",
-    "slug": "antons",
-    "restaurant_id": "0",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:25:06.674Z"
   },
   "la marchande": {
-    "name": "la marchande",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/la-marchande",
-    "slug": "la-marchande",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:25:14.963Z"
   },
   "golden steer": {
-    "name": "golden steer",
     "platform": "opentable",
+    "status": "sold_out",
+    "total_slots": 0,
+    "prime_slots": 0,
+    "slots": [],
     "url": "https://www.opentable.com/golden-steer-at-one-fifth",
-    "slug": "golden-steer-at-one-fifth",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:25:21.916Z"
   },
   "blue ribbon sushi": {
-    "name": "blue ribbon sushi",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 4,
+    "prime_slots": 4,
+    "slots": [
+      "4:15 PM",
+      "4:30 PM",
+      "9:00 PM",
+      "9:15 PM"
+    ],
     "url": "https://www.opentable.com/blue-ribbon-sushi",
-    "slug": "blue-ribbon-sushi",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:25:30.133Z"
   },
   "indian accent": {
-    "name": "indian accent",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:15 PM",
+      "6:30 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:45 PM"
+    ],
     "url": "https://www.opentable.com/indian-accent",
-    "slug": "indian-accent",
-    "restaurant_id": "193822",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:25:37.473Z"
   },
   "grand central oyster bar": {
-    "name": "grand central oyster bar",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/grand-central-oyster-bar-restaurant",
-    "slug": "grand-central-oyster-bar-restaurant",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:25:54.195Z"
   },
   "tao uptown": {
-    "name": "tao uptown",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:15 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/tao-uptown",
-    "slug": "tao-uptown",
-    "restaurant_id": "1266",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:26:01.804Z"
   },
   "tao downtown": {
-    "name": "tao downtown",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "5:45 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "9:30 PM"
+    ],
     "url": "https://www.opentable.com/tao-downtown",
-    "slug": "tao-downtown",
-    "restaurant_id": "112918",
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:26:09.097Z"
   },
   "stk steakhouse": {
-    "name": "stk steakhouse",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:15 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:45 PM"
+    ],
     "url": "https://www.opentable.com/stk-steakhouse-midtown-nyc",
-    "slug": "stk-steakhouse-midtown-nyc",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:26:17.312Z"
   },
   "mastro's steakhouse": {
-    "name": "mastro's steakhouse",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/mastros-steakhouse-city",
-    "slug": "mastros-steakhouse-city",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:26:35.646Z"
   },
   "wolfgang's steakhouse": {
-    "name": "wolfgang's steakhouse",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:00 PM",
+      "6:30 PM",
+      "7:00 PM",
+      "8:00 PM",
+      "8:30 PM"
+    ],
     "url": "https://www.opentable.com/wolfgangs-steakhouse-park-avenue",
-    "slug": "wolfgangs-steakhouse-park-avenue",
-    "restaurant_id": null,
-    "curated_tier": "popular",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:28:04.541Z"
   },
   "old homestead steakhouse": {
     "name": "old homestead steakhouse",
@@ -57585,204 +57244,159 @@
     ]
   },
   "temple court": {
-    "name": "temple court",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/temple-court",
-    "slug": "temple-court",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:16:01.813Z"
   },
   "the smith lincoln square": {
-    "name": "the smith lincoln square",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/the-smith-lincoln-square",
-    "slug": "the-smith-lincoln-square",
-    "restaurant_id": "98185",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:16:50.035Z"
   },
   "grand brasserie": {
-    "name": "grand brasserie",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/grand-brasserie",
-    "slug": "grand-brasserie",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:17:09.852Z"
   },
   "oceans": {
-    "name": "oceans",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 4,
+    "prime_slots": 4,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/oceans",
-    "slug": "oceans",
-    "restaurant_id": "0",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:17:18.267Z"
   },
   "victor's cafe": {
-    "name": "victor's cafe",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/victors-cafe",
-    "slug": "victors-cafe",
-    "restaurant_id": "3716",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:17:26.251Z"
   },
   "chez josephine": {
-    "name": "chez josephine",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/chez-josephine",
-    "slug": "chez-josephine",
-    "restaurant_id": "0",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:17:34.679Z"
   },
   "tarallucci e vino": {
-    "name": "tarallucci e vino",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/tarallucci-e-vino",
-    "slug": "tarallucci-e-vino",
-    "restaurant_id": "24979",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:17:42.811Z"
   },
   "lady mendl's": {
-    "name": "lady mendl's",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 1,
+    "prime_slots": 1,
+    "slots": [
+      "4:00 PM"
+    ],
     "url": "https://www.opentable.com/lady-mendls",
-    "slug": "lady-mendls",
-    "restaurant_id": "0",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:18:32.795Z"
   },
   "recreation bar": {
-    "name": "recreation bar",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:15 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:30 PM",
+      "7:45 PM"
+    ],
     "url": "https://www.opentable.com/recreation-bar",
-    "slug": "recreation-bar",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:18:59.368Z"
   },
   "warren street bar": {
-    "name": "warren street bar",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/warren-street-bar-and-restaurant",
-    "slug": "warren-street-bar-and-restaurant",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:19:06.414Z"
   },
   "ma-dé": {
     "name": "ma-dé",
@@ -57811,404 +57425,318 @@
     ]
   },
   "quality bistro": {
-    "name": "quality bistro",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/quality-bistro",
-    "slug": "quality-bistro",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:21:13.432Z"
   },
   "le rivage": {
-    "name": "le rivage",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/le-rivage",
-    "slug": "le-rivage",
-    "restaurant_id": "0",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:22:08.841Z"
   },
   "bond 45": {
-    "name": "bond 45",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/bond-45",
-    "slug": "bond-45",
-    "restaurant_id": "0",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:22:20.487Z"
   },
   "orso": {
-    "name": "orso",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/orso",
-    "slug": "orso",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:22:29.937Z"
   },
   "lattanzi": {
-    "name": "lattanzi",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:15 PM",
+      "6:30 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/lattanzi",
-    "slug": "lattanzi",
-    "restaurant_id": "0",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:22:39.044Z"
   },
   "the hunt and fish club": {
-    "name": "the hunt and fish club",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:00 PM",
+      "6:30 PM",
+      "7:00 PM",
+      "7:30 PM",
+      "8:00 PM"
+    ],
     "url": "https://www.opentable.com/the-hunt-and-fish-club",
-    "slug": "the-hunt-and-fish-club",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:22:46.112Z"
   },
   "benihana": {
-    "name": "benihana",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/benihana",
-    "slug": "benihana",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:22:54.121Z"
   },
   "osteria al doge": {
-    "name": "osteria al doge",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/osteria-al-doge",
-    "slug": "osteria-al-doge",
-    "restaurant_id": "4568",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:23:01.749Z"
   },
   "langan's": {
-    "name": "langan's",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/langans",
-    "slug": "langans",
-    "restaurant_id": "0",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:23:10.960Z"
   },
   "calle dao": {
-    "name": "calle dao",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/calle-dao",
-    "slug": "calle-dao",
-    "restaurant_id": "149428",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:23:20.015Z"
   },
   "club a steakhouse": {
-    "name": "club a steakhouse",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/club-a-steakhouse",
-    "slug": "club-a-steakhouse",
-    "restaurant_id": "0",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:23:36.521Z"
   },
   "brasserie cognac": {
-    "name": "brasserie cognac",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/brasserie-cognac-midtown-east",
-    "slug": "brasserie-cognac-midtown-east",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:23:45.034Z"
   },
   "aretsky's patroon": {
-    "name": "aretsky's patroon",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:15 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/aretskys-patroon",
-    "slug": "aretskys-patroon",
-    "restaurant_id": "0",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:24:02.284Z"
   },
   "park ave kitchen": {
-    "name": "park ave kitchen",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/park-ave-kitchen",
-    "slug": "park-ave-kitchen",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:24:10.083Z"
   },
   "souvlaki gr": {
-    "name": "souvlaki gr",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/souvlaki-gr-midtown",
-    "slug": "souvlaki-gr-midtown",
-    "restaurant_id": "0",
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "avail_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:24:25.191Z"
   },
   "the parlour room": {
-    "name": "the parlour room",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/the-parlour-room",
-    "slug": "the-parlour-room",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:24:33.192Z"
   },
   "musaafer": {
-    "name": "musaafer",
     "platform": "opentable",
+    "status": "sold_out",
+    "total_slots": 0,
+    "prime_slots": 0,
+    "slots": [],
     "url": "https://www.opentable.com/musaafer",
-    "slug": "musaafer",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:25:45.663Z"
   },
   "ruth's chris steak house": {
-    "name": "ruth's chris steak house",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/ruths-chris-steak-house-city",
-    "slug": "ruths-chris-steak-house-city",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:26:52.716Z"
   },
   "morton's the steakhouse": {
-    "name": "morton's the steakhouse",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/mortons-the-steakhouse-midtown",
-    "slug": "mortons-the-steakhouse-midtown",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:27:12.804Z"
   },
   "the capital grille": {
-    "name": "the capital grille",
     "platform": "opentable",
+    "status": "available",
+    "total_slots": 5,
+    "prime_slots": 5,
+    "slots": [
+      "6:30 PM",
+      "6:45 PM",
+      "7:00 PM",
+      "7:15 PM",
+      "7:30 PM"
+    ],
     "url": "https://www.opentable.com/the-capital-grille-chrysler-center",
-    "slug": "the-capital-grille-chrysler-center",
-    "restaurant_id": null,
-    "curated_tier": null,
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "page_http_404",
-    "last_checked": "2026-02-25",
-    "check_history": [
-      {
-        "date": "2026-02-25",
-        "checked_for": "2026-02-26",
-        "party_size": 2,
-        "tier": "unknown"
-      }
-    ]
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:27:31.864Z"
   },
   "benjamin steakhouse": {
     "name": "benjamin steakhouse",
@@ -71874,14 +71402,14 @@
     "total_slots": 4,
     "prime_slots": 4,
     "slots": [
+      "5:45 PM",
       "6:00 PM",
-      "6:15 PM",
-      "7:45 PM",
-      "9:45 PM"
+      "8:15 PM",
+      "10:00 PM"
     ],
     "url": "https://www.opentable.com/nobu-fifty-seven",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:16:30.701Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:11:46.701Z"
   },
   "nobu": {
     "platform": "opentable",
@@ -71895,8 +71423,8 @@
       "7:30 PM"
     ],
     "url": "https://www.opentable.com/nobu-downtown",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:16:38.809Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:11:54.771Z"
   },
   "brooklyn chop house - downtown": {
     "platform": "opentable",
@@ -71911,8 +71439,8 @@
       "8:00 PM"
     ],
     "url": "https://www.opentable.com/brooklyn-chop-house-downtown",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:17:01.716Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:12:22.498Z"
   },
   "file gumbo bar": {
     "platform": "opentable",
@@ -71927,23 +71455,18 @@
       "7:30 PM"
     ],
     "url": "https://www.opentable.com/file-gumbo-bar",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:17:49.675Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:13:10.673Z"
   },
   "rafs": {
     "platform": "opentable",
-    "status": "available",
-    "total_slots": 4,
-    "prime_slots": 4,
-    "slots": [
-      "5:00 PM",
-      "7:00 PM",
-      "8:00 PM",
-      "9:00 PM"
-    ],
+    "status": "sold_out",
+    "total_slots": 0,
+    "prime_slots": 0,
+    "slots": [],
     "url": "https://www.opentable.com/rafs",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:18:53.761Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:14:21.676Z"
   },
   "la grande boucherie nyc": {
     "platform": "opentable",
@@ -71958,40 +71481,36 @@
       "7:30 PM"
     ],
     "url": "https://www.opentable.com/la-grande-boucherie-nyc",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:19:25.076Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:14:56.405Z"
   },
   "gallaghers": {
     "platform": "opentable",
     "status": "available",
-    "total_slots": 5,
-    "prime_slots": 5,
+    "total_slots": 2,
+    "prime_slots": 2,
     "slots": [
-      "6:30 PM",
-      "6:45 PM",
-      "7:00 PM",
-      "7:30 PM",
-      "7:45 PM"
+      "5:30 PM",
+      "10:00 PM"
     ],
     "url": "https://www.opentable.com/gallaghers-steakhouse-manhattan",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:19:40.288Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:15:11.551Z"
   },
   "smith and wollensky": {
     "platform": "opentable",
     "status": "available",
-    "total_slots": 5,
-    "prime_slots": 5,
+    "total_slots": 4,
+    "prime_slots": 4,
     "slots": [
-      "6:30 PM",
-      "6:45 PM",
-      "7:00 PM",
-      "7:15 PM",
-      "7:30 PM"
+      "6:00 PM",
+      "6:15 PM",
+      "9:00 PM",
+      "9:15 PM"
     ],
     "url": "https://www.opentable.com/smith-and-wollensky",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:24:07.102Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:20:21.067Z"
   },
   "del frisco's": {
     "platform": "opentable",
@@ -72006,8 +71525,8 @@
       "7:30 PM"
     ],
     "url": "https://www.opentable.com/del-friscos-double-eagle-steakhouse-city",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:24:25.532Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:20:43.869Z"
   },
   "stk": {
     "platform": "opentable",
@@ -72022,8 +71541,8 @@
       "7:30 PM"
     ],
     "url": "https://www.opentable.com/stk-steakhouse-midtown-nyc",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:29:46.347Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:26:26.259Z"
   },
   "mastro's": {
     "platform": "opentable",
@@ -72038,8 +71557,8 @@
       "7:30 PM"
     ],
     "url": "https://www.opentable.com/mastros-steakhouse-city",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:30:04.407Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:26:44.047Z"
   },
   "ruth's chris": {
     "platform": "opentable",
@@ -72054,8 +71573,8 @@
       "7:30 PM"
     ],
     "url": "https://www.opentable.com/ruths-chris-steak-house-city",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:30:23.444Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:27:02.059Z"
   },
   "morton's": {
     "platform": "opentable",
@@ -72070,8 +71589,8 @@
       "7:30 PM"
     ],
     "url": "https://www.opentable.com/mortons-the-steakhouse-midtown",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:30:43.191Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:27:21.134Z"
   },
   "capital grille": {
     "platform": "opentable",
@@ -72086,8 +71605,8 @@
       "7:30 PM"
     ],
     "url": "https://www.opentable.com/the-capital-grille-chrysler-center",
-    "checked_date": "2026-02-26",
-    "checked_at": "2026-02-25T19:31:00.080Z"
+    "checked_date": "2026-02-27",
+    "checked_at": "2026-02-26T00:27:40.686Z"
   },
   "l'artusi": {
     "name": "l'artusi",
