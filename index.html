@@ -1071,11 +1071,12 @@ function renderCard(r) {
   if (addrText) subtitleParts.push(addrText);
   const subtitleLine = subtitleParts.join(' · ');
 
-  // ── Distance chips ──
-  let distanceHtml = '';
-  if (r.walkMinutes != null) distanceHtml += `<span class="badge distance">🚶 ${r.walkMinutes}m</span>`;
-  if (r.driveMinutes != null) distanceHtml += `<span class="badge distance">🚗 ${r.driveMinutes}m</span>`;
-  if (r.distanceMiles != null) distanceHtml += `<span class="badge distance">📍 ${r.distanceMiles}mi</span>`;
+  // ── Distance (inline in subtitle) ──
+  let distanceParts = [];
+  if (r.walkMinutes != null) distanceParts.push(`🚶 ${r.walkMinutes} min`);
+  if (r.driveMinutes != null) distanceParts.push(`🚗 ~${r.driveMinutes} min`);
+  if (r.distanceMiles != null) distanceParts.push(`📍 ${r.distanceMiles} mi`);
+  const distanceText = distanceParts.join(' · ');
 
   // ── Michelin badge ──
   let michelinHtml = '';
@@ -1166,14 +1167,13 @@ function renderCard(r) {
         <h3>${r.name || 'Unknown'}</h3>
         ${priceHtml}
       </div>
-      <div class="cuisine">${subtitleLine}</div>
+      <div class="cuisine">${subtitleLine}${distanceText ? ' · ' + distanceText : ''}</div>
       <div class="badges">
         ${michelinHtml}
         ${risingHtml}
         ${chaseHtml}
         ${rakutenHtml}
         ${ratingHtml}
-        ${distanceHtml}
         ${depositHtml}
         ${availHtml}
       </div>
