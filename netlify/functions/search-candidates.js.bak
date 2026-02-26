@@ -77,13 +77,25 @@ const CUISINE_FILTER_MAP = {
   'vietnamese':     ['Vietnamese']
 };
 
-function cuisineLookupMatches(name, userCuisine) {
+function cuisineLookupMatches(name, userCuisine, fallbackCuisine) {
   if (!userCuisine || !name) return true;
-  const c = CUISINE_LOOKUP[name];
-  if (!c) return null; // null = unknown, let caller decide
   const allowed = CUISINE_FILTER_MAP[userCuisine.toLowerCase()] || [];
-  if (allowed.length === 0) return null;
-  return c.split('/').some(p => allowed.some(a => p.trim().toLowerCase().includes(a.toLowerCase())));
+  if (allowed.length === 0) return true; // no filter map entry = can't filter, allow
+
+  // Check CUISINE_LOOKUP first (most accurate source)
+  const c = CUISINE_LOOKUP[name];
+  if (c) {
+    return c.split('/').some(p => allowed.some(a => p.trim().toLowerCase().includes(a.toLowerCase())));
+  }
+
+  // Fallback: check the restaurant's own cuisine field
+  if (fallbackCuisine) {
+    const fb = String(fallbackCuisine).toLowerCase();
+    return allowed.some(a => fb.includes(a.toLowerCase()));
+  }
+
+  // Not in lookup AND no fallback cuisine → EXCLUDE (strict mode)
+  return false;
 }
 
 function normalizeForBooking(name) {
@@ -179,7 +191,7 @@ async function detectBookingPlatforms(restaurants, KEY) {
 
   // Pass 3: Crawl restaurant websites for booking links (max 10, only unmatched)
   const unmatched = restaurants.filter(r => !r.booking_platform && r.websiteUri);
-  const toCrawl = unmatched.slice(0, 10);
+  const toCrawl = unmatched.slice(0, 30);
   if (toCrawl.length > 0) {
     console.log(`\ud83d\udd0d Crawling ${toCrawl.length} restaurant websites for booking links...`);
     await runWithConcurrency(toCrawl, 5, async (r) => {
@@ -482,7 +494,7 @@ exports.handler = async (event) => {
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
       }).filter(r => r.distanceMiles <= 15)
-        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter) !== false)
+        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine))
         .sort((a,b) => (b.michelin?.stars || 0) - (a.michelin?.stars || 0) || (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, michelinMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
@@ -505,7 +517,7 @@ exports.handler = async (event) => {
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
       }).filter(r => r.distanceMiles <= 15)
-        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter) !== false)
+        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine))
         .sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, bibGourmandMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
@@ -527,7 +539,7 @@ exports.handler = async (event) => {
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: true };
       }).filter(r => r.distanceMiles <= 15)
-        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter) !== false)
+        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine))
         .sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, chaseSapphireMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
@@ -549,7 +561,7 @@ exports.handler = async (event) => {
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           rakuten: true };
       }).filter(r => r.distanceMiles <= 15)
-        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter) !== false)
+        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine))
         .sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, rakutenMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
@@ -709,10 +721,9 @@ exports.handler = async (event) => {
         const beforeCount = cuisineFiltered.length;
         cuisineFiltered = cuisineFiltered.filter(p => {
           // Check our cuisine lookup first (most accurate)
-          const lookupResult = cuisineLookupMatches(p.name, cuisineStr);
-          if (lookupResult === true) return true;   // in lookup and matches
-          if (lookupResult === false) return false;  // in lookup but wrong cuisine
-          // Not in lookup — fall back to Google types and name
+          const lookupResult = cuisineLookupMatches(p.name, cuisineStr, p.cuisine);
+          if (lookupResult) return true;   // matched via lookup or fallback cuisine
+          // Not matched — fall back to Google types and name
           const pTypes = (p.types || []).map(t => t.toLowerCase());
           const matches = allowedTypes.some(at => pTypes.includes(at));
           const nameMatch = (p.name || '').toLowerCase().includes(cuisineStr.toLowerCase());
@@ -726,7 +737,7 @@ exports.handler = async (event) => {
     const beforePrice = cuisineFiltered.length;
     cuisineFiltered = cuisineFiltered.filter(p => {
       const pl = p.price_level ?? p.priceLevel ?? null;
-      if (pl === 1) return false;
+      if (pl === 0 || pl === 1) return false;
       return true;
     });
     if (cuisineFiltered.length < beforePrice) console.log(`\ud83d\udcb0 Price filter: removed ${beforePrice - cuisineFiltered.length} cheap ($) spots`);
@@ -787,7 +798,7 @@ exports.handler = async (event) => {
       if (!m?.lat || !m?.lng) continue;
       if (m.place_id && existingIds.has(m.place_id)) continue;
       if (m.name && existingNames.has(normalizeName(m.name))) continue;
-      if (cuisineStr && cuisineLookupMatches(m.name, cuisineStr) === false) continue;
+      if (cuisineStr && !cuisineLookupMatches(m.name, cuisineStr, m.cuisine)) continue;
       const d = haversineMiles(gLat, gLng, m.lat, m.lng);
       if (d > 7.0) continue;
       within.push({
@@ -814,7 +825,7 @@ exports.handler = async (event) => {
     for (const b of bibPlaces) {
       if (!b?.lat || !b?.lng) continue;
       if (b.name && existingNames.has(normalizeName(b.name))) continue;
-      if (cuisineStr && cuisineLookupMatches(b.name, cuisineStr) === false) continue;
+      if (cuisineStr && !cuisineLookupMatches(b.name, cuisineStr, b.cuisine)) continue;
       const d = haversineMiles(gLat, gLng, b.lat, b.lng);
       if (d > 7.0) continue;
       within.push({
@@ -842,7 +853,7 @@ exports.handler = async (event) => {
       if (!p?.lat || !p?.lng) continue;
       if (p.place_id && existingIds.has(p.place_id)) continue;
       if (p.name && existingNames.has(normalizeName(p.name))) continue;
-      if (cuisineStr && cuisineLookupMatches(p.name, cuisineStr) === false) continue;
+      if (cuisineStr && !cuisineLookupMatches(p.name, cuisineStr, p.cuisine)) continue;
       const d = haversineMiles(gLat, gLng, p.lat, p.lng);
       if (d > 7.0) continue;
       within.push({
@@ -878,7 +889,7 @@ exports.handler = async (event) => {
     for (const c of CHASE_SAPPHIRE_BASE) {
       if (!c?.lat || !c?.lng) continue;
       if (c.name && existingNames.has(normalizeName(c.name))) continue;
-      if (cuisineStr && cuisineLookupMatches(c.name, cuisineStr) === false) continue;
+      if (cuisineStr && !cuisineLookupMatches(c.name, cuisineStr, c.cuisine)) continue;
       const d = haversineMiles(gLat, gLng, c.lat, c.lng);
       if (d > 15.0) continue;
       within.push({
