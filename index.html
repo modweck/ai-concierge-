@@ -138,9 +138,9 @@
       <div class="section-card" style="padding:14px 16px">
         <span class="section-label" style="margin-bottom:6px">🕐 When</span>
         <div class="toggle-group">
-          <button class="toggle-btn" style="padding:6px 6px;font-size:12px" onclick="setTimeSlot(event,'early')">🌅 Early<br><span style="font-size:11px">5–6:30</span></button>
-          <button class="toggle-btn active" style="padding:6px 6px;font-size:12px" onclick="setTimeSlot(event,'prime')">🌆 Prime<br><span style="font-size:11px">6:30–8:30</span></button>
-          <button class="toggle-btn" style="padding:6px 6px;font-size:12px" onclick="setTimeSlot(event,'late')">🌙 Late<br><span style="font-size:11px">8:30–10</span></button>
+          <button class="toggle-btn" style="padding:7px 6px;font-size:12px" onclick="setTimeSlot(event,'early')">🌅 5–6:30</button>
+          <button class="toggle-btn active" style="padding:7px 6px;font-size:12px" onclick="setTimeSlot(event,'prime')">🌆 6:30–8:30</button>
+          <button class="toggle-btn" style="padding:7px 6px;font-size:12px" onclick="setTimeSlot(event,'late')">🌙 8:30–10</button>
         </div>
         <div class="date-party-row" style="margin-top:8px">
           <input type="date" id="dateInput" style="padding:8px 12px;font-size:13px">
@@ -233,12 +233,11 @@
           </div>
           <div>
             <span class="section-label" style="margin-bottom:4px;font-size:10px">📅 Availability</span>
-            <select id="availFilter" onchange="setAvailFilter(this.value)" style="padding:8px 10px;font-size:13px">
-              <option value="all" selected>All</option>
-              <option value="easy">🟢 Easy</option>
-              <option value="medium">🟡 Medium+</option>
-              <option value="hard">🔴 Hard Only</option>
-            </select>
+            <div style="display:flex;gap:5px;margin-top:4px">
+              <button id="availHard" onclick="toggleAvailChip('hard')" style="flex:1;padding:8px 4px;border:1.5px solid #ef4444;border-radius:8px;background:#fef2f2;color:#b91c1c;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s">🔴 Hard</button>
+              <button id="availMedium" onclick="toggleAvailChip('medium')" style="flex:1;padding:8px 4px;border:1.5px solid #f59e0b;border-radius:8px;background:#fffbeb;color:#b45309;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s">🟡 Med</button>
+              <button id="availEasy" onclick="toggleAvailChip('easy')" style="flex:1;padding:8px 4px;border:1.5px solid #22c55e;border-radius:8px;background:#f0fdf4;color:#15803d;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s">🟢 Easy</button>
+            </div>
           </div>
         </div>
       </div>
@@ -336,6 +335,20 @@ function getAvailLabel(tier) {
   if (tier === 'medium') return { emoji: '🟡', text: 'Medium', cls: 'medium' };
   if (tier === 'easy') return { emoji: '🟢', text: 'Easy to Book', cls: 'easy' };
   return null;
+}
+
+function toggleAvailChip(tier) {
+  const isOn = state.availFilter[tier];
+  state.availFilter[tier] = !isOn;
+  const btn = document.getElementById(tier === 'hard' ? 'availHard' : tier === 'medium' ? 'availMedium' : 'availEasy');
+  if (isOn) {
+    btn.style.background = '#f5f5f5'; btn.style.borderColor = '#ddd'; btn.style.color = '#aaa';
+  } else {
+    if (tier === 'hard') { btn.style.background = '#fef2f2'; btn.style.borderColor = '#ef4444'; btn.style.color = '#b91c1c'; }
+    else if (tier === 'medium') { btn.style.background = '#fffbeb'; btn.style.borderColor = '#f59e0b'; btn.style.color = '#b45309'; }
+    else { btn.style.background = '#f0fdf4'; btn.style.borderColor = '#22c55e'; btn.style.color = '#15803d'; }
+  }
+  if (allRestaurants.length > 0) sortResults();
 }
 
 function setAvailFilter(val) {
