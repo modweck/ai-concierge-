@@ -1063,50 +1063,55 @@ function renderBuzz(r) {
 }
 
 function renderCard(r) {
-  let distanceHtml = '';
-  if (r.walkMinutes != null) distanceHtml += `<span class="badge distance">🚶 ${r.walkMinutes} min</span>`;
-  if (r.driveMinutes != null) distanceHtml += `<span class="badge distance">🚗 ${r.driveMinutes} min</span>`;
-  if (r.distanceMiles != null) distanceHtml += `<span class="badge distance">📍 ${r.distanceMiles} mi</span>`;
+  // ── Cuisine subtitle ──
+  const cuisineText = CUISINE_LOOKUP[r.name] || r.cuisine || '';
+  const addrText = r.vicinity || r.formatted_address || '';
+  let subtitleParts = [];
+  if (cuisineText) subtitleParts.push(cuisineText);
+  if (addrText) subtitleParts.push(addrText);
+  const subtitleLine = subtitleParts.join(' · ');
 
+  // ── Distance chips ──
+  let distanceHtml = '';
+  if (r.walkMinutes != null) distanceHtml += `<span class="badge distance">🚶 ${r.walkMinutes}m</span>`;
+  if (r.driveMinutes != null) distanceHtml += `<span class="badge distance">🚗 ${r.driveMinutes}m</span>`;
+  if (r.distanceMiles != null) distanceHtml += `<span class="badge distance">📍 ${r.distanceMiles}mi</span>`;
+
+  // ── Michelin badge ──
   let michelinHtml = '';
   if (r.michelin) {
     const stars = r.michelin.stars || 0;
     const distinction = r.michelin.distinction || '';
-    if (stars === 3) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐⭐ Michelin Three Stars</span>`;
-    else if (stars === 2) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐⭐ Michelin Two Stars</span>`;
-    else if (stars === 1) michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">⭐ Michelin One Star</span>`;
-    else if (distinction === 'bib_gourmand' || distinction === 'bib') michelinHtml = `<span class="badge" style="background:#e65100;color:white;border-color:#e65100">🍽️ Bib Gourmand</span>`;
-    else if (distinction === 'recommended') michelinHtml = `<span class="badge" style="background:#9c27b0;color:white;border-color:#9c27b0">✨ Michelin Recommended</span>`;
-    else michelinHtml = `<span class="badge" style="background:#ff4444;color:white;border-color:#ff4444">Michelin Selected</span>`;
+    if (stars >= 1) michelinHtml = `<span style="background:linear-gradient(135deg,#dc2626,#b91c1c);color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px">${'⭐'.repeat(stars)} Michelin</span>`;
+    else if (distinction === 'bib_gourmand' || distinction === 'bib') michelinHtml = `<span style="background:linear-gradient(135deg,#ea580c,#c2410c);color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px">🍽️ Bib Gourmand</span>`;
+    else if (distinction === 'recommended') michelinHtml = `<span style="background:#7c3aed;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px">✨ Recommended</span>`;
+    else michelinHtml = `<span style="background:#dc2626;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px">Michelin</span>`;
   }
 
+  // ── Rating ──
   const rating = (r.googleRating || 0);
   const reviews = (r.googleReviewCount || 0);
-
   const reviewsUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' restaurant New York, NY')}`;
-
   const ratingHtml = (r.googleRating != null && r.googleRating !== 0)
-      ? `<a href="${reviewsUrl}" target="_blank" rel="noopener" style="padding:8px 14px;border-radius:20px;font-size:14px;font-weight:600;border:2px solid #e0e0e0;background:#fafafa;text-decoration:none;color:inherit;cursor:pointer;display:inline-flex;align-items:center">⭐ ${Number(rating).toFixed(1)} (${reviews})</a>`
-      : `<span class="badge" style="color:#666">⭐ Google rating N/A</span>`;
+    ? `<a href="${reviewsUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:12px;font-weight:600;color:#333;background:#f5f5f5;padding:3px 8px;border-radius:6px;text-decoration:none">⭐ ${Number(rating).toFixed(1)} <span style="color:#aaa;font-weight:400;font-size:11px">(${reviews.toLocaleString()})</span></a>`
+    : '';
 
-  const priceHtml = hasPrice(r) ? `<span class="badge">💰 ${'$'.repeat(r.price_level)}</span>` : '';
+  // ── Price ──
+  const priceHtml = hasPrice(r) ? `<span style="font-size:13px;color:#aaa;font-weight:600;letter-spacing:-1px">${'$'.repeat(r.price_level)}</span>` : '';
 
-  const chaseHtml = (state.rewardsFilter === 'chase' && isChaseRestaurant(r.name)) ? `<span class="badge" style="background:#1a3c6e;color:white;border-color:#1a3c6e;font-size:12px">💳 Chase Sapphire Reserve</span>` : '';
-  const rakutenHtml = (state.rewardsFilter === 'rakuten' || isRakutenRestaurant(r.name)) ? `<a href="https://www.rakuten.com/dining" target="_blank" rel="noopener" class="badge" style="background:#bf0000;color:white;border-color:#bf0000;font-size:12px;text-decoration:none;cursor:pointer">🛍️ Rakuten</a>` : '';
+  // ── Special badges ──
+  const risingHtml = isNewAndRising(r) ? `<span class="rising-badge">🔥 Rising</span>` : '';
+  const chaseHtml = (state.rewardsFilter === 'chase' && isChaseRestaurant(r.name)) ? `<span style="background:#1a3c6e;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px">💳 Chase</span>` : '';
+  const rakutenHtml = (state.rewardsFilter === 'rakuten' || isRakutenRestaurant(r.name)) ? `<a href="https://www.rakuten.com/dining" target="_blank" rel="noopener" style="background:#bf0000;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;text-decoration:none">🛍️ Rakuten</a>` : '';
 
-  // New & Rising badge
-  const risingHtml = isNewAndRising(r) ? `<span class="rising-badge" title="Highly rated places with fewer reviews — often newer or gaining strong momentum.">🔥 New & Rising</span>` : '';
-
-  // Deposit badge - small inline in badges row
+  // ── Deposit ──
   let depositHtml = '';
   const needsDeposit = r.deposit_type === 'deposit' || r.deposit_type === 'prepay' || r.deposit_type === 'cc_hold' || isDepositRestaurant(r.name);
-  if (needsDeposit) {
-    depositHtml = `<span class="badge" style="background:#fef2f2;border:1px solid #fca5a5;color:#991b1b">💳 Prepay required</span>`;
-  }
+  if (needsDeposit) depositHtml = `<span style="font-size:11px;font-weight:600;color:#b91c1c;background:#fef2f2;padding:2px 8px;border-radius:6px;border:1px solid #fca5a5">💳 Prepay</span>`;
 
-  // Availability badge
+  // ── Availability ──
   let availHtml = '';
   const availTier = getAvailTier(r.name, r.place_id);
   if (availTier) {
@@ -1114,78 +1119,70 @@ function renderCard(r) {
     availHtml = `<span class="avail-badge ${lbl.cls}">${lbl.emoji} ${lbl.text}</span>`;
   }
 
+  // ── Maps URL ──
   const mapsUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' ' + (r.formatted_address || r.vicinity || r.address || 'New York, NY'))}`;
 
-  const reserveUrl = r.place_id
-    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
-    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' restaurant New York, NY')}`;
-
-  let bookingHtml = '';
+  // ── Booking button (full-width) ──
+  let bookBtnHtml = '';
   if (r.booking_url && r.booking_platform) {
     let cleanUrl = r.booking_url;
-    // Strip Google redirect wrappers
     if (cleanUrl.includes('google.com/url')) {
-      try {
-        const u = new URL(cleanUrl);
-        cleanUrl = u.searchParams.get('q') || u.searchParams.get('url') || cleanUrl;
-      } catch(e) {}
+      try { const u = new URL(cleanUrl); cleanUrl = u.searchParams.get('q') || u.searchParams.get('url') || cleanUrl; } catch(e) {}
     }
-    // Strip trailing slashes (can cause 404s on some booking platforms)
     cleanUrl = cleanUrl.replace(/\/+$/, '');
 
-    if (r.booking_platform === 'walkin') {
-      bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#2e7d32;font-size:13px;font-weight:600">🚶 Walk-ins Welcome</a>`;
-    } else if (r.booking_platform === 'opentable') {
-      bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;padding:6px 12px;background:#da3743;color:white;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">🔖 Book on OpenTable</a>`;
-    } else if (r.booking_platform === 'resy') {
-      bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;padding:6px 12px;background:#c2185b;color:white;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">🔖 Book on Resy</a>`;
-    } else if (r.booking_platform === 'tock') {
-      bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;padding:6px 12px;background:#1a73e8;color:white;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">🔖 Book on Tock</a>`;
-    } else {
-      bookingHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#555;font-size:13px;font-weight:600">🔖 Book through Website</a>`;
-    }
+    const btnStyles = {
+      resy: { bg: '#c2185b', label: 'Book on Resy →' },
+      opentable: { bg: '#da3743', label: 'Book on OpenTable →' },
+      tock: { bg: '#1a73e8', label: 'Book on Tock →' },
+      walkin: { bg: '#2e7d32', label: '🚶 Walk-ins Welcome' },
+    };
+    const s = btnStyles[r.booking_platform] || { bg: '#555', label: 'Book →' };
+    bookBtnHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:${s.bg};color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.2px">${s.label}</a>`;
   } else {
-    bookingHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin:6px 0 4px 0;text-decoration:none;color:#1a73e8;font-size:13px;font-weight:600">🔖 Reserve on Google</a>`;
+    const reserveUrl = r.place_id
+      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
+      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' restaurant New York, NY')}`;
+    bookBtnHtml = `<a href="${reserveUrl}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#4285f4;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Reserve on Google →</a>`;
+  }
+
+  // ── Instagram link ──
+  let instaHtml = '';
+  const name = r.name || '';
+  const hasM = !!r.michelin;
+  const hasR = isNewAndRising(r);
+  const hasB = !!(getBuzzLinks(name)?.links?.length);
+  const highEng = Number(r.googleRating || 0) >= 4.7 && Number(r.googleReviewCount || 0) >= 200;
+  if (hasM || hasR || hasB || highEng) {
+    const instaUrl = 'https://www.instagram.com/explore/search/keyword/?q=' + encodeURIComponent(name + ' NYC restaurant');
+    instaHtml = `<a href="${instaUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:6px;text-decoration:none;color:#c13584;font-size:11px;font-weight:600;opacity:0.7">📸 See on Instagram</a>`;
   }
 
   return `
     <div class="restaurant">
-      <h3>${r.name || 'Unknown'}</h3>
-      <div class="cuisine">${(CUISINE_LOOKUP[r.name] || r.cuisine || "") ? (CUISINE_LOOKUP[r.name] || r.cuisine) + " · " : ""}${r.vicinity || r.formatted_address || ''}</div>
-      ${bookingHtml}
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px">
+        <h3>${r.name || 'Unknown'}</h3>
+        ${priceHtml}
+      </div>
+      <div class="cuisine">${subtitleLine}</div>
       <div class="badges">
         ${michelinHtml}
         ${risingHtml}
         ${chaseHtml}
         ${rakutenHtml}
         ${ratingHtml}
-        ${priceHtml}
         ${distanceHtml}
         ${depositHtml}
         ${availHtml}
-        ${r.opening_hours?.open_now ? '<span class="badge">✅ Open</span>' : ''}
-        <button onclick="window.open('${mapsUrl}','_blank')"
-          style="margin-left:auto;padding:8px 16px;background:#4285f4;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px">
-          📍 Maps
-        </button>
+      </div>
+      <div style="display:flex;gap:8px;align-items:stretch">
+        ${bookBtnHtml}
+        <button onclick="window.open('${mapsUrl}','_blank')" style="width:42px;background:#f5f5f5;border:1px solid #e8e8e8;border-radius:10px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center">📍</button>
       </div>
       ${renderBuzz(r)}
-      ${(() => {
-        const name = r.name || '';
-        const rating = Number(r.googleRating || 0);
-        const reviews = Number(r.googleReviewCount || 0);
-        const hasMichelin = !!r.michelin;
-        const hasRising = isNewAndRising(r);
-        const hasBuzz = !!(getBuzzLinks(name)?.links?.length);
-        const highEngagement = rating >= 4.7 && reviews >= 200;
-        const showInsta = hasMichelin || hasRising || hasBuzz || highEngagement;
-        if (!showInsta) return '';
-        const query = name + ' NYC restaurant';
-        const instaUrl = 'https://www.instagram.com/explore/search/keyword/?q=' + encodeURIComponent(query);
-        return '<a href="' + instaUrl + '" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:5px;margin:4px 0 2px 0;text-decoration:none;color:#c13584;font-size:12px;font-weight:600;opacity:0.75" title="Search Instagram for ' + name.replace(/"/g,'') + '">📸 See on Instagram</a>';
-      })()}
+      ${instaHtml}
     </div>
   `;
 }
