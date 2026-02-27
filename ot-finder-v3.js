@@ -1,13 +1,17 @@
 #!/usr/bin/env node
 /**
- * SEATWIZE OPENTABLE EXPANDER v2
+ * SEATWIZE OPENTABLE EXPANDER v3
  * ================================
- * Uses OpenTable's search API to find restaurant links.
- * Much faster and more accurate than slug guessing.
+ * Improvements over v2:
+ *   - Validates every match by fetching the actual OT profile page
+ *   - Extracts restaurant ID from page HTML (not just GraphQL)
+ *   - Only saves restaurants with CONFIRMED working booking links
+ *   - Builds proper booking URLs: https://www.opentable.com/r/{slug}
+ *   - Skips ID:0 matches that can't be verified
  *
  * RUN:
  *   cd ~/ai-concierge-
- *   node seatwize-expand-ot.js
+ *   node ot-finder-v3.js
  *
  * OPTIONS:
  *   --quick             Only process 30 restaurants (for testing)
@@ -53,7 +57,7 @@ for (const [k, v] of Object.entries(BOOKING)) {
   hasBooking.add(k.toLowerCase().trim());
 }
 
-console.log(`\n🍽️  SEATWIZE OPENTABLE EXPANDER v2`);
+console.log(`\n🍽️  SEATWIZE OPENTABLE EXPANDER v3`);
 console.log(`${'='.repeat(50)}`);
 console.log(`📊 Existing: ${Object.keys(BOOKING).length} bookings, ${POPULAR.length} popular`);
 console.log(`📊 Already have booking links: ${hasBooking.size}`);
@@ -82,12 +86,75 @@ function namesMatch(ourName, otName) {
   return overlap >= 0.6;
 }
 
+// ── Extract restaurant ID from OT page HTML ──
+function extractRidFromHtml(html) {
+  // Try multiple patterns - OT embeds the rid in various places
+  const patterns = [
+    /data-restaurant-id="(\d+)"/,
+    /"rid"\s*:\s*(\d+)/,
+    /"restaurantId"\s*:\s*(\d+)/,
+    /restref\/client\/\?rid=(\d+)/,
+    /"restaurant_id"\s*:\s*(\d+)/,
+    /rid=(\d+)/,
+  ];
+  for (const pat of patterns) {
+    const m = html.match(pat);
+    if (m && parseInt(m[1]) > 0) return parseInt(m[1]);
+  }
+  return null;
+}
+
+// ── Validate an OT URL actually works and is a restaurant page ──
+async function validateOTPage(url) {
+  try {
+    const resp = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+        'Accept': 'text/html',
+      },
+      redirect: 'follow',
+    });
+    if (!resp.ok) return null;
+    
+    const finalUrl = resp.url; // after redirects
+    const html = await resp.text();
+    
+    // Must be an actual restaurant page
+    const isRestaurantPage = (
+      html.includes('RestaurantProfile') ||
+      html.includes('data-restaurant-id') ||
+      html.includes('"restaurantId"') ||
+      html.includes('og:type" content="restaurant"') ||
+      html.includes('opentable.com/r/')
+    );
+    
+    if (!isRestaurantPage) return null;
+    
+    const rid = extractRidFromHtml(html);
+    
+    // Extract the page title for name verification
+    const titleMatch = html.match(/<title>([^<]+)/);
+    const pageName = titleMatch 
+      ? titleMatch[1].replace(/ \| OpenTable.*/, '').replace(/ - .*$/, '').replace(/ Reservations.*/, '').trim()
+      : null;
+    
+    // Extract the canonical slug URL
+    const canonicalMatch = html.match(/rel="canonical"\s+href="([^"]+)"/) || 
+                           html.match(/og:url"\s+content="([^"]+)"/);
+    const canonicalUrl = canonicalMatch ? canonicalMatch[1] : finalUrl;
+    
+    return { rid, pageName, url: canonicalUrl, finalUrl };
+  } catch(e) {
+    return null;
+  }
+}
+
 // ── OpenTable Search ──
 async function findOnOpenTable(name, lat, lng) {
   const latitude = lat || 40.7128;
   const longitude = lng || -74.006;
 
-  // Method 1: Autocomplete/search API (GraphQL)
+  // Method 1: GraphQL Autocomplete
   try {
     const variables = JSON.stringify({
       term: name,
@@ -111,27 +178,50 @@ async function findOnOpenTable(name, lat, lng) {
       
       for (const r of restaurants) {
         const otName = r.name || '';
-        if (namesMatch(name, otName)) {
-          const rid = r.rid || r.restaurantId || null;
-          const link = r.profileLink || 
-            (r.urlSlug ? `https://www.opentable.com/r/${r.urlSlug}` : null) ||
-            (rid ? `https://www.opentable.com/restref/client/?rid=${rid}` : null);
-          
-          return {
-            found: true,
-            platform: 'opentable',
-            name: otName,
-            restaurant_id: rid,
-            url: link || `https://www.opentable.com/s?term=${encodeURIComponent(name)}`,
-          };
+        if (!namesMatch(name, otName)) continue;
+        
+        // Try to get a profile URL from the GraphQL response
+        const profileLink = r.profileLink || null;
+        const slug = r.urlSlug || null;
+        const rid = r.rid || r.restaurantId || null;
+        
+        // Build candidate URL - prefer profileLink, then slug, then rid
+        let candidateUrl = null;
+        if (profileLink && profileLink.includes('opentable.com')) {
+          candidateUrl = profileLink.startsWith('http') ? profileLink : `https://www.opentable.com${profileLink}`;
+        } else if (slug) {
+          candidateUrl = `https://www.opentable.com/r/${slug}`;
+        } else if (rid && rid > 0) {
+          candidateUrl = `https://www.opentable.com/restref/client/?rid=${rid}`;
         }
+        
+        // VALIDATE: Actually fetch the page to confirm it's real
+        if (candidateUrl) {
+          const validated = await validateOTPage(candidateUrl);
+          if (validated) {
+            const finalRid = validated.rid || (rid > 0 ? rid : null);
+            if (!finalRid) continue; // Skip if we still can't get an ID
+            
+            return {
+              found: true,
+              platform: 'opentable',
+              name: validated.pageName || otName,
+              restaurant_id: finalRid,
+              url: validated.url || candidateUrl,
+              method: 'graphql+validate'
+            };
+          }
+        }
+        
+        // If no URL from GraphQL, try slug from name
+        // (fall through to Method 2)
       }
     }
   } catch(e) { /* continue to next method */ }
   
-  await sleep(300);
+  await sleep(400);
 
-  // Method 2: Direct slug check (common OT patterns)
+  // Method 2: Direct slug check
   const slug = name.toLowerCase()
     .replace(/['']/g, '')
     .replace(/&/g, 'and')
@@ -140,66 +230,47 @@ async function findOnOpenTable(name, lat, lng) {
     .replace(/-+/g, '-')
     .replace(/^-|-$/g, '');
   
-  const slugVariants = [slug];
-  // Add -new-york suffix
-  slugVariants.push(`${slug}-new-york`);
+  const slugVariants = new Set([slug]);
+  slugVariants.add(`${slug}-new-york`);
+  slugVariants.add(`${slug}-nyc`);
   // Remove common suffixes
-  const shortened = slug.replace(/-restaurant$/, '').replace(/-nyc$/, '').replace(/-new-york$/, '');
-  if (shortened !== slug) {
-    slugVariants.push(shortened);
-    slugVariants.push(`${shortened}-new-york`);
+  for (const suffix of ['-restaurant', '-nyc', '-new-york', '-bar', '-grill', '-and-bar', '-bar-and-grill']) {
+    if (slug.endsWith(suffix)) {
+      const short = slug.slice(0, -suffix.length);
+      slugVariants.add(short);
+      slugVariants.add(`${short}-new-york`);
+    }
   }
   
-  for (const s of [...new Set(slugVariants)]) {
+  for (const s of slugVariants) {
+    if (!s || s.length < 3) continue;
     try {
       const pageUrl = `https://www.opentable.com/r/${s}`;
-      const resp = await fetch(pageUrl, {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
-          'Accept': 'text/html',
-        },
-        redirect: 'follow'
-      });
+      const validated = await validateOTPage(pageUrl);
       
-      if (resp.ok) {
-        const html = await resp.text();
-        if (html.includes('data-restaurant-id') || 
-            html.includes('"restaurantId"') ||
-            html.includes('RestaurantProfile') ||
-            html.includes('og:type" content="restaurant"')) {
-          
-          let rid = null;
-          const m = html.match(/data-restaurant-id="(\d+)"/) || 
-                    html.match(/"rid"\s*:\s*(\d+)/) ||
-                    html.match(/"restaurantId"\s*:\s*(\d+)/) ||
-                    html.match(/rid=(\d+)/);
-          if (m) rid = m[1];
-          
-          const titleMatch = html.match(/<title>([^<]+)/);
-          const pageTitle = titleMatch ? titleMatch[1].replace(/ \| OpenTable.*/, '').replace(/ - .*$/, '').trim() : name;
-          
-          // Verify name match
-          if (namesMatch(name, pageTitle)) {
-            return {
-              found: true,
-              platform: 'opentable',
-              name: pageTitle,
-              restaurant_id: rid,
-              url: resp.url || pageUrl,
-            };
-          }
+      if (validated && validated.rid) {
+        // Verify the name matches
+        if (validated.pageName && namesMatch(name, validated.pageName)) {
+          return {
+            found: true,
+            platform: 'opentable',
+            name: validated.pageName,
+            restaurant_id: validated.rid,
+            url: validated.url || pageUrl,
+            method: 'slug'
+          };
         }
       }
     } catch(e) {}
-    await sleep(200);
+    await sleep(300);
   }
   
   return null;
 }
 
-// Check availability
+// ── Check availability ──
 async function checkOTAvailability(restaurantId, date, partySize) {
-  if (!restaurantId) return null;
+  if (!restaurantId || restaurantId <= 0) return null;
   
   try {
     const url = `https://www.opentable.com/dapi/availability?rid=${restaurantId}&partySize=${partySize}&dateTime=${date}T19:00&enableFutureAvailability=true`;
@@ -283,10 +354,12 @@ async function main() {
   
   console.log(`\n📋 Candidates without bookings: ${candidates.length}`);
   console.log(`  🔍 Processing: ${toProcess.length}${QUICK ? ' (quick mode)' : ''}`);
-  console.log(`  📅 Date: ${CHECK_DATE}, Party: ${PARTY_SIZE}\n`);
+  console.log(`  📅 Date: ${CHECK_DATE}, Party: ${PARTY_SIZE}`);
+  console.log(`  ✨ v3: All matches validated with real page + ID check\n`);
   
   const found = [];
   const notFound = [];
+  let graphqlHits = 0, slugHits = 0;
   
   for (let i = 0; i < toProcess.length; i++) {
     const c = toProcess[i];
@@ -295,8 +368,10 @@ async function main() {
     try {
       const result = await findOnOpenTable(c.name, c.lat, c.lng);
       if (result) {
-        console.log(`✅ Found! (ID: ${result.restaurant_id || 'N/A'})`);
+        console.log(`✅ ${result.name} (ID: ${result.restaurant_id}, via ${result.method})`);
         found.push({ ...c, ot: result });
+        if (result.method === 'graphql+validate') graphqlHits++;
+        else slugHits++;
       } else {
         console.log(`❌`);
         notFound.push(c);
@@ -309,25 +384,35 @@ async function main() {
     await sleep(600);
   }
   
-  console.log(`\n📊 Search: ✅ ${found.length} found, ❌ ${notFound.length} not found`);
+  console.log(`\n📊 Search Results:`);
+  console.log(`  ✅ ${found.length} found (${graphqlHits} via search, ${slugHits} via slug)`);
+  console.log(`  ❌ ${notFound.length} not found`);
+  console.log(`  🔒 All ${found.length} matches have verified IDs and working pages`);
   
   if (found.length === 0) {
     console.log('\n😔 No new OpenTable restaurants found.');
+    // Still save notFound for reference
+    fs.writeFileSync(OT_RESULTS_FILE, JSON.stringify({
+      timestamp: new Date().toISOString(),
+      totalChecked: toProcess.length, foundCount: 0,
+      found: [], notFound: notFound.map(r => r.name)
+    }, null, 2));
     return;
   }
   
   // ── Availability ──
   if (!SKIP_AVAILABILITY) {
-    console.log(`\n📅 Checking availability...\n`);
+    console.log(`\n📅 Checking availability for ${found.length} restaurants...\n`);
+    let availCount = 0;
     for (let i = 0; i < found.length; i++) {
       const r = found[i];
       process.stdout.write(`  [${i+1}/${found.length}] ${r.name}... `);
-      if (!r.ot.restaurant_id) { console.log('⏭️ No ID'); r.availability = null; continue; }
       
       try {
         const avail = await checkOTAvailability(r.ot.restaurant_id, CHECK_DATE, PARTY_SIZE);
         r.availability = avail;
         if (avail) {
+          availCount++;
           console.log(`${avail.available ? '🟢' : '🔴'} ${avail.slots} slots (E:${avail.windows?.early || 0} P:${avail.windows?.prime || 0} L:${avail.windows?.late || 0})`);
         } else {
           console.log('⏭️ No data');
@@ -335,6 +420,7 @@ async function main() {
       } catch(err) { console.log(`⚠️ ${err.message}`); r.availability = null; }
       await sleep(800);
     }
+    console.log(`\n📊 Availability: ${availCount}/${found.length} returned data`);
   }
   
   // ── Save to files ──
@@ -367,9 +453,9 @@ async function main() {
   if (availAdded > 0) fs.writeFileSync(AVAIL_FILE, JSON.stringify(AVAIL_DATA, null, 2));
   
   let popularUpdated = 0;
-  const foundByName = new Map(found.map(r => [r.name.toLowerCase().trim(), r]));
+  const foundByNorm = new Map(found.map(r => [normName(r.name), r]));
   for (const p of POPULAR) {
-    const match = foundByName.get(p.name?.toLowerCase().trim());
+    const match = foundByNorm.get(normName(p.name));
     if (match && !p.booking_platform) {
       p.booking_platform = 'opentable';
       p.booking_url = match.ot.url;
@@ -381,16 +467,21 @@ async function main() {
   // Save report
   fs.writeFileSync(OT_RESULTS_FILE, JSON.stringify({
     timestamp: new Date().toISOString(),
+    version: 'v3',
     date: CHECK_DATE, partySize: PARTY_SIZE,
     totalChecked: toProcess.length, foundCount: found.length,
-    found: found.map(r => ({ name: r.name, otName: r.ot.name, url: r.ot.url, rid: r.ot.restaurant_id, slots: r.availability?.slots || 0, source: r.source })),
+    found: found.map(r => ({
+      name: r.name, otName: r.ot.name, url: r.ot.url,
+      rid: r.ot.restaurant_id, method: r.ot.method,
+      slots: r.availability?.slots || 0, source: r.source
+    })),
     notFound: notFound.map(r => r.name)
   }, null, 2));
   
   const elapsed = ((Date.now() - startTime) / 60000).toFixed(1);
   console.log(`\n${'='.repeat(50)}`);
   console.log(`🎉 Done in ${elapsed} min`);
-  console.log(`  📝 +${bookingAdded} booking links`);
+  console.log(`  📝 +${bookingAdded} booking links (all verified)`);
   console.log(`  📝 +${availAdded} availability entries`);
   console.log(`  📝 +${popularUpdated} popular_nyc updated`);
   console.log(`  📄 Results: expand-results-ot.json\n`);

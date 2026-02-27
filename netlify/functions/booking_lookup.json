@@ -7982,5 +7982,117 @@
   "four twenty five, a jean-georges restaurant": {
     "platform": "resy",
     "url": "https://resy.com/cities/new-york-ny/venues/four-twenty-five"
+  },
+  "lovemama": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/lovemama-new-york"
+  },
+  "da andrea - greenwich village": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/da-andrea-greenwich-village-new-york"
+  },
+  "thursday kitchen": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/thursday-kitchen-new-york"
+  },
+  "uluh": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/uluh-new-york"
+  },
+  "tia pol": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/tia-pol"
+  },
+  "da andrea - chelsea": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/da-andrea-chelsea-new-york"
+  },
+  "mughlai grill": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/mughlai-grill-new-york"
+  },
+  "gunbae tribeca": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/gunbae"
+  },
+  "alvin & friends": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/alvin-and-friends"
+  },
+  "athena mediterranean cuisine": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/athena-mediterranean-cuisine"
+  },
+  "osteria 57": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/osteria-57"
+  },
+  "sathi": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/sathi-new-york"
+  },
+  "hui restaurant & bar": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/hui-restaurant-and-bar-new-york"
+  },
+  "yara": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/yara-new-york"
+  },
+  "osteria delbianco": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/osteria-delbianco-new-york"
+  },
+  "jose luis mediterranean cuisine": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/jose-luis-mediterranean-cuisine-new-york"
+  },
+  "heno heno": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/heno-heno-new-york"
+  },
+  "cka ka qellu - bronx": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/cka-ka-qellu-bronx"
+  },
+  "kalye": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/kalye-at-rivington-new-york"
+  },
+  "otani": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/otani-new-york"
+  },
+  "the shell restaurant": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/the-shell-new-york"
+  },
+  "harlemite peruvian cuisine": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/harlemite-new-york"
+  },
+  "elis wine bar & restaurant": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/elis-wine-bar-and-restaurant-new-york"
+  },
+  "debajo": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/debajo"
+  },
+  "chomp chomp thai kitchen": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/chomp-chomp-thai-kitchen-new-york"
+  },
+  "catch n' chop": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/catch-n-chop-new-york"
+  },
+  "bar mexicana": {
+    "platform": "resy",
+    "url": "https://resy.com/cities/ny/bar-mexicana"
+  },
+  "345 cantina": {
+    "platform": "opentable",
+    "url": "https://www.opentable.com/r/345-cantina-new-york"
   }
 }
