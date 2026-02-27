@@ -320,19 +320,6 @@
     "cuisine": "Asian"
   },
   {
-    "place_id": "ChIJJwEg-ddEwokROudgJLI-Kt0",
-    "name": "Glatt A La Carte",
-    "address": "5123 18th Ave, Brooklyn, NY 11204, USA",
-    "lat": 40.6265615,
-    "lng": -73.9824403,
-    "googleRating": 4.9,
-    "googleReviewCount": 1803,
-    "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Steakhouse"
-  },
-  {
     "place_id": "ChIJmWvEAIZYwokRpvhPBfDbi_k",
     "name": "Pig and Khao - UWS",
     "address": "433 Amsterdam Ave, New York, NY 10024, USA",
@@ -394,18 +381,6 @@
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/ler-lers-brooklyn",
     "cuisine": "Thai"
-  },
-  {
-    "place_id": "ChIJRbIBMH33wokREjbhk7L7zcY",
-    "name": "The U bar and grill",
-    "address": "1207 Amsterdam Ave, New York, NY 10027, USA",
-    "lat": 40.808861199999996,
-    "lng": -73.9592644,
-    "googleRating": 4.9,
-    "googleReviewCount": 840,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJj2vTHQBbwokRW0-OjYjQNEo",
@@ -560,19 +535,6 @@
     "cuisine": "Mexican"
   },
   {
-    "place_id": "ChIJ-wiIVmFZwokRwQ4qXQGX1ng",
-    "name": "Mommy's Cocktail Bar",
-    "address": "323 Graham Ave, Brooklyn, NY 11211, USA",
-    "lat": 40.713974,
-    "lng": -73.9445277,
-    "googleRating": 4.9,
-    "googleReviewCount": 427,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "American"
-  },
-  {
     "place_id": "ChIJJyDIY_5fwokRsGZh1TaP5v8",
     "name": "Pranam Restaurant & Bar",
     "address": "45-15 28th Ave, Queens, NY 11103, USA",
@@ -584,19 +546,6 @@
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/pranam-new-york",
     "cuisine": "Indian"
-  },
-  {
-    "place_id": "ChIJdcO9k1tPwokRiTjSjtaX3ok",
-    "name": "Mavi Halal Cafe",
-    "address": "95 Stuyvesant Pl, Staten Island, NY 10301, USA",
-    "lat": 40.6438627,
-    "lng": -74.0774393,
-    "googleRating": 4.9,
-    "googleReviewCount": 406,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Mediterranean"
   },
   {
     "place_id": "ChIJD7cEIQFfwokRPzMQH9g8or4",
@@ -648,18 +597,6 @@
     "price_level": 2,
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/korkscrew-bistro"
-  },
-  {
-    "place_id": "ChIJzzJRI-dRwokR8QqzzwbS_c0",
-    "name": "Scale Fish Market",
-    "address": "45 Coles St, Jersey City, NJ 07302, USA",
-    "lat": 40.723257499999995,
-    "lng": -74.0477118,
-    "googleRating": 4.9,
-    "googleReviewCount": 289,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJJx0KbQBbwokRgFw60jHQQIM",
@@ -714,18 +651,6 @@
     "cuisine": "Steakhouse"
   },
   {
-    "place_id": "ChIJGZDLBgBbwokRtJfvgxADnnY",
-    "name": "Antilles Cafe",
-    "address": "1170 Nostrand Ave, Brooklyn, NY 11225, USA",
-    "lat": 40.658932400000005,
-    "lng": -73.9508381,
-    "googleRating": 4.9,
-    "googleReviewCount": 220,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJzVw8OgBXwokR350V13Dgt0I",
     "name": "Island Central",
     "address": "329 Central Ave, Jersey City, NJ 07307, USA",
@@ -750,18 +675,6 @@
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/u-omakase-brooklyn",
     "cuisine": "Japanese"
-  },
-  {
-    "place_id": "ChIJO4WP2JRZwokRLoRhXNGot2E",
-    "name": "Bakers Cafe LIC",
-    "address": "34-06 9th St, Astoria, NY 11106, USA",
-    "lat": 40.765150899999995,
-    "lng": -73.93957929999999,
-    "googleRating": 4.9,
-    "googleReviewCount": 189,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJjzFJSXJbwokRe5sQHKEXgxY",
@@ -789,18 +702,6 @@
     "booking_url": "https://resy.com/cities/ny/bar-madonna"
   },
   {
-    "place_id": "ChIJH8b8lGRZwokRLMcGVhlstH0",
-    "name": "Rose's R&R Bar",
-    "address": "457 Graham Ave, Brooklyn, NY 11222, USA",
-    "lat": 40.7190651,
-    "lng": -73.9454767,
-    "googleRating": 4.9,
-    "googleReviewCount": 173,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJ7WCOJatFwokRxSyjopBmUiA",
     "name": "Fish Grill - Brooklyn",
     "address": "1267 Coney Island Ave, Brooklyn, NY 11230, USA",
@@ -812,19 +713,6 @@
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/islands-fish-grill-indialantic",
     "cuisine": "Seafood"
-  },
-  {
-    "place_id": "ChIJCWna0q9XwokRjbFG2n48D6s",
-    "name": "yakitame bento & katsu",
-    "address": "501 Central Ave, Jersey City, NJ 07307, USA",
-    "lat": 40.7517606,
-    "lng": -74.04563879999999,
-    "googleRating": 4.9,
-    "googleReviewCount": 157,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Japanese"
   },
   {
     "place_id": "ChIJozQ7gWVZwokRjbsr8wxbg7s",
@@ -1001,132 +889,6 @@
     "price_level": null,
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/new-york-ny/venues/bouquet"
-  },
-  {
-    "place_id": "ChIJ1b6_YwD3wokRKIWzGdvdOZM",
-    "name": "MAKI",
-    "address": "3208 Broadway, New York, NY 10027, USA",
-    "lat": 40.8159839,
-    "lng": -73.9577837,
-    "googleRating": 4.9,
-    "googleReviewCount": 99,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Japanese"
-  },
-  {
-    "place_id": "ChIJ0SCQCClFwokRBADg7Pdf3OI",
-    "name": "Hungarian Kosher Cuisine",
-    "address": "5009 16th Ave, Brooklyn, NY 11204, USA",
-    "lat": 40.6301049,
-    "lng": -73.98617150000001,
-    "googleRating": 4.9,
-    "googleReviewCount": 99,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJwY7lv3FZwokRZciEJpdLsIA",
-    "name": "AJA sushi",
-    "address": "10-46 Jackson Ave, Long Island City, NY 11101, USA",
-    "lat": 40.7423109,
-    "lng": -73.9526506,
-    "googleRating": 4.9,
-    "googleReviewCount": 98,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Asian"
-  },
-  {
-    "place_id": "ChIJEQzd-ZthwokRPhvKnAPYjAs",
-    "name": "Hanami Ramen",
-    "address": "147-07 45th Ave, Flushing, NY 11355, USA",
-    "lat": 40.755653599999995,
-    "lng": -73.8150603,
-    "googleRating": 4.9,
-    "googleReviewCount": 95,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Japanese/Ramen"
-  },
-  {
-    "place_id": "ChIJlzG2NQBdwokRG3uJLZTISx0",
-    "name": "EL BURRITO LOCO",
-    "address": "6 Sutter Ave, Brooklyn, NY 11212, USA",
-    "lat": 40.665203,
-    "lng": -73.9226943,
-    "googleRating": 4.9,
-    "googleReviewCount": 79,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Mexican"
-  },
-  {
-    "place_id": "ChIJL_QzqWH3wokRpgmDJ_RiAH4",
-    "name": "Emparepa Yummy Treats Cafe",
-    "address": "2 Executive Dr lower level, Fort Lee, NJ 07024, USA",
-    "lat": 40.8651902,
-    "lng": -73.97283879999999,
-    "googleRating": 4.9,
-    "googleReviewCount": 76,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJt9a-G9dPwokRVw7Gt8WSDt8",
-    "name": "Nago Cafe",
-    "address": "416A Jersey St, Staten Island, NY 10301, USA",
-    "lat": 40.638177299999995,
-    "lng": -74.08757609999999,
-    "googleRating": 4.9,
-    "googleReviewCount": 71,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Japanese/Sushi"
-  },
-  {
-    "place_id": "ChIJE0YFNgD3wokRtDqZIuduTUE",
-    "name": "Sofrito Latino",
-    "address": "10 Hilliard Ave, Edgewater, NJ 07020, USA",
-    "lat": 40.8262243,
-    "lng": -73.9745025,
-    "googleRating": 4.9,
-    "googleReviewCount": 67,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ-Z8m8Ef3wokRGZylUxSe33I",
-    "name": "Azukita Con Cafe",
-    "address": "824 River Rd, Edgewater, NJ 07020, USA",
-    "lat": 40.823535899999996,
-    "lng": -73.97590919999999,
-    "googleRating": 4.9,
-    "googleReviewCount": 58,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Cuban"
-  },
-  {
-    "place_id": "ChIJ6U2qMCVcwokRDM_wOTFQ1VQ",
-    "name": "El Novillo 2",
-    "address": "10-69 Wyckoff Ave, Flushing, NY 11385, USA",
-    "lat": 40.694839699999996,
-    "lng": -73.90256099999999,
-    "googleRating": 4.9,
-    "googleReviewCount": 55,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJ63NbN5RRwokRNB4pZuKkYV0",
@@ -1810,19 +1572,6 @@
     "cuisine": "Vegan"
   },
   {
-    "place_id": "ChIJ_1bljdn3wokRW5OpgG50Q_Y",
-    "name": "Kanü Bar|Grill",
-    "address": "3628 Broadway, New York, NY 10031, USA",
-    "lat": 40.829151599999996,
-    "lng": -73.9480913,
-    "googleRating": 4.8,
-    "googleReviewCount": 1314,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Caribbean"
-  },
-  {
     "place_id": "ChIJC2cqQEhbwokRxC2JSiGx2Vw",
     "name": "RAS Plant Based",
     "address": "739 Franklin Ave, Brooklyn, NY 11238, USA",
@@ -2143,18 +1892,6 @@
     "booking_platform": null,
     "booking_url": null,
     "cuisine": "Greek"
-  },
-  {
-    "place_id": "ChIJ9Seml8r3wokRnaTtWTimCOk",
-    "name": "Madison Cafe & Grill",
-    "address": "4 Pembroke Pl, Edgewater, NJ 07020, USA",
-    "lat": 40.8029733,
-    "lng": -73.9933331,
-    "googleRating": 4.8,
-    "googleReviewCount": 824,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJOwFdGGr2wokR6fZEzR95eBg",
@@ -2833,18 +2570,6 @@
     "cuisine": "Mediterranean"
   },
   {
-    "place_id": "ChIJ4bXrK6JdwokRsDViRnjCPtQ",
-    "name": "American Best Wings & Pizza",
-    "address": "888 Utica Ave, Brooklyn, NY 11203, USA",
-    "lat": 40.6514315,
-    "lng": -73.930565,
-    "googleRating": 4.8,
-    "googleReviewCount": 240,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJL87sSQBZwokRKKDWlClzS_g",
     "name": "Casa Louie",
     "address": "455 W 37th St, New York, NY 10018, USA",
@@ -3010,18 +2735,6 @@
     "booking_url": "https://resy.com/cities/ny/pearl-street-supper-club"
   },
   {
-    "place_id": "ChIJYfchijtFwokRtg1NICBS5bM",
-    "name": "CAFE SAKHLI",
-    "address": "6321 20th Ave, Brooklyn, NY 11204, USA",
-    "lat": 40.6171724,
-    "lng": -73.9849863,
-    "googleRating": 4.8,
-    "googleReviewCount": 163,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJxdOCjqNfwokRFeNoem1l3L4",
     "name": "Arepas La Negra To Go",
     "address": "111-14 Corona Ave., Flushing, NY 11368, USA",
@@ -3159,18 +2872,6 @@
     "cuisine": "Asian"
   },
   {
-    "place_id": "ChIJn4T9aYVhwokR9ckNamAK69w",
-    "name": "SMESH Truck",
-    "address": "30-33 Stratton St, Flushing, NY 11354, USA",
-    "lat": 40.769211899999995,
-    "lng": -73.8339574,
-    "googleRating": 4.8,
-    "googleReviewCount": 112,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJ_fdcCwD3wokR1Ad08pQ7vKI",
     "name": "Sazanami Hamba-Gu",
     "address": "1086 S, 1086 River Rd, Edgewater, NJ 07020, USA",
@@ -3222,18 +2923,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJQ2v4EwBbwokRUXuhWe4WxgY",
-    "name": "Milly’s Neighborhood Bar",
-    "address": "397 Greene Ave, Brooklyn, NY 11216, USA",
-    "lat": 40.6881039,
-    "lng": -73.9551546,
-    "googleRating": 4.8,
-    "googleReviewCount": 99,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJIYMm9JldwokR3JTojl_rf8A",
     "name": "Olmo",
     "address": "103 Saratoga Ave, Brooklyn, NY 11233, USA",
@@ -3245,45 +2934,6 @@
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/olmo",
     "cuisine": "Italian"
-  },
-  {
-    "place_id": "ChIJ1zvd-Rb1wokRsqp15PrRonI",
-    "name": "Taqueria Muñoz",
-    "address": "155 E 170th St, Bronx, NY 10452, USA",
-    "lat": 40.8393935,
-    "lng": -73.9147531,
-    "googleRating": 4.8,
-    "googleReviewCount": 99,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Mexican"
-  },
-  {
-    "place_id": "ChIJ4bwASoZRwokRVf4i3jFyrlE",
-    "name": "The Pizzeria on Pine",
-    "address": "196 Pine St, Jersey City, NJ 07304, USA",
-    "lat": 40.710157599999995,
-    "lng": -74.0614235,
-    "googleRating": 4.8,
-    "googleReviewCount": 99,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian/Pizza"
-  },
-  {
-    "place_id": "ChIJ7Y7D5KxbwokRU2KIPv62DFs",
-    "name": "MexSalvador Fast Food",
-    "address": "722 5th Ave, Brooklyn, NY 11215, USA",
-    "lat": 40.660418299999996,
-    "lng": -73.9946365,
-    "googleRating": 4.8,
-    "googleReviewCount": 91,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Mexican"
   },
   {
     "place_id": "ChIJnUeatPVdwokRAXZ84kAUB6g",
@@ -3298,18 +2948,6 @@
     "booking_url": "https://www.opentable.com/r/dhaba-new-york"
   },
   {
-    "place_id": "ChIJwwHl6gBdwokRsAMsqyqrPc0",
-    "name": "Che • Malcolm X",
-    "address": "302 Malcolm X Blvd, Brooklyn, NY 11233, USA",
-    "lat": 40.6825223,
-    "lng": -73.9291165,
-    "googleRating": 4.8,
-    "googleReviewCount": 87,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJtbQgYF1bwokRcEZVPb5ZEuM",
     "name": "Samuels Top Ranking Fish Shop",
     "address": "3315 Church Ave, Brooklyn, NY 11203, USA",
@@ -3320,18 +2958,6 @@
     "price_level": null,
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/king"
-  },
-  {
-    "place_id": "ChIJRQSPvJ9bwokRpvLNLjODwZA",
-    "name": "Amlak Sweets Inc.",
-    "address": "308 Ditmas Ave Suite 1, Brooklyn, NY 11218, USA",
-    "lat": 40.6356835,
-    "lng": -73.975624,
-    "googleRating": 4.8,
-    "googleReviewCount": 80,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJ1Y5tA6NZwokRSBckRDxevJw",
@@ -3347,31 +2973,6 @@
     "cuisine": "Japanese"
   },
   {
-    "place_id": "ChIJJ2ZrnLRfwokRwALvrDTlaAE",
-    "name": "La Esquina Criolla 2",
-    "address": "49-11 69th St, Queens, NY 11377, USA",
-    "lat": 40.737251199999996,
-    "lng": -73.8956841,
-    "googleRating": 4.8,
-    "googleReviewCount": 77,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ7TuD8m9ZwokRBcDIL26hiCw",
-    "name": "Empyrean Bistro & Bar",
-    "address": "800 Jackson Street, Entrance from 8th St Patio Indian Restaurant & Bar Park at:, We will validate it for free after Dine-In, 701 Harrison St R1, Hoboken, NJ 07030, USA",
-    "lat": 40.7482791,
-    "lng": -74.03864759999999,
-    "googleRating": 4.8,
-    "googleReviewCount": 75,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Indian"
-  },
-  {
     "place_id": "ChIJm6ldHwBZwokRmxozXkFUZCI",
     "name": "Omakase OSUKAA LIC",
     "address": "30-30 47th Ave #140, Long Island City, NY 11101, USA",
@@ -3385,56 +2986,6 @@
     "cuisine": "Japanese/Sushi"
   },
   {
-    "place_id": "ChIJVbhEEQBbwokReaOwPjctSlE",
-    "name": "Zilus Essen",
-    "address": "3715 13th Ave, Brooklyn, NY 11218, USA",
-    "lat": 40.6413642,
-    "lng": -73.9853782,
-    "googleRating": 4.8,
-    "googleReviewCount": 70,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJrSrIEAD1wokR1ZazzJSDN7A",
-    "name": "Falafel Crunch",
-    "address": "2547 Amsterdam Ave, New York, NY 10033, USA",
-    "lat": 40.8513345,
-    "lng": -73.9282989,
-    "googleRating": 4.8,
-    "googleReviewCount": 67,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Middle Eastern"
-  },
-  {
-    "place_id": "ChIJj8D4SxNfwokRfUXTtkve8Wc",
-    "name": "Yuzu Sushi Japanese Cuisine",
-    "address": "64-60 Dry Harbor Rd, Middle Village, NY 11379, USA",
-    "lat": 40.7183819,
-    "lng": -73.8727742,
-    "googleRating": 4.8,
-    "googleReviewCount": 66,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Japanese"
-  },
-  {
-    "place_id": "ChIJOV9WARVFwokRxtGKVH3ySRA",
-    "name": "Cucina Modern Kitchen",
-    "address": "4420 18th Ave, Brooklyn, NY 11204, USA",
-    "lat": 40.6306,
-    "lng": -73.977839,
-    "googleRating": 4.8,
-    "googleReviewCount": 58,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJR2XObwBZwokRLGE85c1lz5Q",
     "name": "Kansha",
     "address": "1312 Madison Ave, New York, NY 10128, USA",
@@ -3445,157 +2996,6 @@
     "price_level": null,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/kansha-new-york"
-  },
-  {
-    "place_id": "ChIJGapLNftdwokRjEIZQt7zTCg",
-    "name": "Chayse The Flavas",
-    "address": "508 E 94th St, Brooklyn, NY 11212, USA",
-    "lat": 40.6547306,
-    "lng": -73.9173819,
-    "googleRating": 4.8,
-    "googleReviewCount": 53,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJeVSSxYr1wokR20AH3I2U34M",
-    "name": "Xolo Mexican Grill",
-    "address": "129 Alexander Ave #1, Bronx, NY 10454, USA",
-    "lat": 40.8071969,
-    "lng": -73.9276187,
-    "googleRating": 4.8,
-    "googleReviewCount": 52,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Mexican"
-  },
-  {
-    "place_id": "ChIJ_2nuewJfwokRr_CxTH1AvTk",
-    "name": "EMA Restaurant Bar",
-    "address": "67-03 Woodside Ave, Woodside, NY 11377, USA",
-    "lat": 40.7433233,
-    "lng": -73.8972777,
-    "googleRating": 4.8,
-    "googleReviewCount": 52,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ745qEIFdwokRmoNsVncdyvw",
-    "name": "Places Bar and Grill",
-    "address": "91 Hegeman Ave, Brooklyn, NY 11212, USA",
-    "lat": 40.656207099999996,
-    "lng": -73.9085726,
-    "googleRating": 4.8,
-    "googleReviewCount": 51,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJR81JKXFhwokRL8XKb1xMgKg",
-    "name": "Rocco's Italian Sausages & Cheese Steaks",
-    "address": "131-33 Avery Ave, Flushing, NY 11355, USA",
-    "lat": 40.752977099999995,
-    "lng": -73.8357328,
-    "googleRating": 4.8,
-    "googleReviewCount": 51,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "American"
-  },
-  {
-    "place_id": "ChIJP7Qzms5hwokRu3mxJHl042A",
-    "name": "Er Hou Roast Chicken",
-    "address": "35-38 Union St, Flushing, NY 11354, USA",
-    "lat": 40.7644351,
-    "lng": -73.8281866,
-    "googleRating": 4.8,
-    "googleReviewCount": 51,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Chinese"
-  },
-  {
-    "place_id": "ChIJr4ecliBbwokRp85N1pUO0jk",
-    "name": "Palooza Flava",
-    "address": "708 Parkside Ave, Brooklyn, NY 11226, USA",
-    "lat": 40.656152299999995,
-    "lng": -73.9498393,
-    "googleRating": 4.8,
-    "googleReviewCount": 48,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Caribbean"
-  },
-  {
-    "place_id": "ChIJ93XhNfxfwokRJ31dFw8QSoU",
-    "name": "D'angelo's Italian Sausage Cart",
-    "address": "66th Rd &, Woodhaven Blvd, Rego Park, NY 11374, USA",
-    "lat": 40.715964199999995,
-    "lng": -73.8614535,
-    "googleRating": 4.8,
-    "googleReviewCount": 40,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian"
-  },
-  {
-    "place_id": "ChIJLecAM3NXwokR-H74D6Rwp4c",
-    "name": "Quickmix Taste Food Station",
-    "address": "588 Manila Ave, Jersey City, NJ 07310, USA",
-    "lat": 40.731365499999995,
-    "lng": -74.0409208,
-    "googleRating": 4.8,
-    "googleReviewCount": 39,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJNzyWsLVdwokRT4TVcFfqFRg",
-    "name": "Long Cheng",
-    "address": "2977 Fulton St, Brooklyn, NY 11208, USA",
-    "lat": 40.679929,
-    "lng": -73.8850034,
-    "googleRating": 4.8,
-    "googleReviewCount": 33,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Chinese"
-  },
-  {
-    "place_id": "ChIJzwGGBS73wokRON-HC3xl454",
-    "name": "Mom’s kitchen 맘스키친",
-    "address": "2370 Lemoine Ave, Fort Lee, NJ 07024, USA",
-    "lat": 40.8628364,
-    "lng": -73.96297129999999,
-    "googleRating": 4.8,
-    "googleReviewCount": 30,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJz1p6WAD1wokRzBrqUT20UnU",
-    "name": "D’Giovanis Big Pizza",
-    "address": "634 E 169th St, Bronx, NY 10456, USA",
-    "lat": 40.8311178,
-    "lng": -73.9010065,
-    "googleRating": 4.8,
-    "googleReviewCount": 26,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian/Pizza"
   },
   {
     "place_id": "ChIJ99_m8KhZwokRz33z_j0NaQ8",
@@ -3890,19 +3290,6 @@
     "cuisine": "Japanese/Sushi"
   },
   {
-    "place_id": "ChIJ92OsaJVZwokRsC54kf-J-3g",
-    "name": "L’industrie Pizzeria West Village",
-    "address": "104 Christopher St, New York, NY 10014, USA",
-    "lat": 40.733222399999995,
-    "lng": -74.0049081,
-    "googleRating": 4.7,
-    "googleReviewCount": 2968,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian/Pizza"
-  },
-  {
     "place_id": "ChIJqRJTizv2wokRwg_FF-6pYuU",
     "name": "Le Monde",
     "address": "2885 Broadway, New York, NY 10025, USA",
@@ -3939,19 +3326,6 @@
     "price_level": null,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/what-the-fish-queens"
-  },
-  {
-    "place_id": "ChIJ4Q06IbtYwokRcV8iHlJky_M",
-    "name": "Cafe d’Alsace",
-    "address": "1703 2nd Ave, New York, NY 10128, USA",
-    "lat": 40.77945760000001,
-    "lng": -73.95092989999999,
-    "googleRating": 4.7,
-    "googleReviewCount": 2729,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "French"
   },
   {
     "place_id": "ChIJYYpwNA5ZwokRYImQw6JRNfI",
@@ -4069,19 +3443,6 @@
     "booking_platform": null,
     "booking_url": null,
     "cuisine": "Mexican"
-  },
-  {
-    "place_id": "ChIJv0dpGCNgwokRr-hIXLB-cqY",
-    "name": "Ssam Tong BBQ | 쌤통 | K-BBQ | Korean Barbecue | 플러싱 맛집 | Wagyu | Pork Belly | #1 Korean Barbecue",
-    "address": "41-08 149th Pl, Flushing, NY 11355, USA",
-    "lat": 40.7620233,
-    "lng": -73.8148305,
-    "googleRating": 4.7,
-    "googleReviewCount": 1930,
-    "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Korean"
   },
   {
     "place_id": "ChIJ8bFWn8FZwokRoUsyyYc0TNg",
@@ -4297,19 +3658,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/leitao-new-york"
-  },
-  {
-    "place_id": "ChIJM1oV8w32wokR9gt0ynHqypM",
-    "name": "Sottocasa Pizzeria Harlem",
-    "address": "227 Malcolm X Blvd, New York, NY 10027, USA",
-    "lat": 40.8055464,
-    "lng": -73.9474615,
-    "googleRating": 4.7,
-    "googleReviewCount": 1521,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian/Pizza"
   },
   {
     "place_id": "ChIJzae3_LlbwokR6ts6PCZ3agM",
@@ -5039,18 +4387,6 @@
     "cuisine": "Soul Food"
   },
   {
-    "place_id": "ChIJz-jOv8NQwokRU_dkPPAeuK0",
-    "name": "Mordi’s Sandwich Shop",
-    "address": "320 Communipaw Ave, Jersey City, NJ 07304, USA",
-    "lat": 40.7105179,
-    "lng": -74.0609648,
-    "googleRating": 4.7,
-    "googleReviewCount": 581,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJI2kKw_dbwokR5GBtrXU8rMc",
     "name": "Concrete Sicilian Eatery",
     "address": "906 Broadway, Brooklyn, NY 11206, USA",
@@ -5315,18 +4651,6 @@
     "cuisine": "Mexican"
   },
   {
-    "place_id": "ChIJW7hnbe5bwokRG2IHXWO1xcA",
-    "name": "Someday Bar NYC",
-    "address": "364 Atlantic Ave, Brooklyn, NY 11217, USA",
-    "lat": 40.6872599,
-    "lng": -73.98639010000001,
-    "googleRating": 4.7,
-    "googleReviewCount": 472,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJ4ZoSBM1FwokRskL-aL-I6oY",
     "name": "Sushi Ta'eem Flatbush",
     "address": "1307 Avenue J, Brooklyn, NY 11230, USA",
@@ -5402,19 +4726,6 @@
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/tasca",
     "cuisine": "Caribbean"
-  },
-  {
-    "place_id": "ChIJZxIBegb1wokRpYfH-zy4oqk",
-    "name": "Mamar Bari Indian Cuisine",
-    "address": "2960 Third Ave, Bronx, NY 10455, USA",
-    "lat": 40.818071499999995,
-    "lng": -73.9145113,
-    "googleRating": 4.7,
-    "googleReviewCount": 428,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Indian"
   },
   {
     "place_id": "ChIJaY1Xsk5fwokRZltGYzlG-oU",
@@ -5595,19 +4906,6 @@
     "cuisine": "Mediterranean"
   },
   {
-    "place_id": "ChIJbxlnQ-L3wokRk6e040nI_xc",
-    "name": "Dado's Pizza and Taproom Harlem",
-    "address": "341 St Nicholas Ave, New York, NY 10027, USA",
-    "lat": 40.8122451,
-    "lng": -73.9515365,
-    "googleRating": 4.7,
-    "googleReviewCount": 351,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian/Pizza"
-  },
-  {
     "place_id": "ChIJt44nZHFZwokREOy_SlNHOvY",
     "name": "Alfalfa",
     "address": "1110 Washington St, Hoboken, NJ 07030, USA",
@@ -5615,18 +4913,6 @@
     "lng": -74.02722849999999,
     "googleRating": 4.7,
     "googleReviewCount": 349,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJA3Id8FD1wokRnXFTlhGc1bE",
-    "name": "Cafe Bloom",
-    "address": "4394 Broadway, New York, NY 10040, USA",
-    "lat": 40.8547124,
-    "lng": -73.9332726,
-    "googleRating": 4.7,
-    "googleReviewCount": 344,
     "price_level": 2,
     "booking_platform": null,
     "booking_url": null
@@ -6152,19 +5438,6 @@
     "booking_url": "https://resy.com/cities/ny/cafe-mado-new-york"
   },
   {
-    "place_id": "ChIJGRaNcgBZwokRRz5j2tnzOdA",
-    "name": "Diamond Slice",
-    "address": "70 Diamond St, Brooklyn, NY 11222, USA",
-    "lat": 40.7251093,
-    "lng": -73.9463006,
-    "googleRating": 4.7,
-    "googleReviewCount": 212,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian/Pizza"
-  },
-  {
     "place_id": "ChIJTUW3105fwokRTUXSiiya0gg",
     "name": "Trattoria Ora",
     "address": "18-01 Astoria Blvd, Astoria, NY 11102, USA",
@@ -6202,19 +5475,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJwUS_U0D1wokRElm2Qa_0r-s",
-    "name": "Wahizza Pizzeria & Restaurant ( Italian )",
-    "address": "4476 Broadway, New York, NY 10040, USA",
-    "lat": 40.857302499999996,
-    "lng": -73.9319867,
-    "googleRating": 4.7,
-    "googleReviewCount": 206,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian/Pizza"
-  },
-  {
     "place_id": "ChIJv-lmYmJbwokRE8QU-HUI0QA",
     "name": "Jerusalem Falafel House",
     "address": "1026 Nostrand Ave, Brooklyn, NY 11225, USA",
@@ -6239,18 +5499,6 @@
     "booking_platform": null,
     "booking_url": null,
     "cuisine": "Mexican"
-  },
-  {
-    "place_id": "ChIJO73cwmJZwokRV5VbHLw_rkY",
-    "name": "Minnows Bar",
-    "address": "167 Nassau Ave, Brooklyn, NY 11222, USA",
-    "lat": 40.725259699999995,
-    "lng": -73.9465352,
-    "googleRating": 4.7,
-    "googleReviewCount": 196,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJVVWVIsVQwokROM6dDKXKLks",
@@ -6388,19 +5636,6 @@
     "price_level": null,
     "booking_platform": null,
     "booking_url": null
-  },
-  {
-    "place_id": "ChIJzfa0U9r3wokROuIGS2nPYII",
-    "name": "Dalgoona Bowl",
-    "address": "272 Old River Rd, Edgewater, NJ 07020, USA",
-    "lat": 40.8097665,
-    "lng": -73.9902955,
-    "googleRating": 4.7,
-    "googleReviewCount": 146,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Korean"
   },
   {
     "place_id": "ChIJIUbOqtZfwokRV61A1J6EwoY",
@@ -6741,44 +5976,6 @@
     "cuisine": "Thai"
   },
   {
-    "place_id": "ChIJm5u3pEFfwokRuVkgaJUKj-k",
-    "name": "Sophistian Pizzeria Restaurant",
-    "address": "18-01 26th Rd, Queens, NY 11102, USA",
-    "lat": 40.773320299999995,
-    "lng": -73.9271369,
-    "googleRating": 4.7,
-    "googleReviewCount": 97,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian/Pizza"
-  },
-  {
-    "place_id": "ChIJ9wvbiNhRwokRkLqtgL8zu9s",
-    "name": "Po Boy Riche",
-    "address": "89 Monitor St Retail 1, Jersey City, NJ 07304, USA",
-    "lat": 40.7121311,
-    "lng": -74.0576684,
-    "googleRating": 4.7,
-    "googleReviewCount": 94,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Seafood"
-  },
-  {
-    "place_id": "ChIJke6GhZtdwokR2RslxPavv1k",
-    "name": "Steve's Original Jerk Chicken",
-    "address": "4902 Church Ave Bldg 4, Brooklyn, NY 11203, USA",
-    "lat": 40.6515426,
-    "lng": -73.9312133,
-    "googleRating": 4.7,
-    "googleReviewCount": 86,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJ7QtRKQBXwokR0nJwTm6pjkQ",
     "name": "Sushi Makoto",
     "address": "365 Palisade Ave, Jersey City, NJ 07307, USA",
@@ -6805,30 +6002,6 @@
     "cuisine": "French"
   },
   {
-    "place_id": "ChIJuRMDwxv3wokRoxK6OcYExa8",
-    "name": "Tinto Tapas Restaurant & Wine Bar",
-    "address": "209 Pinehurst Ave, New York, NY 10033, USA",
-    "lat": 40.8550871,
-    "lng": -73.9377887,
-    "googleRating": 4.7,
-    "googleReviewCount": 75,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ59E2L9FFwokR7MIkks03yWI",
-    "name": "NY SMASH",
-    "address": "1360 Coney Island Ave, Brooklyn, NY 11230, USA",
-    "lat": 40.624322899999996,
-    "lng": -73.9653486,
-    "googleRating": 4.7,
-    "googleReviewCount": 75,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJr8wKlm1bwokRW0n7Efryz9w",
     "name": "Half Moon",
     "address": "50 Trinity Pl, New York, NY 10006, USA",
@@ -6841,18 +6014,6 @@
     "booking_url": "https://www.opentable.com/r/half-moon"
   },
   {
-    "place_id": "ChIJu5_ySQBRwokRKsqneWCEWls",
-    "name": "Mordi's Sandwich Shop",
-    "address": "132 Baldwin Ave, Jersey City, NJ 07306, USA",
-    "lat": 40.726465,
-    "lng": -74.0619809,
-    "googleRating": 4.7,
-    "googleReviewCount": 60,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJd6MXw-1bwokRqnIkm0jY-Og",
     "name": "Platters King",
     "address": "822 Myrtle Ave, Brooklyn, NY 11206, USA",
@@ -6863,54 +6024,6 @@
     "price_level": null,
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/king"
-  },
-  {
-    "place_id": "ChIJoy9okJJFwokRNo9Se38Y8wk",
-    "name": "Crispy grill nostrand",
-    "address": "2462 Nostrand Ave, Brooklyn, NY 11210, USA",
-    "lat": 40.6247292,
-    "lng": -73.9466898,
-    "googleRating": 4.7,
-    "googleReviewCount": 49,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJo-Q-SCpawokR4hrO6DT92pw",
-    "name": "Bo Hai Dumpling Town",
-    "address": "217 E Broadway, New York, NY 10002, USA",
-    "lat": 40.7139921,
-    "lng": -73.98734639999999,
-    "googleRating": 4.7,
-    "googleReviewCount": 45,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ31XjY6xewokRcYFLGJP76is",
-    "name": "Manny's",
-    "address": "1110 Metropolitan Ave, Brooklyn, NY 11211, USA",
-    "lat": 40.7142671,
-    "lng": -73.9327229,
-    "googleRating": 4.7,
-    "googleReviewCount": 39,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ_6gXfORbwokROhDMAXsUAww",
-    "name": "Sheli",
-    "address": "492 Broadway, Brooklyn, NY 11211, USA",
-    "lat": 40.705643099999996,
-    "lng": -73.95100959999999,
-    "googleRating": 4.7,
-    "googleReviewCount": 26,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJ5804KalZwokRzGll2Rm7nag",
@@ -7028,31 +6141,6 @@
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/rubirosa",
     "cuisine": "Italian/Pizza"
-  },
-  {
-    "place_id": "ChIJOxerSlJYwokRPmpdLA4CpWI",
-    "name": "Rudy's Bar & Grill",
-    "address": "627 9th Ave, New York, NY 10036, USA",
-    "lat": 40.7600309,
-    "lng": -73.99179509999999,
-    "googleRating": 4.6,
-    "googleReviewCount": 6023,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJueUCrBBawokRiw9LMJFm0_o",
-    "name": "O'Hara's Restaurant and Pub",
-    "address": "120 Cedar St, New York, NY 10006, USA",
-    "lat": 40.7095008,
-    "lng": -74.0126642,
-    "googleRating": 4.6,
-    "googleReviewCount": 5601,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "American"
   },
   {
     "place_id": "ChIJ_W7cGPtbwokRXxTMC6MOvHA",
@@ -7678,19 +6766,6 @@
     "cuisine": "Italian"
   },
   {
-    "place_id": "ChIJ02PnWSNfwokRrNwpYQptrig",
-    "name": "Villa Brazil Café Grill",
-    "address": "43-16 34th Ave, Astoria, NY 11101, USA",
-    "lat": 40.755197200000005,
-    "lng": -73.9180083,
-    "googleRating": 4.6,
-    "googleReviewCount": 1841,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Brazilian"
-  },
-  {
     "place_id": "ChIJC3VecrpbwokRLNJIz-9s4VQ",
     "name": "Olea",
     "address": "171 Lafayette Ave, Brooklyn, NY 11238, USA",
@@ -7728,18 +6803,6 @@
     "booking_platform": null,
     "booking_url": null,
     "cuisine": "Chinese"
-  },
-  {
-    "place_id": "ChIJhwECQE5YwokRGWW9EDDrAfQ",
-    "name": "The Landmark Tavern",
-    "address": "626 11th Ave, New York, NY 10036, USA",
-    "lat": 40.7631984,
-    "lng": -73.9963363,
-    "googleRating": 4.6,
-    "googleReviewCount": 1754,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJQV4litZbwokRPc2qPtWjFsw",
@@ -8408,31 +7471,6 @@
     "booking_url": "https://resy.com/cities/ny/pescada-new-york"
   },
   {
-    "place_id": "ChIJtX9c9chEwokRtL2Z7OjW9Sg",
-    "name": "Pizza Time",
-    "address": "1324 Avenue J, Brooklyn, NY 11230, USA",
-    "lat": 40.624910799999995,
-    "lng": -73.96242649999999,
-    "googleRating": 4.6,
-    "googleReviewCount": 999,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian/Pizza"
-  },
-  {
-    "place_id": "ChIJ72jC4QBcwokRjFRMAxCm770",
-    "name": "Syndicated Bar Theater Kitchen",
-    "address": "40 Bogart St, Brooklyn, NY 11206, USA",
-    "lat": 40.7048388,
-    "lng": -73.9330082,
-    "googleRating": 4.6,
-    "googleReviewCount": 996,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJ3wf-UdhbwokRa1S-CsetDUM",
     "name": "Gitano NYC",
     "address": "89 South St, New York, NY 10038, USA",
@@ -8713,31 +7751,6 @@
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/east-harlem-bottling-co-new-york",
     "cuisine": "American"
-  },
-  {
-    "place_id": "ChIJbXB25KZYwokRDPPpjiXlUKw",
-    "name": "Earl's Beer and Cheese",
-    "address": "1259 Park Ave, New York, NY 10029, USA",
-    "lat": 40.787341399999995,
-    "lng": -73.95163079999999,
-    "googleRating": 4.6,
-    "googleReviewCount": 844,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "American"
-  },
-  {
-    "place_id": "ChIJJU6r8thewokRiYQuwLuF8kM",
-    "name": "The Lowery Bar & Kitchen",
-    "address": "43-02 43rd Ave, Sunnyside, NY 11104, USA",
-    "lat": 40.745043599999995,
-    "lng": -73.9209938,
-    "googleRating": 4.6,
-    "googleReviewCount": 827,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJI-2bjOdZwokR5AzUpeF6Re8",
@@ -9061,19 +8074,6 @@
     "cuisine": "Italian"
   },
   {
-    "place_id": "ChIJFSPlcvlbwokRlwfYEFTR6AM",
-    "name": "Nan Xiang Express",
-    "address": "148 Lawrence St, Brooklyn, NY 11201, USA",
-    "lat": 40.691733,
-    "lng": -73.98645400000001,
-    "googleRating": 4.6,
-    "googleReviewCount": 680,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Chinese"
-  },
-  {
     "place_id": "ChIJAQBkGv5awokRLBtMzvEyPys",
     "name": "Terre| Pasta & Natural wine",
     "address": "341 5th Ave, Brooklyn, NY 11215, USA",
@@ -9162,19 +8162,6 @@
     "price_level": 2,
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/new-york-ny/venues/bondurants",
-    "cuisine": "American"
-  },
-  {
-    "place_id": "ChIJ7VhT3sxewokRpnmXD6ZTiVQ",
-    "name": "Bantry Bay Publick House",
-    "address": "33-01 Greenpoint Ave, Long Island City, NY 11101, USA",
-    "lat": 40.7356919,
-    "lng": -73.9347422,
-    "googleRating": 4.6,
-    "googleReviewCount": 627,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
     "cuisine": "American"
   },
   {
@@ -9472,19 +8459,6 @@
     "cuisine": "Chinese"
   },
   {
-    "place_id": "ChIJu2tlKbhawokRkz2dHlgxzUo",
-    "name": "Zona Sur Bar Bistro",
-    "address": "4314 4th Ave, Brooklyn, NY 11220, USA",
-    "lat": 40.65024450000001,
-    "lng": -74.0090484,
-    "googleRating": 4.6,
-    "googleReviewCount": 519,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "American"
-  },
-  {
     "place_id": "ChIJiwo5H5NbwokRnLq07Uyie0E",
     "name": "Samurai Papa",
     "address": "594 Lafayette Ave, Brooklyn, NY 11216, USA",
@@ -9701,19 +8675,6 @@
     "cuisine": "Japanese/Sushi"
   },
   {
-    "place_id": "ChIJCYcjeCpFwokRAbDOv66Ptj8",
-    "name": "Cafe Paris",
-    "address": "4424 16th Ave, Brooklyn, NY 11204, USA",
-    "lat": 40.6335142,
-    "lng": -73.9833251,
-    "googleRating": 4.6,
-    "googleReviewCount": 467,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Vegetarian"
-  },
-  {
     "place_id": "ChIJBQth1MP3wokRHBqlpOcDdXM",
     "name": "Kyuramen - Upper West Side",
     "address": "2787 Broadway, New York, NY 10025, USA",
@@ -9750,31 +8711,6 @@
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/la-tete-dor",
     "cuisine": "Steakhouse"
-  },
-  {
-    "place_id": "ChIJ2ZAII6BdwokRgww7YsOT1oI",
-    "name": "BK Pizza",
-    "address": "456 Sutter Ave, Brooklyn, NY 11212, USA",
-    "lat": 40.6682217,
-    "lng": -73.90207769999999,
-    "googleRating": 4.6,
-    "googleReviewCount": 452,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian/Pizza"
-  },
-  {
-    "place_id": "ChIJ6Wr8mmFXwokRegw6lCNtnxE",
-    "name": "Finnegan's Pub",
-    "address": "734 Willow Ave, Hoboken, NJ 07030, USA",
-    "lat": 40.746488600000006,
-    "lng": -74.0321462,
-    "googleRating": 4.6,
-    "googleReviewCount": 452,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJNTHMPrdbwokRIgmROnpA1RI",
@@ -9941,19 +8877,6 @@
     "cuisine": "Japanese/Sushi"
   },
   {
-    "place_id": "ChIJx1MYBV_3wokRjeYHCXgKrJ8",
-    "name": "314 - pizza,pasta&cocktailbar",
-    "address": "3143 Broadway, New York, NY 10027, USA",
-    "lat": 40.8141969,
-    "lng": -73.9598383,
-    "googleRating": 4.6,
-    "googleReviewCount": 419,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian"
-  },
-  {
     "place_id": "ChIJyakJqtJZwokRakZCuB3fq34",
     "name": "Emmy Squared Pizza: Midtown West",
     "address": "200 W 60th St, New York, NY 10023, USA",
@@ -9965,19 +8888,6 @@
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/emmy-squared",
     "cuisine": "Italian/Pizza"
-  },
-  {
-    "place_id": "ChIJYU00FF9dwokRP1SojtvVgQU",
-    "name": "Almah Cafe",
-    "address": "87 Utica Ave, Brooklyn, NY 11213, USA",
-    "lat": 40.6759156,
-    "lng": -73.93025639999999,
-    "googleRating": 4.6,
-    "googleReviewCount": 415,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Mediterranean"
   },
   {
     "place_id": "ChIJTwR0du9fwokRo83Rxlf5XJU",
@@ -10029,18 +8939,6 @@
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/may-kaidee-new-york",
     "cuisine": "Thai"
-  },
-  {
-    "place_id": "ChIJSzZpuklZwokR4afr0ydJy7Q",
-    "name": "Malone's Irish Bar & Restaurant",
-    "address": "692 3rd Ave, New York, NY 10017, USA",
-    "lat": 40.7518635,
-    "lng": -73.9739876,
-    "googleRating": 4.6,
-    "googleReviewCount": 401,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJLwYcc_FFwokRxlcwql5WsGs",
@@ -10131,18 +9029,6 @@
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/chef-katsu-brooklyn",
     "cuisine": "Japanese"
-  },
-  {
-    "place_id": "ChIJFVypLuZbwokRgBblGogsffk",
-    "name": "Café Au Lee",
-    "address": "193 Lee Ave, Brooklyn, NY 11211, USA",
-    "lat": 40.7022286,
-    "lng": -73.9558775,
-    "googleRating": 4.6,
-    "googleReviewCount": 366,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJ5_FFhOtZwokR-rChkRSEfdA",
@@ -10553,18 +9439,6 @@
     "cuisine": "Italian"
   },
   {
-    "place_id": "ChIJjxSW1EpbwokRxIlsNH5fl60",
-    "name": "Westwood Bar",
-    "address": "1715 Foster Ave, Brooklyn, NY 11230, USA",
-    "lat": 40.6353794,
-    "lng": -73.9608969,
-    "googleRating": 4.6,
-    "googleReviewCount": 231,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJHZ2Q65dZwokRBNNwuOoUK-Q",
     "name": "Sushi of Miso",
     "address": "10-46 Jackson Ave, Long Island City, NY 11101, USA",
@@ -10863,31 +9737,6 @@
     "cuisine": "Korean"
   },
   {
-    "place_id": "ChIJq394Jaj3wokRlh6s9I28ogc",
-    "name": "N&M's Pizza Bar",
-    "address": "2048 Amsterdam Ave, New York, NY 10032, USA",
-    "lat": 40.8358318,
-    "lng": -73.9402489,
-    "googleRating": 4.6,
-    "googleReviewCount": 170,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJkelk8gxbwokR17locqfa3O8",
-    "name": "Battle Hill Tavern",
-    "address": "686 6th Ave, Brooklyn, NY 11215, USA",
-    "lat": 40.6601882,
-    "lng": -73.9912971,
-    "googleRating": 4.6,
-    "googleReviewCount": 168,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian/Pizza"
-  },
-  {
     "place_id": "ChIJk6_emFpbwokReeza0hzar2c",
     "name": "Café Mars",
     "address": "272 3rd Ave, Brooklyn, NY 11215, USA",
@@ -10974,19 +9823,6 @@
     "booking_url": "https://www.opentable.com/r/the-swan"
   },
   {
-    "place_id": "ChIJce0NdYf3wokR1D8bIrOgeVQ",
-    "name": "Ban Ban Shop",
-    "address": "2911 Broadway, New York, NY 10025, USA",
-    "lat": 40.806532999999995,
-    "lng": -73.9653532,
-    "googleRating": 4.6,
-    "googleReviewCount": 143,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Asian"
-  },
-  {
     "place_id": "ChIJbStcPQBdwokRLhjQMj2bH0o",
     "name": "Tulum Brooklyn",
     "address": "1056 Broadway, Brooklyn, NY 11221, USA",
@@ -11049,18 +9885,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJ7UcN1vJZwokRhdf9LtldRPQ",
-    "name": "Mae Mae Café & Plant Shop",
-    "address": "2417 Third Ave, Bronx, NY 10451, USA",
-    "lat": 40.808796099999995,
-    "lng": -73.9307007,
-    "googleRating": 4.6,
-    "googleReviewCount": 125,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJkyeo3mpZwokRwZC5PT4r9LU",
     "name": "The Cabinet Mezcal Bar",
     "address": "649 E 9th St, New York, NY 10009, USA",
@@ -11111,19 +9935,6 @@
     "cuisine": "Cambodian"
   },
   {
-    "place_id": "ChIJD60JexZawokRKjQevWj9NKg",
-    "name": "Banh Mi Cart",
-    "address": "10 Hanover Square, New York, NY 10004, USA",
-    "lat": 40.704492599999995,
-    "lng": -74.0091932,
-    "googleRating": 4.6,
-    "googleReviewCount": 113,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Vietnamese"
-  },
-  {
     "place_id": "ChIJyZC83mxcwokR6EAuCWFBLfI",
     "name": "Twin Grills",
     "address": "865 Hancock St, Brooklyn, NY 11233, USA",
@@ -11160,31 +9971,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJ4ZSMdbpbwokRNCHulVDEs3I",
-    "name": "Spudz slope",
-    "address": "212 Prospect Park W, Brooklyn, NY 11215, USA",
-    "lat": 40.6604124,
-    "lng": -73.980654,
-    "googleRating": 4.6,
-    "googleReviewCount": 97,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJI13sv7VbwokRzCDdja97d3c",
-    "name": "YOYO CHICKEN ( Flatbush Ave )",
-    "address": "1300 Flatbush Ave, Brooklyn, NY 11210, USA",
-    "lat": 40.6383125,
-    "lng": -73.9537311,
-    "googleRating": 4.6,
-    "googleReviewCount": 94,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "American"
-  },
-  {
     "place_id": "ChIJcVudjU9ZwokRYJuJnH_npuY",
     "name": "Sushi W - East Village",
     "address": "506 E 13th St, New York, NY 10009, USA",
@@ -11209,19 +9995,6 @@
     "booking_url": "https://www.opentable.com/r/keg-and-lantern-southside-brooklyn"
   },
   {
-    "place_id": "ChIJR2jw1vNFwokR7YPbGyt-vZM",
-    "name": "Weissabi Sushi 🇯🇵",
-    "address": "6011 20th Ave, Brooklyn, NY 11204, USA",
-    "lat": 40.6190047,
-    "lng": -73.982976,
-    "googleRating": 4.6,
-    "googleReviewCount": 85,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Japanese"
-  },
-  {
     "place_id": "ChIJwYDDibRbwokR7p0WTQvV1Y8",
     "name": "DOLORES",
     "address": "397 Tompkins Ave, Brooklyn, NY 11216, USA",
@@ -11232,30 +10005,6 @@
     "price_level": null,
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/lore"
-  },
-  {
-    "place_id": "ChIJXXpim-v3wokRGIzLun-3ZL4",
-    "name": "AURI",
-    "address": "2020 Central Rd, Fort Lee, NJ 07024, USA",
-    "lat": 40.851338,
-    "lng": -73.9656807,
-    "googleRating": 4.6,
-    "googleReviewCount": 76,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJjzBW0rJZwokRKhq0ELlC_fM",
-    "name": "Frita Batidos Brooklyn",
-    "address": "334 Kent Ave, Brooklyn, NY 11249, USA",
-    "lat": 40.713289499999995,
-    "lng": -73.9675711,
-    "googleRating": 4.6,
-    "googleReviewCount": 73,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJ6woDVgBZwokR20psTVpo-zk",
@@ -11271,42 +10020,6 @@
     "cuisine": "Japanese/Sushi"
   },
   {
-    "place_id": "ChIJNYMOd9NbwokRdmYSw0t_RiU",
-    "name": "Hello Bar Bk",
-    "address": "1110 Nostrand Ave, Brooklyn, NY 11225, USA",
-    "lat": 40.660638899999995,
-    "lng": -73.9508216,
-    "googleRating": 4.6,
-    "googleReviewCount": 67,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ531CSTVFwokRXCuLszp0i9I",
-    "name": "He Yi Xiaochi",
-    "address": "5301 8th Ave, Brooklyn, NY 11220, USA",
-    "lat": 40.6392319,
-    "lng": -74.0053667,
-    "googleRating": 4.6,
-    "googleReviewCount": 65,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJYcyT-0v0wokRKEK5n1t3a5k",
-    "name": "Jalloh",
-    "address": "3396 Third Ave, Bronx, NY 10456, USA",
-    "lat": 40.8278205,
-    "lng": -73.90699200000002,
-    "googleRating": 4.6,
-    "googleReviewCount": 64,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJPdrz86ZZwokRp0N5EMb1gnE",
     "name": "City Tavern & Table",
     "address": "629 W 57th St, New York, NY 10019, USA",
@@ -11317,55 +10030,6 @@
     "price_level": null,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/city-tavern-and-table-new-york"
-  },
-  {
-    "place_id": "ChIJ48_NI41bwokRwrpArqdLvo8",
-    "name": "SPICES & SLICES",
-    "address": "158 Utica Ave, Brooklyn, NY 11213, USA",
-    "lat": 40.67359570000001,
-    "lng": -73.9309189,
-    "googleRating": 4.6,
-    "googleReviewCount": 54,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ98hCxphbwokRcyG2_BY4dZQ",
-    "name": "Tres Banderas Restaurant",
-    "address": "1021 Church Ave, Brooklyn, NY 11218, USA",
-    "lat": 40.6470267,
-    "lng": -73.9696766,
-    "googleRating": 4.6,
-    "googleReviewCount": 48,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Mexican"
-  },
-  {
-    "place_id": "ChIJawgVMQBfwokRE-M_eRll-wQ",
-    "name": "Piqueteadero Donde Marce",
-    "address": "62-05 30th Ave., Woodside, NY 11377, USA",
-    "lat": 40.7590012,
-    "lng": -73.9001809,
-    "googleRating": 4.6,
-    "googleReviewCount": 36,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJSzbl1iT0wokRM8LTXL1y-ks",
-    "name": "Hua Zhuo",
-    "address": "112 W 168th St, Bronx, NY 10452, USA",
-    "lat": 40.8382311,
-    "lng": -73.9247824,
-    "googleRating": 4.6,
-    "googleReviewCount": 29,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJh4wfSIxZwokRfYdj7n-pbw8",
@@ -11551,18 +10215,6 @@
     "cuisine": "Asian"
   },
   {
-    "place_id": "ChIJH8bnPlFYwokRLEtp039TVUU",
-    "name": "Mom's Kitchen and Bar",
-    "address": "701 9th Ave, New York, NY 10019, USA",
-    "lat": 40.7624552,
-    "lng": -73.990017,
-    "googleRating": 4.5,
-    "googleReviewCount": 4098,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJlwif_1dYwokR9-Yo1aECAxk",
     "name": "Vida Verde - Tequila Bar",
     "address": "248 W 55th St, New York, NY 10019, USA",
@@ -11648,31 +10300,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/pj-clarkes-third-avenue-new-york"
-  },
-  {
-    "place_id": "ChIJz3aGXz_3wokR0NNd_92KD6g",
-    "name": "Kura Revolving Sushi Bar",
-    "address": "2151 Lemoine Ave, Fort Lee, NJ 07024, USA",
-    "lat": 40.855717899999995,
-    "lng": -73.9675262,
-    "googleRating": 4.5,
-    "googleReviewCount": 3479,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJExC3nU9awokRgODOvdb3awc",
-    "name": "Yemen Café & Restaurant",
-    "address": "176 Atlantic Ave, Brooklyn, NY 11201, USA",
-    "lat": 40.6898154,
-    "lng": -73.99370189999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 3476,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Mediterranean"
   },
   {
     "place_id": "ChIJszmN0-JYwokRk-XCDbO6X_Y",
@@ -11939,30 +10566,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/dim-sum-bloom-new-york"
-  },
-  {
-    "place_id": "ChIJ9-oPPZNZwokR9XwT635xClU",
-    "name": "Peak with Priceless Restaurant & Bar",
-    "address": "30 Hudson Yards 101st floor, New York, NY 10001, USA",
-    "lat": 40.753996199999996,
-    "lng": -74.0010727,
-    "googleRating": 4.5,
-    "googleReviewCount": 2551,
-    "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJg3PSVDhfwokR24ybwNy-9Ho",
-    "name": "Mom's Kitchen & Bar",
-    "address": "33-01 31st Ave, Astoria, NY 11106, USA",
-    "lat": 40.7636111,
-    "lng": -73.9216667,
-    "googleRating": 4.5,
-    "googleReviewCount": 2523,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJY8nVpQJZwokR1SyYE-gyalA",
@@ -12263,18 +10866,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJb-d90kFXwokRKamuSQR_rYc",
-    "name": "Renato's Pizza Masters",
-    "address": "278 Central Ave, Jersey City, NJ 07307, USA",
-    "lat": 40.744209999999995,
-    "lng": -74.0504078,
-    "googleRating": 4.5,
-    "googleReviewCount": 1963,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJPfSN0VpZwokRyqr6M5SqiYk",
     "name": "Kyuramen - Union Square",
     "address": "210 E 14th St, New York, NY 10003, USA",
@@ -12343,18 +10934,6 @@
     "lng": -73.8804309,
     "googleRating": 4.5,
     "googleReviewCount": 1850,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJi6o-6WxcwokRoGvrSWJc19Q",
-    "name": "Cuts & Slices",
-    "address": "93 Howard Ave, Brooklyn, NY 11233, USA",
-    "lat": 40.6854191,
-    "lng": -73.9202959,
-    "googleRating": 4.5,
-    "googleReviewCount": 1808,
     "price_level": 2,
     "booking_platform": null,
     "booking_url": null
@@ -12445,18 +11024,6 @@
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/monkey-bar",
     "cuisine": "American"
-  },
-  {
-    "place_id": "ChIJU1eVWbJfwokRPd2OdC7sgkw",
-    "name": "El Budare Café 🇻🇪",
-    "address": "87-21 Roosevelt Ave, Jackson Heights, NY 11372, USA",
-    "lat": 40.7483241,
-    "lng": -73.8786556,
-    "googleRating": 4.5,
-    "googleReviewCount": 1676,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJiyUFDsZEwokRjQh8jDdjx48",
@@ -12606,19 +11173,6 @@
     "booking_url": "https://www.opentable.com/r/the-edge-harlem-new-york"
   },
   {
-    "place_id": "ChIJv5HOUNpXwokREi_6ggNwc7M",
-    "name": "Empyrean Indian Kitchen & Bar",
-    "address": "20 Hudson Pl, Hoboken, NJ 07030, USA",
-    "lat": 40.7360478,
-    "lng": -74.02881409999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 1491,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Indian"
-  },
-  {
     "place_id": "ChIJ8deyiahZwokRhlYgQNi3KjQ",
     "name": "Quality Bistro",
     "address": "120 W 55th St, New York, NY 10019, USA",
@@ -12677,18 +11231,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/giando-on-the-water-brooklyn"
-  },
-  {
-    "place_id": "ChIJZbEUwM33wokR0WsnRykIrO0",
-    "name": "Fleming’s Prime Steakhouse & Wine Bar",
-    "address": "90 The Promenade, Edgewater, NJ 07020, USA",
-    "lat": 40.8059405,
-    "lng": -73.9874821,
-    "googleRating": 4.5,
-    "googleReviewCount": 1460,
-    "price_level": 4,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJ4-bYSvxbwokRPhLlLQFzOEo",
@@ -12928,18 +11470,6 @@
     "cuisine": "Italian"
   },
   {
-    "place_id": "ChIJp0brU1BZwokRLE5ICSVdVQI",
-    "name": "Anthony & Son Panini Shoppe",
-    "address": "433 Graham Ave, Brooklyn, NY 11211, USA",
-    "lat": 40.717935,
-    "lng": -73.94514330000001,
-    "googleRating": 4.5,
-    "googleReviewCount": 1280,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJgRjO3E1awokRoC9SdsHbe-w",
     "name": "French Louie",
     "address": "320 Atlantic Ave, Brooklyn, NY 11201, USA",
@@ -13172,18 +11702,6 @@
     "cuisine": "Indian"
   },
   {
-    "place_id": "ChIJNcVXxklfwokRVyqI-jhfMFY",
-    "name": "Amylos Taverna",
-    "address": "33-19 Broadway, Astoria, NY 11106, USA",
-    "lat": 40.761102,
-    "lng": -73.922927,
-    "googleRating": 4.5,
-    "googleReviewCount": 1157,
-    "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJNa5r9j1awokR7V0YcDbff0o",
     "name": "Westville Wall Street",
     "address": "110 Wall St, New York, NY 10005, USA",
@@ -13308,18 +11826,6 @@
     "cuisine": "Greek"
   },
   {
-    "place_id": "ChIJSXTsikpOwokRHvBbrcaIR30",
-    "name": "The Hop Shoppe",
-    "address": "372 Van Duzer St, Staten Island, NY 10304, USA",
-    "lat": 40.6291541,
-    "lng": -74.07978179999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 1092,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJPSQRMrVQwokRtuGqtNQshVk",
     "name": "Cellar 335",
     "address": "335 Newark Ave, Jersey City, NJ 07302, USA",
@@ -13343,18 +11849,6 @@
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/new-york-ny/venues/beija-flor",
     "cuisine": "Brazilian"
-  },
-  {
-    "place_id": "ChIJt2LXGrlZwokRCEWTvpTyp5k",
-    "name": "Lucia Pizza Of SoHo",
-    "address": "375 Canal St, New York, NY 10013, USA",
-    "lat": 40.721404299999996,
-    "lng": -74.0043748,
-    "googleRating": 4.5,
-    "googleReviewCount": 1083,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJ-VwGucdZwokR7z37AtZgIVg",
@@ -13467,18 +11961,6 @@
     "booking_url": "https://www.opentable.com/r/lokal-mediterranean-kitchen-new-york"
   },
   {
-    "place_id": "ChIJoUi9DBVXwokR8XGxo04mg4c",
-    "name": "The Hutton Restaurant and Bar",
-    "address": "225 Hutton St, Jersey City, NJ 07307, USA",
-    "lat": 40.746984,
-    "lng": -74.05585099999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 1039,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJhSDQ5-FawokRO-gFOJ3o1wI",
     "name": "Giovanni's Brooklyn Eats",
     "address": "1666 8th Ave, Brooklyn, NY 11215, USA",
@@ -13526,31 +12008,6 @@
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/prohibition-new-york",
     "cuisine": "American"
-  },
-  {
-    "place_id": "ChIJcY3r5xBawokRL3RhNujfEsk",
-    "name": "Siena Pizza",
-    "address": "14 Rector St, New York, NY 10006, USA",
-    "lat": 40.7081484,
-    "lng": -74.0138978,
-    "googleRating": 4.5,
-    "googleReviewCount": 1023,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Italian/Pizza"
-  },
-  {
-    "place_id": "ChIJ9TbEraRYwokRrF2NKkUvxIw",
-    "name": "Siena Cafe • Italian • Brunch • Dinner • Lunch",
-    "address": "1580 3rd Ave, New York, NY 10128, USA",
-    "lat": 40.7806806,
-    "lng": -73.9529194,
-    "googleRating": 4.5,
-    "googleReviewCount": 1022,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJR6Ar2LRQwokRKlNGN1E0HFA",
@@ -13646,18 +12103,6 @@
     "lng": -73.9200184,
     "googleRating": 4.5,
     "googleReviewCount": 994,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJyxs07mFYwokRGlBd5nyxHLc",
-    "name": "Ashford & Simpson's Sugar Bar",
-    "address": "254 W 72nd St, New York, NY 10023, USA",
-    "lat": 40.7793548,
-    "lng": -73.98387410000001,
-    "googleRating": 4.5,
-    "googleReviewCount": 992,
     "price_level": 2,
     "booking_platform": null,
     "booking_url": null
@@ -13784,19 +12229,6 @@
     "price_level": 2,
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/king"
-  },
-  {
-    "place_id": "ChIJJdTGvLNQwokRO-5_TbHKgn8",
-    "name": "Pet Shop",
-    "address": "193 Newark Ave, Jersey City, NJ 07302, USA",
-    "lat": 40.721388499999996,
-    "lng": -74.04589419999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 940,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null,
-    "cuisine": "Vegetarian"
   },
   {
     "place_id": "ChIJv_DJ3rpYwokR35ELqx_4fgY",
@@ -14080,18 +12512,6 @@
     "booking_url": "https://resy.com/cities/ny/sotto-la-luna"
   },
   {
-    "place_id": "ChIJuZYHr0tXwokRTX4J_TWY3B8",
-    "name": "White Star Bar",
-    "address": "230 Brunswick St #1518, Jersey City, NJ 07302, USA",
-    "lat": 40.7279607,
-    "lng": -74.0500129,
-    "googleRating": 4.5,
-    "googleReviewCount": 838,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJ989NptdZwokRJDmJYSnOg5E",
     "name": "Lola's Tapas Bar",
     "address": "153 14th St, Hoboken, NJ 07030, USA",
@@ -14251,18 +12671,6 @@
     "cuisine": "Chinese"
   },
   {
-    "place_id": "ChIJ6ycV4DFFwokRDZe_42JInfA",
-    "name": "Noribar – 13th Ave",
-    "address": "5401 13th Ave, Brooklyn, NY 11219, USA",
-    "lat": 40.6320766,
-    "lng": -73.9949725,
-    "googleRating": 4.5,
-    "googleReviewCount": 762,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJOdtYAhH2wokR_BPOXyBNYGM",
     "name": "Make My Fish",
     "address": "120 W 116th St, New York, NY 10026, USA",
@@ -14370,18 +12778,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/tournesol-new-york"
-  },
-  {
-    "place_id": "ChIJuw7JnJ9fwokRvUCaXeExz14",
-    "name": "Leo’s Restaurant & Sports Bar",
-    "address": "84-19 Roosevelt Ave, Jackson Heights, NY 11372, USA",
-    "lat": 40.748048499999996,
-    "lng": -73.88147420000001,
-    "googleRating": 4.5,
-    "googleReviewCount": 705,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJJ936vsNQwokRrza61lni8g0",
@@ -14596,18 +12992,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJy4RPVnVZwokRB_dKm867820",
-    "name": "Posto NYC Thin Crust Pizza",
-    "address": "310 2nd Ave, New York, NY 10003, USA",
-    "lat": 40.7348632,
-    "lng": -73.98281589999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 648,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJlXecQSpZwokRrNscE92hBzQ",
     "name": "Sapps",
     "address": "27-26 Jackson Ave, Long Island City, NY 11101, USA",
@@ -14791,18 +13175,6 @@
     "booking_url": "https://www.opentable.com/r/henrys-end-new-york"
   },
   {
-    "place_id": "ChIJmTwmngxdwokRD5Gv33MePKA",
-    "name": "Rosie Pizza Bar",
-    "address": "128 Central Ave, Brooklyn, NY 11221, USA",
-    "lat": 40.6997662,
-    "lng": -73.9284855,
-    "googleRating": 4.5,
-    "googleReviewCount": 589,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJp_UkrilawokRtDAS5sls7jo",
     "name": "Cervo's",
     "address": "43 Canal St, New York, NY 10002, USA",
@@ -14862,30 +13234,6 @@
     "price_level": null,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/beefbar-new-york"
-  },
-  {
-    "place_id": "ChIJBV27hoNYwokR20JihLuQdUs",
-    "name": "Amélie Upper West Side Bistro & Wine Bar",
-    "address": "566 Amsterdam Ave, New York, NY 10024, USA",
-    "lat": 40.788696,
-    "lng": -73.97448829999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 581,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJQ6zt6LBQwokRA9WeWL2vQqA",
-    "name": "Cafe Dolma",
-    "address": "270 Grand St, Jersey City, NJ 07302, USA",
-    "lat": 40.7163721,
-    "lng": -74.0459968,
-    "googleRating": 4.5,
-    "googleReviewCount": 581,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJszmlhQVZwokR8mgnTKrfsiw",
@@ -15106,18 +13454,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJKdh7frRZwokR7bY0xRFv2Mg",
-    "name": "Grand Street Pizza",
-    "address": "384 Grand St, New York, NY 10002, USA",
-    "lat": 40.7164977,
-    "lng": -73.9876453,
-    "googleRating": 4.5,
-    "googleReviewCount": 531,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJo67U5-ZawokRPfORVM3NpTo",
     "name": "Giuseppina's",
     "address": "691 6th Ave, Brooklyn, NY 11215, USA",
@@ -15226,18 +13562,6 @@
     "booking_url": "https://resy.com/cities/ny/tonchin"
   },
   {
-    "place_id": "ChIJBSNcZuJawokRmHLJ4_sILII",
-    "name": "Couleur Café",
-    "address": "435 7th Ave, Brooklyn, NY 11215, USA",
-    "lat": 40.6633241,
-    "lng": -73.9842706,
-    "googleRating": 4.5,
-    "googleReviewCount": 514,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJVVXR1B5awokRR-5KS_hE0uE",
     "name": "Monk McGinns",
     "address": "57 Murray St, New York, NY 10007, USA",
@@ -15308,18 +13632,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/the-brewery-bar-and-kitchen-queens"
-  },
-  {
-    "place_id": "ChIJs_iXmaf2wokRBO0CGvrb_4Y",
-    "name": "Fresco's Pizzeria",
-    "address": "804 W 187th St, New York, NY 10040, USA",
-    "lat": 40.855095399999996,
-    "lng": -73.9372607,
-    "googleRating": 4.5,
-    "googleReviewCount": 498,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJ09yg-llZwokRKAgp0jg6TCU",
@@ -15527,18 +13839,6 @@
     "booking_url": "https://resy.com/cities/ny/gertrudes"
   },
   {
-    "place_id": "ChIJP5edyJ5FwokR6eMajVE7j54",
-    "name": "Focaccia Pizza",
-    "address": "1316 Avenue M, Brooklyn, NY 11230, USA",
-    "lat": 40.6177249,
-    "lng": -73.9612618,
-    "googleRating": 4.5,
-    "googleReviewCount": 439,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJG8MBdtNbwokRxOR3oVutbPE",
     "name": "Shan",
     "address": "191 Smith St, Brooklyn, NY 11201, USA",
@@ -15561,18 +13861,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/tabu-brooklyn"
-  },
-  {
-    "place_id": "ChIJ-WeA3BRfwokRsobbIpg7Qy8",
-    "name": "Pronto Astoria Restaurant & Pizzeria",
-    "address": "45-19 28th Ave, Astoria, NY 11103, USA",
-    "lat": 40.76347200000001,
-    "lng": -73.9089097,
-    "googleRating": 4.5,
-    "googleReviewCount": 425,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJaScZXYVXwokRwHKBQYxDhGc",
@@ -15598,18 +13886,6 @@
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/the-mermaid-inn-new-york",
     "cuisine": "Seafood"
-  },
-  {
-    "place_id": "ChIJK_bsPtVEwokRS5TBFDxTCgo",
-    "name": "Noribar – 16th Ave",
-    "address": "4120 16th Ave, Brooklyn, NY 11204, USA",
-    "lat": 40.635234600000004,
-    "lng": -73.9813501,
-    "googleRating": 4.5,
-    "googleReviewCount": 411,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJR4fcjLtYwokRu8yexUQhOTg",
@@ -15647,18 +13923,6 @@
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/suram-sushi-and-ramen",
     "cuisine": "Japanese/Sushi"
-  },
-  {
-    "place_id": "ChIJ94mJveFfwokRDjxQ-8fT0yw",
-    "name": "DK PubLIC",
-    "address": "38-40 29th St, Long Island City, NY 11101, USA",
-    "lat": 40.753679399999996,
-    "lng": -73.93449199999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 382,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJwdIYl21FwokRM5Co5S8jet0",
@@ -15756,18 +14020,6 @@
     "booking_platform": null,
     "booking_url": null,
     "cuisine": "American"
-  },
-  {
-    "place_id": "ChIJm3HotgtfwokR-DjjUKOflZo",
-    "name": "Cassidy's Ale House",
-    "address": "75-02 31st Ave, East Elmhurst, NY 11370, USA",
-    "lat": 40.758444999999995,
-    "lng": -73.89241179999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 356,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJL9DskTdfwokRKSMv1OFbC3k",
@@ -15938,18 +14190,6 @@
     "booking_url": "https://resy.com/cities/ny/the-fly"
   },
   {
-    "place_id": "ChIJk_a7BXpZwokRnin8XBcCtpo",
-    "name": "Cafe Alula",
-    "address": "252 Franklin St, Brooklyn, NY 11222, USA",
-    "lat": 40.7346015,
-    "lng": -73.9582329,
-    "googleRating": 4.5,
-    "googleReviewCount": 319,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJGQJYOYf0wokRPbD2_I3lDbI",
     "name": "Cakor",
     "address": "632 E 186th St, Bronx, NY 10458, USA",
@@ -15969,18 +14209,6 @@
     "lng": -73.9917682,
     "googleRating": 4.5,
     "googleReviewCount": 316,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJvU_62jBXwokRXtcmoEjmPqM",
-    "name": "Pradyumna Cafe",
-    "address": "640 Newark Ave, Jersey City, NJ 07306, USA",
-    "lat": 40.7338798,
-    "lng": -74.05829609999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 314,
     "price_level": 2,
     "booking_platform": null,
     "booking_url": null
@@ -16301,18 +14529,6 @@
     "booking_url": "https://www.opentable.com/r/the-snail"
   },
   {
-    "place_id": "ChIJ9R7MRJhgwokRpXtyFZHVpSs",
-    "name": "Keuka Kafe a Wine Bar",
-    "address": "112-04 Queens Blvd, Forest Hills, NY 11375, USA",
-    "lat": 40.7178763,
-    "lng": -73.8367957,
-    "googleRating": 4.5,
-    "googleReviewCount": 228,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJJbctbLdZwokRUbBIho1wN8g",
     "name": "Spicy Moon Chelsea",
     "address": "232 8th Ave, New York, NY 10011, USA",
@@ -16384,30 +14600,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/stowaway-brooklyn"
-  },
-  {
-    "place_id": "ChIJKYBCGCf3wokRZ-6m6zT5BxI",
-    "name": "Hamilton Hall Bar & Restaurant",
-    "address": "3493 Broadway, New York, NY 10031, USA",
-    "lat": 40.8250528,
-    "lng": -73.9519092,
-    "googleRating": 4.5,
-    "googleReviewCount": 213,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ6Rdrc0FbwokRUwLgPMIX4b4",
-    "name": "Ateaz Cafe",
-    "address": "71 Greenwich St, New York, NY 10006, USA",
-    "lat": 40.7073148,
-    "lng": -74.01374280000002,
-    "googleRating": 4.5,
-    "googleReviewCount": 205,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJcelSUXlZwokRkD8zyKGV6k4",
@@ -16603,18 +14795,6 @@
     "booking_url": "https://www.opentable.com/r/little-rubys-williamsburg-brooklyn"
   },
   {
-    "place_id": "ChIJ-etCyAhfwokR04g1m6H6SIw",
-    "name": "Woodside Pizzeria",
-    "address": "44-06 60th St, Woodside, NY 11377, USA",
-    "lat": 40.741946899999995,
-    "lng": -73.9046047,
-    "googleRating": 4.5,
-    "googleReviewCount": 176,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJNQ-7ePVbwokRgEFLsdF4-Y4",
     "name": "Halal-N-Out",
     "address": "1457 Flatbush Ave, Brooklyn, NY 11210, USA",
@@ -16687,18 +14867,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJa5gzKgBXwokR1VIkTmP-Za8",
-    "name": "Cafe on rumba",
-    "address": "564 Newark Ave, Jersey City, NJ 07306, USA",
-    "lat": 40.7317721,
-    "lng": -74.0566169,
-    "googleRating": 4.5,
-    "googleReviewCount": 161,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJAQA9POJYwokR8SqGNbmD0RA",
     "name": "TsuKuShi",
     "address": "357 E 50th St, New York, NY 10022, USA",
@@ -16759,18 +14927,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJ7-MrkwlbwokRuAegavWfwrg",
-    "name": "Bad Luck Bar",
-    "address": "492 Nostrand Ave, Brooklyn, NY 11216, USA",
-    "lat": 40.6820087,
-    "lng": -73.95005739999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 144,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJn2tfij9cwokRXNb6ouqZhnw",
     "name": "The Steel Mill",
     "address": "1363 Bushwick Ave, Brooklyn, NY 11207, USA",
@@ -16795,18 +14951,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJb6tXIsRFwokRXoo4oBhpAds",
-    "name": "明洞炸雞 MD Fried Chicken",
-    "address": "806 54th St unit b, Brooklyn, NY 11220, USA",
-    "lat": 40.6386264,
-    "lng": -74.0058063,
-    "googleRating": 4.5,
-    "googleReviewCount": 139,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJj3thBKhbwokRReEBfyFA0g8",
     "name": "Montauk Club",
     "address": "25 8th Ave, Brooklyn, NY 11217, USA",
@@ -16815,18 +14959,6 @@
     "googleRating": 4.5,
     "googleReviewCount": 131,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJf7ScdnxbwokRU8zvnU7k5Xc",
-    "name": "Sonbul - Korean Cafe and Kitchen",
-    "address": "356 Throop Ave, Brooklyn, NY 11221, USA",
-    "lat": 40.6920119,
-    "lng": -73.94290459999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 122,
-    "price_level": 2,
     "booking_platform": null,
     "booking_url": null
   },
@@ -16927,54 +15059,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJffDZGUdXwokRvtAtPVaTkus",
-    "name": "El Delicioso Mexican Cocina",
-    "address": "200 New York Ave, Union City, NJ 07087, USA",
-    "lat": 40.753028199999996,
-    "lng": -74.03990379999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 102,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJxaHxejz1wokRqGeRppH-NvI",
-    "name": "Rokstar Chicken Bronx Terminal Market",
-    "address": "610 Exterior St 4th FLOOR, Bronx, NY 10451, USA",
-    "lat": 40.8217666,
-    "lng": -73.92993249999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 98,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJqdabKfNfwokRcB000j7sFys",
-    "name": "Salchipapas y Ceviche de Chochos El Mijin",
-    "address": "105th Street & 37th Avenue, Corona, NY 11368, USA",
-    "lat": 40.753799799999996,
-    "lng": -73.86312749999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 98,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJKTBo5_D0wokRRD3Z6MpV0iY",
-    "name": "Montespino",
-    "address": "1309 Bronx River Ave, Bronx, NY 10472, USA",
-    "lat": 40.8316556,
-    "lng": -73.88173689999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 95,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJEfpP9mNfwokREpHMtT_ssxM",
     "name": "Praga Tapas Bar",
     "address": "63-10 Broadway, Queens, NY 11377, USA",
@@ -16985,126 +15069,6 @@
     "price_level": null,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/praga-tapas-bar-queens"
-  },
-  {
-    "place_id": "ChIJM0vWHLFfwokRhKTN2UtU5cc",
-    "name": "The Village Saloon",
-    "address": "82-11 Eliot Ave, Middle Village, NY 11379, USA",
-    "lat": 40.7260401,
-    "lng": -73.8772838,
-    "googleRating": 4.5,
-    "googleReviewCount": 93,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJsdwvoGxXwokRSfHEBRTQq5Y",
-    "name": "The Horseshoe Kitchen & Bar",
-    "address": "837 Jersey Ave, Jersey City, NJ 07310, USA",
-    "lat": 40.734608099999996,
-    "lng": -74.0446544,
-    "googleRating": 4.5,
-    "googleReviewCount": 91,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJSd-S-WtbwokRcSeOSKj4znc",
-    "name": "J&J Pizza🍕",
-    "address": "620 Caton Ave, Brooklyn, NY 11218, USA",
-    "lat": 40.6475181,
-    "lng": -73.97389609999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 89,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJZSohwMNdwokReZH86OddzCI",
-    "name": "Olas Kitchen",
-    "address": "821 Van Siclen Ave, Brooklyn, NY 11207, USA",
-    "lat": 40.659750599999995,
-    "lng": -73.8848982,
-    "googleRating": 4.5,
-    "googleReviewCount": 84,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJPRfjl6RbwokR9D5FhKKyGZs",
-    "name": "Greenwich and Delancey",
-    "address": "50 West St Office C8, New York, NY 10006, USA",
-    "lat": 40.707727,
-    "lng": -74.01507629999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 82,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ0eoEHXJfwokRyZ37gLM7vDg",
-    "name": "Legends Sports Bar",
-    "address": "71-04 35th Ave, Jackson Heights, NY 11372, USA",
-    "lat": 40.750562200000005,
-    "lng": -73.8947759,
-    "googleRating": 4.5,
-    "googleReviewCount": 82,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJp6AmCy9bwokRUv0KgpiGq8A",
-    "name": "Zoller's",
-    "address": "248 Prospect Park W, Brooklyn, NY 11215, USA",
-    "lat": 40.6592647,
-    "lng": -73.9817079,
-    "googleRating": 4.5,
-    "googleReviewCount": 73,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJl20071RbwokRHgAHsfvCfHI",
-    "name": "Famous Joe Pizzeria",
-    "address": "486 Dekalb Ave, Brooklyn, NY 11205, USA",
-    "lat": 40.6906263,
-    "lng": -73.95714149999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 70,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJwZCT-aBFwokRAH3ENW49lU0",
-    "name": "J&A sushi",
-    "address": "6213 Fort Hamilton Pkwy, Brooklyn, NY 11219, USA",
-    "lat": 40.6317272,
-    "lng": -74.00719939999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 68,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ0SrmArBfwokRPwbgcwpyY-g",
-    "name": "Peace “N” Plants Restaurant",
-    "address": "53-17 Broadway, Woodside, NY 11377, USA",
-    "lat": 40.753465299999995,
-    "lng": -73.9070029,
-    "googleRating": 4.5,
-    "googleReviewCount": 67,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJyflAx7L3wokRjmOmVX7QuVg",
@@ -17129,138 +15093,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/kinn-new-york"
-  },
-  {
-    "place_id": "ChIJx-Ybig5ZwokRgHIBe_kSB0Q",
-    "name": "Little River",
-    "address": "440 E 29th St, New York, NY 10016, USA",
-    "lat": 40.739723,
-    "lng": -73.9742876,
-    "googleRating": 4.5,
-    "googleReviewCount": 56,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJU6c-qG31wokRsEHfwp6zJz8",
-    "name": "Milano PIzza",
-    "address": "1544 Boone Ave, Bronx, NY 10460, USA",
-    "lat": 40.833134,
-    "lng": -73.88449419999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 56,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJeSL2DYpYwokR9NoIez1xKAc",
-    "name": "72nd And Broadway",
-    "address": "2077 Broadway, New York, NY 10023, USA",
-    "lat": 40.7787092,
-    "lng": -73.98227030000001,
-    "googleRating": 4.5,
-    "googleReviewCount": 55,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJTflZvShhwokRfy0X_vnKAfI",
-    "name": "Afghan Boys",
-    "address": "75 street and, 31st Ave, East Elmhurst, NY 11370, USA",
-    "lat": 40.7587706,
-    "lng": -73.8920922,
-    "googleRating": 4.5,
-    "googleReviewCount": 52,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJOQi6NRv1wokRpWcZI7d0E-k",
-    "name": "Nanas A Vegan",
-    "address": "Boogie Down Food Hall, 610 Exterior St 4th FLOOR, Bronx, NY 10451, USA",
-    "lat": 40.8217666,
-    "lng": -73.92993249999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 51,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ25qwDJH3wokRBqpn7CVJ8yk",
-    "name": "KARLSBALLS",
-    "address": "332 Riverside Dr, New York, NY 10025, USA",
-    "lat": 40.801724,
-    "lng": -73.97012699999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 49,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJUfCoMwBZwokRgaqNMkVgfs4",
-    "name": "Border Town",
-    "address": "189 Nassau Ave, Brooklyn, NY 11222, USA",
-    "lat": 40.7255933,
-    "lng": -73.9455971,
-    "googleRating": 4.5,
-    "googleReviewCount": 47,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ1ZuUDJZPwokR652ScLF6Jx8",
-    "name": "Mi Armadillo Mexican Taqueria",
-    "address": "12 Cebra Ave, Staten Island, NY 10301, USA",
-    "lat": 40.6341981,
-    "lng": -74.08640729999999,
-    "googleRating": 4.5,
-    "googleReviewCount": 47,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJPYEeu39fwokRczU9oImyQ4A",
-    "name": "Pasha Newa Fusion and Grill",
-    "address": "67-17 Woodside Ave, Woodside, NY 11377, USA",
-    "lat": 40.743164799999995,
-    "lng": -73.8969158,
-    "googleRating": 4.5,
-    "googleReviewCount": 40,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJHbsdD4tFwokRo-jY74RgTAY",
-    "name": "MAGUEY RESTAURANT",
-    "address": "6602 14th Ave, Brooklyn, NY 11219, USA",
-    "lat": 40.624029199999995,
-    "lng": -74.0001334,
-    "googleRating": 4.5,
-    "googleReviewCount": 39,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ6bhVjL5hwokRubCF8EhyTwY",
-    "name": "Long Yu Seafood Restaurant 十里香海鲜城",
-    "address": "39-16 College Point Blvd, Flushing, NY 11354, USA",
-    "lat": 40.7585234,
-    "lng": -73.8346914,
-    "googleRating": 4.5,
-    "googleReviewCount": 28,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJ_85dJlZYwokR29NPLSJngR4",
@@ -17730,18 +15562,6 @@
     "cuisine": "Israeli"
   },
   {
-    "place_id": "ChIJC6xz-lZYwokRd5Gv26A3RMA",
-    "name": "The Blue Dog Cookhouse & Bar",
-    "address": "308 W 50th St, New York, NY 10019, USA",
-    "lat": 40.762557199999996,
-    "lng": -73.98696679999999,
-    "googleRating": 4.4,
-    "googleReviewCount": 2874,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJcXq9AZxZwokRZ56WZuGnZkg",
     "name": "The Smith",
     "address": "55 3rd Ave, New York, NY 10003, USA",
@@ -17876,18 +15696,6 @@
     "price_level": 2,
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/sanfords"
-  },
-  {
-    "place_id": "ChIJVykOpCBewokRVqNJ7N9mo4M",
-    "name": "5 Burro Cafe",
-    "address": "72-05 Austin St, Forest Hills, NY 11375, USA",
-    "lat": 40.719346,
-    "lng": -73.8423629,
-    "googleRating": 4.4,
-    "googleReviewCount": 2527,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJYaLtJRRawokRjw4GeC7pTdk",
@@ -18292,18 +16100,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJw-9BIqJZwokRJHawGH7Y_kc",
-    "name": "Old Town Bar",
-    "address": "45 E 18th St, New York, NY 10003, USA",
-    "lat": 40.737611099999995,
-    "lng": -73.9891583,
-    "googleRating": 4.4,
-    "googleReviewCount": 1782,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJl_24MRlZwokRvdVm_R4O8A8",
     "name": "Zaytinya",
     "address": "1185 Broadway Ground Floor, New York, NY 10001, USA",
@@ -18436,18 +16232,6 @@
     "price_level": 2,
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/ayada-thai-chelsea"
-  },
-  {
-    "place_id": "ChIJR6nWeq9QwokRpkeN8zc9CJY",
-    "name": "Lighthorse Tavern",
-    "address": "199 Washington St, Jersey City, NJ 07302, USA",
-    "lat": 40.714013099999995,
-    "lng": -74.0382095,
-    "googleRating": 4.4,
-    "googleReviewCount": 1636,
-    "price_level": 3,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJoXzucvRewokRENxqa_oVt3A",
@@ -18652,18 +16436,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/domodomo-jersey-city"
-  },
-  {
-    "place_id": "ChIJSQbEt4D0wokR6799Mvi3vCM",
-    "name": "Mezza Luna Pizza",
-    "address": "600 E 187th St, Bronx, NY 10458, USA",
-    "lat": 40.8553028,
-    "lng": -73.88759139999999,
-    "googleRating": 4.4,
-    "googleReviewCount": 1477,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJ1SnD495bwokRu9j5Mq3Q7FA",
@@ -18896,18 +16668,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJEZM4_NhZwokRVcIo2xixbvo",
-    "name": "Elysian Cafe",
-    "address": "1001 Washington St, Hoboken, NJ 07030, USA",
-    "lat": 40.748686,
-    "lng": -74.027266,
-    "googleRating": 4.4,
-    "googleReviewCount": 1277,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJAyemcM73wokRrrTzaxvOmtg",
     "name": "Bareburger",
     "address": "78 The Promenade, Edgewater, NJ 07020, USA",
@@ -19124,18 +16884,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/salud-bar-and-grill-brooklyn"
-  },
-  {
-    "place_id": "ChIJmSzkU7ZQwokRYok7SJEx4Q8",
-    "name": "The Brightside Tavern",
-    "address": "141 Bright St, Jersey City, NJ 07302, USA",
-    "lat": 40.7179155,
-    "lng": -74.05156199999999,
-    "googleRating": 4.4,
-    "googleReviewCount": 1131,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJU3K4nOdbwokRLdftnrxrdEw",
@@ -19404,18 +17152,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJeXCwerhbwokRtUOhu4zzZzs",
-    "name": "Putnam's Pub & Cooker",
-    "address": "419 Myrtle Ave, Brooklyn, NY 11205, USA",
-    "lat": 40.6932519,
-    "lng": -73.96902899999999,
-    "googleRating": 4.4,
-    "googleReviewCount": 1001,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJ09Uz9k1YwokR4YYFTqBQ5xA",
     "name": "Mémé Mediterranean",
     "address": "607 10th Ave, New York, NY 10036, USA",
@@ -19459,18 +17195,6 @@
     "lng": -73.9336783,
     "googleRating": 4.4,
     "googleReviewCount": 970,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJl6FlKQdbwokR_kzrYgx6HCE",
-    "name": "Da Nonna Rosa Restaurant & Pizzeria",
-    "address": "140 7th Ave, Brooklyn, NY 11215, USA",
-    "lat": 40.672897,
-    "lng": -73.976928,
-    "googleRating": 4.4,
-    "googleReviewCount": 969,
     "price_level": 2,
     "booking_platform": null,
     "booking_url": null
@@ -19547,18 +17271,6 @@
     "price_level": 2,
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/cafe-paulette"
-  },
-  {
-    "place_id": "ChIJ75mU_6NfwokRRmijMqQ2u38",
-    "name": "D'antigua Restaurant Bar",
-    "address": "84-16 Northern Blvd, Jackson Heights, NY 11372, USA",
-    "lat": 40.7556763,
-    "lng": -73.88290049999999,
-    "googleRating": 4.4,
-    "googleReviewCount": 942,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJqfd3jX9ZwokRS1hCsvCFcE8",
@@ -19717,18 +17429,6 @@
     "booking_url": "https://resy.com/cities/ny/cafe-rue-dix"
   },
   {
-    "place_id": "ChIJAy51juRawokRYmL8A0VMHIE",
-    "name": "Black Horse Pub",
-    "address": "568 5th Ave, Brooklyn, NY 11215, USA",
-    "lat": 40.665120699999996,
-    "lng": -73.98990169999999,
-    "googleRating": 4.4,
-    "googleReviewCount": 819,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJd2od6q5QwokRcWX43MPwpAc",
     "name": "Porto Leggero",
     "address": "185 Hudson St, Jersey City, NJ 07311, USA",
@@ -19777,18 +17477,6 @@
     "booking_url": "https://www.opentable.com/r/fumo-upper-west-new-york"
   },
   {
-    "place_id": "ChIJhWcKxB1fwokRmfnCcB6lB_s",
-    "name": "Pizza Boy II",
-    "address": "58-19 Woodside Ave, Woodside, NY 11377, USA",
-    "lat": 40.7455386,
-    "lng": -73.9055741,
-    "googleRating": 4.4,
-    "googleReviewCount": 813,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJdzA_eiNZwokRUYzjF1dcHko",
     "name": "Tuk Tuk",
     "address": "49-06 Vernon Blvd, Long Island City, NY 11101, USA",
@@ -19799,18 +17487,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/tuk-tuk"
-  },
-  {
-    "place_id": "ChIJeTwumh1fwokRHoQvBNtdkuU",
-    "name": "Sean Og's Irish Pub",
-    "address": "60-02 Woodside Ave, Woodside, NY 11377, USA",
-    "lat": 40.74486350000001,
-    "lng": -73.9043257,
-    "googleRating": 4.4,
-    "googleReviewCount": 805,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJgT6XpfpXwokRfIb-w2DpPXE",
@@ -19832,18 +17508,6 @@
     "lng": -73.8268399,
     "googleRating": 4.4,
     "googleReviewCount": 791,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJzfp-qZNbwokRPNi37sfG25I",
-    "name": "Cpt. Dan's Good Time Tavern",
-    "address": "497 Greene Ave, Brooklyn, NY 11216, USA",
-    "lat": 40.688611,
-    "lng": -73.951059,
-    "googleRating": 4.4,
-    "googleReviewCount": 789,
     "price_level": 2,
     "booking_platform": null,
     "booking_url": null
@@ -20089,18 +17753,6 @@
     "booking_url": "https://resy.com/cities/ny/palermo-gramercy"
   },
   {
-    "place_id": "ChIJ8wlrCP1awokRNK8tujudQr8",
-    "name": "The Dram Shop Bar",
-    "address": "339 9th St, Brooklyn, NY 11215, USA",
-    "lat": 40.6688796,
-    "lng": -73.9850597,
-    "googleRating": 4.4,
-    "googleReviewCount": 695,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJ35V_tZlbwokRzolpCln-mG4",
     "name": "Francie",
     "address": "136 Broadway, Brooklyn, NY 11249, USA",
@@ -20150,18 +17802,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJsVlfeCf2wokRlM4sVisrU3A",
-    "name": "Effy's Cafe",
-    "address": "104 W 96th St, New York, NY 10025, USA",
-    "lat": 40.792958999999996,
-    "lng": -73.968184,
-    "googleRating": 4.4,
-    "googleReviewCount": 655,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJPwPWh6VYwokRb4sccEaBC2w",
     "name": "Nick's Pizza",
     "address": "1814 2nd Ave, New York, NY 10128, USA",
@@ -20172,18 +17812,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/nicks-pizza-new-york"
-  },
-  {
-    "place_id": "ChIJE-iZ8mr3wokRtuUpEY3tuM4",
-    "name": "Fort Washington Public House",
-    "address": "3938 Broadway, New York, NY 10032, USA",
-    "lat": 40.8389251,
-    "lng": -73.9410236,
-    "googleRating": 4.4,
-    "googleReviewCount": 636,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJgZW5mlxXwokRCyh1FCewQDM",
@@ -20246,18 +17874,6 @@
     "booking_url": "https://www.opentable.com/r/villa-erasmo-queens"
   },
   {
-    "place_id": "ChIJxdtcy1BawokRlmnITiRDcU4",
-    "name": "Wingbar",
-    "address": "275 Smith St, Brooklyn, NY 11231, USA",
-    "lat": 40.6824954,
-    "lng": -73.99314249999999,
-    "googleRating": 4.4,
-    "googleReviewCount": 602,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJHUdGaVZawokRLeKx6cf6Il4",
     "name": "Lavender Lake",
     "address": "53 Broadway, Brooklyn, NY 11249, USA",
@@ -20280,18 +17896,6 @@
     "price_level": null,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/bk-backyard-bar-new-york"
-  },
-  {
-    "place_id": "ChIJk-Oi2TNewokRRbD8TTDj7LQ",
-    "name": "J & D Pizza",
-    "address": "98-51 63rd Rd, Rego Park, NY 11374, USA",
-    "lat": 40.7325848,
-    "lng": -73.857596,
-    "googleRating": 4.4,
-    "googleReviewCount": 597,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJA1h4NVZZwokRheUtPiYkt0g",
@@ -20352,18 +17956,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/hudson-hound"
-  },
-  {
-    "place_id": "ChIJp88hpWz3wokRWVvH7_ev4Hg",
-    "name": "OISO BBQ PIT (Texas Barbecue & Seafood Boil)",
-    "address": "124 Main St, Fort Lee, NJ 07024, USA",
-    "lat": 40.8505685,
-    "lng": -73.9667733,
-    "googleRating": 4.4,
-    "googleReviewCount": 581,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJY9jko_VZwokR7tAZVy5-m-Q",
@@ -20643,18 +18235,6 @@
     "booking_url": "https://www.opentable.com/r/bird-pepper-brooklyn"
   },
   {
-    "place_id": "ChIJP-faj8n2wokRsV36UEaMFoY",
-    "name": "Fort Lee Pizzeria",
-    "address": "2469 Lemoine Ave, Fort Lee, NJ 07024, USA",
-    "lat": 40.864976,
-    "lng": -73.96157,
-    "googleRating": 4.4,
-    "googleReviewCount": 483,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJF-agVLv3wokRLDjAuogLDjs",
     "name": "The Tang",
     "address": "920 Amsterdam Ave, New York, NY 10025, USA",
@@ -20763,18 +18343,6 @@
     "booking_url": "https://www.opentable.com/r/tokyo-ya-queens"
   },
   {
-    "place_id": "ChIJDeAEcRRZwokRiqpklOPPU9U",
-    "name": "TOKUYAMATCHA & ONIGIRAZU BAR- E 6th St.",
-    "address": "627 E 6th St, New York, NY 10009, USA",
-    "lat": 40.7239875,
-    "lng": -73.9801793,
-    "googleRating": 4.4,
-    "googleReviewCount": 437,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJhWLyL1FZwokRq5e_w2IWYx0",
     "name": "Bella Union",
     "address": "411 3rd Ave, New York, NY 10016, USA",
@@ -20806,18 +18374,6 @@
     "lng": -73.9874581,
     "googleRating": 4.4,
     "googleReviewCount": 431,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJr3K-RdZZwokR_tVCYQVzHQc",
-    "name": "Chrissy’s Pizza",
-    "address": "142 Nassau Ave, Brooklyn, NY 11222, USA",
-    "lat": 40.724640699999995,
-    "lng": -73.9476421,
-    "googleRating": 4.4,
-    "googleReviewCount": 428,
     "price_level": null,
     "booking_platform": null,
     "booking_url": null
@@ -20915,18 +18471,6 @@
     "googleRating": 4.4,
     "googleReviewCount": 411,
     "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJq4t5g9j3wokR42KjTV_To2A",
-    "name": "The Inn by Fumo",
-    "address": "3508 Broadway, New York, NY 10031, USA",
-    "lat": 40.8252495,
-    "lng": -73.95096509999999,
-    "googleRating": 4.4,
-    "googleReviewCount": 410,
-    "price_level": 2,
     "booking_platform": null,
     "booking_url": null
   },
@@ -21220,18 +18764,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJC68lTAD3wokRKYNhSJtjfdE",
-    "name": "Tommy's Tavern + Tap",
-    "address": "11 The Promenade, Edgewater, NJ 07020, USA",
-    "lat": 40.8072769,
-    "lng": -73.989886,
-    "googleRating": 4.4,
-    "googleReviewCount": 344,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJp4jIhmpZwokRabZfKVJPoBY",
     "name": "21 Greenpoint",
     "address": "21 Greenpoint Ave, Brooklyn, NY 11222, USA",
@@ -21278,18 +18810,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/botte-ues-new-york"
-  },
-  {
-    "place_id": "ChIJxcr5A8r2wokR_ld67fvaFmY",
-    "name": "Cafe Italiano",
-    "address": "14 Sylvan Ave, Englewood Cliffs, NJ 07632, USA",
-    "lat": 40.8657061,
-    "lng": -73.9600603,
-    "googleRating": 4.4,
-    "googleReviewCount": 336,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJvz7ih4RZwokR2T3AC5NtWrY",
@@ -21485,18 +19005,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJ8-uDL4z3wokR4XRjb5UYWS0",
-    "name": "Pizza by Lucille's.",
-    "address": "26c Macombs Pl, New York, NY 10039, USA",
-    "lat": 40.8259359,
-    "lng": -73.9389222,
-    "googleRating": 4.4,
-    "googleReviewCount": 281,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJrYK5Zd9bwokRsOPttcjWkMo",
     "name": "Dinner Party",
     "address": "274 Hall St, Brooklyn, NY 11205, USA",
@@ -21552,18 +19060,6 @@
     "lng": -73.9282712,
     "googleRating": 4.4,
     "googleReviewCount": 264,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJFXH1D89awokRMxDk24uLBcs",
-    "name": "8 on Eighth Bar and Billiards",
-    "address": "4008-4010 8th Ave, Brooklyn, NY 11232, USA",
-    "lat": 40.6465898,
-    "lng": -73.9982351,
-    "googleRating": 4.4,
-    "googleReviewCount": 254,
     "price_level": null,
     "booking_platform": null,
     "booking_url": null
@@ -21689,18 +19185,6 @@
     "booking_url": "https://resy.com/cities/ny/borgo"
   },
   {
-    "place_id": "ChIJh-7RGQBZwokR219TB_qWj2Y",
-    "name": "Cuts & Slices",
-    "address": "321 E Houston St, New York, NY 10002, USA",
-    "lat": 40.7209672,
-    "lng": -73.9828911,
-    "googleRating": 4.4,
-    "googleReviewCount": 221,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJTZIC-AdbwokRPwk_gzcoNNs",
     "name": "gair",
     "address": "41 Washington St, Brooklyn, NY 11201, USA",
@@ -21744,18 +19228,6 @@
     "lng": -73.814371,
     "googleRating": 4.4,
     "googleReviewCount": 210,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJwzoB9CZbwokR_yXInRHlqEM",
-    "name": "Pizza Perron",
-    "address": "3007 Fort Hamilton Pkwy, Brooklyn, NY 11218, USA",
-    "lat": 40.6485129,
-    "lng": -73.9787143,
-    "googleRating": 4.4,
-    "googleReviewCount": 206,
     "price_level": 2,
     "booking_platform": null,
     "booking_url": null
@@ -21869,18 +19341,6 @@
     "booking_url": "https://www.opentable.com/r/siren-restaurant-and-bar-brooklyn"
   },
   {
-    "place_id": "ChIJt9YSiINhwokRRGYxs9tFLdI",
-    "name": "El Ranchero",
-    "address": "160-20 46th Ave Suite A, Flushing, NY 11358, USA",
-    "lat": 40.7537143,
-    "lng": -73.8060289,
-    "googleRating": 4.4,
-    "googleReviewCount": 190,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJL75dmfZfwokRBAk8OU-VwAE",
     "name": "Bartolino's - Fine Italian Cuisine",
     "address": "29-11 21st Ave, Astoria, NY 11105, USA",
@@ -21951,18 +19411,6 @@
     "price_level": null,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/legacy-bar-and-grill-new-york"
-  },
-  {
-    "place_id": "ChIJ7dh5LftbwokRe0liWS5qB4M",
-    "name": "Cozzi Pizza",
-    "address": "584 Broadway #586, Brooklyn, NY 11206, USA",
-    "lat": 40.7037141,
-    "lng": -73.9475777,
-    "googleRating": 4.4,
-    "googleReviewCount": 175,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJoaGKH5hdwokRWmSIjKRJ0Ts",
@@ -22169,18 +19617,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJCcAxi5RYwokRxXGqEwkAUU8",
-    "name": "Bar Pleiades",
-    "address": "20 E 76th St, New York, NY 10021, USA",
-    "lat": 40.7743554,
-    "lng": -73.9638934,
-    "googleRating": 4.4,
-    "googleReviewCount": 115,
-    "price_level": 4,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJFcxOg3ZbwokRDk4wP_i0jSg",
     "name": "The Lonesome Club",
     "address": "1674 10th Ave, Brooklyn, NY 11215, USA",
@@ -22217,18 +19653,6 @@
     "booking_url": null
   },
   {
-    "place_id": "ChIJ____yBVawokRSR5ITV6ANtw",
-    "name": "Patsy’s Pizzeria 55 Water Street",
-    "address": "55 Water St, New York, NY 10041, USA",
-    "lat": 40.7031947,
-    "lng": -74.00906599999999,
-    "googleRating": 4.4,
-    "googleReviewCount": 93,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJuxi1yrZdwokRd7JdyQkGVHg",
     "name": "United Kitchen",
     "address": "766 Liberty Ave, Brooklyn, NY 11208, USA",
@@ -22251,18 +19675,6 @@
     "price_level": 2,
     "booking_platform": "opentable",
     "booking_url": "https://www.opentable.com/r/piccoli-trattoria-brooklyn"
-  },
-  {
-    "place_id": "ChIJlRlgfy30wokRes8F_L3f-KU",
-    "name": "New Sunflower Restaurant",
-    "address": "900 Gerard Ave, Bronx, NY 10452, USA",
-    "lat": 40.828243400000005,
-    "lng": -73.9242987,
-    "googleRating": 4.4,
-    "googleReviewCount": 80,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "place_id": "ChIJe7HTJMZZwokRk4buixMnKtc",
@@ -22289,54 +19701,6 @@
     "booking_url": "https://www.opentable.com/r/stretch-pizza-new-york"
   },
   {
-    "place_id": "ChIJ2duKoDldwokRohdv9rtecYc",
-    "name": "Woodzzy Bar & Restaurant",
-    "address": "1133 Clarkson Ave, Brooklyn, NY 11212, USA",
-    "lat": 40.660869399999996,
-    "lng": -73.9209298,
-    "googleRating": 4.4,
-    "googleReviewCount": 78,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJB-xUj9FFwokRIyW4ZBc5ZmM",
-    "name": "Abe Sushi",
-    "address": "7910A 13th Ave, Brooklyn, NY 11228, USA",
-    "lat": 40.617940999999995,
-    "lng": -74.01028699999999,
-    "googleRating": 4.4,
-    "googleReviewCount": 71,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJd0aNJQBZwokR2XYZBoCZy6Y",
-    "name": "Rosa’s Pizza",
-    "address": "1289 Madison Ave, New York, NY 10128, USA",
-    "lat": 40.7843995,
-    "lng": -73.95597099999999,
-    "googleRating": 4.4,
-    "googleReviewCount": 56,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJdbZQDnJhwokRv80ktduCQ-k",
-    "name": "Nagi Ramen Sushi 凪料理",
-    "address": "33-70 Prince St C15, Flushing, NY 11354, USA",
-    "lat": 40.7646146,
-    "lng": -73.8335799,
-    "googleRating": 4.4,
-    "googleReviewCount": 51,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJbx1frTRbwokRg-EZMjyCSWA",
     "name": "Welcome Chili",
     "address": "3806 Fort Hamilton Pkwy, Brooklyn, NY 11218, USA",
@@ -22349,66 +19713,6 @@
     "booking_url": "https://resy.com/cities/ny/chili"
   },
   {
-    "place_id": "ChIJsaJcK1ZfwokR7nJuwvrNkek",
-    "name": "D’ la montana restaurant",
-    "address": "33-13 108th St, Corona, NY 11368, USA",
-    "lat": 40.7573501,
-    "lng": -73.8607229,
-    "googleRating": 4.4,
-    "googleReviewCount": 50,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ1R6yi3v1wokRVLlHOcfjBOQ",
-    "name": "Sante Yallah African Restaurant (Keur Aisha Restaurant CORP.)",
-    "address": "1460 Boston Rd, Bronx, NY 10460, USA",
-    "lat": 40.8339777,
-    "lng": -73.8949181,
-    "googleRating": 4.4,
-    "googleReviewCount": 45,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ185NpFZfwokREBIVFHB2bnY",
-    "name": "PIZZA 21st",
-    "address": "31-06 21st St, Astoria, NY 11106, USA",
-    "lat": 40.767164,
-    "lng": -73.93021949999999,
-    "googleRating": 4.4,
-    "googleReviewCount": 44,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJfcbdSBFFwokRtOXmvmwRtug",
-    "name": "El Quinto Patio",
-    "address": "976 McDonald Ave, Brooklyn, NY 11230, USA",
-    "lat": 40.629978,
-    "lng": -73.9773146,
-    "googleRating": 4.4,
-    "googleReviewCount": 38,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJ_9YYXATzwokRk54r3E1aW2w",
-    "name": "Quisqueya Plaza",
-    "address": "247 Dyckman St, New York, NY 10034, USA",
-    "lat": 40.8665242,
-    "lng": -73.9280339,
-    "googleRating": 4.4,
-    "googleReviewCount": 35,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
     "place_id": "ChIJBewyU5ZfwokRO-tPAgiiwfc",
     "name": "Bella Blue",
     "address": "32-35 48th Ave, Long Island City, NY 11101, USA",
@@ -22419,42 +19723,6 @@
     "price_level": 2,
     "booking_platform": "resy",
     "booking_url": "https://resy.com/cities/ny/bella-blu"
-  },
-  {
-    "place_id": "ChIJXbyN57VdwokR81kj19P0qEU",
-    "name": "Chimi Monumental",
-    "address": "3007 Fulton St, Brooklyn, NY 11208, USA",
-    "lat": 40.680445999999996,
-    "lng": -73.883698,
-    "googleRating": 4.4,
-    "googleReviewCount": 31,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJi-H8omL1wokRkV4iCHjexpc",
-    "name": "Mi Chapincita Quetzal",
-    "address": "1093 Southern Blvd, Bronx, NY 10459, USA",
-    "lat": 40.825907,
-    "lng": -73.8921883,
-    "googleRating": 4.4,
-    "googleReviewCount": 31,
-    "price_level": null,
-    "booking_platform": null,
-    "booking_url": null
-  },
-  {
-    "place_id": "ChIJM04FPUf0wokRCPTwuc6T2_A",
-    "name": "Barese Pizza",
-    "address": "305 E 170th St, Bronx, NY 10456, USA",
-    "lat": 40.837577499999995,
-    "lng": -73.9101869,
-    "googleRating": 4.4,
-    "googleReviewCount": 26,
-    "price_level": 2,
-    "booking_platform": null,
-    "booking_url": null
   },
   {
     "name": "Tatiana by Kwame Onwuachi",
