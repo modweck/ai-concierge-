@@ -509,7 +509,7 @@ exports.handler = async (event) => {
     const t0 = Date.now();
     const timings = { legacy_ms: 0, new_nearby_ms: 0, new_text_ms: 0, filtering_ms: 0, total_ms: 0 };
     const body = JSON.parse(event.body || '{}');
-    const { location, cuisine, openNow, quality } = body;
+    const { location, cuisine, openNow, quality, broadCity, transport } = body;
     const qualityMode = normalizeQualityMode(quality || 'any');
     const KEY = process.env.GOOGLE_PLACES_API_KEY;
     if (!KEY) return stableResponse([], [], {}, 'API key not configured');
@@ -800,6 +800,68 @@ exports.handler = async (event) => {
     });
     if (cuisineFiltered.length < beforePrice) console.log(`\ud83d\udcb0 Price filter: removed ${beforePrice - cuisineFiltered.length} cheap ($) spots`);
 
+    // =========================================================================
+    // BOOKING LOOKUP INJECTION — for All NYC / broad city searches
+    // Booking lookup entries are the primary source; Google fills in the gaps.
+    // =========================================================================
+    const isAllNYC = (transport === 'all_nyc' || broadCity === true);
+    if (isAllNYC && BOOKING_KEYS.length > 0) {
+      // Build a set of normalized names from Google results for dedup
+      const googleNameSet = new Set();
+      for (const p of cuisineFiltered) {
+        if (p.name) googleNameSet.add(normalizeName(p.name));
+      }
+
+      // Remove Google results that overlap with booking_lookup (booking data wins)
+      const bookingNameSet = new Set();
+      for (const bk of BOOKING_KEYS) {
+        bookingNameSet.add(normalizeName(bk));
+      }
+      const beforeRemove = cuisineFiltered.length;
+      cuisineFiltered = cuisineFiltered.filter(p => {
+        const nn = normalizeName(p.name);
+        return !bookingNameSet.has(nn);
+      });
+      const removed = beforeRemove - cuisineFiltered.length;
+      if (removed) console.log(`\ud83d\udd04 Removed ${removed} Google results that exist in booking_lookup (booking data preferred)`);
+
+      // Inject all booking_lookup entries that have coordinates
+      const injectedNames = new Set(cuisineFiltered.map(p => normalizeName(p.name)));
+      let bookingInjected = 0;
+      for (const [key, entry] of Object.entries(BOOKING_LOOKUP)) {
+        if (!entry.lat || !entry.lng) continue;
+        const nn = normalizeName(key);
+        if (injectedNames.has(nn)) continue;
+
+        // Apply cuisine filter if active
+        if (cuisineStr) {
+          const entryCuisine = CUISINE_LOOKUP[key] || entry.cuisine || null;
+          if (!cuisineLookupMatches(key, cuisineStr, entryCuisine)) continue;
+        }
+
+        cuisineFiltered.push({
+          place_id: entry.place_id || null,
+          name: key.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+          vicinity: entry.neighborhood || '',
+          formatted_address: entry.neighborhood || '',
+          geometry: { location: { lat: entry.lat, lng: entry.lng } },
+          rating: entry.google_rating || entry.resy_rating || 0,
+          user_ratings_total: entry.google_reviews || 0,
+          price_level: entry.price || null,
+          opening_hours: null,
+          types: [],
+          websiteUri: entry.url || null,
+          booking_platform: entry.platform || null,
+          booking_url: entry.url || null,
+          cuisine: CUISINE_LOOKUP[key] || entry.cuisine || null,
+          _source: 'booking_lookup'
+        });
+        injectedNames.add(nn);
+        bookingInjected++;
+      }
+      console.log(`\u2705 Booking lookup injection: ${bookingInjected} restaurants added (All NYC mode)`);
+    }
+
     // Distance
     const withDist = cuisineFiltered.map(p => {
       const pLat = p.geometry?.location?.lat, pLng = p.geometry?.location?.lng;
@@ -831,7 +893,8 @@ exports.handler = async (event) => {
       };
     });
 
-    const within = withDist.filter(r => r.distanceMiles <= 7.0);
+    const maxDistMiles = isAllNYC ? 50.0 : 7.0;
+    const within = withDist.filter(r => r.distanceMiles <= maxDistMiles);
     console.log(`\ud83d\udcca Within 7mi: ${within.length}`);
 
     const michelin = await resolveMichelinPlaces(KEY);
