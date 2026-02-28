@@ -1,24 +1,9 @@
-[build]
-  functions = "netlify/functions"
-  publish = "."
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
 
-[functions]
-  included_files = [
-    "netlify/functions/michelin_nyc.json",
-    "netlify/functions/bib_gourmand_nyc.json",
-    "netlify/functions/chase_sapphire_nyc.json",
-    "netlify/functions/rakuten_nyc.json",
-    "netlify/functions/booking_lookup.json",
-    "netlify/functions/deposit_lookup.json",
-    "netlify/functions/popular_nyc.json",
-    "netlify/functions/buzz_links.json",
-    "netlify/functions/availability_data.json"
-  ]
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
-
-[dev]
-  functions = "netlify/functions"
+[[headers]]
+  for = "/*.json"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
