@@ -18514,9 +18514,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/sylvias-new-york",
     "slug": "sylvias-new-york",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18524,6 +18564,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18532,9 +18581,39 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/emmetts-on-grove",
     "slug": "emmetts-on-grove",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 20,
+    "dinner_slots": 4,
+    "prime_slots": 1,
+    "availability_tier": "moderate",
+    "availability_demand_points": 6,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:45:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:15:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18542,6 +18621,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 20,
+        "dinner_slots": 4,
+        "prime_slots": 1,
+        "tier": "moderate"
       }
     ]
   },
@@ -18550,9 +18638,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/buvette-new-york",
     "slug": "buvette-new-york",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18560,6 +18688,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18568,9 +18705,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/sushi-nakazawa-new-york",
     "slug": "sushi-nakazawa-new-york",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18578,6 +18755,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18586,9 +18772,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/15-east",
     "slug": "15-east",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18596,6 +18822,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18604,9 +18839,34 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/labielle",
     "slug": "labielle",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 0,
+    "dinner_slots": 0,
+    "prime_slots": 0,
+    "availability_tier": "sold_out",
+    "availability_demand_points": 30,
+    "is_available": false,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18614,6 +18874,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 0,
+        "dinner_slots": 0,
+        "prime_slots": 0,
+        "tier": "sold_out"
       }
     ]
   },
@@ -18622,9 +18891,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/labeille",
     "slug": "labeille",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18632,6 +18941,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18640,9 +18958,58 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/loring-place",
     "slug": "loring-place",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 56,
+    "dinner_slots": 22,
+    "prime_slots": 14,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 12,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00",
+          "2026-03-01 18:00:00",
+          "2026-03-01 18:15:00",
+          "2026-03-01 18:15:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 10,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 18:30:00",
+          "2026-03-01 18:45:00",
+          "2026-03-01 18:45:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:15:00",
+          "2026-03-01 19:15:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 19:30:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18650,6 +19017,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 56,
+        "dinner_slots": 22,
+        "prime_slots": 14,
+        "tier": "available"
       }
     ]
   },
@@ -18658,9 +19034,34 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/oiji-mi",
     "slug": "oiji-mi",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 0,
+    "dinner_slots": 0,
+    "prime_slots": 0,
+    "availability_tier": "sold_out",
+    "availability_demand_points": 30,
+    "is_available": false,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18668,6 +19069,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 0,
+        "dinner_slots": 0,
+        "prime_slots": 0,
+        "tier": "sold_out"
       }
     ]
   },
@@ -18676,9 +19086,41 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/one-white-street",
     "slug": "one-white-street",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 5,
+    "dinner_slots": 5,
+    "prime_slots": 4,
+    "availability_tier": "moderate",
+    "availability_demand_points": 6,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 2,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:15:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:45:00",
+          "2026-03-01 21:00:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18686,6 +19128,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 5,
+        "dinner_slots": 5,
+        "prime_slots": 4,
+        "tier": "moderate"
       }
     ]
   },
@@ -18694,9 +19145,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/oxalis",
     "slug": "oxalis",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18704,6 +19195,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18712,9 +19212,38 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/agis-counter",
     "slug": "agis-counter",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 2,
+    "dinner_slots": 2,
+    "prime_slots": 2,
+    "availability_tier": "moderate",
+    "availability_demand_points": 6,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 1,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:15:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 1,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18722,6 +19251,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 2,
+        "dinner_slots": 2,
+        "prime_slots": 2,
+        "tier": "moderate"
       }
     ]
   },
@@ -18730,9 +19268,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/alley-41",
     "slug": "alley-41",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18740,6 +19318,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18748,9 +19335,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/bayon",
     "slug": "bayon",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18758,6 +19385,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18766,9 +19402,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/bohemian-spirit",
     "slug": "bohemian-spirit",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18776,6 +19452,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18784,9 +19469,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/boro6-wine-bar",
     "slug": "boro6-wine-bar",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18794,6 +19519,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18802,9 +19536,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/burrata",
     "slug": "burrata",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18812,6 +19586,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18820,9 +19603,38 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/c-as-in-charlie",
     "slug": "c-as-in-charlie",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 2,
+    "dinner_slots": 2,
+    "prime_slots": 1,
+    "availability_tier": "limited",
+    "availability_demand_points": 14,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 1,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 1,
+        "status": "available",
+        "times": [
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18830,6 +19642,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 2,
+        "dinner_slots": 2,
+        "prime_slots": 1,
+        "tier": "limited"
       }
     ]
   },
@@ -18838,9 +19659,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/caleta-111-cevicheria",
     "slug": "caleta-111-cevicheria",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18848,6 +19709,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18856,9 +19726,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/cardamom",
     "slug": "cardamom",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18866,6 +19776,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18874,9 +19793,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/cecily",
     "slug": "cecily",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18884,6 +19843,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18892,9 +19860,34 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/cervos",
     "slug": "cervos",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 0,
+    "dinner_slots": 0,
+    "prime_slots": 0,
+    "availability_tier": "sold_out",
+    "availability_demand_points": 30,
+    "is_available": false,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18902,6 +19895,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 0,
+        "dinner_slots": 0,
+        "prime_slots": 0,
+        "tier": "sold_out"
       }
     ]
   },
@@ -18910,9 +19912,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/chalong",
     "slug": "chalong",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18920,6 +19962,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18928,9 +19979,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/chavelas",
     "slug": "chavelas",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 20,
+    "dinner_slots": 13,
+    "prime_slots": 4,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 1,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:15:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 6,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:45:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:15:00",
+          "2026-03-01 21:30:00",
+          "2026-03-01 21:45:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18938,6 +20029,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 20,
+        "dinner_slots": 13,
+        "prime_slots": 4,
+        "tier": "available"
       }
     ]
   },
@@ -18946,9 +20046,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/cheli",
     "slug": "cheli",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18956,6 +20096,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -18964,9 +20113,57 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/chuan-tian-xia",
     "slug": "chuan-tian-xia",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 43,
+    "dinner_slots": 21,
+    "prime_slots": 12,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 6,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00",
+          "2026-03-01 18:15:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 8,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 18:45:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:15:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 19:45:00",
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:15:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 6,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:45:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:15:00",
+          "2026-03-01 21:30:00",
+          "2026-03-01 21:45:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18974,6 +20171,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 43,
+        "dinner_slots": 21,
+        "prime_slots": 12,
+        "tier": "available"
       }
     ]
   },
@@ -18982,9 +20188,41 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/coqodaq",
     "slug": "coqodaq",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 15,
+    "dinner_slots": 12,
+    "prime_slots": 1,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 1,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00",
+          "2026-03-01 21:45:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -18992,6 +20230,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 15,
+        "dinner_slots": 12,
+        "prime_slots": 1,
+        "tier": "available"
       }
     ]
   },
@@ -19000,9 +20247,53 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/covacha",
     "slug": "covacha",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 38,
+    "dinner_slots": 16,
+    "prime_slots": 12,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 6,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00",
+          "2026-03-01 18:15:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 8,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 18:45:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:15:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 19:45:00",
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:15:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 2,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:45:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19010,6 +20301,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 38,
+        "dinner_slots": 16,
+        "prime_slots": 12,
+        "tier": "available"
       }
     ]
   },
@@ -19018,9 +20318,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/gordos-cantina",
     "slug": "gordos-cantina",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19028,6 +20368,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19036,9 +20385,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/hometown-bar-b-que",
     "slug": "hometown-bar-b-que",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19046,6 +20435,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19054,9 +20452,77 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/ishq",
     "slug": "ishq",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 61,
+    "dinner_slots": 41,
+    "prime_slots": 24,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 12,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00",
+          "2026-03-01 18:00:00",
+          "2026-03-01 18:15:00",
+          "2026-03-01 18:15:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 16,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 18:30:00",
+          "2026-03-01 18:45:00",
+          "2026-03-01 18:45:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:15:00",
+          "2026-03-01 19:15:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 19:45:00",
+          "2026-03-01 19:45:00",
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:15:00",
+          "2026-03-01 20:15:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 12,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:45:00",
+          "2026-03-01 20:45:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:15:00",
+          "2026-03-01 21:15:00",
+          "2026-03-01 21:30:00",
+          "2026-03-01 21:30:00",
+          "2026-03-01 21:45:00",
+          "2026-03-01 21:45:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19064,6 +20530,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 61,
+        "dinner_slots": 41,
+        "prime_slots": 24,
+        "tier": "available"
       }
     ]
   },
@@ -19072,9 +20547,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/jiang-nan",
     "slug": "jiang-nan",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19082,6 +20597,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19090,9 +20614,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/katzs-delicatessen",
     "slug": "katzs-delicatessen",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19100,6 +20664,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19108,9 +20681,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/kung-fu-little-steamed-buns-ramen",
     "slug": "kung-fu-little-steamed-buns-ramen",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19118,6 +20731,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19126,9 +20748,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/lindustrie-pizzeria",
     "slug": "lindustrie-pizzeria",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19136,6 +20798,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19144,9 +20815,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/la-dong",
     "slug": "la-dong",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19154,6 +20865,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19162,9 +20882,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/legend-of-taste",
     "slug": "legend-of-taste",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19172,6 +20932,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19180,9 +20949,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/little-myanmar",
     "slug": "little-myanmar",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19190,6 +20999,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19198,9 +21016,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/lore",
     "slug": "lore",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19208,6 +21066,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19216,9 +21083,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/lungi",
     "slug": "lungi",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19226,6 +21133,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19234,9 +21150,55 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/mala-project",
     "slug": "mala-project",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 34,
+    "dinner_slots": 18,
+    "prime_slots": 14,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 6,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 18:00:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 8,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:45:00",
+          "2026-03-01 20:45:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19244,6 +21206,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 34,
+        "dinner_slots": 18,
+        "prime_slots": 14,
+        "tier": "available"
       }
     ]
   },
@@ -19252,9 +21223,42 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/miss-ada",
     "slug": "miss-ada",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 13,
+    "dinner_slots": 6,
+    "prime_slots": 4,
+    "availability_tier": "moderate",
+    "availability_demand_points": 6,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 2,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:15:00",
+          "2026-03-01 20:15:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19262,6 +21266,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 13,
+        "dinner_slots": 6,
+        "prime_slots": 4,
+        "tier": "moderate"
       }
     ]
   },
@@ -19270,9 +21283,57 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/olmo",
     "slug": "olmo",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 20,
+    "dinner_slots": 20,
+    "prime_slots": 15,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 7,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00",
+          "2026-03-01 18:15:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 11,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 18:45:00",
+          "2026-03-01 18:45:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:15:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 19:45:00",
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:15:00",
+          "2026-03-01 20:15:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 2,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19280,6 +21341,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 20,
+        "dinner_slots": 20,
+        "prime_slots": 15,
+        "tier": "available"
       }
     ]
   },
@@ -19288,9 +21358,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/oso",
     "slug": "oso",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19298,6 +21408,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19306,9 +21425,52 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/peppercorn-station",
     "slug": "peppercorn-station",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 37,
+    "dinner_slots": 15,
+    "prime_slots": 11,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 6,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00",
+          "2026-03-01 18:15:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 8,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 18:45:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:15:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 19:45:00",
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:15:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 1,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19316,6 +21478,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 37,
+        "dinner_slots": 15,
+        "prime_slots": 11,
+        "tier": "available"
       }
     ]
   },
@@ -19324,9 +21495,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/phayul",
     "slug": "phayul",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19334,6 +21545,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19342,9 +21562,49 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/pierozek",
     "slug": "pierozek",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "slug_http_500",
+    "total_slots": 17,
+    "dinner_slots": 13,
+    "prime_slots": 6,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 5,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 20:00:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 3,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19352,6 +21612,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 17,
+        "dinner_slots": 13,
+        "prime_slots": 6,
+        "tier": "available"
       }
     ]
   },
@@ -19360,9 +21629,94 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/pinch-chinese",
     "slug": "pinch-chinese",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 93,
+    "dinner_slots": 57,
+    "prime_slots": 36,
+    "availability_tier": "available",
+    "availability_demand_points": 0,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 18,
+        "status": "available",
+        "times": [
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:00:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:15:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:30:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 17:45:00",
+          "2026-03-01 18:00:00",
+          "2026-03-01 18:00:00",
+          "2026-03-01 18:00:00",
+          "2026-03-01 18:15:00",
+          "2026-03-01 18:15:00",
+          "2026-03-01 18:15:00"
+        ]
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 24,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:30:00",
+          "2026-03-01 18:30:00",
+          "2026-03-01 18:30:00",
+          "2026-03-01 18:45:00",
+          "2026-03-01 18:45:00",
+          "2026-03-01 18:45:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 19:15:00",
+          "2026-03-01 19:15:00",
+          "2026-03-01 19:15:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 19:30:00",
+          "2026-03-01 19:45:00",
+          "2026-03-01 19:45:00",
+          "2026-03-01 19:45:00",
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:15:00",
+          "2026-03-01 20:15:00",
+          "2026-03-01 20:15:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 15,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:45:00",
+          "2026-03-01 20:45:00",
+          "2026-03-01 20:45:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:00:00",
+          "2026-03-01 21:15:00",
+          "2026-03-01 21:15:00",
+          "2026-03-01 21:15:00",
+          "2026-03-01 21:30:00",
+          "2026-03-01 21:30:00",
+          "2026-03-01 21:30:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19370,6 +21724,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 93,
+        "dinner_slots": 57,
+        "prime_slots": 36,
+        "tier": "available"
       }
     ]
   },
@@ -19378,9 +21741,34 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/pranakhon",
     "slug": "pranakhon",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 0,
+    "dinner_slots": 0,
+    "prime_slots": 0,
+    "availability_tier": "sold_out",
+    "availability_demand_points": 30,
+    "is_available": false,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19388,6 +21776,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 0,
+        "dinner_slots": 0,
+        "prime_slots": 0,
+        "tier": "sold_out"
       }
     ]
   },
@@ -19396,9 +21793,42 @@
     "platform": "resy",
     "url": "https://resy.com/cities/ny/runner-up",
     "slug": "runner-up",
-    "fill_rate": null,
-    "availability_tier": "unknown",
-    "raw_error": "http_500",
+    "total_slots": 6,
+    "dinner_slots": 6,
+    "prime_slots": 6,
+    "availability_tier": "moderate",
+    "availability_demand_points": 6,
+    "is_available": true,
+    "time_windows": {
+      "early": {
+        "label": "5-6:30pm",
+        "count": 0,
+        "status": "sold_out",
+        "times": []
+      },
+      "prime": {
+        "label": "6:30-8:30pm",
+        "count": 4,
+        "status": "available",
+        "times": [
+          "2026-03-01 18:45:00",
+          "2026-03-01 19:00:00",
+          "2026-03-01 20:00:00",
+          "2026-03-01 20:15:00"
+        ]
+      },
+      "late": {
+        "label": "8:30-10pm",
+        "count": 2,
+        "status": "available",
+        "times": [
+          "2026-03-01 20:30:00",
+          "2026-03-01 20:45:00"
+        ]
+      }
+    },
+    "checked_date": "2026-03-01",
+    "checked_party_size": 2,
     "last_checked": "2026-02-28",
     "check_history": [
       {
@@ -19406,6 +21836,15 @@
         "checked_for": "2026-02-28",
         "party_size": 2,
         "tier": "unknown"
+      },
+      {
+        "date": "2026-02-28",
+        "checked_for": "2026-03-01",
+        "party_size": 2,
+        "total_slots": 6,
+        "dinner_slots": 6,
+        "prime_slots": 6,
+        "tier": "moderate"
       }
     ]
   },

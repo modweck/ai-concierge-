@@ -628,9 +628,70 @@ exports.handler = async (event) => {
     }
 
     // =========================================================================
-    // THREE-LAYER PARALLEL SEARCH (speed-optimized)
+    // ALL NYC FAST PATH — skip Google API entirely, use booking_lookup only
     // =========================================================================
     const cuisineStr = (cuisine && String(cuisine).toLowerCase().trim() !== 'any') ? cuisine : null;
+    const isAllNYC = (transport === 'all_nyc' || broadCity === true || broadCity === 'true');
+
+    if (isAllNYC && BOOKING_KEYS.length > 0) {
+      console.log(`🗽 ALL NYC MODE — skipping Google API, using ${BOOKING_KEYS.length} booking_lookup entries`);
+      const injected = [];
+      for (const [key, entry] of Object.entries(BOOKING_LOOKUP)) {
+        if (!entry.lat || !entry.lng) continue;
+
+        // Cuisine filter
+        if (cuisineStr) {
+          const entryCuisine = CUISINE_LOOKUP[key] || entry.cuisine || null;
+          if (!entryCuisine) continue;
+          const c = entryCuisine.toLowerCase();
+          const cs = cuisineStr.toLowerCase();
+          if (!c.includes(cs) && !cs.includes(c)) continue;
+        }
+
+        const d = haversine(gLat, gLng, entry.lat, entry.lng);
+        injected.push({
+          name: key,
+          place_id: entry.place_id || null,
+          address: entry.address || entry.neighborhood || null,
+          lat: entry.lat, lng: entry.lng,
+          rating: entry.google_rating || entry.resy_rating || 0,
+          user_ratings_total: entry.google_reviews || 0,
+          price_level: entry.price || null,
+          opening_hours: null,
+          geometry: { location: { lat: entry.lat, lng: entry.lng } },
+          types: ['restaurant'],
+          booking_platform: entry.platform,
+          booking_url: entry.url,
+          distanceMiles: Math.round(d*10)/10,
+          walkMinEstimate: Math.round(d*20),
+          driveMinEstimate: Math.round(d*4),
+          transitMinEstimate: Math.round(d*6),
+          googleRating: entry.google_rating || 0,
+          googleReviewCount: entry.google_reviews || 0,
+        });
+      }
+      console.log(`🗽 Injected ${injected.length} restaurants from booking_lookup`);
+
+      // Apply quality filter
+      const { elite, moreOptions, excluded } = applyQualityFilter(injected, qualityMode);
+      console.log(`FILTER ${qualityMode}: Elite(>=4.5):${elite.length} | More:${moreOptions.length} | Excl:${excluded.length}`);
+
+      // Detect booking platforms
+      detectBookingPlatforms(elite);
+      detectBookingPlatforms(moreOptions);
+
+      const stats = {
+        confirmedAddress, userLocation: { lat: gLat, lng: gLng },
+        allNYCMode: true, count: elite.length + moreOptions.length,
+        performance: { ...timings, cache_hit: false }
+      };
+      setCache(cacheKey, { elite, moreOptions, stats });
+      return stableResponse(elite, moreOptions, stats);
+    }
+
+    // =========================================================================
+    // THREE-LAYER PARALLEL SEARCH (speed-optimized) — for non-All-NYC searches
+    // =========================================================================
 
     const [legacyFlat, nearbyResults, textResults] = await Promise.all([
 
@@ -800,60 +861,6 @@ exports.handler = async (event) => {
     });
     if (cuisineFiltered.length < beforePrice) console.log(`\ud83d\udcb0 Price filter: removed ${beforePrice - cuisineFiltered.length} cheap ($) spots`);
 
-    // =========================================================================
-    // BOOKING LOOKUP INJECTION — for All NYC / broad city searches
-    // Booking lookup entries are the primary source; Google fills in the gaps.
-    // =========================================================================
-    const isAllNYC = (transport === 'all_nyc' || broadCity === true || broadCity === 'true');
-    console.log(`🔍 DEBUG: transport=${transport}, broadCity=${broadCity}, isAllNYC=${isAllNYC}, BOOKING_KEYS=${BOOKING_KEYS.length}`);
-    if (isAllNYC && BOOKING_KEYS.length > 0) {
-      const bookingNameSet = new Set();
-      for (const bk of BOOKING_KEYS) {
-        bookingNameSet.add(normalizeName(bk));
-      }
-      const beforeRemove = cuisineFiltered.length;
-      cuisineFiltered = cuisineFiltered.filter(p => {
-        const nn = normalizeName(p.name);
-        return !bookingNameSet.has(nn);
-      });
-      const removed = beforeRemove - cuisineFiltered.length;
-      if (removed) console.log(`\ud83d\udd04 Removed ${removed} Google results that exist in booking_lookup (booking data preferred)`);
-
-      const injectedNames = new Set(cuisineFiltered.map(p => normalizeName(p.name)));
-      let bookingInjected = 0;
-      for (const [key, entry] of Object.entries(BOOKING_LOOKUP)) {
-        if (!entry.lat || !entry.lng) continue;
-        const nn = normalizeName(key);
-        if (injectedNames.has(nn)) continue;
-
-        if (cuisineStr) {
-          const entryCuisine = CUISINE_LOOKUP[key] || entry.cuisine || null;
-          if (!cuisineLookupMatches(key, cuisineStr, entryCuisine)) continue;
-        }
-
-        cuisineFiltered.push({
-          place_id: entry.place_id || null,
-          name: key.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-          vicinity: entry.neighborhood || '',
-          formatted_address: entry.neighborhood || '',
-          geometry: { location: { lat: entry.lat, lng: entry.lng } },
-          rating: entry.google_rating || entry.resy_rating || 0,
-          user_ratings_total: entry.google_reviews || 0,
-          price_level: entry.price || null,
-          opening_hours: null,
-          types: [],
-          websiteUri: entry.url || null,
-          booking_platform: entry.platform || null,
-          booking_url: entry.url || null,
-          cuisine: CUISINE_LOOKUP[key] || entry.cuisine || null,
-          _source: 'booking_lookup'
-        });
-        injectedNames.add(nn);
-        bookingInjected++;
-      }
-      console.log(`\u2705 Booking lookup injection: ${bookingInjected} restaurants added (All NYC mode)`);
-    }
-
     // Distance
     const withDist = cuisineFiltered.map(p => {
       const pLat = p.geometry?.location?.lat, pLng = p.geometry?.location?.lng;
@@ -885,7 +892,7 @@ exports.handler = async (event) => {
       };
     });
 
-    const maxDistMiles = isAllNYC ? 50.0 : 7.0;
+    const maxDistMiles = 7.0;
     const within = withDist.filter(r => r.distanceMiles <= maxDistMiles);
     console.log(`\ud83d\udcca Within 7mi: ${within.length}`);
 
