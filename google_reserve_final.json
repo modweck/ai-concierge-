@@ -1,0 +1,1920 @@
+[
+  {
+    "name": "Cap\u2019t Loui - 32nd st, NY",
+    "rating": "4.9",
+    "reviews": "3,273",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Gulp",
+    "rating": "4.9",
+    "reviews": "2,687",
+    "cuisine": "Taiwanese",
+    "price": "$$"
+  },
+  {
+    "name": "Jerk House Caribbean Restaurant",
+    "rating": "4.9",
+    "reviews": "2,371",
+    "cuisine": "Caribbean",
+    "price": "$$"
+  },
+  {
+    "name": "Shang Gong Chu \u5c1a\u5bab\u53a8",
+    "rating": "4.9",
+    "reviews": "1,992",
+    "cuisine": "Korean",
+    "price": "-"
+  },
+  {
+    "name": "Sushi & Co-Broadway",
+    "rating": "4.9",
+    "reviews": "1,236",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Holy Schnitzel",
+    "rating": "4.9",
+    "reviews": "939",
+    "cuisine": "BYOB (No Corkage Fee), 60 Min Session, Please be On Time, 89 E 2nd St, New York, NY 10009",
+    "price": "-"
+  },
+  {
+    "name": "the AM-THAI Williamsburg",
+    "rating": "4.9",
+    "reviews": "778",
+    "cuisine": "Thai",
+    "price": "$$"
+  },
+  {
+    "name": "Secchu Yokota \u6298\u8877\u3088\u3053\u7530",
+    "rating": "4.9",
+    "reviews": "336",
+    "cuisine": "Greek",
+    "price": "-"
+  },
+  {
+    "name": "Rudraks",
+    "rating": "4.9",
+    "reviews": "295",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Don Udon",
+    "rating": "4.9",
+    "reviews": "255",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Mustard Indian Eatery",
+    "rating": "4.9",
+    "reviews": "229",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Island Central",
+    "rating": "4.9",
+    "reviews": "220",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Electric Beets",
+    "rating": "4.9",
+    "reviews": "190",
+    "cuisine": "Japanese",
+    "price": "$$"
+  },
+  {
+    "name": "Yubi's 78 Restaurant",
+    "rating": "4.9",
+    "reviews": "137",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Mariscos El Submarino",
+    "rating": "4.9",
+    "reviews": "127",
+    "cuisine": "French",
+    "price": "-"
+  },
+  {
+    "name": "Kairibbean Island Mix",
+    "rating": "4.9",
+    "reviews": "126",
+    "cuisine": "Vegan",
+    "price": "$$"
+  },
+  {
+    "name": "Maya Mexican Grill",
+    "rating": "4.9",
+    "reviews": "59",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Cornbread Brooklyn",
+    "rating": "4.8",
+    "reviews": "7,221",
+    "cuisine": "Soul Food",
+    "price": "$$"
+  },
+  {
+    "name": "Chong Qing Wharf Hot Pot & LAANKEE LEMON TEA\u5c71\u57ce\u7801\u5934\u706b\u9505&\u6f9c\u8bb0\u6e2f\u5f0f\u8336\u996e",
+    "rating": "4.8",
+    "reviews": "3,967",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Mum Feteer \u0641\u0637\u064a\u0631",
+    "rating": "4.8",
+    "reviews": "3,116",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "The Best Sichuan",
+    "rating": "4.8",
+    "reviews": "3,024",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Pasta de Pasta",
+    "rating": "4.8",
+    "reviews": "2,679",
+    "cuisine": "Italian",
+    "price": "-"
+  },
+  {
+    "name": "Mojitos",
+    "rating": "4.8",
+    "reviews": "2,311",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "\u00c7ka Ka Q\u00ebllue",
+    "rating": "4.8",
+    "reviews": "1,756",
+    "cuisine": "Mediterranean",
+    "price": "$$"
+  },
+  {
+    "name": "One More Charm Thai Restaurant",
+    "rating": "4.8",
+    "reviews": "1,525",
+    "cuisine": "Thai",
+    "price": "$$"
+  },
+  {
+    "name": "Balaji Bhavan pure vegetarian South Indian restaurant",
+    "rating": "4.8",
+    "reviews": "1,471",
+    "cuisine": "Vegetarian",
+    "price": "$$"
+  },
+  {
+    "name": "Taqueria by El Prieto NYC",
+    "rating": "4.8",
+    "reviews": "1,289",
+    "cuisine": "Chinese",
+    "price": "-"
+  },
+  {
+    "name": "New Ipoh Kitchen Asian Cuisine",
+    "rating": "4.8",
+    "reviews": "1,074",
+    "cuisine": "Malaysian",
+    "price": "$$"
+  },
+  {
+    "name": "CHADA NYC",
+    "rating": "4.8",
+    "reviews": "987",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Chu Ros Thai NYC",
+    "rating": "4.8",
+    "reviews": "984",
+    "cuisine": "Thai",
+    "price": "$$"
+  },
+  {
+    "name": "Hot Stix Hot Pot & BBQ",
+    "rating": "4.8",
+    "reviews": "892",
+    "cuisine": "Barbecue",
+    "price": "$$"
+  },
+  {
+    "name": "Tony Dragon's Grille",
+    "rating": "4.8",
+    "reviews": "887",
+    "cuisine": "Barbecue",
+    "price": "-"
+  },
+  {
+    "name": "Chinta Thai",
+    "rating": "4.8",
+    "reviews": "600",
+    "cuisine": "Thai",
+    "price": "$$"
+  },
+  {
+    "name": "Omars Mediterranean Cuisine",
+    "rating": "4.8",
+    "reviews": "570",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Yi Poh Kitchen Asian Cuisine",
+    "rating": "4.8",
+    "reviews": "557",
+    "cuisine": "Malaysian",
+    "price": "$$"
+  },
+  {
+    "name": "Dunya Kabab House",
+    "rating": "4.8",
+    "reviews": "521",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Shaw-nae\u2019s House",
+    "rating": "4.8",
+    "reviews": "499",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Zhangliang Spicy Hot Pot",
+    "rating": "4.8",
+    "reviews": "486",
+    "cuisine": "Chinese",
+    "price": "$$"
+  },
+  {
+    "name": "Hartley's",
+    "rating": "4.8",
+    "reviews": "462",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Rosa\u2019s Steakhouse",
+    "rating": "4.8",
+    "reviews": "393",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Ane Bar & Restaurant",
+    "rating": "4.8",
+    "reviews": "391",
+    "cuisine": "Mexican",
+    "price": "-"
+  },
+  {
+    "name": "Mama Lee - Williamsburg",
+    "rating": "4.8",
+    "reviews": "382",
+    "cuisine": "Taiwanese",
+    "price": "$$"
+  },
+  {
+    "name": "Tiptara : Thai Food",
+    "rating": "4.8",
+    "reviews": "350",
+    "cuisine": "Thai",
+    "price": "$$"
+  },
+  {
+    "name": "Pesce lulu Seafood Kitchen NYC",
+    "rating": "4.8",
+    "reviews": "328",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Sen Saigon",
+    "rating": "4.8",
+    "reviews": "294",
+    "cuisine": "Vegan",
+    "price": "$$"
+  },
+  {
+    "name": "The Canary",
+    "rating": "4.8",
+    "reviews": "281",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "The Shell Seafood Kitchen & Bar",
+    "rating": "4.8",
+    "reviews": "257",
+    "cuisine": "-",
+    "price": "$$$"
+  },
+  {
+    "name": "Jaew Thai Cuisine",
+    "rating": "4.8",
+    "reviews": "223",
+    "cuisine": "Thai",
+    "price": "$$"
+  },
+  {
+    "name": "Campos Grill",
+    "rating": "4.8",
+    "reviews": "212",
+    "cuisine": "Mexican",
+    "price": "$$"
+  },
+  {
+    "name": "Lululala",
+    "rating": "4.8",
+    "reviews": "208",
+    "cuisine": "Mexican",
+    "price": "-"
+  },
+  {
+    "name": "Greenfelds",
+    "rating": "4.8",
+    "reviews": "203",
+    "cuisine": "Moroccan",
+    "price": "-"
+  },
+  {
+    "name": "Musha Sushi",
+    "rating": "4.8",
+    "reviews": "181",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Tlacualli Breakfast",
+    "rating": "4.8",
+    "reviews": "173",
+    "cuisine": "Japanese",
+    "price": "-"
+  },
+  {
+    "name": "Sushi Ta'eem Boro Park",
+    "rating": "4.8",
+    "reviews": "150",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Fyahbun Creative",
+    "rating": "4.8",
+    "reviews": "129",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Four Season Joyful",
+    "rating": "4.8",
+    "reviews": "129",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "La Pecora Bianca NoMad",
+    "rating": "4.7",
+    "reviews": "5,742",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Top Thai 55 Carmine",
+    "rating": "4.7",
+    "reviews": "4,821",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Noche de margaritas",
+    "rating": "4.7",
+    "reviews": "1,935",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "T\u00d8RST",
+    "rating": "4.7",
+    "reviews": "1,738",
+    "cuisine": "-",
+    "price": "$$$"
+  },
+  {
+    "name": "Max Bratwurst und Bier",
+    "rating": "4.7",
+    "reviews": "1,092",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Dips",
+    "rating": "4.7",
+    "reviews": "1,071",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Lun\u00c0tico",
+    "rating": "4.7",
+    "reviews": "1,012",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Ix Restaurant",
+    "rating": "4.7",
+    "reviews": "1,010",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Yum Cha Chinese Kitchen & Bar \u59d1\u82cf\u91cc",
+    "rating": "4.7",
+    "reviews": "945",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Grandpa Thai",
+    "rating": "4.7",
+    "reviews": "736",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "SYKO",
+    "rating": "4.7",
+    "reviews": "590",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Adobo Mexican Grill",
+    "rating": "4.7",
+    "reviews": "569",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Fevy's",
+    "rating": "4.7",
+    "reviews": "540",
+    "cuisine": "Korean",
+    "price": "$$"
+  },
+  {
+    "name": "Yakar Kosher Steakhouse",
+    "rating": "4.7",
+    "reviews": "527",
+    "cuisine": "Steakhouse",
+    "price": "$$"
+  },
+  {
+    "name": "Marcela Cocina Mexicana",
+    "rating": "4.7",
+    "reviews": "478",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "62 Secret kitchen \u4e2d\u9910\u5385\u00b7\u79c1\u623f\u83dc",
+    "rating": "4.7",
+    "reviews": "467",
+    "cuisine": "Chinese",
+    "price": "$$"
+  },
+  {
+    "name": "South of the Clouds \u4e91\u4e4b\u5357 Jersey City",
+    "rating": "4.7",
+    "reviews": "398",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Water & Wheat Upper East",
+    "rating": "4.7",
+    "reviews": "386",
+    "cuisine": "Italian",
+    "price": "$$"
+  },
+  {
+    "name": "Alfalfa",
+    "rating": "4.7",
+    "reviews": "358",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Mazza & More",
+    "rating": "4.7",
+    "reviews": "309",
+    "cuisine": "Japanese/Sushi",
+    "price": "$$"
+  },
+  {
+    "name": "Din's Kitchen",
+    "rating": "4.7",
+    "reviews": "295",
+    "cuisine": "Chinese",
+    "price": "$$"
+  },
+  {
+    "name": "House of Glatt",
+    "rating": "4.7",
+    "reviews": "281",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "gtk",
+    "rating": "4.7",
+    "reviews": "278",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Holic Thai Bistro",
+    "rating": "4.7",
+    "reviews": "276",
+    "cuisine": "Thai",
+    "price": "$$"
+  },
+  {
+    "name": "Orchidea",
+    "rating": "4.7",
+    "reviews": "264",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Venti Italian Specialties",
+    "rating": "4.7",
+    "reviews": "240",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Diamond Lil",
+    "rating": "4.7",
+    "reviews": "240",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Cross Road BK",
+    "rating": "4.7",
+    "reviews": "232",
+    "cuisine": "Caribbean",
+    "price": "$$"
+  },
+  {
+    "name": "Pho Table - Dyker Heights",
+    "rating": "4.7",
+    "reviews": "228",
+    "cuisine": "Japanese/Sushi",
+    "price": "-"
+  },
+  {
+    "name": "Sylla",
+    "rating": "4.7",
+    "reviews": "208",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "La Cocina de Mama",
+    "rating": "4.7",
+    "reviews": "203",
+    "cuisine": "Mexican",
+    "price": "$$"
+  },
+  {
+    "name": "Cavany Foods: Healthy lunch & dining restaurant in Jersey City.",
+    "rating": "4.7",
+    "reviews": "198",
+    "cuisine": "Mexican",
+    "price": "$$"
+  },
+  {
+    "name": "Ra\u00edces Argentinas",
+    "rating": "4.7",
+    "reviews": "187",
+    "cuisine": "Mexican",
+    "price": "$$"
+  },
+  {
+    "name": "The Bobbed Bandit",
+    "rating": "4.7",
+    "reviews": "155",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Lutali (Kosher)",
+    "rating": "4.7",
+    "reviews": "138",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Tia Eli's Restaurant",
+    "rating": "4.7",
+    "reviews": "133",
+    "cuisine": "Italian",
+    "price": "$$"
+  },
+  {
+    "name": "Thai Tai Eatery",
+    "rating": "4.7",
+    "reviews": "128",
+    "cuisine": "Thai",
+    "price": "$$"
+  },
+  {
+    "name": "El Mariachi Mexican Cuisine \ud83c\uddf2\ud83c\uddfd",
+    "rating": "4.7",
+    "reviews": "128",
+    "cuisine": "Thai",
+    "price": "$$"
+  },
+  {
+    "name": "Katana Sushi",
+    "rating": "4.7",
+    "reviews": "115",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "WARUDE",
+    "rating": "4.7",
+    "reviews": "108",
+    "cuisine": "Mexican",
+    "price": "$$"
+  },
+  {
+    "name": "Sixteenth Ave. Glatt",
+    "rating": "4.7",
+    "reviews": "105",
+    "cuisine": "Japanese",
+    "price": "$$"
+  },
+  {
+    "name": "Thai Sidewalk",
+    "rating": "4.7",
+    "reviews": "103",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Gallagher\u2019s Steakhouse NYC",
+    "rating": "4.6",
+    "reviews": "9,080",
+    "cuisine": "Steakhouse",
+    "price": "$$$$"
+  },
+  {
+    "name": "Bodhi Kosher Vegetarian Restaurant",
+    "rating": "4.6",
+    "reviews": "2,199",
+    "cuisine": "Vegetarian",
+    "price": "$$"
+  },
+  {
+    "name": "Rio Bonito Grill",
+    "rating": "4.6",
+    "reviews": "1,521",
+    "cuisine": "American",
+    "price": "$$"
+  },
+  {
+    "name": "I Love Paraguay Restaurant",
+    "rating": "4.6",
+    "reviews": "1,513",
+    "cuisine": "Steakhouse",
+    "price": "$$"
+  },
+  {
+    "name": "Jiangnan NJC",
+    "rating": "4.6",
+    "reviews": "1,254",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "W\u00dcRSTBAR",
+    "rating": "4.6",
+    "reviews": "1,184",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Milkflower",
+    "rating": "4.6",
+    "reviews": "1,151",
+    "cuisine": "Vegan",
+    "price": "$$"
+  },
+  {
+    "name": "Tabare Williamsburg",
+    "rating": "4.6",
+    "reviews": "1,110",
+    "cuisine": "Steakhouse",
+    "price": "$$"
+  },
+  {
+    "name": "Niko's Souvlaki",
+    "rating": "4.6",
+    "reviews": "925",
+    "cuisine": "Persian",
+    "price": "$$"
+  },
+  {
+    "name": "Werkstatt",
+    "rating": "4.6",
+    "reviews": "888",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Gulp - Jersey City",
+    "rating": "4.6",
+    "reviews": "796",
+    "cuisine": "Italian",
+    "price": "$$"
+  },
+  {
+    "name": "Asea Fusion \u5d50\u5c71\u6599\u7406",
+    "rating": "4.6",
+    "reviews": "778",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Zest Sushi",
+    "rating": "4.6",
+    "reviews": "722",
+    "cuisine": "Italian",
+    "price": "$$"
+  },
+  {
+    "name": "dawa's",
+    "rating": "4.6",
+    "reviews": "688",
+    "cuisine": "Middle Eastern",
+    "price": "$$"
+  },
+  {
+    "name": "Mista Oh - Korean food Flatiron",
+    "rating": "4.6",
+    "reviews": "686",
+    "cuisine": "Italian",
+    "price": "$$"
+  },
+  {
+    "name": "Terre| Pasta & Natural wine",
+    "rating": "4.6",
+    "reviews": "676",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Fatima's Grill",
+    "rating": "4.6",
+    "reviews": "659",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Le Parisien Bistrot",
+    "rating": "4.6",
+    "reviews": "629",
+    "cuisine": "American",
+    "price": "$$"
+  },
+  {
+    "name": "Semkeh",
+    "rating": "4.6",
+    "reviews": "619",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Mictlan M\u00e9xico and Spanish cuisine",
+    "rating": "4.6",
+    "reviews": "561",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Haile",
+    "rating": "4.6",
+    "reviews": "556",
+    "cuisine": "Italian",
+    "price": "$$"
+  },
+  {
+    "name": "Samurai Papa",
+    "rating": "4.6",
+    "reviews": "519",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Butcher Block",
+    "rating": "4.6",
+    "reviews": "483",
+    "cuisine": "Korean",
+    "price": "$$"
+  },
+  {
+    "name": "Colina Cuervo",
+    "rating": "4.6",
+    "reviews": "478",
+    "cuisine": "Italian",
+    "price": "$$"
+  },
+  {
+    "name": "Sm\u00f8r",
+    "rating": "4.6",
+    "reviews": "457",
+    "cuisine": "Steakhouse",
+    "price": "$$"
+  },
+  {
+    "name": "Terra - Eat Better Food",
+    "rating": "4.6",
+    "reviews": "448",
+    "cuisine": "-",
+    "price": "$$$"
+  },
+  {
+    "name": "Tozton",
+    "rating": "4.6",
+    "reviews": "443",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Thai Nara",
+    "rating": "4.6",
+    "reviews": "382",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Karazishi Botan",
+    "rating": "4.6",
+    "reviews": "347",
+    "cuisine": "Asian",
+    "price": "$$"
+  },
+  {
+    "name": "Ital Fusion",
+    "rating": "4.6",
+    "reviews": "324",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Holy Pita",
+    "rating": "4.6",
+    "reviews": "316",
+    "cuisine": "Vegetarian",
+    "price": "$$"
+  },
+  {
+    "name": "Gowanus Gardens",
+    "rating": "4.6",
+    "reviews": "299",
+    "cuisine": "Vegan",
+    "price": "$$"
+  },
+  {
+    "name": "Armondo's Italian Resturant",
+    "rating": "4.6",
+    "reviews": "259",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "N\u00fbrish",
+    "rating": "4.6",
+    "reviews": "252",
+    "cuisine": "Italian",
+    "price": "$$"
+  },
+  {
+    "name": "Crystal Lake Brooklyn",
+    "rating": "4.6",
+    "reviews": "240",
+    "cuisine": "French",
+    "price": "$$"
+  },
+  {
+    "name": "Sushi of Miso",
+    "rating": "4.6",
+    "reviews": "236",
+    "cuisine": "Japanese/Sushi",
+    "price": "$$"
+  },
+  {
+    "name": "Silver Rice",
+    "rating": "4.6",
+    "reviews": "228",
+    "cuisine": "Mexican",
+    "price": "$$"
+  },
+  {
+    "name": "Yeh\u2019s Bao",
+    "rating": "4.6",
+    "reviews": "217",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Radio Star",
+    "rating": "4.6",
+    "reviews": "214",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "My Sushi",
+    "rating": "4.6",
+    "reviews": "206",
+    "cuisine": "American",
+    "price": "$$"
+  },
+  {
+    "name": "Sunrise Karahi House",
+    "rating": "4.6",
+    "reviews": "188",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Tiger Box",
+    "rating": "4.6",
+    "reviews": "181",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Rosolini",
+    "rating": "4.6",
+    "reviews": "162",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Uni Thai Bistro",
+    "rating": "4.6",
+    "reviews": "155",
+    "cuisine": "Caribbean",
+    "price": "$$"
+  },
+  {
+    "name": "KOREATGO",
+    "rating": "4.6",
+    "reviews": "145",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "El Huasteco Authentic Mexican Restaurant",
+    "rating": "4.6",
+    "reviews": "136",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Wadadli",
+    "rating": "4.6",
+    "reviews": "133",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Twin Grills",
+    "rating": "4.6",
+    "reviews": "114",
+    "cuisine": "Cambodian",
+    "price": "$$"
+  },
+  {
+    "name": "Rebecca's Edgewater-Mediterranean cuisine",
+    "rating": "4.6",
+    "reviews": "109",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Ichiran",
+    "rating": "4.5",
+    "reviews": "4,598",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Ricardo Steakhouse",
+    "rating": "4.5",
+    "reviews": "4,570",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "John Brown BBQ",
+    "rating": "4.5",
+    "reviews": "3,110",
+    "cuisine": "Barbecue",
+    "price": "$$"
+  },
+  {
+    "name": "99 Favor Taste",
+    "rating": "4.5",
+    "reviews": "2,937",
+    "cuisine": "Asian",
+    "price": "$$"
+  },
+  {
+    "name": "IBN Hamido Seafood",
+    "rating": "4.5",
+    "reviews": "2,499",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Kyuramen - Union Square",
+    "rating": "4.5",
+    "reviews": "2,012",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Lido Harlem Restaurant",
+    "rating": "4.5",
+    "reviews": "1,755",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "BK JANI",
+    "rating": "4.5",
+    "reviews": "1,483",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Ayat East Village",
+    "rating": "4.5",
+    "reviews": "1,350",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Oceanic Boil - Jackson Heights",
+    "rating": "4.5",
+    "reviews": "1,265",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Namkeen",
+    "rating": "4.5",
+    "reviews": "1,092",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Cellar 335",
+    "rating": "4.5",
+    "reviews": "1,092",
+    "cuisine": "Greek",
+    "price": "$$"
+  },
+  {
+    "name": "Flor de Mayo",
+    "rating": "4.5",
+    "reviews": "1,057",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Terraza 7",
+    "rating": "4.5",
+    "reviews": "1,006",
+    "cuisine": "Steakhouse",
+    "price": "$$"
+  },
+  {
+    "name": "Vietnaam",
+    "rating": "4.5",
+    "reviews": "940",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Connolly's Corner",
+    "rating": "4.5",
+    "reviews": "911",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Walker's",
+    "rating": "4.5",
+    "reviews": "905",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Amanda's",
+    "rating": "4.5",
+    "reviews": "776",
+    "cuisine": "-",
+    "price": "$$$"
+  },
+  {
+    "name": "Make My Fish",
+    "rating": "4.5",
+    "reviews": "767",
+    "cuisine": "Chinese",
+    "price": "$$"
+  },
+  {
+    "name": "Nandoo's",
+    "rating": "4.5",
+    "reviews": "753",
+    "cuisine": "American",
+    "price": "$$"
+  },
+  {
+    "name": "Ginger and Lemongrass",
+    "rating": "4.5",
+    "reviews": "686",
+    "cuisine": "Japanese",
+    "price": "$$"
+  },
+  {
+    "name": "Kaoru",
+    "rating": "4.5",
+    "reviews": "682",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Mozzarella Kosher",
+    "rating": "4.5",
+    "reviews": "669",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Caridad China",
+    "rating": "4.5",
+    "reviews": "653",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Libertador",
+    "rating": "4.5",
+    "reviews": "624",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Guacuco Bed-Stuy",
+    "rating": "4.5",
+    "reviews": "589",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Hibino LIC",
+    "rating": "4.5",
+    "reviews": "580",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Sticky Rice",
+    "rating": "4.5",
+    "reviews": "579",
+    "cuisine": "Japanese",
+    "price": "$$"
+  },
+  {
+    "name": "SKYTOWN",
+    "rating": "4.5",
+    "reviews": "569",
+    "cuisine": "American",
+    "price": "$$"
+  },
+  {
+    "name": "Blackbird's",
+    "rating": "4.5",
+    "reviews": "560",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Ruddy & Dean American Steakhouse",
+    "rating": "4.5",
+    "reviews": "558",
+    "cuisine": "-",
+    "price": "$$$"
+  },
+  {
+    "name": "Korali Estiatorio",
+    "rating": "4.5",
+    "reviews": "534",
+    "cuisine": "-",
+    "price": "$$$"
+  },
+  {
+    "name": "Giuseppina's",
+    "rating": "4.5",
+    "reviews": "532",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "The Brooklyn Tree",
+    "rating": "4.5",
+    "reviews": "513",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Brooklyn DOP",
+    "rating": "4.5",
+    "reviews": "513",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Ashoka Grill",
+    "rating": "4.5",
+    "reviews": "511",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Ida's Nearabout",
+    "rating": "4.5",
+    "reviews": "497",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Cobble Fish",
+    "rating": "4.5",
+    "reviews": "460",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "99Rogers",
+    "rating": "4.5",
+    "reviews": "452",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "TABERU NOMU",
+    "rating": "4.5",
+    "reviews": "442",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Tommaso",
+    "rating": "4.5",
+    "reviews": "382",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Caravaggio",
+    "rating": "4.5",
+    "reviews": "370",
+    "cuisine": "-",
+    "price": "$$$"
+  },
+  {
+    "name": "Bread N Wine",
+    "rating": "4.5",
+    "reviews": "346",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Itto Sushi JC",
+    "rating": "4.5",
+    "reviews": "326",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Rasco's",
+    "rating": "4.5",
+    "reviews": "324",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Tataki Japanese Restaurant",
+    "rating": "4.5",
+    "reviews": "316",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Truth Restaurant Astoria",
+    "rating": "4.5",
+    "reviews": "294",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Plaka",
+    "rating": "4.5",
+    "reviews": "290",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Come Prima",
+    "rating": "4.5",
+    "reviews": "289",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Della Valle",
+    "rating": "4.5",
+    "reviews": "262",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Shashlik Uz N1",
+    "rating": "4.5",
+    "reviews": "259",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "KOBA Korean BBQ",
+    "rating": "4.5",
+    "reviews": "223",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Fulgurances",
+    "rating": "4.5",
+    "reviews": "211",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Hunan Tapas",
+    "rating": "4.5",
+    "reviews": "193",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Lucky Vegetarian",
+    "rating": "4.5",
+    "reviews": "191",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "El Manjar Dominicano",
+    "rating": "4.5",
+    "reviews": "189",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Blue Pearl Seafood Restaurant",
+    "rating": "4.5",
+    "reviews": "171",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "TsuKuShi",
+    "rating": "4.5",
+    "reviews": "161",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Flatbush Thai Corp",
+    "rating": "4.5",
+    "reviews": "160",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "The Steel Mill",
+    "rating": "4.5",
+    "reviews": "156",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Nha Trang Restaurant",
+    "rating": "4.5",
+    "reviews": "144",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Mi Mariachi Restaurant",
+    "rating": "4.5",
+    "reviews": "111",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Mando",
+    "rating": "4.5",
+    "reviews": "106",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Pio Pio 8",
+    "rating": "4.4",
+    "reviews": "5,438",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Connolly's",
+    "rating": "4.4",
+    "reviews": "5,254",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Flor de Mayo Restaurant",
+    "rating": "4.4",
+    "reviews": "3,086",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Sinigual",
+    "rating": "4.4",
+    "reviews": "2,904",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "El Chivito D'Oro",
+    "rating": "4.4",
+    "reviews": "2,152",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Fire and Oak",
+    "rating": "4.4",
+    "reviews": "2,033",
+    "cuisine": "-",
+    "price": "$$$"
+  },
+  {
+    "name": "Sami's Kabab House",
+    "rating": "4.4",
+    "reviews": "2,005",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "The Grey Dog - Union Square",
+    "rating": "4.4",
+    "reviews": "1,836",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "A\u00f1ejo",
+    "rating": "4.4",
+    "reviews": "1,800",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Boeuf & Bun",
+    "rating": "4.4",
+    "reviews": "1,686",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Good Eats",
+    "rating": "4.4",
+    "reviews": "1,640",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Barney Greengrass",
+    "rating": "4.4",
+    "reviews": "1,599",
+    "cuisine": "-",
+    "price": "$$$"
+  },
+  {
+    "name": "Buddy's JC",
+    "rating": "4.4",
+    "reviews": "1,581",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Trinity Place restaurant and bar",
+    "rating": "4.4",
+    "reviews": "1,544",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "DJONDJON",
+    "rating": "4.4",
+    "reviews": "1,517",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Mathews Food and Drink",
+    "rating": "4.4",
+    "reviews": "1,401",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Mis Tierras Colombianas",
+    "rating": "4.4",
+    "reviews": "1,372",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "44 & X Hell's Kitchen",
+    "rating": "4.4",
+    "reviews": "1,338",
+    "cuisine": "-",
+    "price": "$$$"
+  },
+  {
+    "name": "LaoJie",
+    "rating": "4.4",
+    "reviews": "1,293",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Mamazul Mexican Grill",
+    "rating": "4.4",
+    "reviews": "1,278",
+    "cuisine": "-",
+    "price": "$$$"
+  },
+  {
+    "name": "Grill On Lee",
+    "rating": "4.4",
+    "reviews": "1,122",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Madam Ji Ki Shaadi",
+    "rating": "4.4",
+    "reviews": "1,011",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Little Mo",
+    "rating": "4.4",
+    "reviews": "974",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Bajeko Sekuwa",
+    "rating": "4.4",
+    "reviews": "970",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Emir Palace",
+    "rating": "4.4",
+    "reviews": "933",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Shashlik House",
+    "rating": "4.4",
+    "reviews": "915",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Toad Style",
+    "rating": "4.4",
+    "reviews": "910",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Porto Leggero",
+    "rating": "4.4",
+    "reviews": "835",
+    "cuisine": "-",
+    "price": "$$$"
+  },
+  {
+    "name": "Tajin",
+    "rating": "4.4",
+    "reviews": "762",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Barb\u00e8s",
+    "rating": "4.4",
+    "reviews": "746",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Bridie's Grill Room",
+    "rating": "4.4",
+    "reviews": "704",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Northern Soul",
+    "rating": "4.4",
+    "reviews": "639",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "The Full Shilling",
+    "rating": "4.4",
+    "reviews": "612",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Lavender Lake",
+    "rating": "4.4",
+    "reviews": "602",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Laly's Restaurant",
+    "rating": "4.4",
+    "reviews": "591",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Juban Japanese Izakaya",
+    "rating": "4.4",
+    "reviews": "573",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Wei\u2019s - Williamsburg",
+    "rating": "4.4",
+    "reviews": "559",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Asia Glatt Kosher",
+    "rating": "4.4",
+    "reviews": "547",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Los tres Chiflados",
+    "rating": "4.4",
+    "reviews": "507",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Shanghai Zhen Gong Fu",
+    "rating": "4.4",
+    "reviews": "477",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "MaliNee Thai",
+    "rating": "4.4",
+    "reviews": "421",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Tosti",
+    "rating": "4.4",
+    "reviews": "418",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Nara Sushi/Kumo",
+    "rating": "4.4",
+    "reviews": "413",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "COMPTON'S",
+    "rating": "4.4",
+    "reviews": "411",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "La Boh\u00e8me Restaurant",
+    "rating": "4.4",
+    "reviews": "384",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Willie McBride\u2019s",
+    "rating": "4.4",
+    "reviews": "374",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Forno Siciliano",
+    "rating": "4.4",
+    "reviews": "363",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Kabayan Authentic Filipino Cuisine",
+    "rating": "4.4",
+    "reviews": "353",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Vera's",
+    "rating": "4.4",
+    "reviews": "352",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Hardee Chinese & American Cusine",
+    "rating": "4.4",
+    "reviews": "313",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "El Vaquerito",
+    "rating": "4.4",
+    "reviews": "312",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Moon Kee Restaurant",
+    "rating": "4.4",
+    "reviews": "295",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "The Corner Pho",
+    "rating": "4.4",
+    "reviews": "249",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "SOBOKU",
+    "rating": "4.4",
+    "reviews": "248",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Abuela Antonia",
+    "rating": "4.4",
+    "reviews": "238",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "J's Kitchen New York",
+    "rating": "4.4",
+    "reviews": "215",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Hudson Table Hoboken",
+    "rating": "4.4",
+    "reviews": "198",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Ros Niyom Thai Restaurant",
+    "rating": "4.4",
+    "reviews": "197",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Bartolino's - Fine Italian Cuisine",
+    "rating": "4.4",
+    "reviews": "192",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Simple Peruvian - Sunnyside",
+    "rating": "4.4",
+    "reviews": "187",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "African Pride",
+    "rating": "4.4",
+    "reviews": "185",
+    "cuisine": "-",
+    "price": "$$"
+  },
+  {
+    "name": "Khokha",
+    "rating": "4.4",
+    "reviews": "151",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Rob's of Brooklyn \u2013 Sunset Park",
+    "rating": "4.4",
+    "reviews": "148",
+    "cuisine": "-",
+    "price": "-"
+  },
+  {
+    "name": "Pana's Kitchen",
+    "rating": "4.4",
+    "reviews": "109",
+    "cuisine": "-",
+    "price": "$$"
+  }
+]
