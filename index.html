@@ -1275,14 +1275,20 @@ function displayResults(restaurants, noPriceRestaurants) {
     return;
   }
 
-  let html = restaurants.map(r => renderCard(r)).join('');
-
-  if (noPriceRestaurants && noPriceRestaurants.length > 0) {
-    html += `<div class="section-divider">💰 Price not available (${noPriceRestaurants.length})</div>`;
-    html += noPriceRestaurants.map(r => renderCard(r)).join('');
-  }
-
+  const BATCH = 100;
+  let html = restaurants.slice(0, BATCH).map(r => renderCard(r)).join('');
   document.getElementById('list').innerHTML = html;
+
+  if (restaurants.length > BATCH || (noPriceRestaurants && noPriceRestaurants.length > 0)) {
+    setTimeout(() => {
+      let rest = restaurants.slice(BATCH).map(r => renderCard(r)).join('');
+      if (noPriceRestaurants && noPriceRestaurants.length > 0) {
+        rest += `<div class="section-divider">💰 Price not available (${noPriceRestaurants.length})</div>`;
+        rest += noPriceRestaurants.map(r => renderCard(r)).join('');
+      }
+      document.getElementById('list').innerHTML += rest;
+    }, 100);
+  }
 }
 
 function back() {
