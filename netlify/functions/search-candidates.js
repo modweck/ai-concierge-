@@ -804,7 +804,8 @@ exports.handler = async (event) => {
     // BOOKING LOOKUP INJECTION — for All NYC / broad city searches
     // Booking lookup entries are the primary source; Google fills in the gaps.
     // =========================================================================
-    const isAllNYC = (transport === 'all_nyc' || broadCity === true);
+    const isAllNYC = (transport === 'all_nyc' || broadCity === true || broadCity === 'true');
+    console.log(`🔍 DEBUG: transport=${transport}, broadCity=${broadCity}, isAllNYC=${isAllNYC}, BOOKING_KEYS=${BOOKING_KEYS.length}`);
     if (isAllNYC && BOOKING_KEYS.length > 0) {
       const bookingNameSet = new Set();
       for (const bk of BOOKING_KEYS) {
