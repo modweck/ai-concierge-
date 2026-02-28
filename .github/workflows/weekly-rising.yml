@@ -1,0 +1,41 @@
+name: Weekly Rising Restaurants
+
+on:
+  schedule:
+    # Runs every Sunday at 6am EST (11am UTC)
+    - cron: '0 11 * * 0'
+  workflow_dispatch: # allows manual trigger from GitHub UI
+
+jobs:
+  weekly-rising:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Restore previous snapshots
+        uses: actions/cache@v4
+        with:
+          path: snapshots
+          key: rising-snapshots-${{ github.run_number }}
+          restore-keys: |
+            rising-snapshots-
+
+      - name: Run weekly rising script
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        run: node weekly-rising.js
+
+      - name: Commit and push updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add snapshots/ booking_lookup.json netlify/functions/booking_lookup.json new_and_rising.json netlify/functions/new_and_rising.json 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "🔥 Weekly rising restaurant update $(date +%Y-%m-%d)"
+          git push
