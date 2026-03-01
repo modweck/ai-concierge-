@@ -720,7 +720,7 @@ exports.handler = async (event) => {
       console.log(`🗽 Injected ${injected.length} restaurants from booking_lookup`);
 
       // Apply quality filter
-      const { elite, moreOptions, excluded } = applyQualityFilter(injected, qualityMode);
+      const { elite, moreOptions, excluded } = filterRestaurantsByTier(injected, qualityMode);
       console.log(`FILTER ${qualityMode}: Elite(>=4.5):${elite.length} | More:${moreOptions.length} | Excl:${excluded.length}`);
 
       // Compute SeatWize scores
