@@ -122,7 +122,7 @@ function computeSeatWizeScore(r) {
 
   // Review volume bonus/penalty
   const reviewCount = r.googleReviewCount || 0;
-  if (reviewCount >= 500) score += 0.05;
+  // removed: review volume bonus
 
   // Low review penalty (but NOT for new & rising restaurants)
   const isNewRising = r.velocity && r.velocity.growth30 >= 15;
