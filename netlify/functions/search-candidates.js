@@ -90,6 +90,49 @@ function getReviewVelocity(placeId) {
   };
 }
 
+// ── SEATWIZE SCORE ──
+// Blended quality score: Google rating + prestige bonuses
+// Displayed on card instead of raw Google rating
+// Bonuses: 3★ Michelin +0.3, 2★ +0.2, 1★ +0.15, Recommended +0.15,
+//          Bib Gourmand +0.15, Chase/Popular +0.1, Eater+Infatuation +0.05,
+//          500+ reviews +0.05, under 100 reviews -0.1 (not New & Rising)
+function computeSeatWizeScore(r) {
+  let score = r.googleRating || 0;
+  if (score === 0) return 0;
+
+  // Michelin / Bib bonus
+  if (r.michelin) {
+    const stars = r.michelin.stars || 0;
+    const distinction = r.michelin.distinction || '';
+    if (stars >= 3) score += 0.3;
+    else if (stars === 2) score += 0.2;
+    else if (stars === 1) score += 0.15;
+    else if (distinction === 'bib_gourmand') score += 0.15;
+    else score += 0.15; // recommended or other michelin distinction
+  }
+
+  // Chase Sapphire or Popular bonus
+  if (r.chase_sapphire || r._source === 'popular_inject') {
+    score += 0.1;
+  }
+
+  // Eater/Infatuation buzz bonus (check BUZZ_LINKS if available, otherwise skip)
+  // This is applied in the frontend since BUZZ_LINKS lives there
+  // Backend marks it so frontend can add +0.05
+
+  // Review volume bonus/penalty
+  const reviewCount = r.googleReviewCount || 0;
+  if (reviewCount >= 500) score += 0.05;
+
+  // Low review penalty (but NOT for new & rising restaurants)
+  const isNewRising = r.velocity && r.velocity.growth30 >= 15;
+  if (reviewCount < 100 && reviewCount > 0 && !isNewRising) {
+    score -= 0.1;
+  }
+
+  return Math.min(5.0, Math.round(score * 100) / 100);
+}
+
 // ── RESERVATION LIKELIHOOD DATA ──
 let LIKELIHOOD_DATA = {};
 let LIKELIHOOD_TIME_MODS = {};
@@ -552,8 +595,9 @@ exports.handler = async (event) => {
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
       }).filter(r => r.distanceMiles <= 15)
-        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine))
-        .sort((a,b) => (b.michelin?.stars || 0) - (a.michelin?.stars || 0) || (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
+        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
+      within.forEach(r => { r.seatwizeScore = computeSeatWizeScore(r); });
+      within.sort((a,b) => (b.michelin?.stars || 0) - (a.michelin?.stars || 0) || (b.seatwizeScore || 0) - (a.seatwizeScore || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, michelinMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
@@ -575,8 +619,9 @@ exports.handler = async (event) => {
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
       }).filter(r => r.distanceMiles <= 15)
-        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine))
-        .sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
+        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
+      within.forEach(r => { r.seatwizeScore = computeSeatWizeScore(r); });
+      within.sort((a,b) => (b.seatwizeScore || 0) - (a.seatwizeScore || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, bibGourmandMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
@@ -597,8 +642,9 @@ exports.handler = async (event) => {
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           chase_sapphire: true };
       }).filter(r => r.distanceMiles <= 15)
-        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine))
-        .sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
+        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
+      within.forEach(r => { r.seatwizeScore = computeSeatWizeScore(r); });
+      within.sort((a,b) => (b.seatwizeScore || 0) - (a.seatwizeScore || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, chaseSapphireMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
@@ -619,8 +665,9 @@ exports.handler = async (event) => {
           booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
           rakuten: true };
       }).filter(r => r.distanceMiles <= 15)
-        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine))
-        .sort((a,b) => (b.googleRating || 0) - (a.googleRating || 0) || a.distanceMiles - b.distanceMiles);
+        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
+      within.forEach(r => { r.seatwizeScore = computeSeatWizeScore(r); });
+      within.sort((a,b) => (b.seatwizeScore || 0) - (a.seatwizeScore || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, rakutenMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
@@ -675,6 +722,9 @@ exports.handler = async (event) => {
       // Apply quality filter
       const { elite, moreOptions, excluded } = applyQualityFilter(injected, qualityMode);
       console.log(`FILTER ${qualityMode}: Elite(>=4.5):${elite.length} | More:${moreOptions.length} | Excl:${excluded.length}`);
+
+      // Compute SeatWize scores
+      [...elite, ...moreOptions].forEach(r => { r.seatwizeScore = computeSeatWizeScore(r); });
 
       // Detect booking platforms
       detectBookingPlatforms(elite);
@@ -1066,9 +1116,12 @@ exports.handler = async (event) => {
 
     timings.total_ms = Date.now() - t0;
 
+    // Compute SeatWize scores for all visible restaurants
+    [...elite, ...moreOptions].forEach(r => { r.seatwizeScore = computeSeatWizeScore(r); });
+
     const sortFn = (a,b) => {
       if (a.walkMinEstimate !== b.walkMinEstimate) return a.walkMinEstimate - b.walkMinEstimate;
-      if (b.googleRating !== a.googleRating) return b.googleRating - a.googleRating;
+      if ((b.seatwizeScore||0) !== (a.seatwizeScore||0)) return (b.seatwizeScore||0) - (a.seatwizeScore||0);
       if (b.googleReviewCount !== a.googleReviewCount) return b.googleReviewCount - a.googleReviewCount;
       return String(a.name||'').localeCompare(String(b.name||''));
     };
