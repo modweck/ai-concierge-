@@ -214,10 +214,10 @@
           <div>
             <span class="section-label" style="margin-bottom:4px;font-size:10px">⭐ Quality</span>
             <select id="quality" style="padding:8px 10px;font-size:13px">
-              <option value="any" selected>All 4.4+</option>
+              <option value="any" selected>Very Good & Up</option>
+              <option value="great">Great</option>
+              <option value="exceptional">Exceptional</option>
               <option value="michelin">Michelin Stars</option>
-              <option value="bib_gourmand">Bib Gourmand</option>
-              <option value="strict_elite_47">Top Rated 4.7+</option>
               <option value="new_rising">🔥 New & Rising</option>
             </select>
           </div>
@@ -606,18 +606,20 @@ function filterByQuality(restaurants) {
   let filtered = restaurants.filter(r => !isJunkPlace(r));
 
   if (q === 'any') { /* keep all */ }
-  else if (q === 'michelin' || q === 'bib_gourmand' || q === 'new_rising') { /* already filtered by search or client-side */ }
+  else if (q === 'michelin' || q === 'new_rising') { /* already filtered by search or client-side */ }
   else {
     filtered = filtered.filter(r => {
       if (r.michelin) return true;
-      const rating = Number(r.googleRating || 0);
-      if (q === 'strict_elite_47') return rating >= 4.7;
-      if (q === 'elite_45') return rating >= 4.5;
-      if (q === 'recommended_44') return rating >= 4.4;
+      // Use blended score for tier filtering
+      let score = r.seatwizeScore || r.googleRating || 0;
+      const bz = getBuzzLinks(r.name);
+      if (bz && bz.links && bz.links.length > 0) score += 0.05;
+      score = Math.min(5.0, score);
+      if (q === 'exceptional') return score >= 4.8;
+      if (q === 'great') return score >= 4.6;
       return true;
     });
   }
-
   return filtered;
 }
 
@@ -664,15 +666,18 @@ async function search() {
     // =========================================================================
 
     // Determine which backend mode to use
-    // Priority: quality filter (michelin/bib/4.7+/any) determines the search pool
+    // Priority: quality filter determines the search pool
     // Rewards filter (chase/rakuten) narrows results AFTER the search
     let backendQuality = state.qualityFilter;
 
+    // Great and Exceptional use general search, then filter client-side by blended score
+    if (backendQuality === 'great' || backendQuality === 'exceptional') backendQuality = 'any';
+
     // When rewards filter is active AND quality is a general mode,
     // fetch the rewards dataset so we have all partner restaurants
-    if (state.rewardsFilter === 'chase' && (backendQuality === 'any' || backendQuality === 'strict_elite_47' || backendQuality === 'elite_45' || backendQuality === 'recommended_44' || backendQuality === 'new_rising')) {
+    if (state.rewardsFilter === 'chase' && (backendQuality === 'any' || backendQuality === 'new_rising')) {
       backendQuality = 'chase_sapphire';
-    } else if (state.rewardsFilter === 'rakuten' && (backendQuality === 'any' || backendQuality === 'strict_elite_47' || backendQuality === 'elite_45' || backendQuality === 'recommended_44' || backendQuality === 'new_rising')) {
+    } else if (state.rewardsFilter === 'rakuten' && (backendQuality === 'any' || backendQuality === 'new_rising')) {
       backendQuality = 'rakuten';
     }
     // New & Rising uses general search, then filters client-side
@@ -681,8 +686,8 @@ async function search() {
     // Build loading message
     const filterParts = [];
     if (backendQuality === 'michelin') filterParts.push('Michelin');
-    else if (backendQuality === 'bib_gourmand') filterParts.push('Bib Gourmand');
-    else if (backendQuality === 'strict_elite_47') filterParts.push('4.7+');
+    else if (state.qualityFilter === 'great') filterParts.push('Great');
+    else if (state.qualityFilter === 'exceptional') filterParts.push('Exceptional');
     if (state.qualityFilter === 'new_rising') filterParts.push('New & Rising');
     if (state.rewardsFilter === 'chase') filterParts.push('Chase Sapphire');
     if (state.rewardsFilter === 'rakuten') filterParts.push('Rakuten');
@@ -763,7 +768,7 @@ async function search() {
     }
 
     // CLIENT-SIDE TIME FILTER — applies to ALL modes (no silent overrides)
-    const isCuratedMode = (backendQuality === 'michelin' || backendQuality === 'bib_gourmand' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten' || state.qualityFilter === 'new_rising');
+    const isCuratedMode = (backendQuality === 'michelin' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten' || state.qualityFilter === 'new_rising');
     const preFilterCount = allRestaurants.length;
     if (state.transport === 'walk' && maxWalkMinutes) {
       allRestaurants = allRestaurants.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
@@ -781,8 +786,8 @@ async function search() {
     // Build filter description for the header
     const activeFilters = [];
     if (backendQuality === 'michelin') activeFilters.push('⭐ Michelin');
-    else if (backendQuality === 'bib_gourmand') activeFilters.push('🍽️ Bib Gourmand');
-    else if (backendQuality === 'strict_elite_47') activeFilters.push('⭐ 4.7+');
+    else if (state.qualityFilter === 'great') activeFilters.push('⭐ Great');
+    else if (state.qualityFilter === 'exceptional') activeFilters.push('⭐ Exceptional');
     if (state.qualityFilter === 'new_rising') activeFilters.push('🔥 New & Rising');
     if (state.rewardsFilter === 'chase') activeFilters.push('💳 Chase Sapphire');
     if (state.rewardsFilter === 'rakuten') activeFilters.push('🛍️ Rakuten');
@@ -1022,7 +1027,7 @@ function sortResults() {
 
     priced.sort((a, b) => {
       if (a.price_level !== b.price_level) return a.price_level - b.price_level;
-      const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+      const ra = (a.seatwizeScore || a.googleRating || 0), rb = (b.seatwizeScore || b.googleRating || 0);
       if (ra !== rb) return rb - ra;
       const ma = michelinRank(a), mb = michelinRank(b);
       if (ma !== mb) return mb - ma;
@@ -1030,7 +1035,7 @@ function sortResults() {
     });
 
     noPrice.sort((a, b) => {
-      const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+      const ra = (a.seatwizeScore || a.googleRating || 0), rb = (b.seatwizeScore || b.googleRating || 0);
       if (ra !== rb) return rb - ra;
       return (b.googleReviewCount || 0) - (a.googleReviewCount || 0);
     });
@@ -1039,9 +1044,17 @@ function sortResults() {
   } else {
     let sorted = [...filtered];
 
+    // Compute display scores for frontend sorting (adds buzz bonus)
+    sorted.forEach(r => {
+      let s = r.seatwizeScore || r.googleRating || 0;
+      const bz = getBuzzLinks(r.name);
+      if (bz && bz.links && bz.links.length > 0) s += 0.05;
+      r._displayScore = Math.min(5.0, Math.round(s * 100) / 100);
+    });
+
     if (sortBy === 'rating') {
       sorted.sort((a, b) => {
-        const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+        const ra = (a._displayScore || 0), rb = (b._displayScore || 0);
         if (ra !== rb) return rb - ra;
         const ma = michelinRank(a), mb = michelinRank(b);
         if (ma !== mb) return mb - ma;
@@ -1050,13 +1063,13 @@ function sortResults() {
     } else if (sortBy === 'distance') {
       sorted.sort((a, b) => {
         // 4.4+ rated restaurants come first, then lower rated
-        const aHighRated = (a.googleRating || 0) >= 4.4 ? 1 : 0;
-        const bHighRated = (b.googleRating || 0) >= 4.4 ? 1 : 0;
+        const aHighRated = (a._displayScore || 0) >= 4.4 ? 1 : 0;
+        const bHighRated = (b._displayScore || 0) >= 4.4 ? 1 : 0;
         if (aHighRated !== bHighRated) return bHighRated - aHighRated;
         const da = a.distanceMiles ?? 999999;
         const db = b.distanceMiles ?? 999999;
         if (da !== db) return da - db;
-        const ra = (a.googleRating || 0), rb = (b.googleRating || 0);
+        const ra = (a._displayScore || 0), rb = (b._displayScore || 0);
         if (ra !== rb) return rb - ra;
         const ma = michelinRank(a), mb = michelinRank(b);
         if (ma !== mb) return mb - ma;
@@ -1124,11 +1137,19 @@ function renderCard(r) {
   // ── Rating ──
   const rating = (r.googleRating || 0);
   const reviews = (r.googleReviewCount || 0);
+
+  // ── Blended rating shown on card ──
+  let displayScore = r.seatwizeScore || r.googleRating || 0;
+  // Add Eater/Infatuation buzz bonus on frontend (BUZZ_LINKS lives here)
+  const buzz = getBuzzLinks(r.name);
+  if (buzz && buzz.links && buzz.links.length > 0) displayScore += 0.05;
+  displayScore = Math.min(5.0, Math.round(displayScore * 10) / 10);
+
   const reviewsUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' restaurant New York, NY')}`;
-  const ratingHtml = (r.googleRating != null && r.googleRating !== 0)
-    ? `<a href="${reviewsUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:12px;font-weight:600;color:#333;background:#f5f5f5;padding:3px 8px;border-radius:6px;text-decoration:none">⭐ ${Number(rating).toFixed(1)} <span style="color:#aaa;font-weight:400;font-size:11px">(${reviews.toLocaleString()})</span></a>`
+  const ratingHtml = (displayScore != null && displayScore !== 0)
+    ? `<a href="${reviewsUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:12px;font-weight:600;color:#333;background:#f5f5f5;padding:3px 8px;border-radius:6px;text-decoration:none" title="Rating based on Google reviews, critic coverage &amp; editorial selection">⭐ ${Number(displayScore).toFixed(1)} <span style="color:#aaa;font-weight:400;font-size:11px">(${reviews.toLocaleString()})</span></a>`
     : '';
 
   // ── Price ──
