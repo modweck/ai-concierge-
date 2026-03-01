@@ -631,8 +631,6 @@ function filterByQuality(restaurants) {
       if (r.michelin) return true;
       // Use blended score for tier filtering
       let score = r.seatwizeScore || r.googleRating || 0;
-      const bz = getBuzzLinks(r.name);
-      if (bz && bz.links && bz.links.length > 0) score += 0.05;
       score = Math.min(5.0, score);
       if (q === 'exceptional') return score >= 4.8;
       if (q === 'great') return score >= 4.6;
@@ -1114,12 +1112,10 @@ function sortResults() {
   } else {
     let sorted = [...filtered];
 
-    // Compute display scores for frontend sorting (adds buzz bonus)
+    // Compute display scores for frontend sorting
     sorted.forEach(r => {
       let s = r.seatwizeScore || r.googleRating || 0;
-      const bz = getBuzzLinks(r.name);
-      if (bz && bz.links && bz.links.length > 0) s += 0.05;
-      r._displayScore = Math.min(5.0, Math.round(s * 100) / 100);
+      r._displayScore = Math.min(5.0, Math.round(s * 10) / 10);
     });
 
     if (sortBy === 'rating') {
@@ -1210,16 +1206,13 @@ function renderCard(r) {
 
   // ── Blended rating shown on card ──
   let displayScore = r.seatwizeScore || r.googleRating || 0;
-  // Add Eater/Infatuation buzz bonus on frontend (BUZZ_LINKS lives here)
-  const buzz = getBuzzLinks(r.name);
-  if (buzz && buzz.links && buzz.links.length > 0) displayScore += 0.05;
   displayScore = Math.min(5.0, Math.round(displayScore * 10) / 10);
 
   const reviewsUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((r.name || '') + ' restaurant New York, NY')}`;
   const ratingHtml = (displayScore != null && displayScore !== 0)
-    ? `<a href="${reviewsUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:12px;font-weight:600;color:#333;background:#f5f5f5;padding:3px 8px;border-radius:6px;text-decoration:none" title="Rating based on Google reviews, critic coverage &amp; editorial selection">⭐ ${Number(displayScore).toFixed(1)} <span style="color:#aaa;font-weight:400;font-size:11px">(${reviews.toLocaleString()})</span></a>`
+    ? `<a href="${reviewsUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:12px;font-weight:600;color:#333;background:#f5f5f5;padding:3px 8px;border-radius:6px;text-decoration:none" title="Based on Google Reviews &amp; Michelin Guide">⭐ ${Number(displayScore).toFixed(1)} <span style="color:#aaa;font-weight:400;font-size:11px">(${reviews.toLocaleString()})</span> <span style="color:#bbb;font-size:10px;cursor:help" title="Based on Google Reviews &amp; Michelin Guide">ⓘ</span></a>`
     : '';
 
   // ── Price ──

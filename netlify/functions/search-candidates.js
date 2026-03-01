@@ -91,46 +91,21 @@ function getReviewVelocity(placeId) {
 }
 
 // ── SEATWIZE SCORE ──
-// Blended quality score: Google rating + prestige bonuses
-// Displayed on card instead of raw Google rating
-// Bonuses: 3★ Michelin +0.3, 2★ +0.2, 1★ +0.15, Recommended +0.15,
-//          Bib Gourmand +0.15, Chase/Popular +0.1, Eater+Infatuation +0.05,
-//          500+ reviews +0.05, under 100 reviews -0.1 (not New & Rising)
+// Blended quality score: Google rating + Michelin prestige bonus
+// Michelin starred (1-3★): +0.2 | Bib Gourmand / Recommended: +0.1
+// No review count bonuses/penalties — Google already factors volume
 function computeSeatWizeScore(r) {
   let score = r.googleRating || 0;
   if (score === 0) return 0;
 
-  // Michelin / Bib bonus
+  // Michelin bonus only
   if (r.michelin) {
     const stars = r.michelin.stars || 0;
-    const distinction = r.michelin.distinction || '';
-    if (stars >= 3) score += 0.3;
-    else if (stars === 2) score += 0.2;
-    else if (stars === 1) score += 0.15;
-    else if (distinction === 'bib_gourmand') score += 0.15;
-    else score += 0.15; // recommended or other michelin distinction
+    if (stars >= 1) score += 0.2;
+    else score += 0.1; // bib_gourmand or recommended
   }
 
-  // Chase Sapphire or Popular bonus
-  if (r.chase_sapphire || r._source === 'popular_inject') {
-    // removed: chase/popular bonus
-  }
-
-  // Eater/Infatuation buzz bonus (check BUZZ_LINKS if available, otherwise skip)
-  // This is applied in the frontend since BUZZ_LINKS lives there
-  // Backend marks it so frontend can add +0.05
-
-  // Review volume bonus/penalty
-  const reviewCount = r.googleReviewCount || 0;
-  if (reviewCount >= 500) score += 0.05;
-
-  // Low review penalty (but NOT for new & rising restaurants)
-  const isNewRising = r.velocity && r.velocity.growth30 >= 15;
-  if (reviewCount < 150 && reviewCount > 0 && !isNewRising) {
-    score -= 0.1;
-  }
-
-  return Math.min(5.0, Math.round(score * 100) / 100);
+  return Math.min(5.0, Math.round(score * 10) / 10);
 }
 
 // ── RESERVATION LIKELIHOOD DATA ──
@@ -385,26 +360,31 @@ function setCache(key, data) { resultCache.set(key, { data, timestamp: Date.now(
 
 function normalizeQualityMode(q) {
   q = String(q||'any').toLowerCase().trim();
-  if (q === 'recommended_44') return 'recommended_44';
-  if (q === 'elite_45') return 'elite_45';
-  if (q === 'strict_elite_46') return 'strict_elite_46';
-  if (q === 'strict_elite_47') return 'strict_elite_47';
-  if (q === 'five_star') return 'elite_45';
-  if (q === 'top_rated_and_above' || q === 'top_rated') return 'recommended_44';
+  // New tier system: Very Good 4.4+ | Great 4.6+ | Exceptional 4.8+
+  if (q === 'very_good' || q === 'any') return 'very_good';
+  if (q === 'great') return 'great';
+  if (q === 'exceptional') return 'exceptional';
+  // Legacy mappings (keep for backward compat)
+  if (q === 'recommended_44') return 'very_good';
+  if (q === 'elite_45') return 'great';
+  if (q === 'strict_elite_46' || q === 'strict_elite_47') return 'exceptional';
+  if (q === 'five_star') return 'exceptional';
+  if (q === 'top_rated_and_above' || q === 'top_rated') return 'very_good';
+  // Special filters
   if (q === 'michelin') return 'michelin';
   if (q === 'bib_gourmand') return 'bib_gourmand';
   if (q === 'chase_sapphire') return 'chase_sapphire';
   if (q === 'rakuten') return 'rakuten';
-  return 'any';
+  return 'very_good';
 }
 
 function filterRestaurantsByTier(candidates, qualityMode) {
   const elite = [], moreOptions = [], excluded = [];
-  let eliteMin = 4.5, moreMin = 4.4, strict47 = false;
-  if (qualityMode === 'strict_elite_47') { strict47 = true; eliteMin = 4.7; moreMin = 999; }
-  else if (qualityMode === 'strict_elite_46') { eliteMin = 4.6; moreMin = 999; }
-  else if (qualityMode === 'elite_45') { eliteMin = 4.5; moreMin = 4.4; }
-  else if (qualityMode === 'recommended_44') { eliteMin = 4.4; moreMin = 999; }
+  // New tier system: Very Good 4.4+ | Great 4.6+ | Exceptional 4.8+
+  let eliteMin = 4.4, moreMin = 999;
+  if (qualityMode === 'exceptional') { eliteMin = 4.8; moreMin = 999; }
+  else if (qualityMode === 'great') { eliteMin = 4.6; moreMin = 4.4; }
+  else if (qualityMode === 'very_good') { eliteMin = 4.4; moreMin = 999; }
 
   for (const place of candidates) {
     try {
@@ -426,7 +406,7 @@ function filterRestaurantsByTier(candidates, qualityMode) {
       // Everything else needs 25+ reviews
       if (reviews < 25) { excluded.push({ name: place.name, reason: `min_reviews (${reviews})` }); continue; }
       if (rating >= eliteMin) elite.push(place);
-      else if (!strict47 && rating >= moreMin) moreOptions.push(place);
+      else if (rating >= moreMin) moreOptions.push(place);
       else excluded.push({ name: place.name, reason: 'below_threshold' });
     } catch (err) { excluded.push({ name: place?.name, reason: `error: ${err.message}` }); }
   }
