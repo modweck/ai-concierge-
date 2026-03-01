@@ -695,7 +695,7 @@ exports.handler = async (event) => {
           if (!c.includes(cs) && !cs.includes(c)) continue;
         }
 
-        const d = haversine(gLat, gLng, entry.lat, entry.lng);
+        const d = haversineMiles(gLat, gLng, entry.lat, entry.lng);
         injected.push({
           name: key,
           place_id: entry.place_id || null,
