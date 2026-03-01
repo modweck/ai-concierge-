@@ -124,143 +124,182 @@
       <p class="subtitle">Find restaurants you can actually get into</p>
     </div>
 
-    <!-- SEARCH FORM -->
+    <!-- SEARCH FORM — Compact single-card layout -->
     <div id="search">
-
-      <!-- Location -->
-      <div class="section-card">
-        <span class="section-label">📍 Location</span>
-        <div class="location-row">
-          <input type="text" id="addressInput" placeholder="Enter address" value="New York, NY">
-          <button class="icon-btn" onclick="useCurrentLocation()">📍</button>
-          <button class="allnyc-btn" onclick="searchAllNYC()">🗽 All NYC</button>
-        </div>
-      </div>
-
-      <!-- When -->
-      <div class="section-card" style="padding:14px 16px">
-        <span class="section-label" style="margin-bottom:6px">🕐 When</span>
-        <div class="toggle-group">
-          <button class="toggle-btn" style="padding:7px 6px;font-size:12px" onclick="setTimeSlot(event,'early')">🌅 5–6:30</button>
-          <button class="toggle-btn active" style="padding:7px 6px;font-size:12px" onclick="setTimeSlot(event,'prime')">🌆 6:30–8:30</button>
-          <button class="toggle-btn" style="padding:7px 6px;font-size:12px" onclick="setTimeSlot(event,'late')">🌙 8:30–10</button>
-        </div>
-        <div class="date-party-row" style="margin-top:8px">
-          <input type="date" id="dateInput" style="padding:8px 12px;font-size:13px">
-          <div class="party-box" style="padding:8px 12px">
-            <span style="font-size:14px">👥</span>
-            <input type="number" id="party" value="2" min="1" max="20">
-          </div>
-        </div>
-      </div>
-
-      <!-- How Far -->
       <div class="section-card" style="padding:12px 14px">
-        <span class="section-label" style="margin-bottom:6px">🚗 How Far</span>
-        <div class="toggle-group" style="gap:6px">
-          <button class="toggle-btn active" id="walkBtn" onclick="setTransport(event,'walk')">🚶 <span id="walkLabel">20 min</span></button>
-          <button class="toggle-btn" id="driveBtn" onclick="setTransport(event,'drive')">🚗 <span id="driveLabel">15 min</span></button>
-          <button class="toggle-btn" id="radiusBtn" onclick="setTransport(event,'radius')">📍 <span id="radiusLabel">3 mi</span></button>
-        </div>
-        <div id="walkDistance" style="margin-top:8px">
-          <select id="walkTime" onchange="updateTransportLabels()" style="padding:8px 12px;font-size:13px">
-            <option value="10">10 min walk</option>
-            <option value="15">15 min walk</option>
-            <option value="20" selected>20 min walk</option>
-            <option value="30">30 min walk</option>
-          </select>
-        </div>
-        <div id="driveDistance" style="margin-top:8px;display:none">
-          <select id="driveTime" onchange="updateTransportLabels()" style="padding:8px 12px;font-size:13px">
-            <option value="10">10 min drive</option>
-            <option value="15" selected>15 min drive</option>
-            <option value="20">20 min drive</option>
-            <option value="30">30 min drive</option>
-          </select>
-        </div>
-        <div id="radiusDistance" style="margin-top:8px;display:none">
-          <select id="radiusMiles" onchange="updateTransportLabels()" style="padding:8px 12px;font-size:13px">
-            <option value="1">1 mile</option>
-            <option value="2">2 miles</option>
-            <option value="3" selected>3 miles</option>
-            <option value="5">5 miles</option>
-          </select>
-        </div>
-      </div>
 
-      <!-- Filters -->
-      <div class="section-card" style="padding:12px 14px">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-          <div>
-            <span class="section-label" style="margin-bottom:4px;font-size:10px">🍕 Cuisine</span>
-            <select id="cuisine" style="padding:8px 10px;font-size:13px">
-              <option value="any">Any</option>
-              <option value="american">American</option>
-              <option value="barbecue">Barbecue</option>
-              <option value="chinese">Chinese</option>
-              <option value="french">French</option>
-              <option value="greek">Greek</option>
-              <option value="indian">Indian</option>
-              <option value="italian">Italian</option>
-              <option value="japanese">Japanese</option>
-              <option value="korean">Korean</option>
-              <option value="mediterranean">Mediterranean</option>
-              <option value="mexican">Mexican</option>
-              <option value="seafood">Seafood</option>
-              <option value="spanish">Spanish</option>
-              <option value="steakhouse">Steakhouse</option>
-              <option value="sushi">Sushi</option>
-              <option value="thai">Thai</option>
-              <option value="vietnamese">Vietnamese</option>
-            </select>
-          </div>
-          <div>
-            <span class="section-label" style="margin-bottom:4px;font-size:10px">⭐ Quality</span>
-            <select id="quality" style="padding:8px 10px;font-size:13px">
-              <option value="any" selected>Very Good & Up</option>
-              <option value="great">Great</option>
-              <option value="exceptional">Exceptional</option>
-              <option value="michelin">Michelin Stars</option>
-              <option value="new_rising">🔥 New & Rising</option>
-            </select>
+        <!-- Location -->
+        <div style="margin-bottom:10px">
+          <span class="section-label" style="margin-bottom:4px;font-size:10px">📍 Location</span>
+          <div class="location-row">
+            <input type="text" id="addressInput" placeholder="Enter address" value="New York, NY" style="padding:9px 10px;font-size:13px">
+            <button class="icon-btn" onclick="useCurrentLocation()" style="padding:9px;font-size:14px">📍</button>
+            <button class="allnyc-btn" onclick="searchAllNYC()" style="padding:7px 10px;font-size:10px">🗽 All NYC</button>
           </div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
-          <div>
+        <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
+
+        <!-- When -->
+        <div style="margin-bottom:10px">
+          <span class="section-label" style="margin-bottom:4px;font-size:10px">🕐 When</span>
+          <div class="toggle-group" style="gap:4px">
+            <button class="toggle-btn" style="padding:7px 4px;font-size:11px" onclick="setTimeSlot(event,'early')">🌅 5–6:30</button>
+            <button class="toggle-btn active" style="padding:7px 4px;font-size:11px" onclick="setTimeSlot(event,'prime')">🌆 6:30–8:30</button>
+            <button class="toggle-btn" style="padding:7px 4px;font-size:11px" onclick="setTimeSlot(event,'late')">🌙 8:30–10</button>
+          </div>
+          <div class="date-party-row" style="margin-top:5px">
+            <input type="date" id="dateInput" style="padding:7px 8px;font-size:12px">
+            <div class="party-box" style="padding:7px 8px">
+              <span style="font-size:12px">👥</span>
+              <input type="number" id="party" value="2" min="1" max="20" style="width:28px;font-size:13px">
+            </div>
+          </div>
+        </div>
+        <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
+
+        <!-- Cuisine + Quality side-by-side -->
+        <div style="margin-bottom:10px">
+          <div style="display:flex;gap:6px">
+            <div style="flex:1">
+              <span class="section-label" style="margin-bottom:4px;font-size:10px">🍕 Cuisine</span>
+              <select id="cuisine" style="padding:8px 8px;font-size:12px;width:100%">
+                <option value="any">Any</option>
+                <option value="american">American</option>
+                <option value="barbecue">Barbecue</option>
+                <option value="chinese">Chinese</option>
+                <option value="french">French</option>
+                <option value="greek">Greek</option>
+                <option value="indian">Indian</option>
+                <option value="italian">Italian</option>
+                <option value="japanese">Japanese</option>
+                <option value="korean">Korean</option>
+                <option value="mediterranean">Mediterranean</option>
+                <option value="mexican">Mexican</option>
+                <option value="seafood">Seafood</option>
+                <option value="spanish">Spanish</option>
+                <option value="steakhouse">Steakhouse</option>
+                <option value="sushi">Sushi</option>
+                <option value="thai">Thai</option>
+                <option value="vietnamese">Vietnamese</option>
+              </select>
+            </div>
+            <div style="flex:1">
+              <span class="section-label" style="margin-bottom:4px;font-size:10px">⭐ Quality</span>
+              <select id="quality" style="padding:8px 8px;font-size:12px;width:100%">
+                <option value="any" selected>Very Good & Up</option>
+                <option value="great">Great</option>
+                <option value="exceptional">Exceptional</option>
+                <option value="michelin">Michelin Stars</option>
+                <option value="new_rising">🔥 New & Rising</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
+
+        <!-- Vibe (multi-select) -->
+        <div style="margin-bottom:10px">
+          <span class="section-label" style="margin-bottom:4px;font-size:10px">✨ Vibe</span>
+          <div style="display:flex;flex-wrap:wrap;gap:4px">
+            <button class="chip chip-sm" id="vibe-trendy" onclick="toggleVibeChip('trendy')">🔥 Trendy</button>
+            <button class="chip chip-sm" id="vibe-date_night" onclick="toggleVibeChip('date_night')">🕯️ Date Night</button>
+            <button class="chip chip-sm" id="vibe-foodie" onclick="toggleVibeChip('foodie')">👨‍🍳 Foodie</button>
+            <button class="chip chip-sm" id="vibe-upscale" onclick="toggleVibeChip('upscale')">💎 Upscale</button>
+            <button class="chip chip-sm" id="vibe-chill" onclick="toggleVibeChip('chill')">😎 Chill</button>
+            <button class="chip chip-sm" id="vibe-lively" onclick="toggleVibeChip('lively')">🎉 Lively</button>
+          </div>
+        </div>
+        <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
+
+        <!-- Availability + How Far side-by-side -->
+        <div>
+          <div style="display:flex;gap:6px">
+            <div style="flex:1">
+              <span class="section-label" style="margin-bottom:4px;font-size:10px">📅 Availability</span>
+              <div style="display:flex;gap:4px">
+                <button id="availHard" onclick="toggleAvailChip('hard')" style="flex:1;padding:7px 2px;border:1.5px solid #ef4444;border-radius:8px;background:#fef2f2;color:#b91c1c;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🔴</button>
+                <button id="availMedium" onclick="toggleAvailChip('medium')" style="flex:1;padding:7px 2px;border:1.5px solid #f59e0b;border-radius:8px;background:#fffbeb;color:#b45309;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟡</button>
+                <button id="availEasy" onclick="toggleAvailChip('easy')" style="flex:1;padding:7px 2px;border:1.5px solid #22c55e;border-radius:8px;background:#f0fdf4;color:#15803d;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟢</button>
+              </div>
+            </div>
+            <div style="flex:1">
+              <span class="section-label" style="margin-bottom:4px;font-size:10px">🚗 How Far</span>
+              <div class="toggle-group" style="gap:4px">
+                <button class="toggle-btn active" id="walkBtn" onclick="setTransport(event,'walk')" style="padding:7px 2px;font-size:11px">🚶 <span id="walkLabel">20m</span></button>
+                <button class="toggle-btn" id="driveBtn" onclick="setTransport(event,'drive')" style="padding:7px 2px;font-size:11px">🚗 <span id="driveLabel">15m</span></button>
+                <button class="toggle-btn" id="radiusBtn" onclick="setTransport(event,'radius')" style="padding:7px 2px;font-size:11px">📍 <span id="radiusLabel">3mi</span></button>
+              </div>
+              <div id="walkDistance" style="margin-top:4px;max-height:34px;overflow:hidden;transition:max-height 0.25s ease,opacity 0.2s ease;opacity:1">
+                <select id="walkTime" onchange="updateTransportLabels()" style="padding:6px 8px;font-size:11px;width:100%">
+                  <option value="10">10 min walk</option>
+                  <option value="15">15 min walk</option>
+                  <option value="20" selected>20 min walk</option>
+                  <option value="30">30 min walk</option>
+                </select>
+              </div>
+              <div id="driveDistance" style="margin-top:4px;max-height:0;overflow:hidden;transition:max-height 0.25s ease,opacity 0.2s ease;opacity:0">
+                <select id="driveTime" onchange="updateTransportLabels()" style="padding:6px 8px;font-size:11px;width:100%">
+                  <option value="10">10 min drive</option>
+                  <option value="15" selected>15 min drive</option>
+                  <option value="20">20 min drive</option>
+                  <option value="30">30 min drive</option>
+                </select>
+              </div>
+              <div id="radiusDistance" style="margin-top:4px;max-height:0;overflow:hidden;transition:max-height 0.25s ease,opacity 0.2s ease;opacity:0">
+                <select id="radiusMiles" onchange="updateTransportLabels()" style="padding:6px 8px;font-size:11px;width:100%">
+                  <option value="1">1 mile</option>
+                  <option value="2">2 miles</option>
+                  <option value="3" selected>3 miles</option>
+                  <option value="5">5 miles</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end single search card -->
+
+      <!-- Search Button -->
+      <button class="search-btn" id="searchBtn" onclick="search()" style="margin-top:6px">🔍 Find Restaurants</button>
+
+      <!-- More Filters toggle -->
+      <div onclick="toggleMoreFilters()" style="text-align:center;padding:8px 12px 2px;font-size:12px;font-weight:700;color:#FF5722;cursor:pointer;user-select:none" id="moreFiltersToggle">
+        💰 More Filters <span id="moreFiltersArrow" style="display:inline-block;transition:transform 0.3s;font-size:10px;margin-left:2px">▾</span>
+      </div>
+      <div id="moreFiltersPanel" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;margin:0 16px">
+        <div style="background:white;border-radius:14px;padding:12px 14px;border:1px solid #f0f0f0;box-shadow:0 2px 8px rgba(0,0,0,0.04);margin-top:4px">
+          <!-- Price -->
+          <div style="margin-bottom:10px">
+            <span class="section-label" style="margin-bottom:4px;font-size:10px">💰 Price</span>
+            <div style="display:flex;gap:4px">
+              <button class="chip chip-sm price-chip" onclick="togglePriceChip(this,1)" data-price="1" style="flex:1;text-align:center">$</button>
+              <button class="chip chip-sm price-chip" onclick="togglePriceChip(this,2)" data-price="2" style="flex:1;text-align:center">$$</button>
+              <button class="chip chip-sm price-chip" onclick="togglePriceChip(this,3)" data-price="3" style="flex:1;text-align:center">$$$</button>
+              <button class="chip chip-sm price-chip" onclick="togglePriceChip(this,4)" data-price="4" style="flex:1;text-align:center">$$$$</button>
+            </div>
+          </div>
+          <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
+          <!-- Rewards -->
+          <div style="margin-bottom:10px">
             <span class="section-label" style="margin-bottom:4px;font-size:10px">🎁 Rewards</span>
-            <select id="rewards" onchange="setRewards(this.value)" style="padding:8px 10px;font-size:13px">
+            <select id="rewards" onchange="setRewards(this.value)" style="padding:8px 8px;font-size:12px;width:100%">
               <option value="any">Any</option>
               <option value="chase">💳 Chase Sapphire</option>
               <option value="rakuten">🛍️ Rakuten</option>
             </select>
           </div>
+          <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
+          <!-- Buzz -->
           <div>
-            <span class="section-label" style="margin-bottom:4px;font-size:10px">📅 Availability</span>
-            <div style="display:flex;gap:5px;margin-top:4px">
-              <button id="availHard" onclick="toggleAvailChip('hard')" style="flex:1;padding:8px 4px;border:1.5px solid #ef4444;border-radius:8px;background:#fef2f2;color:#b91c1c;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s">🔴 Hard</button>
-              <button id="availMedium" onclick="toggleAvailChip('medium')" style="flex:1;padding:8px 4px;border:1.5px solid #f59e0b;border-radius:8px;background:#fffbeb;color:#b45309;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s">🟡 Med</button>
-              <button id="availEasy" onclick="toggleAvailChip('easy')" style="flex:1;padding:8px 4px;border:1.5px solid #22c55e;border-radius:8px;background:#f0fdf4;color:#15803d;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s">🟢 Easy</button>
+            <span class="section-label" style="margin-bottom:4px;font-size:10px">🔥 Buzz</span>
+            <div style="display:flex;gap:6px;align-items:center">
+              <button id="buzzToggle" onclick="toggleBuzzFilter()" style="flex:1;padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;background:white;cursor:pointer;font-size:12px;font-weight:600;color:#666;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🔥 Editorial Coverage</button>
             </div>
+            <div style="margin-top:4px;font-size:10px;color:#aaa">Only show restaurants featured in Eater, NYT, Infatuation, etc.</div>
           </div>
         </div>
       </div>
 
-
-      <!-- Vibe Filter -->
-      <div class="section-card" style="padding:12px 14px">
-        <span class="section-label" style="margin-bottom:6px">✨ Vibe</span>
-        <div style="display:flex;flex-wrap:wrap;gap:6px">
-          <button class="chip" id="vibe-trendy" onclick="toggleVibeChip('trendy')">🔥 Trendy</button>
-          <button class="chip" id="vibe-date_night" onclick="toggleVibeChip('date_night')">🕯️ Date Night</button>
-          <button class="chip" id="vibe-foodie" onclick="toggleVibeChip('foodie')">👨‍🍳 Foodie</button>
-          <button class="chip" id="vibe-upscale" onclick="toggleVibeChip('upscale')">💎 Upscale</button>
-          <button class="chip" id="vibe-chill" onclick="toggleVibeChip('chill')">😎 Chill</button>
-          <button class="chip" id="vibe-lively" onclick="toggleVibeChip('lively')">🎉 Lively</button>
-        </div>
-      </div>
-
-      <!-- Search Button -->
-      <button class="search-btn" id="searchBtn" onclick="search()">🔍 Find Restaurants</button>
       <div style="height:24px"></div>
     </div>
 
@@ -286,7 +325,7 @@
   </div>
 
 <script>
-let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating', availFilter: { hard: true, medium: true, easy: true }, timeSlot: 'prime', vibeFilter: null };
+let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating', availFilter: { hard: true, medium: true, easy: true }, timeSlot: 'prime', vibeFilter: new Set(), priceFilter: new Set(), buzzFilter: false };
 let allRestaurants = [];
 let isSearching = false;
 let searchAbortController = null;
@@ -563,10 +602,10 @@ function useCurrentLocation() {
 }
 
 function updateTransportLabels() {
-  document.getElementById('walkLabel').textContent = document.getElementById('walkTime').value + ' min';
-  document.getElementById('driveLabel').textContent = document.getElementById('driveTime').value + ' min';
+  document.getElementById('walkLabel').textContent = document.getElementById('walkTime').value + 'm';
+  document.getElementById('driveLabel').textContent = document.getElementById('driveTime').value + 'm';
   const mi = document.getElementById('radiusMiles').value;
-  document.getElementById('radiusLabel').textContent = mi + ' mi';
+  document.getElementById('radiusLabel').textContent = mi + 'mi';
 }
 
 function setTransport(evt, mode) {
@@ -575,9 +614,20 @@ function setTransport(evt, mode) {
   parentDiv.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
   evt.target.closest('.toggle-btn').classList.add('active');
 
-  document.getElementById('walkDistance').style.display = mode === 'walk' ? 'block' : 'none';
-  document.getElementById('driveDistance').style.display = mode === 'drive' ? 'block' : 'none';
-  document.getElementById('radiusDistance').style.display = mode === 'radius' ? 'block' : 'none';
+  // Slide dropdowns in/out
+  const walkDist = document.getElementById('walkDistance');
+  const driveDist = document.getElementById('driveDistance');
+  const radiusDist = document.getElementById('radiusDistance');
+  
+  [walkDist, driveDist, radiusDist].forEach(el => {
+    el.style.maxHeight = '0';
+    el.style.opacity = '0';
+  });
+  
+  if (mode === 'walk') { walkDist.style.maxHeight = '34px'; walkDist.style.opacity = '1'; }
+  else if (mode === 'drive') { driveDist.style.maxHeight = '34px'; driveDist.style.opacity = '1'; }
+  else if (mode === 'radius') { radiusDist.style.maxHeight = '34px'; radiusDist.style.opacity = '1'; }
+  
   updateTransportLabels();
 }
 
@@ -644,15 +694,13 @@ function filterByQuality(restaurants) {
 }
 
 
-// --- Vibe filter ---
+// --- Vibe filter (MULTI-SELECT, OR logic) ---
 function toggleVibeChip(vibe) {
-  if (state.vibeFilter === vibe) {
-    state.vibeFilter = null;
+  if (state.vibeFilter.has(vibe)) {
+    state.vibeFilter.delete(vibe);
     document.getElementById('vibe-' + vibe).classList.remove('active');
   } else {
-    // Deactivate previous
-    if (state.vibeFilter) document.getElementById('vibe-' + state.vibeFilter).classList.remove('active');
-    state.vibeFilter = vibe;
+    state.vibeFilter.add(vibe);
     document.getElementById('vibe-' + vibe).classList.add('active');
   }
   if (allRestaurants.length > 0) sortResults();
@@ -675,10 +723,14 @@ function getVibes(name) {
 }
 
 function filterByVibe(restaurants) {
-  if (!state.vibeFilter) return restaurants;
+  if (!state.vibeFilter.size) return restaurants;
   return restaurants.filter(r => {
     const vibes = getVibes(r.name);
-    return vibes.includes(state.vibeFilter);
+    // OR logic: match if restaurant has ANY of the selected vibes
+    for (const v of state.vibeFilter) {
+      if (vibes.includes(v)) return true;
+    }
+    return false;
   });
 }
 
@@ -690,6 +742,65 @@ function getVibeEmoji(vibe) {
 function getVibeName(vibe) {
   const map = { trendy: 'Trendy', date_night: 'Date Night', foodie: 'Foodie', upscale: 'Upscale', chill: 'Chill', lively: 'Lively' };
   return map[vibe] || vibe;
+}
+
+// --- More Filters panel ---
+function toggleMoreFilters() {
+  const panel = document.getElementById('moreFiltersPanel');
+  const arrow = document.getElementById('moreFiltersArrow');
+  if (panel.style.maxHeight && panel.style.maxHeight !== '0px') {
+    panel.style.maxHeight = '0';
+    arrow.style.transform = 'rotate(0deg)';
+  } else {
+    panel.style.maxHeight = '300px';
+    arrow.style.transform = 'rotate(180deg)';
+  }
+}
+
+// --- Price filter (multi-select) ---
+function togglePriceChip(btn, level) {
+  if (state.priceFilter.has(level)) {
+    state.priceFilter.delete(level);
+    btn.classList.remove('active');
+  } else {
+    state.priceFilter.add(level);
+    btn.classList.add('active');
+  }
+  if (allRestaurants.length > 0) sortResults();
+}
+
+function filterByPrice(restaurants) {
+  if (!state.priceFilter.size) return restaurants;
+  return restaurants.filter(r => {
+    if (!hasPrice(r)) return true; // show restaurants with no price data
+    return state.priceFilter.has(r.price_level);
+  });
+}
+
+// --- Buzz filter ---
+function toggleBuzzFilter() {
+  state.buzzFilter = !state.buzzFilter;
+  const btn = document.getElementById('buzzToggle');
+  if (state.buzzFilter) {
+    btn.style.background = '#FFF3E0';
+    btn.style.color = '#E64A19';
+    btn.style.borderColor = '#FF5722';
+    btn.style.fontWeight = '700';
+  } else {
+    btn.style.background = 'white';
+    btn.style.color = '#666';
+    btn.style.borderColor = '#e8e8e8';
+    btn.style.fontWeight = '600';
+  }
+  if (allRestaurants.length > 0) sortResults();
+}
+
+function filterByBuzz(restaurants) {
+  if (!state.buzzFilter) return restaurants;
+  return restaurants.filter(r => {
+    const buzz = getBuzzLinks(r.name);
+    return buzz && buzz.links && buzz.links.length > 0;
+  });
 }
 
 async function search() {
@@ -861,7 +972,11 @@ async function search() {
     if (state.rewardsFilter === 'chase') activeFilters.push('💳 Chase Sapphire');
     if (state.rewardsFilter === 'rakuten') activeFilters.push('🛍️ Rakuten');
     if (cuisine !== 'any') activeFilters.push('🍕 ' + cuisine.charAt(0).toUpperCase() + cuisine.slice(1));
-    if (state.vibeFilter) activeFilters.push(getVibeEmoji(state.vibeFilter) + ' ' + getVibeName(state.vibeFilter));
+    if (state.vibeFilter.size) {
+      for (const v of state.vibeFilter) {
+        activeFilters.push(getVibeEmoji(v) + ' ' + getVibeName(v));
+      }
+    }
     if (state.transport === 'walk' && maxWalkMinutes) activeFilters.push('🚶 ' + maxWalkMinutes + ' min walk');
     else if (state.transport === 'drive' && maxDriveMinutes) activeFilters.push('🚗 ' + maxDriveMinutes + ' min drive');
     else if (state.transport === 'radius' && maxRadiusMiles) activeFilters.push('📍 ' + maxRadiusMiles + ' mi radius');
@@ -1087,6 +1202,8 @@ function sortResults() {
   let filtered = filterByQuality(allRestaurants);
   filtered = filterByAvailability(filtered);
   filtered = filterByVibe(filtered);
+  filtered = filterByPrice(filtered);
+  filtered = filterByBuzz(filtered);
 
   const sortBy = state.sortBy || 'rating';
   // Sync dropdown to match state
@@ -1240,7 +1357,7 @@ function renderCard(r) {
   // ── Deposit ──
   let depositHtml = '';
   const needsDeposit = r.deposit_type === 'deposit' || r.deposit_type === 'prepay' || r.deposit_type === 'cc_hold' || isDepositRestaurant(r.name);
-  if (needsDeposit) depositHtml = `<span style="font-size:11px;font-weight:600;color:#b91c1c;background:#fef2f2;padding:2px 8px;border-radius:6px;border:1px solid #fca5a5">💳 Prepay</span>`;
+  if (needsDeposit) depositHtml = `<span style="font-size:11px;font-weight:600;color:#b91c1c;background:#fef2f2;padding:2px 8px;border-radius:6px;border:1px solid #fca5a5">💳 Deposit</span>`;
 
   // ── Availability ──
   let availHtml = '';
