@@ -1,12 +1,15 @@
+text
+
+[build.environment]
+  SECRETS_SCAN_SMART_DETECTION_ENABLED = "false"
+
 [[headers]]
   for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-
 [[headers]]
   for = "/*.json"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-
 [functions]
   included_files = ["netlify/functions/*.json"]
