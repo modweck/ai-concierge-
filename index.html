@@ -629,6 +629,9 @@ function filterByQuality(restaurants) {
   else {
     filtered = filtered.filter(r => {
       if (r.michelin) return true;
+      // Buzz restaurants bypass quality filter
+      const bz = getBuzzLinks(r.name);
+      if (bz && bz.links && bz.links.length > 0) return true;
       // Use blended score for tier filtering
       let score = r.seatwizeScore || r.googleRating || 0;
       score = Math.min(5.0, score);
@@ -1115,7 +1118,13 @@ function sortResults() {
     // Compute display scores for frontend sorting
     sorted.forEach(r => {
       let s = r.seatwizeScore || r.googleRating || 0;
-      r._displayScore = Math.min(5.0, Math.round(s * 10) / 10);
+      s = Math.min(5.0, Math.round(s * 10) / 10);
+      // Buzz restaurants get a 4.4 floor
+      const bz = getBuzzLinks(r.name);
+      if (bz && bz.links && bz.links.length > 0 && s < 4.4) s = 4.4;
+      // Michelin/Bib floor
+      if (r.michelin && s < 4.4) s = 4.4;
+      r._displayScore = s;
     });
 
     if (sortBy === 'rating') {
@@ -1207,6 +1216,11 @@ function renderCard(r) {
   // ── Blended rating shown on card ──
   let displayScore = r.seatwizeScore || r.googleRating || 0;
   displayScore = Math.min(5.0, Math.round(displayScore * 10) / 10);
+  // Buzz restaurants get a 4.4 floor
+  const buzzData = getBuzzLinks(r.name);
+  if (buzzData && buzzData.links && buzzData.links.length > 0 && displayScore < 4.4) displayScore = 4.4;
+  // Michelin/Bib never below 4.4
+  if (r.michelin && displayScore < 4.4) displayScore = 4.4;
 
   const reviewsUrl = r.place_id
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name || '')}&query_place_id=${r.place_id}`

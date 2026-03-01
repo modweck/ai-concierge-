@@ -105,7 +105,12 @@ function computeSeatWizeScore(r) {
     else score += 0.1; // bib_gourmand or recommended
   }
 
-  return Math.min(5.0, Math.round(score * 10) / 10);
+  score = Math.min(5.0, Math.round(score * 10) / 10);
+
+  // Floor: Michelin/Bib never drop below 4.4
+  if (r.michelin && score < 4.4) score = 4.4;
+
+  return score;
 }
 
 // ── RESERVATION LIKELIHOOD DATA ──
