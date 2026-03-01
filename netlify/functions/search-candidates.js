@@ -113,7 +113,7 @@ function computeSeatWizeScore(r) {
 
   // Chase Sapphire or Popular bonus
   if (r.chase_sapphire || r._source === 'popular_inject') {
-    score += 0.1;
+    // removed: chase/popular bonus
   }
 
   // Eater/Infatuation buzz bonus (check BUZZ_LINKS if available, otherwise skip)
@@ -126,7 +126,7 @@ function computeSeatWizeScore(r) {
 
   // Low review penalty (but NOT for new & rising restaurants)
   const isNewRising = r.velocity && r.velocity.growth30 >= 15;
-  if (reviewCount < 100 && reviewCount > 0 && !isNewRising) {
+  if (reviewCount < 150 && reviewCount > 0 && !isNewRising) {
     score -= 0.1;
   }
 
