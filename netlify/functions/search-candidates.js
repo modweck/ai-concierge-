@@ -106,9 +106,9 @@ function computeSeatWizeScore(r) {
     const distinction = r.michelin.distinction || '';
     if (stars >= 3) score += 0.3;
     else if (stars === 2) score += 0.2;
-    else if (stars === 1) score += 0.15;
-    else if (distinction === 'bib_gourmand') score += 0.15;
-    else score += 0.15; // recommended or other michelin distinction
+    else if (stars === 1) score += 0.1;
+    else if (distinction === 'bib_gourmand') score += 0.1;
+    else score += 0.1; // recommended or other michelin distinction
   }
 
   // Chase Sapphire or Popular bonus
