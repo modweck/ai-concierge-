@@ -1,13 +1,29 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
 [build.environment]
   SECRETS_SCAN_SMART_DETECTION_ENABLED = "false"
+
+[functions]
+  included_files = [
+    "netlify/functions/*.json"
+  ]
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
 
 [[headers]]
   for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
 [[headers]]
   for = "/*.json"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-[functions]
-  included_files = ["netlify/functions/*.json"]
+
+[dev]
+  functions = "netlify/functions"
