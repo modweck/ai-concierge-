@@ -1103,9 +1103,7 @@ async function search() {
         (r.booking_platform || '').toLowerCase() === 'bilt' || r.bilt === true
       );
     } else if (state.rewardsFilter === 'inkind') {
-      allRestaurants = allRestaurants.filter(r =>
-        (r.booking_platform || '').toLowerCase() === 'inkind' || r.inkind === true
-      );
+      allRestaurants = allRestaurants.filter(r => r.inkind === true);
     }
 
     // CLIENT-SIDE NEW & RISING FILTER
