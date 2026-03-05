@@ -307,6 +307,8 @@
               <option value="any">Any</option>
               <option value="chase">💳 Chase Sapphire</option>
               <option value="rakuten">🛍️ Rakuten</option>
+              <option value="bilt">🏠 Bilt Rewards</option>
+              <option value="inkind">🍽️ inKind</option>
             </select>
           </div>
           <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
@@ -700,6 +702,19 @@ function isRakutenRestaurant(name) {
   return false;
 }
 
+function isBiltRestaurant(name) {
+  if (!name) return false;
+  const n = (name || '').toLowerCase().trim();
+  // Match by booking_platform field (set in BOOKING_MASTER)
+  return false; // will be matched via r.bilt field from backend
+}
+
+function isInKindRestaurant(name) {
+  if (!name) return false;
+  const n = (name || '').toLowerCase().trim();
+  return false; // will be matched via r.inkind field from backend
+}
+
 function getBuzzLinks(name) {
   if (!name) return null;
   const n = name.trim();
@@ -1012,6 +1027,8 @@ async function search() {
     if (state.qualityFilter === 'new_rising') filterParts.push('New & Rising');
     if (state.rewardsFilter === 'chase') filterParts.push('Chase Sapphire');
     if (state.rewardsFilter === 'rakuten') filterParts.push('Rakuten');
+    if (state.rewardsFilter === 'bilt') filterParts.push('Bilt Rewards');
+    if (state.rewardsFilter === 'inkind') filterParts.push('inKind');
     const loadingLabel = filterParts.length ? filterParts.join(' + ') : '';
 
     state.sortBy = 'rating';
@@ -1081,6 +1098,14 @@ async function search() {
       allRestaurants = allRestaurants.filter(r =>
         r.rakuten === true || isRakutenRestaurant(r.name)
       );
+    } else if (state.rewardsFilter === 'bilt') {
+      allRestaurants = allRestaurants.filter(r =>
+        (r.booking_platform || '').toLowerCase() === 'bilt' || r.bilt === true
+      );
+    } else if (state.rewardsFilter === 'inkind') {
+      allRestaurants = allRestaurants.filter(r =>
+        (r.booking_platform || '').toLowerCase() === 'inkind' || r.inkind === true
+      );
     }
 
     // CLIENT-SIDE NEW & RISING FILTER
@@ -1089,7 +1114,7 @@ async function search() {
     }
 
     // CLIENT-SIDE TIME FILTER — applies to ALL modes (no silent overrides)
-    const isCuratedMode = (backendQuality === 'michelin' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten' || state.qualityFilter === 'new_rising');
+    const isCuratedMode = (backendQuality === 'michelin' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten' || state.rewardsFilter === 'bilt' || state.rewardsFilter === 'inkind' || state.qualityFilter === 'new_rising');
     const preFilterCount = allRestaurants.length;
     if (state.transport === 'walk' && maxWalkMinutes) {
       allRestaurants = allRestaurants.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
@@ -1112,6 +1137,8 @@ async function search() {
     if (state.qualityFilter === 'new_rising') activeFilters.push('🔥 New & Rising');
     if (state.rewardsFilter === 'chase') activeFilters.push('💳 Chase Sapphire');
     if (state.rewardsFilter === 'rakuten') activeFilters.push('🛍️ Rakuten');
+    if (state.rewardsFilter === 'bilt') activeFilters.push('🏠 Bilt Rewards');
+    if (state.rewardsFilter === 'inkind') activeFilters.push('🍽️ inKind');
     if (cuisine !== 'any') activeFilters.push('🍕 ' + cuisine.charAt(0).toUpperCase() + cuisine.slice(1));
     if (state.vibeFilter.size) {
       for (const v of state.vibeFilter) {
@@ -1306,9 +1333,8 @@ function isNewAndRising(r) {
   if (types.includes('meal_delivery') || types.includes('meal_takeaway') || types.includes('bakery') || types.includes('cafe')) return false;
 
   // QUALITY SIGNAL: must have a real booking platform OR editorial recognition
-  // Includes Website and Bilt alongside Resy/OpenTable/Tock — all are real restaurants
-  const VALID_PLATFORMS = new Set(['resy','opentable','tock','website','bilt','google','google reserve']);
-  const hasBooking = r.booking_platform && VALID_PLATFORMS.has(r.booking_platform.toLowerCase());
+  // Removed the cuisine+4.9 loophole — too many generic spots were slipping through
+  const hasBooking = r.booking_platform && ['resy','opentable','tock'].includes(r.booking_platform);
   const hasBuzz = !!(getBuzzLinks(name)?.links?.length);
   const isMichelin = !!r.michelin;
   const isPopular = POPULAR_SET && POPULAR_SET.has && POPULAR_SET.has(nameLower);
@@ -1493,6 +1519,8 @@ function renderCard(r) {
   const risingHtml = isNewAndRising(r) ? `<span class="rising-badge">🔥 Rising</span>` : '';
   const chaseHtml = (state.rewardsFilter === 'chase' && isChaseRestaurant(r.name)) ? `<span style="background:#1a3c6e;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px">💳 Chase</span>` : '';
   const rakutenHtml = (state.rewardsFilter === 'rakuten' || isRakutenRestaurant(r.name)) ? `<a href="https://www.rakuten.com/dining" target="_blank" rel="noopener" style="background:#bf0000;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;text-decoration:none">🛍️ Rakuten</a>` : '';
+  const biltHtml = (state.rewardsFilter === 'bilt' && ((r.booking_platform||'').toLowerCase() === 'bilt' || r.bilt)) ? `<span style="background:#1a1a2e;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px">🏠 Bilt</span>` : '';
+  const inkindHtml = (state.rewardsFilter === 'inkind' && ((r.booking_platform||'').toLowerCase() === 'inkind' || r.inkind)) ? `<span style="background:#ff6b35;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px">🍽️ inKind</span>` : '';
 
   // ── Deposit ──
   let depositHtml = '';
