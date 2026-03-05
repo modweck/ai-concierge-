@@ -1267,10 +1267,13 @@ exports.handler = async (event) => {
     const cuisineStr = (cuisine && String(cuisine).toLowerCase().trim() !== 'any') ? cuisine : null;
     const isAllNYC = (transport === 'all_nyc' || broadCity === true || broadCity === 'true');
 
-    if (isAllNYC && BOOKING_KEYS.length > 0) {
-      console.log(`🗽 ALL NYC MODE — skipping Google API, using ${BOOKING_KEYS.length} booking_lookup entries`);
+    // Use MASTER_BOOK as the source for All NYC — it has 8,400+ entries vs booking_lookup's ~3,500
+    const allNycSource = MASTER_KEYS.length > 0 ? MASTER_BOOK : BOOKING_LOOKUP;
+    const allNycKeys = MASTER_KEYS.length > 0 ? MASTER_KEYS : BOOKING_KEYS;
+    if (isAllNYC && allNycKeys.length > 0) {
+      console.log(`🗽 ALL NYC MODE — using ${allNycKeys.length} master book entries`);
       const injected = [];
-      for (const [key, entry] of Object.entries(BOOKING_LOOKUP)) {
+      for (const [key, entry] of Object.entries(allNycSource)) {
         if (!entry.lat || !entry.lng) continue;
 
         // Cuisine filter
@@ -1293,15 +1296,24 @@ exports.handler = async (event) => {
           price_level: entry.price || null,
           opening_hours: null,
           geometry: { location: { lat: entry.lat, lng: entry.lng } },
-          types: ['restaurant'],
-          booking_platform: entry.platform,
-          booking_url: entry.url,
+          types: ["restaurant"],
+          booking_platform: entry.platform || entry.booking_platform || null,
+          booking_url: entry.url || entry.booking_url || null,
           distanceMiles: Math.round(d*10)/10,
           walkMinEstimate: Math.round(d*20),
           driveMinEstimate: Math.round(d*4),
           transitMinEstimate: Math.round(d*6),
           googleRating: entry.google_rating || 0,
           googleReviewCount: entry.google_reviews || 0,
+          michelin: entry.michelin || null,
+          bib_gourmand: entry.bib_gourmand || null,
+          chase_sapphire: entry.chase_sapphire || null,
+          rakuten: entry.rakuten || null,
+          vibe_tags: entry.vibe_tags || [],
+          cuisine: entry.cuisine || CUISINE_LOOKUP[key] || null,
+          instagram: entry.instagram || null,
+          availability_tier: entry.availability_tier || null,
+          _source: "master_book",
         });
       }
       console.log(`🗽 Injected ${injected.length} restaurants from booking_lookup`);
