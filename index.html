@@ -1499,7 +1499,8 @@ function renderCard(r) {
   // ── Availability ──
   let availHtml = '';
   const availTier = getAvailTier(r.name, r.place_id);
-  const hasOutlook = OUTLOOK_DATA[(r.name || '').toLowerCase().trim()];
+  const _od = OUTLOOK_DATA[(r.name || '').toLowerCase().trim()];
+  const hasOutlook = _od && (_od.now || _od.plus3 || _od.plus7 || _od.plus14);
   if (availTier && !hasOutlook) {
     const lbl = getAvailLabel(availTier);
     if (lbl.cls === 'easy') {
@@ -1564,30 +1565,54 @@ function renderCard(r) {
   {
     const ln = (r.name || '').toLowerCase().trim();
     const od = OUTLOOK_DATA[ln];
-    if (od) {
-      const chipColors = {
-        hard: { color: '#b91c1c', bg: '#fef2f2', border: '#fca5a5', emoji: '🔴' },
+    if (od && (od.now || od.plus3 || od.plus7 || od.plus14)) {
+      const cs = {
+        hard:   { color: '#b91c1c', bg: '#fef2f2', border: '#fca5a5', emoji: '🔴' },
         medium: { color: '#a16207', bg: '#fefce8', border: '#fde68a', emoji: '🟡' },
-        easy: { color: '#15803d', bg: '#f0fdf4', border: '#86efac', emoji: '🟢' }
+        easy:   { color: '#15803d', bg: '#f0fdf4', border: '#86efac', emoji: '🟢' }
       };
 
-      // Badge line: Prime Booked + Try off-peak
-      let badgeHtml = `<span style="display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5">🔴 Prime Booked</span>`;
-      if (od.off_peak) {
-        badgeHtml += `<span style="font-size:11px;font-weight:600;color:#0369a1;background:#e0f2fe;padding:3px 9px;border-radius:8px;border:1px solid #7dd3fc">💡 Try off-peak</span>`;
-      }
+      // Build Now → +3d → +7d → +14d chip row (only show horizons that have data)
+      const horizons = [
+        { key: 'now',    label: 'Now'  },
+        { key: 'plus3',  label: '+3d'  },
+        { key: 'plus7',  label: '+7d'  },
+        { key: 'plus14', label: '+14d' },
+      ].filter(h => od[h.key]);
 
-      // Outlook chips
-      let chipsHtml = '';
-      if (od.outlook && od.outlook.length > 0) {
-        const chips = od.outlook.map(c => {
-          const s = chipColors[c.tier] || chipColors.hard;
-          return `<span style="display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:12px;font-size:11px;font-weight:700;background:${s.bg};color:${s.color};border:1px solid ${s.border}">${c.label} ${s.emoji}</span>`;
-        }).join('');
-        chipsHtml = `<div style="margin:4px 0 0 0;display:flex;flex-wrap:wrap;gap:5px">${chips}</div>`;
-      }
+      const chipParts = horizons.map((h, i) => {
+        const s = cs[od[h.key]] || cs.hard;
+        const arrow = i < horizons.length - 1
+          ? `<span style="color:#ccc;font-size:11px;margin:0 1px">›</span>`
+          : '';
+        return `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:8px;font-size:11px;font-weight:700;background:${s.bg};color:${s.color};border:1px solid ${s.border}">${s.emoji} ${h.label}</span>${arrow}`;
+      }).join('');
 
-      outlookHtml = `<div style="margin:6px 0 2px 0"><div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${badgeHtml}</div>${chipsHtml}</div>`;
+      // Smart insight label
+      const nowT = od.now, p3 = od.plus3, p7 = od.plus7, p14 = od.plus14;
+      const rank = { hard: 0, medium: 1, easy: 2 };
+      const best = [p3, p7, p14].filter(Boolean).sort((a,b) => (rank[b]||0) - (rank[a]||0))[0];
+      let insight = '';
+      if (nowT === 'hard' && p3 === 'easy')
+        insight = `<span style="font-size:11px;font-weight:600;color:#15803d;background:#f0fdf4;padding:2px 8px;border-radius:6px;border:1px solid #86efac">✨ Opens in 3 days</span>`;
+      else if (nowT === 'hard' && p7 === 'easy' && p3 !== 'easy')
+        insight = `<span style="font-size:11px;font-weight:600;color:#15803d;background:#f0fdf4;padding:2px 8px;border-radius:6px;border:1px solid #86efac">✨ Opens up by +7d</span>`;
+      else if (nowT === 'hard' && p14 === 'easy' && p7 !== 'easy')
+        insight = `<span style="font-size:11px;font-weight:600;color:#15803d;background:#f0fdf4;padding:2px 8px;border-radius:6px;border:1px solid #86efac">📅 Opens up by +14d</span>`;
+      else if (nowT === 'hard' && p3 === 'medium')
+        insight = `<span style="font-size:11px;font-weight:600;color:#a16207;background:#fefce8;padding:2px 8px;border-radius:6px;border:1px solid #fde68a">💡 Try other time slots</span>`;
+      else if (nowT === 'medium' && best === 'easy')
+        insight = `<span style="font-size:11px;font-weight:600;color:#0369a1;background:#e0f2fe;padding:2px 8px;border-radius:6px;border:1px solid #7dd3fc">📅 More options coming</span>`;
+      else if (nowT === 'hard' && best === 'hard')
+        insight = `<span style="font-size:11px;font-weight:600;color:#b91c1c;background:#fef2f2;padding:2px 8px;border-radius:6px;border:1px solid #fca5a5">🔴 Plan well ahead</span>`;
+      else if (od.off_peak)
+        insight = `<span style="font-size:11px;font-weight:600;color:#0369a1;background:#e0f2fe;padding:2px 8px;border-radius:6px;border:1px solid #7dd3fc">💡 Try off-peak times</span>`;
+
+      const dateStamp = od.checked_date
+        ? `<span style="font-size:10px;color:#ccc;margin-left:2px">as of ${od.checked_date}</span>`
+        : '';
+
+      outlookHtml = `<div style="margin:6px 0 2px 0"><div style="display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chipParts}${insight}${dateStamp}</div></div>`;
     }
   }
 
