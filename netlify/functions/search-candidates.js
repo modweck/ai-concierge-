@@ -1298,7 +1298,7 @@ exports.handler = async (event) => {
           geometry: { location: { lat: entryLat, lng: entryLng } },
           types: ['restaurant'],
           booking_platform: entry.platform || entry.booking_platform || null,
-          booking_url: entry.url || entry.booking_url || null,
+          booking_url: entry.url || entry.booking_url || (entry.bilt_id ? `https://dining.biltrewards.com/restaurant/${entry.bilt_id}` : null),
           distanceMiles: Math.round(d*10)/10,
           walkMinEstimate: Math.round(d*20),
           driveMinEstimate: Math.round(d*4),
