@@ -250,7 +250,7 @@
                 <button class="toggle-btn" id="driveBtn" onclick="setTransport(event,'drive')" style="padding:7px 2px;font-size:11px">🚗 <span id="driveLabel">15m</span></button>
                 <button class="toggle-btn" id="radiusBtn" onclick="setTransport(event,'radius')" style="padding:7px 2px;font-size:11px">📍 <span id="radiusLabel">3mi</span></button>
               </div>
-              <div id="walkDistance" style="margin-top:4px;max-height:34px;overflow:hidden;transition:max-height 0.25s ease,opacity 0.2s ease;opacity:1">
+              <div id="walkDistance" style="margin-top:4px;max-height:44px;overflow:hidden;transition:max-height 0.25s ease,opacity 0.2s ease;opacity:1">
                 <select id="walkTime" onchange="updateTransportLabels()" style="padding:6px 8px;font-size:11px;width:100%">
                   <option value="10">10 min walk</option>
                   <option value="15">15 min walk</option>
@@ -753,9 +753,11 @@ function updateTransportLabels() {
 
 function setTransport(evt, mode) {
   state.transport = mode;
-  const parentDiv = evt.target.closest('.toggle-group');
+  // Use closest('.toggle-group') from the button (handles clicks on inner <span> too)
+  const btn = evt.target.closest('.toggle-btn');
+  const parentDiv = btn.closest('.toggle-group');
   parentDiv.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-  evt.target.closest('.toggle-btn').classList.add('active');
+  btn.classList.add('active');
 
   // Slide dropdowns in/out
   const walkDist = document.getElementById('walkDistance');
@@ -767,9 +769,9 @@ function setTransport(evt, mode) {
     el.style.opacity = '0';
   });
   
-  if (mode === 'walk') { walkDist.style.maxHeight = '34px'; walkDist.style.opacity = '1'; }
-  else if (mode === 'drive') { driveDist.style.maxHeight = '34px'; driveDist.style.opacity = '1'; }
-  else if (mode === 'radius') { radiusDist.style.maxHeight = '34px'; radiusDist.style.opacity = '1'; }
+  if (mode === 'walk') { walkDist.style.maxHeight = '44px'; walkDist.style.opacity = '1'; }
+  else if (mode === 'drive') { driveDist.style.maxHeight = '44px'; driveDist.style.opacity = '1'; }
+  else if (mode === 'radius') { radiusDist.style.maxHeight = '44px'; radiusDist.style.opacity = '1'; }
   
   updateTransportLabels();
 }
