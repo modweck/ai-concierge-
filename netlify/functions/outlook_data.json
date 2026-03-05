@@ -73,6 +73,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -315,6 +316,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -500,9 +502,9 @@
   },
   "cafe boulud at maison barnes": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "gabriel kreuther": {
     "now": "medium",
@@ -718,6 +720,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -753,7 +756,7 @@
   },
   "has dac biet": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "has snack bar": {
@@ -768,9 +771,9 @@
   },
   "lysee": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "houseman": {
     "now": "easy",
@@ -786,6 +789,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -813,6 +817,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -820,6 +825,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -842,6 +848,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -909,6 +916,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -941,6 +949,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -973,6 +982,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -990,6 +1000,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -997,6 +1008,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "terroir": {
@@ -1116,7 +1128,7 @@
   },
   "nom wah": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "pig and khao uws": {
@@ -1126,7 +1138,7 @@
   },
   "empellon taqueria": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "hags": {
@@ -1273,6 +1285,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -1630,6 +1643,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -1667,6 +1681,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -1682,7 +1697,7 @@
   },
   "place des fetes": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "compagnie des vins surnaturels": {
@@ -1772,7 +1787,7 @@
   },
   "cafe spaghetti": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "casa del chef bistro": {
@@ -2064,6 +2079,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "limited",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "easy"
   },
@@ -2071,6 +2087,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -2181,7 +2198,7 @@
   },
   "katzs delicatessen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kung fu little steamed buns ramen": {
@@ -2608,6 +2625,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -2630,6 +2648,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "cookshop": {
@@ -2696,6 +2715,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -2753,6 +2773,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -2760,6 +2781,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -2782,6 +2804,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -2907,7 +2930,7 @@
   },
   "cafe sabarsky": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "leonti": {
@@ -3092,13 +3115,14 @@
   },
   "bua thai ramen and robata grill": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la pecora bianca bryant park": {
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -3206,6 +3230,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "limited",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -3231,7 +3256,7 @@
   },
   "suram sushi and ramen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cucina alba": {
@@ -3283,6 +3308,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -3315,6 +3341,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -3330,12 +3357,12 @@
   },
   "elea": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "pescada new york": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "montesacro pinseria brooklyn": {
@@ -3402,6 +3429,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -3457,7 +3485,7 @@
   },
   "sushi w east village": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "jacobs pickles": {
@@ -3482,13 +3510,14 @@
   },
   "heidelberg restaurant": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "raku midtown": {
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "pisticci": {
@@ -3515,6 +3544,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -3587,6 +3617,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "easy"
   },
@@ -3594,6 +3625,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -3614,9 +3646,9 @@
   },
   "queens room": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "trad room": {
     "now": "easy",
@@ -3640,9 +3672,9 @@
   },
   "the clam": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "tia pol": {
     "now": "easy",
@@ -3678,6 +3710,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -3685,6 +3718,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -3752,6 +3786,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -3767,7 +3802,7 @@
   },
   "the fly": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "a10 kitchen": {
@@ -3792,7 +3827,7 @@
   },
   "the snail": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "playa bettys": {
@@ -3844,6 +3879,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -3881,6 +3917,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -3896,9 +3933,9 @@
   },
   "the tyger": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "bodrum": {
     "now": "easy",
@@ -3907,7 +3944,7 @@
   },
   "meme mediterranean": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "meme": {
@@ -4017,7 +4054,7 @@
   },
   "the residence of mr moto": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "papa san": {
@@ -4029,6 +4066,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -4049,7 +4087,7 @@
   },
   "the lonesome club": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mitr thai restaurant": {
@@ -4306,6 +4344,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "amy thai bistro": {
@@ -4652,6 +4691,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -5209,6 +5249,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -5241,6 +5282,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -5443,6 +5485,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "long count": {
@@ -5514,6 +5557,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "vestry": {
@@ -5638,7 +5682,7 @@
   },
   "amelie upper west side": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "amici ristorante": {
@@ -6830,6 +6874,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -8137,6 +8182,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -8359,6 +8405,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "sushi king": {
@@ -9335,6 +9382,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -9412,6 +9460,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -9614,6 +9663,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "daddies": {
@@ -9830,6 +9880,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "mr capri": {
@@ -9901,6 +9952,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -9928,6 +9980,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -10045,6 +10098,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -10132,6 +10186,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -10469,6 +10524,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -10606,6 +10662,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "shinpi omakase": {
@@ -10735,7 +10792,7 @@
   },
   "la sirene soho": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "spice brothers": {
@@ -10987,6 +11044,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -11019,6 +11077,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -11256,12 +11315,14 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "kappo sono": {
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -11294,6 +11355,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -11831,6 +11893,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -11848,6 +11911,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -11863,7 +11927,7 @@
   },
   "fushimi at bay ridge": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sabor peruano": {
@@ -11910,6 +11974,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -11967,6 +12032,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -12069,6 +12135,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "city island yacht club": {
@@ -12400,6 +12467,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -12422,6 +12490,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -12744,6 +12813,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "hibino": {
@@ -13160,6 +13230,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "3 times williamsburg": {
@@ -13259,9 +13330,9 @@
   },
   "adelaide salon": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "agave maria": {
     "now": "easy",
@@ -13292,6 +13363,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -13332,7 +13404,7 @@
   },
   "ambassadors clubhouse new york": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "amelie west village": {
@@ -13359,6 +13431,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -13396,6 +13469,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -13418,6 +13492,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -13460,6 +13535,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -13477,6 +13553,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -13514,6 +13591,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -13531,6 +13609,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -13693,6 +13772,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -13748,20 +13828,20 @@
   },
   "cafe carmellini": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "cafe chelsea": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe china": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "tacombi flatiron": {
     "now": "easy",
@@ -13770,12 +13850,12 @@
   },
   "cafe kestrel": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe standard": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafeteria": {
@@ -13832,6 +13912,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -13844,6 +13925,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -13921,6 +14003,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -13943,6 +14026,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -13965,6 +14049,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -14090,7 +14175,7 @@
   },
   "deia": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "delice and sarrasin": {
@@ -14100,7 +14185,7 @@
   },
   "despana": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "available"
   },
   "dicksons farmstand meats": {
@@ -14157,6 +14242,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -14194,6 +14280,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "egg shop williamsburg": {
@@ -14245,6 +14332,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -14297,6 +14385,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -14329,6 +14418,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -14396,6 +14486,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -14431,7 +14522,7 @@
   },
   "giacomo pizzeria and restaurant": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "gioia mia": {
@@ -14476,7 +14567,7 @@
   },
   "gurume": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "gus and martys": {
@@ -14548,6 +14639,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -14585,6 +14677,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -14595,7 +14688,7 @@
   },
   "hoseki": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "house brooklyn": {
@@ -14697,6 +14790,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -14809,6 +14903,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -14816,6 +14911,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -14848,6 +14944,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -14870,6 +14967,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -14902,6 +15000,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15037,7 +15136,7 @@
   },
   "la sirene uws": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la vara": {
@@ -15047,9 +15146,9 @@
   },
   "labeille a cote": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "laccolade": {
     "now": "hard",
@@ -15228,13 +15327,13 @@
   },
   "mala project east village": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "mala project greenpoint": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "malai marke": {
@@ -15269,7 +15368,7 @@
   },
   "marcelas tapas and fusion cuisine": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "margot": {
@@ -15281,6 +15380,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15308,6 +15408,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "marthas": {
@@ -15347,7 +15448,7 @@
   },
   "meme on hudson": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mesa coyoacan": {
@@ -15369,6 +15470,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "mikado fidi": {
@@ -15415,6 +15517,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15430,9 +15533,9 @@
   },
   "moc mac": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "molkajete": {
     "now": "easy",
@@ -15448,6 +15551,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "monarch restaurant": {
@@ -15534,6 +15638,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15569,7 +15674,7 @@
   },
   "noksu": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "nomad diner": {
@@ -15611,6 +15716,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15628,6 +15734,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15660,6 +15767,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15672,6 +15780,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15687,9 +15796,9 @@
   },
   "olea brooklyn": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "olivias": {
     "now": "easy",
@@ -15745,6 +15854,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15757,6 +15867,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15854,6 +15965,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15861,6 +15973,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "pearl box": {
@@ -15872,6 +15985,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15929,6 +16043,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -15986,12 +16101,14 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "raku soho": {
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "raon nyc": {
@@ -16078,6 +16195,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -16118,13 +16236,14 @@
   },
   "sant ambroeus cafe at sothebys": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "saverne": {
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "sea thai restaurant": {
@@ -16139,7 +16258,7 @@
   },
   "seeyamanana": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sei less": {
@@ -16179,13 +16298,14 @@
   },
   "shabutatsu": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "shaking crab park slope": {
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -16198,6 +16318,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -16228,9 +16349,9 @@
   },
   "shmone wine": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "shoo shoo east": {
     "now": "easy",
@@ -16239,7 +16360,7 @@
   },
   "shosh": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "siam staten island": {
@@ -16251,6 +16372,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -16273,6 +16395,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "hard"
   },
@@ -16320,6 +16443,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "souraji": {
@@ -16451,6 +16575,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -16503,6 +16628,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -16510,12 +16636,14 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "sushi yukimi": {
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "sushiichi": {
@@ -16555,7 +16683,7 @@
   },
   "tabare bushwick": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "tabernacle steakhouse": {
@@ -16617,6 +16745,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -16679,6 +16808,7 @@
     "now": "easy",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -16816,6 +16946,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -16923,6 +17054,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
@@ -17050,6 +17182,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -17057,6 +17190,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -17084,6 +17218,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -17099,7 +17234,7 @@
   },
   "weill cafe at carnegie hall": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "west side steakhouse": {
@@ -17149,7 +17284,7 @@
   },
   "wine 30": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "winnies": {
@@ -17161,6 +17296,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -17196,7 +17332,7 @@
   },
   "yellow magnolia cafe": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "yoon haeundae galbi": {
@@ -17251,28 +17387,28 @@
   },
   "casa cipriani new york": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "jimmys trattoria": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "tanoreen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bella blue": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "la donna res": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "crunchys": {
@@ -17287,7 +17423,7 @@
   },
   "salumeria rosi upper west side": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "cinco de mayo": {
@@ -17302,28 +17438,28 @@
   },
   "brbq": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kuu": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "smash house brooklyn": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "squires diner": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "franchia vegan cafe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la sova": {
@@ -17343,17 +17479,17 @@
   },
   "yuan": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kyuramen long island city": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "peacefood upper west side": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "witch topokki all you can eat korean restaurant": {
@@ -17363,18 +17499,18 @@
   },
   "morandi": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lolas tapas bar": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "two hands": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bergen hall": {
@@ -17384,33 +17520,33 @@
   },
   "ends meat": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "korai kitchen no dinein without reservations": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "fresco by scotto": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "the roxy jc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "diva royale drag queen show nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "marco polo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "el gallo taqueria": {
@@ -17420,22 +17556,22 @@
   },
   "supper restaurant": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "gen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "vallata": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "le fleur rouge creative chinesefrench dining in park slope": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "paesano of mulberry street": {
@@ -17445,27 +17581,27 @@
   },
   "wayan": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "avant garden": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kubeh": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "osteria 57": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "trapizzino": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "pineapple club": {
@@ -17475,113 +17611,113 @@
   },
   "lusardis restaurant": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "tara mor": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sonnyboy": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "nocello": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "white maize": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "hole in the wall williamsburg": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "maite": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "felice 56": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "giardino doro": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "luthun": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "maruzzella": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sartianos": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "red paper clip": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "carlotto": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "atti": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the noortwyck": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "ferdi": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "rampoldi": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "lula mae": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "jean claude": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "yao": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "abcv": {
@@ -17596,75 +17732,75 @@
   },
   "le coucou restaurant": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "freemans restaurant": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "pappardella": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "pepolino ristorante": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "via della pace": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "maison barnes": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "boulud sud": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "amarone": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "il brigante": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "giorgios of gramercy": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sant ambroeus west village": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "txikito": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "porteno": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "felice 83": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "wallse": {
@@ -17674,22 +17810,22 @@
   },
   "3 giovani": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "epistrophy": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "petrarca cucina e vino": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "tre": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "katsuhama": {
@@ -19589,7 +19725,7 @@
   },
   "15 east at tocqueville": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "yakiniku futago chelsea": {
@@ -19639,7 +19775,7 @@
   },
   "altesi downtown": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "jr restaurant": {
@@ -19854,7 +19990,7 @@
   },
   "cascabel taqueria west": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "thai lex": {
@@ -19899,244 +20035,244 @@
   },
   "kogane": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "forever taste": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "spicy village": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sosos": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "comal": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "maretta": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sushi by meast 4th st": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "crispiano": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "royale": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "sofias": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "west10west": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "nerea": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "omakase sushi dairo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "ino": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "zia maria chelsea": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "banter nyc murray hill": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "qanoon": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "seranos italian": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la brochette steakhouse": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "ongi 41st3ave": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the irish exit": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "cha cha matcha": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "locanda verde hudson yards": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "longo bros": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "maggies place": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lex yard at waldorf astoria new york": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "armaniristorante": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "pasta eater hells kitchen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "plug uglies upper east side": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "spiga trattoria": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la perla nascosta": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "sipsteria morningside": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "maki": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "charm": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "cordial": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "nonna doras tribeca": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "piccola cucina enoteca tapas": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "crispy heaven": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "isla and co lower east side": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "bevacco": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "almar": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "sullaluna": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bandits burger and dive": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "meama": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "conway diner": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "chama mama brooklyn heights": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "migarba": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "members only west village": {
@@ -20146,155 +20282,155 @@
   },
   "alison st marks": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "five spot jazz": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "table 87 brooklyn heights": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "nome": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "nigiri": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "fellini cucina": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mocha burger union square": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "au zaatar east village 12th street": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "white star warren street": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "dont tell liv": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "aqua roma": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "leles roman": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "shy shy": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "franklin social": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "two hands williamsburg": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "bees knees provisions": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cw bistro at city winery new york city in hudson river park": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "misipasta": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "osteria radisa": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the ainsworth hoboken": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "uh hoboken": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bass and bourbon": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "halifax hoboken": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "isla and co williamsburg": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "the brass rail hoboken": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kat khao": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "chickies": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "massara on park": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "antique at 112": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "hamilton inn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "evalyns taphouse": {
@@ -20304,67 +20440,67 @@
   },
   "macoletta williamsburg": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "howoo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "leuca": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "octo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "convivium osteria": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "flour": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "anthony davids": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sorellina": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "versa nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "johnny pepperoni": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "arthur and sons murray hill": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "veselka williamsburg": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "pasta night": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "table 87 gowanus": {
@@ -20374,330 +20510,330 @@
   },
   "ilis": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "panca bk": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "san giuseppe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "millys": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mocha burger times square": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "little grand": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "pattin": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "fork hill kitchen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "hummus kitchen hells kitchen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "murano": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "blue box cafe by daniel boulud": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "go nonna": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "maloya": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "harry cipriani": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "nubiani midtown east": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "calverts": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "han dynasty long island city": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "pitanga bushwick": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "dar 525 malcolm x blvd": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "parm upper west side": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "beebes": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "the gallery at the carlyle": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "uva": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "amarena": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "the domino room": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "il gigante": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "ramro": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "rosolini": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mr broadway brooklyn": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "around the clock": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cork and slice bk": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bhi thursdays": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "siena ristorante brooklyn": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "charley": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "dees": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "allettante": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mikado metropolitan": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "fiorentini": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "panebianco": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lanoma": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the roosevelt": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "dellas": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "marc179": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "la noxe trinity financial district": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "kimika": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "tashca nyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "cesar": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "cha cha tang": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "casa la femme": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "aperitivo by carta": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "lamericana": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "studio tropical": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "fradei": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "cellar 335": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cipriani dolci": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "winonas": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "baretto at fasano": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "lowerline": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "le cafe louis vuitton": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "terina": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "osteria by primo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "benjis buns": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "buba bureka": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the clocktower": {
@@ -20707,17 +20843,17 @@
   },
   "deux luxe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "justins salt bread": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lazy suzy": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "public display of affection pda": {
@@ -20727,12 +20863,12 @@
   },
   "rita cantina": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "silver rice": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "talea bryant park": {
@@ -20742,167 +20878,167 @@
   },
   "txula steak": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "zimmis": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "angaar": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "antepli baklava": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "atrium cinemas": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "babys buns and buckets": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "baht": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bibi winecellar": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "breakfast by salt cure": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cantina tarasca": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cecilia": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "creminis": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ee lang": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "etc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "java day": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kafe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kind": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kpot": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la fusta": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lebanese eatery": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "majlis": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "meze": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mezquila": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mukbang": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "parilla azteca": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "pesce lulu": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "pinks cantina": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "pita falafel": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "puertas": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "puttery": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "pyza": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "relax": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "riviera maya": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "rpm": {
@@ -20912,102 +21048,102 @@
   },
   "rusty nail": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sandy jacks": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sangaritas": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "selva": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "siempre": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sizzling squid": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "skyline princess": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sunswick 3535": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "susuru ramen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "syndicated": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "tada": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "talvera cantina": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "tamal express": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "taste lab": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "tenten": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "teranga": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the lever club": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the yale club": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "watawa": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "zinc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cosme": {
@@ -21039,6 +21175,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -21076,6 +21213,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -21088,6 +21226,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "balthazar": {
@@ -21104,6 +21243,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -21131,6 +21271,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -21138,6 +21279,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "easy"
   },
@@ -21160,6 +21302,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "fully_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -21185,14 +21328,15 @@
   },
   "empellon": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "kisa": {
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -21245,6 +21389,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -21292,6 +21437,7 @@
     "now": "medium",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy"
   },
   "dagon": {
@@ -21336,7 +21482,7 @@
   },
   "glin thai bistro": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ambrosia garden": {
@@ -21346,9 +21492,9 @@
   },
   "raval steakhouse": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "lumlum": {
     "now": "easy",
@@ -21357,9 +21503,9 @@
   },
   "the horny ram": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "when in bangkok": {
     "now": "easy",
@@ -21383,9 +21529,9 @@
   },
   "barnea bistro": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "red chilli": {
     "now": "easy",
@@ -21419,7 +21565,7 @@
   },
   "fortuna nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ivan ramen": {
@@ -21524,9 +21670,9 @@
   },
   "gitano nyc": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "eyval": {
     "now": "hard",
@@ -21570,7 +21716,7 @@
   },
   "the mary lane": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "carla": {
@@ -21585,7 +21731,7 @@
   },
   "the wolfe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "jing li": {
@@ -21637,6 +21783,7 @@
     "now": "hard",
     "checked_date": "2026-03-05",
     "card": "prime_booked",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
@@ -21647,1899 +21794,1899 @@
   },
   "143 social": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "44andx hells kitchen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "456 sushi": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "6 nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "69leonardstreet": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "83 1 2": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "85 macdougal dante": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "87 ludlow": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "abc kitchen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "acadia": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "adoro lei": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
   "adriennes pizzabar": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "afuri ramen and dumpling": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "agency of record": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "akdeniz mediterranean": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "al badawi": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "albadawi upper east side": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "alessa": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "alice restaurant nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "all blues": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "alma ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "altheas hideaway nyc": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy",
+    "plus3": "easy",
     "plus7": "hard",
     "plus14": "hard"
   },
   "ama rawbar west village": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ambra nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "american cut tribeca": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "americano nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ammazzacaffe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "amorina cucina rustica": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "analogue": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "angel indian restaurant ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "anixi": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "antica": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "anytime kitchen ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "apartment 5": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "apulia": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "aquarelle": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "arden brooklyn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "aria hells kitchen nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "armada": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "arora": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "arriba arriba": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "arrigos": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "arte cafe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "artesano": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ask for janice": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "askili orchard": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "atomixnyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "au cheval nyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "au zaatar midtown east": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "avra 48thstreet": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "avra rockefeller center": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ayah restaurant": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "baba ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bacaro nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "baccarat hotel grand salon": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "baci staten island": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "balthazar nyc": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "banc cafe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bangbang bangkok": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "banzarbar": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "bar314": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "barbalu brooklyn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "barblondeau": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "barbuto brooklyn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "baro": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "bathtub gin": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "bayonne nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "beast and butterflies": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "becca": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "belleville nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "beltane": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "berimbau brazilian table": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "beyond sushi": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bitter monk": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bkb": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "black barn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "black iron theatre district": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "blt prime new york": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bondi sushi bar nomad": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bondi sushi westside": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bong": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "boqueria soho": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "boss tweeds": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "bourbon steak new york": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "brass nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "breeze ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "brooklyn winery": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bubbys tribeca": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "buddys ny": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "bukhara grill indian spice rave nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bungalow ny": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "butterfish nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "by antidote ny": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "cacio e pepe restaurant": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe alyce": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe balearica": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "cafe brume": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe chili": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe colette": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe commerce": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "cafe du soleil": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe el presidente": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe henri": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "cafe mado": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe maud": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "cafe mogador east village": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "cafe mogador williamsburg": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe mulberry": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "cafe paulette": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe rue dix": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cafe zaffri": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "calaveras social": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "carversteak nyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "casa thirteen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "casetta": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "casino new york": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "catch nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "caviar cafe": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "celestine restaurant": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "centurion ny": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "cervos": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy"
   },
   "chada ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "chateau royale": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "chefs table at brooklyn fare": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "chelsea living room": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "chez marylou": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "chez zou": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "chinato": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "chito gvrito": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "citizens of chelsea": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "citizens of soho": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "city vineyard": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "city winery": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "clara ny": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "claw daddys brooklyn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cliffside park nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "clinton st baking co": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "cloudm": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cloudm times square": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "columns ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "concrete shoals": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "copenhagen denmark": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "cordelia ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "cote nyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "crazy pizza": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "cuerno": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "cut new york": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "czen restaurant brooklyn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "da claudio ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "da toscano": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "dae": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "dahla ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "daintree les": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "dame new york": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "dandelion ny": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "daniel": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "daphnes ny": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "dar525 greenpoint": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "dear maud": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "dear strangers nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "decades pizza": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "dejavu": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "denovo edgewater": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "dept of culture brooklyn": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "deux chats": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "dirty french": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "disco sallys": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "doc watsons": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "domo sushi": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "don ceviche": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "dons bogam": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "double zero": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "drink": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "drunken munkey": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "duet bakery and restaurant": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "east rutherford nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "eastwood ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "eataly": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "eavesdrop": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "edgewater nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "el fish 67": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "el parador cafe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "el vez": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "elenis": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "elsa": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "elsie penthouse": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "elysee": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "emily": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "emmetts": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "emmetts on grove": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "empire steak house east": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "empire steak house times square": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "employees only nyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "entre nous ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "entwine": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "essex": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "estelles nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "everythings jake": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "family meal at blue hill": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "faubourg nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "favela grill": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "felice 15 gold street": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "felice hudson": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "fiat cafe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "fini patio": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "fish cheeks": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "flora nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "food education fund": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "fort lee nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "fouquets new york": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "four twenty five": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "francesco soho": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "frank": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "frankie": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "frida brooklyn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "friend of a farmer uws": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "fushimi time square": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "gaonnuri restaurant": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "gardenia terrace": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "gemma ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "genki east": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "ginger sapori e salute": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "ginos restaurant": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "golden hof": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "golden ratio": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "goldstrology by american express gold card": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "good thanks cafe": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy"
   },
   "goog nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "graziellas restaurant and wood burning pizza": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "greek taverna": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "grimaldis": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "guttenberg nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "guzzle": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "han dynasty delkab market": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "harrison nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "harts": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "medium",
+    "plus3": "medium",
     "plus7": "easy"
   },
   "hatsu": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "hatsuhana": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "havana central times square": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "haven": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "heritage grand bakery": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "hi collar": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "highball limited": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "hill country barbecue market": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "hirohisa": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "hoboken nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "hojokban": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "holywater": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "houston hall": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "hudson hall": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "hummus kitchen ues": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "hunan slurp nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "huso nyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "il buco alimentari": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "il cortile ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "il leone": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "il mulino ny": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "in napoli": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "inti": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ito": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "its him": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "iwak sushi and kitchen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "jaba": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "jack and charlies 118": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "jackdaw": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "jacs on bond": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "jade and clover": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "jean georges": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "jersey city nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "jojo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "jongro bbq market": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "josephs": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "jr and son": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "juban": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "junglebird": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kabin": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "kafana ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kaki": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "kansas city mo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kees": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "keste pizza and vino": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kettl tea norman ave": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "keys and heels": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
   "kfar brooklyn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kimmi": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "kings co imperial": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kinjo ny": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "kitchen 46": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kun tsuki omakase xtra": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kyu": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "kyuubi": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "la boheme hoboken": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la compagnie centre st": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la esquina cantina soho": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la esquina soho": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "la follia": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la fonda ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la goulue": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la piazza ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "la tete dor": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "labielle": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "laduree soho": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lafayette grand cafe and bakery": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "laissez faire ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "landwer cafe williamsburg": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lappartement 4f": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "larina": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "lartusi ny": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "lavenue": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "le bilboquet ny llc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "le dive": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "le pistol": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "le rock": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "le tout va bien": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "leitao": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "leo nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "levante ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lexpress ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "leyla": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lil frankies": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "lillies victorian establishment": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "little charlis": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "little dipper": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "little fino": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "little more": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "little rebel": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lore brooklyn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lost in paradise": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "lucali ny": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "lucky cat ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lucky charlie": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "lullas bakery and cocktails": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "lupes east l a kitchen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "lure fishbar mercer st": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "ma de nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "macoletta brick oven pizzeria": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "madam ji": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "madam mikettes": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "madelines": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "madelines martini": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "maison close": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "makina cafe": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "mala project": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "mala project bryant park": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "malka nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "maomao": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "marani": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "marbles smokehouse": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "marea": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "mari ne handroll": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "market table nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "markette ny": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "mars": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "marthas nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "masalawala": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "maxwell alley": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "meat": {
@@ -23549,539 +23696,539 @@
   },
   "metropolis": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mezcali new york": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mezzanine ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "michaels restaurant": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "midnight blue": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "miomio ny": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "mira": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "miracle on 8th street": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "miracle on 9th street": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "miriam ues": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mission ceviche": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mission ceviche usq": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mission chinese food chinatown": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mitr thai": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "momoya uws": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "mono and mono": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "monsieur": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "monsieur bistro": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "montesacro": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mori": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "medium",
+    "plus3": "medium",
     "plus7": "easy",
     "plus14": "easy"
   },
   "motorino": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "musaek": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "nari ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "new wonjo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "newark nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "next stop vegan": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "nicks ristorante and pizzeria": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "nikutei futago": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "nine cases": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "no 79": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
   "noflex nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "noi due": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "noi due carne": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "noma events": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "nonna doras": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "north bergen nj nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "north jersey nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "nougatine restaurant": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "nubiani": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "obao": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "obao midtown": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "oda house": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "oiji mi 2": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "okonomi yuji manhattan": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "ol days coffee": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "old fashion cafe soho": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "oldays coffee nyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "oldies": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "oliver bistro": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "omakase by hyun": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "omakase osukaa": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "omakase shihou shiro upperwestside": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ondo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "one bite omakase": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "one world pizza": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "onieals": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "operahouse": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "ops bk": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ops east village": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "oscar wilde": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy",
+    "plus3": "easy",
     "plus7": "easy",
     "plus14": "easy"
   },
   "osteria barocca": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "osteria brooklyn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "otb": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "otter": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ovelia": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "p j clarkes lincoln square": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "p j clarkes on the hudson": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "p j clarkes third avenue": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "palermo gramercy": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "panzon": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "paquita": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "paradise pizza": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "park terrace hotel": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "parla ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "paros": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "partea lab": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "pasquale jones": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "passerine ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "pasta louise": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "patsys pizza": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "pauls on time square": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "pdt": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "peak": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "pearl street bistro": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "peasant nyc": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "perle ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "perry st": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "pho real": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "pizzeria panina": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "pizzette": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "plum": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "pollys": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "popina nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "poppy ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "porchlight nyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "port said": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy"
   },
   "porto by antonio": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "posto ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "primos": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "hard"
   },
   "printers alley nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "public display of affection": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "queen": {
@@ -24091,1079 +24238,1079 @@
   },
   "queensyard": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "quick eternity": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "radiostar brooklyn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "raines law room": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "raoulsrestaurant": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "rarities": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "record room": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "red onion": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ren": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "restaurant at the crown provincetown": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "reyna": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "rhodora": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "rialto": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "ridgefield park nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "riverpark nyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "rocco steakhouse": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "roeys": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "roku nana": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "room 207": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "room1hundred": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "rosemarys": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "rubirosa": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "russ and daughters cafe": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "rutherford nj nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sabai thai": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "safta ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "saga ny": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "sai tong": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "saikou": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "saint": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "saint theos": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "salt and charcoal": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "salumeria rosi east village": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sama za": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "samsaen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "samwoojung": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "san ambroeus brookfield place": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "san patricios": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sanfords": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sant ambroeus madison ave": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sant ambroeus soho": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sante fe ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sapps": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sarava bistro": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sarisa cafe": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "medium",
+    "plus3": "medium",
     "plus7": "hard",
     "plus14": "hard"
   },
   "scarpetta nyc": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "schmuck nyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "sea": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "sea salt": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "seiren": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "seoul salon": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "seppe manhattan": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "serendipity3 times square": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "serpentine": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "seven sins": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "shaw naes house": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "shinji": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "shinsen": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "shmone": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "shoo shoo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "shoshin68": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "sicily": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sidecar pj clarkes": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "simon": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "singlish": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "slate ny": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "sloanes ny": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "smith and mills rockefeller center": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "smor": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "smor ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "souvlaki gr": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sozo sip bar and omakase": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "speedy romeo bk": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "spiga ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "split eights": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "spunto": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "spygold": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy",
     "plus14": "easy"
   },
   "st mazie": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "st tropez": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "stafili wine cafe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "stafili wine cafe tribeca": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "starchild nyc": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "staten island nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "steak frites": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "steam": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "stk meatpacking": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "stone and soil": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
   "stout bryant park": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "stout grand central": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "stout nyc fidi": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "stout nyc flagship": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "stretch pizza": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sub mercer": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "subject": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "sundays well": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "sushi akira": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium",
+    "plus3": "medium",
     "plus7": "hard",
     "plus14": "hard"
   },
   "sushi amane fly": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "sushi by m": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "sushi ginza": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sushi hayashi brooklyn": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "sushi lin uws": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sushi makoto": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sushi nakazawa": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "sushi oku": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "sushi seki 23rd": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "sushi w llc": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "sushiishikawa ues": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "sushiishikawa uws": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "swagat indian restaurant": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "sweet linda": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "sweet polly": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "symposium greek taverna": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "szechuan mountain house manhattan": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "tabare": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "tabu ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "taikun sushi": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "taishoken": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "take31": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "tappo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "tasca": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "tatiana": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "teakwood thai chop house": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "temakase": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "terrone": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "test": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the astarita": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the bedford bk": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the boardroom": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "the boil brooklyn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the boil noho": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the brooklyn firefly": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the cellar at armada": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "the chemistry room by sushi lab": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "the coffee haus": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "the common park slope": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "the consulate": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the corner bk": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "the cuban hoboken": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the edge harlem": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the fulton by jean georges": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the garret west": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "the green room": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the grill ny": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "the happiest hour": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
   "the joyce": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the mark restaurant by jean georges": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the modern": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "the mulberry": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "the original buddha bodai kosher vegetarian restaurant": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the owls tail": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "the queensboro": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the raines law room at the william": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "the sea fire grill": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "the tang": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the terrace nyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "the tuck room fulton market": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "the up and up": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "the waverly inn": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "thecactusshopnyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "thenines": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "thirst series a new perspective on wine presented by pressoir and american express": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "time out market union square": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "tomino taberna gallega nyc": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "tonchin brooklyn": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium",
+    "plus3": "medium",
     "plus7": "easy",
     "plus14": "easy"
   },
   "torishin": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "torizaku": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "torst": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "travelers poets and friends": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "tsumo": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "tucci": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "two twenty one": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "union city nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "union square cafe": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "unveiled": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "upstairs at public records": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "veerays": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy"
   },
   "vesta": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "vezzo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "victors cafe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "vida nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "vin sur vingt": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "vin sur vingt riverside": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "wabi nori": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "warren peace": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "watami sushi": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "weehawken nj": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "west bank cafe": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "westmoreland at the frick": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "white olive": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "wild park slope": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "willow": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "winnies ny": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard"
+    "plus3": "hard"
   },
   "witch topokki": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "wonderland": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "wooga": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "yawning cobra": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "yawning cobra midtown": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy"
   },
   "yong chuan nyc": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "zama ny": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "zara terrace mediterranean cuisine": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "zensushi omakase": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "zia maria": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "altair": {
@@ -25493,9 +25640,9 @@
   },
   "delmonicos": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "saggio": {
     "now": "easy",
@@ -25524,188 +25671,188 @@
   },
   "25 hours": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "bangrak thai cuisine": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "barchef new york": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "birds": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "bisou": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "daintree": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy"
   },
   "dante": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "dear irving gramercy": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "dear irving on broadway": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "dear irving on hudson": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "double chicken please": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "fornino greenpoint": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "george bang bang": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "laser wolf brooklyn": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "lenlen": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "mace": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "mayamezcal": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
   "mixteca": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "nothing really matters": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "oddball": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "overstory": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "easy"
   },
   "roof at 66 park": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "saint tuesday": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "sugar monk": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "superbueno": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "the campbell": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited",
-    "sun": "medium",
+    "plus3": "medium",
     "plus7": "easy"
   },
   "the dead rabbit": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "medium"
+    "plus3": "medium"
   },
   "the little shop": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   },
   "the rum house": {
     "now": "medium",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked",
-    "sun": "hard",
+    "plus3": "hard",
     "plus7": "hard",
     "plus14": "hard"
   },
   "the woo woo": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "limited"
   },
   "tigre": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked",
-    "sun": "easy"
+    "plus3": "easy"
   },
   "undercote": {
     "now": "hard",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "fully_booked"
   },
   "with others": {
     "now": "easy",
-    "checked_date": "2026-03-07",
+    "checked_date": "2026-03-05",
     "card": "prime_booked"
   }
 }
