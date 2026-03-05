@@ -1,0 +1,6680 @@
+{
+  "ChIJETquaPVZwokRVYYGSKrg4E0": {
+    "name": "Bubby's",
+    "address": "120 Hudson St, New York, NY 10013, USA",
+    "lat": 40.719819,
+    "lng": -74.0083829,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 8330,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ1-mW-LhbwokR7Ryv5ha-gzc": {
+    "name": "Golden Diner",
+    "address": "123 Madison St, New York, NY 10002, USA",
+    "lat": 40.712435899999996,
+    "lng": -73.99402669999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2665,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJR1pTRTxawokRyzoX5XQ_alI": {
+    "name": "Pier 17",
+    "address": "89 South St, New York, NY 10038, USA",
+    "lat": 40.705573,
+    "lng": -74.00145669999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 12085,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJM3elBidawokRJKPC55N6pQI": {
+    "name": "Mei Lai Wah",
+    "address": "41 Mott St, New York, NY 10013, USA",
+    "lat": 40.715172599999995,
+    "lng": -73.9989063,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3653,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJQyFr6-FZwokRr23JK7BC7_g": {
+    "name": "Thai Diner",
+    "address": "186 Mott St, New York, NY 10012, USA",
+    "lat": 40.7207143,
+    "lng": -73.99565,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2710,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJTWE_0BtawokRVJNGH5RS448": {
+    "name": "One World Observatory",
+    "address": "117 West St, New York, NY 10007, USA",
+    "lat": 40.713006199999995,
+    "lng": -74.013173,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 25143,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJt7fMLIlZwokRCRtM9bNDg78": {
+    "name": "Balthazar",
+    "address": "80 Spring St, New York, NY 10012, USA",
+    "lat": 40.722668,
+    "lng": -73.99822979999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 7588,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJrYQRAcdbwokRv5M_GCGiQUY": {
+    "name": "Alamo Drafthouse Cinema Lower Manhattan",
+    "address": "28 Liberty St Suite SC301, New York, NY 10005, USA",
+    "lat": 40.7077585,
+    "lng": -74.00885029999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1495,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJIRiJaRRawokR2KyQ984qa-o": {
+    "name": "The Dead Rabbit",
+    "address": "30 Water St, New York, NY 10004, USA",
+    "lat": 40.7032685,
+    "lng": -74.0110218,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 8225,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJt_HATrRbwokREfGhs1PnzwQ": {
+    "name": "Au Cheval",
+    "address": "33 Cortlandt Alley, New York, NY 10013, USA",
+    "lat": 40.7181205,
+    "lng": -74.00179419999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5722,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJs8MdNo9ZwokRTPUHiArLC-o": {
+    "name": "Rubirosa",
+    "address": "235 Mulberry St, New York, NY 10012, USA",
+    "lat": 40.722738299999996,
+    "lng": -73.99613470000001,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6672,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJvx7i_BlawokRidb5WfdvqRM": {
+    "name": "Eataly",
+    "address": "101 Liberty St, New York, NY 10007, USA",
+    "lat": 40.710393599999996,
+    "lng": -74.01166649999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6231,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJ6xvs94VZwokRnT1D2lX2OTw": {
+    "name": "Prince Street Pizza",
+    "address": "27 Prince St, New York, NY 10012, USA",
+    "lat": 40.7230777,
+    "lng": -73.9945444,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 8911,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJqdNaaBVbwokRLTafYrQlZI8": {
+    "name": "Joe’s Pizza",
+    "address": "124 Fulton St, New York, NY 10038, USA",
+    "lat": 40.7100842,
+    "lng": -74.007677,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6622,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJn-PPbBRawokR3o5lQeBaB_w": {
+    "name": "Fraunces Tavern",
+    "address": "54 Pearl St, New York, NY 10004, USA",
+    "lat": 40.7034181,
+    "lng": -74.01136489999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6412,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJoTXWl8dbwokRpKA2BJFVsGA": {
+    "name": "Manhatta",
+    "address": "28 Liberty St 60th floor, New York, NY 10005, USA",
+    "lat": 40.707997399999996,
+    "lng": -74.00888259999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3654,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJ58HssClawokRefq6VNIOrlY": {
+    "name": "Metrograph",
+    "address": "7 Ludlow St, New York, NY 10002, USA",
+    "lat": 40.715143,
+    "lng": -73.9911467,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1441,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJP0KOWoxZwokRmvPiQAIaH1A": {
+    "name": "Dominique Ansel Bakery",
+    "address": "189 Spring St, New York, NY 10012, USA",
+    "lat": 40.7252509,
+    "lng": -74.0028734,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 9001,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJ3au6oIdZwokRRpuRY9nbgik": {
+    "name": "Shu Jiao Fu Zhou",
+    "address": "295 Grand St, New York, NY 10002, USA",
+    "lat": 40.7174109,
+    "lng": -73.9920876,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2892,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJOUqatilawokRguvFSj0wX7Y": {
+    "name": "Scarr's Pizza",
+    "address": "35 Orchard St, New York, NY 10002, USA",
+    "lat": 40.7157238,
+    "lng": -73.99161149999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4565,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJCar0f49ZwokR6ozLV-dHNTE": {
+    "name": "Katz's Delicatessen",
+    "address": "205 E Houston St, New York, NY 10002, USA",
+    "lat": 40.722232999999996,
+    "lng": -73.98742899999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 51634,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJuW43oZNZwokRdE5tLzpuykE": {
+    "name": "John's of Bleecker Street",
+    "address": "278 Bleecker St, New York, NY 10014, USA",
+    "lat": 40.7316187,
+    "lng": -74.00344679999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 8032,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJBVtTt5pZwokR48CgdYqHma8": {
+    "name": "Lafayette Grand Café & Bakery",
+    "address": "380 Lafayette St, New York, NY 10003, USA",
+    "lat": 40.727593399999996,
+    "lng": -73.9937017,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5369,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJ4Q2rG4JZwokR8TVjhflNfMk": {
+    "name": "Clinton St. Baking Company",
+    "address": "4 Clinton St, New York, NY 10002, USA",
+    "lat": 40.721264,
+    "lng": -73.9838497,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6371,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ0aS81yNZwokRIk-S2YSuvls": {
+    "name": "Soothr",
+    "address": "204 E 13th St, New York, NY 10003, USA",
+    "lat": 40.7323017,
+    "lng": -73.9873417,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5372,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJF8menphZwokR09y2oKUn8HQ": {
+    "name": "Hamburger America",
+    "address": "155 W Houston St, New York, NY 10012, USA",
+    "lat": 40.7280142,
+    "lng": -74.00257669999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2838,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJeWk_ncJZwokR1QHfApa0dQo": {
+    "name": "Pranakhon",
+    "address": "88 University Pl, New York, NY 10003, USA",
+    "lat": 40.733751,
+    "lng": -73.9932623,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3076,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJ8Q2WSpJZwokRQz-bYYgEskM": {
+    "name": "Joe's Pizza",
+    "address": "7 Carmine St, New York, NY 10014, USA",
+    "lat": 40.7306597,
+    "lng": -74.0021707,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 10133,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJgc7fPIVZwokRQMnqTxTf_Qk": {
+    "name": "Fish Cheeks",
+    "address": "55 Bond St, New York, NY 10012, USA",
+    "lat": 40.725788099999995,
+    "lng": -73.99263859999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5080,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJI25hF09ZwokRnmmiXXONRf4": {
+    "name": "Double Chicken Please",
+    "address": "115 Allen St, New York, NY 10002, USA",
+    "lat": 40.719592,
+    "lng": -73.9904612,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2231,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ72quYgBZwokRNidaRewKpUg": {
+    "name": "Mama's TOO! Pizzeria West Village",
+    "address": "325 Bleecker St, New York, NY 10014, USA",
+    "lat": 40.7332891,
+    "lng": -74.0040441,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1544,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJ92OsaJVZwokRsC54kf-J-3g": {
+    "name": "L’industrie Pizzeria West Village",
+    "address": "104 Christopher St, New York, NY 10014, USA",
+    "lat": 40.733222399999995,
+    "lng": -74.0049081,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2973,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJywJ318BZwokR4uWXUTbMRtc": {
+    "name": "Pier 57",
+    "address": "25 11th Ave, New York, NY 10011, USA",
+    "lat": 40.743423799999995,
+    "lng": -74.00901209999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1797,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJF9Du35RZwokRFGd0oc4diZs": {
+    "name": "Magnolia Bakery",
+    "address": "401 Bleecker St, New York, NY 10014, USA",
+    "lat": 40.735894599999995,
+    "lng": -74.00491000000001,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5029,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJ8U_F9b9ZwokRTaHyDKWRNSg": {
+    "name": "Pastis",
+    "address": "52 Gansevoort St, New York, NY 10014, USA",
+    "lat": 40.739241799999995,
+    "lng": -74.007014,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3039,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJK0Nld6ZZwokRyOd9fsyinLY": {
+    "name": "The Smith",
+    "address": "1150 Broadway, New York, NY 10010, USA",
+    "lat": 40.7442419,
+    "lng": -73.9886085,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6198,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJfd-PtKNZwokR-m-0kzVTgBs": {
+    "name": "Thai Villa",
+    "address": "5 E 19th St, New York, NY 10003, USA",
+    "lat": 40.7390045,
+    "lng": -73.9906704,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 7482,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJP1f9kMNZwokRYE4hg0tw_CE": {
+    "name": "Genesis House",
+    "address": "40A 10th Ave, New York, NY 10014, USA",
+    "lat": 40.741485999999995,
+    "lng": -74.008156,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 617,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJgbdZ6aVZwokRxtWri-IDLJw": {
+    "name": "Oscar Wilde",
+    "address": "45 W 27th St, New York, NY 10001, USA",
+    "lat": 40.7451638,
+    "lng": -73.99007209999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5681,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJEwHZcZNZwokR810IgyQhoZM": {
+    "name": "Buvette",
+    "address": "42 Grove St, New York, NY 10014, USA",
+    "lat": 40.732625899999995,
+    "lng": -74.00432839999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4227,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJifIePKtZwokRVZ-UdRGkZzs": {
+    "name": "Joe's Pizza Broadway",
+    "address": "1435 Broadway, New York, NY 10018, USA",
+    "lat": 40.754679499999995,
+    "lng": -73.9870291,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 24617,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJEWqQDLJZwokR8K5wVBL9n6g": {
+    "name": "Liberty Bagels Midtown",
+    "address": "260 W 35th St, New York, NY 10001, USA",
+    "lat": 40.7524936,
+    "lng": -73.99252969999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4550,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJ5804KalZwokRzGll2Rm7nag": {
+    "name": "Keens Steakhouse",
+    "address": "72 W 36th St., New York, NY 10018, USA",
+    "lat": 40.7507861,
+    "lng": -73.9864611,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 9553,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJKykw-aZZwokRW7K0ykZUxNo": {
+    "name": "La Pecora Bianca Bryant Park",
+    "address": "20 W 40th St, New York, NY 10018, USA",
+    "lat": 40.7525176,
+    "lng": -73.9831529,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6432,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJU0c2Y6lZwokRKlyc_R8HN88": {
+    "name": "Cho Dang Gol",
+    "address": "55 W 35th St, New York, NY 10001, USA",
+    "lat": 40.750162499999995,
+    "lng": -73.9863713,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3016,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJ3fZz-6hZwokRvjeitvq-5fY": {
+    "name": "BCD Tofu House",
+    "address": "5 W 32nd St, New York, NY 10001, USA",
+    "lat": 40.747547,
+    "lng": -73.9860578,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4735,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJAduJGa9ZwokR5p0GowLG9P8": {
+    "name": "Ichiran",
+    "address": "132 W 31st St, New York, NY 10001, USA",
+    "lat": 40.748267,
+    "lng": -73.990714,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4570,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJex3pOaxZwokRon8dGyD7utM": {
+    "name": "Best Bagel & Coffee",
+    "address": "225 W 35th St A, New York, NY 10001, USA",
+    "lat": 40.7522252,
+    "lng": -73.99110990000001,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6511,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJvSQIgqFZwokRFYQbJdzceSs": {
+    "name": "Gramercy Tavern",
+    "address": "42 E 20th St, New York, NY 10003, USA",
+    "lat": 40.7384555,
+    "lng": -73.98850639999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4804,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJp-hnIhNZwokRq1FijMduZrM": {
+    "name": "COQODAQ",
+    "address": "12 E 22nd St, New York, NY 10010, USA",
+    "lat": 40.7400559,
+    "lng": -73.9887467,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1468,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJIYq6WtZZwokRdqduboSbRU8": {
+    "name": "Isla & Co. - Midtown",
+    "address": "25 W 38th St, New York, NY 10018, USA",
+    "lat": 40.7517724,
+    "lng": -73.98410299999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4422,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJKaKVI79ZwokRN8WicODOIAw": {
+    "name": "TAO Downtown Restaurant",
+    "address": "92 9th Ave, New York, NY 10011, USA",
+    "lat": 40.7425376,
+    "lng": -74.0038464,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5437,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJBwGziqlZwokRb3MTH3xUt0Y": {
+    "name": "TONCHIN NEW YORK",
+    "address": "13 W 36th St., New York, NY 10018, USA",
+    "lat": 40.7502712,
+    "lng": -73.9845225,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3330,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJQ3Jl76hZwokRnS1-MQHYhZE": {
+    "name": "Jongro BBQ",
+    "address": "22 W 32nd St 2nd floor, New York, NY 10001, USA",
+    "lat": 40.7476718,
+    "lng": -73.9869686,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5447,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJQZ333rFZwokR9hVbTLTxWDo": {
+    "name": "7th Street Burger",
+    "address": "485 7th Ave, New York, NY 10018, USA",
+    "lat": 40.7525357,
+    "lng": -73.9892758,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1836,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJ6WooklRYwokR3qd-J59t-k0": {
+    "name": "LOS TACOS No.1",
+    "address": "229 W 43rd St, New York, NY 10036, USA",
+    "lat": 40.757321399999995,
+    "lng": -73.98765399999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 14851,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJb7P5f9FZwokR2HSsdIIDLls": {
+    "name": "Raising Cane's Chicken Fingers",
+    "address": "1501 Broadway, New York, NY 10036, USA",
+    "lat": 40.757361599999996,
+    "lng": -73.9862806,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3140,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJNcZg81VYwokRIcQV-JL4Ewc": {
+    "name": "Hotel Riu Plaza Manhattan Times Square",
+    "address": "145 W 47th St, New York, NY 10036, USA",
+    "lat": 40.7589365,
+    "lng": -73.9833948,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 7736,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJR9So-lRYwokRX1xEjA0rChA": {
+    "name": "Carmine's - Time Square",
+    "address": "200 W 44th St, New York, NY 10036, USA",
+    "lat": 40.757498,
+    "lng": -73.986654,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 18531,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJpY9Tg01YwokRCr_aQpDrqgk": {
+    "name": "YOTEL New York Times Square",
+    "address": "570 Tenth Avenue At, W 42nd St, New York, NY 10036, USA",
+    "lat": 40.7591608,
+    "lng": -73.9954657,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 9406,
+        "rating": 3.9
+      }
+    ]
+  },
+  "ChIJ3aKC18JZwokRV_edM73h9UI": {
+    "name": "Mitr Thai Restaurant",
+    "address": "37 W 46th St, New York, NY 10036, USA",
+    "lat": 40.756876899999995,
+    "lng": -73.9804147,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 8564,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJNRe1Mf9YwokRvxBdos5UEY4": {
+    "name": "Adel's Famous Halal Food",
+    "address": "1221 6th Ave, New York, NY 10020, USA",
+    "lat": 40.7591946,
+    "lng": -73.9811521,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5147,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJv8YTWFRYwokRkTUSNDg04Y4": {
+    "name": "Junior's Restaurant & Bakery",
+    "address": "1515 Broadway, W 45th St, New York, NY 10036, USA",
+    "lat": 40.7583331,
+    "lng": -73.98663669999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 15237,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJdc9EhVNYwokR-naSYfm_Urc": {
+    "name": "Birdland Jazz Club",
+    "address": "315 W 44th St, New York, NY 10036, USA",
+    "lat": 40.759088899999995,
+    "lng": -73.9897175,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4812,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJY6CJiVlZwokRUuEZJOmVFY8": {
+    "name": "ICHIRAN Ramen NY Times Square",
+    "address": "152 W 49th St, New York, NY 10020, USA",
+    "lat": 40.760057499999995,
+    "lng": -73.9833246,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3482,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJzRA7agBZwokRbSxOyEGFG5U": {
+    "name": "Din Tai Fung 鼎泰豐",
+    "address": "1633 Broadway, New York, NY 10022, USA",
+    "lat": 40.7621135,
+    "lng": -73.98400219999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2001,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJ_85dJlZYwokR29NPLSJngR4": {
+    "name": "Ellen's Stardust Diner",
+    "address": "1650 Broadway, New York, NY 10019, USA",
+    "lat": 40.7618723,
+    "lng": -73.98343559999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 23599,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ58OtM8pZwokRbd6DT6gcVys": {
+    "name": "La Grande Boucherie",
+    "address": "145 W 53rd St, New York, NY 10019, USA",
+    "lat": 40.7626274,
+    "lng": -73.98084109999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 9489,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJFQ55zVdYwokRUyAEIvUGfHw": {
+    "name": "Gallagher’s Steakhouse NYC",
+    "address": "228 W 52nd St, New York, NY 10019, USA",
+    "lat": 40.7628486,
+    "lng": -73.9838549,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 9081,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJbVtD_4BZwokRVJcC9hll1l8": {
+    "name": "Broad Nosh Bagels Deli & Catering 58th Street",
+    "address": "314 W 58th St, New York, NY 10019, USA",
+    "lat": 40.767654199999996,
+    "lng": -73.9832955,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 7220,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJKy5pv_RYwokRBaqWbokKqOc": {
+    "name": "Tavern On the Green",
+    "address": "Central Park, W 67th St, New York, NY 10023, USA",
+    "lat": 40.7724202,
+    "lng": -73.9772631,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 7916,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJm9ZmFPtYwokR4GjMlk_y7Fg": {
+    "name": "Monkey Bar",
+    "address": "60 E 54th St, New York, NY 10022, USA",
+    "lat": 40.759898199999995,
+    "lng": -73.9732046,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1685,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJmU5P6vBYwokRO73p8vAMXUE": {
+    "name": "Park Lane Hotel New York",
+    "address": "36 Central Park S South, New York, NY 10019, USA",
+    "lat": 40.7650735,
+    "lng": -73.9752633,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3347,
+        "rating": 4
+      }
+    ]
+  },
+  "ChIJm17AB5pYwokRWLJ6lEtXKOA": {
+    "name": "Central Park Boathouse",
+    "address": "EAST 72ND ST +, Center Dr, New York, NY 10021, USA",
+    "lat": 40.7752246,
+    "lng": -73.9687604,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4987,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJN98vqLZZwokRnXnKsKuEc-w": {
+    "name": "Carnegie Diner & Cafe",
+    "address": "205 W 57th St, New York, NY 10019, USA",
+    "lat": 40.765753,
+    "lng": -73.98012109999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5552,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJNUVFGtlZwokReMbMDzP1Aec": {
+    "name": "Carnegie Diner & Cafe",
+    "address": "828 8th Ave, New York, NY 10019, USA",
+    "lat": 40.7620089,
+    "lng": -73.9860031,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3402,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJfQ5BQMBYwokR7CxrwWOFFjw": {
+    "name": "Up Thai",
+    "address": "1411 2nd Ave, New York, NY 10021, USA",
+    "lat": 40.769951,
+    "lng": -73.9578638,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 7414,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJ-1GYt71YwokRhPeAgDwgVF4": {
+    "name": "Lexington Candy Shop",
+    "address": "1226 Lexington Ave, New York, NY 10028, USA",
+    "lat": 40.777515799999996,
+    "lng": -73.9572118,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3085,
+        "rating": 3.9
+      }
+    ]
+  },
+  "ChIJXYOiRJRYwokRm1i3c9R6WDA": {
+    "name": "The Mark Hotel",
+    "address": "25 E 77th St, New York, NY 10075, USA",
+    "lat": 40.7752711,
+    "lng": -73.9633994,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 899,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJORutA8BYwokR6obC5YpaamM": {
+    "name": "JG Melon",
+    "address": "1291 3rd Ave, New York, NY 10021, USA",
+    "lat": 40.771073799999996,
+    "lng": -73.9593297,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3860,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJ7VRAqalZwokR48bbQlnev8w": {
+    "name": "Serendipity 3 - Upper East Side",
+    "address": "225 E 60th St, New York, NY 10022, USA",
+    "lat": 40.761848,
+    "lng": -73.964894,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6513,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJE1SK5LtYwokRH1APiOrZNq0": {
+    "name": "The Penrose Bar",
+    "address": "1590 2nd Ave, New York, NY 10028, USA",
+    "lat": 40.7754348,
+    "lng": -73.9531179,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2412,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJR2zp7YZZwokRI3OkWSDkb_E": {
+    "name": "Butterfield Market",
+    "address": "1150 Madison Ave, New York, NY 10028, USA",
+    "lat": 40.7803648,
+    "lng": -73.95941479999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 403,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJXbVh8gRZwokR-uEVlFisxFE": {
+    "name": "Tha Phraya",
+    "address": "1553 2nd Ave, New York, NY 10028, USA",
+    "lat": 40.7745281,
+    "lng": -73.9545117,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1237,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJ9-ey3ehYwokRWPZl-y_GRBk": {
+    "name": "Tony's Di Napoli",
+    "address": "1081 3rd Ave, New York, NY 10065, USA",
+    "lat": 40.7643584,
+    "lng": -73.96424499999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3143,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJz6VeesBYwokRNBYu4Sar8lw": {
+    "name": "THEP Thai Restaurant",
+    "address": "1439 2nd Ave, New York, NY 10021, USA",
+    "lat": 40.7707714,
+    "lng": -73.9572357,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5925,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJq6o-8btYwokRAnPeXDLe9bM": {
+    "name": "Bua Thai Ramen & Robata Grill",
+    "address": "1611 2nd Ave, New York, NY 10028, USA",
+    "lat": 40.7763615,
+    "lng": -73.9530785,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 9706,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJG-9EsaRYwokRgiYzN1ew-WA": {
+    "name": "Milano Market",
+    "address": "1582 3rd Ave, New York, NY 10128, USA",
+    "lat": 40.7807599,
+    "lng": -73.9528672,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1089,
+        "rating": 4
+      }
+    ]
+  },
+  "ChIJL-_3K5RYwokRzKguUK0MB-w": {
+    "name": "Sant Ambroeus Madison",
+    "address": "1000 Madison Ave, New York, NY 10075, USA",
+    "lat": 40.7754159,
+    "lng": -73.9629886,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 952,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJAx5HgFlZwokRcWUfz5VxS0w": {
+    "name": "maman",
+    "address": "1424 3rd Ave, New York, NY 10028, USA",
+    "lat": 40.775544,
+    "lng": -73.9567155,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 759,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJEXPLsaFZwokRggZzIVKeiPM": {
+    "name": "Mission Ceviche",
+    "address": "1400 2nd Ave, New York, NY 10021, USA",
+    "lat": 40.7691005,
+    "lng": -73.9578631,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3847,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJJ6hFq7VZwokR-4kFUnicfQQ": {
+    "name": "Casa Tua New York",
+    "address": "20 E 76th St, New York, NY 10021, USA",
+    "lat": 40.7743678,
+    "lng": -73.9640378,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 187,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ9YlInwlZwokRDb-WWDZkU1s": {
+    "name": "La Pecora Bianca UES",
+    "address": "1562 2nd Ave, New York, NY 10028, USA",
+    "lat": 40.7747233,
+    "lng": -73.9538158,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2409,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJ01_9-ZdYwokR7iv7XpkKAic": {
+    "name": "Café Sabarsky",
+    "address": "1048 5th Ave, New York, NY 10028, USA",
+    "lat": 40.781235699999996,
+    "lng": -73.9602568,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1232,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJm8GloepYwokRKQQXHlt9X9w": {
+    "name": "EJ's Luncheonette",
+    "address": "1271 3rd Ave, New York, NY 10021, USA",
+    "lat": 40.770444,
+    "lng": -73.9597299,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1313,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJCehOSIRYwokRs4ijKsy1oiI": {
+    "name": "Jacob's Pickles",
+    "address": "680 Columbus Ave, New York, NY 10025, USA",
+    "lat": 40.7911551,
+    "lng": -73.9690457,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 7211,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJ5-8q3ST2wokRUmUlDRQUb7g": {
+    "name": "Mama's TOO! Upper West Side",
+    "address": "2750 Broadway, New York, NY 10025, USA",
+    "lat": 40.8008324,
+    "lng": -73.9675901,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2654,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJrapahYZYwokRdCivYmoCbJ8": {
+    "name": "Maison Pickle",
+    "address": "2315 Broadway, New York, NY 10024, USA",
+    "lat": 40.7868954,
+    "lng": -73.9779951,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3589,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJZ-wCRohYwokRvnOFofo8F7A": {
+    "name": "Hotel Belleclaire",
+    "address": "2175 Broadway, New York, NY 10024, USA",
+    "lat": 40.782424999999996,
+    "lng": -73.9811603,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1781,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJrXva_oJYwokROtv_EdGJgH0": {
+    "name": "Carmine's - Upper West Side",
+    "address": "2450 Broadway, New York, NY 10024, USA",
+    "lat": 40.791108699999995,
+    "lng": -73.9739812,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6998,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJr9FgkpVZwokRYB4L5UHRIW4": {
+    "name": "Sala Thai",
+    "address": "307 Amsterdam Ave, New York, NY 10023, USA",
+    "lat": 40.7800898,
+    "lng": -73.9802669,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3792,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJq3tH0I5YwokRfL6Y8j8E6DM": {
+    "name": "Shake Shack Upper West Side",
+    "address": "366 Columbus Ave, New York, NY 10024, USA",
+    "lat": 40.780867099999995,
+    "lng": -73.9765697,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 8391,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJZ996e4RYwokR2kEubU7CVhA": {
+    "name": "Barney Greengrass",
+    "address": "541 Amsterdam Ave, New York, NY 10024, USA",
+    "lat": 40.7879654,
+    "lng": -73.9745734,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1590,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJlYuHaAtZwokRTrF1jKtMdvg": {
+    "name": "La Pecora Bianca UWS",
+    "address": "359 Columbus Ave, New York, NY 10024, USA",
+    "lat": 40.7804753,
+    "lng": -73.9763467,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2683,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJAc9IDW5ZwokR18hDD6ev_j0": {
+    "name": "Modern Bread and Bagel",
+    "address": "472 Columbus Ave, New York, NY 10024, USA",
+    "lat": 40.7844487,
+    "lng": -73.9740089,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1680,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJ6TgEvtlZwokRX2zEf6VZpO0": {
+    "name": "Chama Mama",
+    "address": "373 Amsterdam Ave, New York, NY 10024, USA",
+    "lat": 40.7821972,
+    "lng": -73.9787434,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 989,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJ8fEOZPFZwokRDcA5x-C09I8": {
+    "name": "Miriam Upper West Side",
+    "address": "300 Amsterdam Ave, New York, NY 10023, USA",
+    "lat": 40.780121,
+    "lng": -73.9807534,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 818,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJ35dPk4pYwokRbcEIZeGqtvg": {
+    "name": "Noi Due Cafe",
+    "address": "491 Columbus Ave, New York, NY 10024, USA",
+    "lat": 40.7849326,
+    "lng": -73.97305949999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1967,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJQyEs-WFYwokRxcMQc54r9W0": {
+    "name": "Sushi Yasaka",
+    "address": "251 W 72nd St, New York, NY 10023, USA",
+    "lat": 40.779660199999995,
+    "lng": -73.983408,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1957,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJk8cA64pZwokRsxXI90xRslQ": {
+    "name": "Daily Provisions - Upper West Side",
+    "address": "375 Amsterdam Ave, New York, NY 10024, USA",
+    "lat": 40.782244,
+    "lng": -73.9786351,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 686,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJK5VpoYlYwokRzzsrtQ0hmOM": {
+    "name": "Playa Betty’s",
+    "address": "320 Amsterdam Ave, New York, NY 10023, USA",
+    "lat": 40.7808482,
+    "lng": -73.9803395,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3506,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJs_09yZ73wokRD-K3t2y0nH8": {
+    "name": "Bánh",
+    "address": "942 Amsterdam Ave, New York, NY 10025, USA",
+    "lat": 40.8008758,
+    "lng": -73.96567759999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 621,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJp5ZUdGlZwokR9QomdJsja7A": {
+    "name": "Kebab aur Sharab",
+    "address": "247 W 72nd St, New York, NY 10023, USA",
+    "lat": 40.7795772,
+    "lng": -73.9832555,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 914,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJ2V6HH4RYwokRb0PY09qwtJA": {
+    "name": "French Roast",
+    "address": "2340 Broadway, New York, NY 10024, USA",
+    "lat": 40.787641699999995,
+    "lng": -73.97659019999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3954,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJNT3RSgH2wokR2ZqvHjeklRk": {
+    "name": "Ricardo Steakhouse",
+    "address": "2145 2nd Ave, New York, NY 10029, USA",
+    "lat": 40.7935083,
+    "lng": -73.9406611,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4400,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJvXfkSP31wokRJ1Lqb0Nk7qQ": {
+    "name": "Patsy's Pizzeria",
+    "address": "2287 1st Ave, New York, NY 10035, USA",
+    "lat": 40.7971528,
+    "lng": -73.9348807,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3582,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJ7V-ZqxH2wokRwaES4IMqwQU": {
+    "name": "Amy Ruth's",
+    "address": "113 W 116th St, New York, NY 10026, USA",
+    "lat": 40.8025958,
+    "lng": -73.9501971,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6188,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJ_Wfccg32wokR_0Yoxz3R9a0": {
+    "name": "Harlem Shake",
+    "address": "100 W 124th St, New York, NY 10027, USA",
+    "lat": 40.80711,
+    "lng": -73.9463378,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3979,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJwRC7hl71wokRlORk3BvaTA0": {
+    "name": "Lighthouse Fish Market",
+    "address": "508 E 117th St, New York, NY 10035, USA",
+    "lat": 40.7953538,
+    "lng": -73.9322852,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 797,
+        "rating": 4
+      }
+    ]
+  },
+  "ChIJOdtYAhH2wokR_BPOXyBNYGM": {
+    "name": "Make My Fish",
+    "address": "120 W 116th St, New York, NY 10026, USA",
+    "lat": 40.8023436,
+    "lng": -73.9511033,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 759,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJew0GrQX1wokR4ChwOTIWBrI": {
+    "name": "Santiago’s Garden",
+    "address": "2337 1st Ave, New York, NY 10035, USA",
+    "lat": 40.798518099999995,
+    "lng": -73.9338581,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1419,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJr9rAO3f3wokRg7evFlsrX-Y": {
+    "name": "The Good Good",
+    "address": "1694 Park Ave, New York, NY 10035, USA",
+    "lat": 40.8013042,
+    "lng": -73.9422367,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 364,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJ99DG_RD2wokR4v64upVjBOI": {
+    "name": "Le Baobab Gouygui",
+    "address": "120 W 116th St, New York, NY 10026, USA",
+    "lat": 40.802343,
+    "lng": -73.9510933,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 572,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJ9cDJoZZZwokR5g5AzIbsXQQ": {
+    "name": "Chu Ros Thai NYC",
+    "address": "Chu Ros Thai Restaurant, 1590 Lexington Ave, New York, NY 10029, USA",
+    "lat": 40.7892989,
+    "lng": -73.94863,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 966,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJO6T65adYwokRiS_B_G-zsko": {
+    "name": "Plue",
+    "address": "1575 Lexington Ave, New York, NY 10029, USA",
+    "lat": 40.78893,
+    "lng": -73.9485456,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1474,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJvSkaCQD3wokRtD9VHu_zKsY": {
+    "name": "Kaafi by Chaiguy",
+    "address": "171 Lenox Ave, New York, NY 10026, USA",
+    "lat": 40.803847499999996,
+    "lng": -73.9486865,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 245,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJs21Av_31wokRz_hcbeRuZ0E": {
+    "name": "Rao's",
+    "address": "455 E 114th St, New York, NY 10029, USA",
+    "lat": 40.7939161,
+    "lng": -73.9342432,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 652,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJaQO_bD73wokRSDSni_Lohwg": {
+    "name": "Shake Shack Harlem",
+    "address": "1 W 125th St, New York, NY 10027, USA",
+    "lat": 40.8067339,
+    "lng": -73.9423473,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1720,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJL080e8ZZwokRm5el0cgL-x4": {
+    "name": "EJ Kitchen",
+    "address": "1567 Lexington Ave, New York, NY 10029, USA",
+    "lat": 40.788563499999995,
+    "lng": -73.9488137,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 564,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ8cO6EbH3wokRs0M2GGlpRww": {
+    "name": "Sylla",
+    "address": "1664 Park Ave, New York, NY 10035, USA",
+    "lat": 40.800377499999996,
+    "lng": -73.9428933,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 206,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJ2RB8ywf2wokRO5NQU16lvzY": {
+    "name": "Taco Mix",
+    "address": "234 E 116th St #1, New York, NY 10029, USA",
+    "lat": 40.7972067,
+    "lng": -73.9386762,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1863,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJe4UnOwb2wokResyMJYvv5mc": {
+    "name": "Wendy's",
+    "address": "2121 3rd Ave, New York, NY 10029, USA",
+    "lat": 40.797685,
+    "lng": -73.9399423,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2173,
+        "rating": 3.8
+      }
+    ]
+  },
+  "ChIJM1oV8w32wokR9gt0ynHqypM": {
+    "name": "Sottocasa Pizzeria Harlem",
+    "address": "227 Malcolm X Blvd, New York, NY 10027, USA",
+    "lat": 40.8055464,
+    "lng": -73.9474615,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1521,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJsf-hvwf2wokRUzuXKWqDPMQ": {
+    "name": "7-Eleven",
+    "address": "2256 2nd Ave, New York, NY 10029, USA",
+    "lat": 40.7967296,
+    "lng": -73.93761239999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 122,
+        "rating": 3.2
+      }
+    ]
+  },
+  "ChIJLyERijv2wokR8G_K-v8FXX4": {
+    "name": "Tom's Restaurant",
+    "address": "2880 Broadway, New York, NY 10025, USA",
+    "lat": 40.8055187,
+    "lng": -73.96538869999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3711,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJFcYLJw32wokRnP5A9xO9JqM": {
+    "name": "Red Rooster Harlem",
+    "address": "310 Lenox Ave, New York, NY 10027, USA",
+    "lat": 40.8081442,
+    "lng": -73.94488170000001,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 7594,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJhxoeyo_3wokRmByeVT15UlU": {
+    "name": "Raising Cane's Chicken Fingers",
+    "address": "124 W 125th St, New York, NY 10027, USA",
+    "lat": 40.8080395,
+    "lng": -73.94688529999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 410,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJpcanZ0L2wokRoWs8p9gEJcM": {
+    "name": "Dinosaur Bar-B-Que",
+    "address": "700 W 125th St, New York, NY 10027, USA",
+    "lat": 40.8180979,
+    "lng": -73.9608447,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 7356,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ-bhM6yL2wokRAtIoWi_TL2k": {
+    "name": "Melba's Restaurant",
+    "address": "300 W 114th St, New York, NY 10026, USA",
+    "lat": 40.80311,
+    "lng": -73.95662949999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4594,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJd9WGjg32wokRD-tzqpGQTSY": {
+    "name": "BLVD Bistro NY",
+    "address": "2149 Frederick Douglass Blvd, New York, NY 10026, USA",
+    "lat": 40.8043626,
+    "lng": -73.95575149999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2774,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJ4UJk-y_2wokRXQ-FyvMssyw": {
+    "name": "Ellington in the Park",
+    "address": "Riverside Dr &, W 105th St, New York, NY 10025, USA",
+    "lat": 40.8025996,
+    "lng": -73.97192199999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 917,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJqRJTizv2wokRwg_FF-6pYuU": {
+    "name": "Le Monde",
+    "address": "2885 Broadway, New York, NY 10025, USA",
+    "lat": 40.8058863,
+    "lng": -73.9658847,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2958,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJuyAK3073wokR1X2sCM0t_Do": {
+    "name": "Yemeni Restaurant",
+    "address": "377 W 125th St, New York, NY 10027, USA",
+    "lat": 40.8113497,
+    "lng": -73.95355789999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1826,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJS_7f3yT2wokR4dsAb0bTwDo": {
+    "name": "Smoke Jazz & Supper Club",
+    "address": "2751 Broadway, New York, NY 10025, USA",
+    "lat": 40.801110099999995,
+    "lng": -73.9682369,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1389,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJTV8xFRr3wokRvtKlPE3mdPw": {
+    "name": "Fumo Upper West Side",
+    "address": "2791 Broadway, New York, NY 10025, USA",
+    "lat": 40.8028379,
+    "lng": -73.9681172,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 813,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJZURcthb2wokRkboWBiPH0vE": {
+    "name": "BO's Bagels",
+    "address": "235 W 116th St, New York, NY 10026, USA",
+    "lat": 40.804196999999995,
+    "lng": -73.954091,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1464,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJm21F8Rn3wokR8wYPJfIWbEM": {
+    "name": "The Baylander",
+    "address": "Hudson River Greenway, New York, NY 10027, USA",
+    "lat": 40.8191519,
+    "lng": -73.9622983,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 714,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJY2hG7Uv3wokRBkKxepeLnfs": {
+    "name": "Dear Mama",
+    "address": "611 W 129th St, New York, NY 10027, USA",
+    "lat": 40.8167463,
+    "lng": -73.95859949999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 708,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJccb94CX2wokRETIajBqC4tE": {
+    "name": "Flor de Mayo Restaurant",
+    "address": "2651 Broadway, New York, NY 10025, USA",
+    "lat": 40.797843799999995,
+    "lng": -73.9699242,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3019,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJZ-Drlhb2wokREuV4YeyyZcc": {
+    "name": "Harlem Tavern",
+    "address": "2153 Frederick Douglass Blvd, New York, NY 10026, USA",
+    "lat": 40.8047593,
+    "lng": -73.9554794,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4392,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJxXmxz0H2wokRwYJIJ7aBB3s": {
+    "name": "Pisticci",
+    "address": "125 La Salle St, New York, NY 10027, USA",
+    "lat": 40.8141746,
+    "lng": -73.9603204,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1506,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJbQ6kSgH3wokRHPZKLZ--XiM": {
+    "name": "Amity Hall Uptown",
+    "address": "982 Amsterdam Ave, New York, NY 10025, USA",
+    "lat": 40.8022664,
+    "lng": -73.96465409999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1118,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJb8Xw0wz2wokRXhp1-HSLvkI": {
+    "name": "Sylvia's Restaurant",
+    "address": "328 Malcolm X Blvd, New York, NY 10027, USA",
+    "lat": 40.8086445,
+    "lng": -73.944479,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 8774,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJLe70p2X2wokReDA-X8LGqZE": {
+    "name": "Fumo Harlem",
+    "address": "1600 Amsterdam Ave, New York, NY 10031, USA",
+    "lat": 40.8214251,
+    "lng": -73.95063569999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1898,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJmU3ycHH2wokR6A8gMLe9sNY": {
+    "name": "Shrine",
+    "address": "2271 Adam Clayton Powell Jr Blvd, New York, NY 10030, USA",
+    "lat": 40.814307,
+    "lng": -73.94405189999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1988,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJEyoj-4f3wokRYFZu3Lywqd8": {
+    "name": "Cocina Consuelo",
+    "address": "130 Hamilton Pl, New York, NY 10031, USA",
+    "lat": 40.824042,
+    "lng": -73.9492303,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 294,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJiVW74m32wokR4JB1zuJM9XU": {
+    "name": "Lighthouse Fish Market",
+    "address": "2449 Frederick Douglass Blvd, New York, NY 10027, USA",
+    "lat": 40.8142654,
+    "lng": -73.9486107,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2442,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJW_cAAZr3wokR_XjHGpcIYsM": {
+    "name": "Chick-fil-A",
+    "address": "216 W 125th St, New York, NY 10027, USA",
+    "lat": 40.809089799999995,
+    "lng": -73.9491517,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 825,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJUelrZgL3wokREoU8Uinnoqk": {
+    "name": "Native Harlem",
+    "address": "2319 Frederick Douglass Blvd, New York, NY 10027, USA",
+    "lat": 40.80982720000001,
+    "lng": -73.9516506,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 469,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJVcFt-x_3wokRVIEXnLfUXg4": {
+    "name": "Dave's Hot Chicken",
+    "address": "254 W 125th St, New York, NY 10027, USA",
+    "lat": 40.8095624,
+    "lng": -73.9501092,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 432,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJbblrGCX3wokRM4FasdVVFio": {
+    "name": "Lucille's Coffee and Cocktails",
+    "address": "26 Macombs Pl, New York, NY 10039, USA",
+    "lat": 40.8259359,
+    "lng": -73.9389222,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 419,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJ2d54lnr2wokRK-62uG2nIx8": {
+    "name": "The Edge Harlem",
+    "address": "101 Edgecombe Ave, New York, NY 10030, USA",
+    "lat": 40.8198868,
+    "lng": -73.9461127,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1499,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJL-dbDGH2wokRbtpptLNxlo0": {
+    "name": "Sofrito",
+    "address": "679 Riverside Dr, New York, NY 10031, USA",
+    "lat": 40.8272046,
+    "lng": -73.9551541,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2523,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJnxjnEHP2wokR-Dgf5gfBf50": {
+    "name": "Jacob Soul Food Restaurant",
+    "address": "373 Malcolm X Blvd, New York, NY 10027, USA",
+    "lat": 40.810265,
+    "lng": -73.9440245,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3278,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ-zUUqkxawokRCGahpM8G8n4": {
+    "name": "Alamo Drafthouse Cinema Brooklyn",
+    "address": "445 Albee Square W 4th floor, Brooklyn, NY 11201, USA",
+    "lat": 40.6911804,
+    "lng": -73.98315560000002,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 7711,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJKb2SuKFbwokRyORCT_Xtf_s": {
+    "name": "Public Records",
+    "address": "233 Butler St, Brooklyn, NY 11217, USA",
+    "lat": 40.682267499999995,
+    "lng": -73.98639829999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1666,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJYdQQqUxawokRgEb3GR9Qqhw": {
+    "name": "Dekalb Market Hall",
+    "address": "445 Albee Square W, Brooklyn, NY 11201, USA",
+    "lat": 40.690761699999996,
+    "lng": -73.98305739999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6335,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJ395CMVlawokRt2oLH_8zmvI": {
+    "name": "Lucali",
+    "address": "575 Henry St, Brooklyn, NY 11231, USA",
+    "lat": 40.681826,
+    "lng": -74.0003184,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2998,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJKSnzQJVewokRme40boVi4uk": {
+    "name": "Junior's Restaurant & Bakery",
+    "address": "386 Flatbush Ave Ext, Brooklyn, NY 11201, USA",
+    "lat": 40.6901493,
+    "lng": -73.9818736,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 12805,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJb6wLHk5awokRxFwHikoBsnQ": {
+    "name": "Mia's Brooklyn Bakery",
+    "address": "139 Smith St, Brooklyn, NY 11201, USA",
+    "lat": 40.6870036,
+    "lng": -73.9900524,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3415,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJJye7jZBbwokRtioAck7uEIg": {
+    "name": "Theodora",
+    "address": "7 Greene Ave, Brooklyn, NY 11238, USA",
+    "lat": 40.6860572,
+    "lng": -73.9731084,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 600,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJqzhkS7dbwokRtGCdHcorPvU": {
+    "name": "Miss Ada",
+    "address": "184 Dekalb Ave, Brooklyn, NY 11205, USA",
+    "lat": 40.689425,
+    "lng": -73.9723664,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1678,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJq-DB1kFbwokRs5P3aWVwa4g": {
+    "name": "Raising Cane's Chicken Fingers",
+    "address": "447 Fulton St, Brooklyn, NY 11201, USA",
+    "lat": 40.691675599999996,
+    "lng": -73.98712470000001,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 669,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJj3h2A7lbwokRObK-NRSVGPw": {
+    "name": "KPOT Korean BBQ & Hot Pot",
+    "address": "430 Albee Square W, Brooklyn, NY 11201, USA",
+    "lat": 40.690867,
+    "lng": -73.98378799999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1604,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJcYTj9gFbwokRkvKKMQFaObo": {
+    "name": "Forma Pasta Factory",
+    "address": "5 Greene Ave, Brooklyn, NY 11238, USA",
+    "lat": 40.6860036,
+    "lng": -73.9731326,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1058,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJwZz-LWlbwokR_hshOuzdrkw": {
+    "name": "Gage & Tollner",
+    "address": "372 Fulton St, Brooklyn, NY 11201, USA",
+    "lat": 40.6913485,
+    "lng": -73.9878195,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1305,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJo8ltIwBbwokRnpjtIPOzZ2Q": {
+    "name": "SUKH",
+    "address": "723 Fulton St, Brooklyn, NY 11217, USA",
+    "lat": 40.6872542,
+    "lng": -73.9763684,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1070,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJ__u3R6tbwokRYMOym8O83H0": {
+    "name": "Threes Brewing",
+    "address": "333 Douglass St, Brooklyn, NY 11217, USA",
+    "lat": 40.6798012,
+    "lng": -73.9821573,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1077,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJix9FO6lbwokRkZyFzr3vOeg": {
+    "name": "The Randolph",
+    "address": "82 Prospect St, Brooklyn, NY 11201, USA",
+    "lat": 40.7005446,
+    "lng": -73.9874945,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 731,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJv00VskxawokRVuxJjyUvOy0": {
+    "name": "A Taste of Katz's",
+    "address": "1 Dekalb Ave, Brooklyn, NY 11201, USA",
+    "lat": 40.6913317,
+    "lng": -73.98256119999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 684,
+        "rating": 3.8
+      }
+    ]
+  },
+  "ChIJdwN8fTtbwokRdk3NGGX7KsQ": {
+    "name": "Chick-fil-A",
+    "address": "166 Flatbush Ave, Brooklyn, NY 11217, USA",
+    "lat": 40.682755,
+    "lng": -73.976882,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2470,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJC3VecrpbwokRLNJIz-9s4VQ": {
+    "name": "Olea",
+    "address": "171 Lafayette Ave, Brooklyn, NY 11238, USA",
+    "lat": 40.6878197,
+    "lng": -73.9706231,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1824,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJExC3nU9awokRgODOvdb3awc": {
+    "name": "Yemen Café & Restaurant",
+    "address": "176 Atlantic Ave, Brooklyn, NY 11201, USA",
+    "lat": 40.6898154,
+    "lng": -73.99370189999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3478,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJ_W7cGPtbwokRXxTMC6MOvHA": {
+    "name": "The Simpson",
+    "address": "673 Atlantic Ave, Brooklyn, NY 11217, USA",
+    "lat": 40.683235200000006,
+    "lng": -73.9736167,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5162,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJESF5DXZcwokRVyeGiPtTMfY": {
+    "name": "LunÀtico",
+    "address": "486 Halsey St, Brooklyn, NY 11233, USA",
+    "lat": 40.683400299999995,
+    "lng": -73.93468779999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1013,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJJ5J8yJ9bwokRjpOkpYgii5k": {
+    "name": "Chavela's",
+    "address": "736 Franklin Ave, Brooklyn, NY 11238, USA",
+    "lat": 40.6734559,
+    "lng": -73.9572247,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3070,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJd-u9A9pbwokRLN0L2FXFWwk": {
+    "name": "Juici Patties",
+    "address": "1293 Fulton St, Brooklyn, NY 11216, USA",
+    "lat": 40.680538399999996,
+    "lng": -73.94947379999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 452,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJhQCuY3VbwokRanBob6BoCrI": {
+    "name": "Franklin Park",
+    "address": "766 Franklin Avenue, 618 St Johns Pl, Brooklyn, NY 11238, USA",
+    "lat": 40.672276499999995,
+    "lng": -73.95787109999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1607,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJN6a8BXZcwokRTpACTb3PxvQ": {
+    "name": "Saraghina Pizzeria",
+    "address": "350 Lewis Ave, Brooklyn, NY 11233, USA",
+    "lat": 40.683731099999996,
+    "lng": -73.93538749999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2281,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJC2cqQEhbwokRxC2JSiGx2Vw": {
+    "name": "RAS Plant Based",
+    "address": "739 Franklin Ave, Brooklyn, NY 11238, USA",
+    "lat": 40.6733958,
+    "lng": -73.95669029999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1309,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJOdgj26xbwokRgsHCUe7pf8c": {
+    "name": "The Fly",
+    "address": "549 Classon Ave, Brooklyn, NY 11238, USA",
+    "lat": 40.681947799999996,
+    "lng": -73.9584666,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 324,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJTf8taJRdwokRq3Bm3GY9lK4": {
+    "name": "Ursula Brooklyn",
+    "address": "387A Nostrand Ave, Brooklyn, NY 11216, USA",
+    "lat": 40.6844653,
+    "lng": -73.9502516,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 602,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJvSMmN3ZcwokR2Q8U305wnnQ": {
+    "name": "Peaches Lewis",
+    "address": "393 Lewis Ave, Brooklyn, NY 11233, USA",
+    "lat": 40.6817534,
+    "lng": -73.9346851,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3500,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJid6BdwBbwokRe3HVRa9K1VE": {
+    "name": "Smør",
+    "address": "26 Putnam Ave, Brooklyn, NY 11238, USA",
+    "lat": 40.6826191,
+    "lng": -73.96096039999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 187,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJR_ch0LxbwokRXouTAZGjl7A": {
+    "name": "Cornbread Brooklyn",
+    "address": "409 Eastern Pkwy, Brooklyn, NY 11216, USA",
+    "lat": 40.670553,
+    "lng": -73.9544671,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6848,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJ__978HNcwokRJMR_zap8RcQ": {
+    "name": "Trad Room",
+    "address": "266 Malcolm X Blvd, Brooklyn, NY 11233, USA",
+    "lat": 40.6838932,
+    "lng": -73.92943749999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 792,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJT1PLbrdbwokRQ6kFS5TcbCU": {
+    "name": "Tacobee's",
+    "address": "711 Nostrand Ave, Brooklyn, NY 11216, USA",
+    "lat": 40.6729341,
+    "lng": -73.9498278,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1859,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJvWLTO_1bwokRrZDrq9PGaWg": {
+    "name": "Little Grenjai",
+    "address": "477 Gates Ave, Brooklyn, NY 11216, USA",
+    "lat": 40.6866874,
+    "lng": -73.9478504,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 271,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJUbYC4KFbwokRzm4s-s-xCfk": {
+    "name": "Neptune Diner II",
+    "address": "699 Classon Ave, Brooklyn, NY 11238, USA",
+    "lat": 40.676432399999996,
+    "lng": -73.9591867,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1690,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJsV2mPBxbwokRN4z8lBXBejU": {
+    "name": "Corto",
+    "address": "262 Halsey St, Brooklyn, NY 11216, USA",
+    "lat": 40.6824187,
+    "lng": -73.943285,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 465,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJoxuT5Y5bwokR4BUNuEswrcI": {
+    "name": "Peaches HotHouse",
+    "address": "415 Tompkins Ave, Brooklyn, NY 11216, USA",
+    "lat": 40.6833818,
+    "lng": -73.9437578,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1964,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ2QqDF3ZcwokRX0EBn3HpcjI": {
+    "name": "Brooklyn Beso",
+    "address": "370 Lewis Ave, Brooklyn, NY 11233, USA",
+    "lat": 40.682942,
+    "lng": -73.93527999999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1747,
+        "rating": 3.7
+      }
+    ]
+  },
+  "ChIJbxTjU3lcwokRa8l68kDksH0": {
+    "name": "BARZAKH• CAFÉ",
+    "address": "147 Utica Ave, Brooklyn, NY 11213, USA",
+    "lat": 40.6737919,
+    "lng": -73.9304925,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 272,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJGbenfXVbwokRhF8snm75KhE": {
+    "name": "Bagel Pub",
+    "address": "775 Franklin Ave, Brooklyn, NY 11238, USA",
+    "lat": 40.6722332,
+    "lng": -73.9571291,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1526,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJ__HHwfdbwokRD6UFqdthMMA": {
+    "name": "Cafe Erzulie",
+    "address": "894 Broadway, Brooklyn, NY 11206, USA",
+    "lat": 40.697859300000005,
+    "lng": -73.937206,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 396,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJNZBXVQBbwokRjsmXuvq8gPw": {
+    "name": "Damballa",
+    "address": "895 Broadway, Brooklyn, NY 11206, USA",
+    "lat": 40.698118300000004,
+    "lng": -73.9368944,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 125,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJPyZGhz1dwokRlSIds1zjzGQ": {
+    "name": "The Broadway",
+    "address": "1272 Broadway, Brooklyn, NY 11221, USA",
+    "lat": 40.6910465,
+    "lng": -73.9248535,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 262,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJ53fC_5VbwokRaTVVX0NrNZo": {
+    "name": "Clementine Bakery",
+    "address": "395 Classon Ave, Brooklyn, NY 11238, USA",
+    "lat": 40.6875856,
+    "lng": -73.9595598,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1092,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJnQxdCoNdwokROLos5NIpK8Q": {
+    "name": "Mao Mao",
+    "address": "1000 Broadway, Brooklyn, NY 11221, USA",
+    "lat": 40.69579900000001,
+    "lng": -73.9334587,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 427,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJoWvfpYVbwokRJX-ay2LCt8U": {
+    "name": "7-Eleven",
+    "address": "1381 Atlantic Ave, Brooklyn, NY 11216, USA",
+    "lat": 40.678723399999996,
+    "lng": -73.94448349999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 125,
+        "rating": 3.2
+      }
+    ]
+  },
+  "ChIJd_XT8fJbwokRIRr2Y937e1E": {
+    "name": "BKLYN BLEND",
+    "address": "194 Tompkins Ave, Brooklyn, NY 11206, USA",
+    "lat": 40.6923485,
+    "lng": -73.9458874,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1283,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJ_xadyOlbwokRieKsyKoHCHs": {
+    "name": "Dave's Hot Chicken",
+    "address": "1192 Fulton St, Brooklyn, NY 11216, USA",
+    "lat": 40.6803628,
+    "lng": -73.9528442,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 391,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJS-vA-dRbwokRH3li5S8p6HM": {
+    "name": "Macosa Trattoria",
+    "address": "310 Tompkins Ave, Brooklyn, NY 11216, USA",
+    "lat": 40.687295999999996,
+    "lng": -73.9448443,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 438,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJuRAJ55pbwokRqGveFjbVWkw": {
+    "name": "David's Brisket House",
+    "address": "533 Nostrand Ave, Brooklyn, NY 11216, USA",
+    "lat": 40.6790911,
+    "lng": -73.9494893,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1513,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJ43tYfapbwokRnkJq38aBk_M": {
+    "name": "Union Hall",
+    "address": "702 Union St, Brooklyn, NY 11215, USA",
+    "lat": 40.6760744,
+    "lng": -73.98008229999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1612,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJcdtiwplbwokRcYySLGqp37M": {
+    "name": "Ozakaya",
+    "address": "635 Vanderbilt Ave, Brooklyn, NY 11238, USA",
+    "lat": 40.6780183,
+    "lng": -73.9684709,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1558,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJZekLo5BbwokRdzl18pFelxo": {
+    "name": "Dave and Buster's Brooklyn - Atlantic Center",
+    "address": "625 Atlantic Ave Suite 311, Brooklyn, NY 11217, USA",
+    "lat": 40.6834213,
+    "lng": -73.9741703,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 686,
+        "rating": 3.9
+      }
+    ]
+  },
+  "ChIJ8ccnM7dbwokRy-pTMsdgvS4": {
+    "name": "Walter's",
+    "address": "166 Dekalb Ave, Brooklyn, NY 11217, USA",
+    "lat": 40.6895015,
+    "lng": -73.9732615,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1181,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJi73FVqNbwokRZ4KIqLtNoFw": {
+    "name": "Sisters",
+    "address": "900 Fulton St, Brooklyn, NY 11238, USA",
+    "lat": 40.6828778,
+    "lng": -73.9652184,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1534,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJPX5xOVVawokRE_LJCrRhQ0k": {
+    "name": "Dinosaur Bar-B-Que",
+    "address": "604 Union St, Brooklyn, NY 11215, USA",
+    "lat": 40.67762450000001,
+    "lng": -73.9840703,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 6460,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ2xcAfQFbwokRSBBCp0svARQ": {
+    "name": "Sailor",
+    "address": "228 Dekalb Ave, Brooklyn, NY 11205, USA",
+    "lat": 40.6893831,
+    "lng": -73.9703111,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 394,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJQ-hJIuBbwokRRUdquw_5w5U": {
+    "name": "L'industrie Pizzeria",
+    "address": "254 S 2nd St, Brooklyn, NY 11211, USA",
+    "lat": 40.711605299999995,
+    "lng": -73.9578691,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5426,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJR_bK295bwokR8gM6QgEdmkY": {
+    "name": "Peter Luger Steak House",
+    "address": "178 Broadway, Brooklyn, NY 11211, USA",
+    "lat": 40.709877399999996,
+    "lng": -73.9625052,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 15815,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJkRWC9WFZwokRfa5Uzor3e-g": {
+    "name": "Sunday In Brooklyn",
+    "address": "348 Wythe Ave, Brooklyn, NY 11249, USA",
+    "lat": 40.714199199999996,
+    "lng": -73.9653462,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3861,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJaQRXYuRZwokRHjAN5MkBizY": {
+    "name": "Rule of Thirds",
+    "address": "171 Banker St, Brooklyn, NY 11222, USA",
+    "lat": 40.724744799999996,
+    "lng": -73.9552327,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1590,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJw7SsU_pZwokREyGSSulF53U": {
+    "name": "Misi",
+    "address": "329 Kent Ave, Brooklyn, NY 11249, USA",
+    "lat": 40.713401,
+    "lng": -73.9671874,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1799,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJIccpGllZwokRx0BsEyyeQg4": {
+    "name": "Kellogg’s Diner",
+    "address": "518 Metropolitan Ave, Brooklyn, NY 11211, USA",
+    "lat": 40.7138767,
+    "lng": -73.95182539999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4187,
+        "rating": 4
+      }
+    ]
+  },
+  "ChIJ0bhWy0JZwokRxxk-A6fJH1Q": {
+    "name": "Brooklyn Bowl",
+    "address": "61 Wythe Ave, Brooklyn, NY 11249, USA",
+    "lat": 40.7218874,
+    "lng": -73.9573813,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3884,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJ1SnD495bwokRu9j5Mq3Q7FA": {
+    "name": "Baby's All Right",
+    "address": "146 Broadway, Brooklyn, NY 11211, USA",
+    "lat": 40.710127799999995,
+    "lng": -73.9634861,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1475,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ1_tkw2BZwokRCU4l1ZUB_ew": {
+    "name": "Radegast Hall & Biergarten",
+    "address": "113 N 3rd St, Brooklyn, NY 11249, USA",
+    "lat": 40.7166614,
+    "lng": -73.96144939999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3870,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJMza4HWFZwokREyXlhbnRf5E": {
+    "name": "Nitehawk Cinema",
+    "address": "136 Metropolitan Ave, Brooklyn, NY 11249, USA",
+    "lat": 40.715972199999996,
+    "lng": -73.962575,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1977,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJuSLgZ11ZwokRdHegOodYXOs": {
+    "name": "The Hoxton, Williamsburg",
+    "address": "97 Wythe Ave, Brooklyn, NY 11249, USA",
+    "lat": 40.720831,
+    "lng": -73.9587603,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 916,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJLyS5dYRZwokRlkA0g9eijjs": {
+    "name": "Laser Wolf Brooklyn",
+    "address": "97 Wythe Ave, Brooklyn, NY 11249, USA",
+    "lat": 40.7208328,
+    "lng": -73.95879359999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1054,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJbTCMl19ZwokRUohF137p9cQ": {
+    "name": "The Four Horsemen",
+    "address": "295 Grand St, Brooklyn, NY 11211, USA",
+    "lat": 40.7130584,
+    "lng": -73.9573216,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1088,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJJXCD6ltZwokRJ_cwjKQH63c": {
+    "name": "Lilia",
+    "address": "567 Union Ave, Brooklyn, NY 11211, USA",
+    "lat": 40.7175365,
+    "lng": -73.9524225,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2230,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJucbIy0JZwokRvgoW5tnNHM0": {
+    "name": "Wythe Hotel",
+    "address": "80 Wythe Ave, Brooklyn, NY 11249, USA",
+    "lat": 40.7218996,
+    "lng": -73.9580678,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1601,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJhzzIZWBZwokRPp4llFHtQzs": {
+    "name": "Birds of a Feather",
+    "address": "191 Grand St, Brooklyn, NY 11211, USA",
+    "lat": 40.7143448,
+    "lng": -73.9605077,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1544,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJN5X_gWdZwokRck9rk2guJ1M": {
+    "name": "Cafe Mogador",
+    "address": "133 Wythe Ave, Brooklyn, NY 11249, USA",
+    "lat": 40.7197416,
+    "lng": -73.9599664,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3315,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJN7sVKcJZwokRZp59H74tSFg": {
+    "name": "Antidote",
+    "address": "66 S 2nd St, Brooklyn, NY 11249, USA",
+    "lat": 40.7142531,
+    "lng": -73.9654481,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2066,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJQ1ZCUkRZwokRYKlkqQijGHg": {
+    "name": "Forma Pasta Factory",
+    "address": "14 Bedford Ave, Brooklyn, NY 11222, USA",
+    "lat": 40.7237929,
+    "lng": -73.9515182,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1909,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJzRBPAz5ZwokRd0AUXGm-2f8": {
+    "name": "Hole In The Wall",
+    "address": "292 Bedford Ave, Brooklyn, NY 11249, USA",
+    "lat": 40.7144191,
+    "lng": -73.96154589999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3705,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJWUWEmp9bwokRD6Q20axkQoc": {
+    "name": "Win Son Bakery",
+    "address": "164 Graham Ave, Brooklyn, NY 11206, USA",
+    "lat": 40.707242699999995,
+    "lng": -73.94296589999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1458,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJmz3KmbZbwokRRlxIMTmD00Q": {
+    "name": "Baby Blues Luncheonette",
+    "address": "97 Montrose Ave, Brooklyn, NY 11206, USA",
+    "lat": 40.707282899999996,
+    "lng": -73.9457867,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 421,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJW_WGT2BZwokRNpvZ4k3lVcs": {
+    "name": "Maison Premiere",
+    "address": "298 Bedford Ave, Brooklyn, NY 11249, USA",
+    "lat": 40.7142687,
+    "lng": -73.96166459999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2001,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJi72NxllZwokROkAxMMbU_nw": {
+    "name": "Alligator Lounge",
+    "address": "600 Metropolitan Ave, Brooklyn, NY 11211, USA",
+    "lat": 40.713980299999996,
+    "lng": -73.9489598,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1546,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJq6rqFL9awokR8nXMs5gOU3g": {
+    "name": "Japan Village",
+    "address": "934 3rd Ave, Brooklyn, NY 11232, USA",
+    "lat": 40.656103,
+    "lng": -74.0064373,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4918,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJV__HFOZawokRBgRgfCsQ28I": {
+    "name": "Luigi's Pizza",
+    "address": "686 5th Ave, Brooklyn, NY 11215, USA",
+    "lat": 40.661714499999995,
+    "lng": -73.9934596,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2393,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJryIe58ZawokRRiAtwEVzTfk": {
+    "name": "Melody Lanes",
+    "address": "461 37th St, Brooklyn, NY 11232, USA",
+    "lat": 40.652778999999995,
+    "lng": -74.002944,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2132,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJL3A6GhNbwokRqLfp_VxiKUw": {
+    "name": "Pasta Louise Restaurant",
+    "address": "1114 8th Ave, Brooklyn, NY 11215, USA",
+    "lat": 40.664206199999995,
+    "lng": -73.9807532,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 756,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJNTec2OBawokRUv0YTg7oX-E": {
+    "name": "Greenwood Park",
+    "address": "555 7th Ave, Brooklyn, NY 11215, USA",
+    "lat": 40.65936200000001,
+    "lng": -73.98785699999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1387,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJg8UZJyNbwokR0-LkfR8MPJQ": {
+    "name": "WINNER",
+    "address": "367 7th Ave, Brooklyn, NY 11215, USA",
+    "lat": 40.665714799999996,
+    "lng": -73.982357,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 542,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ3Vkgyv1awokRa95N29fo1DY": {
+    "name": "Chela",
+    "address": "408 5th Ave, Brooklyn, NY 11215, USA",
+    "lat": 40.6702928,
+    "lng": -73.9856078,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1384,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJzXwG8MZawokRO5ruSmFSEfc": {
+    "name": "Tacos El Bronco",
+    "address": "860 5th Ave, Brooklyn, NY 11232, USA",
+    "lat": 40.65210690000001,
+    "lng": -74.0031532,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2633,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJsfAZeR5bwokRA7dyZcwGQ9U": {
+    "name": "The Double Windsor",
+    "address": "210 Prospect Park W, Brooklyn, NY 11215, USA",
+    "lat": 40.6606288,
+    "lng": -73.9805259,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 898,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJnU0pN-RawokRip1CSum_Dcg": {
+    "name": "Freddy's Bar",
+    "address": "627 5th Ave, Brooklyn, NY 11215, USA",
+    "lat": 40.6632339,
+    "lng": -73.9911145,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 898,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJl2K8TWdbwokRVLXghh72lXs": {
+    "name": "LORE",
+    "address": "441 7th Ave, Brooklyn, NY 11215, USA",
+    "lat": 40.663081999999996,
+    "lng": -73.9844024,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 572,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJm64qlQJbwokREPRAPefjP2I": {
+    "name": "7th Ave Donuts & Diner",
+    "address": "324 7th Ave, Brooklyn, NY 11215, USA",
+    "lat": 40.6672739,
+    "lng": -73.9815347,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1317,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJDXCWZh5bwokROj_-7EfM3NI": {
+    "name": "Krupa Grocery",
+    "address": "231 Prospect Park W, Brooklyn, NY 11215, USA",
+    "lat": 40.659867899999995,
+    "lng": -73.9806001,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 885,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJhY8O2_tbwokRA-c0KvPHq6k": {
+    "name": "Zatar Cafe & Bistro",
+    "address": "1201 8th Ave, Brooklyn, NY 11215, USA",
+    "lat": 40.6637323,
+    "lng": -73.9805466,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 635,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJ64r0R8dawokRV-SBoYfJ4_0": {
+    "name": "McDonald's",
+    "address": "968 4th Ave, Brooklyn, NY 11232, USA",
+    "lat": 40.6537575,
+    "lng": -74.0054143,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2225,
+        "rating": 3.5
+      }
+    ]
+  },
+  "ChIJjzh0ftJbwokRIFioM_VxHNQ": {
+    "name": "Alma Negra",
+    "address": "494 4th Ave, Brooklyn, NY 11215, USA",
+    "lat": 40.668773099999996,
+    "lng": -73.990421,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 323,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJp15GsftawokR6cvoGYzNEIQ": {
+    "name": "Table 87",
+    "address": "473 3rd Ave, Brooklyn, NY 11215, USA",
+    "lat": 40.670657999999996,
+    "lng": -73.99135199999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1197,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJ7Y79WvxawokR7BlCAGDmZTg": {
+    "name": "McDonald's",
+    "address": "289 9th St, Brooklyn, NY 11215, USA",
+    "lat": 40.6696568,
+    "lng": -73.9868138,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1475,
+        "rating": 3.8
+      }
+    ]
+  },
+  "ChIJ8wlrCP1awokRNK8tujudQr8": {
+    "name": "The Dram Shop Bar",
+    "address": "339 9th St, Brooklyn, NY 11215, USA",
+    "lat": 40.6688796,
+    "lng": -73.9850597,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 696,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJYQSLXuJawokR-7ax6J_p62g": {
+    "name": "Fonda",
+    "address": "434 7th Ave, Brooklyn, NY 11215, USA",
+    "lat": 40.663619,
+    "lng": -73.98457599999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 966,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJZVJwHU9FwokRBuD4swvPWjY": {
+    "name": "East Harbor Seafood Palace",
+    "address": "714 65th St, Brooklyn, NY 11220, USA",
+    "lat": 40.6335359,
+    "lng": -74.0143293,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2137,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJB14pRT9FwokRnMbBprTy7RI": {
+    "name": "Yemenat",
+    "address": "7721 5th Ave, Brooklyn, NY 11209, USA",
+    "lat": 40.627327900000004,
+    "lng": -74.0233464,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 867,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJBSKRV89PwokRcofsyKk26CM": {
+    "name": "Ayat Bay Ridge",
+    "address": "8504 3rd Ave, Brooklyn, NY 11209, USA",
+    "lat": 40.6242048,
+    "lng": -74.0309425,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2024,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJoWqUUFhFwokRgLdrJbh0bBg": {
+    "name": "Tanoreen",
+    "address": "7523 3rd Ave, Brooklyn, NY 11209, USA",
+    "lat": 40.630791599999995,
+    "lng": -74.02778649999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2979,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJP5YFN09FwokRLyaJTlmWHs0": {
+    "name": "Park Asia",
+    "address": "6521 8th Ave, Brooklyn, NY 11220, USA",
+    "lat": 40.6322222,
+    "lng": -74.0127778,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1189,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJAXKEXr9FwokRfeT4pEP4dNs": {
+    "name": "Dave's Hot Chicken",
+    "address": "418 86th St, Brooklyn, NY 11209, USA",
+    "lat": 40.6223021,
+    "lng": -74.0280156,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 674,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJyQPxd1pFwokRjuccC2NDzw0": {
+    "name": "Yemen Café & Restaurant",
+    "address": "7317 5th Ave, Brooklyn, NY 11209, USA",
+    "lat": 40.6305163,
+    "lng": -74.0220856,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1709,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJc_8OZWBFwokRe5298U50dZQ": {
+    "name": "McDonald's",
+    "address": "430 86th St, Brooklyn, NY 11209, USA",
+    "lat": 40.622158999999996,
+    "lng": -74.027731,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1519,
+        "rating": 3.7
+      }
+    ]
+  },
+  "ChIJE6RrDuRFwokRyBZxBwAqxqM": {
+    "name": "Bora Bora Smoothie Cafe",
+    "address": "7322 3rd Ave, Brooklyn, NY 11209, USA",
+    "lat": 40.632372,
+    "lng": -74.0276827,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 503,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJ1QUYLmBFwokRDwAE7fpO56Y": {
+    "name": "Arirang Hibachi Steakhouse",
+    "address": "8812-14 4th Ave, Brooklyn, NY 11209, USA",
+    "lat": 40.621121099999996,
+    "lng": -74.0292923,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3243,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJyzOz40tFwokRl2WhNTSgazw": {
+    "name": "99 Favor Taste",
+    "address": "732 61st St, Brooklyn, NY 11220, USA",
+    "lat": 40.635497,
+    "lng": -74.011606,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2937,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJh-vySVpFwokRlqjYXgXa2rg": {
+    "name": "Gino's",
+    "address": "7414 5th Ave, Brooklyn, NY 11209, USA",
+    "lat": 40.629944099999996,
+    "lng": -74.0226686,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2354,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJpSFqk4pPwokREokUaeLkQj8": {
+    "name": "Cebu",
+    "address": "8801 3rd Ave, Brooklyn, NY 11209, USA",
+    "lat": 40.6219034,
+    "lng": -74.03147349999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1465,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJa4YYj2BFwokRiy6nnLjF17o": {
+    "name": "Chipotle Mexican Grill",
+    "address": "463 86th St, Brooklyn, NY 11209, USA",
+    "lat": 40.622042799999996,
+    "lng": -74.02667149999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 754,
+        "rating": 3.4
+      }
+    ]
+  },
+  "ChIJP0sZQQNFwokRVdWsljBVYC4": {
+    "name": "禧悦會海鲜自助火锅 XI YUE HUI HOT POT",
+    "address": "828 64th St, Brooklyn, NY 11220, USA",
+    "lat": 40.6325948,
+    "lng": -74.0112831,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1583,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJt6V79VhFwokRHA6HrhjjFV8": {
+    "name": "Omonia Cafe",
+    "address": "7612-14 3rd Ave, Brooklyn, NY 11209, USA",
+    "lat": 40.6304279,
+    "lng": -74.0284654,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1649,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJnyj5t9tPwokRzZB8MaTh8Ng": {
+    "name": "Ubani - Bay Ridge",
+    "address": "8309 3rd Ave, Brooklyn, NY 11209, USA",
+    "lat": 40.625346,
+    "lng": -74.029966,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 808,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJecRjWVBFwokRNzn0QwOAg_0": {
+    "name": "Brooklyn Kabab House",
+    "address": "6823 -25 5th Ave, Brooklyn, NY 11220, USA",
+    "lat": 40.6335049,
+    "lng": -74.0208169,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 992,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ1a9fp15FwokRAjESmgtDpOg": {
+    "name": "Skinflints",
+    "address": "7902 5th Ave, Brooklyn, NY 11209, USA",
+    "lat": 40.626582899999995,
+    "lng": -74.0241583,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1662,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJN9LMdVdFwokRPZOJYrjh7qA": {
+    "name": "McDonald's",
+    "address": "7124 3rd Ave, Brooklyn, NY 11209, USA",
+    "lat": 40.6336842,
+    "lng": -74.02704820000001,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 879,
+        "rating": 3.8
+      }
+    ]
+  },
+  "ChIJt8Q3HABhwokRc3FsBemPWAo": {
+    "name": "Dave's Hot Chicken",
+    "address": "61-45 188th St, Fresh Meadows, NY 11365, USA",
+    "lat": 40.7395741,
+    "lng": -73.7856369,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 597,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJl5hsJ_RgwokRAcykvgCslCs": {
+    "name": "McDonald's",
+    "address": "72-69 Kissena Blvd, Flushing, NY 11367, USA",
+    "lat": 40.7274818,
+    "lng": -73.8123882,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2692,
+        "rating": 3.6
+      }
+    ]
+  },
+  "ChIJFdu6A7FhwokROXGrNrWAkTc": {
+    "name": "Applebee's Grill + Bar",
+    "address": "61-48 188th St, Fresh Meadows, NY 11365, USA",
+    "lat": 40.739168899999996,
+    "lng": -73.7864412,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2953,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJ7bpiKTZhwokRCttlTx-eXXg": {
+    "name": "Shirazi Karahi House",
+    "address": "184-02 Horace Harding Expy, Fresh Meadows, NY 11365, USA",
+    "lat": 40.7395676,
+    "lng": -73.789931,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1065,
+        "rating": 3.6
+      }
+    ]
+  },
+  "ChIJyZA2o6ZhwokRwdrnwxjFykE": {
+    "name": "Kin’d",
+    "address": "192-03 Union Tpke, Fresh Meadows, NY 11366, USA",
+    "lat": 40.730229699999995,
+    "lng": -73.77841389999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1605,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJrbX_EPxgwokRZ800YsGUWnM": {
+    "name": "Boon Dee Moo Ka Ta Thai B.B.Q.",
+    "address": "168-11 Union Tpke, Fresh Meadows, NY 11366, USA",
+    "lat": 40.7232811,
+    "lng": -73.7999061,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 825,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJJ12GVE1hwokRaUiTHDtXZ5E": {
+    "name": "Sup Thai Kitchen",
+    "address": "178-19 Union Tpke, Fresh Meadows, NY 11366, USA",
+    "lat": 40.726722699999996,
+    "lng": -73.78928909999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1013,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJ2RQH-bBhwokRTxgg6q8oot0": {
+    "name": "Starbucks Coffee Company",
+    "address": "61-51 188th St, Fresh Meadows, NY 11365, USA",
+    "lat": 40.739399999999996,
+    "lng": -73.78547999999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1336,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJXwMLA7FhwokRdpWxkv_psqk": {
+    "name": "QDOBA Mexican Eats",
+    "address": "61-40 188th St, Fresh Meadows, NY 11365, USA",
+    "lat": 40.739449,
+    "lng": -73.7864578,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1774,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJT39kU4VhwokRZHctAWbzLLE": {
+    "name": "Shirazi Cafe",
+    "address": "183-10 Horace Harding Expy, Fresh Meadows, NY 11365, USA",
+    "lat": 40.739402999999996,
+    "lng": -73.79066019999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 914,
+        "rating": 3.7
+      }
+    ]
+  },
+  "ChIJBcR1JwBhwokRPYH5zPgptLM": {
+    "name": "New York Pho House - Halal",
+    "address": "70-57 Parsons Blvd, Flushing, NY 11365, USA",
+    "lat": 40.730815799999995,
+    "lng": -73.81017829999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 178,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJWRiHwABhwokROdMZQ_rdwwE": {
+    "name": "Nikko Hibachi",
+    "address": "177-21 Union Tpke, Fresh Meadows, NY 11366, USA",
+    "lat": 40.7264665,
+    "lng": -73.7902606,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2020,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ-TEjZxBhwokRw6wr5m64OEM": {
+    "name": "SHEIKHS N BURGERS",
+    "address": "82-37C, 164th St, Jamaica, NY 11432, USA",
+    "lat": 40.7182708,
+    "lng": -73.8033512,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 766,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJxRwPN7JhwokRvm3xGzbVNfA": {
+    "name": "Halal boyz",
+    "address": "183-20 Horace Harding Expy, Flushing, NY 11365, USA",
+    "lat": 40.7393953,
+    "lng": -73.7902244,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 988,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJXaN1VqthwokRMSLSFSqj1gg": {
+    "name": "Bakhter Halal Kabab Afghan",
+    "address": "68-16 Fresh Meadow Ln, Fresh Meadows, NY 11365, USA",
+    "lat": 40.733245,
+    "lng": -73.794687,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1805,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJle3nDldgwokR7Ibvu6lXC7M": {
+    "name": "Halal Munchies",
+    "address": "69-21 164th St, Fresh Meadows, NY 11365, USA",
+    "lat": 40.7326289,
+    "lng": -73.8047725,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1586,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJfQMUFPdhwokRKDScNbNwjLw": {
+    "name": "Arby's",
+    "address": "175-14 Horace Harding Expy, Fresh Meadows, NY 11365, USA",
+    "lat": 40.7384887,
+    "lng": -73.7936532,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2546,
+        "rating": 4
+      }
+    ]
+  },
+  "ChIJEzw4SLJhwokRb0q1Gw4XbdA": {
+    "name": "Bagel Oasis",
+    "address": "183-12 Horace Harding Expy, Fresh Meadows, NY 11365, USA",
+    "lat": 40.739416299999995,
+    "lng": -73.79049599999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1140,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJwQHXWqZhwokR3FHHJRAT8XM": {
+    "name": "Domino's Pizza",
+    "address": "188-07 Union Tpke, Fresh Meadows, NY 11366, USA",
+    "lat": 40.729535299999995,
+    "lng": -73.7809262,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 852,
+        "rating": 2.3
+      }
+    ]
+  },
+  "ChIJxXCrHgBhwokRILuMShu2JK0": {
+    "name": "Chipotle Mexican Grill",
+    "address": "176-61 Union Tpke, Fresh Meadows, NY 11366, USA",
+    "lat": 40.7261295,
+    "lng": -73.7912296,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 87,
+        "rating": 3.3
+      }
+    ]
+  },
+  "ChIJsT7KfEtfwokRdTuEU6J5MAI": {
+    "name": "Pig Beach BBQ Queens",
+    "address": "35-37 36th St Ground Floor, Astoria, NY 11106, USA",
+    "lat": 40.755083,
+    "lng": -73.92518059999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1009,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ-ecLnC5fwokRTsOuoOsTC6U": {
+    "name": "Astoria Seafood",
+    "address": "37-10 33rd St, Long Island City, NY 11101, USA",
+    "lat": 40.754004599999995,
+    "lng": -73.92986069999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1667,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJnduXzuVfwokRk2VE0PeUdmM": {
+    "name": "Lighthouse Rooftop",
+    "address": "45-15 37th St, Queens, NY 11101, USA",
+    "lat": 40.743694399999995,
+    "lng": -73.9279573,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 879,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJp2QAItdewokRcYud21TzxZM": {
+    "name": "McDonald's",
+    "address": "38-02 Queens Blvd, Long Island City, NY 11101, USA",
+    "lat": 40.743566,
+    "lng": -73.9268688,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3374,
+        "rating": 3.9
+      }
+    ]
+  },
+  "ChIJpRaITSRZwokRji4cRJdtswE": {
+    "name": "JACX&CO Food Hall",
+    "address": "28-17 Jackson Ave, Long Island City, NY 11101, USA",
+    "lat": 40.748855899999995,
+    "lng": -73.9384513,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1010,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJnxFt6K5fwokRKBa4WLOwtk0": {
+    "name": "Rice Thief",
+    "address": "39-37 30th St, Long Island City, NY 11101, USA",
+    "lat": 40.7521036,
+    "lng": -73.93439769999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 354,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ2T9heqpfwokRETQz9bUazL0": {
+    "name": "Wonder Pig K-BBQ",
+    "address": "37-08 Queens Blvd, Long Island City, NY 11101, USA",
+    "lat": 40.74393140000001,
+    "lng": -73.92765539999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 714,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJe0qdh8JZwokRfU4m-WE4YpE": {
+    "name": "Red Sorghum 夜宴",
+    "address": "28-03 Jackson Ave, Long Island City, NY 11101, USA",
+    "lat": 40.7485024,
+    "lng": -73.9390416,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1067,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJ04fgjKxfwokRJhS7n4zAVBM": {
+    "name": "Rio Bonito Grill",
+    "address": "33-01 36th Ave, Astoria, NY 11106, USA",
+    "lat": 40.755863,
+    "lng": -73.9278801,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1513,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJ4T48ovNfwokRzcUcEojz55M": {
+    "name": "Bolivian Llama Party",
+    "address": "44-14 48th Ave, Woodside, NY 11377, USA",
+    "lat": 40.7393493,
+    "lng": -73.9207462,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1116,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJk_srPy5fwokRc4JZPOT0EDM": {
+    "name": "Rio Market Inc",
+    "address": "32-15 36th Ave, Astoria, NY 11106, USA",
+    "lat": 40.7560673,
+    "lng": -73.928225,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1561,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJzUehPytfwokRekVrpBXsZPI": {
+    "name": "Sonic Drive-In",
+    "address": "37-02 Queens Blvd, Long Island City, NY 11101, USA",
+    "lat": 40.7439286,
+    "lng": -73.9278657,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 415,
+        "rating": 4
+      }
+    ]
+  },
+  "ChIJ2T-JYq1fwokRuNLL5kX7G9I": {
+    "name": "What the fish",
+    "address": "47-15 Northern Blvd, Long Island City, NY 11101, USA",
+    "lat": 40.7539684,
+    "lng": -73.91454039999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2779,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJ1xPvXiJfwokR-LMPSjExjyg": {
+    "name": "Chuck E. Cheese",
+    "address": "34-19 48th St, Long Island City, NY 11101, USA",
+    "lat": 40.753015999999995,
+    "lng": -73.9144402,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1660,
+        "rating": 4
+      }
+    ]
+  },
+  "ChIJ02PnWSNfwokRrNwpYQptrig": {
+    "name": "Villa Brazil Café Grill",
+    "address": "43-16 34th Ave, Astoria, NY 11101, USA",
+    "lat": 40.755197200000005,
+    "lng": -73.9180083,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1841,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJsYtkAs5ewokRXfkvdXSwTJ8": {
+    "name": "Tropical Restaurant 2",
+    "address": "36-10 Greenpoint Ave, Long Island City, NY 11101, USA",
+    "lat": 40.737513899999996,
+    "lng": -73.9296028,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 849,
+        "rating": 4
+      }
+    ]
+  },
+  "ChIJ2YiAK9pewokRNHMumPYb3EU": {
+    "name": "I Love Paraguay Restaurant",
+    "address": "43-16 Greenpoint Ave, Sunnyside, NY 11104, USA",
+    "lat": 40.7409452,
+    "lng": -73.9214274,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1462,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJZVKQjtZewokRyE6yy6Mu_OU": {
+    "name": "Rincón Melania",
+    "address": "35-19 Queens Blvd, Long Island City, NY 11101, USA",
+    "lat": 40.7447242,
+    "lng": -73.9289878,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1127,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJ8XWaOSVfwokR3LzQfMwbmGU": {
+    "name": "Applebee's Grill + Bar",
+    "address": "38-01 35th Ave, Astoria, NY 11101, USA",
+    "lat": 40.7555621,
+    "lng": -73.9224658,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2354,
+        "rating": 4
+      }
+    ]
+  },
+  "ChIJpSEk78xfwokRq2C0UXwC64M": {
+    "name": "Halal Munchies",
+    "address": "33-08 Queens Blvd, Long Island City, NY 11101, USA",
+    "lat": 40.7443174,
+    "lng": -73.9313423,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 611,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJ1wuWgyxfwokRsawxQvB8hMo": {
+    "name": "Angel",
+    "address": "75-18 37th Ave, Jackson Heights, NY 11372, USA",
+    "lat": 40.7490108,
+    "lng": -73.8903469,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3735,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJH_1I1hxfwokRhNhqzOc-Vdc": {
+    "name": "Jollibee",
+    "address": "62-29 Roosevelt Ave, Woodside, NY 11377, USA",
+    "lat": 40.746091199999995,
+    "lng": -73.90120089999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4056,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJiYnqjQVfwokRV7Yaor-w8Zg": {
+    "name": "Lucky Strike Queens",
+    "address": "69-10 34th Ave, Woodside, NY 11377, USA",
+    "lat": 40.752094899999996,
+    "lng": -73.89659360000002,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3547,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJUU0Hd95fwokR3tAJqfPpDvs": {
+    "name": "Saranrom Thai",
+    "address": "81-10 Broadway, Elmhurst, NY 11373, USA",
+    "lat": 40.7430963,
+    "lng": -73.8836867,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1168,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJo35TUaZZwokRXC5TaMTpPBM": {
+    "name": "Kabab King",
+    "address": "73-01 37th Rd, Jackson Heights, NY 11372, USA",
+    "lat": 40.747332,
+    "lng": -73.8922146,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3800,
+        "rating": 3.6
+      }
+    ]
+  },
+  "ChIJG-NTtgZfwokR6BsUFf1o_PE": {
+    "name": "Dera Restaurant",
+    "address": "72-09 Broadway, Jackson Heights, NY 11372, USA",
+    "lat": 40.747758,
+    "lng": -73.8934193,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3588,
+        "rating": 3.7
+      }
+    ]
+  },
+  "ChIJc6fmxaxfwokRnKatMHUC1PA": {
+    "name": "Akino",
+    "address": "82-80 Broadway, Elmhurst, NY 11373, USA",
+    "lat": 40.7411913,
+    "lng": -73.8813926,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1620,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJ0wbVyUhfwokRd2iTfd08w34": {
+    "name": "Birria-Landia",
+    "address": "77-05 Roosevelt Ave, Jackson Heights, NY 11372, USA",
+    "lat": 40.747211799999995,
+    "lng": -73.8885257,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2497,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJ3RfFelJewokRdrB9PZ6VTe4": {
+    "name": "McDonald's",
+    "address": "80-03 Queens Blvd, Elmhurst, NY 11373, USA",
+    "lat": 40.7383907,
+    "lng": -73.8830294,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2822,
+        "rating": 3.5
+      }
+    ]
+  },
+  "ChIJCURgyldfwokRvBpy5nCp7qY": {
+    "name": "Mariscos El Submarino",
+    "address": "88-05 Roosevelt Ave, Jackson Heights, NY 11372, USA",
+    "lat": 40.7484748,
+    "lng": -73.87813179999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 963,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJd06GLQdfwokRQunm5arxBcM": {
+    "name": "Nepali Bhanchha Ghar",
+    "address": "74-15 Roosevelt Ave, Jackson Heights, NY 11372, USA",
+    "lat": 40.7471014,
+    "lng": -73.8909012,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1105,
+        "rating": 3.9
+      }
+    ]
+  },
+  "ChIJf90c1AZfwokRcGmtXyLFQxQ": {
+    "name": "Ittadi",
+    "address": "73-07 37th Rd, Queens, Jackson Heights, NY 11372, USA",
+    "lat": 40.747405799999996,
+    "lng": -73.8921943,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1273,
+        "rating": 3.7
+      }
+    ]
+  },
+  "ChIJy7vO9aNfwokRrifnaAR22-s": {
+    "name": "Latino Bites Jackson Heights",
+    "address": "84-15 Northern Blvd, Jackson Heights, NY 11372, USA",
+    "lat": 40.755988699999996,
+    "lng": -73.88293949999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3409,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJwcv48AZfwokRd8bhjHIPrOg": {
+    "name": "Dosa Delight",
+    "address": "35-66 73rd St, Jackson Heights, NY 11372, USA",
+    "lat": 40.749195199999996,
+    "lng": -73.89292859999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2372,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJuTiZhKNfwokRzbh3fn1QDVQ": {
+    "name": "Denny's",
+    "address": "87-10 Northern Blvd, Jackson Heights, NY 11372, USA",
+    "lat": 40.7558556,
+    "lng": -73.88049529999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5062,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJOUvoJnNfwokRqujZU3kgHe8": {
+    "name": "Chick-fil-A",
+    "address": "40-27 82nd St, Elmhurst, NY 11373, USA",
+    "lat": 40.746780099999995,
+    "lng": -73.8836066,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 608,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJz9quPQNfwokR5mk_DCdguVc": {
+    "name": "SriPraPhai",
+    "address": "64-13 39th Ave, Woodside, NY 11377, USA",
+    "lat": 40.7464884,
+    "lng": -73.8992074,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2251,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJU1eVWbJfwokRPd2OdC7sgkw": {
+    "name": "El Budare Café 🇻🇪",
+    "address": "87-21 Roosevelt Ave, Jackson Heights, NY 11372, USA",
+    "lat": 40.7483241,
+    "lng": -73.8786556,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1676,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJvbqGvKxfwokRWCm0QHlt99A": {
+    "name": "Taste Good",
+    "address": "82-18 45th Ave, Elmhurst, NY 11373, USA",
+    "lat": 40.7416056,
+    "lng": -73.8821806,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 882,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJAYtO-15fwokRIT8bEFgb5BE": {
+    "name": "Pollos a la Brasa Mario",
+    "address": "81-01 Roosevelt Ave, Jackson Heights, NY 11372, USA",
+    "lat": 40.7476956,
+    "lng": -73.8847602,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1721,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJsw9jWJhgwokR7ASQwGoz16Y": {
+    "name": "Cobblestones Pub and Biergarten",
+    "address": "117-18 Queens Blvd, Forest Hills, NY 11375, USA",
+    "lat": 40.7150265,
+    "lng": -73.8327049,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1347,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJC7mIzyBewokRKE4aL6m17ac": {
+    "name": "Shake Shack Forest Hills",
+    "address": "71-24 Austin St, Forest Hills, NY 11375, USA",
+    "lat": 40.719620899999995,
+    "lng": -73.8438713,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2413,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJCeaFFaVgwokRWbrmlcnEGzY": {
+    "name": "Dani's House of Pizza",
+    "address": "81-28 Lefferts Blvd, Kew Gardens, NY 11415, USA",
+    "lat": 40.708981,
+    "lng": -73.830536,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2693,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJObrZh-5fwokRdKEov63DAvc": {
+    "name": "Kyuramen - Forest Hills",
+    "address": "108-50 Queens Blvd, Forest Hills, NY 11375, USA",
+    "lat": 40.7204647,
+    "lng": -73.84261769999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 881,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJVykOpCBewokRVqNJ7N9mo4M": {
+    "name": "5 Burro Cafe",
+    "address": "72-05 Austin St, Forest Hills, NY 11375, USA",
+    "lat": 40.719346,
+    "lng": -73.8423629,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2526,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJ9-CAs7xgwokR0dG6ectdSDo": {
+    "name": "Austin's Ale House",
+    "address": "82-70 Austin St, Kew Gardens, NY 11415, USA",
+    "lat": 40.7094142,
+    "lng": -73.83004369999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1498,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJBcI-MKRgwokRMFDDVkAfqi4": {
+    "name": "Ateaz Organic Coffee & Tea",
+    "address": "116-29 Metropolitan Ave, Kew Gardens, NY 11415, USA",
+    "lat": 40.7073647,
+    "lng": -73.8352578,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 725,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJceObNbhgwokRm5UrsZmLr10": {
+    "name": "Burger King",
+    "address": "131-10 Hillside Ave., Jamaica, NY 11418, USA",
+    "lat": 40.7035234,
+    "lng": -73.8209823,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1105,
+        "rating": 3.9
+      }
+    ]
+  },
+  "ChIJrQ_ZKJlgwokRJ7jdSLv6aTM": {
+    "name": "Queens Bully",
+    "address": "113-30 Queens Blvd, Forest Hills, NY 11375, USA",
+    "lat": 40.7170196,
+    "lng": -73.83545869999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2640,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJ4WU-tLFfwokRudUuWC9rw6Y": {
+    "name": "Mad For Chicken Forest Hills",
+    "address": "71-37 Austin St, Forest Hills, NY 11375, USA",
+    "lat": 40.7198029,
+    "lng": -73.8433536,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 603,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJdUeUG55gwokRmStZ75b3Lj8": {
+    "name": "La Boulangerie de François",
+    "address": "109-01 72nd Rd, Forest Hills, NY 11375, USA",
+    "lat": 40.719218500000004,
+    "lng": -73.8415545,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1295,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJE3BG48phwokRA04-BY-0cYs": {
+    "name": "Halal Munchies",
+    "address": "120-36 Queens Blvd, Kew Gardens, NY 11415, USA",
+    "lat": 40.7133721,
+    "lng": -73.8293085,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 685,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJUcR7IKVgwokR5XrxUICIjNI": {
+    "name": "Tu Casa",
+    "address": "119-05 Metropolitan Ave, Kew Gardens, NY 11415, USA",
+    "lat": 40.7063196,
+    "lng": -73.83147459999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1357,
+        "rating": 4
+      }
+    ]
+  },
+  "ChIJmZKM98dgwokRZ6ZvctE2ImQ": {
+    "name": "Starbucks Coffee Company",
+    "address": "132-40 Metropolitan Ave, Richmond Hill, NY 11418, USA",
+    "lat": 40.70259,
+    "lng": -73.81859,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 785,
+        "rating": 4
+      }
+    ]
+  },
+  "ChIJ60Kx35dgwokRJAwXCvEFw-w": {
+    "name": "Starbucks Coffee Company",
+    "address": "118-24 Queens Blvd, Kew Gardens, NY 11415, USA",
+    "lat": 40.714369999999995,
+    "lng": -73.83188,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 876,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJ982AxiBewokRbSXCd6xK9B0": {
+    "name": "Tamashii Ramen",
+    "address": "71-34 Austin St, Forest Hills, NY 11375, USA",
+    "lat": 40.7196272,
+    "lng": -73.8436562,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1093,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJA4Mss-1gwokRBpTE4Go3tOc": {
+    "name": "Hapisgah",
+    "address": "147-25 Union Tpke, Flushing, NY 11367, USA",
+    "lat": 40.71873,
+    "lng": -73.814557,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1127,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJu2zfQIxhwokRrKtHik_kWpo": {
+    "name": "Agra Palace Restaurant & Party Hall",
+    "address": "116-33 Queens Blvd, Forest Hills, NY 11375, USA",
+    "lat": 40.7159258,
+    "lng": -73.83261159999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 432,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJheSe5TxhwokRoHOVTVZt0fo": {
+    "name": "Mikado",
+    "address": "116-09 Metropolitan Ave, Jamaica, NY 11418, USA",
+    "lat": 40.707631899999996,
+    "lng": -73.83565399999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 407,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJPamxIKVgwokRfYt2WFJoN_U": {
+    "name": "Hangar 11 Burgers & Brews",
+    "address": "119-11 Metropolitan Ave, Kew Gardens, NY 11415, USA",
+    "lat": 40.7061716,
+    "lng": -73.8312833,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 957,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJpwMCakP1wokRyUc5Gk2K6Mk": {
+    "name": "Golden Corral Buffet & Grill",
+    "address": "2375 E Tremont Ave, Bronx, NY 10462, USA",
+    "lat": 40.8426586,
+    "lng": -73.8553682,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 17141,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJIcUqAKP0wokRJzfqJIeeYkA": {
+    "name": "Pine Restaurant",
+    "address": "1913 Bronxdale Ave, Bronx, NY 10462, USA",
+    "lat": 40.8487296,
+    "lng": -73.8622597,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4734,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJz_zvS770wokR2G-DXoskJP0": {
+    "name": "Ajo y Oregano",
+    "address": "1556 White Plains Rd, Bronx, NY 10462, USA",
+    "lat": 40.839562199999996,
+    "lng": -73.8636238,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2894,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJK_GLEbj0wokRdw7F14GNGoI": {
+    "name": "Al-Aqsa Restaurant | Halal Food in Bronx",
+    "address": "2107 Starling Ave, Bronx, NY 10462, USA",
+    "lat": 40.836280599999995,
+    "lng": -73.85482139999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1311,
+        "rating": 4
+      }
+    ]
+  },
+  "ChIJ9Wui4jn1wokR7mFR_sT287o": {
+    "name": "Arth Alsaeedah",
+    "address": "680 Morris Park Ave, Bronx, NY 10462, USA",
+    "lat": 40.84498,
+    "lng": -73.8665226,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 653,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJM-AwNVr1wokRWkckhQlNVVw": {
+    "name": "Shaking Crab (Bronx)",
+    "address": "2179 White Plains Rd, Bronx, NY 10462, USA",
+    "lat": 40.85596760000001,
+    "lng": -73.86802519999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1109,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJv_xBiHr1wokRQwyimFmepwI": {
+    "name": "Bora Bora Smoothie Cafe - Morris Park Bronx",
+    "address": "647 Morris Park Ave, Bronx, NY 10462, USA",
+    "lat": 40.845003899999995,
+    "lng": -73.86800029999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 257,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJA8H7p5_0wokRex3wNmn4Kds": {
+    "name": "Tacos El Bronco 2",
+    "address": "2140 White Plains Rd, Bronx, NY 10462, USA",
+    "lat": 40.8547309,
+    "lng": -73.86733410000001,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1434,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJ5aH0oPv1wokRx2wGcb1NqFE": {
+    "name": "Patricia's of Morris Park",
+    "address": "1082 Morris Park Ave, Bronx, NY 10461, USA",
+    "lat": 40.8491213,
+    "lng": -73.85330069999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 405,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJ2z0XJZj0wokRSocBHTGEIP8": {
+    "name": "Oasis Mediterranean Restaurant",
+    "address": "1907 White Plains Rd, Bronx, NY 10462, USA",
+    "lat": 40.8477323,
+    "lng": -73.8675042,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 667,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJOXmlVLn1wokRvZnb9YtBdM4": {
+    "name": "Hook & Reel Cajun Seafood & Bar",
+    "address": "75 Metropolitan Oval, Bronx, NY 10462, USA",
+    "lat": 40.837619499999995,
+    "lng": -73.86082379999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1090,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJRwHQYY30wokRpdMy7tJO8Lg": {
+    "name": "McDonald's",
+    "address": "1101 E Tremont Ave, Bronx, NY 10460, USA",
+    "lat": 40.840398799999996,
+    "lng": -73.8769009,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2478,
+        "rating": 3.4
+      }
+    ]
+  },
+  "ChIJ53KeKqD0wokRA9WzdrY4UGU": {
+    "name": "Dukagjini Burek",
+    "address": "758 Lydig Ave, Bronx, NY 10462, USA",
+    "lat": 40.8543404,
+    "lng": -73.8654543,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 584,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJmdXGb2f1wokRyVmAL4Lk8g8": {
+    "name": "Tandoori Place",
+    "address": "2146 Starling Ave, Bronx, NY 10462, USA",
+    "lat": 40.8359595,
+    "lng": -73.8536453,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2895,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJddqt28b0wokRR7k6wYB5Hlg": {
+    "name": "McDonald's",
+    "address": "1982 Westchester Ave, Bronx, NY 10462, USA",
+    "lat": 40.833200999999995,
+    "lng": -73.85861710000002,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2920,
+        "rating": 3.6
+      }
+    ]
+  },
+  "ChIJG429Dbj0wokRC-lw92nRJEk": {
+    "name": "Taqueria Tlaxcalli",
+    "address": "2103 Starling Ave, Bronx, NY 10462, USA",
+    "lat": 40.8362288,
+    "lng": -73.8549286,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1403,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJkW2Qxp_0wokRh5wioK7G_js": {
+    "name": "Starbucks Coffee Company",
+    "address": "2188 White Plains Rd, Bronx, NY 10462, USA",
+    "lat": 40.85608,
+    "lng": -73.86743,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 821,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJY-rrHpj0wokRSxqWR6vu4m0": {
+    "name": "2 Paradise",
+    "address": "700 Rhinelander Ave, Bronx, NY 10462, USA",
+    "lat": 40.8473849,
+    "lng": -73.8666736,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 507,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJbaw8z0H1wokR7Id9uVTn8vc": {
+    "name": "VPho and Pizzeria",
+    "address": "2004 Williamsbridge Rd, Bronx, NY 10461, USA",
+    "lat": 40.854467899999996,
+    "lng": -73.8543857,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 198,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJn3PuW770wokRue-aOe6Cor0": {
+    "name": "Starbucks Coffee Company",
+    "address": "29 Hugh J. Grant Cir, Bronx, NY 10462, USA",
+    "lat": 40.83377,
+    "lng": -73.86108999999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 937,
+        "rating": 3.9
+      }
+    ]
+  },
+  "ChIJU8OwcMP1wokRqVprhOTXg6E": {
+    "name": "Ajo y Orégano",
+    "address": "621 Crescent Ave, Bronx, NY 10458, USA",
+    "lat": 40.8539586,
+    "lng": -73.8875852,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2190,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJM8Rng2L0wokRjDcrFJVKRxo": {
+    "name": "Los Amigos Restaurant",
+    "address": "674 E 180th St, Bronx, NY 10457, USA",
+    "lat": 40.8482132,
+    "lng": -73.8892747,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 329,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJK-WbWIf0wokRWPsJsVTeOfQ": {
+    "name": "Enzo's of Arthur Avenue",
+    "address": "2339 Arthur Ave, Bronx, NY 10458, USA",
+    "lat": 40.854444099999995,
+    "lng": -73.888881,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1911,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJVTdxPxfzwokRWxKtxUWTdss": {
+    "name": "Cafeteria Serie 54",
+    "address": "2867 Webster Ave, Bronx, NY 10458, USA",
+    "lat": 40.867247,
+    "lng": -73.88405709999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 835,
+        "rating": 3.7
+      }
+    ]
+  },
+  "ChIJ-c74yYD0wokRqbdBsNyGRO0": {
+    "name": "Casa Della Mozzarella",
+    "address": "604 E 187th St, Bronx, NY 10458, USA",
+    "lat": 40.8553207,
+    "lng": -73.8874113,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1169,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJ4aiyUYf0wokRl3irR6IrNfM": {
+    "name": "Zero Otto Nove Bronx",
+    "address": "2357 Arthur Ave, Bronx, NY 10458, USA",
+    "lat": 40.8547726,
+    "lng": -73.8884726,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1531,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJjVIW6UvzwokRhdF-Iq-hE0s": {
+    "name": "Chick-fil-A",
+    "address": "201 E Fordham Rd, Bronx, NY 10458, USA",
+    "lat": 40.8625543,
+    "lng": -73.8960484,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1259,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJyfhM1If1wokRu402B8Yc0UM": {
+    "name": "Yopcity restaurant",
+    "address": "2324 Arthur Ave, Bronx, NY 10458, USA",
+    "lat": 40.8538499,
+    "lng": -73.888795,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 350,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJg5bf80H1wokRMwgQ2R824U8": {
+    "name": "Boca Restaurant and Lounge",
+    "address": "2458 Webster Ave, Bronx, NY 10458, USA",
+    "lat": 40.8599113,
+    "lng": -73.8928818,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1260,
+        "rating": 4.1
+      }
+    ]
+  },
+  "ChIJlxxWZpL1wokRG65nNL_mfoQ": {
+    "name": "Colima Taqueria",
+    "address": "608 E 187th St, Bronx, NY 10458, USA",
+    "lat": 40.855190400000005,
+    "lng": -73.8873653,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1587,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJz8uInCr1wokRp7CD3Fvrnok": {
+    "name": "EQUIS Pica Pollo (2056 Morris)",
+    "address": "2056 Morris Ave, Bronx, NY 10453, USA",
+    "lat": 40.853373999999995,
+    "lng": -73.905266,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 316,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJyVMezoXzwokR2PdSFyth8jU": {
+    "name": "Cơm Tấm Ninh Kiều",
+    "address": "2641 Jerome Ave, Bronx, NY 10468, USA",
+    "lat": 40.8669815,
+    "lng": -73.89812529999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1219,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJddi0Qof0wokRQGSTDJMZzHc": {
+    "name": "Çka Ka Qëllu",
+    "address": "2321 Hughes Ave, Bronx, NY 10458, USA",
+    "lat": 40.8539343,
+    "lng": -73.88821159999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1442,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJKT_Bi3_0wokRaYRlRY8_XBk": {
+    "name": "Applebee's Grill + Bar",
+    "address": "4750-4758 Third Ave, Bronx, NY 10458, USA",
+    "lat": 40.860069599999996,
+    "lng": -73.8907132,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2868,
+        "rating": 3.7
+      }
+    ]
+  },
+  "ChIJz1p0aiz1wokRJpQXMS3d3IE": {
+    "name": "Frankie's Restaurant Arthur Avenue",
+    "address": "2376 Arthur Ave, Bronx, NY 10458, USA",
+    "lat": 40.8548301,
+    "lng": -73.88786259999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 401,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJi0UhO4f0wokR_jzG9KlaPQA": {
+    "name": "Antonio's Trattoria",
+    "address": "2370 Belmont Ave, Bronx, NY 10458, USA",
+    "lat": 40.8541412,
+    "lng": -73.8865738,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1578,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJX2vjUYL0wokR6N3Uwx0b4gs": {
+    "name": "McDonald's",
+    "address": "2505 Southern Blvd, Bronx, NY 10458, USA",
+    "lat": 40.856451799999995,
+    "lng": -73.8811952,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2955,
+        "rating": 3.8
+      }
+    ]
+  },
+  "ChIJgXqDvIDzwokRs47WWBacHU4": {
+    "name": "Merryland Buffet",
+    "address": "2496 Elm Pl, Bronx, NY 10458, USA",
+    "lat": 40.8615985,
+    "lng": -73.8937393,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1298,
+        "rating": 4.2
+      }
+    ]
+  },
+  "ChIJRTVyMIjzwokRRAm--TXcIjs": {
+    "name": "McDonald's",
+    "address": "2630 Jerome Ave, Bronx, NY 10468, USA",
+    "lat": 40.86699410000001,
+    "lng": -73.8973729,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1647,
+        "rating": 3.6
+      }
+    ]
+  },
+  "ChIJaZwwxoD0wokR1f7Zz7VHbWI": {
+    "name": "Luna Cafe",
+    "address": "601 E 187th St, Bronx, NY 10458, USA",
+    "lat": 40.8555914,
+    "lng": -73.887382,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 596,
+        "rating": 3.9
+      }
+    ]
+  },
+  "ChIJSQUxDgBZwokRi4caaWfJ_u8": {
+    "name": "Oyatte",
+    "address": "125 E 39th St, New York, NY 10016, USA",
+    "lat": 40.7498648,
+    "lng": -73.9777204,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3,
+        "rating": 5
+      }
+    ]
+  },
+  "ChIJRa1UYABZwokR4LAQmEVhleI": {
+    "name": "Bistrot Ha",
+    "address": "137 Eldridge St, New York, NY 10002, USA",
+    "lat": 40.7191186,
+    "lng": -73.99169309999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 23,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJV2mrjKJZwokRnIYfrjoKv2c": {
+    "name": "Giulietta",
+    "address": "200 Park Ave, New York, NY 10166, USA",
+    "lat": 40.7539885,
+    "lng": -73.9765602,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 165,
+        "rating": 5
+      }
+    ]
+  },
+  "ChIJGWoBKrNbwokRYqGihCSHp0U": {
+    "name": "Confidant",
+    "address": "127 Atlantic Ave, Brooklyn, NY 11201, USA",
+    "lat": 40.690897,
+    "lng": -73.9958083,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 21,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJD_SNAtFZwokR13xf4F0l6PQ": {
+    "name": "Or'esh",
+    "address": "450 W Broadway, New York, NY 10012, USA",
+    "lat": 40.7260011,
+    "lng": -74.0008797,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 16,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJFyq1toZZwokR2NjdTcUeG_s": {
+    "name": "Bufón",
+    "address": "78 Rivington St, New York, NY 10002, USA",
+    "lat": 40.7205449,
+    "lng": -73.9894542,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 37,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJO_ywKQBZwokRaUAiIxG1SrQ": {
+    "name": "Café Mulberry",
+    "address": "240 Mulberry St, New York, NY 10012, USA",
+    "lat": 40.722816,
+    "lng": -73.9958228,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 36,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJFRYCg0BZwokRgjNQB9864j4": {
+    "name": "Brasa Peruvian Kitchen",
+    "address": "685 3rd Ave, New York, NY 10017, USA",
+    "lat": 40.751660099999995,
+    "lng": -73.9736089,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 26,
+        "rating": 5
+      }
+    ]
+  },
+  "ChIJ_8_VR6pZwokRc3t-zmb-uGY": {
+    "name": "BSTRO 38",
+    "address": "58 W 38th St, New York, NY 10018, USA",
+    "lat": 40.7518416,
+    "lng": -73.98519809999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 122,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJoyIUFwBZwokRH0uTY_J5rcM": {
+    "name": "Odo East Village",
+    "address": "536 E 5th St, New York, NY 10009, USA",
+    "lat": 40.7240318,
+    "lng": -73.9829146,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 13,
+        "rating": 5
+      }
+    ]
+  },
+  "ChIJ05NsA9ZZwokRYeXS_GkClcY": {
+    "name": "Arvine",
+    "address": "19 Greenwich Ave, New York, NY 10014, USA",
+    "lat": 40.734501699999996,
+    "lng": -74.0000553,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 75,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJYe7ZKSFZwokR_b2xzZvc-4Q": {
+    "name": "The Eighty Six",
+    "address": "86 Bedford St, New York, NY 10014, USA",
+    "lat": 40.7320801,
+    "lng": -74.0051089,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 78,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJDUVGohdZwokRPIX27jFiDis": {
+    "name": "Pattin'",
+    "address": "240 W 49th St, New York, NY 10019, USA",
+    "lat": 40.7611688,
+    "lng": -73.98597869999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 8,
+        "rating": 5
+      }
+    ]
+  },
+  "ChIJXVUlhudZwokRVMFlFlvHHcI": {
+    "name": "Sirrah",
+    "address": "1 Little W 12th St, New York, NY 10014, USA",
+    "lat": 40.7395814,
+    "lng": -74.005946,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 169,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJXbAI5F5ZwokRlDDHi_sl1R4": {
+    "name": "Anbā",
+    "address": "92 Ludlow St, New York, NY 10002, USA",
+    "lat": 40.718322799999996,
+    "lng": -73.98895209999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 5,
+        "rating": 5
+      }
+    ]
+  },
+  "ChIJqzcAQwBbwokRk1OLl0dxvyU": {
+    "name": "Palm Street",
+    "address": "41 John St, New York, NY 10038, USA",
+    "lat": 40.709471,
+    "lng": -74.00800439999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 944,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJYTKtj2dZwokR3IYU3st5VuA": {
+    "name": "Muku",
+    "address": "412 Greenwich St Penthouse B, New York, NY 10013, USA",
+    "lat": 40.7218848,
+    "lng": -74.0099346,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 18,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJJa-VSABZwokR2VNRjM9F0IE": {
+    "name": "Salmon Noodle 3.0",
+    "address": "177 Lafayette St, New York, NY 10013, USA",
+    "lat": 40.7204061,
+    "lng": -73.9985107,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 222,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJd5tUFQBZwokRQktz6ZJ5_m0": {
+    "name": "Kappo Sono",
+    "address": "39 E 13th St 6th Floor, New York, NY 10003, USA",
+    "lat": 40.734536299999995,
+    "lng": -73.9918552,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 29,
+        "rating": 5
+      }
+    ]
+  },
+  "ChIJh6WuOgBZwokR8Lm6IOFKk7A": {
+    "name": "Bartolo",
+    "address": "310-312 W 4th St, New York, NY 10014, USA",
+    "lat": 40.737252,
+    "lng": -74.0040071,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 83,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJeb7vAyNZwokRIPyeBwj1DSk": {
+    "name": "House of Domes",
+    "address": "66 Charlton St, New York, NY 10014, USA",
+    "lat": 40.7270833,
+    "lng": -74.0060972,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 133,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJh7rW8llZwokR6yEA3sRVYlQ": {
+    "name": "Saint Urban",
+    "address": "43 E 20th St, New York, NY 10003, USA",
+    "lat": 40.738836,
+    "lng": -73.9884478,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 60,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJ6RsQJABZwokRywgPcPkaS0g": {
+    "name": "Askili Orchard",
+    "address": "401 6th Ave, New York, NY 10014, USA",
+    "lat": 40.7335199,
+    "lng": -74.00001300000001,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 457,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJDfRavFtbwokRijMBw1NobfM": {
+    "name": "6 Restaurant - NYC",
+    "address": "481 Court St, Brooklyn, NY 11231, USA",
+    "lat": 40.6763496,
+    "lng": -73.998542,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 94,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJvTLKIr9ZwokRIBsYYKUY2DU": {
+    "name": "Lulla NYC",
+    "address": "113 W 24th St, New York, NY 10011, USA",
+    "lat": 40.7441117,
+    "lng": -73.99299409999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 604,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJW7ilTZNZwokR7Gw48AU3Z0c": {
+    "name": "Le Petit Village",
+    "address": "173 7th Ave S, New York, NY 10014, USA",
+    "lat": 40.7359703,
+    "lng": -74.0012344,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 408,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJYdcGe0xZwokRz-YnbxxJ3sU": {
+    "name": "OPTO",
+    "address": "35 W 20th St, New York, NY 10011, USA",
+    "lat": 40.7407162,
+    "lng": -73.9928978,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 149,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJD-dxXwBZwokR2-Mm23N51WA": {
+    "name": "Mama Mezze",
+    "address": "1123 Broadway, New York, NY 10010, USA",
+    "lat": 40.7432459,
+    "lng": -73.9892711,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1578,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJE9fzYv9YwokRnzR1M_R6_uU": {
+    "name": "The Lotus Room",
+    "address": "114 W 47th St, New York, NY 10036, USA",
+    "lat": 40.758296300000005,
+    "lng": -73.9828891,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 55,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJj4fN7HBbwokRCB5xca3KF1E": {
+    "name": "Le Gratin",
+    "address": "5 Beekman St, New York, NY 10038, USA",
+    "lat": 40.711273999999996,
+    "lng": -74.0066676,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 617,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJ4xQ2BABZwokRcqlgHVMH9jk": {
+    "name": "CHADA NYC",
+    "address": "260 6th Ave, New York, NY 10014, USA",
+    "lat": 40.728903,
+    "lng": -74.002161,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 989,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJJbrdCQBbwokR0msB9eFOzEE": {
+    "name": "Sunn’s",
+    "address": "139 Division St, New York, NY 10002, USA",
+    "lat": 40.714377,
+    "lng": -73.9909737,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 126,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJUZ_osrNZwokRYq0Y0YFsxYA": {
+    "name": "Maretta",
+    "address": "27 Avenue B, New York, NY 10009, USA",
+    "lat": 40.722253699999996,
+    "lng": -73.9829507,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 212,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJ3wf-UdhbwokRa1S-CsetDUM": {
+    "name": "Gitano NYC",
+    "address": "89 South St, New York, NY 10038, USA",
+    "lat": 40.705241099999995,
+    "lng": -74.00125899999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 992,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJ685zLlZZwokRiEoiYj-Iyvg": {
+    "name": "Kabawa",
+    "address": "8 Extra Pl, New York, NY 10003, USA",
+    "lat": 40.7248683,
+    "lng": -73.9914685,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 116,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJTQ0bJiJbwokRIjq-0C-madM": {
+    "name": "Maison Passerelle",
+    "address": "1 Wall St, New York, NY 10005, USA",
+    "lat": 40.707535299999996,
+    "lng": -74.011648,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 126,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJq58thpNZwokRcsvqjnNzYcc": {
+    "name": "Boucherie West Village",
+    "address": "99 7th Ave S, New York, NY 10014, USA",
+    "lat": 40.733047,
+    "lng": -74.0028772,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 8919,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJuabZo6hZwokRhGPoGjo0H6k": {
+    "name": "Shukette",
+    "address": "230 9th Ave, New York, NY 10001, USA",
+    "lat": 40.747154599999995,
+    "lng": -74.0005218,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3252,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJxUPhRABZwokRWTa40zp_N10": {
+    "name": "Bungalow",
+    "address": "24 1st Ave, New York, NY 10009, USA",
+    "lat": 40.7236675,
+    "lng": -73.98797429999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2026,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJxy0SM0xZwokR5vC0f4wVlP0": {
+    "name": "Tatiana by Kwame Onwuachi",
+    "address": "10 Lincoln Center Plaza, New York, NY 10023, USA",
+    "lat": 40.772786200000006,
+    "lng": -73.983104,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 813,
+        "rating": 4.3
+      }
+    ]
+  },
+  "ChIJyw5j84lZwokRnUI_UknPSNA": {
+    "name": "Le Coucou",
+    "address": "138 Lafayette St, New York, NY 10013, USA",
+    "lat": 40.7191167,
+    "lng": -74.0001861,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2057,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJ0yKXaB9awokR6WFqdEE9aBY": {
+    "name": "1803 NYC",
+    "address": "82 Reade St, New York, NY 10007, USA",
+    "lat": 40.7154539,
+    "lng": -74.00733009999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2031,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJc1Vf7KFZwokR1YL2Rn9oxi8": {
+    "name": "Boucherie Union Square",
+    "address": "225 Park Ave S, New York, NY 10003, USA",
+    "lat": 40.7372552,
+    "lng": -73.9882246,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 4682,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJ27nCgv9ZwokRSMWUV3OS1aM": {
+    "name": "Recette",
+    "address": "103 Havemeyer St, Brooklyn, NY 11211, USA",
+    "lat": 40.713221499999996,
+    "lng": -73.95632549999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 1034,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJWVD7FadZwokRs_pS6XY7VOU": {
+    "name": "Upland",
+    "address": "345 Park Ave S, New York, NY 10010, USA",
+    "lat": 40.7419313,
+    "lng": -73.984644,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2395,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJ_Y7rMCBawokR0mnRmN5kL2o": {
+    "name": "Atera",
+    "address": "77 Worth St, New York, NY 10013, USA",
+    "lat": 40.7169003,
+    "lng": -74.0055631,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 613,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJ3dbcl41ZwokRouIrXtQ5erk": {
+    "name": "Shuka",
+    "address": "38 MacDougal St, New York, NY 10012, USA",
+    "lat": 40.7270639,
+    "lng": -74.0027877,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3767,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJPxCEeZFZwokRzk5UghlXZWU": {
+    "name": "La Lanterna di Vittorio",
+    "address": "129 MacDougal St, New York, NY 10012, USA",
+    "lat": 40.730665099999996,
+    "lng": -74.0000496,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 2348,
+        "rating": 4.5
+      }
+    ]
+  },
+  "ChIJt8W7n79ZwokRsyXs3QDbE3o": {
+    "name": "Scarpetta",
+    "address": "88 Madison Ave, New York, NY 10016, USA",
+    "lat": 40.744581800000006,
+    "lng": -73.9856202,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 3012,
+        "rating": 4.6
+      }
+    ]
+  },
+  "ChIJeRjfjoxZwokRNLbxJPsZE-k": {
+    "name": "Le Jardin Bistro NYC",
+    "address": "95 Delancey St First Floor, New York, NY 10002, USA",
+    "lat": 40.718621899999995,
+    "lng": -73.98923429999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 253,
+        "rating": 4.7
+      }
+    ]
+  },
+  "ChIJsTnPeBNbwokRo2RYNOcSCyA": {
+    "name": "Kashi Indian Cuisine & Bar",
+    "address": "286 Livingston St, Brooklyn, NY 11217, USA",
+    "lat": 40.6884272,
+    "lng": -73.98313759999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 273,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJG9lvgU5bwokRuvluU0zGGdU": {
+    "name": "Yemeni Socotra Restaurant",
+    "address": "470 Nostrand Ave, Brooklyn, NY 11216, USA",
+    "lat": 40.6827557,
+    "lng": -73.9502243,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 41,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJo0udSBBbwokRXYNJw3F-tac": {
+    "name": "Grandma’s Dumpling House",
+    "address": "24 Pell St, New York, NY 10013, USA",
+    "lat": 40.7149327,
+    "lng": -73.998238,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 188,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJHRaQXABZwokR8zB7Zo-61WI": {
+    "name": "Zara Terrace Mediterranean Restaurant",
+    "address": "862 2nd Ave, New York, NY 10017, USA",
+    "lat": 40.7523553,
+    "lng": -73.97003339999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 92,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJg1j1ziVZwokR52vd4-8o95E": {
+    "name": "Gnocchi on 9th",
+    "address": "470 3rd Ave, New York, NY 10016, USA",
+    "lat": 40.744704999999996,
+    "lng": -73.9791827,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 38,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJ-RtWWCFZwokRzE84NlzXSXE": {
+    "name": "Blake's Tavern",
+    "address": "252 W 46th St, New York, NY 10036, USA",
+    "lat": 40.7593302,
+    "lng": -73.9872875,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 19,
+        "rating": 5
+      }
+    ]
+  },
+  "ChIJ4_kdpBBZwokR7rsYae4xCxI": {
+    "name": "Roscioli NYC",
+    "address": "43 MacDougal St, New York, NY 10012, USA",
+    "lat": 40.7277451,
+    "lng": -74.00258389999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 673,
+        "rating": 4.4
+      }
+    ]
+  },
+  "ChIJi3YzSuhbwokR9Pqi4SQFspQ": {
+    "name": "DONG BEI Restaurant & Bar(downtown)东北餐厅下城店",
+    "address": "17 Ann St, New York, NY 10038, USA",
+    "lat": 40.7109806,
+    "lng": -74.0077426,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 112,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJA8oALWVZwokRjCkOjdHMwU0": {
+    "name": "YONO Hudson Yards",
+    "address": "20 Hudson Yards Level 4, New York, NY 10001, USA",
+    "lat": 40.753393599999995,
+    "lng": -74.00105500000001,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 30,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJn4_1MwBZwokRPw8U9H_-Hcs": {
+    "name": "LALYN",
+    "address": "237 W 35th St, New York, NY 10001, USA",
+    "lat": 40.7524262,
+    "lng": -73.9916707,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 616,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJpZ6kWyxZwokR-_-04SLuGmM": {
+    "name": "Golden Steer at One Fifth",
+    "address": "1 5th Ave, New York, NY 10003, USA",
+    "lat": 40.731908,
+    "lng": -73.99619,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 41,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJ58cx12pZwokRzSNyQkBwBUY": {
+    "name": "Delos Greek Restaurant",
+    "address": "102 W 47th St, New York, NY 10036, USA",
+    "lat": 40.757942799999995,
+    "lng": -73.9821177,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 38,
+        "rating": 5
+      }
+    ]
+  },
+  "ChIJt28AsvdZwokRa8PvYAp3vBA": {
+    "name": "Skewr Mediterranean Grill",
+    "address": "127 E 27th St, New York, NY 10016, USA",
+    "lat": 40.742350699999996,
+    "lng": -73.9833905,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 20,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJESqCVQBfwokREWUqir1I_60": {
+    "name": "Dave's Hot Chicken",
+    "address": "90-15 Queens Blvd, Elmhurst, NY 11373, USA",
+    "lat": 40.734508999999996,
+    "lng": -73.86853669999999,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 164,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJUcljMmlhwokRVxlEufnaEWI": {
+    "name": "Lagman Lounge",
+    "address": "101-05 Queens Blvd, Forest Hills, NY 11375, USA",
+    "lat": 40.7267392,
+    "lng": -73.85177670000002,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 25,
+        "rating": 5
+      }
+    ]
+  },
+  "ChIJB8AlzxNfwokR8L4al83-oNo": {
+    "name": "BarrelHouse NY",
+    "address": "82-13 Northern Blvd, Jackson Heights, NY 11372, USA",
+    "lat": 40.755828799999996,
+    "lng": -73.8848521,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 160,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJ88jmJw9bwokRcr4mCoaTzIA": {
+    "name": "Loong Ramen",
+    "address": "21 S End Ave, New York, NY 10280, USA",
+    "lat": 40.7080246,
+    "lng": -74.0180158,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 111,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJue3N_y5fwokRjGkT-yyw28M": {
+    "name": "Olia (Astoria)",
+    "address": "37-15 30th Ave., Astoria, NY 11103, USA",
+    "lat": 40.764444399999995,
+    "lng": -73.9158333,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 173,
+        "rating": 5
+      }
+    ]
+  },
+  "ChIJ-VLLm05ZwokR1HW523wQET0": {
+    "name": "Peek in Cafe",
+    "address": "80 Franklin St, Brooklyn, NY 11222, USA",
+    "lat": 40.7273664,
+    "lng": -73.9569454,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 16,
+        "rating": 5
+      }
+    ]
+  },
+  "ChIJozQ_JJRZwokREvNEoPMTpMk": {
+    "name": "Meet & Meat",
+    "address": "361 Graham Ave, Brooklyn, NY 11211, USA",
+    "lat": 40.715403300000006,
+    "lng": -73.94477640000001,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 37,
+        "rating": 4.9
+      }
+    ]
+  },
+  "ChIJVfuFo9ZfwokR6p3aKGhJeZo": {
+    "name": "La Hueca Manabita 2.0",
+    "address": "85-30 37th Ave, Jackson Heights, NY 11372, USA",
+    "lat": 40.750025699999995,
+    "lng": -73.8807099,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 21,
+        "rating": 4.8
+      }
+    ]
+  },
+  "ChIJRwrYExtbwokRb3CPrVCYsXM": {
+    "name": "maman",
+    "address": "71 Broadway Suite 1, New York, NY 10006, USA",
+    "lat": 40.7074388,
+    "lng": -74.012209,
+    "first_seen": "2026-02-24",
+    "snapshots": [
+      {
+        "date": "2026-02-24",
+        "review_count": 90,
+        "rating": 4.6
+      }
+    ]
+  }
+}
