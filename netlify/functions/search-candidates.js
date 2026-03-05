@@ -1271,7 +1271,6 @@ exports.handler = async (event) => {
     const allNycKeys = MASTER_KEYS.length > 0 ? MASTER_KEYS : BOOKING_KEYS;
     if (isAllNYC && allNycKeys.length > 0) {
       console.log(`🗽 ALL NYC MODE — using ${allNycKeys.length} master book entries`);
-      const injected = [];
       for (const [key, entry] of Object.entries(allNycSource)) {
         if (!entry.lat || !entry.lng) continue;
 
@@ -1315,7 +1314,7 @@ exports.handler = async (event) => {
           _source: 'master_book',
         });
       }
-      console.log(`🗽 Injected ${injected.length} restaurants from booking_lookup`);
+      console.log(`🗽 ALL NYC MODE: ${injected.length} restaurants from master book`);
 
       // Apply quality filter
       const { elite, moreOptions, excluded } = filterRestaurantsByTier(injected, qualityMode);
