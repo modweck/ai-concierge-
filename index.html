@@ -1599,13 +1599,12 @@ function renderCard(r) {
         ? `<span style="font-size:11px;color:#bbb;font-weight:500">💡 check other times</span>`
         : '';
 
-      // ── Horizon row — only shown when data actually changes ──
+      // ── Horizon row — +3d +7d +14d only, no day names ──
       const arrow = `<span style="color:#ddd;font-size:11px;margin:0 2px">›</span>`;
       const horizons = [
-        { key: 'sat',    label: 'Sat' },
-        { key: 'sun',    label: 'Sun' },
-        { key: 'plus7',  label: '+7d' },
-        { key: 'plus14', label: '+14d'},
+        { key: 'plus3',  label: '+3d'  },
+        { key: 'plus7',  label: '+7d'  },
+        { key: 'plus14', label: '+14d' },
       ].filter(h => od[h.key]);
 
       let horizonRow = '';
@@ -1615,16 +1614,13 @@ function renderCard(r) {
           return chip(od[h.key], h.label) + a;
         }).join('');
 
-        // Insight text
         const allTiers = horizons.map(h => od[h.key]);
-        const best = [...allTiers].sort((a,b) => ({hard:0,medium:1,easy:2}[b]||0) - ({hard:0,medium:1,easy:2}[a]||0))[0];
+        const best = [...allTiers].sort((a,b) => ({hard:0,medium:1,easy:2}[b]||0)-({hard:0,medium:1,easy:2}[a]||0))[0];
         let insight = '';
-        if (od.now === 'hard' && od.sat === 'easy')        insight = 'opens this weekend';
-        else if (od.now === 'hard' && od.sun === 'easy')   insight = 'opens this weekend';
-        else if (od.now === 'hard' && best === 'easy')     insight = 'opens up later';
-        else if (od.now === 'hard' && best === 'medium')   insight = 'eases up later';
-        else if (od.now === 'medium' && best === 'hard')   insight = 'fills up on weekend';
-        else if (od.now !== 'easy' && best === 'hard')     insight = 'plan well ahead';
+        if (od.now === 'hard' && best === 'easy')        insight = 'opens up soon';
+        else if (od.now === 'hard' && best === 'medium') insight = 'eases up soon';
+        else if (od.now === 'medium' && best === 'hard') insight = 'fills up ahead';
+        else if (best === 'hard')                        insight = 'plan well ahead';
 
         const insightHtml = insight
           ? ` <span style="font-size:11px;color:#bbb">${insight}</span>`
