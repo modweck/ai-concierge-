@@ -1271,6 +1271,7 @@ exports.handler = async (event) => {
     const allNycKeys = MASTER_KEYS.length > 0 ? MASTER_KEYS : BOOKING_KEYS;
     if (isAllNYC && allNycKeys.length > 0) {
       console.log(`🗽 ALL NYC MODE — using ${allNycKeys.length} master book entries`);
+      const injected = [];
       for (const [key, entry] of Object.entries(allNycSource)) {
         if (!entry.lat || !entry.lng) continue;
 
