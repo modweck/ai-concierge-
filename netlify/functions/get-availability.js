@@ -1,6 +1,3 @@
-// Netlify function: get-availability.js
-// Serves overall tier + per-window tiers
-// Window thresholds: 0 = hard, 1-3 = medium, 4+ = easy
 const fs = require('fs');
 const path = require('path');
 
@@ -40,20 +37,24 @@ exports.handler = async function(event, context) {
     const slim = {};
 
     for (const [name, info] of Object.entries(full)) {
-      const tier = info.availability_tier || 'unknown';
-      const tw = info.time_windows || {};
-      const windows = {};
-
-      for (const slot of ['early', 'prime', 'late']) {
-        if (tw[slot]) {
-          windows[slot] = windowTier(tw[slot].count || 0);
+      // Handle both formats: info.tier OR info.availability_tier
+      const tier = info.tier || info.availability_tier || 'unknown';
+      
+      // Handle both formats: info.windows (pre-processed) OR info.time_windows (raw)
+      let windows = null;
+      if (info.windows) {
+        windows = info.windows;
+      } else if (info.time_windows) {
+        windows = {};
+        for (const slot of ['early', 'prime', 'late']) {
+          if (info.time_windows[slot]) {
+            windows[slot] = windowTier(info.time_windows[slot].count || 0);
+          }
         }
+        if (Object.keys(windows).length === 0) windows = null;
       }
 
-      slim[name] = {
-        tier: tier,
-        windows: Object.keys(windows).length > 0 ? windows : null
-      };
+      slim[name] = { tier, windows };
     }
 
     return {
