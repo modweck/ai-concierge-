@@ -1267,7 +1267,6 @@ exports.handler = async (event) => {
     const cuisineStr = (cuisine && String(cuisine).toLowerCase().trim() !== 'any') ? cuisine : null;
     const isAllNYC = (transport === 'all_nyc' || broadCity === true || broadCity === 'true');
 
-    // Use MASTER_BOOK as the source for All NYC — it has 8,400+ entries vs booking_lookup's ~3,500
     const allNycSource = MASTER_KEYS.length > 0 ? MASTER_BOOK : BOOKING_LOOKUP;
     const allNycKeys = MASTER_KEYS.length > 0 ? MASTER_KEYS : BOOKING_KEYS;
     if (isAllNYC && allNycKeys.length > 0) {
@@ -1296,7 +1295,7 @@ exports.handler = async (event) => {
           price_level: entry.price || null,
           opening_hours: null,
           geometry: { location: { lat: entry.lat, lng: entry.lng } },
-          types: ["restaurant"],
+          types: ['restaurant'],
           booking_platform: entry.platform || entry.booking_platform || null,
           booking_url: entry.url || entry.booking_url || null,
           distanceMiles: Math.round(d*10)/10,
@@ -1313,7 +1312,7 @@ exports.handler = async (event) => {
           cuisine: entry.cuisine || CUISINE_LOOKUP[key] || null,
           instagram: entry.instagram || null,
           availability_tier: entry.availability_tier || null,
-          _source: "master_book",
+          _source: 'master_book',
         });
       }
       console.log(`🗽 Injected ${injected.length} restaurants from booking_lookup`);
