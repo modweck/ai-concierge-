@@ -1271,7 +1271,7 @@ exports.handler = async (event) => {
       console.log(`🗽 ALL NYC MODE — using ${allNycKeys.length} master book entries`);
       const injected = [];
       for (const [key, entry] of Object.entries(allNycSource)) {
-        if (!entry.lat || !entry.lng) continue;
+        if ((!entry.lat && !entry.latitude) || (!entry.lng && !entry.longitude)) continue;
 
         // Cuisine filter
         if (cuisineStr) {
