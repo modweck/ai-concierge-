@@ -1525,24 +1525,8 @@ function renderCard(r) {
   const needsDeposit = r.deposit_type === 'deposit' || r.deposit_type === 'prepay' || r.deposit_type === 'cc_hold' || isDepositRestaurant(r.name);
   if (needsDeposit) depositHtml = `<span style="font-size:11px;font-weight:600;color:#b91c1c;background:#fef2f2;padding:2px 8px;border-radius:6px;border:1px solid #fca5a5">💳 Deposit</span>`;
 
-  // ── Availability ──
-  let availHtml = '';
-  const availTier = getAvailTier(r.name, r.place_id);
-  const _od = OUTLOOK_DATA[(r.name || '').toLowerCase().trim()];
-  const hasOutlook = _od && _od.now;
-  if (availTier && !hasOutlook) {
-    const lbl = getAvailLabel(availTier);
-    if (lbl.cls === 'easy') {
-      availHtml = `<span class="avail-badge ${lbl.cls}">${lbl.emoji} Available</span>`;
-    } else {
-      availHtml = `<span class="avail-badge ${lbl.cls}">${lbl.emoji} ${lbl.text}</span>`;
-    }
-  } else if (availTier && hasOutlook) {
-    // Outlook section handles the badge, skip old one
-    availHtml = '';
-  } else if (!availTier && !hasOutlook) {
-    availHtml = '';
-  }
+  // ── Availability — handled entirely by outlook block below ──
+  const availHtml = '';
 
   // ── Maps URL ──
   const mapsUrl = r.place_id
@@ -1608,60 +1592,47 @@ function renderCard(r) {
         return `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:${s.bg};color:${s.color};border:1px solid ${s.border}">${s.emoji} ${label}</span>`;
       };
 
-      // ── Main card label ──
-      const card = od.card || od.now;
-      let mainChip = '';
-      let showHint = false;
+      const arrow = `<span style="color:#ddd;font-size:11px;margin:0 2px">›</span>`;
+      const horizonKeys = ['plus3', 'plus7', 'plus14'];
+      const horizonLabels = { plus3: '+3d', plus7: '+7d', plus14: '+14d' };
 
-      if (card === 'available') {
+      const now = od.now; // 'hard', 'medium', 'easy'
+      const hasAnyHorizon = horizonKeys.some(k => od[k]);
+
+      // ── Determine main chip label ──
+      let mainChip = '';
+      if (now === 'easy') {
         mainChip = chip('easy', 'Available');
-      } else if (card === 'fully_booked') {
-        mainChip = chip('hard', 'Fully Booked');
-      } else if (card === 'prime_booked') {
-        mainChip = chip('hard', 'Prime Booked');
-        showHint = true;
-      } else if (card === 'limited') {
+      } else if (now === 'hard') {
+        mainChip = hasAnyHorizon ? chip('hard', 'Prime Booked') : chip('hard', 'Fully Booked');
+      } else if (now === 'medium') {
         mainChip = chip('medium', 'Limited');
-        showHint = true;
       } else {
-        mainChip = chip(od.now, od.now === 'hard' ? 'Fully Booked' : od.now === 'easy' ? 'Available' : 'Limited');
+        // Only today's data exists — treat as tombstone
+        mainChip = chip('hard', 'Tom. Booked');
       }
 
-      const hintHtml = showHint
-        ? `<span style="font-size:11px;color:#bbb;font-weight:500">💡 check other times</span>`
-        : '';
-
-      // ── Horizon row — +3d +7d +14d only, no day names ──
-      const arrow = `<span style="color:#ddd;font-size:11px;margin:0 2px">›</span>`;
-      const horizons = [
-        { key: 'plus3',  label: '+3d'  },
-        { key: 'plus7',  label: '+7d'  },
-        { key: 'plus14', label: '+14d' },
-      ].filter(h => od[h.key]);
-
+      // ── Horizon row — stop as soon as we hit green, skip if now=hard (fully booked) ──
       let horizonRow = '';
-      if (horizons.length > 0) {
-        const hChips = horizons.map((h, i) => {
-          const a = i < horizons.length - 1 ? arrow : '';
-          return chip(od[h.key], h.label) + a;
-        }).join('');
+      if (now !== 'hard' && hasAnyHorizon) {
+        const chipsToShow = [];
+        for (const k of horizonKeys) {
+          if (!od[k]) continue;
+          chipsToShow.push({ tier: od[k], label: horizonLabels[k] });
+          if (od[k] === 'easy') break; // stop at first green
+        }
 
-        const allTiers = horizons.map(h => od[h.key]);
-        const best = [...allTiers].sort((a,b) => ({hard:0,medium:1,easy:2}[b]||0)-({hard:0,medium:1,easy:2}[a]||0))[0];
-        let insight = '';
-        if (od.now === 'hard' && best === 'easy')        insight = 'opens up soon';
-        else if (od.now === 'hard' && best === 'medium') insight = 'eases up soon';
-        else if (od.now === 'medium' && best === 'hard') insight = 'fills up ahead';
-        else if (best === 'hard')                        insight = 'plan well ahead';
-
-        const insightHtml = insight
-          ? ` <span style="font-size:11px;color:#bbb">${insight}</span>`
-          : '';
-        horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${hChips}${insightHtml}</div>`;
+        if (chipsToShow.length > 0) {
+          const hChips = chipsToShow.map((h, i) => {
+            const a = i < chipsToShow.length - 1 ? arrow : '';
+            return chip(h.tier, h.label) + a;
+          }).join('');
+          horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${hChips}</div>`;
+        }
       }
 
       outlookHtml = `<div style="margin:6px 0 2px 0">
-        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}${hintHtml ? ' ' + hintHtml : ''}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}</div>
         ${horizonRow}
       </div>`;
     }
