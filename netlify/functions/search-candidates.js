@@ -31,12 +31,6 @@ try {
   console.log(`\u2705 Rakuten base: ${RAKUTEN_BASE.length} entries`);
 } catch (err) { console.warn('\u274c Rakuten base missing:', err.message); }
 
-let BILT_BASE = [];
-try {
-  BILT_BASE = JSON.parse(fs.readFileSync(path.join(__dirname, 'bilt_dining_nyc.json'), 'utf8'));
-  console.log('\u2705 Bilt Dining base: ' + BILT_BASE.length + ' entries');
-} catch (err) { console.warn('\u274c Bilt Dining base missing:', err.message); }
-
 let POPULAR_BASE = [];
 try {
   POPULAR_BASE = JSON.parse(fs.readFileSync(path.join(__dirname, 'popular_nyc.json'), 'utf8'));
@@ -985,8 +979,6 @@ function normalizeQualityMode(q) {
   if (q === 'bib_gourmand') return 'bib_gourmand';
   if (q === 'chase_sapphire') return 'chase_sapphire';
   if (q === 'rakuten') return 'rakuten';
-  if (q === 'bilt') return 'bilt';
-  if (q === 'inkind') return 'inkind';
   return 'very_good';
 }
 
@@ -1265,56 +1257,6 @@ exports.handler = async (event) => {
       within.sort((a,b) => (b.seatwizeScore || 0) - (a.seatwizeScore || 0) || a.distanceMiles - b.distanceMiles);
       timings.total_ms = Date.now()-t0;
       const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, rakutenMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
-      setCache(cacheKey, { elite: within, moreOptions: [], stats });
-      return stableResponse(within, [], stats);
-    }
-
-    // inKind mode — pull from BOOKING_MASTER where inkind === true
-    if (qualityMode === 'inkind') {
-      const cuisineFilter = (cuisine && String(cuisine).toLowerCase().trim() !== 'any') ? cuisine : null;
-      const inkindRecords = Object.entries(MASTER_BOOK)
-        .filter(([, v]) => v.inkind === true && v.lat != null && v.lng != null);
-      console.log('inKind: ' + inkindRecords.length + ' entries from BOOKING_MASTER');
-      const within = inkindRecords.map(([name, r]) => {
-        const d = haversineMiles(gLat, gLng, r.lat, r.lng);
-        return { place_id: r.place_id || null, name: name, vicinity: r.address||'', formatted_address: r.address||'',
-          price_level: r.price || null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
-          googleRating: r.google_rating || 0, googleReviewCount: r.review_count || 0,
-          distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
-          michelin: null, cuisine: CUISINE_LOOKUP[name] || r.cuisine || null,
-          booking_platform: r.platform || null, booking_url: r.url || null,
-          inkind: true };
-      }).filter(r => r.distanceMiles <= 15)
-        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
-      within.forEach(r => { r.seatwizeScore = computeSeatWizeScore(r); });
-      within.sort((a,b) => (b.seatwizeScore || 0) - (a.seatwizeScore || 0) || a.distanceMiles - b.distanceMiles);
-      timings.total_ms = Date.now()-t0;
-      const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, inkindMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
-      setCache(cacheKey, { elite: within, moreOptions: [], stats });
-      return stableResponse(within, [], stats);
-    }
-
-    // Bilt Dining mode — pull from BOOKING_MASTER where bilt_dining === true
-    if (qualityMode === 'bilt') {
-      const cuisineFilter = (cuisine && String(cuisine).toLowerCase().trim() !== 'any') ? cuisine : null;
-      const biltRecords = Object.entries(MASTER_BOOK)
-        .filter(([, v]) => v.bilt_dining === true && v.lat != null && v.lng != null);
-      console.log('Bilt Dining: ' + biltRecords.length + ' entries from BOOKING_MASTER');
-      const within = biltRecords.map(([name, r]) => {
-        const d = haversineMiles(gLat, gLng, r.lat, r.lng);
-        return { place_id: r.place_id || null, name: name, vicinity: r.address||'', formatted_address: r.address||'',
-          price_level: r.price || null, opening_hours: null, geometry: { location: { lat: r.lat, lng: r.lng } },
-          googleRating: r.google_rating || 0, googleReviewCount: r.review_count || 0,
-          distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
-          michelin: null, cuisine: CUISINE_LOOKUP[name] || r.cuisine || null,
-          booking_platform: r.platform || null, booking_url: r.url || null,
-          bilt_dining: true };
-      }).filter(r => r.distanceMiles <= 15)
-        .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
-      within.forEach(r => { r.seatwizeScore = computeSeatWizeScore(r); });
-      within.sort((a,b) => (b.seatwizeScore || 0) - (a.seatwizeScore || 0) || a.distanceMiles - b.distanceMiles);
-      timings.total_ms = Date.now()-t0;
-      const stats = { confirmedAddress, userLocation: { lat: gLat, lng: gLng }, biltMode: true, count: within.length, performance: { ...timings, cache_hit: false } };
       setCache(cacheKey, { elite: within, moreOptions: [], stats });
       return stableResponse(within, [], stats);
     }
@@ -1816,28 +1758,6 @@ exports.handler = async (event) => {
       chaseInjected++;
     }
     if (chaseInjected) console.log(`\u2705 Injected ${chaseInjected} Chase Sapphire restaurants not in other results`);
-
-    // TAG inKind restaurants already in results
-    const inkindNameSet = new Set();
-    for (const [k, v] of Object.entries(MASTER_BOOK)) {
-      if (v.inkind === true) inkindNameSet.add(normalizeName(k));
-    }
-    for (const r of within) {
-      if (r?.name && inkindNameSet.has(normalizeName(r.name))) {
-        r.inkind = true;
-      }
-    }
-
-    // TAG Bilt Dining restaurants already in results
-    const biltNameSet = new Set();
-    for (const b of BILT_BASE) {
-      if (b?.name) biltNameSet.add(normalizeName(b.name));
-    }
-    for (const r of within) {
-      if (r?.name && biltNameSet.has(normalizeName(r.name))) {
-        r.bilt_dining = true;
-      }
-    }
 
     // Final dedup pass — by normalized name only
     // (place_id dedup removed: bad place_id matches in DB caused
