@@ -1562,6 +1562,9 @@ function renderCard(r) {
       resy: { bg: '#c2185b', label: 'Book on Resy →' },
       opentable: { bg: '#da3743', label: 'Book on OpenTable →' },
       tock: { bg: '#1a73e8', label: 'Book on Tock →' },
+      bilt: { bg: '#1a1a2e', label: '🏠 Book on Bilt →' },
+      google_reserve: { bg: '#4285f4', label: 'Reserve on Google →' },
+      website: { bg: '#333', label: 'Book →' },
       walkin: { bg: '#2e7d32', label: '🚶 Walk-ins Welcome' },
     };
     const s = btnStyles[r.booking_platform] || { bg: '#555', label: 'Book →' };
@@ -1677,6 +1680,8 @@ function renderCard(r) {
         ${risingHtml}
         ${chaseHtml}
         ${rakutenHtml}
+        ${biltHtml}
+        ${inkindHtml}
         ${ratingHtml}
         ${depositHtml}
         ${availHtml}
