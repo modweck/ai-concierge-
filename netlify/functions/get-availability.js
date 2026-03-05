@@ -1,11 +1,6 @@
+// Netlify function: get-availability.js
 const fs = require('fs');
 const path = require('path');
-
-function windowTier(count) {
-  if (count === 0) return 'hard';
-  if (count <= 3) return 'medium';
-  return 'easy';
-}
 
 exports.handler = async function(event, context) {
   try {
@@ -34,27 +29,38 @@ exports.handler = async function(event, context) {
     }
 
     const full = JSON.parse(rawData);
-    const slim = {};
+    const result = {};
 
     for (const [name, info] of Object.entries(full)) {
-      // Handle both formats: info.tier OR info.availability_tier
-      const tier = info.tier || info.availability_tier || 'unknown';
-      
-      // Handle both formats: info.windows (pre-processed) OR info.time_windows (raw)
+      if (!info) continue;
+
+      // Handle both data formats:
+      // Format A (pre-processed): { tier: 'available', windows: { early: 'easy', ... } }
+      // Format B (raw):           { availability_tier: 'available', time_windows: { early: { count: 5 }, ... } }
+
+      let tier = info.tier || info.availability_tier || 'unknown';
       let windows = null;
+
       if (info.windows) {
+        // Format A — already processed, use directly
         windows = info.windows;
       } else if (info.time_windows) {
+        // Format B — need to convert counts to tiers
         windows = {};
         for (const slot of ['early', 'prime', 'late']) {
-          if (info.time_windows[slot]) {
-            windows[slot] = windowTier(info.time_windows[slot].count || 0);
+          if (info.time_windows[slot] != null) {
+            const count = info.time_windows[slot].count != null
+              ? info.time_windows[slot].count
+              : info.time_windows[slot];
+            if (count === 0) windows[slot] = 'hard';
+            else if (count <= 3) windows[slot] = 'medium';
+            else windows[slot] = 'easy';
           }
         }
         if (Object.keys(windows).length === 0) windows = null;
       }
 
-      slim[name] = { tier, windows };
+      result[name] = { tier, windows };
     }
 
     return {
@@ -64,7 +70,7 @@ exports.handler = async function(event, context) {
         'Access-Control-Allow-Origin': '*',
         'Cache-Control': 'public, max-age=300'
       },
-      body: JSON.stringify(slim)
+      body: JSON.stringify(result)
     };
   } catch(e) {
     return {
