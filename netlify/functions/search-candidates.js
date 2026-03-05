@@ -51,6 +51,15 @@ try {
   console.log(`\u2705 Booking lookup: ${BOOKING_KEYS.length} entries`);
 } catch (err) { console.warn('\u274c Booking lookup missing:', err.message); }
 
+// ── MASTER BOOK (primary source — 8,400+ restaurants) ──
+let MASTER_BOOK = {};
+let MASTER_KEYS = [];
+try {
+  MASTER_BOOK = JSON.parse(fs.readFileSync(path.join(__dirname, 'BOOKING_MASTER.json'), 'utf8'));
+  MASTER_KEYS = Object.keys(MASTER_BOOK);
+  console.log(`✅ Master book: ${MASTER_KEYS.length} restaurants`);
+} catch (err) { console.warn('⚠️ Master book missing, using booking_lookup:', err.message); }
+
 let CUISINE_LOOKUP = {};
 try {
   CUISINE_LOOKUP = JSON.parse(fs.readFileSync(path.join(__dirname, 'cuisine_lookup.json'), 'utf8'));
