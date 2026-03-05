@@ -1306,8 +1306,9 @@ function isNewAndRising(r) {
   if (types.includes('meal_delivery') || types.includes('meal_takeaway') || types.includes('bakery') || types.includes('cafe')) return false;
 
   // QUALITY SIGNAL: must have a real booking platform OR editorial recognition
-  // Removed the cuisine+4.9 loophole — too many generic spots were slipping through
-  const hasBooking = r.booking_platform && ['resy','opentable','tock'].includes(r.booking_platform);
+  // Includes Website and Bilt alongside Resy/OpenTable/Tock — all are real restaurants
+  const VALID_PLATFORMS = new Set(['resy','opentable','tock','website','bilt','google','google reserve']);
+  const hasBooking = r.booking_platform && VALID_PLATFORMS.has(r.booking_platform.toLowerCase());
   const hasBuzz = !!(getBuzzLinks(name)?.links?.length);
   const isMichelin = !!r.michelin;
   const isPopular = POPULAR_SET && POPULAR_SET.has && POPULAR_SET.has(nameLower);
