@@ -1,23 +1,6 @@
-[build]
-  publish = "."
-  functions = "netlify/functions"
-
-[build.environment]
-  SECRETS_SCAN_SMART_DETECTION_ENABLED = "false"
-
 [functions]
   included_files = [
-<<<<<<< HEAD
     "netlify/functions/*.json"
-=======
-    "netlify/functions/michelin_nyc.json",
-    "netlify/functions/bib_gourmand_nyc.json",
-    "netlify/functions/chase_sapphire_nyc.json",
-    "netlify/functions/rakuten_nyc.json",
-    "netlify/functions/booking_lookup.json",
-    "netlify/functions/deposit_lookup.json",
-    "netlify/functions/ot_followup_results.json"
->>>>>>> 89c40cc (Add reservation outlook follow-up feed)
   ]
 
 [[redirects]]
