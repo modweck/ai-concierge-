@@ -51,17 +51,6 @@ try {
   console.log(`\u2705 Booking lookup: ${BOOKING_KEYS.length} entries`);
 } catch (err) { console.warn('\u274c Booking lookup missing:', err.message); }
 
-// ── MASTER BOOK (primary search source) ──
-let MASTER_BOOK = {};
-let MASTER_KEYS = [];
-try {
-  MASTER_BOOK = JSON.parse(fs.readFileSync(path.join(__dirname, 'BOOKING_MASTER.json'), 'utf8'));
-  MASTER_KEYS = Object.keys(MASTER_BOOK);
-  console.log(`\u2705 Master book: ${MASTER_KEYS.length} restaurants`);
-} catch (err) {
-  console.warn('\u26a0\ufe0f Master book missing, falling back to booking_lookup:', err.message);
-}
-
 let CUISINE_LOOKUP = {};
 try {
   CUISINE_LOOKUP = JSON.parse(fs.readFileSync(path.join(__dirname, 'cuisine_lookup.json'), 'utf8'));
@@ -1338,72 +1327,10 @@ exports.handler = async (event) => {
     }
 
     // =========================================================================
-    // MASTER BOOK PRIMARY SEARCH — search local database first
-    // =========================================================================
-    const masterStart = Date.now();
-    const masterResults = [];
-    const masterSource = MASTER_KEYS.length > 0 ? MASTER_BOOK : null;
-
-    if (masterSource) {
-      for (const [key, entry] of Object.entries(masterSource)) {
-        if (!entry.lat || !entry.lng) continue;
-
-        // Cuisine filter
-        if (cuisineStr) {
-          const entryCuisine = entry.cuisine || CUISINE_LOOKUP[key] || null;
-          if (!entryCuisine) continue;
-          const c = entryCuisine.toLowerCase();
-          const cs = cuisineStr.toLowerCase();
-          if (!c.includes(cs) && !cs.includes(c)) continue;
-        }
-
-        const d = haversineMiles(gLat, gLng, entry.lat, entry.lng);
-        if (d > 7.0) continue;
-
-        masterResults.push({
-          place_id: entry.place_id || null,
-          name: key,
-          vicinity: entry.address || entry.neighborhood || '',
-          formatted_address: entry.address || '',
-          price_level: entry.price || null,
-          opening_hours: null,
-          geometry: { location: { lat: entry.lat, lng: entry.lng } },
-          types: ['restaurant'],
-          googleRating: entry.google_rating || 0,
-          googleReviewCount: entry.google_reviews || 0,
-          rating: entry.google_rating || 0,
-          user_ratings_total: entry.google_reviews || 0,
-          distanceMiles: Math.round(d * 10) / 10,
-          walkMinEstimate: Math.round(d * 20),
-          driveMinEstimate: Math.round(d * 4),
-          transitMinEstimate: Math.round(d * 6),
-          booking_platform: entry.platform || null,
-          booking_url: entry.url || null,
-          website: entry.website || null,
-          cuisine: entry.cuisine || CUISINE_LOOKUP[key] || null,
-          vibe_tags: entry.vibe_tags || [],
-          instagram: entry.instagram || null,
-          availability_tier: entry.availability_tier || null,
-          _source: 'master_book'
-        });
-      }
-      console.log(`📖 Master book: ${masterResults.length} restaurants within 7mi`);
-    }
-    timings.master_ms = Date.now() - masterStart;
-
-    // =========================================================================
-    // GOOGLE API LAYERS — skip when master book has enough results
+    // THREE-LAYER PARALLEL SEARCH (speed-optimized) — for non-All-NYC searches
     // =========================================================================
 
-    const MASTER_SUFFICIENT = 30;
-    const skipGoogleApi = masterResults.length >= MASTER_SUFFICIENT;
-    if (skipGoogleApi) {
-      console.log(`⚡ Master book has ${masterResults.length} results (>=${MASTER_SUFFICIENT}) — skipping Google API calls`);
-    }
-
-    const [legacyFlat, nearbyResults, textResults] = skipGoogleApi
-      ? [[], [], []]
-      : await Promise.all([
+    const [legacyFlat, nearbyResults, textResults] = await Promise.all([
 
       // LAYER 1: Legacy grid — NO PAGINATION (just page 1 = 20 results per point)
       (async () => {
@@ -1425,7 +1352,7 @@ exports.handler = async (event) => {
 
       // LAYER 3: New Text Search by cuisine
       (async () => { const s = Date.now(); const r = await newApiTextByCuisine(gLat, gLng, cuisineStr, KEY); timings.new_text_ms = Date.now()-s; return r; })()
-    ]);  // end Promise.all
+    ]);
 
     // Cuisine type mapping: our dropdown value -> Google place types that match
     const CUISINE_TYPE_MAP = {
@@ -1503,29 +1430,19 @@ exports.handler = async (event) => {
 
     const RESTAURANT_WORDS = /restaurant|grill|kitchen|bistro|trattoria|osteria|ristorante|brasserie|steakhouse|sushi|ramen|taqueria|pizzeria|diner|eatery|cuisine|bbq|barbecue|seafood|noodle|dumpling|dim sum|omakase|izakaya|cantina|chophouse|taverna/i;
 
-    // Merge & deduplicate — MASTER BOOK FIRST, then Google fills gaps
+    // Merge & deduplicate
     const seen = new Set(), all = [];
-    let masterN = 0, legacyN = 0, nearbyN = 0, textN = 0, rawN = 0;
+    let legacyN = 0, nearbyN = 0, textN = 0, rawN = 0;
 
-    // Master book results go first (they have the best data)
-    for (const p of masterResults) {
-      const k = p.place_id || (p.name || '').toLowerCase().trim();
-      if (k && !seen.has(k)) { seen.add(k); all.push(p); masterN++; }
-      const nk = (p.name || '').toLowerCase().trim();
-      if (nk) seen.add(nk);
-    }
+    for (const p of legacyFlat) { rawN++; if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); legacyN++; } }
+    for (const p of nearbyResults) { if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); nearbyN++; } }
+    for (const p of textResults) { if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); textN++; } }
 
-    // Google results only added if not already in master
-    for (const p of legacyFlat) { rawN++; const k = p?.place_id; if (k && !seen.has(k)) { const nk = (p.name||'').toLowerCase().trim(); if (nk && seen.has(nk)) continue; seen.add(k); if (nk) seen.add(nk); all.push(p); legacyN++; } }
-    for (const p of nearbyResults) { const k = p?.place_id; if (k && !seen.has(k)) { const nk = (p.name||'').toLowerCase().trim(); if (nk && seen.has(nk)) continue; seen.add(k); if (nk) seen.add(nk); all.push(p); nearbyN++; } }
-    for (const p of textResults) { const k = p?.place_id; if (k && !seen.has(k)) { const nk = (p.name||'').toLowerCase().trim(); if (nk && seen.has(nk)) continue; seen.add(k); if (nk) seen.add(nk); all.push(p); textN++; } }
-
-    console.log(`📊 MERGE: Master=${masterN} + Legacy=+${legacyN} + Nearby=+${nearbyN} + Text=+${textN} = ${all.length}`);
+    console.log(`\ud83d\udcca MERGE: Legacy=${legacyN} + Nearby=+${nearbyN} + Text=+${textN} = ${all.length}`);
 
     // Filter out non-restaurants
     const beforeExclude = all.length;
     const cleaned = all.filter(p => {
-      if (p._source === 'master_book') return true; // Master book is pre-cleaned
       const pTypes = (p.types || []).map(t => t.toLowerCase());
       const pName = (p.name || '');
       const hasRestaurantType = pTypes.some(t => t.includes('restaurant'));
@@ -1575,7 +1492,6 @@ exports.handler = async (event) => {
     // Exclude cheap ($) spots — price_level 1 is fast food / takeout tier
     const beforePrice = cuisineFiltered.length;
     cuisineFiltered = cuisineFiltered.filter(p => {
-      if (p._source === "master_book") return true;
       const pl = p.price_level ?? p.priceLevel ?? null;
       if (pl === 1) return false;
       return true;
@@ -1584,12 +1500,6 @@ exports.handler = async (event) => {
 
     // Distance
     const withDist = cuisineFiltered.map(p => {
-      // Master book results already have all fields — pass through with velocity/likelihood
-      if (p._source === 'master_book') {
-        p.velocity = getReviewVelocity(p.place_id);
-        p.likelihood = getReservationLikelihood(p.place_id);
-        return p;
-      }
       const pLat = p.geometry?.location?.lat, pLng = p.geometry?.location?.lng;
       const d = (pLat != null && pLng != null) ? haversineMiles(gLat, gLng, pLat, pLng) : 999;
       let bp = p.booking_platform || null;
@@ -1672,14 +1582,10 @@ exports.handler = async (event) => {
 
     // INJECT Bib Gourmand restaurants not in Google results
     const bibPlaces = getBibGourmandPlaces();
-    const bibSeen = new Set();  // prevent dupes within bib file itself
     let bibInjected = 0;
     for (const b of bibPlaces) {
       if (!b?.lat || !b?.lng) continue;
-      const bnk = normalizeName(b.name);
-      if (bnk && bibSeen.has(bnk)) continue;
-      if (bnk) bibSeen.add(bnk);
-      if (b.name && existingNames.has(bnk)) continue;
+      if (b.name && existingNames.has(normalizeName(b.name))) continue;
       if (cuisineStr && !cuisineLookupMatches(b.name, cuisineStr, b.cuisine)) continue;
       const d = haversineMiles(gLat, gLng, b.lat, b.lng);
       if (d > 7.0) continue;
@@ -1703,15 +1609,11 @@ exports.handler = async (event) => {
 
     // INJECT Popular 4.4+ restaurants not in Google results
     const popularPlaces = getPopularPlaces();
-    const popSeen = new Set();
     let popularInjected = 0;
     for (const p of popularPlaces) {
       if (!p?.lat || !p?.lng) continue;
-      const pnk = normalizeName(p.name);
-      if (pnk && popSeen.has(pnk)) continue;
-      if (pnk) popSeen.add(pnk);
       if (p.place_id && existingIds.has(p.place_id)) continue;
-      if (p.name && existingNames.has(pnk)) continue;
+      if (p.name && existingNames.has(normalizeName(p.name))) continue;
       if (cuisineStr && !cuisineLookupMatches(p.name, cuisineStr, p.cuisine)) continue;
       const d = haversineMiles(gLat, gLng, p.lat, p.lng);
       if (d > 7.0) continue;
@@ -1770,15 +1672,19 @@ exports.handler = async (event) => {
     }
     if (chaseInjected) console.log(`\u2705 Injected ${chaseInjected} Chase Sapphire restaurants not in other results`);
 
-    // Final dedup pass — by normalized name only
-    // (place_id dedup removed: bad place_id matches in DB caused
-    //  different restaurants to block each other)
+    // Final dedup pass — catch any duplicates from multiple inject paths
     const deduped = [];
-    const dedupSeenNames = new Set();
+    const dedupSeen = new Set();
     for (const r of within) {
-      const nk = normalizeName(r.name);
-      if (nk && dedupSeenNames.has(nk)) continue;
-      if (nk) dedupSeenNames.add(nk);
+      const key = r.place_id || normalizeName(r.name);
+      if (!key || dedupSeen.has(key)) continue;
+      dedupSeen.add(key);
+      // Also dedupe by normalized name if place_id was the key
+      if (r.place_id && r.name) {
+        const nk = normalizeName(r.name);
+        if (nk && dedupSeen.has(nk)) continue;
+        dedupSeen.add(nk);
+      }
       deduped.push(r);
     }
     if (deduped.length < within.length) console.log(`\ud83e\uddf9 Deduped: removed ${within.length - deduped.length} duplicate restaurants`);
@@ -1811,7 +1717,7 @@ exports.handler = async (event) => {
     const stats = {
       totalRaw: rawN, uniquePlaceIds: all.length, withinMiles: within.length,
       eliteCount: elite.length, moreOptionsCount: moreOptions.length, excluded: excluded.length,
-      sources: { master: masterN, legacy: legacyN, newNearby: nearbyN, newText: textN },
+      sources: { legacy: legacyN, newNearby: nearbyN, newText: textN },
       confirmedAddress, userLocation: { lat: gLat, lng: gLng }, qualityMode,
       performance: { ...timings, cache_hit: false }
     };
