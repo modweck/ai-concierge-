@@ -1500,7 +1500,7 @@ function renderCard(r) {
   let availHtml = '';
   const availTier = getAvailTier(r.name, r.place_id);
   const _od = OUTLOOK_DATA[(r.name || '').toLowerCase().trim()];
-  const hasOutlook = _od && (_od.now || _od.plus3);
+  const hasOutlook = _od && _od.now;
   if (availTier && !hasOutlook) {
     const lbl = getAvailLabel(availTier);
     if (lbl.cls === 'easy') {
@@ -1565,7 +1565,7 @@ function renderCard(r) {
   {
     const ln = (r.name || '').toLowerCase().trim();
     const od = OUTLOOK_DATA[ln];
-    if (od && (od.now || od.plus3)) {
+    if (od && od.now) {
       const cs = {
         hard:   { color: '#b91c1c', bg: '#fef2f2', border: '#fca5a5', emoji: '🔴' },
         medium: { color: '#a16207', bg: '#fefce8', border: '#fde68a', emoji: '🟡' },
@@ -1573,61 +1573,69 @@ function renderCard(r) {
       };
       const chip = (tier, label) => {
         const s = cs[tier] || cs.hard;
-        return `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:8px;font-size:11px;font-weight:700;background:${s.bg};color:${s.color};border:1px solid ${s.border}">${s.emoji} ${label}</span>`;
+        return `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:${s.bg};color:${s.color};border:1px solid ${s.border}">${s.emoji} ${label}</span>`;
       };
-      const arrow = `<span style="color:#ccc;font-size:11px;margin:0 1px">›</span>`;
 
-      // ── Row 1: Tonight — prime vs flex split if they differ ──
-      let row1 = '';
-      if (od.prime && od.flex && od.prime !== od.flex) {
-        // e.g. 🔴 Prime Booked  🟢 Other times open
-        const primeLabel = od.prime === 'hard' ? 'Prime Booked' : 'Prime Limited';
-        row1 = chip(od.prime, primeLabel) + ' ' + chip(od.flex, 'Other times open');
-      } else if (od.now) {
-        const nowLabel = od.now === 'hard' ? 'Fully Booked' : od.now === 'medium' ? 'Limited' : 'Available';
-        row1 = chip(od.now, nowLabel);
+      // ── Main card label ──
+      const card = od.card || od.now;
+      let mainChip = '';
+      let showHint = false;
+
+      if (card === 'available') {
+        mainChip = chip('easy', 'Available');
+      } else if (card === 'fully_booked') {
+        mainChip = chip('hard', 'Fully Booked');
+      } else if (card === 'prime_booked') {
+        mainChip = chip('hard', 'Prime Booked');
+        showHint = true;
+      } else if (card === 'limited') {
+        mainChip = chip('medium', 'Limited');
+        showHint = true;
+      } else {
+        mainChip = chip(od.now, od.now === 'hard' ? 'Fully Booked' : od.now === 'easy' ? 'Available' : 'Limited');
       }
 
-      // ── Row 2: Horizon chips +3 › +7 › +14 ──
-      let row2 = '';
+      const hintHtml = showHint
+        ? `<span style="font-size:11px;color:#bbb;font-weight:500">💡 check other times</span>`
+        : '';
+
+      // ── Horizon row — only shown when data actually changes ──
+      const arrow = `<span style="color:#ddd;font-size:11px;margin:0 2px">›</span>`;
       const horizons = [
-        { key: 'plus3',  label: '+3d'  },
-        { key: 'plus7',  label: '+7d'  },
-        { key: 'plus14', label: '+14d' },
+        { key: 'sat',    label: 'Sat' },
+        { key: 'sun',    label: 'Sun' },
+        { key: 'plus7',  label: '+7d' },
+        { key: 'plus14', label: '+14d'},
       ].filter(h => od[h.key]);
+
+      let horizonRow = '';
       if (horizons.length > 0) {
-        const rank = { hard: 0, medium: 1, easy: 2 };
-        const chips2 = horizons.map((h, i) => {
+        const hChips = horizons.map((h, i) => {
           const a = i < horizons.length - 1 ? arrow : '';
           return chip(od[h.key], h.label) + a;
         }).join('');
 
-        // Smart insight
-        const best = horizons.map(h => od[h.key]).sort((a,b) => (rank[b]||0)-(rank[a]||0))[0];
+        // Insight text
+        const allTiers = horizons.map(h => od[h.key]);
+        const best = [...allTiers].sort((a,b) => ({hard:0,medium:1,easy:2}[b]||0) - ({hard:0,medium:1,easy:2}[a]||0))[0];
         let insight = '';
-        if (od.now === 'hard' && od.plus3 === 'easy')
-          insight = '✨ Opens in 3 days';
-        else if (od.now === 'hard' && od.plus7 === 'easy')
-          insight = '✨ Opens up by +7d';
-        else if (od.now === 'hard' && od.plus14 === 'easy')
-          insight = '📅 Opens up by +14d';
-        else if ((od.now === 'hard' || od.now === 'medium') && best === 'hard')
-          insight = 'Plan well ahead';
-        else if (od.now === 'medium' && best === 'easy')
-          insight = 'More options coming';
+        if (od.now === 'hard' && od.sat === 'easy')        insight = 'opens this weekend';
+        else if (od.now === 'hard' && od.sun === 'easy')   insight = 'opens this weekend';
+        else if (od.now === 'hard' && best === 'easy')     insight = 'opens up later';
+        else if (od.now === 'hard' && best === 'medium')   insight = 'eases up later';
+        else if (od.now === 'medium' && best === 'hard')   insight = 'fills up on weekend';
+        else if (od.now !== 'easy' && best === 'hard')     insight = 'plan well ahead';
 
         const insightHtml = insight
-          ? ` <span style="font-size:11px;color:#888">${insight}</span>`
+          ? ` <span style="font-size:11px;color:#bbb">${insight}</span>`
           : '';
-        row2 = `<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chips2}${insightHtml}</div>`;
+        horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${hChips}${insightHtml}</div>`;
       }
 
-      if (row1 || row2) {
-        outlookHtml = `<div style="margin:6px 0 2px 0">
-          <div style="display:flex;flex-wrap:wrap;gap:5px;align-items:center">${row1}</div>
-          ${row2}
-        </div>`;
-      }
+      outlookHtml = `<div style="margin:6px 0 2px 0">
+        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}${hintHtml ? ' ' + hintHtml : ''}</div>
+        ${horizonRow}
+      </div>`;
     }
   }
 
