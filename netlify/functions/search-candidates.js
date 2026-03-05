@@ -1282,17 +1282,20 @@ exports.handler = async (event) => {
           if (!c.includes(cs) && !cs.includes(c)) continue;
         }
 
-        const d = haversineMiles(gLat, gLng, entry.lat, entry.lng);
+        const entryLat = entry.lat || entry.latitude;
+        const entryLng = entry.lng || entry.longitude;
+        if (!entryLat || !entryLng) continue;
+        const d = haversineMiles(gLat, gLng, entryLat, entryLng);
         injected.push({
           name: key,
           place_id: entry.place_id || null,
           address: entry.address || entry.neighborhood || null,
-          lat: entry.lat, lng: entry.lng,
+          lat: entryLat, lng: entryLng,
           rating: entry.google_rating || entry.resy_rating || 0,
-          user_ratings_total: entry.google_reviews || 0,
+          user_ratings_total: entry.google_reviews || entry.google_review_count || 0,
           price_level: entry.price || null,
           opening_hours: null,
-          geometry: { location: { lat: entry.lat, lng: entry.lng } },
+          geometry: { location: { lat: entryLat, lng: entryLng } },
           types: ['restaurant'],
           booking_platform: entry.platform || entry.booking_platform || null,
           booking_url: entry.url || entry.booking_url || null,
@@ -1301,7 +1304,7 @@ exports.handler = async (event) => {
           driveMinEstimate: Math.round(d*4),
           transitMinEstimate: Math.round(d*6),
           googleRating: entry.google_rating || 0,
-          googleReviewCount: entry.google_reviews || 0,
+          googleReviewCount: entry.google_reviews || entry.google_review_count || 0,
           michelin: entry.michelin || null,
           bib_gourmand: entry.bib_gourmand || null,
           chase_sapphire: entry.chase_sapphire || null,
@@ -1310,6 +1313,8 @@ exports.handler = async (event) => {
           cuisine: entry.cuisine || CUISINE_LOOKUP[key] || null,
           instagram: entry.instagram || null,
           availability_tier: entry.availability_tier || null,
+          bilt: entry.bilt_dining || entry.bilt || null,
+          inkind: entry.inkind || null,
           _source: 'master_book',
         });
       }
