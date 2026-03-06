@@ -1386,7 +1386,7 @@ function sortResults() {
 
     // Compute display scores for frontend sorting
     sorted.forEach(r => {
-      let s = r.seatwizeScore || r.googleRating || 0;
+      let s = r.seatwizeScore || r.googleRating || 0; const rating = s;
       s = Math.min(5.0, Math.round(s * 10) / 10);
       // Buzz restaurants get a 4.4 floor
       const bz = getBuzzLinks(r.name);
