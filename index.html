@@ -1115,7 +1115,7 @@ async function search() {
     const isCuratedMode = (backendQuality === 'michelin' || state.rewardsFilter === 'chase' || state.rewardsFilter === 'rakuten' || state.rewardsFilter === 'bilt' || state.rewardsFilter === 'inkind' || state.qualityFilter === 'new_rising');
     const preFilterCount = allRestaurants.length;
     if (state.transport === 'walk' && maxWalkMinutes) {
-      allRestaurants = allRestaurants.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
+      allRestaurants = allRestaurants.filter(r => { const wm = r.walkMinutes ?? r.walkMinEstimate; return wm != null && wm <= maxWalkMinutes; });
     } else if (state.transport === 'drive' && maxDriveMinutes) {
       allRestaurants = allRestaurants.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
     } else if (state.transport === 'radius' && maxRadiusMiles) {
@@ -1260,7 +1260,7 @@ async function search() {
     });
 
     let realTimeFiltered = allRestaurants;
-    if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.walkMinutes != null && r.walkMinutes <= maxWalkMinutes);
+    if (state.transport === 'walk' && maxWalkMinutes) realTimeFiltered = realTimeFiltered.filter(r => { const wm = r.walkMinutes ?? r.walkMinEstimate; return wm != null && wm <= maxWalkMinutes; });
     else if (state.transport === 'drive' && maxDriveMinutes) realTimeFiltered = realTimeFiltered.filter(r => r.driveMinutes != null && r.driveMinutes <= maxDriveMinutes);
     else if (state.transport === 'radius' && maxRadiusMiles) realTimeFiltered = realTimeFiltered.filter(r => r.distanceMiles != null && r.distanceMiles <= maxRadiusMiles);
     allRestaurants = realTimeFiltered;
