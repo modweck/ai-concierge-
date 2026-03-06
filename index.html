@@ -1196,9 +1196,9 @@ async function search() {
 
     let enrichLimit = 200;
     if (state.transport === 'walk') {
-      if (maxWalkMinutes >= 30) enrichLimit = 250;
-      else if (maxWalkMinutes >= 20) enrichLimit = 200;
-      else enrichLimit = 150;
+      if (maxWalkMinutes >= 30) enrichLimit = 800;
+      else if (maxWalkMinutes >= 20) enrichLimit = 600;
+      else enrichLimit = 400;
     } else if (state.transport === 'drive') {
       enrichLimit = 200;
     } else if (state.transport === 'radius') {
