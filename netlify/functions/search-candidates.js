@@ -1454,6 +1454,46 @@ exports.handler = async (event) => {
 
     console.log(`\ud83d\udcca MERGE: Legacy=${legacyN} + Nearby=+${nearbyN} + Text=+${textN} = ${all.length}`);
 
+    // ── MASTER BOOK INJECTION — add nearby master entries Google API missed ──
+    if (MASTER_KEYS.length > 0) {
+      let masterInjected = 0;
+      for (const [key, entry] of Object.entries(MASTER_BOOK)) {
+        const entryLat = entry.lat || entry.latitude;
+        const entryLng = entry.lng || entry.longitude;
+        if (!entryLat || !entryLng) continue;
+        const d = haversineMiles(gLat, gLng, entryLat, entryLng);
+        if (d > 5.0) continue; // only within 5 miles
+        const pid = entry.place_id;
+        if (pid && seen.has(pid)) continue; // already in results
+        // also skip if name already seen
+        const normKey = (key || '').toLowerCase().trim();
+        if (seen.has('name:' + normKey)) continue;
+        if (pid) seen.add(pid);
+        seen.add('name:' + normKey);
+        all.push({
+          name: key,
+          place_id: pid || null,
+          vicinity: entry.address || entry.neighborhood || '',
+          formatted_address: entry.address || '',
+          geometry: { location: { lat: entryLat, lng: entryLng } },
+          types: ['restaurant'],
+          rating: entry.google_rating || 0,
+          user_ratings_total: entry.google_reviews || entry.google_review_count || 0,
+          price_level: entry.price || null,
+          opening_hours: null,
+          booking_platform: entry.platform || entry.booking_platform || null,
+          booking_url: entry.url || entry.booking_url || null,
+          cuisine: entry.cuisine || CUISINE_LOOKUP[key] || null,
+          vibe_tags: entry.vibe_tags || [],
+          instagram: entry.instagram || null,
+          availability_tier: entry.availability_tier || null,
+          _source: 'master_book',
+        });
+        masterInjected++;
+      }
+      console.log(`📚 Master book injected ${masterInjected} nearby entries not in Google results`);
+    }
+
     // Filter out non-restaurants
     const beforeExclude = all.length;
     const cleaned = all.filter(p => {
