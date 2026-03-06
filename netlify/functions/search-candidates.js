@@ -1060,11 +1060,8 @@ async function newApiTextByCuisine(lat, lng, userCuisine, KEY) {
   } else {
     queries = [
       'best italian restaurants', 'best japanese restaurants',
-      'best chinese restaurants', 'best mexican restaurants',
-      'best thai restaurants', 'best indian restaurants',
-      'best french restaurants', 'best korean restaurants',
-      'best mediterranean restaurants', 'best american restaurants',
-      'best sushi restaurants', 'best seafood restaurants'
+      'best french restaurants', 'best sushi restaurants',
+      'best seafood restaurants'
     ];
   }
 
@@ -1448,12 +1445,6 @@ exports.handler = async (event) => {
     const seen = new Set(), all = [];
     let legacyN = 0, nearbyN = 0, textN = 0, rawN = 0;
 
-    for (const p of legacyFlat) { rawN++; if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); legacyN++; } }
-    for (const p of nearbyResults) { if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); nearbyN++; } }
-    for (const p of textResults) { if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); textN++; } }
-
-    console.log(`\ud83d\udcca MERGE: Legacy=${legacyN} + Nearby=+${nearbyN} + Text=+${textN} = ${all.length}`);
-
     // ── MASTER BOOK INJECTION — add nearby master entries Google API missed ──
     if (MASTER_KEYS.length > 0) {
       let masterInjected = 0;
@@ -1504,6 +1495,13 @@ exports.handler = async (event) => {
 
     // Filter out non-restaurants
     const beforeExclude = all.length;
+
+    for (const p of legacyFlat) { rawN++; if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); legacyN++; } }
+    for (const p of nearbyResults) { if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); nearbyN++; } }
+    for (const p of textResults) { if (p?.place_id && !seen.has(p.place_id)) { seen.add(p.place_id); all.push(p); textN++; } }
+
+    console.log(`\ud83d\udcca MERGE: Legacy=${legacyN} + Nearby=+${nearbyN} + Text=+${textN} = ${all.length}`);
+
     const cleaned = all.filter(p => {
       const pTypes = (p.types || []).map(t => t.toLowerCase());
       const pName = (p.name || '');
