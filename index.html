@@ -1300,7 +1300,7 @@ async function search() {
 
 // Helper: determine New & Rising tier for a restaurant
 function isNewAndRising(r) {
-  const rating = Number(r.googleRating || 0);
+  const rawRating = Number(r.googleRating || 0); const reviews = Number(r.googleReviewCount || 0); const rating = (rawRating > 4.8 && reviews < 200) ? 4.8 : rawRating;
   const reviews = Number(r.googleReviewCount || r.user_ratings_total || 0);
   if (!(rating >= 4.8 && reviews >= 40 && reviews <= 130)) return false;
 
