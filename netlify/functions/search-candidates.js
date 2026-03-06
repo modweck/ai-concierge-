@@ -1060,8 +1060,10 @@ async function newApiTextByCuisine(lat, lng, userCuisine, KEY) {
   } else {
     queries = [
       'best italian restaurants', 'best japanese restaurants',
-      'best mexican restaurants', 'best sushi restaurants',
-      'best seafood restaurants'
+      'best mexican restaurants', 'best thai restaurants',
+      'best korean restaurants', 'best sushi restaurants',
+      'best seafood restaurants', 'best chinese restaurants',
+      'best mediterranean restaurants'
     ];
   }
 
