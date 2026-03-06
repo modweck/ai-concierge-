@@ -238,9 +238,9 @@
             <div style="flex:1">
               <span class="section-label" style="margin-bottom:4px;font-size:10px">📅 Availability</span>
               <div style="display:flex;gap:4px">
-                <button id="availHard" onclick="toggleAvailChip('hard')" style="flex:1;padding:7px 2px;border:1.5px solid #ef4444;border-radius:8px;background:#fef2f2;color:#b91c1c;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🔴</button>
-                <button id="availMedium" onclick="toggleAvailChip('medium')" style="flex:1;padding:7px 2px;border:1.5px solid #f59e0b;border-radius:8px;background:#fffbeb;color:#b45309;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟡</button>
-                <button id="availEasy" onclick="toggleAvailChip('easy')" style="flex:1;padding:7px 2px;border:1.5px solid #22c55e;border-radius:8px;background:#f0fdf4;color:#15803d;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟢</button>
+                <button id="availHard" onclick="setAvailFilter(state.availFilter.hard && !state.availFilter.medium && !state.availFilter.easy ? 'all' : 'hard')" style="flex:1;padding:7px 2px;border:1.5px solid #ef4444;border-radius:8px;background:#fef2f2;color:#b91c1c;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🔴</button>
+                <button id="availMedium" onclick="setAvailFilter(state.availFilter.medium && !state.availFilter.hard && !state.availFilter.easy ? 'all' : 'medium')" style="flex:1;padding:7px 2px;border:1.5px solid #f59e0b;border-radius:8px;background:#fffbeb;color:#b45309;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟡</button>
+                <button id="availEasy" onclick="setAvailFilter(state.availFilter.easy && !state.availFilter.hard && !state.availFilter.medium ? 'all' : 'easy')" style="flex:1;padding:7px 2px;border:1.5px solid #22c55e;border-radius:8px;background:#f0fdf4;color:#15803d;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟢</button>
               </div>
             </div>
             <div style="flex:1">
