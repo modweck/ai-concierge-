@@ -549,7 +549,7 @@ function fastAvailFilter() {
   document.querySelectorAll('.restaurant').forEach(card => {
     if (allOn) { card.style.display = ''; return; }
     const tier = card.dataset.availTier;
-    if (!tier) { card.style.display = 'none'; return; }
+    if (!tier) { card.style.display = ''; return; }
     card.style.display = state.availFilter[tier] ? '' : 'none';
   });
 }
