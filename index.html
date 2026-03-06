@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8" />
@@ -1610,43 +1610,58 @@ function renderCard(r) {
 
       // ── Main card label ──
       const card = od.card || od.now;
-      const hasAnyHorizon = ['plus3','plus7','plus14'].some(k => od[k]);
-      const hasFlexibleHorizon = ['plus3','plus7','plus14'].some(k => od[k] === 'easy' || od[k] === 'medium');
       let mainChip = '';
+      let showHint = false;
 
       if (card === 'available') {
         mainChip = chip('easy', 'Available');
       } else if (card === 'fully_booked') {
         mainChip = chip('hard', 'Fully Booked');
       } else if (card === 'prime_booked') {
-        mainChip = chip('hard', 'Prime Booked') + (hasFlexibleHorizon ? ' <span style="font-size:11px;color:#bbb;font-weight:500">· other times may be open</span>' : '');
+        mainChip = chip('hard', 'Prime Booked');
+        showHint = true;
       } else if (card === 'limited') {
         mainChip = chip('medium', 'Limited');
+        showHint = true;
       } else {
-        mainChip = chip('hard', 'Tom. Booked');
+        mainChip = chip(od.now, od.now === 'hard' ? 'Fully Booked' : od.now === 'easy' ? 'Available' : 'Limited');
       }
 
-      // ── Horizon row — stop at first green, skip entirely if fully booked ──
+      const hintHtml = showHint
+        ? `<span style="font-size:11px;color:#bbb;font-weight:500">💡 check other times</span>`
+        : '';
+
+      // ── Horizon row — +3d +7d +14d only, no day names ──
       const arrow = `<span style="color:#ddd;font-size:11px;margin:0 2px">›</span>`;
+      const horizons = [
+        { key: 'plus3',  label: '+3d'  },
+        { key: 'plus7',  label: '+7d'  },
+        { key: 'plus14', label: '+14d' },
+      ].filter(h => od[h.key]);
+
       let horizonRow = '';
-      if (card !== 'fully_booked' && hasAnyHorizon) {
-        const chipsToShow = [];
-        for (const k of ['plus3','plus7','plus14']) {
-          if (!od[k]) continue;
-          chipsToShow.push({ tier: od[k], label: k === 'plus3' ? '+3d' : k === 'plus7' ? '+7d' : '+14d' });
-          if (od[k] === 'easy') break; // stop at first green
-        }
-        if (chipsToShow.length > 0) {
-          const hChips = chipsToShow.map((h, i) => {
-            const a = i < chipsToShow.length - 1 ? arrow : '';
-            return chip(h.tier, h.label) + a;
-          }).join('');
-          horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${hChips}</div>`;
-        }
+      if (horizons.length > 0) {
+        const hChips = horizons.map((h, i) => {
+          const a = i < horizons.length - 1 ? arrow : '';
+          return chip(od[h.key], h.label) + a;
+        }).join('');
+
+        const allTiers = horizons.map(h => od[h.key]);
+        const best = [...allTiers].sort((a,b) => ({hard:0,medium:1,easy:2}[b]||0)-({hard:0,medium:1,easy:2}[a]||0))[0];
+        let insight = '';
+        if (od.now === 'hard' && best === 'easy')        insight = 'opens up soon';
+        else if (od.now === 'hard' && best === 'medium') insight = 'eases up soon';
+        else if (od.now === 'medium' && best === 'hard') insight = 'fills up ahead';
+        else if (best === 'hard')                        insight = 'plan well ahead';
+
+        const insightHtml = insight
+          ? ` <span style="font-size:11px;color:#bbb">${insight}</span>`
+          : '';
+        horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${hChips}${insightHtml}</div>`;
       }
 
       outlookHtml = `<div style="margin:6px 0 2px 0">
-        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}${hintHtml ? ' ' + hintHtml : ''}</div>
         ${horizonRow}
       </div>`;
     }
