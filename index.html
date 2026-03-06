@@ -456,6 +456,13 @@ function switchPage(idx) {
 
 let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating', availFilter: { hard: true, medium: true, easy: true }, timeSlot: 'prime', vibeFilter: new Set(), priceFilter: new Set(), buzzFilter: false };
 let allRestaurants = [];
+
+// Avail filter buttons - attach via JS to avoid any overlay issues
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('availHard')?.addEventListener('click', () => setAvailFilter('hard'));
+  document.getElementById('availMedium')?.addEventListener('click', () => setAvailFilter('medium'));
+  document.getElementById('availEasy')?.addEventListener('click', () => setAvailFilter('easy'));
+});
 let isSearching = false;
 let searchAbortController = null;
 
