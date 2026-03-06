@@ -1042,7 +1042,7 @@ async function search() {
         location,
         quality: backendQuality,
         cuisine: cuisine === 'any' ? undefined : cuisine,
-        broadCity: isBroadCitySearch(location),
+        broadCity: isBroadCitySearch(location) || state.transport === "all_nyc",
         transport: state.transport
       }),
       signal: searchAbortController.signal
