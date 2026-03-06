@@ -1487,6 +1487,14 @@ exports.handler = async (event) => {
           vibe_tags: entry.vibe_tags || [],
           instagram: entry.instagram || null,
           availability_tier: entry.availability_tier || null,
+          michelin: entry.michelin || null,
+          bib_gourmand: entry.bib_gourmand || null,
+          chase_sapphire: entry.chase_sapphire || null,
+          rakuten: entry.rakuten || null,
+          bilt: entry.bilt_dining || entry.bilt || null,
+          inkind: entry.inkind || null,
+          deposit_type: entry.deposit_type || null,
+          neighborhood: entry.neighborhood || null,
           _source: 'master_book',
         });
         masterInjected++;
