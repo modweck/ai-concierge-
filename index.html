@@ -1504,7 +1504,7 @@ function renderCard(r) {
   const reviews = reviewCount;
 
   // ── Blended rating shown on card ──
-  let displayScore = r.seatwizeScore || r.googleRating || 0;
+  let displayScore = r.seatwizeScore ? Math.max(r.seatwizeScore, rating) : rating;
   displayScore = Math.min(5.0, Math.round(displayScore * 10) / 10);
   // Buzz restaurants get a 4.4 floor
   const buzzData = getBuzzLinks(r.name);
