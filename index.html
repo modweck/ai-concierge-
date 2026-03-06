@@ -1631,7 +1631,7 @@ function renderCard(r) {
         ? `<span style="font-size:11px;color:#bbb;font-weight:500">💡 check other times</span>`
         : '';
 
-      // ── Horizon row — only show medium/easy horizons (suppress all-hard noise) ──
+      // ── Horizon row — only show medium/easy horizons ──
       const arrow = `<span style="color:#ddd;font-size:11px;margin:0 2px">›</span>`;
       const horizons = [
         { key: 'plus3',  label: '+3d'  },
@@ -1639,7 +1639,7 @@ function renderCard(r) {
         { key: 'plus14', label: '+14d' },
       ].filter(h => od[h.key] && od[h.key] !== 'hard');
 
-      // ── "Rarely opens up" label for hard-stuck booked restaurants ──
+      // ── Rarely opens up label ──
       const isBooked = card === 'fully_booked' || card === 'prime_booked' || od.now === 'hard';
       const allHorizonsHard = ['plus3','plus7','plus14'].every(k => !od[k] || od[k] === 'hard');
       const rarelyOpensHtml = isBooked && allHorizonsHard
@@ -1915,4 +1915,3 @@ function renderBarCard(b) {
 </script>
 </body>
 </html>
-
