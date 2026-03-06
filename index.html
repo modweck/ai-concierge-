@@ -1500,7 +1500,7 @@ function renderCard(r) {
     else if (getBuzzLinks(r.name)?.links?.length > 0) rating = Math.min(5.0, rating + 0.1);
   }
   rating = Math.round(rating * 10) / 10;
-  const reviews = (r.googleReviewCount || 0);
+  const reviews = reviewCount;
 
   // ── Blended rating shown on card ──
   let displayScore = r.seatwizeScore || r.googleRating || 0;
