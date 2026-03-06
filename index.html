@@ -543,22 +543,17 @@ function toggleAvailChip(tier) {
   if (allRestaurants.length > 0) sortResults();
 }
 
-function setAvailFilter(val) {
-  if (val === 'all') {
-    state.availFilter = { hard: true, medium: true, easy: true };
-  } else if (val === 'easy') {
-    state.availFilter = { hard: false, medium: false, easy: true };
-  } else if (val === 'medium') {
-    state.availFilter = { hard: false, medium: false, easy: false };
-    state.availFilter = { hard: false, medium: true, easy: false };
-  } else if (val === 'hard') {
-    state.availFilter = { hard: true, medium: false, easy: false };
-  }
-  updateAvailButtons(val);
+function setAvailFilter(tier) {
+  // Toggle the clicked tier on/off
+  state.availFilter[tier] = !state.availFilter[tier];
+  // If all off, reset to all on
+  const { hard, medium, easy } = state.availFilter;
+  if (!hard && !medium && !easy) state.availFilter = { hard: true, medium: true, easy: true };
+  updateAvailButtons();
   if (allRestaurants.length > 0) sortResults();
 }
 
-function updateAvailButtons(active) {
+function updateAvailButtons() {
   const btns = { hard: document.getElementById('availHard'), medium: document.getElementById('availMedium'), easy: document.getElementById('availEasy') };
   const styles = {
     hard:   { on: 'background:#ef4444;color:white;border-color:#ef4444', off: 'background:#fef2f2;color:#b91c1c;border-color:#ef4444' },
@@ -567,9 +562,9 @@ function updateAvailButtons(active) {
   };
   for (const [tier, btn] of Object.entries(btns)) {
     if (!btn) continue;
-    const isActive = active !== 'all' && tier === active;
-    btn.style.cssText = btn.style.cssText.replace(/background:[^;]+;color:[^;]+;border-color:[^;]+/, '');
-    const s = isActive ? styles[tier].on : styles[tier].off;
+    const isActive = state.availFilter[tier];
+    const allOn = state.availFilter.hard && state.availFilter.medium && state.availFilter.easy;
+    const s = (isActive && !allOn) ? styles[tier].on : styles[tier].off;
     s.split(';').forEach(rule => { const [k,v] = rule.split(':'); if(k&&v) btn.style[k.trim().replace(/-./,m=>m[1].toUpperCase())] = v.trim(); });
   }
 }
