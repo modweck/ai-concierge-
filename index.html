@@ -1494,10 +1494,10 @@ function renderCard(r) {
   const rawRating = Number(r.googleRating || 0);
   const reviewCount = Number(r.googleReviewCount || 0);
   let rating = (rawRating > 4.8 && reviewCount < 200) ? 4.8 : rawRating;
-  if (rawRating > 4.8 && reviewCount >= 250) rating = 4.9;
+  if (rating === 4.8 && reviewCount >= 250) rating = 4.9;
   if (reviewCount >= 200) {
     if (r.michelin && r.michelin.stars >= 1) rating = Math.min(5.0, rating + 0.2);
-    else if (r.michelin && (r.michelin.distinction === 'bib_gourmand' || r.michelin.distinction === 'recommended')) rating = Math.min(5.0, rating + 0.1);
+    else if (r.michelin && r.michelin.distinction === 'bib_gourmand') rating = Math.min(5.0, rating + 0.1);
     else if (getBuzzLinks(r.name)?.links?.length > 0) rating = Math.min(5.0, rating + 0.1);
   }
   rating = Math.round(rating * 10) / 10;
