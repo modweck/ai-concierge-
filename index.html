@@ -543,6 +543,17 @@ function toggleAvailChip(tier) {
   if (allRestaurants.length > 0) sortResults();
 }
 
+function fastAvailFilter() {
+  const { hard, medium, easy } = state.availFilter;
+  const allOn = hard && medium && easy;
+  document.querySelectorAll('.restaurant').forEach(card => {
+    if (allOn) { card.style.display = ''; return; }
+    const tier = card.dataset.availTier;
+    if (!tier) { card.style.display = 'none'; return; }
+    card.style.display = state.availFilter[tier] ? '' : 'none';
+  });
+}
+
 function setAvailFilter(tier) {
   // Toggle the clicked tier on/off
   state.availFilter[tier] = !state.availFilter[tier];
@@ -550,7 +561,7 @@ function setAvailFilter(tier) {
   const { hard, medium, easy } = state.availFilter;
   if (!hard && !medium && !easy) state.availFilter = { hard: true, medium: true, easy: true };
   updateAvailButtons();
-  if (allRestaurants.length > 0) sortResults();
+  if (allRestaurants.length > 0) fastAvailFilter();
 }
 
 function updateAvailButtons() {
@@ -1951,7 +1962,7 @@ function renderBarCard(b) {
   let hoursHtml='';
   if(b.hours&&b.hours.length>0){const todayIdx=new Date().getDay();const dayMap=[6,0,1,2,3,4,5];const todayHours=b.hours[dayMap[todayIdx]]||'';const cleanHours=todayHours.replace(/\u202f/g,' ').replace(/\u2009/g,' ').replace(/\u2013/g,'–');if(cleanHours) hoursHtml=`<div style="font-size:11px;color:#888;margin-top:4px">🕐 ${cleanHours}</div>`;}
   let instaHtml='';const instaHandle=b.instagram||INSTA_LOOKUP[b.name]||INSTA_LOOKUP[(b.name||'').toLowerCase()];if(instaHandle&&rating>=4.5){instaHtml=`<a href="https://www.instagram.com/${instaHandle}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:6px;text-decoration:none;color:#c13584;font-size:11px;font-weight:600;opacity:0.7">📸 @${instaHandle}</a>`;}
-  return `<div class="restaurant"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px"><h3>${name}</h3>${priceHtml}</div><div class="cuisine">${subtitle}</div>${hoursHtml}<div class="badges">${typeBadge}${lateHtml}${ratingHtml}</div><div style="display:flex;gap:8px;align-items:stretch">${actionBtnHtml}<button onclick="window.open('${mapsUrl}','_blank')" style="width:42px;background:#f5f5f5;border:1px solid #e8e8e8;border-radius:10px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center">📍</button></div>${instaHtml}</div>`;
+  return `<div class="restaurant" data-avail-tier="${getAvailTier(r.name, r.place_id) || ''}"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px"><h3>${name}</h3>${priceHtml}</div><div class="cuisine">${subtitle}</div>${hoursHtml}<div class="badges">${typeBadge}${lateHtml}${ratingHtml}</div><div style="display:flex;gap:8px;align-items:stretch">${actionBtnHtml}<button onclick="window.open('${mapsUrl}','_blank')" style="width:42px;background:#f5f5f5;border:1px solid #e8e8e8;border-radius:10px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center">📍</button></div>${instaHtml}</div>`;
 }
 
 </script>
