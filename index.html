@@ -1596,25 +1596,26 @@ function renderCard(r) {
       const horizonKeys = ['plus3', 'plus7', 'plus14'];
       const horizonLabels = { plus3: '+3d', plus7: '+7d', plus14: '+14d' };
 
-      const now = od.now; // 'hard', 'medium', 'easy'
+      const card = od.card || od.now;
       const hasAnyHorizon = horizonKeys.some(k => od[k]);
 
       // ── Determine main chip label ──
       let mainChip = '';
-      if (now === 'easy') {
+      if (card === 'available') {
         mainChip = chip('easy', 'Available');
-      } else if (now === 'hard') {
-        mainChip = hasAnyHorizon ? chip('hard', 'Prime Booked') : chip('hard', 'Fully Booked');
-      } else if (now === 'medium') {
+      } else if (card === 'fully_booked') {
+        mainChip = chip('hard', 'Fully Booked');
+      } else if (card === 'prime_booked') {
+        mainChip = chip('hard', 'Prime Booked');
+      } else if (card === 'limited') {
         mainChip = chip('medium', 'Limited');
       } else {
-        // Only today's data exists — treat as tombstone
         mainChip = chip('hard', 'Tom. Booked');
       }
 
-      // ── Horizon row — stop as soon as we hit green, skip if now=hard (fully booked) ──
+      // ── Horizon row — stop at first green, skip entirely if fully booked ──
       let horizonRow = '';
-      if (now !== 'hard' && hasAnyHorizon) {
+      if (card !== 'fully_booked' && hasAnyHorizon) {
         const chipsToShow = [];
         for (const k of horizonKeys) {
           if (!od[k]) continue;
