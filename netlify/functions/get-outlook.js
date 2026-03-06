@@ -5,9 +5,9 @@ const path = require('path');
 exports.handler = async function(event, context) {
   try {
     const possiblePaths = [
-      path.join(__dirname, 'outlook_data.json'),                              // same folder as function (most reliable)
-      path.join(process.cwd(), 'netlify', 'functions', 'outlook_data.json'), // repo root/netlify/functions/
-      path.join(process.cwd(), 'outlook_data.json'),                         // repo root
+      path.join(__dirname, 'outlook_data.json'),
+      path.resolve(__dirname, 'outlook_data.json'),
+      path.join(process.cwd(), 'netlify', 'functions', 'outlook_data.json'),
       '/var/task/netlify/functions/outlook_data.json',
       '/var/task/outlook_data.json'
     ];
@@ -16,7 +16,6 @@ exports.handler = async function(event, context) {
     for (const p of possiblePaths) {
       if (fs.existsSync(p)) {
         rawData = fs.readFileSync(p, 'utf8');
-        console.log('outlook_data.json found at:', p);
         break;
       }
     }
