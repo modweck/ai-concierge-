@@ -1724,6 +1724,16 @@ function renderCard(r) {
 
 let _renderGen = 0;  // generation counter to cancel stale batch appends
 
+function loadMoreResults() {
+  const remaining = window._remainingResults || [];
+  if (remaining.length === 0) return;
+  const wrap = document.getElementById('load-more-wrap');
+  if (wrap) wrap.remove();
+  const html = remaining.map(r => renderCard(r)).join('');
+  document.getElementById('list').innerHTML += html;
+  window._remainingResults = [];
+}
+
 function displayResults(restaurants, noPriceRestaurants) {
   const totalCount = restaurants.length + (noPriceRestaurants ? noPriceRestaurants.length : 0);
   const countEl = document.getElementById('resultCount');
