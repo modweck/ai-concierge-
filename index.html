@@ -1525,8 +1525,24 @@ function renderCard(r) {
   const needsDeposit = r.deposit_type === 'deposit' || r.deposit_type === 'prepay' || r.deposit_type === 'cc_hold' || isDepositRestaurant(r.name);
   if (needsDeposit) depositHtml = `<span style="font-size:11px;font-weight:600;color:#b91c1c;background:#fef2f2;padding:2px 8px;border-radius:6px;border:1px solid #fca5a5">💳 Deposit</span>`;
 
-  // ── Availability — handled entirely by outlook block below ──
-  const availHtml = '';
+  // ── Availability ──
+  let availHtml = '';
+  const availTier = getAvailTier(r.name, r.place_id);
+  const _od = OUTLOOK_DATA[(r.name || '').toLowerCase().trim()];
+  const hasOutlook = _od && _od.now;
+  if (availTier && !hasOutlook) {
+    const lbl = getAvailLabel(availTier);
+    if (lbl.cls === 'easy') {
+      availHtml = `<span class="avail-badge ${lbl.cls}">${lbl.emoji} Available</span>`;
+    } else {
+      availHtml = `<span class="avail-badge ${lbl.cls}">${lbl.emoji} ${lbl.text}</span>`;
+    }
+  } else if (availTier && hasOutlook) {
+    // Outlook section handles the badge, skip old one
+    availHtml = '';
+  } else if (!availTier && !hasOutlook) {
+    availHtml = '';
+  }
 
   // ── Maps URL ──
   const mapsUrl = r.place_id
@@ -1592,21 +1608,18 @@ function renderCard(r) {
         return `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:${s.bg};color:${s.color};border:1px solid ${s.border}">${s.emoji} ${label}</span>`;
       };
 
-      const arrow = `<span style="color:#ddd;font-size:11px;margin:0 2px">›</span>`;
-      const horizonKeys = ['plus3', 'plus7', 'plus14'];
-      const horizonLabels = { plus3: '+3d', plus7: '+7d', plus14: '+14d' };
-
+      // ── Main card label ──
       const card = od.card || od.now;
-      const hasAnyHorizon = horizonKeys.some(k => od[k]);
-
-      // ── Determine main chip label ──
+      const hasAnyHorizon = ['plus3','plus7','plus14'].some(k => od[k]);
+      const hasFlexibleHorizon = ['plus3','plus7','plus14'].some(k => od[k] === 'easy' || od[k] === 'medium');
       let mainChip = '';
+
       if (card === 'available') {
         mainChip = chip('easy', 'Available');
       } else if (card === 'fully_booked') {
         mainChip = chip('hard', 'Fully Booked');
       } else if (card === 'prime_booked') {
-        mainChip = chip('hard', 'Prime Booked');
+        mainChip = chip('hard', 'Prime Booked') + (hasFlexibleHorizon ? ' <span style="font-size:11px;color:#bbb;font-weight:500">· other times may be open</span>' : '');
       } else if (card === 'limited') {
         mainChip = chip('medium', 'Limited');
       } else {
@@ -1614,15 +1627,15 @@ function renderCard(r) {
       }
 
       // ── Horizon row — stop at first green, skip entirely if fully booked ──
+      const arrow = `<span style="color:#ddd;font-size:11px;margin:0 2px">›</span>`;
       let horizonRow = '';
       if (card !== 'fully_booked' && hasAnyHorizon) {
         const chipsToShow = [];
-        for (const k of horizonKeys) {
+        for (const k of ['plus3','plus7','plus14']) {
           if (!od[k]) continue;
-          chipsToShow.push({ tier: od[k], label: horizonLabels[k] });
+          chipsToShow.push({ tier: od[k], label: k === 'plus3' ? '+3d' : k === 'plus7' ? '+7d' : '+14d' });
           if (od[k] === 'easy') break; // stop at first green
         }
-
         if (chipsToShow.length > 0) {
           const hChips = chipsToShow.map((h, i) => {
             const a = i < chipsToShow.length - 1 ? arrow : '';
