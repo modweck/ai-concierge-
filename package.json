@@ -1,0 +1,26 @@
+{
+  "name": "ai-concierge-backend",
+  "version": "1.0.0",
+  "description": "Backend functions for AI Concierge restaurant finder",
+  "dependencies": {
+    "node-fetch": "^2.7.0",
+    "playwright": "^1.58.2",
+    "puppeteer": "^24.38.0"
+  },
+  "main": "add-ot-confirmed.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/modweck/ai-concierge-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/modweck/ai-concierge-/issues"
+  },
+  "homepage": "https://github.com/modweck/ai-concierge-#readme"
+}
