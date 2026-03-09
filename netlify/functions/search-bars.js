@@ -80,6 +80,33 @@ function matchesQualityFilter(bar, qualityMode) {
 // ── LATE NIGHT FILTER ──
 function matchesLateNight(bar, lateNight) {
   if (!lateNight) return true;
+
+function getMaxCloseHour(hours) {
+  if (!hours || !Array.isArray(hours)) return 0;
+  let maxHour = 0;
+  for (const h of hours) {
+    const match = h.match(/–\s*(\d+):(\d+)\s*(AM|PM)/i);
+    if (!match) continue;
+    let hr = parseInt(match[1]);
+    const ampm = match[3].toUpperCase();
+    if (ampm === 'AM') {
+      hr = hr === 12 ? 24 : 24 + hr;
+    } else {
+      hr = hr === 12 ? 12 : 12 + hr;
+    }
+    if (hr > maxHour) maxHour = hr;
+  }
+  return maxHour;
+}
+
+function calcLateNightFlags(bar) {
+  const maxHour = getMaxCloseHour(bar.hours);
+  return {
+    late_night: maxHour === 28,  // exactly 4am
+    very_late:  maxHour >= 29    // 5am+
+  };
+}
+
   const flags = calcLateNightFlags(bar);
   return flags.late_night || flags.very_late;
 }
