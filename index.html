@@ -2261,11 +2261,7 @@ function renderBarCard(b) {
     : '';
 
   // Late night badge — ultra_late (6am+) > very_late (4am+) > late_night
-  const lateHtml = displayVeryLate
-    ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:#1a1a2e;color:#a78bfa;border:1px solid #6d28d9">🌑 Until 5am+</span>`
-    : displayLateNight
-    ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:#e8eaf6;color:#283593;border:1px solid #7986cb">🌙 Until 4am</span>`
-    : '';
+
 
   // Price
   const priceHtml = b.price_level
@@ -2299,6 +2295,12 @@ function renderBarCard(b) {
   // Recalculate late night badge based on displayed day's hours
   const displayLateNight = displayCloseHour === 28;
   const displayVeryLate = displayCloseHour >= 29;
+  const lateHtml = displayVeryLate
+    ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:#1a1a2e;color:#a78bfa;border:1px solid #6d28d9">🌑 Until 5am+</span>`
+    : displayLateNight
+    ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:#e8eaf6;color:#283593;border:1px solid #7986cb">🌙 Until 4am</span>`
+    : '';
+
 
   // Action button: Resy > OpenTable > Website > Google
   let actionBtnHtml = '';
