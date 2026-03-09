@@ -80,7 +80,8 @@ function matchesQualityFilter(bar, qualityMode) {
 // ── LATE NIGHT FILTER ──
 function matchesLateNight(bar, lateNight) {
   if (!lateNight) return true;
-  return bar.late_night === true || bar.very_late === true;
+  const flags = calcLateNightFlags(bar);
+  return flags.late_night || flags.very_late;
 }
 
 // ── SCORE ──
@@ -200,8 +201,8 @@ exports.handler = async (event) => {
         bar_vibes: bar.bar_vibes || [],
         bar_tier: bar.bar_tier || 'neighborhood',
         crowd_estimate: bar.crowd_estimate || null,
-        late_night: bar.late_night || false,
-        very_late: bar.very_late || false,
+        late_night: calcLateNightFlags(bar).late_night,
+        very_late: calcLateNightFlags(bar).very_late,
         // Booking
         resy_url: bar.resy_url || null,
         opentable_url: bar.opentable_url || null,

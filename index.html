@@ -399,8 +399,8 @@
               <button id="lateNightToggle" onclick="toggleLateNight()" style="width:100%;padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;background:white;cursor:pointer;font-size:12px;font-weight:600;color:#666;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🌙 Open Late</button>
               <div id="lateNightPicker" style="max-height:0;overflow:hidden;transition:max-height 0.25s ease,opacity 0.2s ease;opacity:0;margin-top:4px">
                 <select id="lateNightLevel" onchange="updateLateNightLabel()" style="padding:6px 8px;font-size:11px;width:100%">
-                  <option value="late">🌙 Late Night</option>
-                  <option value="very_late">🌑 Very Late (4am+)</option>
+                  <option value="late">🌙 Late Night (until 4am)</option>
+                  <option value="very_late">🌑 Very Late (5am+)</option>
                   <option value="both">Both</option>
                 </select>
               </div>
@@ -2264,9 +2264,9 @@ function renderBarCard(b) {
   const lateHtml = b.ultra_late
     ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:#0d0d1a;color:#c084fc;border:1px solid #7c3aed">🌑 Until 6am</span>`
     : b.very_late
-    ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:#1a1a2e;color:#a78bfa;border:1px solid #6d28d9">🌑 Open Till 4am+</span>`
+    ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:#1a1a2e;color:#a78bfa;border:1px solid #6d28d9">🌑 Until 5am+</span>`
     : b.late_night
-    ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:#e8eaf6;color:#283593;border:1px solid #7986cb">🌙 Late Night</span>`
+    ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:#e8eaf6;color:#283593;border:1px solid #7986cb">🌙 Until 4am</span>`
     : '';
 
   // Price
