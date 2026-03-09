@@ -78,9 +78,6 @@ function matchesQualityFilter(bar, qualityMode) {
 }
 
 // ── LATE NIGHT FILTER ──
-function matchesLateNight(bar, lateNight) {
-  if (!lateNight) return true;
-
 function getMaxCloseHour(hours) {
   if (!hours || !Array.isArray(hours)) return 0;
   let maxHour = 0;
@@ -102,11 +99,13 @@ function getMaxCloseHour(hours) {
 function calcLateNightFlags(bar) {
   const maxHour = getMaxCloseHour(bar.hours);
   return {
-    late_night: maxHour === 28,  // exactly 4am
-    very_late:  maxHour >= 29    // 5am+
+    late_night: maxHour === 28,
+    very_late:  maxHour >= 29
   };
 }
 
+function matchesLateNight(bar, lateNight) {
+  if (!lateNight) return true;
   const flags = calcLateNightFlags(bar);
   return flags.late_night || flags.very_late;
 }
