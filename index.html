@@ -1965,7 +1965,21 @@ const INSTA_LOOKUP = {"53": "53nyc", "886": "eighteightsix", "929": "929.nyc", "
 // =============================================
 // BARS & LOUNGES — Search + Render
 // =============================================
-const barState = { vibes: new Set(), lateNight: false, buzz: false, sortBy: 'rating', allResults: [], broadCity: false, transport: 'walk', priceFilter: new Set() };
+const barState = { vibes: new Set(), lateNight: false, buzz: false, sortBy: 'rating', allResults: [], broadCity: false, transport: 'walk', priceFilter: new Set(), dayMode: 'weekday' };
+function setDayMode(mode) {
+  barState.dayMode = mode;
+  const wd = document.getElementById('weekdayBtn');
+  const we = document.getElementById('weekendBtn');
+  wd.style.background = mode === 'weekday' ? '#FFF3E0' : 'white';
+  wd.style.borderColor = mode === 'weekday' ? '#FF5722' : '#e8e8e8';
+  wd.style.color = mode === 'weekday' ? '#E64A19' : '#555';
+  wd.style.fontWeight = mode === 'weekday' ? '700' : '600';
+  we.style.background = mode === 'weekend' ? '#FFF3E0' : 'white';
+  we.style.borderColor = mode === 'weekend' ? '#FF5722' : '#e8e8e8';
+  we.style.color = mode === 'weekend' ? '#E64A19' : '#555';
+  we.style.fontWeight = mode === 'weekend' ? '700' : '600';
+}
+
 
 function toggleBarBuzz() {
   barState.buzz = !barState.buzz;
