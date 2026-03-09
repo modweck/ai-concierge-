@@ -465,6 +465,11 @@
           </div>
         </div>
       </div>
+      <!-- Weekday / Weekend Toggle -->
+      <div style="display:flex;gap:8px;margin:0 16px 8px">
+        <button id="weekdayBtn" onclick="setDayMode('weekday')" style="flex:1;padding:10px;border:2px solid #FF5722;border-radius:12px;background:#FFF3E0;color:#E64A19;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif">📅 Weekday</button>
+        <button id="weekendBtn" onclick="setDayMode('weekend')" style="flex:1;padding:10px;border:2px solid #e8e8e8;border-radius:12px;background:white;color:#555;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">🎉 Weekend</button>
+      </div>
       <button class="search-btn" id="barSearchBtn" onclick="searchBars()" style="margin-top:6px">🍸 Find Bars</button>
       <div style="height:24px"></div>
     </div>
