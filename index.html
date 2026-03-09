@@ -2285,10 +2285,11 @@ function renderBarCard(b) {
       hoursHtml = `<div style="font-size:11px;color:#888;margin-top:4px">🕐 ${hoursOnly}</div>`;
     }
     // Calculate close hour for badge from displayed day
-    const closeMatch = displayHours.match(/[–-]\s*(\d+):(\d+)\s*(AM|PM)/i);
-    if (closeMatch) {
-      let hr = parseInt(closeMatch[1]);
-      const ampm = closeMatch[3].toUpperCase();
+    const allMatches = [...displayHours.matchAll(/[–\-]\s*(\d+):(\d+)\s*(AM|PM)/gi)];
+    if (allMatches.length > 0) {
+      const last = allMatches[allMatches.length - 1];
+      let hr = parseInt(last[1]);
+      const ampm = last[3].toUpperCase();
       displayCloseHour = ampm === 'AM' ? (hr === 12 ? 24 : 24 + hr) : (hr === 12 ? 12 : 12 + hr);
     }
   }
