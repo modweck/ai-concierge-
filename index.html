@@ -2261,11 +2261,9 @@ function renderBarCard(b) {
     : '';
 
   // Late night badge — ultra_late (6am+) > very_late (4am+) > late_night
-  const lateHtml = b.ultra_late
-    ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:#0d0d1a;color:#c084fc;border:1px solid #7c3aed">🌑 Until 6am</span>`
-    : b.very_late
+  const lateHtml = displayVeryLate
     ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:#1a1a2e;color:#a78bfa;border:1px solid #6d28d9">🌑 Until 5am+</span>`
-    : b.late_night
+    : displayLateNight
     ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:#e8eaf6;color:#283593;border:1px solid #7986cb">🌙 Until 4am</span>`
     : '';
 
@@ -2273,15 +2271,34 @@ function renderBarCard(b) {
   const priceHtml = b.price_level
     ? `<span style="font-size:13px;color:#aaa;font-weight:600;letter-spacing:-1px">${'$'.repeat(b.price_level)}</span>` : '';
 
-  // Hours
+  // Hours — respect Weekday/Weekend toggle
   let hoursHtml = '';
+  let displayCloseHour = 0;
   if (b.hours && b.hours.length > 0) {
     const todayIdx = new Date().getDay();
-    const dayMap = [6,0,1,2,3,4,5];
-    const todayHours = b.hours[dayMap[todayIdx]] || '';
-    const cleanHours = todayHours.replace(/\u202f/g,' ').replace(/\u2009/g,' ').replace(/\u2013/g,'–');
-    if (cleanHours) hoursHtml = `<div style="font-size:11px;color:#888;margin-top:4px">🕐 ${cleanHours}</div>`;
+    const dayMap = [6,0,1,2,3,4,5]; // Sun=0 -> index 6, Mon=1 -> index 0, etc
+    // Weekend = Friday (index 4), Weekday = today
+    const isWeekend = barState.dayMode === 'weekend';
+    const useIdx = isWeekend ? 4 : dayMap[todayIdx]; // 4 = Friday in our array
+    const displayHours = b.hours[useIdx] || '';
+    const cleanHours = displayHours.replace(/\u202f/g,' ').replace(/\u2009/g,' ').replace(/\u2013/g,'–');
+    const dayLabel = isWeekend ? 'Friday' : '';
+    if (cleanHours) {
+      // Strip day name and replace with "Friday" if weekend mode
+      const hoursOnly = isWeekend ? cleanHours.replace(/^\w+:\s*/, 'Fri: ') : cleanHours;
+      hoursHtml = `<div style="font-size:11px;color:#888;margin-top:4px">🕐 ${hoursOnly}</div>`;
+    }
+    // Calculate close hour for badge from displayed day
+    const closeMatch = displayHours.match(/[–-]\s*(\d+):(\d+)\s*(AM|PM)/i);
+    if (closeMatch) {
+      let hr = parseInt(closeMatch[1]);
+      const ampm = closeMatch[3].toUpperCase();
+      displayCloseHour = ampm === 'AM' ? (hr === 12 ? 24 : 24 + hr) : (hr === 12 ? 12 : 12 + hr);
+    }
   }
+  // Recalculate late night badge based on displayed day's hours
+  const displayLateNight = displayCloseHour === 28;
+  const displayVeryLate = displayCloseHour >= 29;
 
   // Action button: Resy > OpenTable > Website > Google
   let actionBtnHtml = '';
