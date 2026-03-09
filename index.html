@@ -2165,12 +2165,25 @@ function sortBarResults() {
     sorted = sorted.filter(b => barState.priceFilter.has(b.price_level));
   }
 
-  // Late night filter (client-side)
+  // Late night filter (client-side) — recalculate from actual hours
   if (barState.lateNight) {
     const level = document.getElementById('lateNightLevel').value;
-    if (level === 'late') sorted = sorted.filter(b => b.late_night || b.very_late);
-    else if (level === 'very_late') sorted = sorted.filter(b => b.very_late);
-    else sorted = sorted.filter(b => b.late_night || b.very_late); // both
+    const isWeekend = barState.dayMode === 'weekend';
+    const dayMap = [6,0,1,2,3,4,5];
+    const useIdx = isWeekend ? 4 : dayMap[new Date().getDay()];
+    sorted = sorted.filter(b => {
+      if (!b.hours || !b.hours.length) return false;
+      const h = b.hours[useIdx] || '';
+      const allMatches = [...h.matchAll(/[–\-]\s*(\d+):(\d+)\s*(AM|PM)/gi)];
+      if (!allMatches.length) return false;
+      const last = allMatches[allMatches.length - 1];
+      let hr = parseInt(last[1]);
+      const ampm = last[3].toUpperCase();
+      const closeHour = ampm === 'AM' ? (hr === 12 ? 24 : 24 + hr) : (hr === 12 ? 12 : 12 + hr);
+      if (level === 'late') return closeHour === 28;
+      if (level === 'very_late') return closeHour >= 29;
+      return closeHour >= 28; // both
+    });
   }
 
   if (barState.sortBy === 'distance') {
