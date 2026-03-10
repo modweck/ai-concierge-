@@ -1817,14 +1817,7 @@ function renderCard(r) {
         if (abd && h.abdKey in abd) {
           return { label: h.label, tier: abd[h.abdKey] ? 'easy' : 'booked' };
         }
-        // 5) OUTLOOK_DATA file fallback
-        if (od && od[h.odKey]) {
-          const t = od[h.odKey];
-          if (t === 'easy')   return { label: h.label, tier: 'easy' };
-          if (t === 'medium') return { label: h.label, tier: 'medium' };
-          if (t === 'hard')   return { label: h.label, tier: 'booked' };
-        }
-        return null;
+        return null; // no data = no chip
       }).filter(Boolean);
 
       // openHorizons = chips that are NOT fully booked (for "opens up" logic)
