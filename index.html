@@ -669,8 +669,16 @@ function filterByAvailability(restaurants) {
   if (allOff) return restaurants;
   // Some checked = ONLY show restaurants we have data for that match
   return restaurants.filter(r => {
-    const tier = getAvailTier(r.name, r.place_id);
-    if (!tier) return false; // no data = hide when filtering
+    // First try AVAILABILITY_DATA lookup, then fall back to r.availability_tier directly
+    let tier = getAvailTier(r.name, r.place_id);
+    if (!tier) {
+      // Read directly from restaurant object
+      const t = (r.availability_tier || '').toLowerCase();
+      if (t === 'hard' || t === 'sold_out' || t === 'nearly_full') tier = 'hard';
+      else if (t === 'medium' || t === 'limited' || t === 'moderate') tier = 'medium';
+      else if (t === 'easy' || t === 'available') tier = 'easy';
+    }
+    if (!tier) return true; // no data at all = always show
     return state.availFilter[tier];
   });
 }
