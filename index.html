@@ -1714,71 +1714,91 @@ function renderCard(r) {
   {
     const ln = (r.name || '').toLowerCase().trim();
     const od = OUTLOOK_DATA[ln];
-    if (od && od.now) {
-      const cs = {
-        hard:   { color: '#b91c1c', bg: '#fef2f2', border: '#fca5a5', emoji: '🔴' },
-        medium: { color: '#a16207', bg: '#fefce8', border: '#fde68a', emoji: '🟡' },
-        easy:   { color: '#15803d', bg: '#f0fdf4', border: '#86efac', emoji: '🟢' }
-      };
-      const chip = (tier, label) => {
-        const s = cs[tier] || cs.hard;
-        return `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:${s.bg};color:${s.color};border:1px solid ${s.border}">${s.emoji} ${label}</span>`;
-      };
 
-      const now = od.now;
+    // Chip builder
+    const cs = {
+      hard:   { color: '#b91c1c', bg: '#fef2f2', border: '#fca5a5', emoji: '🔴' },
+      medium: { color: '#a16207', bg: '#fefce8', border: '#fde68a', emoji: '🟡' },
+      easy:   { color: '#15803d', bg: '#f0fdf4', border: '#86efac', emoji: '🟢' }
+    };
+    const chip = (tier, label) => {
+      const s = cs[tier] || cs.hard;
+      return `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:${s.bg};color:${s.color};border:1px solid ${s.border}">${s.emoji} ${label}</span>`;
+    };
+
+    const horizons = [
+      { key: 'plus3',  label: '+3d'  },
+      { key: 'plus7',  label: '+7d'  },
+      { key: 'plus14', label: '+14d' },
+    ];
+
+    // Get prime slot count from master data
+    const primeSlots = r.prime_slots != null ? r.prime_slots : (r.total_slots || 0);
+
+    // Determine "now" tier — use prime slot count if available, else outlook/availTier
+    let nowTier = null;
+    if (primeSlots >= 5) {
+      nowTier = 'easy';
+    } else if (primeSlots >= 3) {
+      nowTier = 'medium';        // 3–4 slots = Limited
+    } else if (primeSlots >= 1) {
+      nowTier = 'hard_low';      // 1–2 slots = Hard to Book
+    } else if (od && od.now) {
+      nowTier = od.now;          // fall back to outlook
+    } else if (availTier) {
+      nowTier = availTier;       // fall back to availTier
+    }
+
+    // Only render if we have some data
+    if (nowTier) {
+      const allHard = horizons.every(h => !od || !od[h.key] || od[h.key] === 'hard');
+      const hasAnyHorizon = od && horizons.some(h => od[h.key]);
+
       let mainChip = '';
-      let subText = '';
-
-      const arrow = `<span style="color:#ddd;font-size:11px;margin:0 2px">›</span>`;
+      let subHtml = '';
       let horizonRow = '';
 
-      const horizons = [
-        { key: 'plus3',  label: '+3d'  },
-        { key: 'plus7',  label: '+7d'  },
-        { key: 'plus14', label: '+14d' },
-      ];
+      const tryEarlyLate = `<span style="font-size:11px;color:#999;font-weight:500">Try early or late</span>`;
 
-      const allHard = horizons.every(h => !od[h.key] || od[h.key] === 'hard');
+      const firstBetter = od ? horizons.find(h => od[h.key] && od[h.key] !== 'hard') : null;
+      const buildHorizonRow = () => firstBetter
+        ? `<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chip(od[firstBetter.key], firstBetter.label)}<span style="font-size:11px;color:#bbb">opens up</span></div>`
+        : '';
 
-      if (now === 'easy') {
-        // Available — show green badge, no horizon row needed
+      if (nowTier === 'easy') {
+        // 5+ prime slots — green Available, no subtext
         mainChip = chip('easy', 'Available');
 
-      } else if (now === 'medium') {
-        // Limited (3-4 slots) — show yellow + try early/late
+      } else if (nowTier === 'medium') {
+        // 3–4 prime slots — yellow Limited
         mainChip = chip('medium', 'Limited');
-        subText = 'Try early or late';
-        // Show first horizon that improves
-        const firstGreen = horizons.find(h => od[h.key] === 'easy');
-        if (firstGreen) {
-          horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chip('easy', firstGreen.label)}<span style="font-size:11px;color:#bbb">opens up</span></div>`;
-        }
+        subHtml = tryEarlyLate;
+        horizonRow = buildHorizonRow();
 
-      } else if (now === 'hard') {
-        if (allHard) {
-          // Fully booked across all horizons — black badge only, no red
-          mainChip = `<span style="display:inline-flex;align-items:center;gap:3px;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:700;background:#1a1a1a;color:white;border:1px solid #000">⚫ Very Hard to Book</span>`;
-          subText = 'Rarely opens up';
+      } else if (nowTier === 'hard_low' || nowTier === 'hard') {
+        if (primeSlots >= 1 || nowTier === 'hard_low') {
+          // 1–2 prime slots — red Hard to Book
+          mainChip = chip('hard', 'Hard to Book');
+          subHtml = tryEarlyLate;
+          horizonRow = buildHorizonRow();
+        } else if (!hasAnyHorizon || allHard) {
+          // 0 slots, no relief anywhere — black Very Hard to Get
+          mainChip = `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:#1a1a1a;color:white;border:1px solid #000">⚫ Very Hard to Get</span>`;
+          subHtml = `<span style="font-size:11px;color:#999;font-weight:500">Rarely opens up</span>`;
         } else {
-          // Booked today but opens up later — show red Booked + first improving chip
-          mainChip = chip('hard', 'Booked');
-          subText = 'Try early or late';
-          const firstBetter = horizons.find(h => od[h.key] && od[h.key] !== 'hard');
-          if (firstBetter) {
-            horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chip(od[firstBetter.key], firstBetter.label)}<span style="font-size:11px;color:#bbb">opens up</span></div>`;
-          }
+          // 0 slots today but opens later — red Fully Booked + horizon
+          mainChip = chip('hard', 'Fully Booked');
+          subHtml = tryEarlyLate;
+          horizonRow = buildHorizonRow();
         }
       }
-
-      const subHtml = subText
-        ? `<span style="font-size:11px;color:#999;font-weight:500">${subText}</span>`
-        : '';
 
       outlookHtml = `<div style="margin:6px 0 2px 0">
         <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}${subHtml ? ' ' + subHtml : ''}</div>
         ${horizonRow}
       </div>`;
     }
+    // If no data at all — leave outlookHtml blank (no badge shown)
   }
 
   return `
