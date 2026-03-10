@@ -1944,15 +1944,18 @@ function setupAutocomplete() {
   });
 }
 
-initAutocomplete();
-
-// Fix for back-button glitchiness:
-// When the browser restores this page from bfcache (back/forward cache),
-// Google Maps autocomplete and async data are in a broken frozen state.
-// Force a clean reload so everything initializes fresh.
-window.addEventListener('pageshow', function(e) {
-  if (e.persisted) {
-    window.location.reload();
+// Lazy-load Google Maps — only when user clicks the address box
+// This prevents it from blocking page load and causing back-button slowness
+let _mapsInitialized = false;
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.getElementById('addressInput');
+  if (input) {
+    input.addEventListener('focus', function() {
+      if (!_mapsInitialized) {
+        _mapsInitialized = true;
+        initAutocomplete();
+      }
+    }, { once: true });
   }
 });
 
