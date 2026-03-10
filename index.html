@@ -1458,7 +1458,7 @@ function sortResults() {
   // Bulletproof dedup — no restaurant should ever appear twice
   const _seen = new Set();
   allRestaurants = allRestaurants.filter(r => {
-    const k = r.place_id || (r.name||'').toLowerCase().trim();
+    const k = (r.name||'').toLowerCase().trim();
     if (!k || _seen.has(k)) return false;
     _seen.add(k);
     return true;
