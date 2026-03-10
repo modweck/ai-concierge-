@@ -1753,22 +1753,34 @@ function renderCard(r) {
         else if (pt === 'hard')   nowTier = 'hard';
       }
 
-      // ── Step 2: Build the horizon row from availability_by_date ──
-      // Keys in the data are literally "+3d", "+7d", "+14d" (boolean: true = has availability)
+      // ── Step 2: Build the horizon row from multi_date ──
+      // r.multi_date = { "3_days": { status: "available/sold_out/closed/unknown" },
+      //                  "1_week": { ... }, "2_weeks": { ... } }
+      const md = r.multi_date;
+
       const horizons = [
-        { key: '+3d',  label: '+3d'  },
-        { key: '+7d',  label: '+7d'  },
-        { key: '+14d', label: '+14d' },
+        { mdKey: '3_days',  label: '+3d'  },
+        { mdKey: '1_week',  label: '+7d'  },
+        { mdKey: '2_weeks', label: '+14d' },
       ];
 
-      // firstBetter = the earliest future date that has availability (true)
-      const firstBetter = abd ? horizons.find(h => abd[h.key] === true) : null;
-      // allHard = no future horizon opens up at all
-      const allBlocked  = !firstBetter && abd && horizons.every(h => !abd[h.key]);
+      // Build horizon chips from multi_date status
+      const horizonChips = md ? horizons.map(h => {
+        const entry = md[h.mdKey];
+        if (!entry) return null;
+        const s = entry.status;
+        if (s === 'available')              return { label: h.label, tier: 'easy' };
+        if (s === 'sold_out' || s === 'closed') return null; // booked out, skip
+        return null; // unknown = skip
+      }).filter(Boolean) : [];
+
+      const openHorizons = horizonChips;
+      const allBlocked   = md && horizonChips.length === 0;
+      const firstBetter  = openHorizons.length > 0 ? openHorizons[0] : null;
 
       const tryEarlyLate = `<span style="font-size:11px;color:#999;font-weight:500">Try early or late</span>`;
-      const buildHorizonRow = () => firstBetter
-        ? `<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chip('easy', firstBetter.label)}<span style="font-size:11px;color:#bbb">opens up</span></div>`
+      const buildHorizonRow = () => openHorizons.length > 0
+        ? `<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${openHorizons.map(h => chip(h.tier, h.label)).join('')}<span style="font-size:11px;color:#bbb">opens up</span></div>`
         : '';
 
       // ── Step 3: Render badge based on nowTier ──

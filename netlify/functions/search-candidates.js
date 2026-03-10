@@ -1138,6 +1138,7 @@ exports.handler = async (event) => {
     const timings = { legacy_ms: 0, new_nearby_ms: 0, new_text_ms: 0, filtering_ms: 0, total_ms: 0 };
     const body = JSON.parse(event.body || '{}');
     const { location, cuisine, openNow, quality, broadCity, transport } = body;
+    const allNYCMode = !!body.allNYC || body.broadCity === true || body.broadCity === 'true' || body.transport === 'all_nyc';
     const qualityMode = normalizeQualityMode(quality || 'any');
     const KEY = process.env.GOOGLE_PLACES_API_KEY;
     if (!KEY) return stableResponse([], [], {}, 'API key not configured');
@@ -1146,16 +1147,21 @@ exports.handler = async (event) => {
     const cached = getFromCache(cacheKey);
     if (cached) { timings.total_ms = Date.now()-t0; return stableResponse(cached.elite, cached.moreOptions, { ...cached.stats, cached: true, performance: { ...timings, cache_hit: true } }); }
 
-    // Geocode
+    // Geocode — skip for All NYC mode, use NYC center as default
     let lat, lng, confirmedAddress = null;
-    const locStr = String(location||'').trim();
-    const cm = locStr.match(/^(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)$/);
-    if (cm) { lat = +cm[1]; lng = +cm[2]; confirmedAddress = `(${lat.toFixed(5)}, ${lng.toFixed(5)})`; }
-    else {
-      const gd = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(locStr)}&key=${KEY}`).then(r=>r.json());
-      if (gd.status !== 'OK') return stableResponse([],[],{ performance: { total_ms: Date.now()-t0 } }, `Geocode failed: ${gd.status}`);
-      lat = gd.results[0].geometry.location.lat; lng = gd.results[0].geometry.location.lng;
-      confirmedAddress = gd.results[0].formatted_address;
+    if (allNYCMode) {
+      lat = body.lat || 40.7580; lng = body.lng || -73.9855;
+      confirmedAddress = 'New York, NY, USA';
+    } else {
+      const locStr = String(location||'').trim();
+      const cm = locStr.match(/^(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)$/);
+      if (cm) { lat = +cm[1]; lng = +cm[2]; confirmedAddress = `(${lat.toFixed(5)}, ${lng.toFixed(5)})`; }
+      else {
+        const gd = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(locStr)}&key=${KEY}`).then(r=>r.json());
+        if (gd.status !== 'OK') return stableResponse([],[],{ performance: { total_ms: Date.now()-t0 } }, `Geocode failed: ${gd.status}`);
+        lat = gd.results[0].geometry.location.lat; lng = gd.results[0].geometry.location.lng;
+        confirmedAddress = gd.results[0].formatted_address;
+      }
     }
     const gLat = Math.round(lat*10000)/10000, gLng = Math.round(lng*10000)/10000;
 
@@ -1310,6 +1316,10 @@ exports.handler = async (event) => {
           cuisine: entry.cuisine || CUISINE_LOOKUP[key] || null,
           instagram: entry.instagram || null,
           availability_tier: entry.availability_tier || null,
+          availability_windows: entry.availability_windows || null,
+          time_windows: entry.time_windows || null,
+          availability_by_date: entry.availability_by_date || null,
+          multi_date: entry.multi_date || null,
           _source: 'master_book',
         });
       }
