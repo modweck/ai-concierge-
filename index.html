@@ -1726,12 +1726,16 @@ function renderCard(r) {
     const horizon = r.horizon;  // { day1, day3, day7, day14 }
     const tier    = r.tier;     // fallback tier string when no slots
 
-    // ── Step 1: Main badge tier ──
+    // ── Step 1: Main badge tier — use horizon.day1 first, then slots, then tier ──
     let nowTier = null;
-    if (slots) {
-      nowTier = slots.tier; // 'easy' | 'limited' | 'hard'
+    if (horizon && horizon.day1) {
+      const d1 = horizon.day1;
+      if      (d1 === 'easy')   nowTier = 'easy';
+      else if (d1 === 'medium') nowTier = 'limited';
+      else if (d1 === 'hard')   nowTier = 'hard';
+    } else if (slots) {
+      nowTier = slots.tier;
     } else if (tier) {
-      // map old tier strings to new
       if      (tier === 'easy')   nowTier = 'easy';
       else if (tier === 'medium') nowTier = 'limited';
       else if (tier === 'hard')   nowTier = 'hard';
@@ -1745,8 +1749,8 @@ function renderCard(r) {
       // ── Step 2: Horizon chips — day1/day3/day7/day14 only, no fallbacks ──
       const horizonChips = [];
       if (horizon) {
-        const labels = { day1: 'Day 1', day3: 'Day 3', day7: 'Day 7', day14: 'Day 14' };
-        for (const key of ['day1','day3','day7','day14']) {
+        const labels = { day3: 'Day 3', day7: 'Day 7', day14: 'Day 14' };
+        for (const key of ['day3','day7','day14']) {
           const t = horizon[key];
           if (!t) continue;
           const mappedTier = t === 'medium' ? 'limited' : t; // normalise
