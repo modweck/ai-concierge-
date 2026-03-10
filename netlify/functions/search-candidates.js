@@ -1319,16 +1319,10 @@ exports.handler = async (event) => {
           vibe_tags: entry.vibe_tags || [],
           cuisine: entry.cuisine || CUISINE_LOOKUP[key] || null,
           instagram: entry.instagram || null,
-          // ── Availability: slim payload, only what frontend needs ──
-          outlook: (() => {
-            const av = AVAILABILITY_BOOK[key] || entry;
-            // Use outlook array if present (V24), else build from windows
-            if (av.outlook) return av.outlook;
-            return null;
-          })(),
-          availability_tier: (AVAILABILITY_BOOK[key] || entry).availability_tier || null,
-          availability_windows: (() => { const aw = (AVAILABILITY_BOOK[key] || entry).availability_windows; if (!aw) return null; return { early: aw.early || null, prime: aw.prime || null, late: aw.late || null }; })(),
-          time_windows: (() => { const tw = (AVAILABILITY_BOOK[key] || entry).time_windows; if (!tw) return null; return { early: tw.early ? { count: tw.early.count, status: tw.early.status } : null, prime: tw.prime ? { count: tw.prime.count, status: tw.prime.status } : null, late: tw.late ? { count: tw.late.count, status: tw.late.status } : null }; })(),
+          // ── Availability: from AVAILABILITY_MASTER ──
+          horizon: AVAILABILITY_BOOK[key] ? AVAILABILITY_BOOK[key].horizon || null : null,
+          slots:   AVAILABILITY_BOOK[key] ? AVAILABILITY_BOOK[key].slots   || null : null,
+          tier:    AVAILABILITY_BOOK[key] ? AVAILABILITY_BOOK[key].tier    || null : null,
           _source: 'master_book',
         });
       }
