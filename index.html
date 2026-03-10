@@ -1944,20 +1944,7 @@ function setupAutocomplete() {
   });
 }
 
-// Lazy-load Google Maps — only when user clicks the address box
-// This prevents it from blocking page load and causing back-button slowness
-let _mapsInitialized = false;
-document.addEventListener('DOMContentLoaded', function() {
-  const input = document.getElementById('addressInput');
-  if (input) {
-    input.addEventListener('focus', function() {
-      if (!_mapsInitialized) {
-        _mapsInitialized = true;
-        initAutocomplete();
-      }
-    }, { once: true });
-  }
-});
+initAutocomplete();
 
 // Set default date to today
 (function() {
