@@ -1643,22 +1643,14 @@ function renderCard(r) {
   if (needsDeposit) depositHtml = `<span style="font-size:11px;font-weight:600;color:#b91c1c;background:#fef2f2;padding:2px 8px;border-radius:6px;border:1px solid #fca5a5">💳 Deposit</span>`;
 
   // ── Availability ──
+  // outlookHtml (below) now owns all availability badges based on r.time_windows / r.availability_windows.
+  // This legacy availHtml is a fallback ONLY for entries that have neither field.
   let availHtml = '';
   const availTier = getAvailTier(r.name, r.place_id);
-  const _od = OUTLOOK_DATA[(r.name || '').toLowerCase().trim()];
-  const hasOutlook = _od && _od.now;
-  if (availTier && !hasOutlook) {
+  const hasNewData = (r.time_windows && r.time_windows.prime) || (r.availability_windows && r.availability_windows.prime);
+  if (availTier && !hasNewData) {
     const lbl = getAvailLabel(availTier);
-    if (lbl.cls === 'easy') {
-      availHtml = `<span class="avail-badge ${lbl.cls}">${lbl.emoji} Available</span>`;
-    } else {
-      availHtml = `<span class="avail-badge ${lbl.cls}">${lbl.emoji} ${lbl.text}</span>`;
-    }
-  } else if (availTier && hasOutlook) {
-    // Outlook section handles the badge, skip old one
-    availHtml = '';
-  } else if (!availTier && !hasOutlook) {
-    availHtml = '';
+    if (lbl) availHtml = `<span class="avail-badge ${lbl.cls}">${lbl.emoji} ${lbl.text}</span>`;
   }
 
   // ── Maps URL ──
@@ -1712,10 +1704,7 @@ function renderCard(r) {
 
   let outlookHtml = '';
   {
-    const ln = (r.name || '').toLowerCase().trim();
-    const od = OUTLOOK_DATA[ln];
-
-    // Chip builder
+    // ── Chip style builder ──
     const cs = {
       hard:   { color: '#b91c1c', bg: '#fef2f2', border: '#fca5a5', emoji: '🔴' },
       medium: { color: '#a16207', bg: '#fefce8', border: '#fde68a', emoji: '🟡' },
@@ -1726,79 +1715,104 @@ function renderCard(r) {
       return `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:${s.bg};color:${s.color};border:1px solid ${s.border}">${s.emoji} ${label}</span>`;
     };
 
-    const horizons = [
-      { key: 'plus3',  label: '+3d'  },
-      { key: 'plus7',  label: '+7d'  },
-      { key: 'plus14', label: '+14d' },
-    ];
+    // ── Step 1: Determine "now" tier from the restaurant record itself ──
+    //
+    // Shape A (Resy, live-scraped): r.time_windows.prime.count  → exact slot count
+    // Shape B (OT/other):           r.availability_windows.prime → 'easy'/'medium'/'hard'
+    // No data                       → show nothing
+    //
+    const tw = r.time_windows;                          // Shape A
+    const aw = r.availability_windows;                  // Shape B
+    const abd = r.availability_by_date;                 // horizon booleans: { "+3d": bool, "+7d": bool, "+14d": bool }
 
-    // Get prime slot count from master data
-    const primeSlots = r.prime_slots != null ? r.prime_slots : (r.total_slots || 0);
+    // Shape A: we have an exact prime slot count
+    const hasPrimeCounts = tw && tw.prime && typeof tw.prime.count === 'number';
+    // Shape B: we have a tier string for prime
+    const hasPrimeTier   = aw && aw.prime;
 
-    // Determine "now" tier — use prime slot count if available, else outlook/availTier
-    let nowTier = null;
-    if (primeSlots >= 5) {
-      nowTier = 'easy';
-    } else if (primeSlots >= 3) {
-      nowTier = 'medium';        // 3–4 slots = Limited
-    } else if (primeSlots >= 1) {
-      nowTier = 'hard_low';      // 1–2 slots = Hard to Book
-    } else if (od && od.now) {
-      nowTier = od.now;          // fall back to outlook
-    } else if (availTier) {
-      nowTier = availTier;       // fall back to availTier
-    }
+    // Nothing useful → leave badge blank
+    if (!hasPrimeCounts && !hasPrimeTier) {
+      // outlookHtml stays ''
+    } else {
 
-    // Only render if we have some data
-    if (nowTier) {
-      const allHard = horizons.every(h => !od || !od[h.key] || od[h.key] === 'hard');
-      const hasAnyHorizon = od && horizons.some(h => od[h.key]);
+      let nowTier = null;   // 'easy' | 'medium' | 'hard' | 'hard_low' | 'fully_booked'
 
-      let mainChip = '';
-      let subHtml = '';
-      let horizonRow = '';
+      if (hasPrimeCounts) {
+        // Use the selected time-slot window count when available, else prime
+        const slotWindow = tw[state.timeSlot] || tw.prime;
+        const count = typeof slotWindow.count === 'number' ? slotWindow.count : tw.prime.count;
+        if      (count >= 5) nowTier = 'easy';
+        else if (count >= 3) nowTier = 'medium';
+        else if (count >= 1) nowTier = 'hard_low';   // 1–2 slots
+        else                 nowTier = 'fully_booked'; // 0 slots
+      } else {
+        // Shape B: map the string tier to our internal tiers
+        const pt = aw.prime;
+        if      (pt === 'easy')   nowTier = 'easy';
+        else if (pt === 'medium') nowTier = 'medium';
+        else if (pt === 'hard')   nowTier = 'hard';
+      }
+
+      // ── Step 2: Build the horizon row from availability_by_date ──
+      // Keys in the data are literally "+3d", "+7d", "+14d" (boolean: true = has availability)
+      const horizons = [
+        { key: '+3d',  label: '+3d'  },
+        { key: '+7d',  label: '+7d'  },
+        { key: '+14d', label: '+14d' },
+      ];
+
+      // firstBetter = the earliest future date that has availability (true)
+      const firstBetter = abd ? horizons.find(h => abd[h.key] === true) : null;
+      // allHard = no future horizon opens up at all
+      const allBlocked  = !firstBetter && abd && horizons.every(h => !abd[h.key]);
 
       const tryEarlyLate = `<span style="font-size:11px;color:#999;font-weight:500">Try early or late</span>`;
-
-      const firstBetter = od ? horizons.find(h => od[h.key] && od[h.key] !== 'hard') : null;
       const buildHorizonRow = () => firstBetter
-        ? `<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chip(od[firstBetter.key], firstBetter.label)}<span style="font-size:11px;color:#bbb">opens up</span></div>`
+        ? `<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chip('easy', firstBetter.label)}<span style="font-size:11px;color:#bbb">opens up</span></div>`
         : '';
 
+      // ── Step 3: Render badge based on nowTier ──
+      let mainChip = '';
+      let subHtml  = '';
+      let horizonRow = '';
+
       if (nowTier === 'easy') {
-        // 5+ prime slots — green Available, no subtext
+        // 5+ slots → green, no subtext, no horizon
         mainChip = chip('easy', 'Available');
 
       } else if (nowTier === 'medium') {
-        // 3–4 prime slots — yellow Limited
-        mainChip = chip('medium', 'Limited');
-        subHtml = tryEarlyLate;
+        // 3–4 slots → yellow Limited + "Try early or late" + first better horizon
+        mainChip   = chip('medium', 'Limited');
+        subHtml    = tryEarlyLate;
         horizonRow = buildHorizonRow();
 
       } else if (nowTier === 'hard_low' || nowTier === 'hard') {
-        if (primeSlots >= 1 || nowTier === 'hard_low') {
-          // 1–2 prime slots — red Hard to Book
-          mainChip = chip('hard', 'Hard to Book');
-          subHtml = tryEarlyLate;
-          horizonRow = buildHorizonRow();
-        } else if (!hasAnyHorizon || allHard) {
-          // 0 slots, no relief anywhere — black Very Hard to Get
+        // 1–2 slots (hard_low) or OT "hard" tier → red Hard to Book
+        mainChip   = chip('hard', 'Hard to Book');
+        subHtml    = tryEarlyLate;
+        horizonRow = buildHorizonRow();
+
+      } else if (nowTier === 'fully_booked') {
+        if (allBlocked || !abd) {
+          // 0 slots AND no future relief → black Very Hard to Get
           mainChip = `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:#1a1a1a;color:white;border:1px solid #000">⚫ Very Hard to Get</span>`;
-          subHtml = `<span style="font-size:11px;color:#999;font-weight:500">Rarely opens up</span>`;
+          subHtml  = `<span style="font-size:11px;color:#999;font-weight:500">Rarely opens up</span>`;
         } else {
-          // 0 slots today but opens later — red Fully Booked + horizon
-          mainChip = chip('hard', 'Fully Booked');
-          subHtml = tryEarlyLate;
+          // 0 slots today but opens later
+          mainChip   = chip('hard', 'Fully Booked');
+          subHtml    = tryEarlyLate;
           horizonRow = buildHorizonRow();
         }
       }
 
-      outlookHtml = `<div style="margin:6px 0 2px 0">
-        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}${subHtml ? ' ' + subHtml : ''}</div>
-        ${horizonRow}
-      </div>`;
+      if (mainChip) {
+        outlookHtml = `<div style="margin:6px 0 2px 0">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}${subHtml ? ' ' + subHtml : ''}</div>
+          ${horizonRow}
+        </div>`;
+      }
     }
-    // If no data at all — leave outlookHtml blank (no badge shown)
+    // No data → outlookHtml stays '' (no badge rendered)
   }
 
   return `
