@@ -1798,33 +1798,14 @@ function renderCard(r) {
       outlookArr.forEach(o => { outlookMap[o.label] = o.tier; });
 
       const horizonChips = horizons.map(h => {
-        // 1) r.outlook array — primary source, 4775 restaurants
+        // Only use r.outlook array — no fallbacks ever
         if (outlookMap[h.label] !== undefined) {
           const t = outlookMap[h.label];
           if (t === 'easy')   return { label: h.label, tier: 'easy' };
           if (t === 'medium') return { label: h.label, tier: 'medium' };
           if (t === 'hard')   return { label: h.label, tier: 'booked' };
         }
-        // 2) availability_history — exact prime slot counts
-        const ahEntry = ahForDate(h.ahDate);
-        if (ahEntry && ahEntry.prime_slots != null) {
-          const n = ahEntry.prime_slots;
-          if (n >= 5) return { label: h.label, tier: 'easy' };
-          if (n >= 3) return { label: h.label, tier: 'medium' };
-          if (n >= 1) return { label: h.label, tier: 'hard' };
-          return { label: h.label, tier: 'booked' };
-        }
-        // 3) multi_date status
-        if (md && md[h.mdKey]) {
-          const s = md[h.mdKey].status;
-          if (s === 'available')                  return { label: h.label, tier: 'easy' };
-          if (s === 'sold_out' || s === 'closed') return { label: h.label, tier: 'booked' };
-        }
-        // 4) availability_by_date booleans
-        if (abd && h.abdKey in abd) {
-          return { label: h.label, tier: abd[h.abdKey] ? 'easy' : 'booked' };
-        }
-        return null; // no data = no chip
+        return null; // no data = no chip, never fallback
       }).filter(Boolean);
 
       // openHorizons = chips that are NOT fully booked (for "opens up" logic)
