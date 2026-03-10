@@ -1713,156 +1713,68 @@ function renderCard(r) {
   {
     // ── Chip style builder ──
     const cs = {
-      hard:   { color: '#b91c1c', bg: '#fef2f2', border: '#fca5a5', emoji: '🔴' },
-      medium: { color: '#a16207', bg: '#fefce8', border: '#fde68a', emoji: '🟡' },
-      easy:   { color: '#15803d', bg: '#f0fdf4', border: '#86efac', emoji: '🟢' }
+      hard:    { color: '#b91c1c', bg: '#fef2f2', border: '#fca5a5', emoji: '🔴' },
+      limited: { color: '#a16207', bg: '#fefce8', border: '#fde68a', emoji: '🟡' },
+      easy:    { color: '#15803d', bg: '#f0fdf4', border: '#86efac', emoji: '🟢' },
     };
     const chip = (tier, label) => {
       const s = cs[tier] || cs.hard;
       return `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:${s.bg};color:${s.color};border:1px solid ${s.border}">${s.emoji} ${label}</span>`;
     };
 
-    // ── Step 1: Determine "now" tier from the restaurant record itself ──
-    //
-    // Shape A (Resy, live-scraped): r.time_windows.prime.count  → exact slot count
-    // Shape B (OT/other):           r.availability_windows.prime → 'easy'/'medium'/'hard'
-    // No data                       → show nothing
-    //
-    const tw = r.time_windows;                          // Shape A
-    const aw = r.availability_windows;                  // Shape B
-    const abd = r.availability_by_date;                 // horizon booleans: { "+3d": bool, "+7d": bool, "+14d": bool }
+    const slots   = r.slots;    // { prime_slots, tier, try_other, early_slots, late_slots }
+    const horizon = r.horizon;  // { day1, day3, day7, day14 }
+    const tier    = r.tier;     // fallback tier string when no slots
 
-    // Shape A: we have an exact prime slot count
-    const hasPrimeCounts = tw && tw.prime && typeof tw.prime.count === 'number';
-    // Shape B: we have a tier string for prime
-    const hasPrimeTier   = aw && aw.prime;
+    // ── Step 1: Main badge tier ──
+    let nowTier = null;
+    if (slots) {
+      nowTier = slots.tier; // 'easy' | 'limited' | 'hard'
+    } else if (tier) {
+      // map old tier strings to new
+      if      (tier === 'easy')   nowTier = 'easy';
+      else if (tier === 'medium') nowTier = 'limited';
+      else if (tier === 'hard')   nowTier = 'hard';
+    }
 
-    // Nothing useful → leave badge blank
-    if (!hasPrimeCounts && !hasPrimeTier) {
-      // outlookHtml stays ''
-    } else {
+    if (nowTier) {
+      const tryEarlyLate = (slots && slots.try_other)
+        ? `<span style="font-size:11px;color:#999;font-weight:500">Try early or late</span>`
+        : '';
 
-      let nowTier = null;   // 'easy' | 'medium' | 'hard' | 'hard_low' | 'fully_booked'
-
-      if (hasPrimeCounts) {
-        // Shape A: exact slot counts
-        const slotWindow = tw[state.timeSlot] || tw.prime;
-        const count = typeof slotWindow.count === 'number' ? slotWindow.count : tw.prime.count;
-        if      (count >= 5) nowTier = 'easy';
-        else if (count >= 3) nowTier = 'medium';
-        else if (count >= 1) nowTier = 'hard_low';
-        else                 nowTier = 'fully_booked';
-      } else {
-        // Shape B: availability_windows.prime tier string
-        const pt = aw.prime;
-        if      (pt === 'easy')   nowTier = 'easy';
-        else if (pt === 'medium') nowTier = 'medium';
-        else if (pt === 'hard')   nowTier = 'hard';
+      // ── Step 2: Horizon chips — day1/day3/day7/day14 only, no fallbacks ──
+      const horizonChips = [];
+      if (horizon) {
+        const labels = { day1: 'Day 1', day3: 'Day 3', day7: 'Day 7', day14: 'Day 14' };
+        for (const key of ['day1','day3','day7','day14']) {
+          const t = horizon[key];
+          if (!t) continue;
+          const mappedTier = t === 'medium' ? 'limited' : t; // normalise
+          horizonChips.push({ label: labels[key], tier: mappedTier });
+        }
       }
 
-      // ── Step 2: Build horizon chips ──
-      // Uses all available data sources, priority order:
-      // 1) availability_history — actual prime_slot counts per future date (most accurate)
-      // 2) multi_date           — available/sold_out status per horizon
-      // 3) availability_by_date — boolean per horizon
-      // 4) OUTLOOK_DATA         — tier string fallback (plus3/plus7/plus14)
-      const md  = r.multi_date;
-      const abd = r.availability_by_date;
-      const ah  = r.availability_history;
-      const od  = OUTLOOK_DATA[(r.name || '').toLowerCase().trim()];
-
-      // Convert prime_slots count → tier (same rules as "now")
-      const slotsToTier = (n) => {
-        if (n >= 5)  return 'easy';
-        if (n >= 3)  return 'medium';
-        if (n >= 1)  return 'hard';
-        return null; // 0 = fully booked at that date, skip
-      };
-
-      // Get the first platform's data from availability_history for a given date key
-      const ahForDate = (dateKey) => {
-        if (!ah) return null;
-        const platform = Object.keys(ah)[0];
-        return platform ? (ah[platform][dateKey] || null) : null;
-      };
-
-      const horizons = [
-        { ahDate: '2026-03-05', mdKey: '3_days',  abdKey: '+3d',  odKey: 'plus3',  label: '+3d'  },
-        { ahDate: '2026-03-09', mdKey: '1_week',  abdKey: '+7d',  odKey: 'plus7',  label: '+7d'  },
-        { ahDate: '2026-03-16', mdKey: '2_weeks', abdKey: '+14d', odKey: 'plus14', label: '+14d' },
-      ];
-
-      // r.outlook = [{ label: 'Today', tier }, { label: '+3d', tier }, { label: '+7d', tier }, { label: '+14d', tier }]
-      const outlookArr = r.outlook || [];
-      const outlookMap = {};
-      outlookArr.forEach(o => { outlookMap[o.label] = o.tier; });
-
-      const horizonChips = horizons.map(h => {
-        // Only use r.outlook array — no fallbacks ever
-        if (outlookMap[h.label] !== undefined) {
-          const t = outlookMap[h.label];
-          if (t === 'easy')   return { label: h.label, tier: 'easy' };
-          if (t === 'medium') return { label: h.label, tier: 'medium' };
-          if (t === 'hard')   return { label: h.label, tier: 'booked' };
-        }
-        return null; // no data = no chip, never fallback
-      }).filter(Boolean);
-
-      // openHorizons = chips that are NOT fully booked (for "opens up" logic)
-      const openHorizons = horizonChips.filter(h => h.tier !== 'booked');
-      const allBlocked   = horizonChips.length > 0 && openHorizons.length === 0;
-      const firstBetter  = openHorizons.length > 0 ? openHorizons[0] : null;
-
-      const tryEarlyLate = `<span style="font-size:11px;color:#999;font-weight:500">Try early or late</span>`;
       const buildHorizonRow = () => {
-        if (horizonChips.length === 0) return '';
-        const bookedStyle = 'display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5';
-        const chips = horizonChips.map(h =>
-          h.tier === 'booked'
-            ? `<span style="${bookedStyle}">🔴 ${h.label}</span>`
-            : chip(h.tier, h.label)
-        ).join('');
-        const suffix = openHorizons.length > 0 ? `<span style="font-size:11px;color:#bbb">opens up</span>` : '';
-        return `<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chips}${suffix ? ' ' + suffix : ''}</div>`;
+        if (!horizonChips.length) return '';
+        const chips = horizonChips.map(h => chip(h.tier, h.label)).join('');
+        return `<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chips}</div>`;
       };
 
-      // ── Step 3: Render badge based on nowTier ──
+      // ── Step 3: Render ──
       let mainChip = '';
-      let subHtml  = '';
-      let horizonRow = '';
+      let horizonRow = buildHorizonRow();
 
       if (nowTier === 'easy') {
-        // 5+ slots → green, no subtext, no horizon
         mainChip = chip('easy', 'Available');
-
-      } else if (nowTier === 'medium') {
-        // 3–4 slots → yellow Limited + "Try early or late" + first better horizon
-        mainChip   = chip('medium', 'Limited');
-        subHtml    = tryEarlyLate;
-        horizonRow = buildHorizonRow();
-
-      } else if (nowTier === 'hard_low' || nowTier === 'hard') {
-        // 1–2 slots (hard_low) or OT "hard" tier → red Hard to Book
-        mainChip   = chip('hard', 'Hard to Book');
-        subHtml    = tryEarlyLate;
-        horizonRow = buildHorizonRow();
-
-      } else if (nowTier === 'fully_booked') {
-        if (allBlocked || !abd) {
-          // 0 slots AND no future relief → black Very Hard to Get
-          mainChip = `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:#1a1a1a;color:white;border:1px solid #000">⚫ Very Hard to Get</span>`;
-          subHtml  = `<span style="font-size:11px;color:#999;font-weight:500">Rarely opens up</span>`;
-        } else {
-          // 0 slots today but opens later
-          mainChip   = chip('hard', 'Fully Booked');
-          subHtml    = tryEarlyLate;
-          horizonRow = buildHorizonRow();
-        }
+      } else if (nowTier === 'limited') {
+        mainChip = chip('limited', 'Limited');
+      } else if (nowTier === 'hard') {
+        mainChip = chip('hard', 'Hard to Book');
       }
 
       if (mainChip) {
         outlookHtml = `<div style="margin:6px 0 2px 0">
-          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}${subHtml ? ' ' + subHtml : ''}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}${tryEarlyLate ? ' ' + tryEarlyLate : ''}</div>
           ${horizonRow}
         </div>`;
       }
