@@ -1325,6 +1325,18 @@ exports.handler = async (event) => {
           time_windows: (() => { const tw = (AVAILABILITY_BOOK[key] || entry).time_windows; if (!tw) return null; return { early: tw.early ? { count: tw.early.count, status: tw.early.status } : null, prime: tw.prime ? { count: tw.prime.count, status: tw.prime.status } : null, late: tw.late ? { count: tw.late.count, status: tw.late.status } : null }; })(),
           availability_by_date: (AVAILABILITY_BOOK[key] || entry).availability_by_date || null,
           multi_date: (() => { const md = (AVAILABILITY_BOOK[key] || entry).multi_date; if (!md) return null; return { '3_days': md['3_days'] ? { status: md['3_days'].status } : null, '1_week': md['1_week'] ? { status: md['1_week'].status } : null, '2_weeks': md['2_weeks'] ? { status: md['2_weeks'].status } : null }; })(),
+          availability_history: (() => {
+            const ah = (AVAILABILITY_BOOK[key] || entry).availability_history;
+            if (!ah) return null;
+            const slim = {};
+            for (const [platform, dates] of Object.entries(ah)) {
+              slim[platform] = {};
+              for (const [date, d] of Object.entries(dates)) {
+                slim[platform][date] = { prime_slots: d.prime_slots ?? null, availability_tier: d.availability_tier || null };
+              }
+            }
+            return slim;
+          })(),
           _source: 'master_book',
         });
       }

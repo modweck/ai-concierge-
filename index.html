@@ -1754,28 +1754,54 @@ function renderCard(r) {
       }
 
       // ── Step 2: Build horizon chips ──
-      // Priority: 1) r.multi_date (master)  2) r.availability_by_date (master)  3) OUTLOOK_DATA fallback
+      // Uses all available data sources, priority order:
+      // 1) availability_history — actual prime_slot counts per future date (most accurate)
+      // 2) multi_date           — available/sold_out status per horizon
+      // 3) availability_by_date — boolean per horizon
+      // 4) OUTLOOK_DATA         — tier string fallback (plus3/plus7/plus14)
       const md  = r.multi_date;
       const abd = r.availability_by_date;
+      const ah  = r.availability_history;
       const od  = OUTLOOK_DATA[(r.name || '').toLowerCase().trim()];
 
+      // Convert prime_slots count → tier (same rules as "now")
+      const slotsToTier = (n) => {
+        if (n >= 5)  return 'easy';
+        if (n >= 3)  return 'medium';
+        if (n >= 1)  return 'hard';
+        return null; // 0 = fully booked at that date, skip
+      };
+
+      // Get the first platform's data from availability_history for a given date key
+      const ahForDate = (dateKey) => {
+        if (!ah) return null;
+        const platform = Object.keys(ah)[0];
+        return platform ? (ah[platform][dateKey] || null) : null;
+      };
+
       const horizons = [
-        { mdKey: '3_days',  abdKey: '+3d',  odKey: 'plus3',  label: '+3d'  },
-        { mdKey: '1_week',  abdKey: '+7d',  odKey: 'plus7',  label: '+7d'  },
-        { mdKey: '2_weeks', abdKey: '+14d', odKey: 'plus14', label: '+14d' },
+        { ahDate: '2026-03-05', mdKey: '3_days',  abdKey: '+3d',  odKey: 'plus3',  label: '+3d'  },
+        { ahDate: '2026-03-09', mdKey: '1_week',  abdKey: '+7d',  odKey: 'plus7',  label: '+7d'  },
+        { ahDate: '2026-03-16', mdKey: '2_weeks', abdKey: '+14d', odKey: 'plus14', label: '+14d' },
       ];
 
       const horizonChips = horizons.map(h => {
-        // 1) multi_date (most detailed)
+        // 1) availability_history — exact slot counts
+        const ahEntry = ahForDate(h.ahDate);
+        if (ahEntry && ahEntry.prime_slots != null) {
+          const t = slotsToTier(ahEntry.prime_slots);
+          return t ? { label: h.label, tier: t } : null;
+        }
+        // 2) multi_date status
         if (md && md[h.mdKey]) {
           const s = md[h.mdKey].status;
-          if (s === 'available') return { label: h.label, tier: 'easy' };
+          if (s === 'available')              return { label: h.label, tier: 'easy' };
           if (s === 'sold_out' || s === 'closed') return null;
         }
-        // 2) availability_by_date booleans
+        // 3) availability_by_date booleans
         if (abd && abd[h.abdKey] === true)  return { label: h.label, tier: 'easy' };
         if (abd && abd[h.abdKey] === false) return null;
-        // 3) OUTLOOK_DATA fallback
+        // 4) OUTLOOK_DATA tier fallback
         if (od && od[h.odKey]) {
           const t = od[h.odKey];
           if (t === 'easy')   return { label: h.label, tier: 'easy' };
@@ -1786,7 +1812,7 @@ function renderCard(r) {
       }).filter(Boolean);
 
       const openHorizons = horizonChips;
-      const allBlocked   = (md || abd || od) && horizonChips.length === 0;
+      const allBlocked   = (ah || md || abd || od) && horizonChips.length === 0;
       const firstBetter  = openHorizons.length > 0 ? openHorizons[0] : null;
 
       const tryEarlyLate = `<span style="font-size:11px;color:#999;font-weight:500">Try early or late</span>`;
