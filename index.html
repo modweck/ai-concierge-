@@ -1753,29 +1753,40 @@ function renderCard(r) {
         else if (pt === 'hard')   nowTier = 'hard';
       }
 
-      // ── Step 2: Build the horizon row from multi_date ──
-      // r.multi_date = { "3_days": { status: "available/sold_out/closed/unknown" },
-      //                  "1_week": { ... }, "2_weeks": { ... } }
-      const md = r.multi_date;
+      // ── Step 2: Build horizon chips ──
+      // Priority: 1) r.multi_date (master)  2) r.availability_by_date (master)  3) OUTLOOK_DATA fallback
+      const md  = r.multi_date;
+      const abd = r.availability_by_date;
+      const od  = OUTLOOK_DATA[(r.name || '').toLowerCase().trim()];
 
       const horizons = [
-        { mdKey: '3_days',  label: '+3d'  },
-        { mdKey: '1_week',  label: '+7d'  },
-        { mdKey: '2_weeks', label: '+14d' },
+        { mdKey: '3_days',  abdKey: '+3d',  odKey: 'plus3',  label: '+3d'  },
+        { mdKey: '1_week',  abdKey: '+7d',  odKey: 'plus7',  label: '+7d'  },
+        { mdKey: '2_weeks', abdKey: '+14d', odKey: 'plus14', label: '+14d' },
       ];
 
-      // Build horizon chips from multi_date status
-      const horizonChips = md ? horizons.map(h => {
-        const entry = md[h.mdKey];
-        if (!entry) return null;
-        const s = entry.status;
-        if (s === 'available')              return { label: h.label, tier: 'easy' };
-        if (s === 'sold_out' || s === 'closed') return null; // booked out, skip
-        return null; // unknown = skip
-      }).filter(Boolean) : [];
+      const horizonChips = horizons.map(h => {
+        // 1) multi_date (most detailed)
+        if (md && md[h.mdKey]) {
+          const s = md[h.mdKey].status;
+          if (s === 'available') return { label: h.label, tier: 'easy' };
+          if (s === 'sold_out' || s === 'closed') return null;
+        }
+        // 2) availability_by_date booleans
+        if (abd && abd[h.abdKey] === true)  return { label: h.label, tier: 'easy' };
+        if (abd && abd[h.abdKey] === false) return null;
+        // 3) OUTLOOK_DATA fallback
+        if (od && od[h.odKey]) {
+          const t = od[h.odKey];
+          if (t === 'easy')   return { label: h.label, tier: 'easy' };
+          if (t === 'medium') return { label: h.label, tier: 'medium' };
+          if (t === 'hard')   return null;
+        }
+        return null;
+      }).filter(Boolean);
 
       const openHorizons = horizonChips;
-      const allBlocked   = md && horizonChips.length === 0;
+      const allBlocked   = (md || abd || od) && horizonChips.length === 0;
       const firstBetter  = openHorizons.length > 0 ? openHorizons[0] : null;
 
       const tryEarlyLate = `<span style="font-size:11px;color:#999;font-weight:500">Try early or late</span>`;
