@@ -1729,20 +1729,6 @@ function renderCard(r) {
       let mainChip = '';
       let subText = '';
 
-      if (now === 'easy') {
-        mainChip = chip('easy', 'Available');
-      } else if (now === 'medium') {
-        mainChip = chip('medium', 'Limited');
-        subText = 'Try early or late';
-      } else if (now === 'hard') {
-        mainChip = chip('hard', 'Very Hard to Get');
-        subText = 'Try early or late';
-      }
-
-      const subHtml = subText
-        ? `<span style="font-size:11px;color:#999;font-weight:500">${subText}</span>`
-        : '';
-
       const arrow = `<span style="color:#ddd;font-size:11px;margin:0 2px">›</span>`;
       let horizonRow = '';
 
@@ -1752,33 +1738,41 @@ function renderCard(r) {
         { key: 'plus14', label: '+14d' },
       ];
 
-      if (now === 'medium') {
-        // Limited — always show +3 green (book ahead = fine)
-        const hasHorizon = horizons.some(h => od[h.key]);
-        if (hasHorizon) {
-          const hChips = horizons.map((h, i) => {
-            const tier = od[h.key] || 'medium';
-            const a = i < horizons.length - 1 ? arrow : '';
-            return chip(tier, h.label) + a;
-          }).join('');
-          horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${hChips}</div>`;
-        } else {
-          const h = chip('easy', '+3d');
-          horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${h}<span style="font-size:11px;color:#bbb">book ahead</span></div>`;
+      const allHard = horizons.every(h => !od[h.key] || od[h.key] === 'hard');
+
+      if (now === 'easy') {
+        // Available — show green badge, no horizon row needed
+        mainChip = chip('easy', 'Available');
+
+      } else if (now === 'medium') {
+        // Limited (3-4 slots) — show yellow + try early/late
+        mainChip = chip('medium', 'Limited');
+        subText = 'Try early or late';
+        // Show first horizon that improves
+        const firstGreen = horizons.find(h => od[h.key] === 'easy');
+        if (firstGreen) {
+          horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chip('easy', firstGreen.label)}<span style="font-size:11px;color:#bbb">opens up</span></div>`;
         }
+
       } else if (now === 'hard') {
-        const allHard = horizons.every(h => !od[h.key] || od[h.key] === 'hard');
         if (allHard) {
-          horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center"><span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:#1a1a1a;color:white;border:1px solid #000">⚫ Very Hard to Book</span><span style="font-size:11px;color:#bbb;font-weight:500">Rarely opens up</span></div>`;
+          // Fully booked across all horizons — black badge only, no red
+          mainChip = `<span style="display:inline-flex;align-items:center;gap:3px;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:700;background:#1a1a1a;color:white;border:1px solid #000">⚫ Very Hard to Book</span>`;
+          subText = 'Rarely opens up';
         } else {
-          const hChips = horizons.map((h, i) => {
-            const tier = od[h.key] || 'hard';
-            const a = i < horizons.length - 1 ? arrow : '';
-            return chip(tier, h.label) + a;
-          }).join('');
-          horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${hChips}</div>`;
+          // Booked today but opens up later — show red Booked + first improving chip
+          mainChip = chip('hard', 'Booked');
+          subText = 'Try early or late';
+          const firstBetter = horizons.find(h => od[h.key] && od[h.key] !== 'hard');
+          if (firstBetter) {
+            horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chip(od[firstBetter.key], firstBetter.label)}<span style="font-size:11px;color:#bbb">opens up</span></div>`;
+          }
         }
       }
+
+      const subHtml = subText
+        ? `<span style="font-size:11px;color:#999;font-weight:500">${subText}</span>`
+        : '';
 
       outlookHtml = `<div style="margin:6px 0 2px 0">
         <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}${subHtml ? ' ' + subHtml : ''}</div>
