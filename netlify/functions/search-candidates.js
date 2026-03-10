@@ -1125,8 +1125,7 @@ function buildGrid(cLat, cLng) {
 
 exports.handler = async (event) => {
   const stableResponse = (elite=[], more=[], stats={}, error=null) => {
-    // Enrich all results with deposit info
-    const enrichDeposit = (arr) => (arr || []).map(r => ({
+    const enrichDeposit = (arr) => (arr || []).slice(0, 150).map(r => ({
       ...r,
       deposit_type: r.deposit_type || getDepositType(r.name)
     }));
@@ -1320,24 +1319,16 @@ exports.handler = async (event) => {
           vibe_tags: entry.vibe_tags || [],
           cuisine: entry.cuisine || CUISINE_LOOKUP[key] || null,
           instagram: entry.instagram || null,
-          outlook: (AVAILABILITY_BOOK[key] || entry).outlook || null,
-          availability_tier: (AVAILABILITY_BOOK[key] || entry).availability_tier || null,
-          availability_windows: (AVAILABILITY_BOOK[key] || entry).availability_windows || null,
-          time_windows: (() => { const tw = (AVAILABILITY_BOOK[key] || entry).time_windows; if (!tw) return null; return { early: tw.early ? { count: tw.early.count, status: tw.early.status } : null, prime: tw.prime ? { count: tw.prime.count, status: tw.prime.status } : null, late: tw.late ? { count: tw.late.count, status: tw.late.status } : null }; })(),
-          availability_by_date: (AVAILABILITY_BOOK[key] || entry).availability_by_date || null,
-          multi_date: (() => { const md = (AVAILABILITY_BOOK[key] || entry).multi_date; if (!md) return null; return { '3_days': md['3_days'] ? { status: md['3_days'].status } : null, '1_week': md['1_week'] ? { status: md['1_week'].status } : null, '2_weeks': md['2_weeks'] ? { status: md['2_weeks'].status } : null }; })(),
-          availability_history: (() => {
-            const ah = (AVAILABILITY_BOOK[key] || entry).availability_history;
-            if (!ah) return null;
-            const slim = {};
-            for (const [platform, dates] of Object.entries(ah)) {
-              slim[platform] = {};
-              for (const [date, d] of Object.entries(dates)) {
-                slim[platform][date] = { prime_slots: d.prime_slots ?? null, availability_tier: d.availability_tier || null };
-              }
-            }
-            return slim;
+          // ── Availability: slim payload, only what frontend needs ──
+          outlook: (() => {
+            const av = AVAILABILITY_BOOK[key] || entry;
+            // Use outlook array if present (V24), else build from windows
+            if (av.outlook) return av.outlook;
+            return null;
           })(),
+          availability_tier: (AVAILABILITY_BOOK[key] || entry).availability_tier || null,
+          availability_windows: (() => { const aw = (AVAILABILITY_BOOK[key] || entry).availability_windows; if (!aw) return null; return { early: aw.early || null, prime: aw.prime || null, late: aw.late || null }; })(),
+          time_windows: (() => { const tw = (AVAILABILITY_BOOK[key] || entry).time_windows; if (!tw) return null; return { early: tw.early ? { count: tw.early.count, status: tw.early.status } : null, prime: tw.prime ? { count: tw.prime.count, status: tw.prime.status } : null, late: tw.late ? { count: tw.late.count, status: tw.late.status } : null }; })(),
           _source: 'master_book',
         });
       }
