@@ -1737,23 +1737,32 @@ function renderCard(r) {
     // Shape B: we have a tier string for prime
     const hasPrimeTier   = aw && aw.prime;
 
+    // Get outlook array "Today" tier as primary source
+    const outlookToday = r.outlook && r.outlook.find(o => o.label === 'Today');
+    const outlookTodayTier = outlookToday ? outlookToday.tier : null;
+
     // Nothing useful → leave badge blank
-    if (!hasPrimeCounts && !hasPrimeTier) {
+    if (!hasPrimeCounts && !hasPrimeTier && !outlookTodayTier) {
       // outlookHtml stays ''
     } else {
 
       let nowTier = null;   // 'easy' | 'medium' | 'hard' | 'hard_low' | 'fully_booked'
 
       if (hasPrimeCounts) {
-        // Use the selected time-slot window count when available, else prime
+        // Shape A: exact slot counts (most accurate)
         const slotWindow = tw[state.timeSlot] || tw.prime;
         const count = typeof slotWindow.count === 'number' ? slotWindow.count : tw.prime.count;
         if      (count >= 5) nowTier = 'easy';
         else if (count >= 3) nowTier = 'medium';
-        else if (count >= 1) nowTier = 'hard_low';   // 1–2 slots
-        else                 nowTier = 'fully_booked'; // 0 slots
+        else if (count >= 1) nowTier = 'hard_low';
+        else                 nowTier = 'fully_booked';
+      } else if (outlookTodayTier) {
+        // outlook.Today is most accurate for non-Resy restaurants
+        if      (outlookTodayTier === 'easy')   nowTier = 'easy';
+        else if (outlookTodayTier === 'medium') nowTier = 'medium';
+        else if (outlookTodayTier === 'hard')   nowTier = 'hard';
       } else {
-        // Shape B: map the string tier to our internal tiers
+        // Shape B fallback: availability_windows.prime
         const pt = aw.prime;
         if      (pt === 'easy')   nowTier = 'easy';
         else if (pt === 'medium') nowTier = 'medium';
