@@ -54,11 +54,16 @@ try {
 // ── MASTER BOOK (primary source — 8,400+ restaurants) ──
 let MASTER_BOOK = {};
 let MASTER_KEYS = [];
+let AVAILABILITY_BOOK = {};
 try {
   MASTER_BOOK = JSON.parse(fs.readFileSync(path.join(__dirname, 'BOOKING_MASTER.json'), 'utf8'));
   MASTER_KEYS = Object.keys(MASTER_BOOK);
   console.log(`✅ Master book: ${MASTER_KEYS.length} restaurants`);
 } catch (err) { console.warn('⚠️ Master book missing, using booking_lookup:', err.message); }
+try {
+  AVAILABILITY_BOOK = JSON.parse(fs.readFileSync(path.join(__dirname, 'AVAILABILITY_MASTER.json'), 'utf8'));
+  console.log(`✅ Availability book: ${Object.keys(AVAILABILITY_BOOK).length} restaurants`);
+} catch (err) { console.warn('⚠️ Availability book missing:', err.message); }
 
 let CUISINE_LOOKUP = {};
 try {
@@ -1315,11 +1320,11 @@ exports.handler = async (event) => {
           vibe_tags: entry.vibe_tags || [],
           cuisine: entry.cuisine || CUISINE_LOOKUP[key] || null,
           instagram: entry.instagram || null,
-          availability_tier: entry.availability_tier || null,
-          availability_windows: entry.availability_windows || null,
-          time_windows: entry.time_windows || null,
-          availability_by_date: entry.availability_by_date || null,
-          multi_date: entry.multi_date || null,
+          availability_tier: (AVAILABILITY_BOOK[key] || entry).availability_tier || null,
+          availability_windows: (AVAILABILITY_BOOK[key] || entry).availability_windows || null,
+          time_windows: (() => { const tw = (AVAILABILITY_BOOK[key] || entry).time_windows; if (!tw) return null; return { early: tw.early ? { count: tw.early.count, status: tw.early.status } : null, prime: tw.prime ? { count: tw.prime.count, status: tw.prime.status } : null, late: tw.late ? { count: tw.late.count, status: tw.late.status } : null }; })(),
+          availability_by_date: (AVAILABILITY_BOOK[key] || entry).availability_by_date || null,
+          multi_date: (() => { const md = (AVAILABILITY_BOOK[key] || entry).multi_date; if (!md) return null; return { '3_days': md['3_days'] ? { status: md['3_days'].status } : null, '1_week': md['1_week'] ? { status: md['1_week'].status } : null, '2_weeks': md['2_weeks'] ? { status: md['2_weeks'].status } : null }; })(),
           _source: 'master_book',
         });
       }
