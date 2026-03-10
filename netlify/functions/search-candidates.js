@@ -1125,7 +1125,7 @@ function buildGrid(cLat, cLng) {
 
 exports.handler = async (event) => {
   const stableResponse = (elite=[], more=[], stats={}, error=null) => {
-    const enrichDeposit = (arr) => (arr || []).slice(0, 2000).map(r => ({
+    const enrichDeposit = (arr) => (arr || []).map(r => ({
       ...r,
       deposit_type: r.deposit_type || getDepositType(r.name)
     }));
@@ -1147,7 +1147,7 @@ exports.handler = async (event) => {
     const KEY = process.env.GOOGLE_PLACES_API_KEY;
     if (!KEY) return stableResponse([], [], {}, 'API key not configured');
 
-    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v17';
+    const cacheKey = getCacheKey(location, qualityMode, cuisine, openNow) + '_v18';
     const cached = getFromCache(cacheKey);
     if (cached) { timings.total_ms = Date.now()-t0; return stableResponse(cached.elite, cached.moreOptions, { ...cached.stats, cached: true, performance: { ...timings, cache_hit: true } }); }
 
