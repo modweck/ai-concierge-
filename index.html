@@ -1179,13 +1179,12 @@ async function search() {
     if (Array.isArray(data.elite)) results.push(...data.elite);
     if (Array.isArray(data.moreOptions)) results.push(...data.moreOptions);
 
-    // Deduplicate by place_id or name
+    // Deduplicate by name only (place_ids can be shared across entries)
     const _dseen = new Set();
     results = results.filter(r => {
-      const k = r.place_id || (r.name||'').toLowerCase().trim();
+      const k = (r.name||'').toLowerCase().trim();
       if (!k || _dseen.has(k)) return false;
       _dseen.add(k);
-      if (r.place_id && r.name) { const nk = (r.name||'').toLowerCase().trim(); if (_dseen.has(nk)) return false; _dseen.add(nk); }
       return true;
     });
 
