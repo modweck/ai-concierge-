@@ -61,7 +61,7 @@
     .badge.distance{background:#e0f2fe;border-color:#7dd3fc;color:#075985;font-size:11px}
     .rising-badge{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,#f97316,#ef4444);color:white;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;border:none}
     .avail-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;border:none}
-    .avail-badge.hard{background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5}
+    .avail-badge.hard{background:#1a1a1a;color:white;border:1px solid #000}
     .avail-badge.medium{background:#fefce8;color:#a16207;border:1px solid #fde68a}
     .avail-badge.easy{background:#f0fdf4;color:#15803d;border:1px solid #86efac}
 
@@ -597,9 +597,9 @@ function getAvailTier(name, placeId) {
 }
 
 function getAvailLabel(tier) {
-  if (tier === 'hard') return { emoji: '🔴', text: 'Hard to Book', cls: 'hard' };
-  if (tier === 'medium') return { emoji: '🟡', text: 'Medium', cls: 'medium' };
-  if (tier === 'easy') return { emoji: '🟢', text: 'Easy to Book', cls: 'easy' };
+  if (tier === 'hard') return { emoji: '⚫', text: 'Very Hard to Book', cls: 'hard' };
+  if (tier === 'medium') return { emoji: '�', text: 'Limited', cls: 'medium' };
+  if (tier === 'easy') return { emoji: '🟢', text: 'Available', cls: 'easy' };
   return null;
 }
 
@@ -1725,67 +1725,63 @@ function renderCard(r) {
         return `<span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:${s.bg};color:${s.color};border:1px solid ${s.border}">${s.emoji} ${label}</span>`;
       };
 
-      // ── Main card label ──
-      const card = od.card || od.now;
+      const now = od.now;
       let mainChip = '';
-      let showHint = false;
+      let subText = '';
 
-      if (card === 'available') {
+      if (now === 'easy') {
         mainChip = chip('easy', 'Available');
-      } else if (card === 'fully_booked') {
-        mainChip = chip('hard', 'Hard to Get');
-      } else if (card === 'prime_booked') {
-        mainChip = chip('hard', 'Prime Booked');
-        showHint = true;
-      } else if (card === 'limited') {
+      } else if (now === 'medium') {
         mainChip = chip('medium', 'Limited');
-        showHint = true;
-      } else {
-        mainChip = chip(od.now, od.now === 'hard' ? 'Hard to Get' : od.now === 'easy' ? 'Available' : 'Limited');
+        subText = 'Try early or late';
+      } else if (now === 'hard') {
+        mainChip = chip('hard', 'Very Hard to Get');
+        subText = 'Try early or late';
       }
 
-      const hintHtml = showHint
-        ? `<span style="font-size:11px;color:#bbb;font-weight:500">💡 check other times</span>`
+      const subHtml = subText
+        ? `<span style="font-size:11px;color:#999;font-weight:500">${subText}</span>`
         : '';
 
-      // ── Horizon row — +3d +7d +14d only, no day names ──
       const arrow = `<span style="color:#ddd;font-size:11px;margin:0 2px">›</span>`;
+      let horizonRow = '';
+
       const horizons = [
         { key: 'plus3',  label: '+3d'  },
         { key: 'plus7',  label: '+7d'  },
         { key: 'plus14', label: '+14d' },
-      ].filter(h => od[h.key] && od[h.key] !== 'hard');
+      ];
 
-      // ── Rarely opens up label for stuck booked restaurants ──
-      const isBooked = card === 'fully_booked' || card === 'prime_booked' || od.now === 'hard';
-      const allHorizonsHard = ['plus3','plus7','plus14'].every(k => !od[k] || od[k] === 'hard');
-      const rarelyOpensHtml = isBooked && allHorizonsHard
-        ? `<span style="font-size:11px;color:#bbb;font-weight:500">📅 Rarely opens up</span>`
-        : '';
-
-      let horizonRow = '';
-      if (horizons.length > 0) {
-        const hChips = horizons.map((h, i) => {
-          const a = i < horizons.length - 1 ? arrow : '';
-          return chip(od[h.key], h.label) + a;
-        }).join('');
-
-        const allTiers = horizons.map(h => od[h.key]);
-        const best = [...allTiers].sort((a,b) => ({hard:0,medium:1,easy:2}[b]||0)-({hard:0,medium:1,easy:2}[a]||0))[0];
-        let insight = '';
-        if (od.now === 'hard' && best === 'easy')        insight = 'opens up soon';
-        else if (od.now === 'hard' && best === 'medium') insight = 'eases up soon';
-        else if (od.now === 'medium' && best === 'hard') insight = 'fills up ahead';
-        else if (best === 'hard')                        insight = 'plan well ahead';
-
-        const insightHtml = insight
-          ? ` <span style="font-size:11px;color:#bbb">${insight}</span>`
-          : '';
-        horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${hChips}${insightHtml}</div>`;
+      if (now === 'medium') {
+        // Limited — always show +3 green (book ahead = fine)
+        const hasHorizon = horizons.some(h => od[h.key]);
+        if (hasHorizon) {
+          const hChips = horizons.map((h, i) => {
+            const tier = od[h.key] || 'medium';
+            const a = i < horizons.length - 1 ? arrow : '';
+            return chip(tier, h.label) + a;
+          }).join('');
+          horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${hChips}</div>`;
+        } else {
+          const h = chip('easy', '+3d');
+          horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${h}<span style="font-size:11px;color:#bbb">book ahead</span></div>`;
+        }
+      } else if (now === 'hard') {
+        const allHard = horizons.every(h => !od[h.key] || od[h.key] === 'hard');
+        if (allHard) {
+          horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center"><span style="display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:#1a1a1a;color:white;border:1px solid #000">⚫ Very Hard to Book</span><span style="font-size:11px;color:#bbb;font-weight:500">Rarely opens up</span></div>`;
+        } else {
+          const hChips = horizons.map((h, i) => {
+            const tier = od[h.key] || 'hard';
+            const a = i < horizons.length - 1 ? arrow : '';
+            return chip(tier, h.label) + a;
+          }).join('');
+          horizonRow = `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${hChips}</div>`;
+        }
       }
 
       outlookHtml = `<div style="margin:6px 0 2px 0">
-        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}${hintHtml ? ' ' + hintHtml : ''}${rarelyOpensHtml ? ' ' + rarelyOpensHtml : ''}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${mainChip}${subHtml ? ' ' + subHtml : ''}</div>
         ${horizonRow}
       </div>`;
     }
