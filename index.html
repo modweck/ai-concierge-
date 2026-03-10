@@ -1785,40 +1785,65 @@ function renderCard(r) {
         { ahDate: '2026-03-16', mdKey: '2_weeks', abdKey: '+14d', odKey: 'plus14', label: '+14d' },
       ];
 
+      // r.outlook = [{ label: 'Today', tier }, { label: '+3d', tier }, { label: '+7d', tier }, { label: '+14d', tier }]
+      const outlookArr = r.outlook || [];
+      const outlookMap = {};
+      outlookArr.forEach(o => { outlookMap[o.label] = o.tier; });
+
       const horizonChips = horizons.map(h => {
-        // 1) availability_history — exact slot counts
+        // 1) r.outlook array — primary source, 4775 restaurants
+        if (outlookMap[h.label] !== undefined) {
+          const t = outlookMap[h.label];
+          if (t === 'easy')   return { label: h.label, tier: 'easy' };
+          if (t === 'medium') return { label: h.label, tier: 'medium' };
+          if (t === 'hard')   return { label: h.label, tier: 'booked' };
+        }
+        // 2) availability_history — exact prime slot counts
         const ahEntry = ahForDate(h.ahDate);
         if (ahEntry && ahEntry.prime_slots != null) {
-          const t = slotsToTier(ahEntry.prime_slots);
-          return t ? { label: h.label, tier: t } : null;
+          const n = ahEntry.prime_slots;
+          if (n >= 5) return { label: h.label, tier: 'easy' };
+          if (n >= 3) return { label: h.label, tier: 'medium' };
+          if (n >= 1) return { label: h.label, tier: 'hard' };
+          return { label: h.label, tier: 'booked' };
         }
-        // 2) multi_date status
+        // 3) multi_date status
         if (md && md[h.mdKey]) {
           const s = md[h.mdKey].status;
-          if (s === 'available')              return { label: h.label, tier: 'easy' };
-          if (s === 'sold_out' || s === 'closed') return null;
+          if (s === 'available')                  return { label: h.label, tier: 'easy' };
+          if (s === 'sold_out' || s === 'closed') return { label: h.label, tier: 'booked' };
         }
-        // 3) availability_by_date booleans
-        if (abd && abd[h.abdKey] === true)  return { label: h.label, tier: 'easy' };
-        if (abd && abd[h.abdKey] === false) return null;
-        // 4) OUTLOOK_DATA tier fallback
+        // 4) availability_by_date booleans
+        if (abd && h.abdKey in abd) {
+          return { label: h.label, tier: abd[h.abdKey] ? 'easy' : 'booked' };
+        }
+        // 5) OUTLOOK_DATA file fallback
         if (od && od[h.odKey]) {
           const t = od[h.odKey];
           if (t === 'easy')   return { label: h.label, tier: 'easy' };
           if (t === 'medium') return { label: h.label, tier: 'medium' };
-          if (t === 'hard')   return null;
+          if (t === 'hard')   return { label: h.label, tier: 'booked' };
         }
         return null;
       }).filter(Boolean);
 
-      const openHorizons = horizonChips;
-      const allBlocked   = (ah || md || abd || od) && horizonChips.length === 0;
+      // openHorizons = chips that are NOT fully booked (for "opens up" logic)
+      const openHorizons = horizonChips.filter(h => h.tier !== 'booked');
+      const allBlocked   = horizonChips.length > 0 && openHorizons.length === 0;
       const firstBetter  = openHorizons.length > 0 ? openHorizons[0] : null;
 
       const tryEarlyLate = `<span style="font-size:11px;color:#999;font-weight:500">Try early or late</span>`;
-      const buildHorizonRow = () => openHorizons.length > 0
-        ? `<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${openHorizons.map(h => chip(h.tier, h.label)).join('')}<span style="font-size:11px;color:#bbb">opens up</span></div>`
-        : '';
+      const buildHorizonRow = () => {
+        if (horizonChips.length === 0) return '';
+        const bookedStyle = 'display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5';
+        const chips = horizonChips.map(h =>
+          h.tier === 'booked'
+            ? `<span style="${bookedStyle}">🔴 ${h.label}</span>`
+            : chip(h.tier, h.label)
+        ).join('');
+        const suffix = openHorizons.length > 0 ? `<span style="font-size:11px;color:#bbb">opens up</span>` : '';
+        return `<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${chips}${suffix ? ' ' + suffix : ''}</div>`;
+      };
 
       // ── Step 3: Render badge based on nowTier ──
       let mainChip = '';

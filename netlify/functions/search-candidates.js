@@ -1320,6 +1320,7 @@ exports.handler = async (event) => {
           vibe_tags: entry.vibe_tags || [],
           cuisine: entry.cuisine || CUISINE_LOOKUP[key] || null,
           instagram: entry.instagram || null,
+          outlook: (AVAILABILITY_BOOK[key] || entry).outlook || null,
           availability_tier: (AVAILABILITY_BOOK[key] || entry).availability_tier || null,
           availability_windows: (AVAILABILITY_BOOK[key] || entry).availability_windows || null,
           time_windows: (() => { const tw = (AVAILABILITY_BOOK[key] || entry).time_windows; if (!tw) return null; return { early: tw.early ? { count: tw.early.count, status: tw.early.status } : null, prime: tw.prime ? { count: tw.prime.count, status: tw.prime.status } : null, late: tw.late ? { count: tw.late.count, status: tw.late.status } : null }; })(),
