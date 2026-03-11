@@ -545,20 +545,9 @@ let AVAILABILITY_DATA = {};
 
 (async function loadAvailability() {
   try {
-    const CACHE_KEY = 'sw_availability', TTL = 10 * 60 * 1000;
-    const cached = localStorage.getItem(CACHE_KEY);
-    if (cached) {
-      const { data, ts } = JSON.parse(cached);
-      if (Date.now() - ts < TTL) {
-        AVAILABILITY_DATA = data;
-        console.log('Availability from cache:', Object.keys(AVAILABILITY_DATA).length, 'restaurants');
-        return;
-      }
-    }
     const resp = await fetch('/.netlify/functions/get-availability');
     if (resp.ok) {
       AVAILABILITY_DATA = await resp.json();
-      localStorage.setItem(CACHE_KEY, JSON.stringify({ data: AVAILABILITY_DATA, ts: Date.now() }));
       console.log('Loaded availability for', Object.keys(AVAILABILITY_DATA).length, 'restaurants');
     }
   } catch(e) { console.log('Availability data not available yet'); }
@@ -749,22 +738,11 @@ let OUTLOOK_DATA = {};
 
 (async function loadOutlook() {
   try {
-    const CACHE_KEY = 'sw_outlook', TTL = 10 * 60 * 1000;
-    const cached = localStorage.getItem(CACHE_KEY);
-    if (cached) {
-      const { data, ts } = JSON.parse(cached);
-      if (Date.now() - ts < TTL) {
-        OUTLOOK_DATA = data;
-        console.log('Outlook from cache:', Object.keys(OUTLOOK_DATA).length, 'restaurants');
-        return;
-      }
-    }
     const resp = await fetch('/.netlify/functions/get-outlook');
     if (!resp.ok) return;
     const data = await resp.json();
     if (!data || data.error) return;
     OUTLOOK_DATA = data;
-    localStorage.setItem(CACHE_KEY, JSON.stringify({ data: OUTLOOK_DATA, ts: Date.now() }));
     console.log('Loaded outlook data for', Object.keys(OUTLOOK_DATA).length, 'restaurants');
   } catch (e) {
     console.log('Outlook data not available yet');
@@ -1912,34 +1890,74 @@ function displayResults(restaurants, noPriceRestaurants) {
     return;
   }
 
-  const BATCH = 100;
-  const thisGen = ++_renderGen;  // increment generation on every render
-  let html = restaurants.slice(0, BATCH).map(r => renderCard(r)).join('');
-  document.getElementById('list').innerHTML = html;
+  // --- Incremental rendering: show first 30, load more on scroll ---
+  const PAGE = 30;
+  const thisGen = ++_renderGen;
 
-  if (restaurants.length > BATCH || (noPriceRestaurants && noPriceRestaurants.length > 0)) {
-    setTimeout(() => {
-      // If a newer render has started, don't append stale cards
-      if (_renderGen !== thisGen) return;
-      let rest = restaurants.slice(BATCH).map(r => renderCard(r)).join('');
-      if (noPriceRestaurants && noPriceRestaurants.length > 0) {
-        rest += `<div class="section-divider">💰 Price not available (${noPriceRestaurants.length})</div>`;
-        rest += noPriceRestaurants.map(r => renderCard(r)).join('');
+  // Store full list for incremental loading
+  window._pendingRestaurants = restaurants.slice(PAGE);
+  window._pendingNoPriceRestaurants = noPriceRestaurants || [];
+  window._pendingGen = thisGen;
+  window._pendingDividerShown = false;
+
+  const listEl = document.getElementById('list');
+  listEl.innerHTML = restaurants.slice(0, PAGE).map(r => renderCard(r)).join('');
+
+  // Sentinel element at the bottom — IntersectionObserver loads more when it enters view
+  const sentinel = document.createElement('div');
+  sentinel.id = 'scroll-sentinel';
+  sentinel.style.height = '1px';
+  listEl.appendChild(sentinel);
+
+  // Disconnect any previous observer
+  if (window._scrollObserver) window._scrollObserver.disconnect();
+
+  window._scrollObserver = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    if (window._pendingGen !== thisGen) { window._scrollObserver.disconnect(); return; }
+
+    const next = window._pendingRestaurants.splice(0, PAGE);
+    if (next.length > 0) {
+      sentinel.insertAdjacentHTML('beforebegin', next.map(r => renderCard(r)).join(''));
+    }
+
+    // Once main list exhausted, append no-price section
+    if (window._pendingRestaurants.length === 0 && !window._pendingDividerShown) {
+      window._pendingDividerShown = true;
+      if (window._pendingNoPriceRestaurants.length > 0) {
+        const divider = `<div class="section-divider">💰 Price not available (${window._pendingNoPriceRestaurants.length})</div>`;
+        const noPrice = window._pendingNoPriceRestaurants.map(r => renderCard(r)).join('');
+        sentinel.insertAdjacentHTML('beforebegin', divider + noPrice);
+        window._pendingNoPriceRestaurants = [];
       }
-      document.getElementById('list').innerHTML += rest;
-    }, 100);
-  }
+    }
+
+    if (window._pendingRestaurants.length === 0 && window._pendingNoPriceRestaurants.length === 0) {
+      window._scrollObserver.disconnect();
+      sentinel.remove();
+    }
+  }, { rootMargin: '400px' });
+
+  window._scrollObserver.observe(sentinel);
 }
 
 function back() {
+  // Clean up infinite scroll state so stale cards don't load on next search
+  if (window._scrollObserver) { window._scrollObserver.disconnect(); window._scrollObserver = null; }
+  window._pendingRestaurants = [];
+  window._pendingNoPriceRestaurants = [];
   document.getElementById('search').classList.remove('hidden');
   document.getElementById('results').classList.add('hidden');
 }
 
 async function initAutocomplete() {
   try {
+    const resp = await fetch('/.netlify/functions/get-maps-key');
+    const data = await resp.json();
+    if (!data.key) return;
+
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyD5mpKVHyt79znUa95-a-zsR-P3DPDCqC8&libraries=places&callback=setupAutocomplete`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${data.key}&libraries=places&callback=setupAutocomplete`;
     script.async = true;
     document.head.appendChild(script);
   } catch (err) {
