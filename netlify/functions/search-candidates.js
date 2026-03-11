@@ -1066,10 +1066,7 @@ async function newApiTextByCuisine(lat, lng, userCuisine, KEY) {
     queries = [
       'best italian restaurants', 'best japanese restaurants',
       'best chinese restaurants', 'best mexican restaurants',
-      'best thai restaurants', 'best indian restaurants',
-      'best french restaurants', 'best korean restaurants',
-      'best mediterranean restaurants', 'best american restaurants',
-      'best sushi restaurants', 'best seafood restaurants'
+      'best thai restaurants', 'best mediterranean restaurants'
     ];
   }
 
