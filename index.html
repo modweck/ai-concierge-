@@ -545,9 +545,20 @@ let AVAILABILITY_DATA = {};
 
 (async function loadAvailability() {
   try {
+    const CACHE_KEY = 'sw_availability', TTL = 10 * 60 * 1000;
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const { data, ts } = JSON.parse(cached);
+      if (Date.now() - ts < TTL) {
+        AVAILABILITY_DATA = data;
+        console.log('Availability from cache:', Object.keys(AVAILABILITY_DATA).length, 'restaurants');
+        return;
+      }
+    }
     const resp = await fetch('/.netlify/functions/get-availability');
     if (resp.ok) {
       AVAILABILITY_DATA = await resp.json();
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ data: AVAILABILITY_DATA, ts: Date.now() }));
       console.log('Loaded availability for', Object.keys(AVAILABILITY_DATA).length, 'restaurants');
     }
   } catch(e) { console.log('Availability data not available yet'); }
@@ -738,11 +749,22 @@ let OUTLOOK_DATA = {};
 
 (async function loadOutlook() {
   try {
+    const CACHE_KEY = 'sw_outlook', TTL = 10 * 60 * 1000;
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const { data, ts } = JSON.parse(cached);
+      if (Date.now() - ts < TTL) {
+        OUTLOOK_DATA = data;
+        console.log('Outlook from cache:', Object.keys(OUTLOOK_DATA).length, 'restaurants');
+        return;
+      }
+    }
     const resp = await fetch('/.netlify/functions/get-outlook');
     if (!resp.ok) return;
     const data = await resp.json();
     if (!data || data.error) return;
     OUTLOOK_DATA = data;
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ data: OUTLOOK_DATA, ts: Date.now() }));
     console.log('Loaded outlook data for', Object.keys(OUTLOOK_DATA).length, 'restaurants');
   } catch (e) {
     console.log('Outlook data not available yet');
@@ -1916,12 +1938,8 @@ function back() {
 
 async function initAutocomplete() {
   try {
-    const resp = await fetch('/.netlify/functions/get-maps-key');
-    const data = await resp.json();
-    if (!data.key) return;
-
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${data.key}&libraries=places&callback=setupAutocomplete`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyD5mpKVHyt79znUa95-a-zsR-P3DPDCqC8&libraries=places&callback=setupAutocomplete`;
     script.async = true;
     document.head.appendChild(script);
   } catch (err) {
