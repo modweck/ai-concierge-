@@ -1713,9 +1713,10 @@ function renderCard(r) {
   {
     // ── Chip style builder ──
     const cs = {
-      hard:    { color: '#b91c1c', bg: '#fef2f2', border: '#fca5a5', emoji: '🔴' },
-      limited: { color: '#a16207', bg: '#fefce8', border: '#fde68a', emoji: '🟡' },
-      easy:    { color: '#15803d', bg: '#f0fdf4', border: '#86efac', emoji: '🟢' },
+      hard:     { color: '#b91c1c', bg: '#fef2f2', border: '#fca5a5', emoji: '🔴' },
+      sold_out: { color: '#ffffff', bg: '#111111', border: '#111111', emoji: '⚫' },
+      limited:  { color: '#a16207', bg: '#fefce8', border: '#fde68a', emoji: '🟡' },
+      easy:     { color: '#15803d', bg: '#f0fdf4', border: '#86efac', emoji: '🟢' },
     };
     const chip = (tier, label) => {
       const s = cs[tier] || cs.hard;
@@ -1782,11 +1783,19 @@ function renderCard(r) {
 
       // ── Step 3: Render ──
       let mainChip = '';
+      // If all horizon chips are hard (no relief), upgrade to black badge and hide chips
+      const allHard = horizonChips.length > 0 && horizonChips.every(h => h.tier === 'hard');
+      if (allHard) nowTier = 'sold_out';
+
       let horizonRow = buildHorizonRow();
       // Don't show horizon chips if already available — redundant
       if (nowTier === 'easy') horizonRow = '';
+      // Don't show chips if all hard — black badge says it all
+      if (allHard) horizonRow = '';
 
-      if (nowTier === 'easy') {
+      if (nowTier === 'sold_out') {
+        mainChip = chip('sold_out', 'Very Hard to Book');
+      } else if (nowTier === 'easy') {
         mainChip = chip('easy', 'Available');
       } else if (nowTier === 'limited') {
         mainChip = chip('limited', 'Limited');
