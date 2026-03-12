@@ -1756,7 +1756,9 @@ function renderCard(r) {
           (r.google_review_count >= 500 && r.score >= 4.6) ||
           (r.vibe_tags && (r.vibe_tags.includes('upscale') || r.vibe_tags.includes('trendy'))));
 
+        let hitGreen = false;
         for (const key of ['day3','day7','day14']) {
+          if (hitGreen) break; // stop once we've shown a green chip
           let t = horizon[key];
           if (!t) continue;
           let mappedTier = t === 'medium' ? 'limited' : t;
@@ -1768,6 +1770,7 @@ function renderCard(r) {
           }
 
           horizonChips.push({ label: labels[key], tier: mappedTier });
+          if (mappedTier === 'easy') hitGreen = true;
         }
       }
 
