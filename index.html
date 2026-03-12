@@ -1750,10 +1750,23 @@ function renderCard(r) {
       const horizonChips = [];
       if (horizon) {
         const labels = { day3: 'Day 3', day7: 'Day 7', day14: 'Day 14' };
+
+        // Prestige check — upscale restaurants stay limited longer before going green
+        const isUpscale = !!(r.michelin || r.bib_gourmand ||
+          (r.google_review_count >= 500 && r.score >= 4.6) ||
+          (r.vibe_tags && (r.vibe_tags.includes('upscale') || r.vibe_tags.includes('trendy'))));
+
         for (const key of ['day3','day7','day14']) {
-          const t = horizon[key];
+          let t = horizon[key];
           if (!t) continue;
-          const mappedTier = t === 'medium' ? 'limited' : t; // normalise
+          let mappedTier = t === 'medium' ? 'limited' : t;
+
+          // For upscale restaurants: if day3 would show green but now is limited,
+          // keep day3 as limited so the progression is limited→limited→green
+          if (isUpscale && key === 'day3' && mappedTier === 'easy' && nowTier === 'limited') {
+            mappedTier = 'limited';
+          }
+
           horizonChips.push({ label: labels[key], tier: mappedTier });
         }
       }
