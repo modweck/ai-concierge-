@@ -1783,6 +1783,8 @@ function renderCard(r) {
       // ── Step 3: Render ──
       let mainChip = '';
       let horizonRow = buildHorizonRow();
+      // Don't show horizon chips if already available — redundant
+      if (nowTier === 'easy') horizonRow = '';
 
       if (nowTier === 'easy') {
         mainChip = chip('easy', 'Available');
