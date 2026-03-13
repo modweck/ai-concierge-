@@ -598,7 +598,7 @@ function getAvailTier(name, placeId) {
 
 function getAvailLabel(tier) {
   if (tier === 'hard') return { emoji: '⚫', text: 'Very Hard to Book', cls: 'hard' };
-  if (tier === 'medium') return { emoji: '�', text: 'Limited', cls: 'medium' };
+  if (tier === 'medium') return { emoji: '🟠', text: 'Limited', cls: 'medium' };
   if (tier === 'easy') return { emoji: '🟢', text: 'Available', cls: 'easy' };
   return null;
 }
@@ -697,9 +697,12 @@ function searchAllNYC() {
   // Visually deactivate transport buttons since All NYC overrides distance
   document.querySelectorAll('.toggle-group .toggle-btn').forEach(b => b.classList.remove('active'));
   // Hide all distance selectors
-  document.getElementById('walkDistance').style.display = 'none';
-  document.getElementById('driveDistance').style.display = 'none';
-  document.getElementById('radiusDistance').style.display = 'none';
+  document.getElementById('walkDistance').style.maxHeight = '0';
+  document.getElementById('walkDistance').style.opacity = '0';
+  document.getElementById('driveDistance').style.maxHeight = '0';
+  document.getElementById('driveDistance').style.opacity = '0';
+  document.getElementById('radiusDistance').style.maxHeight = '0';
+  document.getElementById('radiusDistance').style.opacity = '0';
   // Run the search (keeps whatever address is in the input)
   document.getElementById('searchBtn').click();
 }
@@ -892,7 +895,9 @@ function setTransport(evt, mode) {
   const driveDist = document.getElementById('driveDistance');
   const radiusDist = document.getElementById('radiusDistance');
   
+  // Restore display in case searchAllNYC() had hidden them
   [walkDist, driveDist, radiusDist].forEach(el => {
+    el.style.display = '';
     el.style.maxHeight = '0';
     el.style.opacity = '0';
   });
