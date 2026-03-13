@@ -251,6 +251,7 @@
                 <button id="availMedium" onclick="setAvailFilter('medium')" style="flex:1;padding:7px 2px;border:1.5px solid #f59e0b;border-radius:8px;background:#fffbeb;color:#b45309;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟡</button>
                 <button id="availEasy" onclick="setAvailFilter('easy')" style="flex:1;padding:7px 2px;border:1.5px solid #22c55e;border-radius:8px;background:#f0fdf4;color:#15803d;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟢</button>
               </div>
+              <button id="buzzToggle" onclick="toggleBuzzFilter()" style="margin-top:5px;width:100%;padding:6px 4px;border:1.5px solid #e8e8e8;border-radius:8px;background:white;cursor:pointer;font-size:11px;font-weight:600;color:#666;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🔥 Press Picks</button>
             </div>
             <div style="flex:1">
               <span class="section-label" style="margin-bottom:4px;font-size:10px">🚗 How Far</span>
@@ -308,15 +309,6 @@
               <option value="bilt">🏠 Bilt Rewards</option>
               <option value="inkind">🍽️ inKind</option>
             </select>
-          </div>
-          <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
-          <!-- Buzz -->
-          <div>
-            <span class="section-label" style="margin-bottom:4px;font-size:10px">🔥 Buzz</span>
-            <div style="display:flex;gap:6px;align-items:center">
-              <button id="buzzToggle" onclick="toggleBuzzFilter()" style="flex:1;padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;background:white;cursor:pointer;font-size:12px;font-weight:600;color:#666;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🔥 Editorial Coverage</button>
-            </div>
-            <div style="margin-top:4px;font-size:10px;color:#aaa">Only show restaurants featured in Eater, NYT, Infatuation, etc.</div>
           </div>
         </div>
       </div>
