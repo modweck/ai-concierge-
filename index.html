@@ -213,6 +213,16 @@
                 <option value="new_rising">🔥 New & Rising</option>
               </select>
             </div>
+            <div style="flex:1">
+              <span class="section-label" style="margin-bottom:4px;font-size:10px">💰 Price</span>
+              <select id="priceDropdown" onchange="setPriceFromDropdown(this.value)" style="padding:8px 8px;font-size:12px;width:100%">
+                <option value="any">Any</option>
+                <option value="1">$ Budget</option>
+                <option value="2">$$ Mid</option>
+                <option value="3">$$$ Upscale</option>
+                <option value="4">$$$$ Fine</option>
+              </select>
+            </div>
           </div>
         </div>
         <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
@@ -284,21 +294,10 @@
 
       <!-- More Filters toggle -->
       <div onclick="toggleMoreFilters()" style="text-align:center;padding:8px 12px 2px;font-size:12px;font-weight:700;color:#FF5722;cursor:pointer;user-select:none" id="moreFiltersToggle">
-        💰 More Filters <span id="moreFiltersArrow" style="display:inline-block;transition:transform 0.3s;font-size:10px;margin-left:2px">▾</span>
+        🎁 Rewards & Press <span id="moreFiltersArrow" style="display:inline-block;transition:transform 0.3s;font-size:10px;margin-left:2px">▾</span>
       </div>
       <div id="moreFiltersPanel" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;margin:0 16px">
         <div style="background:white;border-radius:14px;padding:12px 14px;border:1px solid #f0f0f0;box-shadow:0 2px 8px rgba(0,0,0,0.04);margin-top:4px">
-          <!-- Price -->
-          <div style="margin-bottom:10px">
-            <span class="section-label" style="margin-bottom:4px;font-size:10px">💰 Price</span>
-            <div style="display:flex;gap:4px">
-              <button class="chip chip-sm price-chip" onclick="togglePriceChip(this,1)" data-price="1" style="flex:1;text-align:center">$</button>
-              <button class="chip chip-sm price-chip" onclick="togglePriceChip(this,2)" data-price="2" style="flex:1;text-align:center">$$</button>
-              <button class="chip chip-sm price-chip" onclick="togglePriceChip(this,3)" data-price="3" style="flex:1;text-align:center">$$$</button>
-              <button class="chip chip-sm price-chip" onclick="togglePriceChip(this,4)" data-price="4" style="flex:1;text-align:center">$$$$</button>
-            </div>
-          </div>
-          <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
           <!-- Rewards -->
           <div style="margin-bottom:10px">
             <span class="section-label" style="margin-bottom:4px;font-size:10px">🎁 Rewards</span>
@@ -1032,6 +1031,11 @@ function toggleMoreFilters() {
 }
 
 // --- Price filter (multi-select) ---
+function setPriceFromDropdown(val) {
+  state.priceFilter.clear();
+  if (val !== 'any') state.priceFilter.add(parseInt(val));
+}
+
 function togglePriceChip(btn, level) {
   if (state.priceFilter.has(level)) {
     state.priceFilter.delete(level);
