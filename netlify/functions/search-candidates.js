@@ -1184,7 +1184,7 @@ exports.handler = async (event) => {
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: { stars: r.stars||0, distinction: r.distinction||'star' },
           cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
-          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null, website: r.website || null,
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
       }).filter(r => r.distanceMiles <= 15)
         .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
@@ -1208,7 +1208,7 @@ exports.handler = async (event) => {
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
-          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null, website: r.website || null,
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
       }).filter(r => r.distanceMiles <= 15)
         .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
@@ -1231,7 +1231,7 @@ exports.handler = async (event) => {
           googleRating: r.googleRating || 0, googleReviewCount: r.googleReviewCount || 0,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: null, cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
-          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null, website: r.website || null,
           chase_sapphire: true };
       }).filter(r => r.distanceMiles <= 15)
         .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
@@ -1254,7 +1254,7 @@ exports.handler = async (event) => {
           googleRating: r.googleRating || 0, googleReviewCount: r.googleReviewCount || 0,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: null, cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
-          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null, website: r.website || null,
           rakuten: true };
       }).filter(r => r.distanceMiles <= 15)
         .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
