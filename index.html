@@ -238,8 +238,8 @@
             <div style="flex:1">
               <span class="section-label" style="margin-bottom:4px;font-size:10px">📅 Availability</span>
               <div style="display:flex;gap:4px">
-                <button id="availHard" onclick="setAvailFilter('hard')" style="flex:1;padding:7px 2px;border:1.5px solid #ef4444;border-radius:8px;background:#fef2f2;color:#b91c1c;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🔴</button>
-                <button id="availMedium" onclick="setAvailFilter('medium')" style="flex:1;padding:7px 2px;border:1.5px solid #f59e0b;border-radius:8px;background:#fffbeb;color:#b45309;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟡</button>
+                <button id="availHard" onclick="setAvailFilter('hard')" style="flex:1;padding:7px 2px;border:1.5px solid #1a1a1a;border-radius:8px;background:#f5f5f5;color:#1a1a1a;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">⚫</button>
+                <button id="availMedium" onclick="setAvailFilter('medium')" style="flex:1;padding:7px 2px;border:1.5px solid #f59e0b;border-radius:8px;background:#fffbeb;color:#b45309;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟠</button>
                 <button id="availEasy" onclick="setAvailFilter('easy')" style="flex:1;padding:7px 2px;border:1.5px solid #22c55e;border-radius:8px;background:#f0fdf4;color:#15803d;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟢</button>
               </div>
             </div>
@@ -531,12 +531,7 @@ function switchPage(idx) {
 let state = { transport: 'walk', qualityFilter: 'any', showExpanded: false, rewardsFilter: 'any', sortBy: 'rating', availFilter: { hard: true, medium: true, easy: true }, timeSlot: 'prime', vibeFilter: new Set(), priceFilter: new Set(), buzzFilter: false };
 let allRestaurants = [];
 
-// Avail filter buttons - attach via JS to avoid any overlay issues
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('availHard')?.addEventListener('click', () => setAvailFilter('hard'));
-  document.getElementById('availMedium')?.addEventListener('click', () => setAvailFilter('medium'));
-  document.getElementById('availEasy')?.addEventListener('click', () => setAvailFilter('easy'));
-});
+// Avail filter buttons use onclick in HTML - no duplicate listeners needed
 let isSearching = false;
 let searchAbortController = null;
 
@@ -641,8 +636,8 @@ function setAvailFilter(tier) {
 function updateAvailButtons() {
   const btns = { hard: document.getElementById('availHard'), medium: document.getElementById('availMedium'), easy: document.getElementById('availEasy') };
   const styles = {
-    hard:   { on: 'background:#ef4444;color:white;border-color:#ef4444', off: 'background:#fef2f2;color:#b91c1c;border-color:#ef4444' },
-    medium: { on: 'background:#f59e0b;color:white;border-color:#f59e0b', off: 'background:#fffbeb;color:#b45309;border-color:#f59e0b' },
+    hard:   { on: 'background:#1a1a1a;color:white;border-color:#1a1a1a', off: 'background:#f5f5f5;color:#1a1a1a;border-color:#1a1a1a' },
+    medium: { on: 'background:#f97316;color:white;border-color:#f97316', off: 'background:#fff7ed;color:#c2410c;border-color:#f97316' },
     easy:   { on: 'background:#22c55e;color:white;border-color:#22c55e', off: 'background:#f0fdf4;color:#15803d;border-color:#22c55e' },
   };
   for (const [tier, btn] of Object.entries(btns)) {
@@ -1514,8 +1509,14 @@ function sortResults() {
       r._displayScore = s;
     });
 
+    // Availability tier rank: hard=2 (most desirable, shown first), medium=1, easy/none=0
+    const availRank = r => { const t = getAvailTier(r.name, r.place_id); return t === 'hard' ? 2 : t === 'medium' ? 1 : 0; };
+
     if (sortBy === 'rating') {
       sorted.sort((a, b) => {
+        // Hard-to-book restaurants surface first
+        const aa = availRank(a), ba = availRank(b);
+        if (aa !== ba) return ba - aa;
         const ra = (a._displayScore || 0), rb = (b._displayScore || 0);
         if (ra !== rb) return rb - ra;
         const ma = michelinRank(a), mb = michelinRank(b);
