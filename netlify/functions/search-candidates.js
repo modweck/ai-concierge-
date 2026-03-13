@@ -1320,6 +1320,7 @@ exports.handler = async (event) => {
           horizon: AVAILABILITY_BOOK[key] ? AVAILABILITY_BOOK[key].horizon || null : null,
           slots:   AVAILABILITY_BOOK[key] ? AVAILABILITY_BOOK[key].slots   || null : null,
           tier:    AVAILABILITY_BOOK[key] ? AVAILABILITY_BOOK[key].tier    || null : null,
+          website: entry.website || null,
           _source: 'master_book',
         });
       }
