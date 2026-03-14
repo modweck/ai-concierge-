@@ -800,6 +800,27 @@ function getBookingInfo(name) {
     if (key.includes(lk) || lk.includes(key)) return BOOKING_LOOKUP[lk];
     if (norm && norm.length >= 4 && (norm.includes(lk) || lk.includes(norm))) return BOOKING_LOOKUP[lk];
   }
+
+  // Fall back to MASTER_BOOK — use url field when booking_url is null
+  // MASTER_BOOK keys are mixed-case, so check lowercase versions too
+  let masterEntry = MASTER_BOOK[key] || MASTER_BOOK[noThe];
+  if (!masterEntry) {
+    // Scan MASTER_KEYS for a case-insensitive match
+    for (const mk of MASTER_KEYS) {
+      if (mk.toLowerCase() === key || mk.toLowerCase() === noThe) {
+        masterEntry = MASTER_BOOK[mk];
+        break;
+      }
+    }
+  }
+  if (masterEntry) {
+    const bookingUrl = masterEntry.booking_url || masterEntry.url || null;
+    const platform = masterEntry.platform || masterEntry.booking_platform || null;
+    if (bookingUrl && platform && platform !== 'none' && platform !== 'unknown') {
+      return { platform, url: bookingUrl };
+    }
+  }
+
   return null;
 }
 
@@ -1064,12 +1085,9 @@ async function newApiTextByCuisine(lat, lng, userCuisine, KEY) {
     queries = [`best ${userCuisine} restaurants`, `top rated ${userCuisine} restaurants`];
   } else {
     queries = [
-      'best italian restaurants', 'best japanese restaurants',
-      'best chinese restaurants', 'best mexican restaurants',
-      'best thai restaurants', 'best indian restaurants',
-      'best french restaurants', 'best korean restaurants',
-      'best mediterranean restaurants', 'best american restaurants',
-      'best sushi restaurants', 'best seafood restaurants'
+      'best italian restaurants', 'best sushi restaurants',
+      'best mexican restaurants', 'best mediterranean restaurants',
+      'best american restaurants', 'best japanese restaurants'
     ];
   }
 
@@ -1187,7 +1205,7 @@ exports.handler = async (event) => {
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: { stars: r.stars||0, distinction: r.distinction||'star' },
           cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
-          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null, website: (() => { const mk = (r.name||"").toLowerCase().trim(); return (MASTER_BOOK[mk] || MASTER_BOOK[mk.replace(/^the /,"")] || {}).website || null; })(),
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
       }).filter(r => r.distanceMiles <= 15)
         .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
@@ -1211,7 +1229,7 @@ exports.handler = async (event) => {
           googleRating: r.googleRating, googleReviewCount: r.googleReviewCount,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: { stars: 0, distinction: 'bib_gourmand' }, cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
-          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null, website: (() => { const mk = (r.name||"").toLowerCase().trim(); return (MASTER_BOOK[mk] || MASTER_BOOK[mk.replace(/^the /,"")] || {}).website || null; })(),
           chase_sapphire: chaseNameLookup.has(normalizeName(r.name)) };
       }).filter(r => r.distanceMiles <= 15)
         .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
@@ -1234,7 +1252,7 @@ exports.handler = async (event) => {
           googleRating: r.googleRating || 0, googleReviewCount: r.googleReviewCount || 0,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: null, cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
-          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null, website: (() => { const mk = (r.name||"").toLowerCase().trim(); return (MASTER_BOOK[mk] || MASTER_BOOK[mk.replace(/^the /,"")] || {}).website || null; })(),
           chase_sapphire: true };
       }).filter(r => r.distanceMiles <= 15)
         .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
@@ -1257,7 +1275,7 @@ exports.handler = async (event) => {
           googleRating: r.googleRating || 0, googleReviewCount: r.googleReviewCount || 0,
           distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
           michelin: null, cuisine: CUISINE_LOOKUP[r.name] || r.cuisine || null,
-          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null,
+          booking_platform: r.booking_platform || null, booking_url: r.booking_url || null, website: (() => { const mk = (r.name||"").toLowerCase().trim(); return (MASTER_BOOK[mk] || MASTER_BOOK[mk.replace(/^the /,"")] || {}).website || null; })(),
           rakuten: true };
       }).filter(r => r.distanceMiles <= 15)
         .filter(r => !cuisineFilter || cuisineLookupMatches(r.name, cuisineFilter, r.cuisine));
@@ -1323,6 +1341,7 @@ exports.handler = async (event) => {
           horizon: AVAILABILITY_BOOK[key] ? AVAILABILITY_BOOK[key].horizon || null : null,
           slots:   AVAILABILITY_BOOK[key] ? AVAILABILITY_BOOK[key].slots   || null : null,
           tier:    AVAILABILITY_BOOK[key] ? AVAILABILITY_BOOK[key].tier    || null : null,
+          website: entry.website || null,
           _source: 'master_book',
         });
       }
@@ -1543,6 +1562,7 @@ exports.handler = async (event) => {
         googleRating: p.rating || p.googleRating || 0, googleReviewCount: p.user_ratings_total || p.googleReviewCount || 0,
         distanceMiles: Math.round(d*10)/10, walkMinEstimate: Math.round(d*20), driveMinEstimate: Math.round(d*4), transitMinEstimate: Math.round(d*6),
         booking_platform: bp, booking_url: bu,
+        website: (() => { const mk = (p.name||'').toLowerCase().trim(); return (MASTER_BOOK[mk] || MASTER_BOOK[(mk).replace(/^the /,'')] || {}).website || null; })(),
         websiteUri: p.websiteUri || null,
         cuisine: CUISINE_LOOKUP[p.name] || p.cuisine || null,
         velocity: getReviewVelocity(p.place_id),
