@@ -1668,7 +1668,6 @@ function renderCard(r) {
   let bookBtnHtml = '';
 if ((r.booking_url || r.url) && (r.booking_platform || r.platform)) {
     let cleanUrl = r.booking_url || r.url;
-    const platform = r.booking_platform || r.platform;
     if (cleanUrl.includes('google.com/url')) {
       try { const u = new URL(cleanUrl); cleanUrl = u.searchParams.get('q') || u.searchParams.get('url') || cleanUrl; } catch(e) {}
     }
@@ -1683,7 +1682,8 @@ if ((r.booking_url || r.url) && (r.booking_platform || r.platform)) {
      website: { bg: '#888', label: 'Book →' },
       walkin: { bg: '#2e7d32', label: '🚶 Walk-ins Welcome' },
     };
-    const s = btnStyles[r.booking_platform] || { bg: '#888', label: 'Book →' }
+    const platform = r.booking_platform || r.platform;
+    const s = btnStyles[platform] || { bg: '#888', label: 'Book →' }
     bookBtnHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:${s.bg};color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.2px">${s.label}</a>`;
   } else if (r.website) {
     bookBtnHtml = `<a href="${r.website}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#333;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Visit Website →</a>`;
