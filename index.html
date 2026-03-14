@@ -2374,12 +2374,16 @@ function renderBarCard(b) {
     : '';
 
 
-  // Action button: Resy > OpenTable > Website > Google
+  // Action button: Resy > OpenTable > url fallback by platform > Website > Google
   let actionBtnHtml = '';
-  if (b.resy_url) {
-    actionBtnHtml = `<a href="${b.resy_url}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#c2185b;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Book on Resy →</a>`;
-  } else if (b.opentable_url) {
-    actionBtnHtml = `<a href="${b.opentable_url}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#da3743;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Book on OpenTable →</a>`;
+  const resyBookUrl = b.resy_url || (b.platform === 'resy' && b.url ? b.url : null);
+  const otBookUrl = b.opentable_url || (b.platform === 'opentable' && b.url ? b.url : null);
+  if (resyBookUrl) {
+    actionBtnHtml = `<a href="${resyBookUrl}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#c2185b;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Book on Resy →</a>`;
+  } else if (otBookUrl) {
+    actionBtnHtml = `<a href="${otBookUrl}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#da3743;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Book on OpenTable →</a>`;
+  } else if (b.platform === 'tock' && b.url) {
+    actionBtnHtml = `<a href="${b.url}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#0f766e;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Book on Tock →</a>`;
   } else if (b.website) {
     actionBtnHtml = `<a href="${b.website}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#333;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Visit Website →</a>`;
   } else {
