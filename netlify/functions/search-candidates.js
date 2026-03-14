@@ -1766,11 +1766,11 @@ exports.handler = async (event) => {
     if (chaseInjected) console.log(`\u2705 Injected ${chaseInjected} Chase Sapphire restaurants not in other results`);
 
     // INJECT Google results last — fills in anything MASTER_BOOK missed
-    // Only inject if 500+ reviews — lower count spots are likely noise already covered by master
+    // 250+ review minimum — below that is likely noise already covered by master
     let googleInjected = 0;
     for (const g of googleResults) {
       if (!g.place_id && !g.name) continue;
-      if ((g.googleReviewCount || g.user_ratings_total || 0) < 500) continue;
+      if ((g.googleReviewCount || g.user_ratings_total || 0) < 250) continue;
       if (g.place_id && existingIds.has(g.place_id)) continue;
       if (g.name && existingNames.has(normalizeName(g.name))) continue;
       within.push({ ...g, _source: g._source || 'google' });
@@ -1778,7 +1778,7 @@ exports.handler = async (event) => {
       if (g.name) existingNames.add(normalizeName(g.name));
       googleInjected++;
     }
-    if (googleInjected) console.log(`✅ Injected ${googleInjected} restaurants from Google not in MASTER_BOOK`);
+    if (googleInjected) console.log(`\u2705 Injected ${googleInjected} restaurants from Google not in MASTER_BOOK`);
 
     // Final dedup pass — catch any duplicates from multiple inject paths
     const deduped = [];
