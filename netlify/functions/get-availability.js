@@ -1,4 +1,6 @@
 // Netlify function: get-availability.js
+// Serves overall tier + per-window tiers
+// Window thresholds: 0 = hard, 1-3 = medium, 4+ = easy
 const fs = require('fs');
 const path = require('path');
 
@@ -11,10 +13,11 @@ function windowTier(count) {
 exports.handler = async function(event, context) {
   try {
     const possiblePaths = [
-      path.join(__dirname, 'AVAILABILITY_MASTER.json'),
-      path.join(process.cwd(), 'netlify', 'functions', 'AVAILABILITY_MASTER.json'),
-      '/var/task/netlify/functions/AVAILABILITY_MASTER.json',
-      '/var/task/AVAILABILITY_MASTER.json'
+      path.join(__dirname, 'availability_data.json'),
+      path.resolve(__dirname, 'availability_data.json'),
+      path.join(process.cwd(), 'netlify', 'functions', 'availability_data.json'),
+      '/var/task/netlify/functions/availability_data.json',
+      '/var/task/availability_data.json'
     ];
 
     let rawData = null;
@@ -37,22 +40,13 @@ exports.handler = async function(event, context) {
     const slim = {};
 
     for (const [name, info] of Object.entries(full)) {
-      // Support both old format (availability_tier) and new format (slots.tier / top-level tier)
-      const tier = info.tier || info.slots?.tier || info.availability_tier || 'unknown';
-
-      // Build time windows from slots
-      const slots = info.slots || {};
+      const tier = info.availability_tier || 'unknown';
+      const tw = info.time_windows || {};
       const windows = {};
-      if (slots.early_slots !== undefined) windows.early = windowTier(slots.early_slots || 0);
-      if (slots.prime_slots !== undefined) windows.prime = windowTier(slots.prime_slots || 0);
-      if (slots.late_slots  !== undefined) windows.late  = windowTier(slots.late_slots  || 0);
 
-      // Also support old time_windows format
-      if (!Object.keys(windows).length && info.time_windows) {
-        for (const slot of ['early', 'prime', 'late']) {
-          if (info.time_windows[slot]) {
-            windows[slot] = windowTier(info.time_windows[slot].count || 0);
-          }
+      for (const slot of ['early', 'prime', 'late']) {
+        if (tw[slot]) {
+          windows[slot] = windowTier(tw[slot].count || 0);
         }
       }
 
