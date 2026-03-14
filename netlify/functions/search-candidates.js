@@ -1032,8 +1032,8 @@ function filterRestaurantsByTier(candidates, qualityMode) {
       if (rating >= 4.9 && reviews < 50) { excluded.push({ name: place.name, reason: `unreliable ${rating}\u2605/${reviews}rev` }); continue; }
       // 4.7-4.8 needs 50+ reviews
       if (rating >= 4.7 && reviews < 50) { excluded.push({ name: place.name, reason: `few_reviews ${rating}\u2605/${reviews}rev` }); continue; }
-      // Everything else needs 500+ reviews
-      if (reviews < 500) { excluded.push({ name: place.name, reason: `min_reviews (${reviews})` }); continue; }
+      // Everything else needs 150+ reviews
+      if (reviews < 150) { excluded.push({ name: place.name, reason: `min_reviews (${reviews})` }); continue; }
       if (rating >= eliteMin) elite.push(place);
       else if (rating >= moreMin) moreOptions.push(place);
       else excluded.push({ name: place.name, reason: 'below_threshold' });
