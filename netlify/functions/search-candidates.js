@@ -787,9 +787,13 @@ function normalizeForBooking(name) {
     .trim();
 }
 
+function normalizeApostrophes(s) {
+  return s.replace(/[\u2018\u2019\u201A\u201B\u2032\u0060]/g, "'");
+}
+
 function getBookingInfo(name) {
   if (!name) return null;
-  const key = name.toLowerCase().trim();
+  const key = normalizeApostrophes(name.toLowerCase().trim());
   if (BOOKING_LOOKUP[key]) return BOOKING_LOOKUP[key];
   const noThe = key.replace(/^the\s+/, '');
   if (BOOKING_LOOKUP[noThe]) return BOOKING_LOOKUP[noThe];
@@ -800,17 +804,12 @@ function getBookingInfo(name) {
     if (key.includes(lk) || lk.includes(key)) return BOOKING_LOOKUP[lk];
     if (norm && norm.length >= 4 && (norm.includes(lk) || lk.includes(norm))) return BOOKING_LOOKUP[lk];
   }
-
-  // Fall back to MASTER_BOOK — use url field when booking_url is null
-  // MASTER_BOOK keys are mixed-case, so check lowercase versions too
+  // Fall back to MASTER_BOOK with apostrophe normalization
   let masterEntry = MASTER_BOOK[key] || MASTER_BOOK[noThe];
   if (!masterEntry) {
-    // Scan MASTER_KEYS for a case-insensitive match
     for (const mk of MASTER_KEYS) {
-      if (mk.toLowerCase() === key || mk.toLowerCase() === noThe) {
-        masterEntry = MASTER_BOOK[mk];
-        break;
-      }
+      const mkNorm = normalizeApostrophes(mk.toLowerCase());
+      if (mkNorm === key || mkNorm === noThe) { masterEntry = MASTER_BOOK[mk]; break; }
     }
   }
   if (masterEntry) {
@@ -820,7 +819,6 @@ function getBookingInfo(name) {
       return { platform, url: bookingUrl };
     }
   }
-
   return null;
 }
 
