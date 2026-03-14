@@ -1570,8 +1570,65 @@ exports.handler = async (event) => {
     });
 
     const maxDistMiles = 7.0;
-    const within = withDist.filter(r => r.distanceMiles <= maxDistMiles);
-    console.log(`\ud83d\udcca Within 7mi: ${within.length}`);
+    const googleResults = withDist.filter(r => r.distanceMiles <= maxDistMiles);
+    console.log(`\ud83d\udcca Within 7mi (Google): ${googleResults.length}`);
+
+    // =========================================================================
+    // BUILD `within` FROM MASTER_BOOK FIRST — Google fills in at the end
+    // =========================================================================
+    const within = [];
+    const existingIds = new Set();
+    const existingNames = new Set();
+
+    let masterInjected = 0;
+    for (const [mk, entry] of Object.entries(MASTER_BOOK)) {
+      if (!entry.lat || !entry.lng) continue;
+      if (entry.place_id && existingIds.has(entry.place_id)) continue;
+      if (existingNames.has(normalizeName(mk))) continue;
+      if (cuisineStr) {
+        const entryCuisine = CUISINE_LOOKUP[mk] || entry.cuisine || null;
+        if (!entryCuisine) continue;
+        const c = entryCuisine.toLowerCase(), cs = cuisineStr.toLowerCase();
+        if (!c.includes(cs) && !cs.includes(c)) continue;
+      }
+      if ((entry.price || null) === 1) continue;
+      const d = haversineMiles(gLat, gLng, entry.lat, entry.lng);
+      if (d > maxDistMiles) continue;
+      within.push({
+        place_id: entry.place_id || null,
+        name: mk,
+        vicinity: entry.address || entry.neighborhood || '',
+        formatted_address: entry.address || entry.neighborhood || '',
+        price_level: entry.price || null,
+        opening_hours: null,
+        geometry: { location: { lat: entry.lat, lng: entry.lng } },
+        types: ['restaurant'],
+        googleRating: entry.google_rating || 0,
+        googleReviewCount: entry.google_reviews || 0,
+        distanceMiles: Math.round(d * 10) / 10,
+        walkMinEstimate: Math.round(d * 20),
+        driveMinEstimate: Math.round(d * 4),
+        transitMinEstimate: Math.round(d * 6),
+        booking_platform: entry.platform || entry.booking_platform || null,
+        booking_url: entry.url || entry.booking_url || null,
+        website: entry.website || null,
+        cuisine: entry.cuisine || CUISINE_LOOKUP[mk] || null,
+        vibe_tags: entry.vibe_tags || [],
+        instagram: entry.instagram || null,
+        bib_gourmand: entry.bib_gourmand || null,
+        michelin: entry.michelin_stars ? { stars: entry.michelin_stars, distinction: 'star' } : null,
+        horizon: AVAILABILITY_BOOK[mk] ? AVAILABILITY_BOOK[mk].horizon || null : null,
+        slots:   AVAILABILITY_BOOK[mk] ? AVAILABILITY_BOOK[mk].slots   || null : null,
+        tier:    AVAILABILITY_BOOK[mk] ? AVAILABILITY_BOOK[mk].tier    || null : null,
+        velocity: getReviewVelocity(entry.place_id || null),
+        likelihood: getReservationLikelihood(entry.place_id || null),
+        _source: 'master_book',
+      });
+      if (entry.place_id) existingIds.add(entry.place_id);
+      existingNames.add(normalizeName(mk));
+      masterInjected++;
+    }
+    console.log(`\u2705 MASTER_BOOK base: ${masterInjected} restaurants within ${maxDistMiles}mi`);
 
     const michelin = await resolveMichelinPlaces(KEY);
     attachMichelinBadges(within, michelin);
@@ -1588,10 +1645,6 @@ exports.handler = async (event) => {
         c.booking_url = b.booking_url || null;
       }
     }
-
-    // INJECT Michelin restaurants not in Google results
-    const existingIds = new Set(within.map(r => r.place_id).filter(Boolean));
-    const existingNames = new Set(within.map(r => normalizeName(r.name)).filter(Boolean));
     let injected = 0;
     for (const m of michelin) {
       if (!m?.lat || !m?.lng) continue;
@@ -1711,6 +1764,21 @@ exports.handler = async (event) => {
       chaseInjected++;
     }
     if (chaseInjected) console.log(`\u2705 Injected ${chaseInjected} Chase Sapphire restaurants not in other results`);
+
+    // INJECT Google results last — fills in anything MASTER_BOOK missed
+    // Only inject if 500+ reviews — lower count spots are likely noise already covered by master
+    let googleInjected = 0;
+    for (const g of googleResults) {
+      if (!g.place_id && !g.name) continue;
+      if ((g.googleReviewCount || g.user_ratings_total || 0) < 500) continue;
+      if (g.place_id && existingIds.has(g.place_id)) continue;
+      if (g.name && existingNames.has(normalizeName(g.name))) continue;
+      within.push({ ...g, _source: g._source || 'google' });
+      if (g.place_id) existingIds.add(g.place_id);
+      if (g.name) existingNames.add(normalizeName(g.name));
+      googleInjected++;
+    }
+    if (googleInjected) console.log(`✅ Injected ${googleInjected} restaurants from Google not in MASTER_BOOK`);
 
     // Final dedup pass — catch any duplicates from multiple inject paths
     const deduped = [];
