@@ -155,7 +155,6 @@
           <div class="location-row">
             <input type="text" id="addressInput" placeholder="Enter address" value="New York, NY" style="padding:9px 10px;font-size:13px">
             <button class="icon-btn" onclick="useCurrentLocation()" style="padding:9px;font-size:14px">📍</button>
-            <button class="allnyc-btn" onclick="searchAllNYC()" style="padding:7px 10px;font-size:10px">🗽 All NYC</button>
           </div>
         </div>
         <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
@@ -214,6 +213,16 @@
                 <option value="new_rising">🔥 New & Rising</option>
               </select>
             </div>
+            <div style="flex:1">
+              <span class="section-label" style="margin-bottom:4px;font-size:10px">💰 Price</span>
+              <select id="priceDropdown" onchange="setPriceFromDropdown(this.value)" style="padding:8px 8px;font-size:12px;width:100%">
+                <option value="any">Any</option>
+                <option value="1">$ Budget</option>
+                <option value="2">$$ Mid</option>
+                <option value="3">$$$ Upscale</option>
+                <option value="4">$$$$ Fine</option>
+              </select>
+            </div>
           </div>
         </div>
         <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
@@ -242,6 +251,7 @@
                 <button id="availMedium" onclick="setAvailFilter('medium')" style="flex:1;padding:7px 2px;border:1.5px solid #f59e0b;border-radius:8px;background:#fffbeb;color:#b45309;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟡</button>
                 <button id="availEasy" onclick="setAvailFilter('easy')" style="flex:1;padding:7px 2px;border:1.5px solid #22c55e;border-radius:8px;background:#f0fdf4;color:#15803d;font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🟢</button>
               </div>
+              <button id="buzzToggle" onclick="toggleBuzzFilter()" style="margin-top:5px;width:100%;padding:6px 4px;border:1.5px solid #e8e8e8;border-radius:8px;background:white;cursor:pointer;font-size:11px;font-weight:600;color:#666;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🔥 Press Picks</button>
             </div>
             <div style="flex:1">
               <span class="section-label" style="margin-bottom:4px;font-size:10px">🚗 How Far</span>
@@ -285,21 +295,10 @@
 
       <!-- More Filters toggle -->
       <div onclick="toggleMoreFilters()" style="text-align:center;padding:8px 12px 2px;font-size:12px;font-weight:700;color:#FF5722;cursor:pointer;user-select:none" id="moreFiltersToggle">
-        💰 More Filters <span id="moreFiltersArrow" style="display:inline-block;transition:transform 0.3s;font-size:10px;margin-left:2px">▾</span>
+        🎁 Rewards <span id="moreFiltersArrow" style="display:inline-block;transition:transform 0.3s;font-size:10px;margin-left:2px">▾</span>
       </div>
       <div id="moreFiltersPanel" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;margin:0 16px">
         <div style="background:white;border-radius:14px;padding:12px 14px;border:1px solid #f0f0f0;box-shadow:0 2px 8px rgba(0,0,0,0.04);margin-top:4px">
-          <!-- Price -->
-          <div style="margin-bottom:10px">
-            <span class="section-label" style="margin-bottom:4px;font-size:10px">💰 Price</span>
-            <div style="display:flex;gap:4px">
-              <button class="chip chip-sm price-chip" onclick="togglePriceChip(this,1)" data-price="1" style="flex:1;text-align:center">$</button>
-              <button class="chip chip-sm price-chip" onclick="togglePriceChip(this,2)" data-price="2" style="flex:1;text-align:center">$$</button>
-              <button class="chip chip-sm price-chip" onclick="togglePriceChip(this,3)" data-price="3" style="flex:1;text-align:center">$$$</button>
-              <button class="chip chip-sm price-chip" onclick="togglePriceChip(this,4)" data-price="4" style="flex:1;text-align:center">$$$$</button>
-            </div>
-          </div>
-          <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
           <!-- Rewards -->
           <div style="margin-bottom:10px">
             <span class="section-label" style="margin-bottom:4px;font-size:10px">🎁 Rewards</span>
@@ -310,15 +309,6 @@
               <option value="bilt">🏠 Bilt Rewards</option>
               <option value="inkind">🍽️ inKind</option>
             </select>
-          </div>
-          <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
-          <!-- Buzz -->
-          <div>
-            <span class="section-label" style="margin-bottom:4px;font-size:10px">🔥 Buzz</span>
-            <div style="display:flex;gap:6px;align-items:center">
-              <button id="buzzToggle" onclick="toggleBuzzFilter()" style="flex:1;padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;background:white;cursor:pointer;font-size:12px;font-weight:600;color:#666;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center">🔥 Editorial Coverage</button>
-            </div>
-            <div style="margin-top:4px;font-size:10px;color:#aaa">Only show restaurants featured in Eater, NYT, Infatuation, etc.</div>
           </div>
         </div>
       </div>
@@ -357,7 +347,6 @@
           <div class="location-row">
             <input type="text" id="barAddressInput" placeholder="Enter address" value="New York, NY" style="padding:9px 10px;font-size:13px">
             <button class="icon-btn" onclick="useBarCurrentLocation()" style="padding:9px;font-size:14px">📍</button>
-            <button class="allnyc-btn" onclick="searchAllBars(true)" style="padding:7px 10px;font-size:10px">🗽 All NYC</button>
           </div>
         </div>
         <div style="height:1px;background:#f0f0f0;margin:0 0 10px"></div>
@@ -598,7 +587,7 @@ function getAvailTier(name, placeId) {
 
 function getAvailLabel(tier) {
   if (tier === 'hard') return { emoji: '⚫', text: 'Very Hard to Book', cls: 'hard' };
-  if (tier === 'medium') return { emoji: '�', text: 'Limited', cls: 'medium' };
+  if (tier === 'medium') return { emoji: '🟠', text: 'Limited', cls: 'medium' };
   if (tier === 'easy') return { emoji: '🟢', text: 'Available', cls: 'easy' };
   return null;
 }
@@ -697,9 +686,12 @@ function searchAllNYC() {
   // Visually deactivate transport buttons since All NYC overrides distance
   document.querySelectorAll('.toggle-group .toggle-btn').forEach(b => b.classList.remove('active'));
   // Hide all distance selectors
-  document.getElementById('walkDistance').style.display = 'none';
-  document.getElementById('driveDistance').style.display = 'none';
-  document.getElementById('radiusDistance').style.display = 'none';
+  document.getElementById('walkDistance').style.maxHeight = '0';
+  document.getElementById('walkDistance').style.opacity = '0';
+  document.getElementById('driveDistance').style.maxHeight = '0';
+  document.getElementById('driveDistance').style.opacity = '0';
+  document.getElementById('radiusDistance').style.maxHeight = '0';
+  document.getElementById('radiusDistance').style.opacity = '0';
   // Run the search (keeps whatever address is in the input)
   document.getElementById('searchBtn').click();
 }
@@ -892,7 +884,9 @@ function setTransport(evt, mode) {
   const driveDist = document.getElementById('driveDistance');
   const radiusDist = document.getElementById('radiusDistance');
   
+  // Restore display in case searchAllNYC() had hidden them
   [walkDist, driveDist, radiusDist].forEach(el => {
+    el.style.display = '';
     el.style.maxHeight = '0';
     el.style.opacity = '0';
   });
@@ -1029,6 +1023,11 @@ function toggleMoreFilters() {
 }
 
 // --- Price filter (multi-select) ---
+function setPriceFromDropdown(val) {
+  state.priceFilter.clear();
+  if (val !== 'any') state.priceFilter.add(parseInt(val));
+}
+
 function togglePriceChip(btn, level) {
   if (state.priceFilter.has(level)) {
     state.priceFilter.delete(level);
@@ -1677,13 +1676,13 @@ function renderCard(r) {
     const btnStyles = {
       resy: { bg: '#c2185b', label: 'Book on Resy →' },
       opentable: { bg: '#da3743', label: 'Book on OpenTable →' },
-      tock: { bg: '#1a73e8', label: 'Book on Tock →' },
+    tock: { bg: '#0f766e', label: 'Book on Tock →' },
       bilt: { bg: '#1a1a2e', label: '🏠 Book on Bilt →' },
       google_reserve: { bg: '#4285f4', label: 'Reserve on Google →' },
-      website: { bg: '#333', label: 'Book →' },
+     website: { bg: '#888', label: 'Book →' },
       walkin: { bg: '#2e7d32', label: '🚶 Walk-ins Welcome' },
     };
-    const s = btnStyles[r.booking_platform] || { bg: '#555', label: 'Book →' };
+    const s = btnStyles[r.booking_platform] || { bg: '#888', label: 'Book →' }
     bookBtnHtml = `<a href="${cleanUrl}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:${s.bg};color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.2px">${s.label}</a>`;
   } else if (r.website) {
     bookBtnHtml = `<a href="${r.website}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#333;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Visit Website →</a>`;
@@ -1713,9 +1712,10 @@ function renderCard(r) {
   {
     // ── Chip style builder ──
     const cs = {
-      hard:    { color: '#b91c1c', bg: '#fef2f2', border: '#fca5a5', emoji: '🔴' },
-      limited: { color: '#a16207', bg: '#fefce8', border: '#fde68a', emoji: '🟡' },
-      easy:    { color: '#15803d', bg: '#f0fdf4', border: '#86efac', emoji: '🟢' },
+      hard:     { color: '#b91c1c', bg: '#fef2f2', border: '#fca5a5', emoji: '🔴' },
+      sold_out: { color: '#ffffff', bg: '#111111', border: '#111111', emoji: '⚫' },
+      limited:  { color: '#a16207', bg: '#fefce8', border: '#fde68a', emoji: '🟡' },
+      easy:     { color: '#15803d', bg: '#f0fdf4', border: '#86efac', emoji: '🟢' },
     };
     const chip = (tier, label) => {
       const s = cs[tier] || cs.hard;
@@ -1750,11 +1750,27 @@ function renderCard(r) {
       const horizonChips = [];
       if (horizon) {
         const labels = { day3: 'Day 3', day7: 'Day 7', day14: 'Day 14' };
+
+        // Prestige check — upscale restaurants stay limited longer before going green
+        const isUpscale = !!(r.michelin || r.bib_gourmand ||
+          (r.google_review_count >= 500 && r.score >= 4.6) ||
+          (r.vibe_tags && (r.vibe_tags.includes('upscale') || r.vibe_tags.includes('trendy'))));
+
+        let hitGreen = false;
         for (const key of ['day3','day7','day14']) {
-          const t = horizon[key];
+          if (hitGreen) break; // stop once we've shown a green chip
+          let t = horizon[key];
           if (!t) continue;
-          const mappedTier = t === 'medium' ? 'limited' : t; // normalise
+          let mappedTier = t === 'medium' ? 'limited' : t;
+
+          // For upscale restaurants: if day3 would show green but now is limited,
+          // keep day3 as limited so the progression is limited→limited→green
+          if (isUpscale && key === 'day3' && mappedTier === 'easy' && nowTier === 'limited') {
+            mappedTier = 'limited';
+          }
+
           horizonChips.push({ label: labels[key], tier: mappedTier });
+          if (mappedTier === 'easy') hitGreen = true;
         }
       }
 
@@ -1766,9 +1782,19 @@ function renderCard(r) {
 
       // ── Step 3: Render ──
       let mainChip = '';
-      let horizonRow = buildHorizonRow();
+      // If all horizon chips are hard (no relief), upgrade to black badge and hide chips
+      const allHard = horizonChips.length > 0 && horizonChips.every(h => h.tier === 'hard');
+      if (allHard) nowTier = 'sold_out';
 
-      if (nowTier === 'easy') {
+      let horizonRow = buildHorizonRow();
+      // Don't show horizon chips if already available — redundant
+      if (nowTier === 'easy') horizonRow = '';
+      // Don't show chips if all hard — black badge says it all
+      if (allHard) horizonRow = '';
+
+      if (nowTier === 'sold_out') {
+        mainChip = chip('sold_out', 'Very Hard to Book');
+      } else if (nowTier === 'easy') {
         mainChip = chip('easy', 'Available');
       } else if (nowTier === 'limited') {
         mainChip = chip('limited', 'Limited');
@@ -1816,6 +1842,7 @@ function renderCard(r) {
         ${bookBtnHtml}
         <button onclick="window.open('${mapsUrl}','_blank')" style="width:42px;background:#f5f5f5;border:1px solid #e8e8e8;border-radius:10px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center">📍</button>
       </div>
+      ${r.website ? `<div style="margin-top:8px"><a href="${r.website}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;background:#f5f5f5;color:#444;border:1px solid #ddd">🌐 Website</a></div>` : ''}
       ${renderBuzz(r)}
       ${instaHtml}
     </div>
@@ -1890,26 +1917,62 @@ function displayResults(restaurants, noPriceRestaurants) {
     return;
   }
 
-  const BATCH = 100;
-  const thisGen = ++_renderGen;  // increment generation on every render
-  let html = restaurants.slice(0, BATCH).map(r => renderCard(r)).join('');
-  document.getElementById('list').innerHTML = html;
+  // --- Incremental rendering: show first 30, load more on scroll ---
+  const PAGE = 30;
+  const thisGen = ++_renderGen;
 
-  if (restaurants.length > BATCH || (noPriceRestaurants && noPriceRestaurants.length > 0)) {
-    setTimeout(() => {
-      // If a newer render has started, don't append stale cards
-      if (_renderGen !== thisGen) return;
-      let rest = restaurants.slice(BATCH).map(r => renderCard(r)).join('');
-      if (noPriceRestaurants && noPriceRestaurants.length > 0) {
-        rest += `<div class="section-divider">💰 Price not available (${noPriceRestaurants.length})</div>`;
-        rest += noPriceRestaurants.map(r => renderCard(r)).join('');
+  // Store full list for incremental loading
+  window._pendingRestaurants = restaurants.slice(PAGE);
+  window._pendingNoPriceRestaurants = noPriceRestaurants || [];
+  window._pendingGen = thisGen;
+  window._pendingDividerShown = false;
+
+  const listEl = document.getElementById('list');
+  listEl.innerHTML = restaurants.slice(0, PAGE).map(r => renderCard(r)).join('');
+
+  // Sentinel element at the bottom — IntersectionObserver loads more when it enters view
+  const sentinel = document.createElement('div');
+  sentinel.id = 'scroll-sentinel';
+  sentinel.style.height = '1px';
+  listEl.appendChild(sentinel);
+
+  // Disconnect any previous observer
+  if (window._scrollObserver) window._scrollObserver.disconnect();
+
+  window._scrollObserver = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    if (window._pendingGen !== thisGen) { window._scrollObserver.disconnect(); return; }
+
+    const next = window._pendingRestaurants.splice(0, PAGE);
+    if (next.length > 0) {
+      sentinel.insertAdjacentHTML('beforebegin', next.map(r => renderCard(r)).join(''));
+    }
+
+    // Once main list exhausted, append no-price section
+    if (window._pendingRestaurants.length === 0 && !window._pendingDividerShown) {
+      window._pendingDividerShown = true;
+      if (window._pendingNoPriceRestaurants.length > 0) {
+        const divider = `<div class="section-divider">💰 Price not available (${window._pendingNoPriceRestaurants.length})</div>`;
+        const noPrice = window._pendingNoPriceRestaurants.map(r => renderCard(r)).join('');
+        sentinel.insertAdjacentHTML('beforebegin', divider + noPrice);
+        window._pendingNoPriceRestaurants = [];
       }
-      document.getElementById('list').innerHTML += rest;
-    }, 100);
-  }
+    }
+
+    if (window._pendingRestaurants.length === 0 && window._pendingNoPriceRestaurants.length === 0) {
+      window._scrollObserver.disconnect();
+      sentinel.remove();
+    }
+  }, { rootMargin: '400px' });
+
+  window._scrollObserver.observe(sentinel);
 }
 
 function back() {
+  // Clean up infinite scroll state so stale cards don't load on next search
+  if (window._scrollObserver) { window._scrollObserver.disconnect(); window._scrollObserver = null; }
+  window._pendingRestaurants = [];
+  window._pendingNoPriceRestaurants = [];
   document.getElementById('search').classList.remove('hidden');
   document.getElementById('results').classList.add('hidden');
 }
@@ -1945,16 +2008,6 @@ function setupAutocomplete() {
 }
 
 initAutocomplete();
-
-// Fix for back-button glitchiness:
-// When the browser restores this page from bfcache (back/forward cache),
-// Google Maps autocomplete and async data are in a broken frozen state.
-// Force a clean reload so everything initializes fresh.
-window.addEventListener('pageshow', function(e) {
-  if (e.persisted) {
-    window.location.reload();
-  }
-});
 
 // Set default date to today
 (function() {
@@ -2321,12 +2374,16 @@ function renderBarCard(b) {
     : '';
 
 
-  // Action button: Resy > OpenTable > Website > Google
+  // Action button: Resy > OpenTable > url fallback by platform > Website > Google
   let actionBtnHtml = '';
-  if (b.resy_url) {
-    actionBtnHtml = `<a href="${b.resy_url}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#c2185b;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Book on Resy →</a>`;
-  } else if (b.opentable_url) {
-    actionBtnHtml = `<a href="${b.opentable_url}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#da3743;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Book on OpenTable →</a>`;
+  const resyBookUrl = b.resy_url || (b.platform === 'resy' && b.url ? b.url : null);
+  const otBookUrl = b.opentable_url || (b.platform === 'opentable' && b.url ? b.url : null);
+  if (resyBookUrl) {
+    actionBtnHtml = `<a href="${resyBookUrl}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#c2185b;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Book on Resy →</a>`;
+  } else if (otBookUrl) {
+    actionBtnHtml = `<a href="${otBookUrl}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#da3743;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Book on OpenTable →</a>`;
+  } else if (b.platform === 'tock' && b.url) {
+    actionBtnHtml = `<a href="${b.url}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#0f766e;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Book on Tock →</a>`;
   } else if (b.website) {
     actionBtnHtml = `<a href="${b.website}" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;padding:11px 16px;background:#333;color:white;border:none;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700">Visit Website →</a>`;
   } else {
