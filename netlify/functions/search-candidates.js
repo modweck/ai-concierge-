@@ -1026,8 +1026,8 @@ function filterRestaurantsByTier(candidates, qualityMode) {
       // CHASE SAPPHIRE BYPASS: Chase partner restaurants always pass filters
       if (place.chase_sapphire) { moreOptions.push(place); continue; }
 
-      // 5.0 with under 500 reviews — likely inflated
-      if (rating >= 5.0 && reviews < 500) { excluded.push({ name: place.name, reason: `perfect_5.0 (${reviews}rev)` }); continue; }
+      // 5.0 with under 500 reviews — likely inflated, cap at 4.8 instead of excluding
+      if (rating >= 5.0 && reviews < 500) { place.googleRating = 4.8; place.rating = 4.8; }
       // 4.9 needs 50+ reviews
       if (rating >= 4.9 && reviews < 50) { excluded.push({ name: place.name, reason: `unreliable ${rating}\u2605/${reviews}rev` }); continue; }
       // 4.7-4.8 needs 50+ reviews
@@ -1591,7 +1591,21 @@ exports.handler = async (event) => {
         const c = entryCuisine.toLowerCase(), cs = cuisineStr.toLowerCase();
         if (!c.includes(cs) && !cs.includes(c)) continue;
       }
-      if ((entry.price || null) === 1) continue;
+      // Filter junk by name — same chains/non-restaurants as Google filter
+      const MASTER_JUNK_NAMES = [
+        /\bstarbucks\b/i, /\bdunkin\b/i, /\bmcdonald/i, /\bsubway\b/i,
+        /\bchipotle\b/i, /\bshake shack\b/i, /\bsweetgreen\b/i,
+        /\bpanera\b/i, /\bpret a manger\b/i, /\bchick-fil-a\b/i,
+        /\bwendy'?s\b/i, /\bburger king\b/i, /\btaco bell\b/i,
+        /\bpopeyes\b/i, /\bfive guys\b/i, /\bpapa john/i, /\bdomino/i,
+        /\bpizza hut\b/i, /\blittle caesars\b/i, /\bkfc\b/i, /\barby'?s\b/i,
+        /\bdunkin/i, /\bwingstop\b/i, /\bpanda express\b/i,
+      ];
+      if (MASTER_JUNK_NAMES.some(rx => rx.test(mk))) continue;
+      // Filter junk by cuisine tag
+      const JUNK_CUISINES = ['bakery', 'coffee', 'cafe', 'fast food', 'deli', 'juice bar', 'smoothie', 'dessert', 'ice cream', 'donut', 'bagel'];
+      const entryCuisineRaw = (entry.cuisine || '').toLowerCase();
+      if (JUNK_CUISINES.some(j => entryCuisineRaw.includes(j))) continue;
       const d = haversineMiles(gLat, gLng, entry.lat, entry.lng);
       if (d > maxDistMiles) continue;
       within.push({
