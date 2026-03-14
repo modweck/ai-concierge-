@@ -1666,8 +1666,8 @@ function renderCard(r) {
 
   // ── Booking button (full-width) ──
   let bookBtnHtml = '';
-  if (r.booking_url && r.booking_platform) {
-    let cleanUrl = r.booking_url;
+if ((r.booking_url || r.url) && r.booking_platform) {
+    let cleanUrl = r.booking_url || r.url;
     if (cleanUrl.includes('google.com/url')) {
       try { const u = new URL(cleanUrl); cleanUrl = u.searchParams.get('q') || u.searchParams.get('url') || cleanUrl; } catch(e) {}
     }
