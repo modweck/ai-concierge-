@@ -800,6 +800,27 @@ function getBookingInfo(name) {
     if (key.includes(lk) || lk.includes(key)) return BOOKING_LOOKUP[lk];
     if (norm && norm.length >= 4 && (norm.includes(lk) || lk.includes(norm))) return BOOKING_LOOKUP[lk];
   }
+
+  // Fall back to MASTER_BOOK — use url field when booking_url is null
+  // MASTER_BOOK keys are mixed-case, so check lowercase versions too
+  let masterEntry = MASTER_BOOK[key] || MASTER_BOOK[noThe];
+  if (!masterEntry) {
+    // Scan MASTER_KEYS for a case-insensitive match
+    for (const mk of MASTER_KEYS) {
+      if (mk.toLowerCase() === key || mk.toLowerCase() === noThe) {
+        masterEntry = MASTER_BOOK[mk];
+        break;
+      }
+    }
+  }
+  if (masterEntry) {
+    const bookingUrl = masterEntry.booking_url || masterEntry.url || null;
+    const platform = masterEntry.platform || masterEntry.booking_platform || null;
+    if (bookingUrl && platform && platform !== 'none' && platform !== 'unknown') {
+      return { platform, url: bookingUrl };
+    }
+  }
+
   return null;
 }
 
