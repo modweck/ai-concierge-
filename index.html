@@ -303,7 +303,7 @@
             <div class="hero-tabs">
               <button class="hero-tab active" id="ht-hotspots" onclick="setHeroTab('hotspots',this)">Hot Spots</button>
               <button class="hero-tab" id="ht-all" onclick="setHeroTab('all',this)">All</button>
-              <button class="hero-tab" id="ht-drinks" onclick="setHeroTab('drinks',this)" style="display:none">Drinks</button>
+              <button class="hero-tab" id="ht-drinks" onclick="setHeroTab('drinks',this)">Drinks</button>
             </div>
           </div>
         </div>
@@ -765,7 +765,7 @@
         <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:#1a1a2e;letter-spacing:-0.5px">Seat<span style="color:#1b4332">Wize</span></div>
         <div class="hero-tabs">
           <button class="hero-tab active">Restaurants</button>
-          <button class="hero-tab" onclick="document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));document.getElementById('nav-drinks').classList.add('active');document.getElementById('bar-form').style.display='block';document.getElementById('bar-results').style.display='none';document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));document.getElementById('view-drinks').classList.add('on');syncHeroTabs('drinks')" style="display:none">Drinks</button>
+          <button class="hero-tab" onclick="document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));document.getElementById('nav-drinks').classList.add('active');document.getElementById('bar-form').style.display='block';document.getElementById('bar-results').style.display='none';document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));document.getElementById('view-drinks').classList.add('on');syncHeroTabs('drinks')">Drinks</button>
         </div>
       </div>
 
@@ -1055,7 +1055,7 @@
   </div><!-- /view-allrestaurants -->
 
   <!-- ═══════════════════════════════════════════════════════ DRINKS VIEW -->
-  <div class="view" id="view-drinks" style="background:#f7f5f2;min-height:100vh;display:none">
+  <div class="view" id="view-drinks" style="background:#f7f5f2;min-height:100vh">
 
     <!-- FORM -->
     <div id="bar-form">
@@ -1337,7 +1337,7 @@
       <svg class="nav-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span class="nav-label">Home</span>
     </button>
-    <button class="nav-item" id="nav-drinks" style="display:none" onclick="document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));document.getElementById('nav-drinks').classList.add('active');document.getElementById('bar-form').style.display='block';document.getElementById('bar-results').style.display='none';document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));document.getElementById('view-drinks').classList.add('on');syncHeroTabs('drinks')">
+    <button class="nav-item" id="nav-drinks" onclick="document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));document.getElementById('nav-drinks').classList.add('active');document.getElementById('bar-form').style.display='block';document.getElementById('bar-results').style.display='none';document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));document.getElementById('view-drinks').classList.add('on');syncHeroTabs('drinks')">
       <svg class="nav-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l-1 9H9L8 2z"/><path d="M12 11v7"/><path d="M8 22h8"/><path d="M12 18h0"/></svg>
       <span class="nav-label">Drinks</span>
     </button>
@@ -1384,11 +1384,12 @@ function renderSavedView() {
   const saved = _getSaved();
   const el = document.getElementById('view-saved');
   const entries = Object.values(saved);
+  const t42Banner = '<a href="/pick.html" style="display:block;margin:12px 16px;padding:16px 18px;background:linear-gradient(135deg,#1a1a2e 0%,#2d2d5e 100%);border-radius:16px;text-decoration:none;box-shadow:0 4px 20px rgba(26,26,46,.25)"><div style="display:flex;align-items:center;justify-content:space-between"><div><div style="font-family:Playfair Display,serif;font-size:17px;font-weight:900;color:#fff;letter-spacing:-.3px">Table for Two</div><div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:3px">Pick restaurants & let your person choose</div></div><span style="font-size:24px">&#127860;</span></div></a>';
   if (!entries.length) {
-    el.innerHTML = '<div style="padding:60px 20px;text-align:center"><div style="font-size:36px;margin-bottom:12px">⭐</div><div style="font-size:15px;font-weight:700;color:#555;margin-bottom:6px">Saved Places</div><div style="font-size:13px;color:#999">Tap ☆ on any restaurant to save it here</div></div>';
+    el.innerHTML = t42Banner + '<div style="padding:40px 20px;text-align:center"><div style="font-size:36px;margin-bottom:12px">&#11088;</div><div style="font-size:15px;font-weight:700;color:#555;margin-bottom:6px">Saved Places</div><div style="font-size:13px;color:#999">Tap &#9734; on any restaurant to save it here</div></div>';
     return;
   }
-  let html = '<div style="padding:16px 20px 8px"><div style="font-family:Playfair Display,serif;font-size:22px;font-weight:900;color:#1a1a2e">Saved Places</div><div style="font-size:12px;color:#888;margin-top:2px">' + entries.length + ' saved</div></div>';
+  let html = t42Banner + '<div style="padding:16px 20px 8px"><div style="font-family:Playfair Display,serif;font-size:22px;font-weight:900;color:#1a1a2e">Saved Places</div><div style="font-size:12px;color:#888;margin-top:2px">' + entries.length + ' saved</div></div>';
   entries.forEach(r => {
     const name = r.name || '';
     const key = name.toLowerCase().trim();
