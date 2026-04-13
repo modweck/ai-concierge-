@@ -1,6 +1,13 @@
+[build]
+  publish = "."
+
 [build.environment]
   SECRETS_SCAN_SMART_DETECTION_ENABLED = "false"
 
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
 [[headers]]
   for = "/*.js"
   [headers.values]

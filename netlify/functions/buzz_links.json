@@ -1,8 +1,26 @@
 {
+  "53": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/53"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=53%20restaurant%20review"
+    }
+  ],
   "8282": [
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/8282"
+    },
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/8282"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/8282"
     }
   ],
   "Valla Table": [
@@ -267,6 +285,14 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/carnitas-ramirez"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/carnitas-ramirez"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Carnitas%20Ramirez%20restaurant%20review"
     }
   ],
   "Dog Day Afternoon": [
@@ -687,6 +713,14 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/cafe-mado"
+    },
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/cafe-mado"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Cafe%20Mado%20restaurant%20review"
     }
   ],
   "Diamond Slice": [
@@ -849,6 +883,10 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/the-modern"
+    },
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/the-modern"
     }
   ],
   "Westville Dumbo": [
@@ -873,6 +911,14 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/daniel"
+    },
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/daniel"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Daniel%20restaurant%20review"
     }
   ],
   "Capizzi": [
@@ -885,6 +931,10 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/union-square-cafe"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Union%20Square%20Cafe%20restaurant%20review"
     }
   ],
   "Jajaja Mexicana": [
@@ -1407,6 +1457,14 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/cafe-commerce"
+    },
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/cafe-commerce"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/cafe-commerce"
     }
   ],
   "Little Egg": [
@@ -1479,6 +1537,14 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/bong"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/bong"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Bong%20restaurant%20review"
     }
   ],
   "Jacob's Pickles": [
@@ -1497,6 +1563,10 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/ichiran"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Ichiran%20restaurant%20review"
     }
   ],
   "Lobster Place": [
@@ -2673,6 +2743,10 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/robertas"
+    },
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/robertas"
     }
   ],
   "Sami's Kabab House": [
@@ -2715,6 +2789,10 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/emily"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/emily"
     }
   ],
   "Añejo": [
@@ -3345,6 +3423,10 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/oiji-mi"
+    },
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/oiji-mi"
     }
   ],
   "Rezdôra": [
@@ -3717,6 +3799,18 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/odo"
+    },
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/odo"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/odo"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=odo%20restaurant%20review"
     }
   ],
   "Noz Market": [
@@ -3945,6 +4039,5064 @@
     {
       "source": "infatuation",
       "url": "https://www.theinfatuation.com/new-york/reviews/westville-hells-kitchen"
+    }
+  ],
+  "soothr": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/soothr"
+    }
+  ],
+  "momofuku noodle bar": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/momofuku-noodle-bar"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/momofuku-noodle-bar"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=momofuku%20noodle%20bar%20restaurant%20review"
+    }
+  ],
+  "raf's": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/rafs"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=raf's%20restaurant%20review"
+    }
+  ],
+  "gallagher's steakhouse": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/gallaghers-steakhouse"
+    }
+  ],
+  "caviar russe": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/caviar-russe"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/caviar-russe"
+    }
+  ],
+  "sushi noz": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sushi-noz"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/sushi-noz"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=sushi%20noz%20restaurant%20review"
+    }
+  ],
+  "don angie": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/don-angie"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/don-angie"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=don%20angie%20restaurant%20review"
+    }
+  ],
+  "fasano restaurant new york": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/fasano-restaurant-new-york"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2019/8/20/20812602/four-seasons-restaurant-space-nyc"
+    }
+  ],
+  "the lobster club": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/the-lobster-club"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-lobster-club"
+    }
+  ],
+  "nami nori": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/nami-nori"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/nami-nori"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=nami%20nori%20restaurant%20review"
+    }
+  ],
+  "le bernardin": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/le-bernardin"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/le-bernardin"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=le%20bernardin%20restaurant%20review"
+    }
+  ],
+  "gabriel kreuther": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/gabriel-kreuther"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/gabriel-kreuther"
+    }
+  ],
+  "ai fiori": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/ai-fiori"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/ai-fiori"
+    }
+  ],
+  "the grill": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/the-grill"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-grill"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=the%20grill%20restaurant%20review"
+    }
+  ],
+  "Aquavit Restaurant": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/aquavit-restaurant"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/aquavit"
+    }
+  ],
+  "marea restaurant": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/marea-restaurant"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/marea"
+    }
+  ],
+  "the river café": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/the-river-caf"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-river-caf"
+    }
+  ],
+  "gage and tollner": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/gage-and-tollner"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/22704/gage-tollner"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=gage%20and%20tollner%20restaurant%20review"
+    }
+  ],
+  "café mars": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/caf-mars"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/106912/cafe-mars"
+    }
+  ],
+  "clover hill": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/clover-hill"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/clover-hill"
+    }
+  ],
+  "peter luger steak house": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/peter-luger-steak-house"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/peter-luger-steak-house"
+    }
+  ],
+  "eleven madison park": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/eleven-madison-park"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/eleven-madison-park"
+    }
+  ],
+  "bonnies": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/bonnies"
+    }
+  ],
+  "the four horsemen": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/the-four-horsemen"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/four-horsemen"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=the%20four%20horsemen%20restaurant%20review"
+    }
+  ],
+  "kochi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/kochi"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/kochi"
+    }
+  ],
+  "laser wolf": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/laser-wolf"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/laser-wolf"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=laser%20wolf%20restaurant%20review"
+    }
+  ],
+  "king": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/king"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/king"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=king%20restaurant%20review"
+    }
+  ],
+  "lei": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/lei"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=lei%20restaurant%20review"
+    }
+  ],
+  "smithereens": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/smithereens"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=smithereens%20restaurant%20review"
+    }
+  ],
+  "casa enrique": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/casa-enrique"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/casa-enrique"
+    }
+  ],
+  "via carota": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/via-carota"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/via-carota"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=via%20carota%20restaurant%20review"
+    }
+  ],
+  "i sodi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/i-sodi"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/i-sodi"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=i%20sodi%20restaurant%20review"
+    }
+  ],
+  "carbone": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/carbone"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/carbone"
+    }
+  ],
+  "torrisi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/torrisi"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2015/1/2/7479147/torrisi-italian-specialties-a-timeline"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=torrisi%20restaurant%20review"
+    }
+  ],
+  "abc kitchen by jean-georges": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/abc-kitchen-by-jean-georges"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/4985/abc-kitchen"
+    }
+  ],
+  "the kitchen table at the modern": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/the-kitchen-table-at-the-modern"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2016/9/23/13020650/emp-atera-the-modern"
+    }
+  ],
+  "restaurant daniel": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/restaurant-daniel"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2025/5/21/24434536/service-nyc-restaurant-rethink-food-nonprofit-opening-daniel-humm"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=restaurant%20daniel%20restaurant%20review"
+    }
+  ],
+  "the musket room": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/the-musket-room"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-musket-room"
+    }
+  ],
+  "atomix": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/atomix"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/atomix"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=atomix%20restaurant%20review"
+    }
+  ],
+  "rezdora": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/rezdora"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/rezdora"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=rezdora%20restaurant%20review"
+    }
+  ],
+  "lord's": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/lords"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=lord's%20restaurant%20review"
+    }
+  ],
+  "banh anh em": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/banh-anh-em"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=banh%20anh%20em%20restaurant%20review"
+    }
+  ],
+  "meju": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/meju"
+    }
+  ],
+  "ci siamo": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/ci-siamo"
+    }
+  ],
+  "jungsik": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/jungsik"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/jungsik"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=jungsik%20restaurant%20review"
+    }
+  ],
+  "frevo": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/frevo"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/frevo"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=frevo%20restaurant%20review"
+    }
+  ],
+  "per se": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/per-se"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/per-se"
+    }
+  ],
+  "hags": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/hags"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/hags"
+    }
+  ],
+  "moono": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/moono"
+    }
+  ],
+  "atera": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/atera"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/atera"
+    }
+  ],
+  "aska": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/aska"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/aska"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=aska%20restaurant%20review"
+    }
+  ],
+  "shion 69 leonard street": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/shion-69-leonard-street"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/27037/shoji-at-69-leonard-street"
+    }
+  ],
+  "noda": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/noda"
+    }
+  ],
+  "icca": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/icca"
+    }
+  ],
+  "yoshino omakase": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/yoshino-omakase"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/81837/yoshino-new-york"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=yoshino%20omakase%20restaurant%20review"
+    }
+  ],
+  "bridges": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/bridges"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=bridges%20restaurant%20review"
+    }
+  ],
+  "yamada": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/yamada"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=yamada%20restaurant%20review"
+    }
+  ],
+  "sushi amane": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sushi-amane"
+    }
+  ],
+  "torien": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/torien"
+    }
+  ],
+  "tsukimi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/tsukimi"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/tsukimi"
+    }
+  ],
+  "kosaka": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/kosaka"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/kosaka"
+    }
+  ],
+  "jōji": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/jji"
+    }
+  ],
+  "shota omakase": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/shota-omakase"
+    }
+  ],
+  "tamarind - tribeca": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/tamarind-tribeca"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/tamarind-tribeca"
+    }
+  ],
+  "chambers": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/chambers"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=chambers%20restaurant%20review"
+    }
+  ],
+  "sailor": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sailor"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/sailor"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=sailor%20restaurant%20review"
+    }
+  ],
+  "il fiorista": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/il-fiorista"
+    }
+  ],
+  "markette": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/markette"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=markette%20restaurant%20review"
+    }
+  ],
+  "kru": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/kru"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=kru%20restaurant%20review"
+    }
+  ],
+  "sami and susu": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sami-and-susu"
+    }
+  ],
+  "sal tang's": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sal-tangs"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/115987/sal-tang-s"
+    }
+  ],
+  "yemenat": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/yemenat"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/40459/yemen-caf"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=yemenat%20restaurant%20review"
+    }
+  ],
+  "laliko": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/laliko"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/laliko"
+    }
+  ],
+  "place des fêtes": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/place-des-ftes"
+    }
+  ],
+  "rolo's": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/rolos"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/71228/rolo-s"
+    }
+  ],
+  "win son": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/win-son"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/win-son"
+    }
+  ],
+  "hupo": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/hupo"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/63980/hupohu-po"
+    }
+  ],
+  "dirt candy": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/dirt-candy"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/dirt-candy"
+    }
+  ],
+  "le pavillon": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/le-pavillon"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/le-pavillon"
+    }
+  ],
+  "noz 17": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/noz-17"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/noz-17"
+    }
+  ],
+  "tempura matsui": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/tempura-matsui"
+    }
+  ],
+  "ichimura": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/ichimura"
+    }
+  ],
+  "Potluck Club 佰樂": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/potluck-club"
+    }
+  ],
+  "mango bay": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/mango-bay"
+    }
+  ],
+  "casa ora": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/casa-ora"
+    }
+  ],
+  "altro paradiso": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/altro-paradiso"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/altro-paradiso"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=altro%20paradiso%20restaurant%20review"
+    }
+  ],
+  "the leopard at des artistes": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/the-leopard-at-des-artistes"
+    }
+  ],
+  "labeille": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/labeille"
+    }
+  ],
+  "agi's counter": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/agis-counter"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/83041/agi-s-counter"
+    }
+  ],
+  "alley 41": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/alley-41"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/alley-41"
+    }
+  ],
+  "bayon": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/bayon"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/bayon"
+    }
+  ],
+  "bohemian spirit restaurant": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/bohemian-spirit-restaurant"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/bohemian-spirit"
+    }
+  ],
+  "caleta 111 cevicheria": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/caleta-111-cevicheria"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/caleta-111-cevicheria"
+    }
+  ],
+  "cardamom indian cuisine": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/cardamom-indian-cuisine"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/cardamom-indian-cuisine"
+    }
+  ],
+  "chalong": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/chalong"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/chalong"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=chalong%20restaurant%20review"
+    }
+  ],
+  "chavelas": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/chavelas"
+    }
+  ],
+  "cho dang gol": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/cho-dang-gol"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/cho-dang-gol"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=cho%20dang%20gol%20restaurant%20review"
+    }
+  ],
+  "chuan tian xia": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/chuan-tian-xia"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/chuan-tian-xia"
+    }
+  ],
+  "coqodaq": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/coqodaq"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/coqodaq"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=coqodaq%20restaurant%20review"
+    }
+  ],
+  "dim sum go go": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/dim-sum-go-go"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/dim-sum-go-go"
+    }
+  ],
+  "enoteca maria": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/enoteca-maria"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/enoteca-maria"
+    }
+  ],
+  "gordo's cantina": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/gordos-cantina"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2017/8/30/16226056/best-electric-zoo-food-2017-line-up"
+    }
+  ],
+  "hangawi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/hangawi"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/hangawi"
+    }
+  ],
+  "kung fu little steamed buns ramen": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/kung-fu-little-steamed-buns-ramen"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/kung-fu-little-steamed-buns-ramen"
+    }
+  ],
+  "la dong": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/la-dong"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/la-dong"
+    }
+  ],
+  "legend of taste": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/legend-of-taste"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2019/10/14/20913712/michelin-bib-gourmands-nyc-2019"
+    }
+  ],
+  "little myanmar": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/little-myanmar"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/little-myanmar"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=little%20myanmar%20restaurant%20review"
+    }
+  ],
+  "lore": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/lore"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/lore"
+    }
+  ],
+  "málà project 53rd st": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/ml-project-53rd-st"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2018/3/27/17163298/ma-la-project-nyc-review"
+    }
+  ],
+  "oso": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/oso"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/oso"
+    }
+  ],
+  "phayul": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/phayul"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/phayul"
+    }
+  ],
+  "pierozek": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/pierozek"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/pierozek"
+    }
+  ],
+  "Pranakhon Thai Restaurant": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/pranakhon-thai-restaurant"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/93324/pranakhon"
+    }
+  ],
+  "runner up": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/runner-up"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/runner-up"
+    }
+  ],
+  "sagara": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sagara"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/77111/sagara-food-city"
+    }
+  ],
+  "saranrom thai": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/saranrom-thai"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/saranrom-thai"
+    }
+  ],
+  "tolo": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/tolo"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/tolo"
+    }
+  ],
+  "tong sam gyup goo yi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/tong-sam-gyup-goo-yi"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/tong-sam-gyup-goo-yi"
+    }
+  ],
+  "untable": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/untable"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/untable"
+    }
+  ],
+  "zaab zaab": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/zaab-zaab"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/zaab-zaab"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=zaab%20zaab%20restaurant%20review"
+    }
+  ],
+  "kabawa": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/kabawa"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/kabawa"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=kabawa%20restaurant%20review"
+    }
+  ],
+  "chez fifi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/chez-fifi"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/chez-fifi"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=chez%20fifi%20restaurant%20review"
+    }
+  ],
+  "moody tongue sushi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/moody-tongue-sushi"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2024/12/9/24314853/moody-tounge-sushi-michelin-restaurant-opening-east-village-pizzeria"
+    }
+  ],
+  "muku": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/muku"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/muku"
+    }
+  ],
+  "benoit": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/benoit"
+    }
+  ],
+  "the lambs club": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/the-lambs-club"
+    }
+  ],
+  "superiority burger": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/superiority-burger"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/superiority-burger"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=superiority%20burger%20restaurant%20review"
+    }
+  ],
+  "6 restaurant": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/6-restaurant"
+    }
+  ],
+  "sushi yasuda": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sushi-yasuda"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/sushi-yasuda"
+    }
+  ],
+  "sushi sho": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sushi-sho"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/sushi-sho"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=sushi%20sho%20restaurant%20review"
+    }
+  ],
+  "madre": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/madre"
+    }
+  ],
+  "mission ceviche upper east side": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/mission-ceviche-upper-east-side"
+    }
+  ],
+  "meadowsweet": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/meadowsweet"
+    }
+  ],
+  "eléa": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/ela"
+    }
+  ],
+  "lingo": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/lingo"
+    }
+  ],
+  "carne mare": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/carne-mare"
+    }
+  ],
+  "tuome": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/tuome"
+    }
+  ],
+  "fausto": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/fausto"
+    }
+  ],
+  "hav and mar": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/hav-and-mar"
+    }
+  ],
+  "sawa": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sawa"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=sawa%20restaurant%20review"
+    }
+  ],
+  "chez ma tante": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/chez-ma-tante"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=chez%20ma%20tante%20restaurant%20review"
+    }
+  ],
+  "kanyakumari": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/kanyakumari"
+    }
+  ],
+  "ammazzacaff": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/ammazzacaff"
+    }
+  ],
+  "uzuki": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/uzuki"
+    }
+  ],
+  "papa san": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/papa-san"
+    }
+  ],
+  "daphne's": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/daphnes"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/106797/daphne-s"
+    }
+  ],
+  "chick chick": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/chick-chick"
+    }
+  ],
+  "wenwen": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/wenwen"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=wenwen%20restaurant%20review"
+    }
+  ],
+  "el fish marisqueria": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/el-fish-marisqueria"
+    }
+  ],
+  "tra di noi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/tra-di-noi"
+    }
+  ],
+  "rosella": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/rosella"
+    }
+  ],
+  "forsythia": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/forsythia"
+    }
+  ],
+  "chola restaurant": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/chola-restaurant"
+    }
+  ],
+  "east harbor seafood palace": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/east-harbor-seafood-palace"
+    }
+  ],
+  "ernesto's": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/ernestos"
+    }
+  ],
+  "norma": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/norma"
+    }
+  ],
+  "bōm": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/bm"
+    }
+  ],
+  "patricia's": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/patricias"
+    }
+  ],
+  "Portale Restaurant": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/portale-restaurant"
+    }
+  ],
+  "r40": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/r40"
+    }
+  ],
+  "runner & stone": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/runner-and-stone"
+    }
+  ],
+  "farra": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/farra"
+    }
+  ],
+  "genesis house restaurant": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/genesis-house-restaurant"
+    }
+  ],
+  "tong": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/tong"
+    }
+  ],
+  "the commerce inn": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/the-commerce-inn"
+    }
+  ],
+  "soda club": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/soda-club"
+    }
+  ],
+  "neta shari": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/neta-shari"
+    }
+  ],
+  "cha kee": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/cha-kee"
+    }
+  ],
+  "maria restaurant": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/maria-restaurant"
+    }
+  ],
+  "la devozione": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/la-devozione"
+    }
+  ],
+  "sobre masa": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sobre-masa"
+    }
+  ],
+  "nudibranch": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/nudibranch"
+    }
+  ],
+  "essential by christophe": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/essential-by-christophe"
+    }
+  ],
+  "gus's chop house": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/guss-chop-house"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/91757/gus-s-chop-house"
+    }
+  ],
+  "jupiter": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/jupiter"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=jupiter%20restaurant%20review"
+    }
+  ],
+  "kebab aur sharab": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/kebab-aur-sharab"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=kebab%20aur%20sharab%20restaurant%20review"
+    }
+  ],
+  "mesiba": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/mesiba"
+    }
+  ],
+  "mắm": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/mm"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=m%E1%BA%AFm%20restaurant%20review"
+    }
+  ],
+  "yingtao": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/yingtao"
+    }
+  ],
+  "sempre oggi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sempre-oggi"
+    }
+  ],
+  "massara": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/massara"
+    }
+  ],
+  "hyun": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/hyun"
+    }
+  ],
+  "santi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/santi"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=santi%20restaurant%20review"
+    }
+  ],
+  "tan": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/tan"
+    }
+  ],
+  "bartolo": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/bartolo"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=bartolo%20restaurant%20review"
+    }
+  ],
+  "rose marie": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/rose-marie"
+    }
+  ],
+  "Melba's Restaurant": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/melbas-restaurant"
+    }
+  ],
+  "shi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/shi"
+    }
+  ],
+  "cheli - flushing": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/cheli-flushing"
+    }
+  ],
+  "corima": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/corima"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=corima%20restaurant%20review"
+    }
+  ],
+  "jia": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/jia"
+    }
+  ],
+  "joo ok": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/joo-ok"
+    }
+  ],
+  "jua": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/jua"
+    }
+  ],
+  "kanoyama": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/kanoyama"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/kanoyama"
+    }
+  ],
+  "la mercerie at the guild": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/la-mercerie-at-the-guild"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=la%20mercerie%20at%20the%20guild%20restaurant%20review"
+    }
+  ],
+  "la vara": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/la-vara"
+    }
+  ],
+  "Ly Ly Vietnam Cookhouse": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/ly-ly-vietnam-cookhouse"
+    }
+  ],
+  "maison passerelle": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/maison-passerelle"
+    }
+  ],
+  "odre": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/odre"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=odre%20restaurant%20review"
+    }
+  ],
+  "o": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/o"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=o%20restaurant%20review"
+    }
+  ],
+  "pylos": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/pylos"
+    }
+  ],
+  "sushi ikumi": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sushi-ikumi"
+    }
+  ],
+  "vert frais": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/vert-frais"
+    }
+  ],
+  "tanoreen": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/tanoreen"
+    }
+  ],
+  "Wayan": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/wayan"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Wayan%20restaurant%20review"
+    }
+  ],
+  "Avant Garden": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/avant-garden"
+    }
+  ],
+  "Kubeh": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/kubeh"
+    }
+  ],
+  "Red Paper Clip": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/red-paper-clip"
+    }
+  ],
+  "Carlotto": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/carlotto"
+    }
+  ],
+  "le coucou": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/le-coucou"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/le-coucou"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=le%20coucou%20restaurant%20review"
+    }
+  ],
+  "Secchu Yokota": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/secchu-yokota"
+    }
+  ],
+  "shabushabu Mayumon": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/shabushabu-mayumon"
+    }
+  ],
+  "Nyonya": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/nyonya"
+    }
+  ],
+  "Le Gigot": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/le-gigot"
+    }
+  ],
+  "Novita": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/novita"
+    }
+  ],
+  "Sobaya": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sobaya"
+    }
+  ],
+  "Persepolis": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/persepolis"
+    }
+  ],
+  "Barawine": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/barawine"
+    }
+  ],
+  "Comal": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/comal"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Comal%20restaurant%20review"
+    }
+  ],
+  "OCTO": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/octo"
+    }
+  ],
+  "ILIS": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/ilis"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=ILIS%20restaurant%20review"
+    }
+  ],
+  "il Gigante": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/il-gigante"
+    }
+  ],
+  "cosme": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/cosme"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/cosme"
+    }
+  ],
+  "dhamaka": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/dhamaka"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/dhamaka"
+    }
+  ],
+  "semma": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/semma"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/semma"
+    }
+  ],
+  "adda": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/adda"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/adda"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=adda%20restaurant%20review"
+    }
+  ],
+  "alta calidad": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/alta-calidad"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/alta-calidad"
+    }
+  ],
+  "francie": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/francie"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/francie"
+    }
+  ],
+  "shalom japan": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/shalom-japan"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/shalom-japan"
+    }
+  ],
+  "bungalow": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/bungalow"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/bungalow"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=bungalow%20restaurant%20review"
+    }
+  ],
+  "junoon": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/junoon"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/junoon"
+    }
+  ],
+  "sofreh": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sofreh"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/sofreh"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=sofreh%20restaurant%20review"
+    }
+  ],
+  "noreetuh": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/noreetuh"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/noreetuh"
+    }
+  ],
+  "crown shy": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/crown-shy"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/crown-shy"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=crown%20shy%20restaurant%20review"
+    }
+  ],
+  "haenyeo": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/haenyeo"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/haenyeo"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=haenyeo%20restaurant%20review"
+    }
+  ],
+  "dame": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/dame"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/dame"
+    }
+  ],
+  "oxomoco": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/oxomoco"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/oxomoco"
+    }
+  ],
+  "thai diner": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/thai-diner"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/thai-diner"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=thai%20diner%20restaurant%20review"
+    }
+  ],
+  "manhatta": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/manhatta"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/manhatta"
+    }
+  ],
+  "atoboy": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/atoboy"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/atoboy"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=atoboy%20restaurant%20review"
+    }
+  ],
+  "upland": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/upland"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/upland"
+    }
+  ],
+  "little alley": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/little-alley"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/little-alley"
+    }
+  ],
+  "4 charles prime rib": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/4-charles-prime-rib"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/4-charles-prime-rib"
+    }
+  ],
+  "sunday in brooklyn": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sunday-in-brooklyn"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/sunday-in-brooklyn"
+    }
+  ],
+  "loring place": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/loring-place"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/loring-place"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=loring%20place%20restaurant%20review"
+    }
+  ],
+  "one white street": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/one-white-street"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/one-white-street"
+    }
+  ],
+  "c as in charlie": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/c-as-in-charlie"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/c-as-in-charlie"
+    }
+  ],
+  "covacha": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/covacha"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/covacha"
+    }
+  ],
+  "ishq": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/ishq"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2024/10/3/24253052/new-restaurant-openings-october-2024"
+    }
+  ],
+  "miss ada": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/miss-ada"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/miss-ada"
+    }
+  ],
+  "olmo": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/olmo"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/olmo"
+    }
+  ],
+  "peppercorn station": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/peppercorn-station"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/peppercorn-station"
+    }
+  ],
+  "pinch chinese": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/pinch-chinese"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/pinch-chinese"
+    }
+  ],
+  "tha phraya": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/tha-phraya"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/tha-phraya"
+    }
+  ],
+  "yellow rose": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/yellow-rose"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/yellow-rose"
+    }
+  ],
+  "dagon": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/dagon"
+    }
+  ],
+  "jeju noodle bar": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/jeju-noodle-bar"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/jeju-noodle-bar"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=jeju%20noodle%20bar%20restaurant%20review"
+    }
+  ],
+  "glin thai bistro": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/glin-thai-bistro"
+    }
+  ],
+  "hungry thirsty": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/hungry-thirsty"
+    }
+  ],
+  "hyderabadi zaiqa": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/hyderabadi-zaiqa"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/hyderabadi-zaiqa"
+    }
+  ],
+  "theodora": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/theodora"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=theodora%20restaurant%20review"
+    }
+  ],
+  "Cafe Kestrel": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/cafe-kestrel"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Cafe%20Kestrel%20restaurant%20review"
+    }
+  ],
+  "Cafe Sabarsky": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/cafe-sabarsky"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/95209/caf-sabarsky"
+    }
+  ],
+  "Chefs Table At Brooklyn Fare": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/chefs-table-at-brooklyn-fare"
+    }
+  ],
+  "Family Meal At Blue Hill": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/family-meal-at-blue-hill"
+    }
+  ],
+  "Le Rock": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/le-rock"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Le%20Rock%20restaurant%20review"
+    }
+  ],
+  "Noksu": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/noksu"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Noksu%20restaurant%20review"
+    }
+  ],
+  "Russ And Daughters Cafe": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/russ-and-daughters-cafe"
+    }
+  ],
+  "Veerays": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/veerays"
+    }
+  ],
+  "Çka Ka Qëllu": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/ka-ka-qllu"
+    }
+  ],
+  "bar": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/bar"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=bar%20restaurant%20review"
+    }
+  ],
+  "crane club": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/crane-club"
+    }
+  ],
+  "estela": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/estela"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/estela"
+    }
+  ],
+  "MayRee": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/mayree"
+    }
+  ],
+  "Szechuan Gourmet": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/szechuan-gourmet"
+    }
+  ],
+  "Mari": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/mari"
+    }
+  ],
+  "Kyma": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/kyma"
+    }
+  ],
+  "côte": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/cte"
+    }
+  ],
+  "ABCV": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/abcv"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=ABCV%20restaurant%20review"
+    }
+  ],
+  "taverna kyclades": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/taverna-kyclades"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/taverna-kyclades"
+    }
+  ],
+  "minetta tavern": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/minetta-tavern"
+    }
+  ],
+  "gramercy tavern": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/gramercy-tavern"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=gramercy%20tavern%20restaurant%20review"
+    }
+  ],
+  "Sushi Nakazawa": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/sushi-nakazawa"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Sushi%20Nakazawa%20restaurant%20review"
+    }
+  ],
+  "katz's delicatessen": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/katzs-delicatessen"
+    },
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/11022/katz-s-delicatessen"
+    }
+  ],
+  "bangkok supper club": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/bangkok-supper-club"
+    }
+  ],
+  "masa": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/masa"
+    }
+  ],
+  "aquavit": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/aquavit"
+    }
+  ],
+  "casa mono": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/casa-mono"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=casa%20mono%20restaurant%20review"
+    }
+  ],
+  "jean-georges": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/jean-georges"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=jean-georges%20restaurant%20review"
+    }
+  ],
+  "l'abeille": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/labeille"
+    }
+  ],
+  "miss lily's": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/miss-lilys"
+    }
+  ],
+  "ma-de": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/ma-de"
+    }
+  ],
+  "mile end deli": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/mile-end-deli"
+    }
+  ],
+  "asian jewels": [
+    {
+      "source": "michelin",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/asian-jewels"
+    }
+  ],
+  "nobu downtown": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/8905/nobu-next-door"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=nobu%20downtown%20restaurant%20review"
+    }
+  ],
+  "the odeon": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-odeon"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=the%20odeon%20restaurant%20review"
+    }
+  ],
+  "brooklyn chop house - downtown fidi": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2019/2/12/18218817/spa88-wall-street-russian-sauna-bathhouse-review-nyc"
+    }
+  ],
+  "peking duck house": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/peking-duck-house"
+    }
+  ],
+  "frenchette": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/frenchette"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=frenchette%20restaurant%20review"
+    }
+  ],
+  "san sabino": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/san-sabino"
+    }
+  ],
+  "estelle’s": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/estelles"
+    }
+  ],
+  "la grande boucherie": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/la-grande-boucherie"
+    }
+  ],
+  "bad roman": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/bad-roman"
+    }
+  ],
+  "carmine's - 44th street": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/54246/carmines"
+    }
+  ],
+  "strip house": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/strip-house"
+    }
+  ],
+  "abc cocina": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/abc-cocina"
+    }
+  ],
+  "joe allen": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/joe-allen"
+    }
+  ],
+  "wild cherry": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/wild-cherry"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=wild%20cherry%20restaurant%20review"
+    }
+  ],
+  "smith and wollensky": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/20020/smith-wollensky"
+    }
+  ],
+  "del frisco's double eagle steakhouse": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/del-friscos-double-eagle-steakhouse"
+    }
+  ],
+  "quality italian": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/quality-italian"
+    }
+  ],
+  "quality meats": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/quality-meats"
+    }
+  ],
+  "ocean prime": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/ocean-prime"
+    }
+  ],
+  "palma": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/palma"
+    }
+  ],
+  "anton's": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/antons"
+    }
+  ],
+  "la marchande": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/la-marchande"
+    }
+  ],
+  "golden steer at one fifth": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2025/3/3/24376889/las-vegas-steakhouse-golden-steer-manhattan-expansion"
+    }
+  ],
+  "Blue Ribbon Sushi Bar & Grill - Columbus Circle": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2007/10/4/6812067/eaterwire-steak-frites-expanding-blue-ribbon-taps-chef-for-midtown"
+    }
+  ],
+  "indian accent": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/indian-accent"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=indian%20accent%20restaurant%20review"
+    }
+  ],
+  "grand central oyster bar": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/grand-central-oyster-bar"
+    }
+  ],
+  "TAO Downtown Restaurant": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/tao-downtown"
+    }
+  ],
+  "stk - nyc midtown": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/5677/stk"
+    }
+  ],
+  "mastro's steakhouse": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/mastros-steakhouse"
+    }
+  ],
+  "sparks steak house": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/sparks-steak-house"
+    }
+  ],
+  "wolfgang's steakhouse": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/34110/wolfgang-s-steakhouse-park-avenue"
+    }
+  ],
+  "old homestead steakhouse": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/old-homestead-steakhouse"
+    }
+  ],
+  "il buco alimentari e vineria": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/667/il-buco-alimentari/archives/2"
+    }
+  ],
+  "maialino mare": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/maialino-mare"
+    }
+  ],
+  "barbetta": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/barbetta"
+    }
+  ],
+  "the pool": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/31480/the-pool-major-food-group"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=the%20pool%20restaurant%20review"
+    }
+  ],
+  "lupa osteria romana": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/810/lupa"
+    }
+  ],
+  "Babbo Ristorante": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2016/9/21/13006374/michelle-obama-babbo"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Babbo%20Ristorante%20restaurant%20review"
+    }
+  ],
+  "scarpetta": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/scarpetta"
+    }
+  ],
+  "lincoln ristorante": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/lincoln-ristorante"
+    }
+  ],
+  "hakkasan": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/hakkasan"
+    }
+  ],
+  "philippe chow": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/13249/philippe"
+    }
+  ],
+  "mr chow": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/mr-chow"
+    }
+  ],
+  "sushi on me": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/sushi-on-me"
+    }
+  ],
+  "frankies spuntino": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/791/frankies-457"
+    }
+  ],
+  "Tatiana By Kwame Onwuachi": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/tatiana-by-kwame-onwuachi"
+    }
+  ],
+  "atla noho": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2017/3/31/15123216/atla-nyc-opening-noho"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=atla%20noho%20restaurant%20review"
+    }
+  ],
+  "commerce": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/commerce"
+    }
+  ],
+  "keens steakhouse": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/6484/keens"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=keens%20steakhouse%20restaurant%20review"
+    }
+  ],
+  "fish cheeks noho": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2023/9/11/23868885/bangkok-supper-club-west-village-opening"
+    }
+  ],
+  "La Tête d'Or by Daniel": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/113797/la-tete-d-or"
+    }
+  ],
+  "golden diner": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/golden-diner"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=golden%20diner%20restaurant%20review"
+    }
+  ],
+  "cadence": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/cadence"
+    }
+  ],
+  "lilia": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/lilia"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=lilia%20restaurant%20review"
+    }
+  ],
+  "misi": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/misi"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=misi%20restaurant%20review"
+    }
+  ],
+  "cote korean steakhouse": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/30103/cote"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=cote%20korean%20steakhouse%20restaurant%20review"
+    }
+  ],
+  "al di la trattoria": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2016/7/16/12204608/maple-le-coucou-maple-dizengoff"
+    }
+  ],
+  "sunn's": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/113986/sunn-s"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=sunn's%20restaurant%20review"
+    }
+  ],
+  "Veselka (East Village)": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2012/8/27/6551405/veselka-in-the-east-village-thursday-at-3-30-p-m"
+    }
+  ],
+  "dante west village": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/dante-west-village"
+    }
+  ],
+  "l'artusi": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/lartusi"
+    }
+  ],
+  "beauty and essex": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/beauty-and-essex"
+    }
+  ],
+  "blue hill at stone barns": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/blue-hill-at-stone-barns"
+    }
+  ],
+  "gotham": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/gotham"
+    }
+  ],
+  "locanda verde tribeca": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/5538/locanda-verde"
+    }
+  ],
+  "jack's wife freda - chelsea": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/11835/jack-s-wife-freda-2"
+    }
+  ],
+  "olmsted": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/olmsted"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=olmsted%20restaurant%20review"
+    }
+  ],
+  "shuko": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/shuko"
+    }
+  ],
+  "ras plant based": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/ras-plant-based"
+    }
+  ],
+  "claud": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/91594/claud-2"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=claud%20restaurant%20review"
+    }
+  ],
+  "lavo italian restaurant": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/lavo-italian-restaurant"
+    }
+  ],
+  "kopitiam": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/kopitiam"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=kopitiam%20restaurant%20review"
+    }
+  ],
+  "contra": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/contra"
+    }
+  ],
+  "wildair": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/wildair"
+    }
+  ],
+  "Lucien Restaurant": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/lucien-restaurant"
+    }
+  ],
+  "sugarfish": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/sugarfish"
+    }
+  ],
+  "Hart's Restaurant": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/53115/hart-s"
+    }
+  ],
+  "llama inn": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/llama-inn"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=llama%20inn%20restaurant%20review"
+    }
+  ],
+  "llama san": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/llama-san"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=llama%20san%20restaurant%20review"
+    }
+  ],
+  "sushi ginza onodera": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/sushi-ginza-onodera"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=sushi%20ginza%20onodera%20restaurant%20review"
+    }
+  ],
+  "pig and khao - uws": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/1066/pig-and-khao"
+    }
+  ],
+  "bistrot ha": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/bistrot-ha"
+    }
+  ],
+  "insa": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/insa"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=insa%20restaurant%20review"
+    }
+  ],
+  "momofuku ko": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/momofuku-ko"
+    }
+  ],
+  "fairfax": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/fairfax"
+    }
+  ],
+  "kissaki - bowery": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/69376/kissaki-omakase"
+    }
+  ],
+  "gjelina": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/gjelina"
+    }
+  ],
+  "Cathédrale": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/cathedrale"
+    }
+  ],
+  "Hawksmoor Seven Dials": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/hawksmoor-seven-dials"
+    }
+  ],
+  "gaonnuri": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/gaonnuri"
+    }
+  ],
+  "kelang": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/kelang"
+    }
+  ],
+  "vato": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/vato"
+    }
+  ],
+  "peasant": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/peasant"
+    }
+  ],
+  "brass": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/brass"
+    }
+  ],
+  "confidant": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/confidant"
+    }
+  ],
+  "double knot midtown": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2024/3/11/24097384/nyc-double-knot-michael-schulson-philadelphia-opening"
+    }
+  ],
+  "miznon": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/miznon"
+    }
+  ],
+  "maison premiere": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/maison-premiere"
+    }
+  ],
+  "rider": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/rider"
+    }
+  ],
+  "claro": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/claro"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=claro%20restaurant%20review"
+    }
+  ],
+  "café spaghetti": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/88013/cafe-spaghetti"
+    }
+  ],
+  "augustine": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/augustine"
+    }
+  ],
+  "legacy records": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/legacy-records"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=legacy%20records%20restaurant%20review"
+    }
+  ],
+  "charlie bird": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/charlie-bird"
+    }
+  ],
+  "Red Rooster Harlem": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/red-rooster-harlem"
+    }
+  ],
+  "parcelle chinatown": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2024/12/13/24313986/sunns-sunny-lee-banchan-by-sunny-restaurant-wine-korean-food-grant-reynolds"
+    }
+  ],
+  "phoenix palace": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/phoenix-palace"
+    }
+  ],
+  "the smith - midtown": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-smith-midtown"
+    }
+  ],
+  "hearth": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/hearth"
+    }
+  ],
+  "15 east": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/15-east"
+    }
+  ],
+  "oxalis": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/oxalis"
+    }
+  ],
+  "burrata": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/burrata"
+    }
+  ],
+  "cecily": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2023/11/13/23955664/cecily-opening-greenpoint-estela-alum-michelin-star"
+    }
+  ],
+  "Il Cervo": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2019/6/21/18693417/speakvino-wine-bar-bed-stuy-open-nyc"
+    }
+  ],
+  "chutney masala": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/chutney-masala"
+    }
+  ],
+  "soba totto": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/soba-totto"
+    }
+  ],
+  "ugly baby": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/ugly-baby"
+    }
+  ],
+  "demo": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/demo"
+    }
+  ],
+  "di an di": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/di-an-di"
+    }
+  ],
+  "joseph leonard": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/joseph-leonard"
+    }
+  ],
+  "mitsuru": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/mitsuru"
+    }
+  ],
+  "parcelle greenwich village": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2024/3/4/24090182/babs-closing-west-village-parcelle-opening-macdougal"
+    }
+  ],
+  "the golden swan": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-golden-swan"
+    }
+  ],
+  "patsy's italian restaurant": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2024/9/17/24247403/patsys-italian-restaurant-midtown-frank-sinatra-harassment-wage-violations"
+    }
+  ],
+  "becco": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/becco"
+    }
+  ],
+  "bowery meat company": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/bowery-meat-company"
+    }
+  ],
+  "st. anselm": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/st-anselm"
+    }
+  ],
+  "lure fishbar": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/lure-fishbar"
+    }
+  ],
+  "morimoto": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/morimoto"
+    }
+  ],
+  "little owl": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/little-owl"
+    }
+  ],
+  "tribeca grill": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/tribeca-grill"
+    }
+  ],
+  "rosa mexicano": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/rosa-mexicano"
+    }
+  ],
+  "Toloache Upper East Side": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/5530/le-cirque"
+    }
+  ],
+  "avra madison estiatorio": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/avra-madison-estiatorio"
+    }
+  ],
+  "kyma flatiron": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/44952/kyma"
+    }
+  ],
+  "nerai": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/nerai"
+    }
+  ],
+  "bubby's": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/bubbys"
+    }
+  ],
+  "cookshop": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/cookshop"
+    }
+  ],
+  "extra virgin": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/extra-virgin"
+    }
+  ],
+  "the mermaid inn": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-mermaid-inn"
+    }
+  ],
+  "FREE RANGE at Double Chicken Please": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2014/9/5/6165401/tori-shin-new-yorks-only-omakase-style-yakitori-place"
+    }
+  ],
+  "bamonte's": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/bamontes"
+    }
+  ],
+  "joe's shanghai": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/79152/joe-s-shanghai-bowery"
+    }
+  ],
+  "Sant Ambroeus Madison": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/5649/sant-ambroeus"
+    }
+  ],
+  "cipriani downtown": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/cipriani-downtown"
+    }
+  ],
+  "Delmonico's Kitchen": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2024/3/7/24088238/delmonicos-review-fidi-steakhouse"
+    }
+  ],
+  "egg shop": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/egg-shop"
+    }
+  ],
+  "loi estiatorio": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/loi-estiatorio"
+    }
+  ],
+  "kjun": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/kjun"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=kjun%20restaurant%20review"
+    }
+  ],
+  "shukette": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/shukette"
+    }
+  ],
+  "the dead rabbit new york city": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/7059/dead-rabbit"
+    }
+  ],
+  "gertrude's": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/98069/gertrude-s-restaurant"
+    }
+  ],
+  "borgo": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/borgo"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=borgo%20restaurant%20review"
+    }
+  ],
+  "cocina consuelo": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/cocina-consuelo"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=cocina%20consuelo%20restaurant%20review"
+    }
+  ],
+  "fiaschetteria pistoia": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/fiaschetteria-pistoia"
+    }
+  ],
+  "p.j. clarke's third avenue": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2006/1/17/6824633/eater-inside-preview-p-j-clarkes-on-the-hudson"
+    }
+  ],
+  "redfarm": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/redfarm"
+    }
+  ],
+  "medium rare": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/medium-rare"
+    }
+  ],
+  "baby blues luncheonette": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/baby-blues-luncheonette"
+    }
+  ],
+  "park side restaurant": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/park-side"
+    }
+  ],
+  "roberto's": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/35421/roberto-s"
+    }
+  ],
+  "gertie": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/gertie"
+    }
+  ],
+  "ssam": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/ssam"
+    }
+  ],
+  "upstate craft beer & oyster bar": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/55071/upstate-craft-beer-oyster-bar"
+    }
+  ],
+  "monterey": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/monterey-nyc"
+    }
+  ],
+  "mam": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/mam"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=mam%20restaurant%20review"
+    }
+  ],
+  "seahorse": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/seahorse"
+    }
+  ],
+  "roscioli nyc": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/roscioli"
+    }
+  ],
+  "animo!": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/animo"
+    }
+  ],
+  "the eighty six": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-eighty-six"
+    }
+  ],
+  "bufon": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/bufon"
+    }
+  ],
+  "odo east village": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/odo-east-village"
+    }
+  ],
+  "marc forgione": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/marc-forgione"
+    }
+  ],
+  "ambassadors clubhouse new york": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/ambassadors-clubhouse"
+    }
+  ],
+  "the dining room at chateau royale": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/114526/chateau-royale-nyc"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=the%20dining%20room%20at%20chateau%20royale%20restaurant%20review"
+    }
+  ],
+  "coral omakase": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/coral-omakase"
+    }
+  ],
+  "dirty french new york": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/dirty-french"
+    }
+  ],
+  "kellogg's diner": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/87301/kellogg-s-diner"
+    }
+  ],
+  "nakaji": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/nakaji"
+    }
+  ],
+  "the otter": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-otter"
+    }
+  ],
+  "rulin": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/rulin"
+    }
+  ],
+  "souraji": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/souraji"
+    }
+  ],
+  "the dynamo room": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-dynamo-room"
+    }
+  ],
+  "The Noortwyck": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-noortwyck"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=The%20Noortwyck%20restaurant%20review"
+    }
+  ],
+  "Txikito": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/txikito"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Txikito%20restaurant%20review"
+    }
+  ],
+  "Corner Bistro": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/corner-bistro"
+    }
+  ],
+  "Ho Foods": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/ho-foods"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Ho%20Foods%20restaurant%20review"
+    }
+  ],
+  "House of Joy": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/house-of-joy"
+    }
+  ],
+  "Churrascaria Plataforma": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/churrascaria-plataforma"
+    }
+  ],
+  "Emilio's Ballato": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/19483/emilio-s-ballato"
+    }
+  ],
+  "Sushi of Gari 46": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/2006/10/26/6821877/eaterwire-special-gari-46-shuttered-by-health-dept"
+    }
+  ],
+  "L&B Spumoni Gardens": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/2562/l-b-spumoni-gardens"
+    }
+  ],
+  "SMASHED NYC": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/smashed"
+    }
+  ],
+  "Joe Jr.": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/joe-jr"
+    }
+  ],
+  "TAKEDA": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/takeda"
+    }
+  ],
+  "Yemeni Restaurant": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/yemeni-restaurant"
+    }
+  ],
+  "La Piraña Lechonera": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/67280/lechonera-la-pira-a"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=La%20Pira%C3%B1a%20Lechonera%20restaurant%20review"
+    }
+  ],
+  "Temple Canteen": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/temple-canteen"
+    }
+  ],
+  "celestine": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/celestine"
+    }
+  ],
+  "il buco": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/il-buco"
+    }
+  ],
+  "gupshup": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/gupshup"
+    }
+  ],
+  "riverpark": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/riverpark"
+    }
+  ],
+  "balthazar": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/balthazar"
+    }
+  ],
+  "pastis": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/pastis"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=pastis%20restaurant%20review"
+    }
+  ],
+  "the dutch": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-dutch"
+    }
+  ],
+  "the standard grill": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/the-standard-grill"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=the%20standard%20grill%20restaurant%20review"
+    }
+  ],
+  "maison pickle": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/maison-pickle"
+    }
+  ],
+  "nerina": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/nerina"
+    }
+  ],
+  "empellón": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/9566/empellon-al-pastor"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=empell%C3%B3n%20restaurant%20review"
+    }
+  ],
+  "kisa": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/kisa"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=kisa%20restaurant%20review"
+    }
+  ],
+  "falansai": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/falansai"
+    }
+  ],
+  "le chêne": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/890703/le-chene"
+    }
+  ],
+  "la bonne soupe": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/la-bonne-soupe"
+    }
+  ],
+  "rule of thirds": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/rule-of-thirds"
+    }
+  ],
+  "le crocodile": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/le-crocodile"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=le%20crocodile%20restaurant%20review"
+    }
+  ],
+  "strange delight": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/strange-delight"
+    }
+  ],
+  "wayla": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/wayla"
+    }
+  ],
+  "five leaves": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/five-leaves"
+    }
+  ],
+  "hutong new york": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/hutong-new-york"
+    }
+  ],
+  "serendipity 3": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/serendipity-3"
+    }
+  ],
+  "Cafe Spaghetti": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/cafe-spaghetti"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Cafe%20Spaghetti%20restaurant%20review"
+    }
+  ],
+  "Il Leone": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/il-leone"
+    }
+  ],
+  "Little Fino": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/little-fino"
+    }
+  ],
+  "Lucali Ny": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/lucali"
+    }
+  ],
+  "Lucky Charlie": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/lucky-charlie"
+    }
+  ],
+  "Saga Ny": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/saga"
+    }
+  ],
+  "Lovely's Old Fashioned": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/lovelys-old-fashioned"
+    }
+  ],
+  "Estiatorio Milos - Midtown New York": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/15166/estiatorio-milos"
+    }
+  ],
+  "Monte's Trattoria": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/43339/monte-s-trattoria"
+    }
+  ],
+  "chama mama": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/chama-mama"
+    }
+  ],
+  "momofuku ssam bar": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/momofuku-ssam-bar"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=momofuku%20ssam%20bar%20restaurant%20review"
+    }
+  ],
+  "Roscioli": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/roscioli"
+    }
+  ],
+  "bar mercer": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/bar-mercer"
+    }
+  ],
+  "abuqir": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/abuqir"
+    }
+  ],
+  "l'industrie pizzeria": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/101238/l-industrie-pizzeria-west-village"
+    }
+  ],
+  "a&a bake doubles and roti": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/53117/a-a-bake-doubles-and-roti"
+    }
+  ],
+  "red hook tavern": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/red-hook-tavern"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=red%20hook%20tavern%20restaurant%20review"
+    }
+  ],
+  "lenny's clam bar": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/48343/lenny-s-clam-bar"
+    }
+  ],
+  "pugsley pizza": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/pugsley-pizza"
+    }
+  ],
+  "mama's too": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/mamas-too"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=mama's%20too%20restaurant%20review"
+    }
+  ],
+  "john's of bleecker street": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/46462/john-s-of-bleecker-st"
+    }
+  ],
+  "joe's pizza": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/joes-pizza"
+    }
+  ],
+  "ops east village": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/ops-east-village"
+    }
+  ],
+  "arturo's": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/51058/arturo-s"
+    }
+  ],
+  "una pizza napoletana": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/una-pizza-napoletana"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=una%20pizza%20napoletana%20restaurant%20review"
+    }
+  ],
+  "lucia pizza of soho": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/lucia-pizza-of-soho"
+    }
+  ],
+  "scarr's pizza": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/scarrs-pizza"
+    }
+  ],
+  "r slice pizza": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/r-slice-pizza"
+    }
+  ],
+  "new park pizza": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/97731/new-park-pizza"
+    }
+  ],
+  "luigi's pizza brooklyn": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/36434/luigi-s-pizza"
+    }
+  ],
+  "denino's pizzeria": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/69402/denino-s-pizzeria-tavern"
+    }
+  ],
+  "hwaro": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/hwaro"
+    }
+  ],
+  "or'esh": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/oresh"
+    }
+  ],
+  "beto's carnitas & guisados": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/943977/betos-carnitas-guisados"
+    }
+  ],
+  "border town": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/border-town"
+    }
+  ],
+  "barker cafeteria": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/barker-cafeteria"
+    }
+  ],
+  "three decker diner": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/three-decker-diner"
+    }
+  ],
+  "hamburger america": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/hamburger-america"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=hamburger%20america%20restaurant%20review"
+    }
+  ],
+  "dolores": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/dolores"
+    },
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=dolores%20restaurant%20review"
+    }
+  ],
+  "taqueria ramirez": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/taqueria-ramirez"
+    }
+  ],
+  "la tete d'or by daniel": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/113797/la-tete-d-or"
+    }
+  ],
+  "hawksmoor nyc": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/hawksmoor-nyc"
+    }
+  ],
+  "crevette": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/crevette"
+    }
+  ],
+  "ariari": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/ariari"
+    }
+  ],
+  "saint julivert fisherie": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/50907/saint-julivert"
+    }
+  ],
+  "nepali bhanchha ghar": [
+    {
+      "source": "eater",
+      "url": "https://ny.eater.com/venue/nepali-bhanchha-ghar"
+    }
+  ],
+  "le veau d'or": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=le%20veau%20d'or%20restaurant%20review"
+    }
+  ],
+  "cherry point": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=cherry%20point%20restaurant%20review"
+    }
+  ],
+  "i cavallini": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=i%20cavallini%20restaurant%20review"
+    }
+  ],
+  "kiko": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=kiko%20restaurant%20review"
+    }
+  ],
+  "third falcon": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=third%20falcon%20restaurant%20review"
+    }
+  ],
+  "ha's đặc biệt": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=ha's%20%C4%91%E1%BA%B7c%20bi%E1%BB%87t%20restaurant%20review"
+    }
+  ],
+  "ha's snack bar": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=ha's%20snack%20bar%20restaurant%20review"
+    }
+  ],
+  "houseman": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=houseman%20restaurant%20review"
+    }
+  ],
+  "foxface natural": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=foxface%20natural%20restaurant%20review"
+    }
+  ],
+  "le chene": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=le%20chene%20restaurant%20review"
+    }
+  ],
+  "new york luncheonette": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=new%20york%20luncheonette%20restaurant%20review"
+    }
+  ],
+  "shaw-naé’s house": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=shaw-na%C3%A9%E2%80%99s%20house%20restaurant%20review"
+    }
+  ],
+  "foul witch": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=foul%20witch%20restaurant%20review"
+    }
+  ],
+  "tetsu": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=tetsu%20restaurant%20review"
+    }
+  ],
+  "great ny noodletown": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=great%20ny%20noodletown%20restaurant%20review"
+    }
+  ],
+  "wagamama - midtown": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=wagamama%20-%20midtown%20restaurant%20review"
+    }
+  ],
+  "raku midtown": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=raku%20midtown%20restaurant%20review"
+    }
+  ],
+  "chinese tuxedo": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=chinese%20tuxedo%20restaurant%20review"
+    }
+  ],
+  "bricolage": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=bricolage%20restaurant%20review"
+    }
+  ],
+  "tenny's": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=tenny's%20restaurant%20review"
+    }
+  ],
+  "levant": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=levant%20restaurant%20review"
+    }
+  ],
+  "kafana": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=kafana%20restaurant%20review"
+    }
+  ],
+  "corner store": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=corner%20store%20restaurant%20review"
+    }
+  ],
+  "four twenty five by jean-georges": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=four%20twenty%20five%20by%20jean-georges%20restaurant%20review"
+    }
+  ],
+  "l'avenue at saks": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=l'avenue%20at%20saks%20restaurant%20review"
+    }
+  ],
+  "bea": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=bea%20restaurant%20review"
+    }
+  ],
+  "hwa yuan szechuan": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=hwa%20yuan%20szechuan%20restaurant%20review"
+    }
+  ],
+  "land, thai kitchen": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=land%2C%20thai%20kitchen%20restaurant%20review"
+    }
+  ],
+  "lemongrass grill": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=lemongrass%20grill%20restaurant%20review"
+    }
+  ],
+  "mimi": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=mimi%20restaurant%20review"
+    }
+  ],
+  "sahib": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=sahib%20restaurant%20review"
+    }
+  ],
+  "szechuan mountain house": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=szechuan%20mountain%20house%20restaurant%20review"
+    }
+  ],
+  "tam sang thai kitchen": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=tam%20sang%20thai%20kitchen%20restaurant%20review"
+    }
+  ],
+  "the fulton on pier 17": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=the%20fulton%20on%20pier%2017%20restaurant%20review"
+    }
+  ],
+  "violette's cellar": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=violette's%20cellar%20restaurant%20review"
+    }
+  ],
+  "barbuto": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=barbuto%20restaurant%20review"
+    }
+  ],
+  "cka ka qellue": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=cka%20ka%20qellue%20restaurant%20review"
+    }
+  ],
+  "saigon social": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=saigon%20social%20restaurant%20review"
+    }
+  ],
+  "le gratin": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=le%20gratin%20restaurant%20review"
+    }
+  ],
+  "kono": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=kono%20restaurant%20review"
+    }
+  ],
+  "naro": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=naro%20restaurant%20review"
+    }
+  ],
+  "double": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=double%20restaurant%20review"
+    }
+  ],
+  "hainan chicken house": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=hainan%20chicken%20house%20restaurant%20review"
+    }
+  ],
+  "libertine": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=libertine%20restaurant%20review"
+    }
+  ],
+  "spice brothers": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=spice%20brothers%20restaurant%20review"
+    }
+  ],
+  "sushi ouji": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=sushi%20ouji%20restaurant%20review"
+    }
+  ],
+  "Din Tai Fung": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Din%20Tai%20Fung%20restaurant%20review"
+    }
+  ],
+  "los burritos juarez": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=los%20burritos%20juarez%20restaurant%20review"
+    }
+  ],
+  "el encanto de lola 2": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=el%20encanto%20de%20lola%202%20restaurant%20review"
+    }
+  ],
+  "hellbender": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=hellbender%20restaurant%20review"
+    }
+  ],
+  "house brooklyn": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=house%20brooklyn%20restaurant%20review"
+    }
+  ],
+  "hunan slurp": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=hunan%20slurp%20restaurant%20review"
+    }
+  ],
+  "karasu": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=karasu%20restaurant%20review"
+    }
+  ],
+  "madame": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=madame%20restaurant%20review"
+    }
+  ],
+  "nabila's": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=nabila's%20restaurant%20review"
+    }
+  ],
+  "okdongsik": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=okdongsik%20restaurant%20review"
+    }
+  ],
+  "h": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=h%20restaurant%20review"
+    }
+  ],
+  "sen sakana": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=sen%20sakana%20restaurant%20review"
+    }
+  ],
+  "soogil": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=soogil%20restaurant%20review"
+    }
+  ],
+  "Wallse": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Wallse%20restaurant%20review"
+    }
+  ],
+  "Prune": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Prune%20restaurant%20review"
+    }
+  ],
+  "Juqi": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Juqi%20restaurant%20review"
+    }
+  ],
+  "Okiboru House of Tsukemen": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Okiboru%20House%20of%20Tsukemen%20restaurant%20review"
+    }
+  ],
+  "The View": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=The%20View%20restaurant%20review"
+    }
+  ],
+  "Birria-Landia NYC": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Birria-Landia%20NYC%20restaurant%20review"
+    }
+  ],
+  "zimmis": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=zimmis%20restaurant%20review"
+    }
+  ],
+  "eyval": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=eyval%20restaurant%20review"
+    }
+  ],
+  "masalawala & sons": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=masalawala%20%26%20sons%20restaurant%20review"
+    }
+  ],
+  "Artesano": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Artesano%20restaurant%20review"
+    }
+  ],
+  "Cafe Zaffri": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Cafe%20Zaffri%20restaurant%20review"
+    }
+  ],
+  "Pasquale Jones": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Pasquale%20Jones%20restaurant%20review"
+    }
+  ],
+  "Torishin": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Torishin%20restaurant%20review"
+    }
+  ],
+  "Da Long Yi Hot Pot": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=Da%20Long%20Yi%20Hot%20Pot%20restaurant%20review"
+    }
+  ],
+  "court street": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=court%20street%20restaurant%20review"
+    }
+  ],
+  "laghman express": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=laghman%20express%20restaurant%20review"
+    }
+  ],
+  "penny": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=penny%20restaurant%20review"
+    }
+  ],
+  "eulalie": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=eulalie%20restaurant%20review"
+    }
+  ],
+  "hakka cuisine": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=hakka%20cuisine%20restaurant%20review"
+    }
+  ],
+  "stretch pizza": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=stretch%20pizza%20restaurant%20review"
+    }
+  ],
+  "lola's": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=lola's%20restaurant%20review"
+    }
+  ],
+  "port sa'id": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=port%20sa'id%20restaurant%20review"
+    }
+  ],
+  "potluck club": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=potluck%20club%20restaurant%20review"
+    }
+  ],
+  "tobala": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=tobala%20restaurant%20review"
+    }
+  ],
+  "bar kabawa": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=bar%20kabawa%20restaurant%20review"
+    }
+  ],
+  "zimmi's": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=zimmi's%20restaurant%20review"
+    }
+  ],
+  "koloman": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=koloman%20restaurant%20review"
+    }
+  ],
+  "dunya kabab house": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=dunya%20kabab%20house%20restaurant%20review"
+    }
+  ],
+  "evelia's tamales": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=evelia's%20tamales%20restaurant%20review"
+    }
+  ],
+  "lucia pizza of avenue x": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=lucia%20pizza%20of%20avenue%20x%20restaurant%20review"
+    }
+  ],
+  "gotham bar and grill": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=gotham%20bar%20and%20grill%20restaurant%20review"
+    }
+  ],
+  "uogashi": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=uogashi%20restaurant%20review"
+    }
+  ],
+  "tsismis": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=tsismis%20restaurant%20review"
+    }
+  ],
+  "kawi": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=kawi%20restaurant%20review"
+    }
+  ],
+  "guan fu sichuan": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=guan%20fu%20sichuan%20restaurant%20review"
+    }
+  ],
+  "little tong noodle shop": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=little%20tong%20noodle%20shop%20restaurant%20review"
+    }
+  ],
+  "the loyal": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=the%20loyal%20restaurant%20review"
+    }
+  ],
+  "barney greengrass": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=barney%20greengrass%20restaurant%20review"
+    }
+  ],
+  "court street grocers": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=court%20street%20grocers%20restaurant%20review"
+    }
+  ],
+  "188 bakery cuchifritos": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=188%20bakery%20cuchifritos%20restaurant%20review"
+    }
+  ],
+  "chongqing lao zao": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=chongqing%20lao%20zao%20restaurant%20review"
+    }
+  ],
+  "ewe's delicious treats": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=ewe's%20delicious%20treats%20restaurant%20review"
+    }
+  ],
+  "lakruwana": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=lakruwana%20restaurant%20review"
+    }
+  ],
+  "randazzo's clam bar": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=randazzo's%20clam%20bar%20restaurant%20review"
+    }
+  ],
+  "salty lunch lady's little luncheonette": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=salty%20lunch%20lady's%20little%20luncheonette%20restaurant%20review"
+    }
+  ],
+  "old sport": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=old%20sport%20restaurant%20review"
+    }
+  ],
+  "taiwanese gourmet": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=taiwanese%20gourmet%20restaurant%20review"
+    }
+  ],
+  "temple canteen": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=temple%20canteen%20restaurant%20review"
+    }
+  ],
+  "trinciti roti shop": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=trinciti%20roti%20shop%20restaurant%20review"
+    }
+  ],
+  "white bear": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=white%20bear%20restaurant%20review"
+    }
+  ],
+  "a&a bake and doubles": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=a%26a%20bake%20and%20doubles%20restaurant%20review"
+    }
+  ],
+  "dera": [
+    {
+      "source": "nyt",
+      "url": "https://www.nytimes.com/search?query=dera%20restaurant%20review"
     }
   ]
 }
